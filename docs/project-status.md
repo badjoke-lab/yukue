@@ -5,7 +5,7 @@
 ## Current phase
 
 ```text
-Execution Stage B — Matsuri Static Surfaces
+Execution Stage C — Data Core
 ```
 
 ## Completed
@@ -33,7 +33,8 @@ Execution Stage B — Matsuri Static Surfaces
 - A2 shared navigation and reference patterns completed,
 - A3 shared history, relation, evidence, place, and image patterns completed,
 - B1 Matsuri Home H1 static implementation completed,
-- B2 Festival Detail C static implementation completed.
+- B2 Festival Detail C static implementation completed,
+- B3 UI review corrections and accessibility baseline completed.
 
 ## Current UI direction
 
@@ -87,34 +88,38 @@ project-status.md
 ## Current work
 
 ```text
-B3 — UI review corrections and accessibility baseline
-```
-
-Review scope:
-
-- Home H1 desktop and mobile visual behavior,
-- Detail C desktop and mobile visual behavior,
-- keyboard navigation baseline,
-- visible focus states,
-- semantic heading order,
-- table headers and captions,
-- sufficient contrast,
-- route-based Place presentation,
-- zero-image completeness,
-- responsive overflow and reading order.
-
-B3 should remain bounded to review findings from the static Home and Detail surfaces. It should not add schema, canonical data, browse/search implementation, or deferred features.
-
-## Next stage
-
-After B3:
-
-```text
-Stage C — Data Core
 C1 — Common schemas
 ```
 
-Then proceed through the remaining work packages in `development-schedule.md`.
+Target records:
+
+```text
+Entity
+Place
+State Snapshot
+Change Event
+Occurrence
+Occurrence Series
+Recurrence Pattern
+Relation
+Designation
+Source
+Evidence
+Image Asset
+```
+
+C1 must implement explicit schema-version support, stable identifier fields separate from slug/URL fields, and validation-ready record contracts without introducing Matsuri-only vocabulary as universal common schema.
+
+## Next gates
+
+After C1:
+
+```text
+C2 — Matsuri schema extensions and vocabularies
+C3 — Cross-record validation
+```
+
+Then proceed to representative sample canonical data and the Public Projection pipeline according to `development-schedule.md`.
 
 ## Not yet committed to MVP
 

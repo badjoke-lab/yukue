@@ -4,6 +4,14 @@
   gap: var(--space-10);
 }
 
+.yk-place-map[data-has-map="false"] {
+  grid-template-columns: 1fr;
+}
+
+.yk-place-map[data-has-map="false"] .yk-place-list {
+  max-width: var(--container-prose);
+}
+
 .yk-place-list {
   border-top: var(--rule-strong);
 }

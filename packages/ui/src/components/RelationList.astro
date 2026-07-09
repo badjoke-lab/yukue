@@ -17,9 +17,9 @@ const {
     <div class="yk-reference-row">
       <dt>{item.label}</dt>
       <dd><a href={item.href}>{item.targetName}</a></dd>
-      <div class="yk-reference-row__meta">
+      <dd class="yk-reference-row__meta">
         {item.validityPeriod ? `${validityLabel}: ${item.validityPeriod}` : ""}
-      </div>
+      </dd>
     </div>
   ))}
 </dl>
