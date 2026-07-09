@@ -15,6 +15,8 @@ Before implementing a feature, check the relevant document here. When a decision
 | `public-data-model.md` | Working | Public record model and projection rules |
 | `matsuri-mvp-spec.md` | Working | Matsuri MVP scope |
 | `information-architecture.md` | Accepted direction | Home H1 and Detail C |
+| `ui-direction.md` | Accepted direction | Visual character, typography, palette, layout language |
+| `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `technical-architecture.md` | Current direction | Build, projection, search, deployment |
 | `roadmap.md` | Current | Phase and gate roadmap |
 | `verification-policy.md` | Current | Review and publication rules |
@@ -34,4 +36,4 @@ Private research notes, candidate queues, internal confidence notes, unresolved 
 
 ## Update discipline
 
-A pull request that changes public behavior should update the relevant specification when it affects record structure, publication behavior, page structure, navigation, evidence rules, image rules, technical architecture, roadmap gates, or project status.
+A pull request that changes public behavior should update the relevant specification when it affects record structure, publication behavior, page structure, navigation, evidence rules, image rules, UI direction, design tokens, technical architecture, roadmap gates, or project status.
