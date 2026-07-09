@@ -1,0 +1,34 @@
+---
+import type { FooterGroup } from "../types.js";
+import Container from "./Container.astro";
+
+interface Props {
+  siteName: string;
+  seriesLabel?: string;
+  groups: FooterGroup[];
+}
+
+const {
+  siteName,
+  seriesLabel = "ゆくえシリーズ / Yukue Series",
+  groups,
+} = Astro.props;
+---
+
+<footer class="yk-site-footer">
+  <Container size="wide" class="yk-site-footer__grid">
+    <div>
+      <p class="yk-site-footer__brand">{siteName}</p>
+      <p class="yk-site-footer__series">{seriesLabel}</p>
+    </div>
+
+    {groups.map((group) => (
+      <div>
+        {group.heading && <p class="yk-site-footer__group-title">{group.heading}</p>}
+        <nav class="yk-site-footer__links" aria-label={group.heading}>
+          {group.links.map((link) => <a href={link.href}>{link.label}</a>)}
+        </nav>
+      </div>
+    ))}
+  </Container>
+</footer>
