@@ -35,7 +35,8 @@ Execution Stage C — Data Core
 - B1 Matsuri Home H1 static implementation completed,
 - B2 Festival Detail C static implementation completed,
 - B3 UI review corrections and accessibility baseline completed,
-- C1 common schema contracts completed.
+- C1 common schema contracts completed,
+- C2 Matsuri schema extensions and vocabularies completed.
 
 ## Current UI direction
 
@@ -89,33 +90,33 @@ project-status.md
 ## Current work
 
 ```text
-C2 — Matsuri schema extensions and vocabularies
-```
-
-Target scope:
-
-- Festival profile extension,
-- Folk Performance profile extension,
-- Tradition Unit extension,
-- Organization extension,
-- Shrine seed and Temple seed boundaries,
-- Festival State vocabulary,
-- Folk Performance State vocabulary,
-- Matsuri Change Event vocabulary,
-- Matsuri Occurrence type vocabulary,
-- Matsuri Relation vocabulary.
-
-C2 must not reintroduce `revived` as a standard Current State or `active_modified` as a State. A cancelled Occurrence must remain separate from Entity State.
-
-## Next gate
-
-After C2:
-
-```text
 C3 — Cross-record validation
 ```
 
-Then proceed to representative sample canonical data and the Public Projection pipeline according to `development-schedule.md`.
+Target validation:
+
+- ID uniqueness,
+- record reference integrity,
+- Relation endpoint integrity,
+- Evidence target integrity,
+- Place reference integrity,
+- Current State derivation checks,
+- Image primary uniqueness,
+- image rights gate,
+- Public Projection safety checks.
+
+C3 must test both valid and intentionally invalid record sets and must not auto-publish or silently repair invalid data.
+
+## Next stage
+
+After C3:
+
+```text
+Stage D — Sample Canonical Data and Projection
+D1 — Representative sample canonical data
+```
+
+Then proceed through the remaining work packages in `development-schedule.md`.
 
 ## Not yet committed to MVP
 
