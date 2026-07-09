@@ -1,0 +1,20 @@
+---
+import type { OverviewItem } from "../types.js";
+
+interface Props {
+  items: OverviewItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<dl class="yk-overview">
+  {items.map((item) => (
+    <div class="yk-overview__item">
+      <dt class="yk-overview__label">{item.label}</dt>
+      <dd class="yk-overview__value" data-accent={item.accent ? "true" : undefined}>
+        {item.href ? <a href={item.href}>{item.value}</a> : item.value}
+      </dd>
+    </div>
+  ))}
+</dl>

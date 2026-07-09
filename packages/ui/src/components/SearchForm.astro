@@ -1,0 +1,47 @@
+---
+interface Props {
+  action: string;
+  method?: "get" | "post";
+  inputName?: string;
+  label: string;
+  placeholder?: string;
+  buttonLabel?: string;
+  value?: string;
+}
+
+const {
+  action,
+  method = "get",
+  inputName = "q",
+  label,
+  placeholder,
+  buttonLabel = "検索",
+  value,
+} = Astro.props;
+---
+
+<form class="yk-search-form" action={action} method={method}>
+  <label class="sr-only" for={`yk-search-${inputName}`}>{label}</label>
+  <input
+    id={`yk-search-${inputName}`}
+    type="search"
+    name={inputName}
+    placeholder={placeholder}
+    value={value}
+  />
+  <button type="submit">{buttonLabel}</button>
+</form>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

@@ -29,7 +29,8 @@ Execution Stage A — UI Foundation Implementation
 - UI Direction document merged,
 - Design Tokens baseline merged,
 - UI Foundation Specification merged,
-- A1 shared design tokens and layout primitives completed.
+- A1 shared design tokens and layout primitives completed,
+- A2 shared navigation and reference patterns completed.
 
 ## Current UI direction
 
@@ -83,25 +84,25 @@ project-status.md
 ## Current work
 
 ```text
-A2 — Shared navigation and reference patterns
+A3 — Shared history, relation, evidence, place, and image patterns
 ```
 
 Target scope:
 
-- shared header,
-- shared footer,
-- search form,
-- observation snapshot,
-- reference overview rows,
-- occurrence table,
-- action links.
+- change timeline,
+- relation list,
+- designation list,
+- evidence/source apparatus,
+- place list,
+- map container and fallback structure,
+- image primitive,
+- gallery/lightbox foundation.
 
 ## Next gates
 
-After A2:
+After A3:
 
 ```text
-A3 — Shared history, relation, evidence, place, and image patterns
 B1 — Matsuri Home H1 static implementation
 B2 — Festival Detail C static implementation
 B3 — UI review corrections and accessibility baseline

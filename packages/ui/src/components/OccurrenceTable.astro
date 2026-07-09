@@ -1,0 +1,71 @@
+---
+import type { OccurrenceRow } from "../types.js";
+
+interface Props {
+  rows: OccurrenceRow[];
+  dateLabel?: string;
+  nameLabel?: string;
+  regionLabel?: string;
+  outcomeLabel?: string;
+  scaleLabel?: string;
+  showName?: boolean;
+  showRegion?: boolean;
+  showScale?: boolean;
+  caption?: string;
+}
+
+const {
+  rows,
+  dateLabel = "日付",
+  nameLabel = "名称",
+  regionLabel = "地域",
+  outcomeLabel = "結果",
+  scaleLabel = "規模",
+  showName = false,
+  showRegion = false,
+  showScale = false,
+  caption,
+} = Astro.props;
+---
+
+<div class="yk-occurrence-table-wrap">
+  <table class="yk-occurrence-table">
+    {caption && <caption class="sr-only">{caption}</caption>}
+    <thead>
+      <tr>
+        <th scope="col">{dateLabel}</th>
+        {showName && <th scope="col">{nameLabel}</th>}
+        {showRegion && <th scope="col" class="yk-priority-low">{regionLabel}</th>}
+        <th scope="col">{outcomeLabel}</th>
+        {showScale && <th scope="col" class="yk-priority-low">{scaleLabel}</th>}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((row) => (
+        <tr>
+          <td>{row.date}</td>
+          {showName && (
+            <td>{row.href ? <a href={row.href}>{row.name ?? "—"}</a> : row.name ?? "—"}</td>
+          )}
+          {showRegion && <td class="yk-priority-low">{row.region ?? "—"}</td>}
+          <td class="yk-occurrence-table__outcome">{row.outcome}</td>
+          {showScale && <td class="yk-priority-low">{row.scale ?? "—"}</td>}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
