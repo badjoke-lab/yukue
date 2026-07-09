@@ -44,12 +44,11 @@ const primary = images[0];
 
     {images.length > 1 && (
       <>
-        <div class="yk-gallery-grid" role="list" aria-label={galleryLabel}>
+        <div class="yk-gallery-grid" aria-label={galleryLabel}>
           {images.map((image, index) => (
             <button
               class="yk-gallery-button"
               type="button"
-              role="listitem"
               data-image-index={index}
               aria-label={`画像を拡大: ${image.alt}`}
             >
