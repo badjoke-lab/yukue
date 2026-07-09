@@ -1,48 +1,128 @@
 ---
-import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
+import ActionLink from "@badjoke-lab/yukue-ui/components/ActionLink.astro";
+import ObservationSnapshot from "@badjoke-lab/yukue-ui/components/ObservationSnapshot.astro";
+import OccurrenceTable from "@badjoke-lab/yukue-ui/components/OccurrenceTable.astro";
+import OverviewGrid from "@badjoke-lab/yukue-ui/components/OverviewGrid.astro";
 import PageShell from "@badjoke-lab/yukue-ui/components/PageShell.astro";
+import SearchForm from "@badjoke-lab/yukue-ui/components/SearchForm.astro";
 import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
+import SiteFooter from "@badjoke-lab/yukue-ui/components/SiteFooter.astro";
+import SiteHeader from "@badjoke-lab/yukue-ui/components/SiteHeader.astro";
 
-const principles = [
-  "Current State",
-  "Occurrence History",
-  "Change Events",
-  "Relations",
-  "Evidence",
+const navItems = [
+  { label: "祭礼", href: "/festivals/", active: true },
+  { label: "民俗芸能", href: "/performances/" },
+  { label: "地域", href: "/regions/" },
+  { label: "変化", href: "/changes/" },
+  { label: "検索", href: "/search/" },
+  { label: "このサイトについて", href: "/about/" },
+];
+
+const footerGroups = [
+  {
+    heading: "記録",
+    links: [
+      { label: "祭礼", href: "/festivals/" },
+      { label: "民俗芸能", href: "/performances/" },
+    ],
+  },
+  {
+    heading: "調べる",
+    links: [
+      { label: "地域", href: "/regions/" },
+      { label: "変化", href: "/changes/" },
+    ],
+  },
+  {
+    heading: "この資料について",
+    links: [
+      { label: "方法論", href: "/methodology/" },
+      { label: "データ", href: "/data/" },
+    ],
+  },
+];
+
+const metrics = [
+  { label: "継続中", value: 128, href: "/states/active/" },
+  { label: "休止中", value: 7, href: "/states/suspended/" },
+  { label: "長期休止", value: 16, href: "/states/dormant/" },
+  { label: "復活活動中", value: 5, href: "/states/reviving/" },
+  { label: "要確認", value: 11, href: "/states/unknown/" },
+];
+
+const overviewItems = [
+  { label: "現在状態", value: "継続中", accent: true },
+  { label: "確認日", value: "2026年7月10日" },
+  { label: "直近の実施", value: "2024年8月4日　開催" },
+  { label: "通常開催", value: "閏年の8月第一日曜日" },
+  { label: "周期", value: "4年に1度" },
+  { label: "地域", value: "埼玉県鶴ヶ島市 脚折地区" },
+  { label: "主な場所", value: "白鬚神社、雷電池児童公園" },
+  { label: "公式情報", value: "自治体文化財情報", href: "#" },
+];
+
+const occurrences = [
+  { date: "2024年8月4日", name: "脚折雨乞", region: "埼玉県", outcome: "開催", scale: "通常" },
+  { date: "2020年", name: "脚折雨乞", region: "埼玉県", outcome: "未実施", scale: "—" },
+  { date: "2016年8月", name: "脚折雨乞", region: "埼玉県", outcome: "開催", scale: "通常" },
 ];
 ---
 
 <PageShell
   site="matsuri"
-  title="祭のゆくえ"
+  title="祭のゆくえ — UI Foundation Preview"
   description="祭礼と民俗芸能の現在、実施履歴、変化、関係、根拠を記録します。"
 >
-  <header slot="header" class="foundation-header">
-    <Container>
-      <p class="foundation-brand">祭のゆくえ</p>
-    </Container>
-  </header>
+  <SiteHeader
+    slot="header"
+    siteName="祭のゆくえ"
+    romanLabel="Matsuri Yukue"
+    navItems={navItems}
+  />
 
-  <Section kicker="Foundation Preview" title="祭のゆくえ">
-    <div class="yk-prose">
-      <p>祭礼と民俗芸能の継続、休止、変化、復活、関係、実施履歴を根拠とともに記録します。</p>
-      <ul>
-        {principles.map((principle) => <li>{principle}</li>)}
-      </ul>
+  <Section kicker="Foundation Preview" title="祭礼と民俗芸能の記録基盤">
+    <div class="yk-prose foundation-intro">
+      <p>このページはHome H1本実装ではなく、A2共有UI patternの統合確認用です。</p>
     </div>
+    <SearchForm
+      action="/search/"
+      label="祭礼・民俗芸能・地域を検索"
+      placeholder="祭礼・民俗芸能・地域を検索"
+    />
   </Section>
+
+  <Section kicker="Current Observation" title="現在の観測状況">
+    <ObservationSnapshot metrics={metrics} />
+  </Section>
+
+  <Section kicker="Integrated Overview" title="概要表示の基準">
+    <OverviewGrid items={overviewItems} />
+  </Section>
+
+  <Section kicker="Occurrence History" title="開催履歴">
+    <OccurrenceTable
+      rows={occurrences}
+      showName={true}
+      showRegion={true}
+      showScale={true}
+      caption="開催履歴の基盤表示"
+    />
+    <p class="foundation-action"><ActionLink href="/festivals/" label="祭礼の記録を見る" /></p>
+  </Section>
+
+  <SiteFooter
+    slot="footer"
+    siteName="祭のゆくえ"
+    groups={footerGroups}
+  />
 </PageShell>
 
 <style>
-  .foundation-header {
-    padding-block: var(--space-5);
-    border-bottom: var(--rule-standard);
-    background: var(--color-bg);
+  .foundation-intro {
+    margin-bottom: var(--space-8);
   }
 
-  .foundation-brand {
-    margin: 0;
-    font-size: var(--font-size-h3);
-    letter-spacing: 0.08em;
+  .foundation-action {
+    margin: var(--space-6) 0 0;
   }
 </style>
