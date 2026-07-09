@@ -7,7 +7,11 @@
     ".": "./src/index.ts",
     "./common": "./src/common/index.ts",
     "./common/vocabularies": "./src/common/vocabularies.ts",
-    "./common/records": "./src/common/records.ts"
+    "./common/records": "./src/common/records.ts",
+    "./matsuri": "./src/matsuri/index.ts",
+    "./matsuri/vocabularies": "./src/matsuri/vocabularies.ts",
+    "./matsuri/profiles": "./src/matsuri/profiles.ts",
+    "./matsuri/records": "./src/matsuri/records.ts"
   },
   "scripts": {
     "build": "tsc --noEmit",
