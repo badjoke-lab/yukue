@@ -2,5 +2,22 @@
   "name": "@badjoke-lab/yukue-ui",
   "version": "0.0.0",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles/tokens.css": "./src/styles/tokens.css",
+    "./styles/base.css": "./src/styles/base.css",
+    "./styles/layout.css": "./src/styles/layout.css",
+    "./components/Container.astro": "./src/components/Container.astro",
+    "./components/Section.astro": "./src/components/Section.astro",
+    "./components/PageShell.astro": "./src/components/PageShell.astro"
+  },
+  "scripts": {
+    "build": "tsc --noEmit",
+    "check": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3"
+  }
 }
