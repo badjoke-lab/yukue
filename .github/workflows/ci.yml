@@ -22,22 +22,7 @@ jobs:
         run: npm install --global pnpm@11.10.0
 
       - name: Install dependencies
-        id: install
-        continue-on-error: true
-        shell: bash
-        run: |
-          pnpm install --no-frozen-lockfile > install.log 2>&1
-
-      - name: Upload install log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: install-log
-          path: install.log
-
-      - name: Fail if dependency install failed
-        if: steps.install.outcome == 'failure'
-        run: exit 1
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build workspaces
         run: pnpm build
