@@ -34,7 +34,8 @@ Execution Stage C — Data Core
 - A3 shared history, relation, evidence, place, and image patterns completed,
 - B1 Matsuri Home H1 static implementation completed,
 - B2 Festival Detail C static implementation completed,
-- B3 UI review corrections and accessibility baseline completed.
+- B3 UI review corrections and accessibility baseline completed,
+- C1 common schema contracts completed.
 
 ## Current UI direction
 
@@ -88,34 +89,29 @@ project-status.md
 ## Current work
 
 ```text
-C1 — Common schemas
-```
-
-Target records:
-
-```text
-Entity
-Place
-State Snapshot
-Change Event
-Occurrence
-Occurrence Series
-Recurrence Pattern
-Relation
-Designation
-Source
-Evidence
-Image Asset
-```
-
-C1 must implement explicit schema-version support, stable identifier fields separate from slug/URL fields, and validation-ready record contracts without introducing Matsuri-only vocabulary as universal common schema.
-
-## Next gates
-
-After C1:
-
-```text
 C2 — Matsuri schema extensions and vocabularies
+```
+
+Target scope:
+
+- Festival profile extension,
+- Folk Performance profile extension,
+- Tradition Unit extension,
+- Organization extension,
+- Shrine seed and Temple seed boundaries,
+- Festival State vocabulary,
+- Folk Performance State vocabulary,
+- Matsuri Change Event vocabulary,
+- Matsuri Occurrence type vocabulary,
+- Matsuri Relation vocabulary.
+
+C2 must not reintroduce `revived` as a standard Current State or `active_modified` as a State. A cancelled Occurrence must remain separate from Entity State.
+
+## Next gate
+
+After C2:
+
+```text
 C3 — Cross-record validation
 ```
 
