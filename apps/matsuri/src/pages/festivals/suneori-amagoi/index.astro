@@ -1,0 +1,331 @@
+---
+import ActionLink from "@badjoke-lab/yukue-ui/components/ActionLink.astro";
+import ChangeTimeline from "@badjoke-lab/yukue-ui/components/ChangeTimeline.astro";
+import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
+import DesignationList from "@badjoke-lab/yukue-ui/components/DesignationList.astro";
+import EvidenceList from "@badjoke-lab/yukue-ui/components/EvidenceList.astro";
+import OccurrenceTable from "@badjoke-lab/yukue-ui/components/OccurrenceTable.astro";
+import OverviewGrid from "@badjoke-lab/yukue-ui/components/OverviewGrid.astro";
+import PageShell from "@badjoke-lab/yukue-ui/components/PageShell.astro";
+import PlaceMap from "@badjoke-lab/yukue-ui/components/PlaceMap.astro";
+import RelationList from "@badjoke-lab/yukue-ui/components/RelationList.astro";
+import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
+import SiteFooter from "@badjoke-lab/yukue-ui/components/SiteFooter.astro";
+import SiteHeader from "@badjoke-lab/yukue-ui/components/SiteHeader.astro";
+
+const navItems = [
+  { label: "祭礼", href: "/festivals/", active: true },
+  { label: "民俗芸能", href: "/performances/" },
+  { label: "地域", href: "/regions/" },
+  { label: "変化", href: "/changes/" },
+  { label: "検索", href: "/search/" },
+  { label: "このサイトについて", href: "/about/" },
+];
+
+const footerGroups = [
+  {
+    heading: "記録",
+    links: [
+      { label: "祭礼", href: "/festivals/" },
+      { label: "民俗芸能", href: "/performances/" },
+      { label: "組織", href: "/organizations/" },
+    ],
+  },
+  {
+    heading: "調べる",
+    links: [
+      { label: "地域", href: "/regions/" },
+      { label: "変化", href: "/changes/" },
+      { label: "状態", href: "/states/" },
+    ],
+  },
+  {
+    heading: "この資料について",
+    links: [
+      { label: "方法論", href: "/methodology/" },
+      { label: "データ", href: "/data/" },
+      { label: "ステータス", href: "/status/" },
+    ],
+  },
+];
+
+const fixtureOverview = [
+  { label: "現在状態", value: "継続中", accent: true },
+  { label: "確認日", value: "2026年7月10日" },
+  { label: "直近の実施", value: "2024年8月4日　開催" },
+  { label: "通常開催", value: "閏年の8月第一日曜日" },
+  { label: "周期", value: "4年に1度" },
+  { label: "地域", value: "埼玉県鶴ヶ島市 脚折地区" },
+  { label: "主な場所", value: "白鬚神社、雷電池児童公園" },
+  { label: "公式情報", value: "自治体文化財情報", href: "#evidence" },
+];
+
+const fixturePlaces = [
+  {
+    name: "白鬚神社",
+    address: "埼玉県鶴ヶ島市脚折町6丁目10-20",
+    contextLabel: "出発・祈願地点",
+    mapHref: "#",
+  },
+  {
+    name: "雷電池児童公園",
+    address: "埼玉県鶴ヶ島市脚折町5丁目22-1",
+    contextLabel: "雨乞い儀礼地点",
+    mapHref: "#",
+  },
+];
+
+const fixtureOccurrences = [
+  { date: "2024年8月4日", outcome: "開催", scale: "通常" },
+  { date: "2020年", outcome: "未実施", scale: "—" },
+  { date: "2016年8月", outcome: "開催", scale: "通常" },
+];
+
+const fixtureChanges = [
+  {
+    date: "1976年",
+    typeLabel: "復活",
+    summary: "保存活動を経て行事が復活。",
+    resultingState: "継続中",
+    evidenceHref: "#evidence",
+  },
+  {
+    date: "1975年",
+    typeLabel: "保存会の結成",
+    summary: "継承組織の形成を確認。",
+    evidenceHref: "#evidence",
+  },
+  {
+    date: "1964年",
+    typeLabel: "中断前最後の実施",
+    summary: "この実施を最後に一時中断。",
+    evidenceHref: "#evidence",
+  },
+];
+
+const fixtureRelations = [
+  { label: "行われる場所", targetName: "白鬚神社", href: "#places" },
+  { label: "儀礼の場所", targetName: "雷電池", href: "#places" },
+  { label: "継承組織", targetName: "脚折雨乞行事保存会", href: "#" },
+];
+
+const fixtureDesignations = [
+  {
+    name: "脚折雨乞",
+    system: "文化財指定",
+    authority: "指定主体の表示例",
+    sourceHref: "#evidence",
+  },
+];
+
+const fixtureEvidence = [
+  {
+    targetLabel: "現在状態",
+    sourceTitle: "自治体文化財情報",
+    supportSummary: "継続状況と開催情報の確認に用いるfixture。",
+    sourceHref: "#",
+  },
+  {
+    targetLabel: "2024年の実施",
+    sourceTitle: "2024年実施案内",
+    supportSummary: "実施日と開催結果の確認に用いるfixture。",
+    sourceHref: "#",
+  },
+  {
+    targetLabel: "休止と復活",
+    sourceTitle: "行事概要・保存活動資料",
+    supportSummary: "中断、保存会形成、復活の履歴確認に用いるfixture。",
+    sourceHref: "#",
+  },
+];
+---
+
+<PageShell
+  site="matsuri"
+  title="脚折雨乞｜祭のゆくえ"
+  description="脚折雨乞の基本情報、現在状態、開催履歴、変化、関係する場所と組織、根拠資料を記録します。"
+>
+  <SiteHeader
+    slot="header"
+    siteName="祭のゆくえ"
+    romanLabel="Matsuri Yukue"
+    navItems={navItems}
+  />
+
+  <nav class="breadcrumb" aria-label="パンくずリスト">
+    <Container size="wide">
+      <ol>
+        <li><a href="/">ホーム</a></li>
+        <li><a href="/festivals/">祭礼</a></li>
+        <li><a href="/regions/saitama/">埼玉県</a></li>
+        <li aria-current="page">脚折雨乞</li>
+      </ol>
+    </Container>
+  </nav>
+
+  <section class="entity-identity">
+    <Container size="wide">
+      <p class="entity-identity__kicker">祭礼記録</p>
+      <h1>脚折雨乞</h1>
+      <p class="entity-identity__reading">すねおりあまごい</p>
+      <ul class="entity-identity__meta" aria-label="基本分類">
+        <li>埼玉県 鶴ヶ島市</li>
+        <li>雨乞い行事</li>
+        <li>4年に1度</li>
+      </ul>
+    </Container>
+  </section>
+
+  <Section kicker="Overview" title="概要" actionHref="#evidence" actionLabel="観測根拠を見る">
+    <OverviewGrid items={fixtureOverview} />
+  </Section>
+
+  <Section kicker="About" title="脚折雨乞について">
+    <div class="yk-prose detail-prose">
+      <p>鶴ヶ島市脚折地区に継承される降雨祈願の伝統行事です。地域の人々が大きな龍蛇を担ぎ、祈願と行列を経て雷電池で雨乞いの儀礼を行います。</p>
+      <p>このfixture pageでは、通常の開催情報と、現在状態、一回ごとの開催履歴、休止・保存活動・復活といった変化を分けて表示しています。</p>
+    </div>
+  </Section>
+
+  <Section kicker="Places & Map" title="場所" id="places">
+    <PlaceMap
+      places={fixturePlaces}
+      contextDescription="脚折雨乞は複数の主要地点を伴う行事として扱い、単一地点だけを祭礼全体の場所とは表示しません。"
+    />
+  </Section>
+
+  <Section kicker="Year by Year" title="開催履歴">
+    <OccurrenceTable
+      rows={fixtureOccurrences}
+      showScale={true}
+      caption="脚折雨乞の開催履歴fixture"
+    />
+  </Section>
+
+  <Section kicker="Change History" title="変化の履歴">
+    <ChangeTimeline items={fixtureChanges} />
+  </Section>
+
+  <Section kicker="Connections" title="関係する場所・組織">
+    <RelationList items={fixtureRelations} />
+  </Section>
+
+  <Section kicker="Designations" title="指定">
+    <DesignationList items={fixtureDesignations} />
+  </Section>
+
+  <Section kicker="Evidence & Sources" title="根拠と出典" id="evidence">
+    <EvidenceList items={fixtureEvidence} />
+  </Section>
+
+  <Section kicker="Machine-readable Data" title="機械可読データ" rule="none">
+    <div class="machine-data">
+      <p>公開時には、承認済みPublic ProjectionからHTMLと機械可読な公開データを生成する方針です。</p>
+      <ActionLink href="/data/" label="公開データについて" />
+    </div>
+  </Section>
+
+  <SiteFooter
+    slot="footer"
+    siteName="祭のゆくえ"
+    groups={footerGroups}
+  />
+</PageShell>
+
+<style>
+  .breadcrumb {
+    padding-block: var(--space-4);
+    border-bottom: var(--rule-standard);
+  }
+
+  .breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--color-muted);
+    font-size: var(--font-size-xs);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: "／";
+    margin-left: var(--space-2);
+    color: var(--color-rule-strong);
+  }
+
+  .breadcrumb a {
+    color: inherit;
+  }
+
+  .entity-identity {
+    padding-block: var(--space-14) var(--space-10);
+    border-bottom: var(--rule-standard);
+  }
+
+  .entity-identity__kicker {
+    margin: 0 0 var(--space-3);
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.12em;
+  }
+
+  .entity-identity h1 {
+    margin: 0;
+    font-size: var(--font-size-entity);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+
+  .entity-identity__reading {
+    margin: var(--space-2) 0 0;
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.08em;
+  }
+
+  .entity-identity__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin: var(--space-5) 0 0;
+    padding: 0;
+    list-style: none;
+    color: var(--color-text-soft);
+    font-size: var(--font-size-sm);
+  }
+
+  .entity-identity__meta li + li {
+    padding-left: var(--space-4);
+    border-left: var(--rule-standard);
+  }
+
+  .detail-prose {
+    font-size: var(--font-size-base);
+  }
+
+  .machine-data {
+    max-width: var(--container-prose);
+  }
+
+  .machine-data p {
+    color: var(--color-text-soft);
+  }
+
+  @media (max-width: 640px) {
+    .entity-identity {
+      padding-block: var(--space-10) var(--space-8);
+    }
+
+    .entity-identity__meta {
+      display: grid;
+      gap: var(--space-2);
+    }
+
+    .entity-identity__meta li + li {
+      padding-left: 0;
+      border-left: 0;
+    }
+  }
+</style>
