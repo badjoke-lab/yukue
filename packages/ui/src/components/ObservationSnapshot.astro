@@ -1,0 +1,37 @@
+---
+import type { SnapshotMetric } from "../types.js";
+
+interface Props {
+  metrics: SnapshotMetric[];
+  ariaLabel?: string;
+}
+
+const {
+  metrics,
+  ariaLabel = "現在の観測状況",
+} = Astro.props;
+
+const columns = Math.min(Math.max(metrics.length, 1), 5);
+---
+
+<div
+  class="yk-snapshot"
+  aria-label={ariaLabel}
+  style={`--snapshot-columns: ${columns};`}
+>
+  {metrics.map((metric) => (
+    <div class="yk-snapshot__item">
+      {metric.href ? (
+        <a class="yk-snapshot__link" href={metric.href}>
+          <span class="yk-snapshot__value">{metric.value}</span>
+          <span class="yk-snapshot__label">{metric.label}</span>
+        </a>
+      ) : (
+        <>
+          <span class="yk-snapshot__value">{metric.value}</span>
+          <span class="yk-snapshot__label">{metric.label}</span>
+        </>
+      )}
+    </div>
+  ))}
+</div>
