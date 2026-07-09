@@ -9,6 +9,9 @@
     "./styles/base.css": "./src/styles/base.css",
     "./styles/layout.css": "./src/styles/layout.css",
     "./styles/patterns.css": "./src/styles/patterns.css",
+    "./styles/history.css": "./src/styles/history.css",
+    "./styles/places.css": "./src/styles/places.css",
+    "./styles/images.css": "./src/styles/images.css",
     "./components/Container.astro": "./src/components/Container.astro",
     "./components/Section.astro": "./src/components/Section.astro",
     "./components/PageShell.astro": "./src/components/PageShell.astro",
@@ -18,7 +21,13 @@
     "./components/SearchForm.astro": "./src/components/SearchForm.astro",
     "./components/ObservationSnapshot.astro": "./src/components/ObservationSnapshot.astro",
     "./components/OverviewGrid.astro": "./src/components/OverviewGrid.astro",
-    "./components/OccurrenceTable.astro": "./src/components/OccurrenceTable.astro"
+    "./components/OccurrenceTable.astro": "./src/components/OccurrenceTable.astro",
+    "./components/ChangeTimeline.astro": "./src/components/ChangeTimeline.astro",
+    "./components/RelationList.astro": "./src/components/RelationList.astro",
+    "./components/DesignationList.astro": "./src/components/DesignationList.astro",
+    "./components/EvidenceList.astro": "./src/components/EvidenceList.astro",
+    "./components/PlaceMap.astro": "./src/components/PlaceMap.astro",
+    "./components/ImageSet.astro": "./src/components/ImageSet.astro"
   },
   "scripts": {
     "build": "tsc --noEmit",
