@@ -1,0 +1,44 @@
+---
+import type { PlaceItem } from "../types.js";
+
+interface Props {
+  places: PlaceItem[];
+  contextDescription?: string;
+  embedUrl?: string;
+  embedTitle?: string;
+  openMapLabel?: string;
+}
+
+const {
+  places,
+  contextDescription,
+  embedUrl,
+  embedTitle = "関連地点の地図",
+  openMapLabel = "地図で開く",
+} = Astro.props;
+---
+
+{contextDescription && <p class="yk-map-context">{contextDescription}</p>}
+<div class="yk-place-map">
+  <div class="yk-place-list">
+    {places.map((place) => (
+      <article class="yk-place-item">
+        {place.contextLabel && <p class="yk-place-item__context">{place.contextLabel}</p>}
+        <h3 class="yk-place-item__name">{place.name}</h3>
+        {place.address && <p class="yk-place-item__address">{place.address}</p>}
+        {place.mapHref && <a href={place.mapHref}>{openMapLabel}</a>}
+      </article>
+    ))}
+  </div>
+
+  {embedUrl && (
+    <div class="yk-map-frame">
+      <iframe
+        src={embedUrl}
+        title={embedTitle}
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  )}
+</div>
