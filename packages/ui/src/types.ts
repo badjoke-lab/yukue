@@ -30,3 +30,51 @@ export interface OccurrenceRow {
   scale?: string;
   href?: string;
 }
+
+export interface ChangeTimelineItem {
+  date: string;
+  typeLabel: string;
+  summary: string;
+  resultingState?: string;
+  evidenceHref?: string;
+}
+
+export interface RelationItem {
+  label: string;
+  targetName: string;
+  href: string;
+  validityPeriod?: string;
+}
+
+export interface DesignationItem {
+  name: string;
+  system?: string;
+  authority?: string;
+  validPeriod?: string;
+  sourceHref?: string;
+}
+
+export interface EvidenceItem {
+  targetLabel: string;
+  sourceTitle: string;
+  supportSummary?: string;
+  sourceHref: string;
+  archiveHref?: string;
+}
+
+export interface PlaceItem {
+  name: string;
+  address?: string;
+  contextLabel?: string;
+  mapHref?: string;
+}
+
+export interface DocumentaryImage {
+  src: string;
+  alt: string;
+  caption?: string;
+  creditText: string;
+  creditUrl?: string;
+  licenseName?: string;
+  licenseUrl?: string;
+}
