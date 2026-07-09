@@ -2,5 +2,19 @@
   "name": "@badjoke-lab/yukue-validation",
   "version": "0.0.0",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json && node --test test/*.test.mjs",
+    "check": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@badjoke-lab/yukue-schemas": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3"
+  }
 }
