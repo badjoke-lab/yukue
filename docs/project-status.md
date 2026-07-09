@@ -32,7 +32,8 @@ Execution Stage B — Matsuri Static Surfaces
 - A1 shared design tokens and layout primitives completed,
 - A2 shared navigation and reference patterns completed,
 - A3 shared history, relation, evidence, place, and image patterns completed,
-- B1 Matsuri Home H1 static implementation completed.
+- B1 Matsuri Home H1 static implementation completed,
+- B2 Festival Detail C static implementation completed.
 
 ## Current UI direction
 
@@ -86,37 +87,34 @@ project-status.md
 ## Current work
 
 ```text
-B2 — Festival Detail C static implementation
-```
-
-Target structure:
-
-```text
-Identity
-Primary Image [optional only]
-Integrated Overview
-About
-Places & Map
-Occurrence History
-Change History
-Relations
-Gallery [optional only]
-Designations
-Evidence & Sources
-Machine-readable Data
-```
-
-B2 uses fixture data and the accepted shared UI foundation. The fixture must preserve State versus Occurrence distinction, route-based Place behavior, evidence access, and zero-image completeness.
-
-## Next gate
-
-After B2:
-
-```text
 B3 — UI review corrections and accessibility baseline
 ```
 
-Then proceed to Data Core, sample canonical data, Public Projection, browse/search, and the machine-readable baseline according to `development-schedule.md`.
+Review scope:
+
+- Home H1 desktop and mobile visual behavior,
+- Detail C desktop and mobile visual behavior,
+- keyboard navigation baseline,
+- visible focus states,
+- semantic heading order,
+- table headers and captions,
+- sufficient contrast,
+- route-based Place presentation,
+- zero-image completeness,
+- responsive overflow and reading order.
+
+B3 should remain bounded to review findings from the static Home and Detail surfaces. It should not add schema, canonical data, browse/search implementation, or deferred features.
+
+## Next stage
+
+After B3:
+
+```text
+Stage C — Data Core
+C1 — Common schemas
+```
+
+Then proceed through the remaining work packages in `development-schedule.md`.
 
 ## Not yet committed to MVP
 
