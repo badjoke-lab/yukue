@@ -1,9 +1,15 @@
 ---
 import ActionLink from "@badjoke-lab/yukue-ui/components/ActionLink.astro";
+import ChangeTimeline from "@badjoke-lab/yukue-ui/components/ChangeTimeline.astro";
+import DesignationList from "@badjoke-lab/yukue-ui/components/DesignationList.astro";
+import EvidenceList from "@badjoke-lab/yukue-ui/components/EvidenceList.astro";
+import ImageSet from "@badjoke-lab/yukue-ui/components/ImageSet.astro";
 import ObservationSnapshot from "@badjoke-lab/yukue-ui/components/ObservationSnapshot.astro";
 import OccurrenceTable from "@badjoke-lab/yukue-ui/components/OccurrenceTable.astro";
 import OverviewGrid from "@badjoke-lab/yukue-ui/components/OverviewGrid.astro";
 import PageShell from "@badjoke-lab/yukue-ui/components/PageShell.astro";
+import PlaceMap from "@badjoke-lab/yukue-ui/components/PlaceMap.astro";
+import RelationList from "@badjoke-lab/yukue-ui/components/RelationList.astro";
 import SearchForm from "@badjoke-lab/yukue-ui/components/SearchForm.astro";
 import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
 import SiteFooter from "@badjoke-lab/yukue-ui/components/SiteFooter.astro";
@@ -66,6 +72,34 @@ const occurrences = [
   { date: "2020年", name: "脚折雨乞", region: "埼玉県", outcome: "未実施", scale: "—" },
   { date: "2016年8月", name: "脚折雨乞", region: "埼玉県", outcome: "開催", scale: "通常" },
 ];
+
+const changes = [
+  { date: "1976年", typeLabel: "復活", summary: "保存活動を経て行事が復活。", resultingState: "継続中", evidenceHref: "#evidence" },
+  { date: "1975年", typeLabel: "保存会の結成", summary: "継承組織の形成を確認。", evidenceHref: "#evidence" },
+  { date: "1964年", typeLabel: "中断前最後の実施", summary: "この実施を最後に一時中断。", evidenceHref: "#evidence" },
+];
+
+const relations = [
+  { label: "行われる場所", targetName: "白鬚神社", href: "#places" },
+  { label: "儀礼の場所", targetName: "雷電池", href: "#places" },
+  { label: "継承組織", targetName: "脚折雨乞行事保存会", href: "#" },
+];
+
+const designations = [
+  { name: "脚折雨乞", system: "文化財指定", authority: "指定主体の表示例", sourceHref: "#evidence" },
+];
+
+const evidence = [
+  { targetLabel: "現在状態", sourceTitle: "自治体文化財情報", supportSummary: "継続状況と開催情報の確認用fixture。", sourceHref: "#" },
+  { targetLabel: "開催履歴", sourceTitle: "行事概要資料", supportSummary: "実施年と復活履歴の確認用fixture。", sourceHref: "#" },
+];
+
+const places = [
+  { name: "白鬚神社", address: "埼玉県鶴ヶ島市脚折町6丁目10-20", contextLabel: "出発・祈願地点", mapHref: "#" },
+  { name: "雷電池児童公園", address: "埼玉県鶴ヶ島市脚折町5丁目22-1", contextLabel: "雨乞い儀礼地点", mapHref: "#" },
+];
+
+const images = [];
 ---
 
 <PageShell
@@ -82,7 +116,7 @@ const occurrences = [
 
   <Section kicker="Foundation Preview" title="祭礼と民俗芸能の記録基盤">
     <div class="yk-prose foundation-intro">
-      <p>このページはHome H1本実装ではなく、A2共有UI patternの統合確認用です。</p>
+      <p>このページはHome H1本実装ではなく、Stage A共有UI patternの統合確認用です。</p>
     </div>
     <SearchForm
       action="/search/"
@@ -107,7 +141,35 @@ const occurrences = [
       showScale={true}
       caption="開催履歴の基盤表示"
     />
-    <p class="foundation-action"><ActionLink href="/festivals/" label="祭礼の記録を見る" /></p>
+  </Section>
+
+  <Section kicker="Change History" title="変化の履歴">
+    <ChangeTimeline items={changes} />
+  </Section>
+
+  <Section kicker="Connections" title="関係する場所・組織">
+    <RelationList items={relations} />
+  </Section>
+
+  <Section kicker="Places & Map" title="場所" id="places">
+    <PlaceMap
+      places={places}
+      contextDescription="route-based traditionのため、単一地点ではなく主要地点を分けて表示する基盤例です。"
+    />
+  </Section>
+
+  <Section kicker="Designations" title="指定">
+    <DesignationList items={designations} />
+  </Section>
+
+  <Section kicker="Images" title="画像">
+    <ImageSet images={images} />
+    <p class="foundation-note">approved imageが0件のため、ImageSetは画像UIをrenderしていません。</p>
+  </Section>
+
+  <Section kicker="Evidence & Sources" title="根拠と出典" id="evidence">
+    <EvidenceList items={evidence} />
+    <p class="foundation-action"><ActionLink href="/methodology/" label="検証方法を見る" /></p>
   </Section>
 
   <SiteFooter
@@ -122,7 +184,13 @@ const occurrences = [
     margin-bottom: var(--space-8);
   }
 
-  .foundation-action {
+  .foundation-action,
+  .foundation-note {
     margin: var(--space-6) 0 0;
+  }
+
+  .foundation-note {
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
   }
 </style>
