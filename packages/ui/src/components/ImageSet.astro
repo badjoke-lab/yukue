@@ -1,0 +1,160 @@
+---
+import type { DocumentaryImage } from "../types.js";
+
+interface Props {
+  images: DocumentaryImage[];
+  galleryId?: string;
+  galleryLabel?: string;
+  closeLabel?: string;
+  previousLabel?: string;
+  nextLabel?: string;
+}
+
+const {
+  images,
+  galleryId = `yk-gallery-${crypto.randomUUID()}`,
+  galleryLabel = "画像ギャラリー",
+  closeLabel = "閉じる",
+  previousLabel = "前へ",
+  nextLabel = "次へ",
+} = Astro.props;
+
+const primary = images[0];
+---
+
+{images.length > 0 && primary && (
+  <div class="yk-image-set" data-yukue-gallery id={galleryId}>
+    <figure class="yk-image-primary">
+      <img src={primary.src} alt={primary.alt} loading="lazy" />
+      {(primary.caption || primary.creditText || primary.licenseName) && (
+        <figcaption>
+          {primary.caption && <div class="yk-image-caption">{primary.caption}</div>}
+          <div class="yk-image-credit">
+            {primary.creditUrl ? <a href={primary.creditUrl}>{primary.creditText}</a> : primary.creditText}
+            {primary.licenseName && (
+              <>
+                {" · "}
+                {primary.licenseUrl ? <a href={primary.licenseUrl}>{primary.licenseName}</a> : primary.licenseName}
+              </>
+            )}
+          </div>
+        </figcaption>
+      )}
+    </figure>
+
+    {images.length > 1 && (
+      <>
+        <div class="yk-gallery-grid" aria-label={galleryLabel}>
+          {images.map((image, index) => (
+            <button
+              class="yk-gallery-button"
+              type="button"
+              data-image-index={index}
+              aria-label={`画像を拡大: ${image.alt}`}
+            >
+              <img src={image.src} alt="" loading="lazy" />
+            </button>
+          ))}
+        </div>
+
+        <dialog class="yk-lightbox" aria-label={galleryLabel}>
+          <div class="yk-lightbox__toolbar">
+            <span data-gallery-counter aria-live="polite"></span>
+            <button class="yk-lightbox__close" type="button" data-gallery-close>{closeLabel}</button>
+          </div>
+
+          <div class="yk-lightbox__media">
+            {images.map((image, index) => (
+              <figure data-gallery-slide={index} hidden={index !== 0}>
+                <img src={image.src} alt={image.alt} />
+                <figcaption class="yk-lightbox__meta">
+                  {image.caption && <div class="yk-image-caption">{image.caption}</div>}
+                  <div class="yk-image-credit">
+                    {image.creditUrl ? <a href={image.creditUrl}>{image.creditText}</a> : image.creditText}
+                    {image.licenseName && (
+                      <>
+                        {" · "}
+                        {image.licenseUrl ? <a href={image.licenseUrl}>{image.licenseName}</a> : image.licenseName}
+                      </>
+                    )}
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+
+          <div class="yk-lightbox__nav-row">
+            <button class="yk-lightbox__nav" type="button" data-gallery-prev>{previousLabel}</button>
+            <button class="yk-lightbox__nav" type="button" data-gallery-next>{nextLabel}</button>
+          </div>
+        </dialog>
+      </>
+    )}
+  </div>
+)}
+
+<script>
+  const initializeGallery = (gallery: HTMLElement) => {
+    const dialog = gallery.querySelector<HTMLDialogElement>(".yk-lightbox");
+    if (!dialog) return;
+
+    const triggers = Array.from(gallery.querySelectorAll<HTMLButtonElement>("[data-image-index]"));
+    const slides = Array.from(gallery.querySelectorAll<HTMLElement>("[data-gallery-slide]"));
+    const counter = gallery.querySelector<HTMLElement>("[data-gallery-counter]");
+    const closeButton = gallery.querySelector<HTMLButtonElement>("[data-gallery-close]");
+    const previousButton = gallery.querySelector<HTMLButtonElement>("[data-gallery-prev]");
+    const nextButton = gallery.querySelector<HTMLButtonElement>("[data-gallery-next]");
+
+    let currentIndex = 0;
+    let opener: HTMLButtonElement | null = null;
+    let touchStartX: number | null = null;
+
+    const showSlide = (index: number) => {
+      const total = slides.length;
+      if (total === 0) return;
+      currentIndex = (index + total) % total;
+      slides.forEach((slide, slideIndex) => {
+        slide.hidden = slideIndex !== currentIndex;
+      });
+      if (counter) counter.textContent = `${currentIndex + 1} / ${total}`;
+    };
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        opener = trigger;
+        const index = Number(trigger.dataset.imageIndex ?? 0);
+        showSlide(index);
+        dialog.showModal();
+        closeButton?.focus();
+      });
+    });
+
+    closeButton?.addEventListener("click", () => dialog.close());
+    previousButton?.addEventListener("click", () => showSlide(currentIndex - 1));
+    nextButton?.addEventListener("click", () => showSlide(currentIndex + 1));
+
+    dialog.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") showSlide(currentIndex - 1);
+      if (event.key === "ArrowRight") showSlide(currentIndex + 1);
+    });
+
+    dialog.addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0]?.clientX ?? null;
+    }, { passive: true });
+
+    dialog.addEventListener("touchend", (event) => {
+      if (touchStartX === null) return;
+      const endX = event.changedTouches[0]?.clientX ?? touchStartX;
+      const delta = endX - touchStartX;
+      if (Math.abs(delta) > 50) showSlide(delta > 0 ? currentIndex - 1 : currentIndex + 1);
+      touchStartX = null;
+    }, { passive: true });
+
+    dialog.addEventListener("close", () => {
+      opener?.focus();
+      opener = null;
+    });
+  };
+
+  document.querySelectorAll<HTMLElement>("[data-yukue-gallery]").forEach(initializeGallery);
+</script>

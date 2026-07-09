@@ -1,0 +1,29 @@
+---
+import type { EvidenceItem } from "../types.js";
+
+interface Props {
+  items: EvidenceItem[];
+  sourceLabel?: string;
+  archiveLabel?: string;
+}
+
+const {
+  items,
+  sourceLabel = "出典を見る",
+  archiveLabel = "保存版",
+} = Astro.props;
+---
+
+<div class="yk-evidence-list">
+  {items.map((item) => (
+    <article class="yk-evidence-row">
+      <div class="yk-evidence-row__target">{item.targetLabel}</div>
+      <div>{item.sourceTitle}</div>
+      <div class="yk-evidence-row__summary">{item.supportSummary ?? ""}</div>
+      <div class="yk-evidence-row__actions">
+        <a href={item.sourceHref}>{sourceLabel}</a>
+        {item.archiveHref && <a href={item.archiveHref}>{archiveLabel}</a>}
+      </div>
+    </article>
+  ))}
+</div>

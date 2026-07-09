@@ -1,0 +1,25 @@
+---
+import type { RelationItem } from "../types.js";
+
+interface Props {
+  items: RelationItem[];
+  validityLabel?: string;
+}
+
+const {
+  items,
+  validityLabel = "有効期間",
+} = Astro.props;
+---
+
+<dl class="yk-reference-list">
+  {items.map((item) => (
+    <div class="yk-reference-row">
+      <dt>{item.label}</dt>
+      <dd><a href={item.href}>{item.targetName}</a></dd>
+      <div class="yk-reference-row__meta">
+        {item.validityPeriod ? `${validityLabel}: ${item.validityPeriod}` : ""}
+      </div>
+    </div>
+  ))}
+</dl>

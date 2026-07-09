@@ -5,7 +5,7 @@
 ## Current phase
 
 ```text
-Execution Stage A — UI Foundation Implementation
+Execution Stage B — Matsuri Static Surfaces
 ```
 
 ## Completed
@@ -30,7 +30,8 @@ Execution Stage A — UI Foundation Implementation
 - Design Tokens baseline merged,
 - UI Foundation Specification merged,
 - A1 shared design tokens and layout primitives completed,
-- A2 shared navigation and reference patterns completed.
+- A2 shared navigation and reference patterns completed,
+- A3 shared history, relation, evidence, place, and image patterns completed.
 
 ## Current UI direction
 
@@ -84,26 +85,28 @@ project-status.md
 ## Current work
 
 ```text
-A3 — Shared history, relation, evidence, place, and image patterns
+B1 — Matsuri Home H1 static implementation
 ```
 
-Target scope:
+Target structure:
 
-- change timeline,
-- relation list,
-- designation list,
-- evidence/source apparatus,
-- place list,
-- map container and fallback structure,
-- image primitive,
-- gallery/lightbox foundation.
+```text
+Hero + Search
+Current Observation Snapshot
+Recent Changes
+Recent Occurrences
+Explore
+Methodology / Evidence
+Data Access
+```
+
+B1 uses fixture data and the accepted shared UI foundation. It must preserve the white background, Mincho-only typography direction, restrained indigo accent, no placeholder images, and the accepted Home H1 section order.
 
 ## Next gates
 
-After A3:
+After B1:
 
 ```text
-B1 — Matsuri Home H1 static implementation
 B2 — Festival Detail C static implementation
 B3 — UI review corrections and accessibility baseline
 ```
