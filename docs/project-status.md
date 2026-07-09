@@ -28,7 +28,8 @@ Execution Stage A — UI Foundation Implementation
 - four-site accent palette accepted,
 - UI Direction document merged,
 - Design Tokens baseline merged,
-- UI Foundation Specification merged.
+- UI Foundation Specification merged,
+- A1 shared design tokens and layout primitives completed.
 
 ## Current UI direction
 
@@ -82,26 +83,24 @@ project-status.md
 ## Current work
 
 ```text
-A1 — Shared design tokens and layout primitives
+A2 — Shared navigation and reference patterns
 ```
 
 Target scope:
 
-- package-level token definitions,
-- site accent injection,
-- Mincho stack,
-- shared containers,
-- section primitive,
-- rule system,
-- base links and focus behavior,
-- shared page-shell foundation.
+- shared header,
+- shared footer,
+- search form,
+- observation snapshot,
+- reference overview rows,
+- occurrence table,
+- action links.
 
 ## Next gates
 
-After A1:
+After A2:
 
 ```text
-A2 — Shared navigation and reference patterns
 A3 — Shared history, relation, evidence, place, and image patterns
 B1 — Matsuri Home H1 static implementation
 B2 — Festival Detail C static implementation
