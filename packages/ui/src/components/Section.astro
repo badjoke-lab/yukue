@@ -1,0 +1,47 @@
+---
+import Container from "./Container.astro";
+
+type SectionRule = "standard" | "strong" | "none";
+type ContainerSize = "wide" | "page" | "prose" | "narrow";
+
+interface Props {
+  id?: string;
+  kicker?: string;
+  title?: string;
+  actionHref?: string;
+  actionLabel?: string;
+  containerSize?: ContainerSize;
+  rule?: SectionRule;
+  class?: string;
+}
+
+const {
+  id,
+  kicker,
+  title,
+  actionHref,
+  actionLabel,
+  containerSize = "page",
+  rule = "standard",
+  class: className,
+} = Astro.props;
+
+const hasHeading = Boolean(kicker || title || (actionHref && actionLabel));
+---
+
+<section id={id} class:list={["yk-section", className]} data-rule={rule}>
+  <Container size={containerSize}>
+    {hasHeading && (
+      <header class="yk-section__head">
+        <div class="yk-section__heading-group">
+          {kicker && <p class="yk-section__kicker">{kicker}</p>}
+          {title && <h2 class="yk-section__title">{title}</h2>}
+        </div>
+        {actionHref && actionLabel && (
+          <a class="yk-section__action" href={actionHref}>{actionLabel}</a>
+        )}
+      </header>
+    )}
+    <slot />
+  </Container>
+</section>
