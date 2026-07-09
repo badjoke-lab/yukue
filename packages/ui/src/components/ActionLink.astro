@@ -1,0 +1,11 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  class?: string;
+}
+
+const { href, label, class: className } = Astro.props;
+---
+
+<a class:list={["yk-action-link", className]} href={href}>{label}</a>
