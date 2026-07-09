@@ -1,0 +1,125 @@
+.yk-image-set {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.yk-image-primary {
+  margin: 0;
+}
+
+.yk-image-primary img {
+  width: 100%;
+  height: auto;
+  background: var(--color-surface-soft);
+}
+
+.yk-image-caption {
+  margin-top: var(--space-3);
+  color: var(--color-text-soft);
+  font-size: var(--font-size-sm);
+}
+
+.yk-image-credit {
+  margin-top: var(--space-2);
+  color: var(--color-muted);
+  font-size: var(--font-size-xs);
+}
+
+.yk-image-credit a {
+  color: inherit;
+}
+
+.yk-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.yk-gallery-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.yk-gallery-button img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.yk-lightbox {
+  width: min(92vw, 72rem);
+  max-height: 92vh;
+  padding: var(--space-5);
+  border: var(--rule-strong);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.yk-lightbox::backdrop {
+  background: rgb(0 0 0 / 72%);
+}
+
+.yk-lightbox__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.yk-lightbox__close,
+.yk-lightbox__nav {
+  border: var(--rule-standard);
+  background: var(--color-bg);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.yk-lightbox__close {
+  padding: var(--space-2) var(--space-4);
+}
+
+.yk-lightbox__media {
+  display: grid;
+  place-items: center;
+  min-height: 40vh;
+}
+
+.yk-lightbox__media img {
+  max-height: 68vh;
+  width: auto;
+}
+
+.yk-lightbox__meta {
+  margin-top: var(--space-4);
+}
+
+.yk-lightbox__nav-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.yk-lightbox__nav {
+  padding: var(--space-2) var(--space-4);
+}
+
+@media (max-width: 900px) {
+  .yk-gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .yk-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .yk-lightbox {
+    width: 96vw;
+    padding: var(--space-3);
+  }
+}
