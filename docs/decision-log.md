@@ -113,6 +113,35 @@ Decision:
 
 Accent colors are used sparingly for links, selected navigation, state emphasis, timeline markers, focus treatment, and thin structural accents.
 
+## 2026-07-10 — Repository-reference-driven development
+
+Decision: implementation work is governed by repository documentation and hierarchical `AGENTS.md` files.
+
+Required reading flow:
+
+```text
+root AGENTS.md
+→ nearest nested AGENTS.md
+→ project-status.md
+→ development-schedule.md
+→ governing specifications
+```
+
+Schedule responsibilities are separated:
+
+```text
+roadmap.md
+= long-range phases and gates
+
+development-schedule.md
+= concrete implementation and PR sequence
+
+project-status.md
+= current position and next gate
+```
+
+When implementation changes public behavior, the governing document should be updated in the same bounded PR where practical. Decision changes go to `decision-log.md`; phase or gate changes go to `project-status.md`; material implementation-order changes go to `development-schedule.md`.
+
 ## Open decisions
 
 - final map component implementation,

@@ -19,7 +19,8 @@ Before implementing a feature, check the relevant document here. When a decision
 | `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
 | `technical-architecture.md` | Current direction | Build, projection, search, deployment |
-| `roadmap.md` | Current | Phase and gate roadmap |
+| `roadmap.md` | Current | Long-range phases and gates |
+| `development-schedule.md` | Current | Concrete implementation and PR sequence |
 | `verification-policy.md` | Current | Review and publication rules |
 | `source-policy.md` | Current | Source and evidence rules |
 | `image-policy.md` | Current | Real-image, rights, credit, gallery rules |
@@ -29,6 +30,36 @@ Before implementing a feature, check the relevant document here. When a decision
 | `decision-log.md` | Living | Project decisions and reversals |
 | `project-status.md` | Living | Current phase and next gate |
 
+## Schedule model
+
+Use the three schedule documents for different purposes:
+
+```text
+roadmap.md
+= long-range phases and gates
+
+development-schedule.md
+= concrete implementation and PR sequence
+
+project-status.md
+= current position and next gate
+```
+
+## Agent instruction hierarchy
+
+Repository work is also governed by hierarchical `AGENTS.md` files.
+
+Read the root `AGENTS.md` first, then the nearest nested `AGENTS.md` for the path being changed.
+
+Current instruction layers:
+
+```text
+/AGENTS.md
+/docs/AGENTS.md
+/apps/matsuri/AGENTS.md
+/packages/AGENTS.md
+```
+
 ## Source-of-truth rule
 
 The repository documents are the implementation reference for public project behavior.
@@ -37,4 +68,4 @@ Private research notes, candidate queues, internal confidence notes, unresolved 
 
 ## Update discipline
 
-A pull request that changes public behavior should update the relevant specification when it affects record structure, publication behavior, page structure, navigation, evidence rules, image rules, UI direction, design tokens, UI foundation behavior, technical architecture, roadmap gates, or project status.
+A pull request that changes public behavior should update the relevant specification when it affects record structure, publication behavior, page structure, navigation, evidence rules, image rules, UI direction, design tokens, UI foundation behavior, technical architecture, roadmap gates, active implementation sequence, or project status.
