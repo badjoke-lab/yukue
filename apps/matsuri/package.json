@@ -1,0 +1,13 @@
+{
+  "name": "@badjoke-lab/yukue-matsuri",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build"
+  },
+  "dependencies": {
+    "astro": "7.0.6"
+  }
+}

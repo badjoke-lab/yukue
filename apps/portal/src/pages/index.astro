@@ -1,0 +1,25 @@
+---
+const sites = [
+  { name: '祭のゆくえ', status: 'In development' },
+  { name: '神社のゆくえ', status: 'Planned' },
+  { name: '寺院のゆくえ', status: 'Planned' },
+  { name: '弔いのゆくえ', status: 'Planned' },
+];
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ゆくえシリーズ</title>
+  </head>
+  <body>
+    <main>
+      <h1>ゆくえシリーズ</h1>
+      <p>地域文化、宗教施設、弔いの場所について、現在状態、履歴、変化、関係、根拠を記録する観測プロジェクト群です。</p>
+      <ul>
+        {sites.map((site) => <li><strong>{site.name}</strong> — {site.status}</li>)}
+      </ul>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+---
+const principles = ['Current State', 'Occurrence History', 'Change Events', 'Relations', 'Evidence'];
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>祭のゆくえ</title>
+  </head>
+  <body>
+    <main>
+      <h1>祭のゆくえ</h1>
+      <p>祭礼と民俗芸能の継続、休止、変化、復活、関係、実施履歴を根拠とともに記録します。</p>
+      <ul>
+        {principles.map((principle) => <li>{principle}</li>)}
+      </ul>
+    </main>
+  </body>
+</html>
