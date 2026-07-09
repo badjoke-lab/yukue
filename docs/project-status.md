@@ -5,7 +5,7 @@
 ## Current phase
 
 ```text
-Phase 2 — UI Direction Review
+Execution Stage A — UI Foundation Implementation
 ```
 
 ## Completed
@@ -25,7 +25,10 @@ Phase 2 — UI Direction Review
 - real-image-only policy accepted,
 - visual direction accepted,
 - Mincho-only typography direction accepted,
-- four-site accent palette accepted.
+- four-site accent palette accepted,
+- UI Direction document merged,
+- Design Tokens baseline merged,
+- UI Foundation Specification merged.
 
 ## Current UI direction
 
@@ -49,50 +52,63 @@ Palette:
 弔いのゆくえ    #486457
 ```
 
-## In progress
+## Development governance
 
-- UI Direction reference document,
-- initial shared Design Tokens baseline,
-- UI Foundation implementation specification.
+Implementation is repository-reference-driven.
 
-## Next gate
+Before work:
 
 ```text
-UI Foundation Specification
+root AGENTS.md
+→ nearest nested AGENTS.md
+→ docs/project-status.md
+→ docs/development-schedule.md
+→ governing specifications
 ```
 
-Required outputs:
-
-- shared layout primitives,
-- header and navigation behavior,
-- search form pattern,
-- observation snapshot pattern,
-- overview reference-table pattern,
-- occurrence table pattern,
-- change timeline pattern,
-- relation list pattern,
-- evidence/source apparatus pattern,
-- map container behavior,
-- image/gallery/lightbox behavior,
-- responsive rules,
-- accessibility requirements.
-
-## After the UI Foundation specification
-
-Proceed to implementation in this order:
+Schedule layers:
 
 ```text
-shared design tokens
-shared UI primitives
-Matsuri shell
-Home H1 static implementation
-Detail C static implementation
-responsive review
-accessibility baseline
-schema implementation
-sample canonical data
-Public Projection integration
+roadmap.md
+= long-range phases and gates
+
+development-schedule.md
+= concrete implementation and PR order
+
+project-status.md
+= current position and next gate
 ```
+
+## Current work
+
+```text
+PR 4 — Shared design tokens and layout primitives
+```
+
+Target scope:
+
+- package-level token definitions,
+- site accent injection,
+- Mincho stack,
+- shared containers,
+- section primitive,
+- rule system,
+- base links and focus behavior,
+- shared page-shell foundation.
+
+## Next gates
+
+After PR 4:
+
+```text
+PR 5 — Shared navigation and reference patterns
+PR 6 — Shared history, relation, evidence, place, and image patterns
+PR 7 — Matsuri Home H1 static implementation
+PR 8 — Festival Detail C static implementation
+PR 9 — UI review corrections and accessibility baseline
+```
+
+Then proceed to Data Core, sample canonical data, Public Projection, browse/search, and the machine-readable baseline according to `development-schedule.md`.
 
 ## Not yet committed to MVP
 
