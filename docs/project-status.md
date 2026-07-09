@@ -5,7 +5,7 @@
 ## Current phase
 
 ```text
-Execution Stage C — Data Core
+Execution Stage D — Sample Canonical Data and Projection
 ```
 
 ## Completed
@@ -36,7 +36,8 @@ Execution Stage C — Data Core
 - B2 Festival Detail C static implementation completed,
 - B3 UI review corrections and accessibility baseline completed,
 - C1 common schema contracts completed,
-- C2 Matsuri schema extensions and vocabularies completed.
+- C2 Matsuri schema extensions and vocabularies completed,
+- C3 cross-record validation completed.
 
 ## Current UI direction
 
@@ -90,30 +91,31 @@ project-status.md
 ## Current work
 
 ```text
-C3 — Cross-record validation
+D1 — Representative sample canonical data
 ```
 
-Target validation:
-
-- ID uniqueness,
-- record reference integrity,
-- Relation endpoint integrity,
-- Evidence target integrity,
-- Place reference integrity,
-- Current State derivation checks,
-- Image primary uniqueness,
-- image rights gate,
-- Public Projection safety checks.
-
-C3 must test both valid and intentionally invalid record sets and must not auto-publish or silently repair invalid data.
-
-## Next stage
-
-After C3:
+Candidate sample subjects:
 
 ```text
-Stage D — Sample Canonical Data and Projection
-D1 — Representative sample canonical data
+脚折雨乞
+相馬野馬追
+祇園祭 / 鷹山
+早池峰神楽
+佐陀神能
+one additional multi-site or organization-heavy case
+```
+
+D1 must exercise different structural cases before corpus expansion: route-based Place behavior, umbrella/component identity, Festival/Folk Performance boundaries, Occurrence history, Change Events, Relations, Designations, Sources, and Evidence.
+
+Only reviewed public-safe canonical records belong in repository data. Unresolved private research notes and source conflicts remain outside the public data layer.
+
+## Next gates
+
+After D1:
+
+```text
+D2 — Public Projection pipeline
+D3 — Connect Matsuri Home and Detail to projection data
 ```
 
 Then proceed through the remaining work packages in `development-schedule.md`.
