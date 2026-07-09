@@ -9,7 +9,7 @@ import type {
 
 export type RecordId = string;
 export type PublicSlug = string;
-export type SchemaVersion = string;
+export type SchemaVersion = `${string}.v${number}` | `${string}.v${number}.${number}`;
 export type ISODate = string;
 export type ISODateTime = string;
 export type LanguageTag = string;
