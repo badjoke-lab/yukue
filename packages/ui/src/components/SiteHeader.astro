@@ -1,0 +1,46 @@
+---
+import type { NavItem } from "../types.js";
+import Container from "./Container.astro";
+
+interface Props {
+  siteName: string;
+  homeHref?: string;
+  romanLabel?: string;
+  navItems: NavItem[];
+  navigationLabel?: string;
+  menuLabel?: string;
+}
+
+const {
+  siteName,
+  homeHref = "/",
+  romanLabel,
+  navItems,
+  navigationLabel = "主要ナビゲーション",
+  menuLabel = "メニュー",
+} = Astro.props;
+---
+
+<header class="yk-site-header">
+  <Container size="wide" class="yk-site-header__inner">
+    <a class="yk-site-header__brand" href={homeHref}>
+      <span class="yk-site-header__brand-ja">{siteName}</span>
+      {romanLabel && <span class="yk-site-header__brand-roman">{romanLabel}</span>}
+    </a>
+
+    <nav class="yk-site-nav" aria-label={navigationLabel}>
+      {navItems.map((item) => (
+        <a href={item.href} aria-current={item.active ? "page" : undefined}>{item.label}</a>
+      ))}
+    </nav>
+
+    <details class="yk-site-header__mobile">
+      <summary>{menuLabel}</summary>
+      <nav class="yk-site-header__mobile-nav" aria-label={`${navigationLabel}（モバイル）`}>
+        {navItems.map((item) => (
+          <a href={item.href} aria-current={item.active ? "page" : undefined}>{item.label}</a>
+        ))}
+      </nav>
+    </details>
+  </Container>
+</header>
