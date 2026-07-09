@@ -73,7 +73,7 @@ roadmap.md
 = long-range phases and gates
 
 development-schedule.md
-= concrete implementation and PR order
+= stable work-package sequence
 
 project-status.md
 = current position and next gate
@@ -82,7 +82,7 @@ project-status.md
 ## Current work
 
 ```text
-PR 4 — Shared design tokens and layout primitives
+A1 — Shared design tokens and layout primitives
 ```
 
 Target scope:
@@ -98,14 +98,14 @@ Target scope:
 
 ## Next gates
 
-After PR 4:
+After A1:
 
 ```text
-PR 5 — Shared navigation and reference patterns
-PR 6 — Shared history, relation, evidence, place, and image patterns
-PR 7 — Matsuri Home H1 static implementation
-PR 8 — Festival Detail C static implementation
-PR 9 — UI review corrections and accessibility baseline
+A2 — Shared navigation and reference patterns
+A3 — Shared history, relation, evidence, place, and image patterns
+B1 — Matsuri Home H1 static implementation
+B2 — Festival Detail C static implementation
+B3 — UI review corrections and accessibility baseline
 ```
 
 Then proceed to Data Core, sample canonical data, Public Projection, browse/search, and the machine-readable baseline according to `development-schedule.md`.
