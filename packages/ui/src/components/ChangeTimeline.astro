@@ -1,0 +1,29 @@
+---
+import type { ChangeTimelineItem } from "../types.js";
+
+interface Props {
+  items: ChangeTimelineItem[];
+  evidenceLabel?: string;
+}
+
+const {
+  items,
+  evidenceLabel = "根拠を見る",
+} = Astro.props;
+---
+
+<ol class="yk-timeline">
+  {items.map((item) => (
+    <li class="yk-timeline__item">
+      <time class="yk-timeline__date">{item.date}</time>
+      <h3 class="yk-timeline__type">{item.typeLabel}</h3>
+      <p class="yk-timeline__summary">{item.summary}</p>
+      {item.resultingState && (
+        <p class="yk-timeline__state">結果状態: {item.resultingState}</p>
+      )}
+      {item.evidenceHref && (
+        <p class="yk-timeline__state"><a href={item.evidenceHref}>{evidenceLabel}</a></p>
+      )}
+    </li>
+  ))}
+</ol>
