@@ -20,6 +20,9 @@ Before implementing a feature, check the relevant document here. When a decision
 | `verification-policy.md` | Current | Review and publication rules |
 | `source-policy.md` | Current | Source and evidence rules |
 | `image-policy.md` | Current | Real-image, rights, credit, gallery rules |
+| `data-workflow.md` | Current direction | Research-to-public data workflow |
+| `versioning-policy.md` | Current direction | Schema and record versioning rules |
+| `machine-readable-layer.md` | Current direction | Public machine-readable outputs and invariants |
 | `decision-log.md` | Living | Project decisions and reversals |
 | `project-status.md` | Living | Current phase and next gate |
 
