@@ -1,0 +1,41 @@
+---
+import type { SiteThemeKey } from "../themes.js";
+import { getSiteAccent } from "../themes.js";
+import "../styles/base.css";
+import "../styles/layout.css";
+
+interface Props {
+  site: SiteThemeKey;
+  title: string;
+  description?: string;
+  lang?: string;
+}
+
+const {
+  site,
+  title,
+  description,
+  lang = "ja",
+} = Astro.props;
+
+const accent = getSiteAccent(site);
+---
+
+<!doctype html>
+<html lang={lang} data-site={site} style={`--color-accent: ${accent};`}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <slot name="head" />
+  </head>
+  <body class="yk-page-shell">
+    <div class="yk-site-accent-rule" aria-hidden="true"></div>
+    <slot name="header" />
+    <main>
+      <slot />
+    </main>
+    <slot name="footer" />
+  </body>
+</html>

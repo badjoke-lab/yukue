@@ -1,0 +1,93 @@
+:root {
+  --font-family-mincho: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Noto Serif JP", serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lead: 1.125rem;
+  --font-size-h3: 1.25rem;
+  --font-size-h2: 1.75rem;
+  --font-size-h1: 2.75rem;
+  --font-size-entity: 3.5rem;
+  --font-size-hero: 4rem;
+
+  --line-height-metadata: 1.5;
+  --line-height-label: 1.5;
+  --line-height-body: 1.9;
+  --line-height-lead: 1.8;
+  --line-height-heading: 1.4;
+
+  --color-bg: #ffffff;
+  --color-text: #171717;
+  --color-text-soft: #3f3f3f;
+  --color-muted: #6b6b6b;
+  --color-rule: #d9d9d4;
+  --color-rule-strong: #242424;
+  --color-surface-soft: #f7f7f5;
+
+  --accent-matsuri: #284b63;
+  --accent-jinja: #a33a32;
+  --accent-jiin: #684b78;
+  --accent-tomurai: #486457;
+  --color-accent: var(--accent-matsuri);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-14: 3.5rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  --container-wide: 73.75rem;
+  --container-page: 65rem;
+  --container-prose: 47.5rem;
+  --container-narrow: 38.75rem;
+  --page-gutter: 1.5rem;
+
+  --rule-standard: 1px solid var(--color-rule);
+  --rule-strong: 1px solid var(--color-rule-strong);
+  --rule-accent: 2px solid var(--color-accent);
+
+  --radius-default: 2px;
+  --shadow-default: none;
+
+  --section-space-block: var(--space-16);
+}
+
+[data-site="matsuri"] {
+  --color-accent: var(--accent-matsuri);
+}
+
+[data-site="jinja"] {
+  --color-accent: var(--accent-jinja);
+}
+
+[data-site="jiin"] {
+  --color-accent: var(--accent-jiin);
+}
+
+[data-site="tomurai"] {
+  --color-accent: var(--accent-tomurai);
+}
+
+@media (max-width: 900px) {
+  :root {
+    --font-size-h1: 2.125rem;
+    --font-size-entity: 2.5rem;
+    --font-size-hero: 2.625rem;
+    --section-space-block: var(--space-12);
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --page-gutter: 1rem;
+    --section-space-block: var(--space-10);
+  }
+}

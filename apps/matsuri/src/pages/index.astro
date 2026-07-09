@@ -1,20 +1,48 @@
 ---
-const principles = ['Current State', 'Occurrence History', 'Change Events', 'Relations', 'Evidence'];
+import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
+import PageShell from "@badjoke-lab/yukue-ui/components/PageShell.astro";
+import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
+
+const principles = [
+  "Current State",
+  "Occurrence History",
+  "Change Events",
+  "Relations",
+  "Evidence",
+];
 ---
 
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>祭のゆくえ</title>
-  </head>
-  <body>
-    <main>
-      <h1>祭のゆくえ</h1>
+<PageShell
+  site="matsuri"
+  title="祭のゆくえ"
+  description="祭礼と民俗芸能の現在、実施履歴、変化、関係、根拠を記録します。"
+>
+  <header slot="header" class="foundation-header">
+    <Container>
+      <p class="foundation-brand">祭のゆくえ</p>
+    </Container>
+  </header>
+
+  <Section kicker="Foundation Preview" title="祭のゆくえ">
+    <div class="yk-prose">
       <p>祭礼と民俗芸能の継続、休止、変化、復活、関係、実施履歴を根拠とともに記録します。</p>
       <ul>
         {principles.map((principle) => <li>{principle}</li>)}
       </ul>
-    </main>
-  </body>
-</html>
+    </div>
+  </Section>
+</PageShell>
+
+<style>
+  .foundation-header {
+    padding-block: var(--space-5);
+    border-bottom: var(--rule-standard);
+    background: var(--color-bg);
+  }
+
+  .foundation-brand {
+    margin: 0;
+    font-size: var(--font-size-h3);
+    letter-spacing: 0.08em;
+  }
+</style>

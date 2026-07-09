@@ -1,0 +1,22 @@
+---
+type ContainerSize = "wide" | "page" | "prose" | "narrow";
+type ContainerTag = "div" | "main" | "section" | "article" | "aside";
+
+interface Props {
+  as?: ContainerTag;
+  size?: ContainerSize;
+  class?: string;
+}
+
+const {
+  as = "div",
+  size = "page",
+  class: className,
+} = Astro.props;
+
+const Tag = as;
+---
+
+<Tag class:list={["yk-container", className]} data-size={size}>
+  <slot />
+</Tag>
