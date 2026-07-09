@@ -19,7 +19,7 @@ const {
 ---
 
 {contextDescription && <p class="yk-map-context">{contextDescription}</p>}
-<div class="yk-place-map">
+<div class="yk-place-map" data-has-map={embedUrl ? "true" : "false"}>
   <div class="yk-place-list">
     {places.map((place) => (
       <article class="yk-place-item">
