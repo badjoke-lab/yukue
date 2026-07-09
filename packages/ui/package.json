@@ -8,9 +8,17 @@
     "./styles/tokens.css": "./src/styles/tokens.css",
     "./styles/base.css": "./src/styles/base.css",
     "./styles/layout.css": "./src/styles/layout.css",
+    "./styles/patterns.css": "./src/styles/patterns.css",
     "./components/Container.astro": "./src/components/Container.astro",
     "./components/Section.astro": "./src/components/Section.astro",
-    "./components/PageShell.astro": "./src/components/PageShell.astro"
+    "./components/PageShell.astro": "./src/components/PageShell.astro",
+    "./components/ActionLink.astro": "./src/components/ActionLink.astro",
+    "./components/SiteHeader.astro": "./src/components/SiteHeader.astro",
+    "./components/SiteFooter.astro": "./src/components/SiteFooter.astro",
+    "./components/SearchForm.astro": "./src/components/SearchForm.astro",
+    "./components/ObservationSnapshot.astro": "./src/components/ObservationSnapshot.astro",
+    "./components/OverviewGrid.astro": "./src/components/OverviewGrid.astro",
+    "./components/OccurrenceTable.astro": "./src/components/OccurrenceTable.astro"
   },
   "scripts": {
     "build": "tsc --noEmit",
