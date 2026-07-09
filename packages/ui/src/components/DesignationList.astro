@@ -1,0 +1,29 @@
+---
+import type { DesignationItem } from "../types.js";
+
+interface Props {
+  items: DesignationItem[];
+  sourceLabel?: string;
+}
+
+const {
+  items,
+  sourceLabel = "出典",
+} = Astro.props;
+---
+
+<div class="yk-reference-list">
+  {items.map((item) => (
+    <article class="yk-reference-row">
+      <div class="yk-reference-row__label">{item.system ?? "指定"}</div>
+      <div>
+        <strong>{item.name}</strong>
+        {item.authority && <div class="yk-reference-row__meta">{item.authority}</div>}
+      </div>
+      <div class="yk-reference-row__meta">
+        {item.validPeriod && <span>{item.validPeriod}</span>}
+        {item.sourceHref && <span> <a href={item.sourceHref}>{sourceLabel}</a></span>}
+      </div>
+    </article>
+  ))}
+</div>
