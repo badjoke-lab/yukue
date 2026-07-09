@@ -78,10 +78,43 @@ Decision: Place and Geographic Scope are separate concepts. Entity default place
 
 Map treatment must follow single-site, multi-site, route-based, or distributed scope rather than forcing all subjects into one-pin display.
 
+## 2026-07-10 — Visual direction
+
+Decision:
+
+```text
+high-quality Japanese cultural reference work
++
+formal shrine/temple website discipline
++
+premium encyclopedia typography
++
+modern observation data structure
+```
+
+The UI uses white backgrounds, black and gray typography, thin rules, controlled whitespace, minimal card chrome, minimal shadows, and one site accent color.
+
+## 2026-07-10 — Typography
+
+Decision: use one Mincho family system throughout the public UI.
+
+Do not use a separate textbook-style family as a second primary typography system.
+
+## 2026-07-10 — Series accent palette
+
+Decision:
+
+```text
+祭のゆくえ      #284B63  indigo / iron blue
+神社のゆくえ    #A33A32  muted vermilion
+寺院のゆくえ    #684B78  deep traditional purple
+弔いのゆくえ    #486457  deep green
+```
+
+Accent colors are used sparingly for links, selected navigation, state emphasis, timeline markers, focus treatment, and thin structural accents.
+
 ## Open decisions
 
-- final visual design direction,
-- exact typography and density,
 - final map component implementation,
 - exact image storage and optimization pipeline,
 - ULID versus UUIDv7,

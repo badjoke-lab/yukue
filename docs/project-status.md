@@ -1,11 +1,11 @@
 # Project Status
 
-**Last updated:** 2026-07-09
+**Last updated:** 2026-07-10
 
 ## Current phase
 
 ```text
-Phase 1 — Project Reference Documents
+Phase 2 — UI Direction Review
 ```
 
 ## Completed
@@ -17,45 +17,81 @@ Phase 1 — Project Reference Documents
 - shared package skeletons created,
 - baseline CI green,
 - initial data-model validation batches completed,
-- Home IA direction accepted: H1 Search First Hybrid,
-- Detail IA direction accepted: C Integrated Overview,
-- Basic Profile layer direction accepted,
-- Place and map-ready model direction accepted,
-- real-image-only policy accepted.
+- repository project reference set merged,
+- Home IA accepted: H1 Search First Hybrid,
+- Detail IA accepted: C Integrated Overview,
+- Basic Profile layer accepted,
+- Place and map-ready model accepted,
+- real-image-only policy accepted,
+- visual direction accepted,
+- Mincho-only typography direction accepted,
+- four-site accent palette accepted.
+
+## Current UI direction
+
+```text
+white background
+black / gray neutral system
+one Mincho family system
+thin rules
+controlled whitespace
+minimal card chrome
+minimal shadows
+site-specific accent color
+```
+
+Palette:
+
+```text
+祭のゆくえ      #284B63
+神社のゆくえ    #A33A32
+寺院のゆくえ    #684B78
+弔いのゆくえ    #486457
+```
 
 ## In progress
 
-- repository reference document set,
-- public-safe documentation index,
-- working public data model,
-- working Matsuri MVP specification.
+- UI Direction reference document,
+- initial shared Design Tokens baseline,
+- UI Foundation implementation specification.
 
 ## Next gate
 
 ```text
-UI Direction Review
+UI Foundation Specification
 ```
 
 Required outputs:
 
-- Home H1 visual mock comparison,
-- Detail C visual mock comparison,
-- desktop direction,
-- mobile direction,
-- accepted typography and density direction,
-- accepted State, timeline, Evidence, map, and image treatments.
+- shared layout primitives,
+- header and navigation behavior,
+- search form pattern,
+- observation snapshot pattern,
+- overview reference-table pattern,
+- occurrence table pattern,
+- change timeline pattern,
+- relation list pattern,
+- evidence/source apparatus pattern,
+- map container behavior,
+- image/gallery/lightbox behavior,
+- responsive rules,
+- accessibility requirements.
 
-## After UI direction
+## After the UI Foundation specification
 
-Proceed to:
+Proceed to implementation in this order:
 
 ```text
-common schemas
-Matsuri schema extensions
-Place schema
-Image Asset schema
-validation
+shared design tokens
+shared UI primitives
+Matsuri shell
+Home H1 static implementation
+Detail C static implementation
+responsive review
+accessibility baseline
+schema implementation
 sample canonical data
+Public Projection integration
 ```
 
 ## Not yet committed to MVP
