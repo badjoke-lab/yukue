@@ -13,6 +13,7 @@ interface Props {
   title: string;
   description?: string;
   lang?: string;
+  skipLinkLabel?: string;
 }
 
 const {
@@ -20,6 +21,7 @@ const {
   title,
   description,
   lang = "ja",
+  skipLinkLabel = "本文へ移動",
 } = Astro.props;
 
 const accent = getSiteAccent(site);
@@ -35,9 +37,10 @@ const accent = getSiteAccent(site);
     <slot name="head" />
   </head>
   <body class="yk-page-shell">
+    <a class="yk-skip-link" href="#yk-main-content">{skipLinkLabel}</a>
     <div class="yk-site-accent-rule" aria-hidden="true"></div>
     <slot name="header" />
-    <main>
+    <main id="yk-main-content" tabindex="-1">
       <slot />
     </main>
     <slot name="footer" />
