@@ -1,0 +1,59 @@
+---
+import MatsuriBrowseShell from "../../components/MatsuriBrowseShell.astro";
+import { matsuriProjection } from "../../data/matsuri-projection.js";
+import { buildStateBrowseSummaries } from "../../data/reference-view-models.js";
+
+const states = buildStateBrowseSummaries(matsuriProjection);
+---
+
+<MatsuriBrowseShell
+  title="状態｜祭のゆくえ"
+  description="現在状態から祭礼と民俗芸能の公開記録をたどります。"
+  kicker="Current States"
+  heading="状態"
+  intro="承認済みState Snapshotから導出した現在状態ごとに、祭礼と民俗芸能の記録をたどれます。"
+>
+  <div class="state-grid" aria-label="現在状態一覧">
+    {states.map((state) => (
+      <a href={state.href} class="state-card">
+        <span>{state.label}</span>
+        <strong>{state.count}</strong>
+      </a>
+    ))}
+  </div>
+</MatsuriBrowseShell>
+
+<style>
+  .state-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: var(--rule-strong);
+    border-left: var(--rule-standard);
+  }
+
+  .state-card {
+    display: grid;
+    gap: var(--space-4);
+    padding: var(--space-7);
+    border-right: var(--rule-standard);
+    border-bottom: var(--rule-standard);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .state-card span {
+    color: var(--color-text-soft);
+  }
+
+  .state-card strong {
+    color: var(--color-accent);
+    font-size: var(--font-size-h2);
+    font-weight: 500;
+  }
+
+  @media (max-width: 720px) {
+    .state-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
