@@ -1,0 +1,18 @@
+---
+import BrowseEntityList from "../../components/BrowseEntityList.astro";
+import MatsuriBrowseShell from "../../components/MatsuriBrowseShell.astro";
+import { matsuriProjection } from "../../data/matsuri-projection.js";
+import { buildOrganizationBrowseItems } from "../../data/reference-view-models.js";
+
+const items = buildOrganizationBrowseItems(matsuriProjection);
+---
+
+<MatsuriBrowseShell
+  title="組織｜祭のゆくえ"
+  description="祭礼や民俗芸能の開催、維持、継承、支援に関係する公開組織記録を一覧します。"
+  kicker="Organizations"
+  heading="組織"
+  intro="実行委員会、保存会、協議会など、祭礼や民俗芸能の開催・維持・継承・支援に関係する組織記録をたどれます。"
+>
+  <BrowseEntityList items={items} ariaLabel="組織の記録一覧" />
+</MatsuriBrowseShell>

@@ -10,7 +10,7 @@ interface Props {
   kicker: string;
   heading: string;
   intro: string;
-  activeSection?: "festivals" | "performances" | "regions" | "changes" | "search";
+  activeReference?: "about" | "methodology" | "data" | "status";
 }
 
 const {
@@ -19,16 +19,16 @@ const {
   kicker,
   heading,
   intro,
-  activeSection,
+  activeReference,
 } = Astro.props;
 
 const navItems = [
-  { label: "祭礼", href: "/festivals/", active: activeSection === "festivals" },
-  { label: "民俗芸能", href: "/performances/", active: activeSection === "performances" },
-  { label: "地域", href: "/regions/", active: activeSection === "regions" },
-  { label: "変化", href: "/changes/", active: activeSection === "changes" },
-  { label: "検索", href: "/search/", active: activeSection === "search" },
-  { label: "このサイトについて", href: "/about/" },
+  { label: "祭礼", href: "/festivals/" },
+  { label: "民俗芸能", href: "/performances/" },
+  { label: "地域", href: "/regions/" },
+  { label: "変化", href: "/changes/" },
+  { label: "検索", href: "/search/" },
+  { label: "このサイトについて", href: "/about/", active: activeReference === "about" },
 ];
 
 const footerGroups = [
@@ -67,16 +67,16 @@ const footerGroups = [
     navItems={navItems}
   />
 
-  <section class="browse-intro">
+  <section class="reference-intro">
     <Container size="wide">
-      <p class="browse-intro__kicker">{kicker}</p>
+      <p class="reference-intro__kicker">{kicker}</p>
       <h1>{heading}</h1>
-      <p class="browse-intro__lead">{intro}</p>
+      <p class="reference-intro__lead">{intro}</p>
     </Container>
   </section>
 
   <Container size="wide">
-    <main class="browse-content">
+    <main class="reference-content">
       <slot />
     </main>
   </Container>
@@ -89,26 +89,26 @@ const footerGroups = [
 </PageShell>
 
 <style>
-  .browse-intro {
+  .reference-intro {
     padding-block: var(--space-14) var(--space-10);
     border-bottom: var(--rule-standard);
   }
 
-  .browse-intro__kicker {
+  .reference-intro__kicker {
     margin: 0 0 var(--space-3);
     color: var(--color-accent);
     font-size: var(--font-size-sm);
     letter-spacing: 0.12em;
   }
 
-  .browse-intro h1 {
+  .reference-intro h1 {
     margin: 0;
     font-size: var(--font-size-entity);
     font-weight: 500;
     letter-spacing: 0.06em;
   }
 
-  .browse-intro__lead {
+  .reference-intro__lead {
     max-width: var(--container-prose);
     margin: var(--space-5) 0 0;
     color: var(--color-text-soft);
@@ -116,7 +116,44 @@ const footerGroups = [
     line-height: var(--line-height-lead);
   }
 
-  .browse-content {
+  .reference-content {
+    max-width: var(--container-prose);
     padding-block: var(--space-12) var(--space-16);
+  }
+
+  .reference-content :global(section + section) {
+    margin-top: var(--space-12);
+    padding-top: var(--space-10);
+    border-top: var(--rule-standard);
+  }
+
+  .reference-content :global(h2) {
+    margin: 0 0 var(--space-5);
+    font-size: var(--font-size-h2);
+    font-weight: 500;
+  }
+
+  .reference-content :global(h3) {
+    margin: var(--space-7) 0 var(--space-3);
+    font-size: var(--font-size-h3);
+    font-weight: 500;
+  }
+
+  .reference-content :global(p),
+  .reference-content :global(li),
+  .reference-content :global(dd) {
+    color: var(--color-text-soft);
+    line-height: var(--line-height-body);
+  }
+
+  .reference-content :global(a) {
+    color: var(--color-text);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .reference-content :global(code) {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.92em;
   }
 </style>
