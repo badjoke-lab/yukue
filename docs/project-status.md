@@ -38,7 +38,8 @@ Execution Stage D — Sample Canonical Data and Projection
 - C1 common schema contracts completed,
 - C2 Matsuri schema extensions and vocabularies completed,
 - C3 cross-record validation completed,
-- D1 representative sample canonical data completed and validated.
+- D1 representative sample canonical data completed and validated,
+- D2 Public Projection pipeline completed and validated.
 
 ## Current UI direction
 
@@ -92,10 +93,10 @@ project-status.md
 ## Current work
 
 ```text
-D2 — Public Projection pipeline
+D3 — Connect Matsuri Home and Detail to projection data
 ```
 
-D1 representative sample coverage is now fixed as:
+D1 representative sample coverage is fixed as:
 
 ```text
 脚折雨乞
@@ -106,26 +107,31 @@ D1 representative sample coverage is now fixed as:
 東栄町の花祭 / 布川地区花祭
 ```
 
-The D1 batch exercises route-based Place behavior, multi-area festivals, umbrella/component identity, collective Folk Performance identity, Occurrence and Occurrence Series records, Recurrence Patterns, Change Events, Relations, Designations, Sources, and targeted Evidence.
-
-D2 must introduce an explicit projection boundary:
+The D2 projection boundary now provides:
 
 ```text
 approved canonical input
 → validation
-→ Public Projection
-→ HTML-facing data + public JSON-facing data
-→ projection leak check
+→ approval-boundary filtering
+→ validation after filtering
+→ Current State derivation
+→ HTML-facing entity detail projection
+→ public JSON-facing projection
+→ projection leak and reference checks
 ```
+
+D3 must replace fixture-only Matsuri rendering with Public Projection consumption while preserving accepted Home H1 and Detail C behavior.
 
 Only reviewed public-safe canonical records belong in repository data. Unresolved private research notes and source conflicts remain outside the public data layer.
 
 ## Next gates
 
-After D2:
+After D3:
 
 ```text
-D3 — Connect Matsuri Home and Detail to projection data
+E1 — Browse surfaces
+E2 — Search and initial filters
+E3 — Machine-readable baseline
 ```
 
 Then proceed through the remaining work packages in `development-schedule.md`.
