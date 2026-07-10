@@ -175,7 +175,7 @@ export function buildSearchFilterOptions(
   const prefectureLabels = new Map<string, string>();
   for (const entity of projection.json.entities) {
     for (const area of entity.geographic_scope.areas) {
-      if (area.prefecture_name_ja) {
+      if (area.prefecture_code && area.prefecture_name_ja) {
         prefectureLabels.set(area.prefecture_code, area.prefecture_name_ja);
       }
     }
