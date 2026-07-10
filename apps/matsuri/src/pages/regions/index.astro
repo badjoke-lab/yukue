@@ -1,0 +1,19 @@
+---
+import MatsuriBrowseShell from "../../components/MatsuriBrowseShell.astro";
+import RegionBrowseList from "../../components/RegionBrowseList.astro";
+import { matsuriProjection } from "../../data/matsuri-projection.js";
+import { buildRegionBrowseItems } from "../../data/browse-view-models.js";
+
+const items = buildRegionBrowseItems(matsuriProjection);
+---
+
+<MatsuriBrowseShell
+  title="地域｜祭のゆくえ"
+  description="祭礼と民俗芸能の記録を都道府県別に一覧します。"
+  kicker="Regions"
+  heading="地域"
+  intro="公開中の祭礼と民俗芸能を、都道府県と市区町村のまとまりからたどれます。"
+  activeSection="regions"
+>
+  <RegionBrowseList items={items} />
+</MatsuriBrowseShell>
