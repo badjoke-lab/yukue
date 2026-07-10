@@ -1,0 +1,77 @@
+---
+import type { RegionBrowseItem } from "../data/browse-view-models.js";
+
+interface Props {
+  items: RegionBrowseItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="region-list" aria-label="地域別の記録状況">
+  {items.map((item) => (
+    <article class="region-row">
+      <div>
+        <p class="region-row__code">都道府県コード {item.prefectureCode}</p>
+        <h2>{item.prefectureName}</h2>
+      </div>
+      <div class="region-row__detail">
+        <strong>{item.entityCount}件</strong>
+        <p>{item.municipalityNames.join("、")}</p>
+      </div>
+    </article>
+  ))}
+</div>
+
+<style>
+  .region-list {
+    border-top: var(--rule-strong);
+  }
+
+  .region-row {
+    display: grid;
+    grid-template-columns: minmax(12rem, 0.8fr) minmax(0, 1.2fr);
+    gap: var(--space-10);
+    align-items: center;
+    padding-block: var(--space-7);
+    border-bottom: var(--rule-standard);
+  }
+
+  .region-row__code {
+    margin: 0 0 var(--space-2);
+    color: var(--color-muted);
+    font-size: var(--font-size-xs);
+  }
+
+  .region-row h2 {
+    margin: 0;
+    font-size: var(--font-size-h2);
+    font-weight: 500;
+  }
+
+  .region-row__detail {
+    display: grid;
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: var(--space-6);
+    align-items: baseline;
+  }
+
+  .region-row__detail strong {
+    color: var(--color-accent);
+    font-size: var(--font-size-h3);
+    font-weight: 500;
+  }
+
+  .region-row__detail p {
+    margin: 0;
+    color: var(--color-text-soft);
+  }
+
+  @media (max-width: 720px) {
+    .region-row,
+    .region-row__detail {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+  }
+</style>
