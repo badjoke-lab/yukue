@@ -12,6 +12,7 @@ import batch04 from "../../../../data/public/matsuri/f1/batch-04.json";
 import batch05 from "../../../../data/public/matsuri/f1/batch-05.json";
 import batch06 from "../../../../data/public/matsuri/f1/batch-06.json";
 import batch07 from "../../../../data/public/matsuri/f1/batch-07.json";
+import batch08 from "../../../../data/public/matsuri/f1/batch-08.json";
 
 const batches = [
   batch01,
@@ -21,6 +22,7 @@ const batches = [
   batch05,
   batch06,
   batch07,
+  batch08,
 ];
 const batchRecords = <TKey extends keyof (typeof batches)[number]>(key: TKey) =>
   batches.flatMap((batch) => batch[key]);
