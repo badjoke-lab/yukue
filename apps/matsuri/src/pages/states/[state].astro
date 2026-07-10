@@ -1,0 +1,45 @@
+---
+import BrowseEntityList from "../../components/BrowseEntityList.astro";
+import MatsuriBrowseShell from "../../components/MatsuriBrowseShell.astro";
+import { matsuriProjection } from "../../data/matsuri-projection.js";
+import {
+  buildStateBrowseItems,
+  buildStateBrowseSummaries,
+  type StateBrowseSummary,
+} from "../../data/reference-view-models.js";
+
+export function getStaticPaths() {
+  return buildStateBrowseSummaries(matsuriProjection).map((summary) => ({
+    params: { state: summary.stateCode },
+    props: { summary },
+  }));
+}
+
+interface Props {
+  summary: StateBrowseSummary;
+}
+
+const { summary } = Astro.props;
+const items = buildStateBrowseItems(matsuriProjection, summary.stateCode);
+---
+
+<MatsuriBrowseShell
+  title={`${summary.label}｜状態｜祭のゆくえ`}
+  description={`現在状態が「${summary.label}」の公開記録を一覧します。`}
+  kicker="Current State"
+  heading={summary.label}
+  intro={`承認済みState Snapshotから現在状態が「${summary.label}」と導出された記録です。Occurrenceの個別結果とは別に判定します。`}
+>
+  {items.length > 0 ? (
+    <BrowseEntityList items={items} ariaLabel={`${summary.label}の記録一覧`} />
+  ) : (
+    <p class="empty-state">現在、この状態で公開している記録はありません。</p>
+  )}
+</MatsuriBrowseShell>
+
+<style>
+  .empty-state {
+    margin: 0;
+    color: var(--color-text-soft);
+  }
+</style>
