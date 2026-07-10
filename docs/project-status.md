@@ -41,7 +41,8 @@ Execution Stage E — Browse, Search, and Machine-readable Surfaces
 - D1 representative sample canonical data completed and validated,
 - D2 Public Projection pipeline completed and validated,
 - D3 Matsuri Home and Festival Detail integration with Public Projection completed and validated,
-- E1 Projection-backed Browse surfaces for Festivals, Performances, Regions, and Changes completed and validated.
+- E1 Projection-backed Browse surfaces for Festivals, Performances, Regions, and Changes completed and validated,
+- E2 Pagefind full-text search and initial Entity Type, Prefecture, and Current State filters completed and validated.
 
 ## Current UI direction
 
@@ -95,10 +96,52 @@ project-status.md
 ## Current work
 
 ```text
-E2 — Search and initial filters
+E3 — Machine-readable baseline
 ```
 
-Initial search filters are fixed as:
+Required initial public outputs are:
+
+```text
+/version.json
+/data/manifest.json
+/data/entities.json
+/data/events.json
+/data/relations.json
+/data/occurrences.json
+/llms.txt
+/ai.txt
+/sitemap.xml
+```
+
+E3 must generate machine-readable outputs from the same approved Public Projection used by public rendering. It must not expose unpublished candidate, review, or private research material.
+
+The public rendering and discovery path is now:
+
+```text
+reviewed canonical data
+→ validation
+→ approved Public Projection
+→ Matsuri Home / Detail / Browse view models
+→ Astro static HTML
+→ Pagefind static search index
+```
+
+Search is available at:
+
+```text
+/search/
+```
+
+with predictable URL state:
+
+```text
+q
+type
+prefecture
+state
+```
+
+and initial filters:
 
 ```text
 Entity Type
@@ -106,19 +149,7 @@ Prefecture
 Current State
 ```
 
-E2 must provide:
-
-```text
-full-text search
-+ Entity Type filter
-+ Prefecture filter
-+ Current State filter
-+ clear zero-result state
-+ predictable filter URLs or state
-+ accessibility baseline
-```
-
-The first Browse surfaces are now available at:
+The first Browse surfaces remain:
 
 ```text
 /festivals/
@@ -126,8 +157,6 @@ The first Browse surfaces are now available at:
 /regions/
 /changes/
 ```
-
-They consume Public Projection view models, use public-facing Japanese labels, and only link to detail routes that are already published.
 
 D1 representative sample coverage remains:
 
@@ -140,24 +169,15 @@ D1 representative sample coverage remains:
 東栄町の花祭 / 布川地区花祭
 ```
 
-The public rendering path is now:
-
-```text
-reviewed canonical data
-→ validation
-→ approved Public Projection
-→ Matsuri Home / Detail / Browse view models
-→ Astro static HTML
-```
-
 Only reviewed public-safe canonical records belong in repository data. Unresolved private research notes and source conflicts remain outside the public data layer.
 
 ## Next gates
 
-After E2:
+After E3:
 
 ```text
-E3 — Machine-readable baseline
+F1 — Corpus expansion
+F2 — Launch preparation
 ```
 
 Then proceed through the remaining work packages in `development-schedule.md`.
