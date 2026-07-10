@@ -1,0 +1,47 @@
+---
+import MatsuriReferenceShell from "../../components/MatsuriReferenceShell.astro";
+---
+
+<MatsuriReferenceShell
+  title="方法論｜祭のゆくえ"
+  description="祭のゆくえの記録単位、状態判定、Occurrence、Change Event、Relation、Evidenceの考え方を説明します。"
+  kicker="Methodology"
+  heading="記録の方法"
+  intro="現在の状態、個別の開催・上演、長期的な変化、関係、根拠資料を分離して記録し、推測で穴を埋めないことを基本原則とします。"
+  activeReference="methodology"
+>
+  <section>
+    <h2>状態と出来事を分ける</h2>
+    <p>Current Stateは、対象そのものが現在どういう状態にあるかを示します。Occurrenceは特定年や特定日の開催・上演結果、Change Eventは休止開始、復活、形式変更、日程変更などの長期的な変化を示します。</p>
+    <p>一度の中止だけでCurrent Stateを休止へ変更しません。逆に、長期休止や終了を示すには、それを直接裏付ける根拠が必要です。</p>
+  </section>
+
+  <section>
+    <h2>Occurrenceの扱い</h2>
+    <p>年ごとの開催・上演は、scheduled、held、partially held、postponed、rescheduled、cancelled、not held、unknownなどに分けます。規模もnormal、reduced、expanded、modified、unknownとして別に記録します。</p>
+    <p>根拠が人数や会場数だけの場合、比較基準がない限り規模を推定しません。</p>
+  </section>
+
+  <section>
+    <h2>Change Eventの扱い</h2>
+    <p>休止、復活、開催形式変更、日程規則変更、会場変更、主催変更、保存組織の形成や再編、災害による中断などを、確認できる範囲で記録します。</p>
+    <p>資料が「約60年間中断した」とだけ示す場合、そこから開始年や再開年を逆算しません。時期の精度は資料の精度に合わせます。</p>
+  </section>
+
+  <section>
+    <h2>Relationの扱い</h2>
+    <p>祭礼、民俗芸能、組織、神社、寺院、場所の関係を、held_at、performed_at、dedicated_at、organized_by、maintained_by、supported_by、successor_ofなどの方向付きRelationとして記録します。</p>
+    <p>関係は名前が一緒に出てくるだけでは作らず、主催、維持、奉納、参加、継承など具体的な関係が確認できる場合に限ります。</p>
+  </section>
+
+  <section id="evidence">
+    <h2>EvidenceとSource</h2>
+    <p>Sourceは情報源そのもの、EvidenceはそのSourceがどの記録のどの主張を支えるかを示す単位です。現在状態、Occurrence、Change Event、Relation、Designationなどの重要な記録はEvidenceと結び付けます。</p>
+    <p>優先するのは行政・自治体、文化財の公的データベース、主催者や保存団体、神社・寺院の公式情報、公式観光情報、学術・研究機関などです。AI生成文はEvidenceとして扱いません。</p>
+  </section>
+
+  <section>
+    <h2>公開前レビュー</h2>
+    <p>候補収集と公開データは分離します。公開されるのはレビュー済みのcanonical recordだけです。未確認候補、内部confidence、私的な調査メモ、未解決のsource conflictはPublic Projectionに含めません。</p>
+  </section>
+</MatsuriReferenceShell>
