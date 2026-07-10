@@ -1,0 +1,363 @@
+---
+import { buildSearchFilterOptions } from "@badjoke-lab/yukue-search";
+import MatsuriBrowseShell from "../../components/MatsuriBrowseShell.astro";
+import { matsuriProjection } from "../../data/matsuri-projection.js";
+
+const filterOptions = buildSearchFilterOptions(matsuriProjection);
+---
+
+<MatsuriBrowseShell
+  title="検索｜祭のゆくえ"
+  description="祭礼と民俗芸能をキーワード、種別、都道府県、現在状態から検索します。"
+  kicker="Search"
+  heading="検索"
+  intro="名称や地域、記録内容を横断検索し、種別・都道府県・現在状態で絞り込めます。"
+  activeSection="search"
+>
+  <form id="search-form" class="search-form" method="get" action="/search/">
+    <div class="search-form__query">
+      <label for="search-query">キーワード</label>
+      <input
+        id="search-query"
+        name="q"
+        type="search"
+        placeholder="祭礼・民俗芸能・地域を検索"
+        autocomplete="off"
+      />
+    </div>
+
+    <div class="search-form__filters">
+      <div>
+        <label for="search-type">種別</label>
+        <select id="search-type" name="type">
+          <option value="">すべて</option>
+          {filterOptions.entityTypes.map((option) => (
+            <option value={option.value}>{option.label}</option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label for="search-prefecture">都道府県</label>
+        <select id="search-prefecture" name="prefecture">
+          <option value="">すべて</option>
+          {filterOptions.prefectures.map((option) => (
+            <option value={option.value}>{option.label}</option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label for="search-state">現在状態</label>
+        <select id="search-state" name="state">
+          <option value="">すべて</option>
+          {filterOptions.currentStates.map((option) => (
+            <option value={option.value}>{option.label}</option>
+          ))}
+        </select>
+      </div>
+    </div>
+
+    <div class="search-form__actions">
+      <button type="submit">検索する</button>
+      <a href="/search/">条件をクリア</a>
+    </div>
+  </form>
+
+  <section class="search-results" aria-labelledby="search-results-heading">
+    <div class="search-results__header">
+      <h2 id="search-results-heading">検索結果</h2>
+      <p id="search-status" role="status" aria-live="polite">検索indexを読み込んでいます。</p>
+    </div>
+    <ol id="search-result-list" aria-busy="true"></ol>
+    <noscript>
+      <p class="search-no-script">検索機能を利用するにはJavaScriptを有効にしてください。</p>
+    </noscript>
+  </section>
+</MatsuriBrowseShell>
+
+<script is:inline>
+  (() => {
+    const form = document.querySelector("#search-form");
+    const queryInput = document.querySelector("#search-query");
+    const typeSelect = document.querySelector("#search-type");
+    const prefectureSelect = document.querySelector("#search-prefecture");
+    const stateSelect = document.querySelector("#search-state");
+    const status = document.querySelector("#search-status");
+    const resultList = document.querySelector("#search-result-list");
+
+    if (
+      !(form instanceof HTMLFormElement) ||
+      !(queryInput instanceof HTMLInputElement) ||
+      !(typeSelect instanceof HTMLSelectElement) ||
+      !(prefectureSelect instanceof HTMLSelectElement) ||
+      !(stateSelect instanceof HTMLSelectElement) ||
+      !(status instanceof HTMLElement) ||
+      !(resultList instanceof HTMLOListElement)
+    ) {
+      return;
+    }
+
+    const pagefindPromise = import("/pagefind/pagefind.js");
+
+    function applyParamsToForm(params) {
+      queryInput.value = params.get("q") ?? "";
+      typeSelect.value = params.get("type") ?? "";
+      prefectureSelect.value = params.get("prefecture") ?? "";
+      stateSelect.value = params.get("state") ?? "";
+    }
+
+    function paramsFromForm() {
+      const params = new URLSearchParams();
+      const query = queryInput.value.trim();
+      if (query) params.set("q", query);
+      if (typeSelect.value) params.set("type", typeSelect.value);
+      if (prefectureSelect.value) params.set("prefecture", prefectureSelect.value);
+      if (stateSelect.value) params.set("state", stateSelect.value);
+      return params;
+    }
+
+    function filtersFromParams(params) {
+      const filters = {};
+      const type = params.get("type");
+      const prefecture = params.get("prefecture");
+      const state = params.get("state");
+      if (type) filters.entity_type = type;
+      if (prefecture) filters.prefecture = prefecture;
+      if (state) filters.current_state = state;
+      return filters;
+    }
+
+    function appendText(parent, tagName, className, text) {
+      const element = document.createElement(tagName);
+      if (className) element.className = className;
+      element.textContent = text;
+      parent.append(element);
+      return element;
+    }
+
+    function renderResults(results) {
+      resultList.replaceChildren();
+
+      for (const data of results) {
+        const item = document.createElement("li");
+        item.className = "search-result-row";
+
+        const meta = data.meta ?? {};
+        const metaLine = document.createElement("p");
+        metaLine.className = "search-result-row__meta";
+        const metaParts = [meta.type_label, meta.state_label, meta.region].filter(Boolean);
+        metaLine.textContent = metaParts.join(" · ");
+        item.append(metaLine);
+
+        const heading = document.createElement("h3");
+        const link = document.createElement("a");
+        link.href = data.url;
+        link.textContent = meta.title || data.url;
+        heading.append(link);
+        item.append(heading);
+
+        if (meta.summary) {
+          appendText(item, "p", "search-result-row__summary", meta.summary);
+        }
+
+        resultList.append(item);
+      }
+    }
+
+    async function runSearch(params) {
+      applyParamsToForm(params);
+      status.textContent = "検索しています。";
+      resultList.setAttribute("aria-busy", "true");
+
+      try {
+        const pagefind = await pagefindPromise;
+        const query = params.get("q")?.trim() || null;
+        const filters = filtersFromParams(params);
+        const search = await pagefind.search(query, { filters });
+        const results = await Promise.all(search.results.map((result) => result.data()));
+
+        renderResults(results);
+        if (results.length === 0) {
+          status.textContent = "条件に一致する記録はありません。検索語や絞り込み条件を変更してください。";
+        } else {
+          status.textContent = `${results.length}件の記録が見つかりました。`;
+        }
+      } catch (error) {
+        console.error(error);
+        resultList.replaceChildren();
+        status.textContent = "検索indexを読み込めませんでした。ページを再読み込みしてください。";
+      } finally {
+        resultList.setAttribute("aria-busy", "false");
+      }
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const params = paramsFromForm();
+      const query = params.toString();
+      const nextUrl = query ? `/search/?${query}` : "/search/";
+      window.history.pushState(null, "", nextUrl);
+      void runSearch(params);
+    });
+
+    window.addEventListener("popstate", () => {
+      void runSearch(new URLSearchParams(window.location.search));
+    });
+
+    void runSearch(new URLSearchParams(window.location.search));
+  })();
+</script>
+
+<style>
+  .search-form {
+    padding: var(--space-8);
+    border-top: var(--rule-strong);
+    border-bottom: var(--rule-strong);
+  }
+
+  .search-form label {
+    display: block;
+    margin-bottom: var(--space-2);
+    color: var(--color-text-soft);
+    font-size: var(--font-size-sm);
+  }
+
+  .search-form input,
+  .search-form select {
+    width: 100%;
+    min-height: 3rem;
+    padding: var(--space-3) var(--space-4);
+    border: var(--rule-standard);
+    border-radius: 0;
+    background: var(--color-surface);
+    color: var(--color-text);
+    font: inherit;
+  }
+
+  .search-form input:focus-visible,
+  .search-form select:focus-visible,
+  .search-form button:focus-visible,
+  .search-form a:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  .search-form__query {
+    max-width: var(--container-prose);
+  }
+
+  .search-form__filters {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-7);
+  }
+
+  .search-form__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    margin-top: var(--space-7);
+  }
+
+  .search-form button {
+    min-height: 3rem;
+    padding-inline: var(--space-7);
+    border: 1px solid var(--color-accent);
+    border-radius: 0;
+    background: var(--color-accent);
+    color: var(--color-surface);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .search-form__actions a {
+    color: var(--color-text-soft);
+    text-underline-offset: 0.2em;
+  }
+
+  .search-results {
+    margin-top: var(--space-12);
+  }
+
+  .search-results__header {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-8);
+    align-items: baseline;
+    margin-bottom: var(--space-5);
+  }
+
+  .search-results__header h2 {
+    margin: 0;
+    font-size: var(--font-size-h2);
+    font-weight: 500;
+  }
+
+  .search-results__header p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  #search-result-list {
+    margin: 0;
+    padding: 0;
+    border-top: var(--rule-strong);
+    list-style: none;
+  }
+
+  :global(.search-result-row) {
+    padding-block: var(--space-7);
+    border-bottom: var(--rule-standard);
+  }
+
+  :global(.search-result-row__meta) {
+    margin: 0 0 var(--space-2);
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+  }
+
+  :global(.search-result-row h3) {
+    margin: 0;
+    font-size: var(--font-size-h2);
+    font-weight: 500;
+  }
+
+  :global(.search-result-row h3 a) {
+    color: var(--color-text);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  :global(.search-result-row__summary) {
+    max-width: var(--container-prose);
+    margin: var(--space-3) 0 0;
+    color: var(--color-text-soft);
+  }
+
+  .search-no-script {
+    padding-block: var(--space-6);
+    color: var(--color-text-soft);
+  }
+
+  @media (max-width: 760px) {
+    .search-form {
+      padding-inline: 0;
+    }
+
+    .search-form__filters {
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+    }
+
+    .search-results__header {
+      display: block;
+    }
+
+    .search-results__header p {
+      margin-top: var(--space-2);
+    }
+  }
+</style>
