@@ -26,3 +26,6 @@ jobs:
 
       - name: Build workspaces
         run: pnpm build
+
+      - name: Verify Matsuri Pages artifact
+        run: pnpm check:matsuri:pages
