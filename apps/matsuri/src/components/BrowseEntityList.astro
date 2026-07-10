@@ -11,7 +11,7 @@ const { items, ariaLabel } = Astro.props;
 
 <div class="browse-entity-list" aria-label={ariaLabel}>
   {items.map((item) => (
-    <article class="browse-entity-row">
+    <article class="browse-entity-row" id={item.id}>
       <div class="browse-entity-row__meta">
         <span>{item.typeLabel}</span>
         {item.stateLabel && <span class="browse-entity-row__state">{item.stateLabel}</span>}
@@ -38,6 +38,12 @@ const { items, ariaLabel } = Astro.props;
     gap: var(--space-8);
     padding-block: var(--space-7);
     border-bottom: var(--rule-standard);
+    scroll-margin-top: var(--space-10);
+  }
+
+  .browse-entity-row:target {
+    border-left: var(--rule-accent);
+    padding-left: var(--space-5);
   }
 
   .browse-entity-row__meta {
