@@ -5,6 +5,7 @@ import { buildPublicProjection } from "@badjoke-lab/yukue-observation-core";
 
 const d1Directory = new URL("../../../data/public/matsuri/d1/", import.meta.url);
 const f1Directory = new URL("../../../data/public/matsuri/f1/", import.meta.url);
+const f1BatchFiles = ["batch-01.json", "batch-02.json"];
 
 function readJson(directory, fileName) {
   const filePath = fileURLToPath(new URL(fileName, directory));
@@ -13,35 +14,39 @@ function readJson(directory, fileName) {
 
 export function loadMatsuriProjection() {
   const records = readJson(d1Directory, "records.json");
-  const batch01 = readJson(f1Directory, "batch-01.json");
+  const batches = f1BatchFiles.map((fileName) => readJson(f1Directory, fileName));
+  const batchRecords = (key) => batches.flatMap((batch) => batch[key]);
 
   return buildPublicProjection({
     entities: [
       ...readJson(d1Directory, "entities.json"),
-      ...batch01.entities,
+      ...batchRecords("entities"),
     ],
-    places: [...readJson(d1Directory, "places.json"), ...batch01.places],
+    places: [
+      ...readJson(d1Directory, "places.json"),
+      ...batchRecords("places"),
+    ],
     stateSnapshots: [
       ...readJson(d1Directory, "state-snapshots.json"),
-      ...batch01.stateSnapshots,
+      ...batchRecords("stateSnapshots"),
     ],
-    changeEvents: [...records.changeEvents, ...batch01.changeEvents],
-    occurrences: [...records.occurrences, ...batch01.occurrences],
+    changeEvents: [...records.changeEvents, ...batchRecords("changeEvents")],
+    occurrences: [...records.occurrences, ...batchRecords("occurrences")],
     occurrenceSeries: [
       ...records.occurrenceSeries,
-      ...batch01.occurrenceSeries,
+      ...batchRecords("occurrenceSeries"),
     ],
     recurrencePatterns: [
       ...records.recurrencePatterns,
-      ...batch01.recurrencePatterns,
+      ...batchRecords("recurrencePatterns"),
     ],
-    relations: [...records.relations, ...batch01.relations],
-    designations: [...records.designations, ...batch01.designations],
-    sources: [...records.sources, ...batch01.sources],
+    relations: [...records.relations, ...batchRecords("relations")],
+    designations: [...records.designations, ...batchRecords("designations")],
+    sources: [...records.sources, ...batchRecords("sources")],
     evidence: [
       ...readJson(d1Directory, "evidence.json"),
-      ...batch01.evidence,
+      ...batchRecords("evidence"),
     ],
-    images: [...records.images, ...batch01.images],
+    images: [...records.images, ...batchRecords("images")],
   });
 }
