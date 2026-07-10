@@ -37,7 +37,8 @@ Execution Stage D — Sample Canonical Data and Projection
 - B3 UI review corrections and accessibility baseline completed,
 - C1 common schema contracts completed,
 - C2 Matsuri schema extensions and vocabularies completed,
-- C3 cross-record validation completed.
+- C3 cross-record validation completed,
+- D1 representative sample canonical data completed and validated.
 
 ## Current UI direction
 
@@ -91,10 +92,10 @@ project-status.md
 ## Current work
 
 ```text
-D1 — Representative sample canonical data
+D2 — Public Projection pipeline
 ```
 
-Candidate sample subjects:
+D1 representative sample coverage is now fixed as:
 
 ```text
 脚折雨乞
@@ -102,19 +103,28 @@ Candidate sample subjects:
 祇園祭 / 鷹山
 早池峰神楽
 佐陀神能
-one additional multi-site or organization-heavy case
+東栄町の花祭 / 布川地区花祭
 ```
 
-D1 must exercise different structural cases before corpus expansion: route-based Place behavior, umbrella/component identity, Festival/Folk Performance boundaries, Occurrence history, Change Events, Relations, Designations, Sources, and Evidence.
+The D1 batch exercises route-based Place behavior, multi-area festivals, umbrella/component identity, collective Folk Performance identity, Occurrence and Occurrence Series records, Recurrence Patterns, Change Events, Relations, Designations, Sources, and targeted Evidence.
+
+D2 must introduce an explicit projection boundary:
+
+```text
+approved canonical input
+→ validation
+→ Public Projection
+→ HTML-facing data + public JSON-facing data
+→ projection leak check
+```
 
 Only reviewed public-safe canonical records belong in repository data. Unresolved private research notes and source conflicts remain outside the public data layer.
 
 ## Next gates
 
-After D1:
+After D2:
 
 ```text
-D2 — Public Projection pipeline
 D3 — Connect Matsuri Home and Detail to projection data
 ```
 
