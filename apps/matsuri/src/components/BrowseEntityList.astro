@@ -1,0 +1,91 @@
+---
+import type { BrowseEntityItem } from "../data/browse-view-models.js";
+
+interface Props {
+  items: BrowseEntityItem[];
+  ariaLabel: string;
+}
+
+const { items, ariaLabel } = Astro.props;
+---
+
+<div class="browse-entity-list" aria-label={ariaLabel}>
+  {items.map((item) => (
+    <article class="browse-entity-row">
+      <div class="browse-entity-row__meta">
+        <span>{item.typeLabel}</span>
+        {item.stateLabel && <span class="browse-entity-row__state">{item.stateLabel}</span>}
+      </div>
+      <div class="browse-entity-row__body">
+        <h2>
+          {item.href ? <a href={item.href}>{item.name}</a> : item.name}
+        </h2>
+        <p class="browse-entity-row__region">{item.region}</p>
+        {item.summary && <p>{item.summary}</p>}
+      </div>
+    </article>
+  ))}
+</div>
+
+<style>
+  .browse-entity-list {
+    border-top: var(--rule-strong);
+  }
+
+  .browse-entity-row {
+    display: grid;
+    grid-template-columns: 12rem minmax(0, 1fr);
+    gap: var(--space-8);
+    padding-block: var(--space-7);
+    border-bottom: var(--rule-standard);
+  }
+
+  .browse-entity-row__meta {
+    display: grid;
+    align-content: start;
+    gap: var(--space-2);
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  .browse-entity-row__state {
+    color: var(--color-accent);
+  }
+
+  .browse-entity-row__body h2 {
+    margin: 0 0 var(--space-2);
+    font-size: var(--font-size-h2);
+    font-weight: 500;
+  }
+
+  .browse-entity-row__body h2 a {
+    color: var(--color-text);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .browse-entity-row__body p {
+    max-width: var(--container-prose);
+    margin: var(--space-3) 0 0;
+    color: var(--color-text-soft);
+  }
+
+  .browse-entity-row__body .browse-entity-row__region {
+    margin-top: 0;
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  @media (max-width: 720px) {
+    .browse-entity-row {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .browse-entity-row__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+  }
+</style>
