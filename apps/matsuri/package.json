@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/build-search-index.mjs"
+    "build": "astro build && node scripts/build-search-index.mjs && node scripts/build-machine-readable.mjs"
   },
   "dependencies": {
+    "@badjoke-lab/yukue-machine-readable": "workspace:*",
     "@badjoke-lab/yukue-observation-core": "workspace:*",
     "@badjoke-lab/yukue-search": "workspace:*",
     "@badjoke-lab/yukue-ui": "workspace:*",
