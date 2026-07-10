@@ -5,7 +5,7 @@
 ## Current phase
 
 ```text
-Execution Stage E — Browse, Search, and Machine-readable Surfaces
+Execution Stage F — Corpus Expansion and Launch Preparation
 ```
 
 ## Completed
@@ -42,7 +42,8 @@ Execution Stage E — Browse, Search, and Machine-readable Surfaces
 - D2 Public Projection pipeline completed and validated,
 - D3 Matsuri Home and Festival Detail integration with Public Projection completed and validated,
 - E1 Projection-backed Browse surfaces for Festivals, Performances, Regions, and Changes completed and validated,
-- E2 Pagefind full-text search and initial Entity Type, Prefecture, and Current State filters completed and validated.
+- E2 Pagefind full-text search and initial Entity Type, Prefecture, and Current State filters completed and validated,
+- E3 machine-readable public baseline completed and validated.
 
 ## Current UI direction
 
@@ -96,10 +97,24 @@ project-status.md
 ## Current work
 
 ```text
-E3 — Machine-readable baseline
+F1 — Corpus expansion
 ```
 
-Required initial public outputs are:
+Corpus expansion must increase coverage across:
+
+```text
+Festival records
+Folk Performance records
+Organization records
+Occurrence history
+Change Events
+Relations
+Evidence coverage
+```
+
+Do not maximize Entity count while leaving Occurrence, Change, Relation, or Evidence coverage weak.
+
+The machine-readable baseline now generates:
 
 ```text
 /version.json
@@ -113,7 +128,9 @@ Required initial public outputs are:
 /sitemap.xml
 ```
 
-E3 must generate machine-readable outputs from the same approved Public Projection used by public rendering. It must not expose unpublished candidate, review, or private research material.
+All baseline machine-readable files are generated from the same approved Public Projection used by public rendering and search. The manifest includes public record counts, version markers, data-safety markers, and the public file inventory.
+
+Production sitemap origins are supplied through deployment configuration. Development builds use path-based sitemap locations until Launch Preparation establishes and validates the canonical public origin.
 
 The public rendering and discovery path is now:
 
@@ -124,9 +141,10 @@ reviewed canonical data
 → Matsuri Home / Detail / Browse view models
 → Astro static HTML
 → Pagefind static search index
+→ machine-readable public baseline
 ```
 
-Search is available at:
+Search remains available at:
 
 ```text
 /search/
@@ -171,16 +189,27 @@ D1 representative sample coverage remains:
 
 Only reviewed public-safe canonical records belong in repository data. Unresolved private research notes and source conflicts remain outside the public data layer.
 
-## Next gates
+## Next gate
 
-After E3:
+After F1:
 
 ```text
-F1 — Corpus expansion
 F2 — Launch preparation
 ```
 
-Then proceed through the remaining work packages in `development-schedule.md`.
+Launch preparation covers:
+
+```text
+Cloudflare deployment
+custom domain decision
+canonical URL validation
+sitemap validation
+search indexing checks
+analytics baseline
+status page
+methodology page
+data access page
+```
 
 ## Not yet committed to MVP
 
