@@ -43,7 +43,8 @@ Execution Stage F — Corpus Expansion and Launch Preparation
 - D3 Matsuri Home and Festival Detail integration with Public Projection completed and validated,
 - E1 Projection-backed Browse surfaces for Festivals, Performances, Regions, and Changes completed and validated,
 - E2 Pagefind full-text search and initial Entity Type, Prefecture, and Current State filters completed and validated,
-- E3 machine-readable public baseline completed and validated.
+- E3 machine-readable public baseline completed and validated,
+- F1 corpus expansion batches 01 through 03 completed and validated.
 
 ## Current UI direction
 
@@ -113,6 +114,8 @@ Evidence coverage
 ```
 
 Do not maximize Entity count while leaving Occurrence, Change, Relation, or Evidence coverage weak.
+
+F1 progress now includes three validated expansion batches. Batch 01 and batch 02 broadened Festival, Folk Performance, Organization, Occurrence, Relation, Designation, and Evidence coverage. Batch 03 shifted emphasis toward occurrence and change-history depth, including cancelled, partially held, reduced-scale, and scheduled annual editions while keeping Current State separate from individual Occurrence outcomes.
 
 The machine-readable baseline now generates:
 
