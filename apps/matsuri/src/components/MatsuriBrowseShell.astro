@@ -10,7 +10,7 @@ interface Props {
   kicker: string;
   heading: string;
   intro: string;
-  activeSection: "festivals" | "performances" | "regions" | "changes";
+  activeSection: "festivals" | "performances" | "regions" | "changes" | "search";
 }
 
 const {
@@ -27,7 +27,7 @@ const navItems = [
   { label: "民俗芸能", href: "/performances/", active: activeSection === "performances" },
   { label: "地域", href: "/regions/", active: activeSection === "regions" },
   { label: "変化", href: "/changes/", active: activeSection === "changes" },
-  { label: "検索", href: "/search/" },
+  { label: "検索", href: "/search/", active: activeSection === "search" },
   { label: "このサイトについて", href: "/about/" },
 ];
 
