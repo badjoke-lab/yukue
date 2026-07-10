@@ -1,0 +1,81 @@
+---
+import type { ChangeBrowseItem } from "../data/browse-view-models.js";
+
+interface Props {
+  items: ChangeBrowseItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="change-list" aria-label="変化の記録一覧">
+  {items.map((item) => (
+    <article class="change-row">
+      <div class="change-row__meta">
+        <time>{item.date}</time>
+        <span>{item.typeLabel}</span>
+      </div>
+      <div class="change-row__body">
+        <h2>{item.href ? <a href={item.href}>{item.entityName}</a> : item.entityName}</h2>
+        <p>{item.summary}</p>
+      </div>
+    </article>
+  ))}
+</div>
+
+<style>
+  .change-list {
+    border-top: var(--rule-strong);
+  }
+
+  .change-row {
+    display: grid;
+    grid-template-columns: 12rem minmax(0, 1fr);
+    gap: var(--space-8);
+    padding-block: var(--space-7);
+    border-bottom: var(--rule-standard);
+  }
+
+  .change-row__meta {
+    display: grid;
+    align-content: start;
+    gap: var(--space-2);
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  .change-row__meta span {
+    color: var(--color-accent);
+  }
+
+  .change-row__body h2 {
+    margin: 0 0 var(--space-3);
+    font-size: var(--font-size-h2);
+    font-weight: 500;
+  }
+
+  .change-row__body h2 a {
+    color: var(--color-text);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .change-row__body p {
+    max-width: var(--container-prose);
+    margin: 0;
+    color: var(--color-text-soft);
+  }
+
+  @media (max-width: 720px) {
+    .change-row {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .change-row__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+  }
+</style>
