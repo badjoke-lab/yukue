@@ -44,7 +44,7 @@ Execution Stage F — Corpus Expansion and Launch Preparation
 - E1 Projection-backed Browse surfaces for Festivals, Performances, Regions, and Changes completed and validated,
 - E2 Pagefind full-text search and initial Entity Type, Prefecture, and Current State filters completed and validated,
 - E3 machine-readable public baseline completed and validated,
-- F1 corpus expansion batches 01 through 03 completed and validated.
+- F1 corpus expansion batches 01 through 04 completed and validated.
 
 ## Current UI direction
 
@@ -115,7 +115,7 @@ Evidence coverage
 
 Do not maximize Entity count while leaving Occurrence, Change, Relation, or Evidence coverage weak.
 
-F1 progress now includes three validated expansion batches. Batch 01 and batch 02 broadened Festival, Folk Performance, Organization, Occurrence, Relation, Designation, and Evidence coverage. Batch 03 shifted emphasis toward occurrence and change-history depth, including cancelled, partially held, reduced-scale, and scheduled annual editions while keeping Current State separate from individual Occurrence outcomes.
+F1 progress now includes four validated expansion batches. Batch 01 and batch 02 broadened Festival, Folk Performance, Organization, Occurrence, Relation, Designation, and Evidence coverage. Batch 03 shifted emphasis toward occurrence and change-history depth, including cancelled, partially held, reduced-scale, and scheduled annual editions while keeping Current State separate from individual Occurrence outcomes. Batch 04 deepened existing D1 entities without adding new Entities, recording a schedule-rule change for 相馬野馬追 and a revival-completion Event plus return Occurrence for 鷹山.
 
 The machine-readable baseline now generates:
 

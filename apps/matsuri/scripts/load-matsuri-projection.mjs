@@ -5,7 +5,12 @@ import { buildPublicProjection } from "@badjoke-lab/yukue-observation-core";
 
 const d1Directory = new URL("../../../data/public/matsuri/d1/", import.meta.url);
 const f1Directory = new URL("../../../data/public/matsuri/f1/", import.meta.url);
-const f1BatchFiles = ["batch-01.json", "batch-02.json", "batch-03.json"];
+const f1BatchFiles = [
+  "batch-01.json",
+  "batch-02.json",
+  "batch-03.json",
+  "batch-04.json",
+];
 
 function readJson(directory, fileName) {
   const filePath = fileURLToPath(new URL(fileName, directory));

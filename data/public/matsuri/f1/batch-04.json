@@ -1,0 +1,120 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [
+    {
+      "id": "chg-soma-schedule-rule-2024",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "schedule_rule_changed",
+      "subject_entity_ids": ["fst-soma-nomaoi"],
+      "decided_at": "2023-11-03",
+      "announced_at": "2023-11-03",
+      "effective_period": {"start":"2024"},
+      "summary_ja": "相馬野馬追の開催日程が、2024年度以降、5月最終土曜日・日曜日・月曜日の3日間へ変更された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-soma-schedule-rule-2024"],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-gion-takayama-revival-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "revival_completed",
+      "subject_entity_ids": ["unt-gion-takayama"],
+      "effective_period": {"start":"2022"},
+      "summary_ja": "長期にわたり巡行から離れていた鷹山が再建され、2022年に祇園祭の山鉾巡行へ復帰した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-takayama-revival-2022"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-gion-takayama-2022-return",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "unt-gion-takayama",
+      "occurrence_type": "procession",
+      "temporal_extent": {"start":"2022-07-24","end":"2022-07-24","precision":"day"},
+      "outcome": "held",
+      "scale": "normal",
+      "venue_place_ids": ["plc-gion-yamahoko-route"],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-takayama-return-2022-occ"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-soma-schedule-change-2023",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "相馬野馬追開催日程の変更について",
+      "publisher": "相馬野馬追執行委員会",
+      "url": "https://soma-nomaoi.jp/info/421/",
+      "published_at": "2023-11-03",
+      "accessed_at": "2026-07-10",
+      "language": "ja"
+    },
+    {
+      "id": "src-vogue-gion-matsuri-2023",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "credible_news",
+      "title": "An Inside Look at Kyoto's Gion Matsuri, One of Japan's Most Famous Festivals",
+      "publisher": "Vogue",
+      "url": "https://www.vogue.com/article/gion-matsuri-festival-2023",
+      "published_at": "2023-10-04",
+      "accessed_at": "2026-07-10",
+      "language": "en"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-soma-schedule-rule-2024",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-soma-schedule-change-2023",
+      "target_type": "change_event",
+      "target_id": "chg-soma-schedule-rule-2024",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "公式告知は2023年11月3日の総会決定として、2024年度以降の開催を5月最終土・日・月曜日の3日間へ変更したと明記している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-takayama-revival-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-vogue-gion-matsuri-2023",
+      "target_type": "change_event",
+      "target_id": "chg-gion-takayama-revival-2022",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "2023年公開の記事は、鷹山が再建され、196年間巡行から離れた後に前年の2022年に復帰したと説明している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-takayama-return-2022-occ",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-vogue-gion-matsuri-2023",
+      "target_type": "occurrence",
+      "target_id": "occ-gion-takayama-2022-return",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "2023年公開の記事は鷹山の前年の巡行復帰を記録し、祇園祭の後祭巡行日程と合わせて2022年の復帰Occurrenceを裏付ける。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
