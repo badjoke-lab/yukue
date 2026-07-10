@@ -1,0 +1,19 @@
+---
+import BrowseEntityList from "../../components/BrowseEntityList.astro";
+import MatsuriBrowseShell from "../../components/MatsuriBrowseShell.astro";
+import { matsuriProjection } from "../../data/matsuri-projection.js";
+import { buildFestivalBrowseItems } from "../../data/browse-view-models.js";
+
+const items = buildFestivalBrowseItems(matsuriProjection);
+---
+
+<MatsuriBrowseShell
+  title="祭礼｜祭のゆくえ"
+  description="現在公開している祭礼と祭礼構成要素の記録を一覧します。"
+  kicker="Festivals"
+  heading="祭礼"
+  intro="現在公開している祭礼と、その構成要素の記録を地域、状態、根拠とともにたどれます。"
+  activeSection="festivals"
+>
+  <BrowseEntityList items={items} ariaLabel="祭礼の記録一覧" />
+</MatsuriBrowseShell>

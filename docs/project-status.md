@@ -40,7 +40,8 @@ Execution Stage E — Browse, Search, and Machine-readable Surfaces
 - C3 cross-record validation completed,
 - D1 representative sample canonical data completed and validated,
 - D2 Public Projection pipeline completed and validated,
-- D3 Matsuri Home and Festival Detail integration with Public Projection completed and validated.
+- D3 Matsuri Home and Festival Detail integration with Public Projection completed and validated,
+- E1 Projection-backed Browse surfaces for Festivals, Performances, Regions, and Changes completed and validated.
 
 ## Current UI direction
 
@@ -94,17 +95,39 @@ project-status.md
 ## Current work
 
 ```text
-E1 — Browse surfaces
+E2 — Search and initial filters
 ```
 
-The first Browse surfaces are:
+Initial search filters are fixed as:
 
 ```text
-Festivals
-Performances
-Regions
-Changes
+Entity Type
+Prefecture
+Current State
 ```
+
+E2 must provide:
+
+```text
+full-text search
++ Entity Type filter
++ Prefecture filter
++ Current State filter
++ clear zero-result state
++ predictable filter URLs or state
++ accessibility baseline
+```
+
+The first Browse surfaces are now available at:
+
+```text
+/festivals/
+/performances/
+/regions/
+/changes/
+```
+
+They consume Public Projection view models, use public-facing Japanese labels, and only link to detail routes that are already published.
 
 D1 representative sample coverage remains:
 
@@ -123,20 +146,17 @@ The public rendering path is now:
 reviewed canonical data
 → validation
 → approved Public Projection
-→ Matsuri Home and Festival Detail view models
+→ Matsuri Home / Detail / Browse view models
 → Astro static HTML
 ```
-
-Home observation metrics, recent Change Events, and recent Occurrences are generated from Projection data. The 脚折雨乞 Detail C surface consumes projected identity, Current State, Place, Occurrence, Change, Relation, Designation, Evidence, and Source views, with explicit empty states when a record group is absent.
 
 Only reviewed public-safe canonical records belong in repository data. Unresolved private research notes and source conflicts remain outside the public data layer.
 
 ## Next gates
 
-After E1:
+After E2:
 
 ```text
-E2 — Search and initial filters
 E3 — Machine-readable baseline
 ```
 

@@ -1,0 +1,19 @@
+---
+import ChangeBrowseList from "../../components/ChangeBrowseList.astro";
+import MatsuriBrowseShell from "../../components/MatsuriBrowseShell.astro";
+import { matsuriProjection } from "../../data/matsuri-projection.js";
+import { buildChangeBrowseItems } from "../../data/browse-view-models.js";
+
+const items = buildChangeBrowseItems(matsuriProjection);
+---
+
+<MatsuriBrowseShell
+  title="変化｜祭のゆくえ"
+  description="祭礼と民俗芸能の休止、復活、開催変更などの変化記録を一覧します。"
+  kicker="Changes"
+  heading="変化"
+  intro="祭礼や民俗芸能に生じた休止、復活、開催変更、運営変更などを、根拠のあるChange Eventとして時系列で記録します。"
+  activeSection="changes"
+>
+  <ChangeBrowseList items={items} />
+</MatsuriBrowseShell>

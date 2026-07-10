@@ -1,0 +1,122 @@
+---
+import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
+import PageShell from "@badjoke-lab/yukue-ui/components/PageShell.astro";
+import SiteFooter from "@badjoke-lab/yukue-ui/components/SiteFooter.astro";
+import SiteHeader from "@badjoke-lab/yukue-ui/components/SiteHeader.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  kicker: string;
+  heading: string;
+  intro: string;
+  activeSection: "festivals" | "performances" | "regions" | "changes";
+}
+
+const {
+  title,
+  description,
+  kicker,
+  heading,
+  intro,
+  activeSection,
+} = Astro.props;
+
+const navItems = [
+  { label: "祭礼", href: "/festivals/", active: activeSection === "festivals" },
+  { label: "民俗芸能", href: "/performances/", active: activeSection === "performances" },
+  { label: "地域", href: "/regions/", active: activeSection === "regions" },
+  { label: "変化", href: "/changes/", active: activeSection === "changes" },
+  { label: "検索", href: "/search/" },
+  { label: "このサイトについて", href: "/about/" },
+];
+
+const footerGroups = [
+  {
+    heading: "記録",
+    links: [
+      { label: "祭礼", href: "/festivals/" },
+      { label: "民俗芸能", href: "/performances/" },
+      { label: "組織", href: "/organizations/" },
+    ],
+  },
+  {
+    heading: "調べる",
+    links: [
+      { label: "地域", href: "/regions/" },
+      { label: "変化", href: "/changes/" },
+      { label: "状態", href: "/states/" },
+    ],
+  },
+  {
+    heading: "この資料について",
+    links: [
+      { label: "方法論", href: "/methodology/" },
+      { label: "データ", href: "/data/" },
+      { label: "ステータス", href: "/status/" },
+    ],
+  },
+];
+---
+
+<PageShell site="matsuri" title={title} description={description}>
+  <SiteHeader
+    slot="header"
+    siteName="祭のゆくえ"
+    romanLabel="Matsuri Yukue"
+    navItems={navItems}
+  />
+
+  <section class="browse-intro">
+    <Container size="wide">
+      <p class="browse-intro__kicker">{kicker}</p>
+      <h1>{heading}</h1>
+      <p class="browse-intro__lead">{intro}</p>
+    </Container>
+  </section>
+
+  <Container size="wide">
+    <main class="browse-content">
+      <slot />
+    </main>
+  </Container>
+
+  <SiteFooter
+    slot="footer"
+    siteName="祭のゆくえ"
+    groups={footerGroups}
+  />
+</PageShell>
+
+<style>
+  .browse-intro {
+    padding-block: var(--space-14) var(--space-10);
+    border-bottom: var(--rule-standard);
+  }
+
+  .browse-intro__kicker {
+    margin: 0 0 var(--space-3);
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.12em;
+  }
+
+  .browse-intro h1 {
+    margin: 0;
+    font-size: var(--font-size-entity);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  .browse-intro__lead {
+    max-width: var(--container-prose);
+    margin: var(--space-5) 0 0;
+    color: var(--color-text-soft);
+    font-size: var(--font-size-lead);
+    line-height: var(--line-height-lead);
+  }
+
+  .browse-content {
+    padding-block: var(--space-12) var(--space-16);
+  }
+</style>

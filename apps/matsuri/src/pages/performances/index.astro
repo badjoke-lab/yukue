@@ -1,0 +1,19 @@
+---
+import BrowseEntityList from "../../components/BrowseEntityList.astro";
+import MatsuriBrowseShell from "../../components/MatsuriBrowseShell.astro";
+import { matsuriProjection } from "../../data/matsuri-projection.js";
+import { buildPerformanceBrowseItems } from "../../data/browse-view-models.js";
+
+const items = buildPerformanceBrowseItems(matsuriProjection);
+---
+
+<MatsuriBrowseShell
+  title="民俗芸能｜祭のゆくえ"
+  description="現在公開している民俗芸能の記録を一覧します。"
+  kicker="Performances"
+  heading="民俗芸能"
+  intro="神楽をはじめとする民俗芸能について、伝承地域、現在状態、関係する芸能や場所をたどれます。"
+  activeSection="performances"
+>
+  <BrowseEntityList items={items} ariaLabel="民俗芸能の記録一覧" />
+</MatsuriBrowseShell>
