@@ -1,0 +1,169 @@
+{
+  "entities": [
+    {
+      "id": "fst-kawagoe-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "kawagoe-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [{"value":"川越まつり","lang":"ja","kind":"canonical","is_preferred":true,"source_ids":["src-kawagoe-home"]}],
+      "summary_ja": "川越氷川神社の例大祭を根源とし、神幸祭と山車行事から成る祭礼。",
+      "geographic_scope": {"areas":[{"prefecture_code":"11","prefecture_name_ja":"埼玉県","municipality_name_ja":"川越市"}],"scope_type":"route_based","description_ja":"川越氷川神社と川越市中心部の山車行事区域を含む。"},
+      "primary_place_id": "plc-kawagoe-matsuri-area",
+      "default_place_ids": ["plc-kawagoe-matsuri-area"],
+      "external_links": [{"kind":"official_website","platform":"web","url":"https://www.kawagoematsuri.jp/","is_primary":true,"officiality":"official_organization","last_checked_at":"2026-07-10"}],
+      "record_lifecycle": "active",
+      "festival_kind": "shrine_festival",
+      "recurrence_pattern": {"pattern_type":"annual","rule_text_ja":"毎年10月第3日曜日とその前日","evidence_ids":["evd-kawagoe-recurrence"]},
+      "usual_months": [10],
+      "usual_duration_days": 2,
+      "season_tags": ["秋"]
+    },
+    {
+      "id": "org-kawagoe-matsuri-kyosankai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "kawagoe-matsuri-kyosankai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [{"value":"川越まつり協賛会","lang":"ja","kind":"canonical","is_preferred":true,"source_ids":["src-kawagoe-cancel-2020"]}],
+      "summary_ja": "川越まつりの公式案内と開催判断に関与する協賛組織。",
+      "geographic_scope": {"areas":[{"prefecture_code":"11","prefecture_name_ja":"埼玉県","municipality_name_ja":"川越市"}],"scope_type":"single_area"},
+      "default_place_ids": [],
+      "external_links": [{"kind":"official_website","platform":"web","url":"https://www.kawagoematsuri.jp/","is_primary":true,"officiality":"official_organization","last_checked_at":"2026-07-10"}],
+      "record_lifecycle": "active",
+      "organization_kind": "association",
+      "official_url": "https://www.kawagoematsuri.jp/"
+    },
+    {
+      "id": "fst-hakata-gion-yamakasa",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "hakata-gion-yamakasa",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "umbrella",
+      "names": [{"value":"博多祇園山笠","lang":"ja","kind":"canonical","is_preferred":true,"source_ids":["src-hakata-schedule-2026"]}],
+      "summary_ja": "博多部で7月1日から15日にかけて行われる、山笠行事と神事から成る祭礼。",
+      "geographic_scope": {"areas":[{"prefecture_code":"40","prefecture_name_ja":"福岡県","municipality_name_ja":"福岡市"}],"scope_type":"route_based","description_ja":"櫛田神社と博多部の各流区域、追い山笠コースを含む。"},
+      "primary_place_id": "plc-kushida-jinja",
+      "default_place_ids": ["plc-kushida-jinja","plc-hakata-yamakasa-route"],
+      "external_links": [{"kind":"official_website","platform":"web","url":"https://www.hakatayamakasa.com/","is_primary":true,"officiality":"official_organization","last_checked_at":"2026-07-10"}],
+      "record_lifecycle": "active",
+      "festival_kind": "shrine_festival",
+      "recurrence_pattern": {"pattern_type":"annual","rule_text_ja":"毎年7月1日から15日","evidence_ids":["evd-hakata-recurrence"]},
+      "usual_months": [7],
+      "usual_duration_days": 15,
+      "season_tags": ["夏"]
+    },
+    {
+      "id": "org-hakata-yamakasa-shinkokai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "hakata-gion-yamakasa-shinkokai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [{"value":"博多祇園山笠振興会","lang":"ja","kind":"canonical","is_preferred":true,"source_ids":["src-hakata-schedule-2026"]}],
+      "summary_ja": "博多祇園山笠の公式サイトを運営し、行事情報を公開する振興組織。",
+      "geographic_scope": {"areas":[{"prefecture_code":"40","prefecture_name_ja":"福岡県","municipality_name_ja":"福岡市"}],"scope_type":"single_area"},
+      "default_place_ids": [],
+      "external_links": [{"kind":"official_website","platform":"web","url":"https://www.hakatayamakasa.com/","is_primary":true,"officiality":"official_organization","last_checked_at":"2026-07-10"}],
+      "record_lifecycle": "active",
+      "organization_kind": "association",
+      "official_url": "https://www.hakatayamakasa.com/"
+    },
+    {
+      "id": "shr-kushida-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "kushida-jinja-hakata",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [{"value":"櫛田神社","lang":"ja","kind":"canonical","is_preferred":true,"source_ids":["src-hakata-schedule-2026"]}],
+      "summary_ja": "博多祇園山笠の神事と櫛田入りの中心となる神社。",
+      "geographic_scope": {"areas":[{"prefecture_code":"40","prefecture_name_ja":"福岡県","municipality_name_ja":"福岡市"}],"scope_type":"single_site"},
+      "primary_place_id": "plc-kushida-jinja",
+      "default_place_ids": ["plc-kushida-jinja"],
+      "external_links": [{"kind":"official_website","platform":"web","url":"https://www.hakatayamakasa.com/","is_primary":true,"officiality":"official_organization","last_checked_at":"2026-07-10"}],
+      "record_lifecycle": "active"
+    }
+  ],
+  "places": [
+    {"id":"plc-kawagoe-matsuri-area","schema_version":"common.v1","record_version":1,"name_ja":"川越まつり山車行事区域","place_kind":"procession_route","country_code":"JP","prefecture_code":"11","prefecture_name_ja":"埼玉県","municipality_name_ja":"川越市","coordinate_precision":"approximate","source_ids":["src-kawagoe-home"]},
+    {"id":"plc-kushida-jinja","schema_version":"common.v1","record_version":1,"name_ja":"櫛田神社","place_kind":"shrine","country_code":"JP","prefecture_code":"40","prefecture_name_ja":"福岡県","municipality_name_ja":"福岡市","locality_ja":"博多区上川端町","street_address_ja":"1-41","coordinate_precision":"venue","source_ids":["src-hakata-schedule-2026"]},
+    {"id":"plc-hakata-yamakasa-route","schema_version":"common.v1","record_version":1,"name_ja":"博多祇園山笠行事区域","place_kind":"procession_route","country_code":"JP","prefecture_code":"40","prefecture_name_ja":"福岡県","municipality_name_ja":"福岡市","locality_ja":"博多区","coordinate_precision":"approximate","source_ids":["src-hakata-schedule-2026"]}
+  ],
+  "stateSnapshots": [
+    {"id":"sts-kawagoe-current","schema_version":"matsuri.v1","record_version":1,"entity_id":"fst-kawagoe-matsuri","state_schema":"matsuri.festival.v1","state_code":"active","observed_at":"2026-07-10","basis_evidence_ids":["evd-kawagoe-state"],"review_status":"approved"},
+    {"id":"sts-hakata-current","schema_version":"matsuri.v1","record_version":1,"entity_id":"fst-hakata-gion-yamakasa","state_schema":"matsuri.festival.v1","state_code":"active","observed_at":"2026-07-10","basis_evidence_ids":["evd-hakata-state"],"review_status":"approved"}
+  ],
+  "changeEvents": [
+    {"id":"chg-kawagoe-suspension-2020","schema_version":"matsuri.v1","record_version":1,"event_type":"suspension_started","subject_entity_ids":["fst-kawagoe-matsuri"],"effective_period":{"start":"2020"},"summary_ja":"2020年の川越まつりは感染拡大防止のため中止され、山車曳行と交通規制も実施されなかった。","resulting_state_snapshot_ids":[],"related_relation_ids":[],"evidence_ids":["evd-kawagoe-suspension-2020"],"review_status":"approved"},
+    {"id":"chg-hakata-format-2020","schema_version":"matsuri.v1","record_version":1,"event_type":"format_changed","subject_entity_ids":["fst-hakata-gion-yamakasa"],"effective_period":{"start":"2020"},"summary_ja":"2020年は博多祇園山笠が一年延期となり、櫛田神社の飾り山のみが公開された。","resulting_state_snapshot_ids":[],"related_relation_ids":[],"evidence_ids":["evd-hakata-format-2020"],"review_status":"approved"},
+    {"id":"chg-hakata-format-2021","schema_version":"matsuri.v1","record_version":1,"event_type":"format_changed","subject_entity_ids":["fst-hakata-gion-yamakasa"],"effective_period":{"start":"2021"},"summary_ja":"2021年は舁き山笠行事が翌2022年へ再延期された一方、飾り山笠の公開は行われた。","resulting_state_snapshot_ids":[],"related_relation_ids":[],"evidence_ids":["evd-hakata-format-2021"],"review_status":"approved"}
+  ],
+  "occurrences": [
+    {"id":"occ-kawagoe-2020","schema_version":"matsuri.v1","record_version":1,"subject_entity_id":"fst-kawagoe-matsuri","occurrence_type":"festival_edition","temporal_extent":{"start":"2020-10-17","end":"2020-10-18","precision":"range"},"outcome":"cancelled","scale":"normal","venue_place_ids":["plc-kawagoe-matsuri-area"],"organizer_entity_ids":["org-kawagoe-matsuri-kyosankai"],"evidence_ids":["evd-kawagoe-occ-2020"],"review_status":"approved","series_id":"ser-kawagoe-annual"},
+    {"id":"occ-kawagoe-2021","schema_version":"matsuri.v1","record_version":1,"subject_entity_id":"fst-kawagoe-matsuri","occurrence_type":"festival_edition","temporal_extent":{"start":"2021-10-16","end":"2021-10-17","precision":"range"},"outcome":"cancelled","scale":"normal","venue_place_ids":["plc-kawagoe-matsuri-area"],"organizer_entity_ids":["org-kawagoe-matsuri-kyosankai"],"evidence_ids":["evd-kawagoe-occ-2021"],"review_status":"approved","series_id":"ser-kawagoe-annual"},
+    {"id":"occ-kawagoe-2026-schedule","schema_version":"matsuri.v1","record_version":1,"subject_entity_id":"fst-kawagoe-matsuri","occurrence_type":"festival_edition","temporal_extent":{"start":"2026-10-17","end":"2026-10-18","precision":"range"},"outcome":"scheduled","scale":"normal","venue_place_ids":["plc-kawagoe-matsuri-area"],"organizer_entity_ids":["org-kawagoe-matsuri-kyosankai"],"evidence_ids":["evd-kawagoe-occ-2026"],"review_status":"approved","series_id":"ser-kawagoe-annual"},
+    {"id":"occ-hakata-2020","schema_version":"matsuri.v1","record_version":1,"subject_entity_id":"fst-hakata-gion-yamakasa","occurrence_type":"festival_edition","temporal_extent":{"start":"2020-07-01","end":"2020-07-15","precision":"range"},"outcome":"partially_held","scale":"reduced","venue_place_ids":["plc-kushida-jinja"],"organizer_entity_ids":["org-hakata-yamakasa-shinkokai"],"evidence_ids":["evd-hakata-occ-2020"],"review_status":"approved","series_id":"ser-hakata-yamakasa-annual"},
+    {"id":"occ-hakata-2021","schema_version":"matsuri.v1","record_version":1,"subject_entity_id":"fst-hakata-gion-yamakasa","occurrence_type":"festival_edition","temporal_extent":{"start":"2021-07-01","end":"2021-07-15","precision":"range"},"outcome":"partially_held","scale":"reduced","venue_place_ids":["plc-kushida-jinja","plc-hakata-yamakasa-route"],"organizer_entity_ids":["org-hakata-yamakasa-shinkokai"],"evidence_ids":["evd-hakata-occ-2021"],"review_status":"approved","series_id":"ser-hakata-yamakasa-annual"},
+    {"id":"occ-hakata-2026-schedule","schema_version":"matsuri.v1","record_version":1,"subject_entity_id":"fst-hakata-gion-yamakasa","occurrence_type":"festival_edition","temporal_extent":{"start":"2026-07-01","end":"2026-07-15","precision":"range"},"outcome":"scheduled","scale":"normal","venue_place_ids":["plc-kushida-jinja","plc-hakata-yamakasa-route"],"organizer_entity_ids":["org-hakata-yamakasa-shinkokai"],"evidence_ids":["evd-hakata-occ-2026"],"review_status":"approved","series_id":"ser-hakata-yamakasa-annual"}
+  ],
+  "occurrenceSeries": [
+    {"id":"ser-kawagoe-annual","schema_version":"matsuri.v1","record_version":1,"subject_entity_id":"fst-kawagoe-matsuri","series_type":"annual_festival_edition","name_ja":"川越まつり 年次開催","recurrence_pattern_id":"rec-kawagoe-annual","default_venue_place_ids":["plc-kawagoe-matsuri-area"],"evidence_ids":["evd-kawagoe-recurrence"]},
+    {"id":"ser-hakata-yamakasa-annual","schema_version":"matsuri.v1","record_version":1,"subject_entity_id":"fst-hakata-gion-yamakasa","series_type":"annual_festival_edition","name_ja":"博多祇園山笠 年次開催","recurrence_pattern_id":"rec-hakata-yamakasa-annual","default_venue_place_ids":["plc-kushida-jinja","plc-hakata-yamakasa-route"],"evidence_ids":["evd-hakata-recurrence"]}
+  ],
+  "recurrencePatterns": [
+    {"id":"rec-kawagoe-annual","schema_version":"common.v1","record_version":1,"pattern_type":"annual","rule_text_ja":"毎年10月第3日曜日とその前日","evidence_ids":["evd-kawagoe-recurrence"]},
+    {"id":"rec-hakata-yamakasa-annual","schema_version":"common.v1","record_version":1,"pattern_type":"annual","rule_text_ja":"毎年7月1日から15日","evidence_ids":["evd-hakata-recurrence"]}
+  ],
+  "relations": [
+    {"id":"rel-kawagoe-organized-by-kyosankai","schema_version":"matsuri.v1","record_version":1,"source_entity_id":"fst-kawagoe-matsuri","relation_type":"organized_by","target_entity_id":"org-kawagoe-matsuri-kyosankai","evidence_ids":["evd-rel-kawagoe-org"],"review_status":"approved"},
+    {"id":"rel-hakata-organized-by-shinkokai","schema_version":"matsuri.v1","record_version":1,"source_entity_id":"fst-hakata-gion-yamakasa","relation_type":"organized_by","target_entity_id":"org-hakata-yamakasa-shinkokai","evidence_ids":["evd-rel-hakata-org"],"review_status":"approved"},
+    {"id":"rel-hakata-associated-with-kushida","schema_version":"matsuri.v1","record_version":1,"source_entity_id":"fst-hakata-gion-yamakasa","relation_type":"ritually_associated_with","target_entity_id":"shr-kushida-jinja","evidence_ids":["evd-rel-hakata-kushida"],"review_status":"approved"}
+  ],
+  "designations": [],
+  "sources": [
+    {"id":"src-kawagoe-home","schema_version":"common.v1","record_version":1,"source_type":"official_organization","title":"川越まつり公式サイト","publisher":"川越まつり公式サイト","url":"https://www.kawagoematsuri.jp/","accessed_at":"2026-07-10","language":"ja"},
+    {"id":"src-kawagoe-cancel-2020","schema_version":"common.v1","record_version":1,"source_type":"official_organization","title":"令和２年度川越まつりの中止について","publisher":"川越まつり協賛会","url":"https://www.kawagoematsuri.jp/news/20200709.html","published_at":"2020-07-09","accessed_at":"2026-07-10","language":"ja"},
+    {"id":"src-kawagoe-cancel-2021","schema_version":"common.v1","record_version":1,"source_type":"official_organization","title":"令和3年度川越まつりの中止について","publisher":"川越まつり公式サイト","url":"https://www.kawagoematsuri.jp/news/20210715.html","published_at":"2021-07-15","accessed_at":"2026-07-10","language":"ja"},
+    {"id":"src-hakata-schedule-2026","schema_version":"common.v1","record_version":1,"source_type":"official_organization","title":"博多祇園山笠スケジュール（2026年度）","publisher":"博多祇園山笠振興会","url":"https://www.hakatayamakasa.com/162358.html","accessed_at":"2026-07-10","language":"ja"},
+    {"id":"src-hakata-2020","schema_version":"common.v1","record_version":1,"source_type":"official_organization","title":"令和二年度 博多祇園山笠","publisher":"博多祇園山笠振興会","url":"https://www.hakatayamakasa.com/genre/11206/1.html","accessed_at":"2026-07-10","language":"ja"},
+    {"id":"src-hakata-2021","schema_version":"common.v1","record_version":1,"source_type":"official_organization","title":"令和三年度 博多祇園山笠","publisher":"博多祇園山笠振興会","url":"https://www.hakatayamakasa.com/genre/11995/1.html","accessed_at":"2026-07-10","language":"ja"}
+  ],
+  "evidence": [
+    {"id":"evd-kawagoe-state","schema_version":"common.v1","record_version":1,"source_id":"src-kawagoe-home","target_type":"state_snapshot","target_id":"sts-kawagoe-current","assertion_code":"supports_current_state","summary_ja":"公式サイトが2026年10月17日・18日の開催予定を案内している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-kawagoe-recurrence","schema_version":"common.v1","record_version":1,"source_id":"src-kawagoe-home","target_type":"recurrence_pattern","target_id":"rec-kawagoe-annual","assertion_code":"supports_recurrence","summary_ja":"公式サイトは毎年10月第3日曜日とその前日に行われると説明している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-kawagoe-suspension-2020","schema_version":"common.v1","record_version":1,"source_id":"src-kawagoe-cancel-2020","target_type":"change_event","target_id":"chg-kawagoe-suspension-2020","assertion_code":"supports_change_event","summary_ja":"2020年の公式中止告知は川越まつりの中止と山車曳行・交通規制の不実施を明記している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-kawagoe-occ-2020","schema_version":"common.v1","record_version":1,"source_id":"src-kawagoe-cancel-2020","target_type":"occurrence","target_id":"occ-kawagoe-2020","assertion_code":"supports_occurrence","summary_ja":"公式告知が2020年10月17日・18日に予定されていた川越まつりの開催中止を裏付ける。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-kawagoe-occ-2021","schema_version":"common.v1","record_version":1,"source_id":"src-kawagoe-cancel-2021","target_type":"occurrence","target_id":"occ-kawagoe-2021","assertion_code":"supports_occurrence","summary_ja":"公式告知が2021年10月16日・17日に予定されていた川越まつりの開催中止を裏付ける。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-kawagoe-occ-2026","schema_version":"common.v1","record_version":1,"source_id":"src-kawagoe-home","target_type":"occurrence","target_id":"occ-kawagoe-2026-schedule","assertion_code":"supports_occurrence_schedule","summary_ja":"公式サイトが2026年10月17日・18日の開催予定を掲載している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-rel-kawagoe-org","schema_version":"common.v1","record_version":1,"source_id":"src-kawagoe-cancel-2020","target_type":"relation","target_id":"rel-kawagoe-organized-by-kyosankai","assertion_code":"supports_relation","summary_ja":"公式中止告知が川越まつり協賛会名義で開催判断を公表している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-hakata-state","schema_version":"common.v1","record_version":1,"source_id":"src-hakata-schedule-2026","target_type":"state_snapshot","target_id":"sts-hakata-current","assertion_code":"supports_current_state","summary_ja":"公式サイトが2026年度の7月1日から15日までの行事日程を公開している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-hakata-recurrence","schema_version":"common.v1","record_version":1,"source_id":"src-hakata-schedule-2026","target_type":"recurrence_pattern","target_id":"rec-hakata-yamakasa-annual","assertion_code":"supports_recurrence","summary_ja":"公式スケジュールは7月1日から15日までの年次行事構成を示している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-hakata-format-2020","schema_version":"common.v1","record_version":1,"source_id":"src-hakata-2020","target_type":"change_event","target_id":"chg-hakata-format-2020","assertion_code":"supports_change_event","summary_ja":"公式年度ページは2020年に祭礼が一年延期され、櫛田神社の飾り山のみ公開されたと説明している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-hakata-format-2021","schema_version":"common.v1","record_version":1,"source_id":"src-hakata-2021","target_type":"change_event","target_id":"chg-hakata-format-2021","assertion_code":"supports_change_event","summary_ja":"公式年度ページは2021年の舁き山笠行事が2022年へ再延期されたと説明している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-hakata-occ-2020","schema_version":"common.v1","record_version":1,"source_id":"src-hakata-2020","target_type":"occurrence","target_id":"occ-hakata-2020","assertion_code":"supports_occurrence","summary_ja":"公式年度ページは祭礼の一年延期と櫛田神社の飾り山のみの公開を記録している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-hakata-occ-2021","schema_version":"common.v1","record_version":1,"source_id":"src-hakata-2021","target_type":"occurrence","target_id":"occ-hakata-2021","assertion_code":"supports_occurrence","summary_ja":"公式年度ページは舁き山笠行事の再延期と複数の飾り山笠公開記録を掲載している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-hakata-occ-2026","schema_version":"common.v1","record_version":1,"source_id":"src-hakata-schedule-2026","target_type":"occurrence","target_id":"occ-hakata-2026-schedule","assertion_code":"supports_occurrence_schedule","summary_ja":"公式スケジュールが2026年度の7月1日から15日までの行事予定を掲載している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-rel-hakata-org","schema_version":"common.v1","record_version":1,"source_id":"src-hakata-schedule-2026","target_type":"relation","target_id":"rel-hakata-organized-by-shinkokai","assertion_code":"supports_relation","summary_ja":"公式サイトが博多祇園山笠振興会を運営主体として表示し、行事情報を公開している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-rel-hakata-kushida","schema_version":"common.v1","record_version":1,"source_id":"src-hakata-schedule-2026","target_type":"relation","target_id":"rel-hakata-associated-with-kushida","assertion_code":"supports_relation","summary_ja":"公式スケジュールは櫛田神社神官による神事、櫛田入り、櫛田神社参拝を行事構成として説明している。","captured_at":"2026-07-10","review_status":"approved"}
+  ],
+  "images": []
+}
