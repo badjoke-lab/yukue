@@ -8,6 +8,8 @@ import SearchForm from "@badjoke-lab/yukue-ui/components/SearchForm.astro";
 import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
 import SiteFooter from "@badjoke-lab/yukue-ui/components/SiteFooter.astro";
 import SiteHeader from "@badjoke-lab/yukue-ui/components/SiteHeader.astro";
+import { matsuriProjection } from "../data/matsuri-projection.js";
+import { buildMatsuriHomeViewModel } from "../data/projection-view-models.js";
 
 const navItems = [
   { label: "祭礼", href: "/festivals/" },
@@ -45,31 +47,13 @@ const footerGroups = [
   },
 ];
 
-const fixtureMetrics = [
-  { label: "継続中", value: 128, href: "/states/active/" },
-  { label: "休止中", value: 7, href: "/states/suspended/" },
-  { label: "長期休止", value: 16, href: "/states/dormant/" },
-  { label: "復活活動中", value: 5, href: "/states/reviving/" },
-  { label: "要確認", value: 11, href: "/states/unknown/" },
-];
-
-const fixtureChanges = [
-  { date: "2026.06", type: "復活", name: "○○神楽", summary: "長期休止後、奉納を再開。", href: "/changes/example-1/" },
-  { date: "2026.05", type: "開催時期変更", name: "△△祭", summary: "通常開催月の変更を確認。", href: "/changes/example-2/" },
-  { date: "2026.04", type: "保存会再編", name: "□□踊り", summary: "継承組織の再編を確認。", href: "/changes/example-3/" },
-];
-
-const fixtureOccurrences = [
-  { date: "2026年8月4日", name: "○○祭", region: "岩手県", outcome: "開催予定" },
-  { date: "2026年7月18日", name: "△△神楽", region: "宮崎県", outcome: "開催" },
-  { date: "2026年6月12日", name: "□□踊り", region: "秋田県", outcome: "縮小開催" },
-];
-
 const exploreItems = [
   { title: "祭礼から", description: "祭・例大祭・神事などの記録をたどる", href: "/festivals/" },
   { title: "民俗芸能から", description: "神楽・獅子舞・踊り・人形芝居などをたどる", href: "/performances/" },
   { title: "地域から", description: "都道府県・市区町村から記録をたどる", href: "/regions/" },
 ];
+
+const home = buildMatsuriHomeViewModel(matsuriProjection);
 ---
 
 <PageShell
@@ -100,32 +84,40 @@ const exploreItems = [
   </section>
 
   <Section kicker="Current Observation" title="現在の観測状況" actionHref="/states/" actionLabel="状態から見る">
-    <ObservationSnapshot metrics={fixtureMetrics} />
+    <ObservationSnapshot metrics={home.metrics} />
   </Section>
 
   <Section kicker="Recent Changes" title="最近の変化" actionHref="/changes/" actionLabel="すべての変化を見る">
-    <div class="recent-change-list">
-      {fixtureChanges.map((change) => (
-        <article class="recent-change-row">
-          <time>{change.date}</time>
-          <span class="recent-change-row__type">{change.type}</span>
-          <div>
-            <h3><a href={change.href}>{change.name}</a></h3>
-            <p>{change.summary}</p>
-          </div>
-          <ActionLink href={change.href} label="詳細" />
-        </article>
-      ))}
-    </div>
+    {home.changes.length > 0 ? (
+      <div class="recent-change-list">
+        {home.changes.map((change) => (
+          <article class="recent-change-row">
+            <time>{change.date}</time>
+            <span class="recent-change-row__type">{change.type}</span>
+            <div>
+              <h3><a href={change.href}>{change.name}</a></h3>
+              <p>{change.summary}</p>
+            </div>
+            <ActionLink href={change.href} label="詳細" />
+          </article>
+        ))}
+      </div>
+    ) : (
+      <p class="empty-state">公開中の変化記録はまだありません。</p>
+    )}
   </Section>
 
   <Section kicker="Recent Occurrences" title="最近の開催・上演" actionHref="/search/?view=occurrences" actionLabel="開催・上演履歴を見る">
-    <OccurrenceTable
-      rows={fixtureOccurrences}
-      showName={true}
-      showRegion={true}
-      caption="最近の開催・上演"
-    />
+    {home.occurrences.length > 0 ? (
+      <OccurrenceTable
+        rows={home.occurrences}
+        showName={true}
+        showRegion={true}
+        caption="最近の開催・上演"
+      />
+    ) : (
+      <p class="empty-state">公開中の開催・上演記録はまだありません。</p>
+    )}
   </Section>
 
   <Section kicker="Explore" title="記録をたどる">
@@ -288,7 +280,8 @@ const exploreItems = [
   }
 
   .home-info-grid p,
-  .data-access p {
+  .data-access p,
+  .empty-state {
     color: var(--color-text-soft);
   }
 

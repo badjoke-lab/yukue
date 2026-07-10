@@ -12,6 +12,8 @@ import RelationList from "@badjoke-lab/yukue-ui/components/RelationList.astro";
 import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
 import SiteFooter from "@badjoke-lab/yukue-ui/components/SiteFooter.astro";
 import SiteHeader from "@badjoke-lab/yukue-ui/components/SiteHeader.astro";
+import { findMatsuriEntityDetail } from "../../../data/matsuri-projection.js";
+import { buildFestivalDetailViewModel } from "../../../data/projection-view-models.js";
 
 const navItems = [
   { label: "祭礼", href: "/festivals/", active: true },
@@ -49,101 +51,17 @@ const footerGroups = [
   },
 ];
 
-const fixtureOverview = [
-  { label: "現在状態", value: "継続中", accent: true },
-  { label: "確認日", value: "2026年7月10日" },
-  { label: "直近の実施", value: "2024年8月4日　開催" },
-  { label: "通常開催", value: "閏年の8月第一日曜日" },
-  { label: "周期", value: "4年に1度" },
-  { label: "地域", value: "埼玉県鶴ヶ島市 脚折地区" },
-  { label: "主な場所", value: "白鬚神社、雷電池児童公園" },
-  { label: "公式情報", value: "自治体文化財情報", href: "#evidence" },
-];
-
-const fixturePlaces = [
-  {
-    name: "白鬚神社",
-    address: "埼玉県鶴ヶ島市脚折町6丁目10-20",
-    contextLabel: "出発・祈願地点",
-    mapHref: "#",
-  },
-  {
-    name: "雷電池児童公園",
-    address: "埼玉県鶴ヶ島市脚折町5丁目22-1",
-    contextLabel: "雨乞い儀礼地点",
-    mapHref: "#",
-  },
-];
-
-const fixtureOccurrences = [
-  { date: "2024年8月4日", outcome: "開催", scale: "通常" },
-  { date: "2020年", outcome: "未実施", scale: "—" },
-  { date: "2016年8月", outcome: "開催", scale: "通常" },
-];
-
-const fixtureChanges = [
-  {
-    date: "1976年",
-    typeLabel: "復活",
-    summary: "保存活動を経て行事が復活。",
-    resultingState: "継続中",
-    evidenceHref: "#evidence",
-  },
-  {
-    date: "1975年",
-    typeLabel: "保存会の結成",
-    summary: "継承組織の形成を確認。",
-    evidenceHref: "#evidence",
-  },
-  {
-    date: "1964年",
-    typeLabel: "中断前最後の実施",
-    summary: "この実施を最後に一時中断。",
-    evidenceHref: "#evidence",
-  },
-];
-
-const fixtureRelations = [
-  { label: "行われる場所", targetName: "白鬚神社", href: "#places" },
-  { label: "儀礼の場所", targetName: "雷電池", href: "#places" },
-  { label: "継承組織", targetName: "脚折雨乞行事保存会", href: "#" },
-];
-
-const fixtureDesignations = [
-  {
-    name: "脚折雨乞",
-    system: "文化財指定",
-    authority: "指定主体の表示例",
-    sourceHref: "#evidence",
-  },
-];
-
-const fixtureEvidence = [
-  {
-    targetLabel: "現在状態",
-    sourceTitle: "自治体文化財情報",
-    supportSummary: "継続状況と開催情報の確認に用いるfixture。",
-    sourceHref: "#",
-  },
-  {
-    targetLabel: "2024年の実施",
-    sourceTitle: "2024年実施案内",
-    supportSummary: "実施日と開催結果の確認に用いるfixture。",
-    sourceHref: "#",
-  },
-  {
-    targetLabel: "休止と復活",
-    sourceTitle: "行事概要・保存活動資料",
-    supportSummary: "中断、保存会形成、復活の履歴確認に用いるfixture。",
-    sourceHref: "#",
-  },
-];
+const detail = findMatsuriEntityDetail("fst-suneori-amagoi");
+if (!detail) {
+  throw new Error("Public Projection is missing fst-suneori-amagoi.");
+}
+const page = buildFestivalDetailViewModel(detail);
 ---
 
 <PageShell
   site="matsuri"
-  title="脚折雨乞｜祭のゆくえ"
-  description="脚折雨乞の基本情報、現在状態、開催履歴、変化、関係する場所と組織、根拠資料を記録します。"
+  title={page.title}
+  description={page.description}
 >
   <SiteHeader
     slot="header"
@@ -157,8 +75,8 @@ const fixtureEvidence = [
       <ol>
         <li><a href="/">ホーム</a></li>
         <li><a href="/festivals/">祭礼</a></li>
-        <li><a href="/regions/saitama/">埼玉県</a></li>
-        <li aria-current="page">脚折雨乞</li>
+        <li><a href="/regions/saitama/">{page.region}</a></li>
+        <li aria-current="page">{page.name}</li>
       </ol>
     </Container>
   </nav>
@@ -166,61 +84,84 @@ const fixtureEvidence = [
   <section class="entity-identity">
     <Container size="wide">
       <p class="entity-identity__kicker">祭礼記録</p>
-      <h1>脚折雨乞</h1>
-      <p class="entity-identity__reading">すねおりあまごい</p>
-      <ul class="entity-identity__meta" aria-label="基本分類">
-        <li>埼玉県 鶴ヶ島市</li>
-        <li>雨乞い行事</li>
-        <li>4年に1度</li>
-      </ul>
+      <h1>{page.name}</h1>
+      {page.reading && <p class="entity-identity__reading">{page.reading}</p>}
+      {page.meta.length > 0 && (
+        <ul class="entity-identity__meta" aria-label="基本分類">
+          {page.meta.map((item) => <li>{item}</li>)}
+        </ul>
+      )}
     </Container>
   </section>
 
   <Section kicker="Overview" title="概要" actionHref="#evidence" actionLabel="観測根拠を見る">
-    <OverviewGrid items={fixtureOverview} />
+    <OverviewGrid items={page.overview} />
   </Section>
 
-  <Section kicker="About" title="脚折雨乞について">
+  <Section kicker="About" title={`${page.name}について`}>
     <div class="yk-prose detail-prose">
-      <p>鶴ヶ島市脚折地区に継承される降雨祈願の伝統行事です。地域の人々が大きな龍蛇を担ぎ、祈願と行列を経て雷電池で雨乞いの儀礼を行います。</p>
-      <p>このfixture pageでは、通常の開催情報と、現在状態、一回ごとの開催履歴、休止・保存活動・復活といった変化を分けて表示しています。</p>
+      {page.aboutParagraphs.map((paragraph) => <p>{paragraph}</p>)}
     </div>
   </Section>
 
   <Section kicker="Places & Map" title="場所" id="places">
-    <PlaceMap
-      places={fixturePlaces}
-      contextDescription="脚折雨乞は複数の主要地点を伴う行事として扱い、単一地点だけを祭礼全体の場所とは表示しません。"
-    />
+    {page.places.length > 0 ? (
+      <PlaceMap
+        places={page.places}
+        contextDescription={page.placeContext}
+      />
+    ) : (
+      <p class="empty-state">公開中の場所記録はまだありません。</p>
+    )}
   </Section>
 
   <Section kicker="Year by Year" title="開催履歴">
-    <OccurrenceTable
-      rows={fixtureOccurrences}
-      showScale={true}
-      caption="脚折雨乞の開催履歴fixture"
-    />
+    {page.occurrences.length > 0 ? (
+      <OccurrenceTable
+        rows={page.occurrences}
+        showScale={true}
+        caption={`${page.name}の開催履歴`}
+      />
+    ) : (
+      <p class="empty-state">公開中の開催履歴はまだありません。</p>
+    )}
   </Section>
 
   <Section kicker="Change History" title="変化の履歴">
-    <ChangeTimeline items={fixtureChanges} />
+    {page.changes.length > 0 ? (
+      <ChangeTimeline items={page.changes} />
+    ) : (
+      <p class="empty-state">公開中の変化記録はまだありません。</p>
+    )}
   </Section>
 
   <Section kicker="Connections" title="関係する場所・組織">
-    <RelationList items={fixtureRelations} />
+    {page.relations.length > 0 ? (
+      <RelationList items={page.relations} />
+    ) : (
+      <p class="empty-state">公開中の関係記録はまだありません。</p>
+    )}
   </Section>
 
   <Section kicker="Designations" title="指定">
-    <DesignationList items={fixtureDesignations} />
+    {page.designations.length > 0 ? (
+      <DesignationList items={page.designations} />
+    ) : (
+      <p class="empty-state">公開中の指定記録はまだありません。</p>
+    )}
   </Section>
 
   <Section kicker="Evidence & Sources" title="根拠と出典" id="evidence">
-    <EvidenceList items={fixtureEvidence} />
+    {page.evidence.length > 0 ? (
+      <EvidenceList items={page.evidence} />
+    ) : (
+      <p class="empty-state">公開中の根拠記録はまだありません。</p>
+    )}
   </Section>
 
   <Section kicker="Machine-readable Data" title="機械可読データ" rule="none">
     <div class="machine-data">
-      <p>公開時には、承認済みPublic ProjectionからHTMLと機械可読な公開データを生成する方針です。</p>
+      <p>このページは、承認済みcanonical dataを検証し、Public Projectionを通して生成しています。機械可読な公開ファイルは後続工程で同じProjectionから生成します。</p>
       <ActionLink href="/data/" label="公開データについて" />
     </div>
   </Section>
@@ -289,7 +230,7 @@ const fixtureEvidence = [
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-4);
-    margin: var(--space-5) 0 0;
+    margin: var(--space-6) 0 0;
     padding: 0;
     list-style: none;
     color: var(--color-text-soft);
@@ -309,7 +250,8 @@ const fixtureEvidence = [
     max-width: var(--container-prose);
   }
 
-  .machine-data p {
+  .machine-data p,
+  .empty-state {
     color: var(--color-text-soft);
   }
 
