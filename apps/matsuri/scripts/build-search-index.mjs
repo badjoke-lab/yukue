@@ -1,35 +1,11 @@
 import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 
-import { buildPublicProjection } from "@badjoke-lab/yukue-observation-core";
 import { buildSearchIndexRecords } from "@badjoke-lab/yukue-search";
 import * as pagefind from "pagefind";
+import { loadMatsuriProjection } from "./load-matsuri-projection.mjs";
 
-const dataDirectory = new URL("../../../data/public/matsuri/d1/", import.meta.url);
 const outputDirectory = fileURLToPath(new URL("../dist/pagefind/", import.meta.url));
-
-function readJson(fileName) {
-  const filePath = fileURLToPath(new URL(fileName, dataDirectory));
-  return JSON.parse(fs.readFileSync(filePath, "utf8"));
-}
-
-function loadProjection() {
-  const records = readJson("records.json");
-  return buildPublicProjection({
-    entities: readJson("entities.json"),
-    places: readJson("places.json"),
-    stateSnapshots: readJson("state-snapshots.json"),
-    changeEvents: records.changeEvents,
-    occurrences: records.occurrences,
-    occurrenceSeries: records.occurrenceSeries,
-    recurrencePatterns: records.recurrencePatterns,
-    relations: records.relations,
-    designations: records.designations,
-    sources: records.sources,
-    evidence: readJson("evidence.json"),
-    images: records.images,
-  });
-}
 
 function resolveRecordUrl(record) {
   if (record.id === "fst-suneori-amagoi") {
@@ -49,7 +25,7 @@ function assertNoErrors(stage, errors) {
   }
 }
 
-const projection = loadProjection();
+const projection = loadMatsuriProjection();
 const records = buildSearchIndexRecords(projection);
 const { index, errors: createErrors } = await pagefind.createIndex({
   forceLanguage: "ja",
