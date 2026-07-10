@@ -1,0 +1,166 @@
+{
+  "entities": [
+    {
+      "id": "fst-tokushima-awaodori",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "tokushima-city-awaodori",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [{"value":"徳島市阿波おどり","lang":"ja","kind":"canonical","is_preferred":true,"source_ids":["src-awa-home"]}],
+      "summary_ja": "徳島市で毎年8月に行われる阿波おどりの大規模な祭典。",
+      "geographic_scope": {"areas":[{"prefecture_code":"36","prefecture_name_ja":"徳島県","municipality_name_ja":"徳島市"}],"scope_type":"multi_site","description_ja":"徳島市内の複数の舞台・演舞場・街路空間で構成される。"},
+      "primary_place_id": "plc-tokushima-city-center",
+      "default_place_ids": ["plc-tokushima-city-center"],
+      "external_links": [{"kind":"official_website","platform":"web","url":"https://www.awaodorimirai.com/","is_primary":true,"officiality":"official_organization","last_checked_at":"2026-07-10"}],
+      "record_lifecycle": "active",
+      "festival_kind": "dance_festival",
+      "recurrence_pattern": {"pattern_type":"annual","rule_text_ja":"毎年8月11日から15日までの5日間","evidence_ids":["evd-awa-recurrence"]},
+      "usual_months": [8],
+      "usual_duration_days": 5,
+      "season_tags": ["夏"]
+    },
+    {
+      "id": "org-awaodori-mirai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "awaodori-mirai-committee",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [{"value":"阿波おどり未来へつなぐ実行委員会","lang":"ja","kind":"canonical","is_preferred":true,"source_ids":["src-awa-home"]}],
+      "summary_ja": "徳島市阿波おどりの公式情報を公開し、開催を担う実行委員会。",
+      "geographic_scope": {"areas":[{"prefecture_code":"36","prefecture_name_ja":"徳島県","municipality_name_ja":"徳島市"}],"scope_type":"single_area"},
+      "default_place_ids": [],
+      "external_links": [{"kind":"official_website","platform":"web","url":"https://www.awaodorimirai.com/","is_primary":true,"officiality":"official_organization","last_checked_at":"2026-07-10"}],
+      "record_lifecycle": "active",
+      "organization_kind": "festival_committee",
+      "official_url": "https://www.awaodorimirai.com/"
+    },
+    {
+      "id": "fpf-gujo-odori",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "gujo-odori",
+      "entity_type": "folk_performance",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [{"value":"郡上おどり","lang":"ja","kind":"canonical","is_preferred":true,"source_ids":["src-gujo-about"]}],
+      "summary_ja": "郡上八幡で夏季に30夜以上にわたり踊られる盆踊り。",
+      "geographic_scope": {"areas":[{"prefecture_code":"21","prefecture_name_ja":"岐阜県","municipality_name_ja":"郡上市"}],"scope_type":"multi_site","description_ja":"郡上八幡の市街地各所を会場として開催される。"},
+      "primary_place_id": "plc-gujo-hachiman-town",
+      "default_place_ids": ["plc-gujo-hachiman-town"],
+      "external_links": [{"kind":"official_tourism_page","platform":"web","url":"https://www.gujohachiman.com/kanko/odori.html","is_primary":true,"officiality":"official","last_checked_at":"2026-07-10"}],
+      "record_lifecycle": "active",
+      "performance_kind": "bon_odori",
+      "forms": ["盆踊り"],
+      "recurrence_pattern": {"pattern_type":"annual","rule_text_ja":"7月中旬から9月上旬にかけて30夜以上。8月13日から16日は徹夜おどり。","evidence_ids":["evd-gujo-recurrence"]},
+      "usual_months": [7,8,9],
+      "occurrence_series_ids": ["ser-gujo-odori-annual"]
+    },
+    {
+      "id": "fst-chichibu-yomatsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "chichibu-yomatsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [{"value":"秩父夜祭","lang":"ja","kind":"canonical","is_preferred":true,"source_ids":["src-chichibu-yomatsuri"]}],
+      "summary_ja": "秩父神社の年に一度の大祭として行われる祭礼。",
+      "geographic_scope": {"areas":[{"prefecture_code":"11","prefecture_name_ja":"埼玉県","municipality_name_ja":"秩父市"}],"scope_type":"route_based","description_ja":"秩父神社を中心に神幸祭と笠鉾・屋台の行事が行われる。"},
+      "primary_place_id": "plc-chichibu-jinja",
+      "default_place_ids": ["plc-chichibu-jinja"],
+      "external_links": [{"kind":"official_website","platform":"web","url":"https://www.chichibu-jinja.or.jp/yomatsuri/","is_primary":true,"officiality":"official_organization","last_checked_at":"2026-07-10"}],
+      "record_lifecycle": "active",
+      "festival_kind": "shrine_festival",
+      "recurrence_pattern": {"pattern_type":"annual","rule_text_ja":"毎年12月2日・3日。3日夜の神幸祭を中心に行われる。","evidence_ids":["evd-chichibu-recurrence"]},
+      "usual_months": [12],
+      "usual_duration_days": 2,
+      "season_tags": ["冬"]
+    },
+    {
+      "id": "shr-chichibu-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "chichibu-jinja",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [{"value":"秩父神社","lang":"ja","kind":"canonical","is_preferred":true,"source_ids":["src-chichibu-yomatsuri"]}],
+      "summary_ja": "埼玉県秩父市に鎮座し、秩父夜祭の例祭主体となる神社。",
+      "geographic_scope": {"areas":[{"prefecture_code":"11","prefecture_name_ja":"埼玉県","municipality_name_ja":"秩父市"}],"scope_type":"single_site"},
+      "primary_place_id": "plc-chichibu-jinja",
+      "default_place_ids": ["plc-chichibu-jinja"],
+      "external_links": [{"kind":"official_website","platform":"web","url":"https://www.chichibu-jinja.or.jp/","is_primary":true,"officiality":"official_organization","last_checked_at":"2026-07-10"}],
+      "record_lifecycle": "active"
+    }
+  ],
+  "places": [
+    {"id":"plc-tokushima-city-center","schema_version":"common.v1","record_version":1,"name_ja":"徳島市中心部","place_kind":"community_area","country_code":"JP","prefecture_code":"36","prefecture_name_ja":"徳島県","municipality_name_ja":"徳島市","coordinate_precision":"municipality","source_ids":["src-awa-home","src-awa-schedule-2026"]},
+    {"id":"plc-gujo-hachiman-town","schema_version":"common.v1","record_version":1,"name_ja":"郡上八幡市街地","place_kind":"distributed_tradition_area","country_code":"JP","prefecture_code":"21","prefecture_name_ja":"岐阜県","municipality_name_ja":"郡上市","locality_ja":"八幡町","coordinate_precision":"approximate","source_ids":["src-gujo-about","src-gujo-schedule-2026"]},
+    {"id":"plc-chichibu-jinja","schema_version":"common.v1","record_version":1,"name_ja":"秩父神社","place_kind":"shrine","country_code":"JP","prefecture_code":"11","prefecture_name_ja":"埼玉県","municipality_name_ja":"秩父市","street_address_ja":"番場町1-3","postal_code":"368-0041","coordinate_precision":"venue","source_ids":["src-chichibu-yomatsuri"]}
+  ],
+  "stateSnapshots": [
+    {"id":"sts-awa-current","schema_version":"matsuri.v1","record_version":1,"entity_id":"fst-tokushima-awaodori","state_schema":"matsuri.festival.v1","state_code":"active","observed_at":"2026-07-10","basis_evidence_ids":["evd-awa-state"],"review_status":"approved"},
+    {"id":"sts-gujo-current","schema_version":"matsuri.v1","record_version":1,"entity_id":"fpf-gujo-odori","state_schema":"matsuri.folk-performance.v1","state_code":"active","observed_at":"2026-07-10","basis_evidence_ids":["evd-gujo-state"],"review_status":"approved"},
+    {"id":"sts-chichibu-current","schema_version":"matsuri.v1","record_version":1,"entity_id":"fst-chichibu-yomatsuri","state_schema":"matsuri.festival.v1","state_code":"active","observed_at":"2026-07-10","basis_evidence_ids":["evd-chichibu-state"],"review_status":"approved"}
+  ],
+  "changeEvents": [
+    {"id":"chg-gujo-unesco-2022","schema_version":"matsuri.v1","record_version":1,"event_type":"designation_added","subject_entity_ids":["fpf-gujo-odori"],"effective_period":{"start":"2022"},"summary_ja":"郡上おどりが2022年にユネスコ無形文化遺産「風流踊」の構成要素として登録された。","resulting_state_snapshot_ids":[],"related_relation_ids":[],"evidence_ids":["evd-gujo-unesco-change"],"review_status":"approved"}
+  ],
+  "occurrences": [
+    {"id":"occ-awa-2026-schedule","schema_version":"matsuri.v1","record_version":1,"subject_entity_id":"fst-tokushima-awaodori","occurrence_type":"festival_edition","temporal_extent":{"start":"2026-08-11","end":"2026-08-15","precision":"range"},"outcome":"scheduled","scale":"normal","venue_place_ids":["plc-tokushima-city-center"],"organizer_entity_ids":["org-awaodori-mirai"],"evidence_ids":["evd-awa-occ-2026"],"review_status":"approved","series_id":"ser-awa-annual"},
+    {"id":"occ-gujo-2026-schedule","schema_version":"matsuri.v1","record_version":1,"subject_entity_id":"fpf-gujo-odori","occurrence_type":"performance","temporal_extent":{"start":"2026-07-11","end":"2026-09-05","precision":"range"},"outcome":"scheduled","scale":"normal","venue_place_ids":["plc-gujo-hachiman-town"],"organizer_entity_ids":[],"evidence_ids":["evd-gujo-occ-2026"],"review_status":"approved","series_id":"ser-gujo-odori-annual"}
+  ],
+  "occurrenceSeries": [
+    {"id":"ser-awa-annual","schema_version":"matsuri.v1","record_version":1,"subject_entity_id":"fst-tokushima-awaodori","series_type":"annual_festival_edition","name_ja":"徳島市阿波おどり 年次開催","recurrence_pattern_id":"rec-awa-annual","default_venue_place_ids":["plc-tokushima-city-center"],"evidence_ids":["evd-awa-recurrence"]},
+    {"id":"ser-gujo-odori-annual","schema_version":"matsuri.v1","record_version":1,"subject_entity_id":"fpf-gujo-odori","series_type":"annual_performance_cycle","name_ja":"郡上おどり 年次開催期","recurrence_pattern_id":"rec-gujo-odori-annual","default_venue_place_ids":["plc-gujo-hachiman-town"],"evidence_ids":["evd-gujo-recurrence"]},
+    {"id":"ser-chichibu-yomatsuri-annual","schema_version":"matsuri.v1","record_version":1,"subject_entity_id":"fst-chichibu-yomatsuri","series_type":"annual_festival_edition","name_ja":"秩父夜祭 年次祭礼","recurrence_pattern_id":"rec-chichibu-yomatsuri-annual","default_venue_place_ids":["plc-chichibu-jinja"],"evidence_ids":["evd-chichibu-recurrence"]}
+  ],
+  "recurrencePatterns": [
+    {"id":"rec-awa-annual","schema_version":"common.v1","record_version":1,"pattern_type":"annual","rule_text_ja":"毎年8月11日から15日までの5日間","evidence_ids":["evd-awa-recurrence"]},
+    {"id":"rec-gujo-odori-annual","schema_version":"common.v1","record_version":1,"pattern_type":"annual","rule_text_ja":"7月中旬から9月上旬にかけて30夜以上。8月13日から16日は徹夜おどり。","evidence_ids":["evd-gujo-recurrence"]},
+    {"id":"rec-chichibu-yomatsuri-annual","schema_version":"common.v1","record_version":1,"pattern_type":"annual","rule_text_ja":"毎年12月2日・3日。3日夜の神幸祭を中心に行われる。","evidence_ids":["evd-chichibu-recurrence"]}
+  ],
+  "relations": [
+    {"id":"rel-awa-organized-by-committee","schema_version":"matsuri.v1","record_version":1,"source_entity_id":"fst-tokushima-awaodori","relation_type":"organized_by","target_entity_id":"org-awaodori-mirai","evidence_ids":["evd-rel-awa-committee"],"review_status":"approved"},
+    {"id":"rel-chichibu-associated-with-shrine","schema_version":"matsuri.v1","record_version":1,"source_entity_id":"fst-chichibu-yomatsuri","relation_type":"ritually_associated_with","target_entity_id":"shr-chichibu-jinja","evidence_ids":["evd-rel-chichibu-shrine"],"review_status":"approved"}
+  ],
+  "designations": [
+    {"id":"des-gujo-unesco-furyu-odori","schema_version":"common.v1","record_version":1,"designation_name_ja":"ユネスコ無形文化遺産代表一覧表「風流踊」","subject_entity_ids":["fpf-gujo-odori"],"designation_system":"無形文化遺産の保護に関する条約","designation_level":"国際","valid_period":{"start":"2022"},"evidence_ids":["evd-gujo-unesco-designation"]}
+  ],
+  "sources": [
+    {"id":"src-awa-home","schema_version":"common.v1","record_version":1,"source_type":"official_organization","title":"The Awaodori","publisher":"阿波おどり未来へつなぐ実行委員会","url":"https://www.awaodorimirai.com/","accessed_at":"2026-07-10","language":"ja"},
+    {"id":"src-awa-schedule-2026","schema_version":"common.v1","record_version":1,"source_type":"official_organization","title":"2026 開催スケジュール","publisher":"阿波おどり未来へつなぐ実行委員会","url":"https://www.awaodorimirai.com/2025-%E9%96%8B%E5%82%AC%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB","accessed_at":"2026-07-10","language":"ja"},
+    {"id":"src-gujo-about","schema_version":"common.v1","record_version":1,"source_type":"official_tourism_body","title":"郡上おどり","publisher":"郡上八幡観光協会","url":"https://www.gujohachiman.com/kanko/odori.html","accessed_at":"2026-07-10","language":"ja"},
+    {"id":"src-gujo-schedule-2026","schema_version":"common.v1","record_version":1,"source_type":"official_tourism_body","title":"2026年郡上おどり日程","publisher":"郡上八幡観光協会","url":"https://www.gujohachiman.com/kanko/odori_schedule.html","accessed_at":"2026-07-10","language":"ja"},
+    {"id":"src-chichibu-yomatsuri","schema_version":"common.v1","record_version":1,"source_type":"shrine_official","title":"秩父夜祭","publisher":"秩父神社","url":"https://www.chichibu-jinja.or.jp/yomatsuri/","accessed_at":"2026-07-10","language":"ja"}
+  ],
+  "evidence": [
+    {"id":"evd-awa-state","schema_version":"common.v1","record_version":1,"source_id":"src-awa-schedule-2026","target_type":"state_snapshot","target_id":"sts-awa-current","assertion_code":"supports_current_state","summary_ja":"公式2026開催スケジュールが徳島市阿波おどりの開催内容を案内している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-awa-recurrence","schema_version":"common.v1","record_version":1,"source_id":"src-awa-home","target_type":"recurrence_pattern","target_id":"rec-awa-annual","assertion_code":"supports_recurrence","summary_ja":"公式サイトは毎年8月11日から15日までの5日間と案内している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-awa-occ-2026","schema_version":"common.v1","record_version":1,"source_id":"src-awa-schedule-2026","target_type":"occurrence","target_id":"occ-awa-2026-schedule","assertion_code":"supports_occurrence_schedule","summary_ja":"公式日程は2026年8月11日のオープニングから15日までの開催内容を掲載している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-rel-awa-committee","schema_version":"common.v1","record_version":1,"source_id":"src-awa-home","target_type":"relation","target_id":"rel-awa-organized-by-committee","assertion_code":"supports_relation","summary_ja":"公式サイトは阿波おどり未来へつなぐ実行委員会を運営・開催主体として表示している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-gujo-state","schema_version":"common.v1","record_version":1,"source_id":"src-gujo-schedule-2026","target_type":"state_snapshot","target_id":"sts-gujo-current","assertion_code":"supports_current_state","summary_ja":"2026年の公式観光日程が30夜の開催予定を掲載している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-gujo-recurrence","schema_version":"common.v1","record_version":1,"source_id":"src-gujo-about","target_type":"recurrence_pattern","target_id":"rec-gujo-odori-annual","assertion_code":"supports_recurrence","summary_ja":"公式観光案内は7月中旬から9月上旬に30夜以上、8月13日から16日に徹夜おどりを行うと説明している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-gujo-occ-2026","schema_version":"common.v1","record_version":1,"source_id":"src-gujo-schedule-2026","target_type":"occurrence","target_id":"occ-gujo-2026-schedule","assertion_code":"supports_occurrence_schedule","summary_ja":"2026年日程は7月11日の発祥祭から9月5日のおどり納めまで30夜と案内している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-gujo-unesco-change","schema_version":"common.v1","record_version":1,"source_id":"src-gujo-about","target_type":"change_event","target_id":"chg-gujo-unesco-2022","assertion_code":"supports_change_event","summary_ja":"公式観光案内は2022年に郡上おどりがユネスコ無形文化遺産に登録されたと説明している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-gujo-unesco-designation","schema_version":"common.v1","record_version":1,"source_id":"src-gujo-about","target_type":"designation","target_id":"des-gujo-unesco-furyu-odori","assertion_code":"supports_designation","summary_ja":"公式観光案内が郡上おどりの2022年ユネスコ無形文化遺産登録を掲載している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-chichibu-state","schema_version":"common.v1","record_version":1,"source_id":"src-chichibu-yomatsuri","target_type":"state_snapshot","target_id":"sts-chichibu-current","assertion_code":"supports_current_state","summary_ja":"秩父神社公式ページが秩父夜祭を現在の年次大祭として案内している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-chichibu-recurrence","schema_version":"common.v1","record_version":1,"source_id":"src-chichibu-yomatsuri","target_type":"recurrence_pattern","target_id":"rec-chichibu-yomatsuri-annual","assertion_code":"supports_recurrence","summary_ja":"秩父神社公式ページは12月2日の神事と翌3日の夜祭・神幸祭の流れを説明している。","captured_at":"2026-07-10","review_status":"approved"},
+    {"id":"evd-rel-chichibu-shrine","schema_version":"common.v1","record_version":1,"source_id":"src-chichibu-yomatsuri","target_type":"relation","target_id":"rel-chichibu-associated-with-shrine","assertion_code":"supports_relation","summary_ja":"秩父神社公式ページは秩父夜祭を同社の年に一度の大祭と説明している。","captured_at":"2026-07-10","review_status":"approved"}
+  ],
+  "images": []
+}
