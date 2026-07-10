@@ -66,18 +66,23 @@ function entityTypeLabel(entityType: string): string {
   }
 }
 
-function entityHashHref(entity: ProjectedEntity): string {
-  if (entity.entity_type === "organization") {
-    return `/organizations/#${entity.id}`;
+function entityHashHref(entity: ProjectedEntity): string | undefined {
+  switch (entity.entity_type) {
+    case "organization":
+      return `/organizations/#${entity.id}`;
+    case "folk_performance":
+      return `/performances/#${entity.id}`;
+    case "festival":
+    case "tradition_unit":
+      return `/festivals/#${entity.id}`;
+    default:
+      return undefined;
   }
-  if (entity.entity_type === "folk_performance") {
-    return `/performances/#${entity.id}`;
-  }
-  return `/festivals/#${entity.id}`;
 }
 
 function toBrowseItem(entity: ProjectedEntity): BrowseEntityItem {
   const stateCode = entity.current_state?.state_code;
+  const href = entityHashHref(entity);
   return {
     id: entity.id,
     name: preferredName(entity),
@@ -87,7 +92,7 @@ function toBrowseItem(entity: ProjectedEntity): BrowseEntityItem {
       ? { stateLabel: stateLabels[stateCode] ?? "状態確認中" }
       : {}),
     ...(entity.summary_ja ? { summary: entity.summary_ja } : {}),
-    href: entityHashHref(entity),
+    ...(href ? { href } : {}),
   };
 }
 
@@ -124,8 +129,4 @@ export function buildStateBrowseItems(
     .filter((entity) => entity.current_state?.state_code === stateCode)
     .map(toBrowseItem)
     .sort((a, b) => a.name.localeCompare(b.name, "ja"));
-}
-
-export function stateLabel(stateCode: string): string {
-  return stateLabels[stateCode] ?? stateCode;
 }
