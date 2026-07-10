@@ -1,0 +1,310 @@
+{
+  "entities": [
+    {
+      "id": "fst-hirosaki-neputa",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "hirosaki-neputa-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "弘前ねぷたまつり",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-hirosaki-neputa-current"]
+        }
+      ],
+      "summary_ja": "大小のねぷたが囃子とともに弘前市中心部を練り歩く夏祭り。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "02",
+            "prefecture_name_ja": "青森県",
+            "municipality_name_ja": "弘前市"
+          }
+        ],
+        "scope_type": "route_based",
+        "description_ja": "弘前市中心部の土手町コース、駅前コースなどで運行される。"
+      },
+      "primary_place_id": "plc-hirosaki-neputa-routes",
+      "default_place_ids": ["plc-hirosaki-neputa-routes"],
+      "external_links": [
+        {
+          "kind": "official_tourism_page",
+          "platform": "web",
+          "url": "https://www.hirosaki-kanko.or.jp/edit.html?id=cat02_summer_neputa",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "procession_festival",
+      "recurrence_pattern": {
+        "pattern_type": "annual",
+        "rule_text_ja": "毎年8月1日から7日",
+        "evidence_ids": ["evd-hirosaki-neputa-recurrence"]
+      },
+      "usual_months": [8],
+      "usual_duration_days": 7,
+      "season_tags": ["夏"]
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-hirosaki-neputa-routes",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "弘前ねぷたまつり運行区域",
+      "place_kind": "procession_route",
+      "country_code": "JP",
+      "prefecture_code": "02",
+      "prefecture_name_ja": "青森県",
+      "municipality_name_ja": "弘前市",
+      "coordinate_precision": "approximate",
+      "map_label_ja": "弘前市中心部の土手町・駅前コース",
+      "source_ids": ["src-hirosaki-neputa-current"]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-hirosaki-neputa-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-hirosaki-neputa",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-07-10",
+      "basis_evidence_ids": ["evd-hirosaki-neputa-state"],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-hirosaki-neputa-suspension-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_started",
+      "subject_entity_ids": ["fst-hirosaki-neputa"],
+      "effective_period": {"start": "2020"},
+      "summary_ja": "弘前ねぷたまつりは2020年に中止となり、公式観光ページでは2021年についても中止記録が示されている。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-hirosaki-neputa-suspension-2020"],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-hirosaki-neputa-suspension-ended-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_ended",
+      "subject_entity_ids": ["fst-hirosaki-neputa"],
+      "effective_period": {"start": "2022"},
+      "summary_ja": "2020年と2021年の連続中止後、公式の2022年記録で弘前ねぷたまつりの運行が確認できるため、休止期間は2022年までに終了した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-hirosaki-neputa-suspension-ended-2022"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-hirosaki-neputa-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-hirosaki-neputa",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {"start": "2020", "end": "2020", "precision": "year"},
+      "outcome": "cancelled",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-hirosaki-neputa-routes"],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-hirosaki-neputa-occ-2020"],
+      "review_status": "approved",
+      "series_id": "ser-hirosaki-neputa-annual"
+    },
+    {
+      "id": "occ-hirosaki-neputa-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-hirosaki-neputa",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {"start": "2021", "end": "2021", "precision": "year"},
+      "outcome": "cancelled",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-hirosaki-neputa-routes"],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-hirosaki-neputa-occ-2021"],
+      "review_status": "approved",
+      "series_id": "ser-hirosaki-neputa-annual"
+    },
+    {
+      "id": "occ-hirosaki-neputa-2022-return",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-hirosaki-neputa",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {"start": "2022", "end": "2022", "precision": "year"},
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-hirosaki-neputa-routes"],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-hirosaki-neputa-occ-2022"],
+      "review_status": "approved",
+      "series_id": "ser-hirosaki-neputa-annual"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-hirosaki-neputa-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-hirosaki-neputa",
+      "series_type": "annual_festival_edition",
+      "name_ja": "弘前ねぷたまつり 年次開催",
+      "recurrence_pattern_id": "rec-hirosaki-neputa-annual",
+      "default_venue_place_ids": ["plc-hirosaki-neputa-routes"],
+      "evidence_ids": ["evd-hirosaki-neputa-recurrence"]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-hirosaki-neputa-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年8月1日から7日",
+      "evidence_ids": ["evd-hirosaki-neputa-recurrence"]
+    }
+  ],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-hirosaki-neputa-current",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_tourism",
+      "title": "弘前ねぷたまつり",
+      "publisher": "公益社団法人 弘前観光コンベンション協会",
+      "url": "https://www.hirosaki-kanko.or.jp/edit.html?id=cat02_summer_neputa",
+      "accessed_at": "2026-07-10",
+      "language": "ja"
+    },
+    {
+      "id": "src-hirosaki-neputa-300",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_tourism",
+      "title": "弘前ねぷた300年祭",
+      "publisher": "公益社団法人 弘前観光コンベンション協会",
+      "url": "https://www.hirosaki-kanko.or.jp/edit.html?id=neputa300",
+      "accessed_at": "2026-07-10",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-hirosaki-neputa-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-current",
+      "target_type": "entity_identity",
+      "target_id": "fst-hirosaki-neputa",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "公式観光ページが弘前ねぷたまつりの名称、運行内容、会期、運行コースを案内している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hirosaki-neputa-state",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-current",
+      "target_type": "state_snapshot",
+      "target_id": "sts-hirosaki-neputa-current",
+      "assertion_code": "supports_current_state",
+      "summary_ja": "公式観光ページが2026年8月1日から7日の開催概要を掲載しており、Current Stateのactiveを裏付ける。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hirosaki-neputa-recurrence",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-current",
+      "target_type": "recurrence_pattern",
+      "target_id": "rec-hirosaki-neputa-annual",
+      "assertion_code": "supports_recurrence",
+      "summary_ja": "公式観光ページは弘前ねぷたまつりの会期を毎年8月1日から7日と明記している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hirosaki-neputa-suspension-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-300",
+      "target_type": "change_event",
+      "target_id": "chg-hirosaki-neputa-suspension-2020",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "公式観光ページは2020年の弘前ねぷたまつりを中止年として扱い、2021年についても中止記録を掲げている。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hirosaki-neputa-suspension-ended-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-300",
+      "target_type": "change_event",
+      "target_id": "chg-hirosaki-neputa-suspension-ended-2022",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "同じ公式観光サイトが2020年・2021年の中止記録と、2022年8月の弘前ねぷたまつり運行・配信記録を掲載しており、連続中止後に2022年の開催が確認できる。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hirosaki-neputa-occ-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-300",
+      "target_type": "occurrence",
+      "target_id": "occ-hirosaki-neputa-2020",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "公式観光ページの2020年特集記事案内は弘前ねぷたまつりが中止となった年であることを示している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hirosaki-neputa-occ-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-300",
+      "target_type": "occurrence",
+      "target_id": "occ-hirosaki-neputa-2021",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "公式観光ページの2021年特集記事案内は弘前ねぷたまつりが中止となった年であることを示している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hirosaki-neputa-occ-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-300",
+      "target_type": "occurrence",
+      "target_id": "occ-hirosaki-neputa-2022-return",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "公式観光ページは2022年8月4日の土手町コースと8月5日の駅前コースのオンライン配信記録を掲載し、同年の開催を裏付ける。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}

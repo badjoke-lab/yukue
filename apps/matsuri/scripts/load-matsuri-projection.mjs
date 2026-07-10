@@ -12,6 +12,7 @@ const f1BatchFiles = [
   "batch-04.json",
   "batch-05.json",
   "batch-06.json",
+  "batch-07.json",
 ];
 
 function readJson(directory, fileName) {
