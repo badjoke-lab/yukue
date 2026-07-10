@@ -29,3 +29,6 @@ jobs:
 
       - name: Verify Matsuri Pages artifact
         run: pnpm check:matsuri:pages
+
+      - name: Validate Matsuri deployed verifier
+        run: node --check scripts/check-matsuri-deployed.mjs

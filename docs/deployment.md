@@ -78,19 +78,34 @@ Run both in sequence:
 pnpm verify:matsuri:pages
 ```
 
-The artifact check requires the static site, Browse and Search entry pages, Pagefind runtime, machine-readable JSON files, discovery text files, and sitemap to exist under `apps/matsuri/dist`.
+The artifact check requires the static site, Browse, Reference, Current State, and Search entry pages, Pagefind runtime, machine-readable JSON files, discovery text files, and sitemap to exist under `apps/matsuri/dist`.
 
 ## First-deployment verification
 
-After the first Cloudflare Pages deployment, verify the deployed origin before advancing the canonical-origin gate:
+After the first Cloudflare Pages deployment, set the reachable deployment origin and run:
+
+```text
+MATSURI_CHECK_ORIGIN=https://<deployment-host> pnpm check:matsuri:deployed
+```
+
+The deployed check verifies that the main public HTML routes, Pagefind runtime, JSON feeds, discovery text files, and sitemap are reachable, return successful HTTP responses, use expected Content-Type families, and contain non-empty bodies. It also parses version, manifest, and entity-feed JSON and requires the Matsuri site marker and non-empty public entity records.
+
+The check covers these public surfaces:
 
 ```text
 /
+/about/
 /festivals/
 /performances/
+/organizations/
 /regions/
 /changes/
+/states/
 /search/
+/methodology/
+/data/
+/status/
+/pagefind/pagefind.js
 /version.json
 /data/manifest.json
 /data/entities.json
@@ -100,23 +115,61 @@ After the first Cloudflare Pages deployment, verify the deployed origin before a
 /llms.txt
 /ai.txt
 /sitemap.xml
-/pagefind/pagefind.js
 ```
 
-Also verify that Search can load the deployed Pagefind assets and return at least one known Matsuri record.
+After automated smoke verification, also use the browser Search UI once and confirm that at least one known Matsuri record is returned. The HTTP verifier confirms deployed search assets are reachable but does not emulate the browser Pagefind runtime.
 
-## Deferred from this baseline
+## Canonical-origin verification
 
-The following belong to later F2 steps and must not be silently folded into deployment setup:
+After choosing the canonical public origin, set the Production build environment variable:
 
 ```text
-custom domain decision
-canonical public origin configuration
-canonical URL validation
-production sitemap-origin validation
-search-index checks on the deployed origin
-analytics baseline
-status page
-methodology page
-data access page
+MATSURI_PUBLIC_ORIGIN=https://<canonical-origin>
+```
+
+Deploy again, then run strict canonical verification against that same origin:
+
+```text
+MATSURI_CHECK_ORIGIN=https://<canonical-origin> pnpm check:matsuri:canonical
+```
+
+Canonical mode performs the normal deployed checks and additionally requires:
+
+```text
+data/manifest.json site_origin == checked origin
+all sitemap.xml <loc> values use the checked canonical origin
+```
+
+Do not use a branch preview URL as `MATSURI_PUBLIC_ORIGIN`.
+
+## Analytics baseline
+
+Cloudflare Pages Web Analytics is enabled at the Pages project level after the project exists. Keep analytics credentials and site-specific configuration out of the repository.
+
+After enabling analytics for the Pages project, trigger or confirm the next deployment and verify that the Web Analytics site begins receiving production traffic before closing the F2 analytics gate.
+
+## Completed F2 public surfaces
+
+The following reference and supporting Browse surfaces are implemented and included in the deployment artifact contract:
+
+```text
+/about/
+/methodology/
+/data/
+/status/
+/organizations/
+/states/
+/states/<state-code>/
+```
+
+## Remaining external launch sequence
+
+```text
+1. create/connect the Cloudflare Pages project
+2. obtain and smoke-check the first reachable deployment URL
+3. decide the canonical public origin
+4. configure MATSURI_PUBLIC_ORIGIN and redeploy
+5. run canonical and sitemap verification
+6. perform one browser Search UI check
+7. enable and verify the Pages Web Analytics baseline
 ```
