@@ -45,7 +45,8 @@ Execution Stage F — Corpus Expansion and Launch Preparation
 - E2 Pagefind full-text search and initial Entity Type, Prefecture, and Current State filters completed and validated,
 - E3 machine-readable public baseline completed and validated,
 - F1 corpus expansion batches 01 through 10 completed and validated,
-- F1 corpus-expansion gate completed with balanced Festival, Folk Performance, Organization, Occurrence, Change Event, Relation, and Evidence coverage.
+- F1 corpus-expansion gate completed with balanced Festival, Folk Performance, Organization, Occurrence, Change Event, Relation, and Evidence coverage,
+- F2 Cloudflare Pages repository deployment baseline completed and validated.
 
 ## Current UI direction
 
@@ -119,12 +120,24 @@ data access page
 Immediate implementation order:
 
 ```text
-1. Cloudflare deployment baseline
-2. canonical public origin decision and configuration
-3. sitemap and search-index validation against the deployed origin
-4. methodology, data access, and status surfaces
-5. analytics baseline
+1. Cloudflare Pages repository deployment baseline — completed
+2. first Pages project deployment and reachable URL verification
+3. canonical public origin decision and configuration
+4. sitemap and search-index validation against the deployed origin
+5. methodology, data access, and status surfaces
+6. analytics baseline
 ```
+
+The repository deployment baseline now fixes the Matsuri Pages build contract at repository root with:
+
+```text
+Build command: pnpm build:matsuri:pages
+Build output directory: apps/matsuri/dist
+Node.js: 24
+pnpm: 11.10.0
+```
+
+CI verifies that the generated Pages artifact contains the static HTML entry points, Pagefind runtime, machine-readable public JSON feeds, discovery text files, and sitemap. The actual Cloudflare account project deployment and resulting public URL are not yet completed and remain the next external deployment step.
 
 F1 closed after ten validated expansion batches. Batch 01 and batch 02 broadened Festival, Folk Performance, Organization, Occurrence, Relation, Designation, and Evidence coverage. Batch 03 shifted emphasis toward occurrence and change-history depth, including cancelled, partially held, reduced-scale, and scheduled annual editions while keeping Current State separate from individual Occurrence outcomes. Batch 04 deepened existing D1 entities without adding new Entities, recording a schedule-rule change for 相馬野馬追 and a revival-completion Event plus return Occurrence for 鷹山. Batch 05 added a first-party documented long-hiatus revival case for 布橋灌頂会 and deepened 脚折雨乞 with a quadrennial Series, Recurrence Pattern, and 2028 scheduled Occurrence. Batch 06 added an official-source disaster-recovery lifecycle around 阿蘇神社 and 御田祭, keeping shrine damage and restoration Events separate from festival Current State and the 2026 scheduled Occurrence instead of inferring an unsupported festival cancellation. Batch 07 added 弘前ねぷたまつり as an explicit festival-level continuity sequence: cancelled 2020, cancelled 2021, held again in 2022, with suspension-start and suspension-end Events linked to the occurrence history. Batch 08 deepened Organization and Relation coverage around 弘前ねぷた300年祭 by separating the anniversary program, its execution committee, and the participant-group council, then representing organized-by, supported-by, and part-of-tradition relationships explicitly. Batch 09 deepened Folk Performance continuity with 大日堂舞楽 by recording historical suspension and restart Events without invented dates, four-community transmission, annual January 2 recurrence, a preservation-group Organization, a maintained-by Relation, and a performed-at Relation to a shrine context Entity. Batch 10 closed the remaining Folk Performance occurrence-history gap with a three-year YOSAKOIソーラン sequence: cancelled 2020, cancelled 2021, held again in 2022, linked to suspension-start and suspension-end Events while keeping Current State independent from historical Occurrence outcomes.
 
