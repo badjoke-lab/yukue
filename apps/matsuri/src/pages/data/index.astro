@@ -1,0 +1,46 @@
+---
+import MatsuriReferenceShell from "../../components/MatsuriReferenceShell.astro";
+---
+
+<MatsuriReferenceShell
+  title="データ利用｜祭のゆくえ"
+  description="祭のゆくえが公開する機械可読データ、manifest、discovery filesの利用案内です。"
+  kicker="Data Access"
+  heading="公開データを利用する"
+  intro="公開ページと同じ承認済みPublic Projectionから、JSON feeds、manifest、llms.txt、ai.txt、sitemap.xmlを生成しています。"
+  activeReference="data"
+>
+  <section>
+    <h2>公開ファイル</h2>
+    <p>現在のmachine-readable baselineでは、次の公開ファイルを提供します。</p>
+    <ul>
+      <li><a href="/version.json"><code>/version.json</code></a></li>
+      <li><a href="/data/manifest.json"><code>/data/manifest.json</code></a></li>
+      <li><a href="/data/entities.json"><code>/data/entities.json</code></a></li>
+      <li><a href="/data/events.json"><code>/data/events.json</code></a></li>
+      <li><a href="/data/relations.json"><code>/data/relations.json</code></a></li>
+      <li><a href="/data/occurrences.json"><code>/data/occurrences.json</code></a></li>
+      <li><a href="/llms.txt"><code>/llms.txt</code></a></li>
+      <li><a href="/ai.txt"><code>/ai.txt</code></a></li>
+      <li><a href="/sitemap.xml"><code>/sitemap.xml</code></a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>データの意味</h2>
+    <p>entitiesは対象のidentityとprofile、eventsはChange Event、relationsは対象間の方向付き関係、occurrencesは個別年・個別回の開催や上演を表します。</p>
+    <p>Current State、Occurrence、Change Eventは別の概念です。利用時には一回の中止を対象そのものの休止や終了と読み替えないでください。</p>
+  </section>
+
+  <section>
+    <h2>安全境界</h2>
+    <p>公開データはcanonical only、approved projection onlyを原則とします。候補キュー、内部confidence、review note、未解決のprivate source conflictは含めません。</p>
+    <p>各datasetにはversion markerとschema versionを含めます。将来の更新で構造や件数が変わる可能性があるため、再利用側ではversion情報を確認してください。</p>
+  </section>
+
+  <section>
+    <h2>HTMLとの関係</h2>
+    <p>公開HTML、公開JSON、検索index、sitemapは、同じ承認済みPublic Projectionから生成する方針です。HTMLとJSONを別々の手作業データとして管理しません。</p>
+    <p>記録の判断基準については<a href="/methodology/">方法論</a>を確認してください。</p>
+  </section>
+</MatsuriReferenceShell>
