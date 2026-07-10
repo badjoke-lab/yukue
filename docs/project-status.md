@@ -5,7 +5,7 @@
 ## Current phase
 
 ```text
-Execution Stage D — Sample Canonical Data and Projection
+Execution Stage E — Browse, Search, and Machine-readable Surfaces
 ```
 
 ## Completed
@@ -39,7 +39,8 @@ Execution Stage D — Sample Canonical Data and Projection
 - C2 Matsuri schema extensions and vocabularies completed,
 - C3 cross-record validation completed,
 - D1 representative sample canonical data completed and validated,
-- D2 Public Projection pipeline completed and validated.
+- D2 Public Projection pipeline completed and validated,
+- D3 Matsuri Home and Festival Detail integration with Public Projection completed and validated.
 
 ## Current UI direction
 
@@ -93,10 +94,19 @@ project-status.md
 ## Current work
 
 ```text
-D3 — Connect Matsuri Home and Detail to projection data
+E1 — Browse surfaces
 ```
 
-D1 representative sample coverage is fixed as:
+The first Browse surfaces are:
+
+```text
+Festivals
+Performances
+Regions
+Changes
+```
+
+D1 representative sample coverage remains:
 
 ```text
 脚折雨乞
@@ -107,29 +117,25 @@ D1 representative sample coverage is fixed as:
 東栄町の花祭 / 布川地区花祭
 ```
 
-The D2 projection boundary now provides:
+The public rendering path is now:
 
 ```text
-approved canonical input
+reviewed canonical data
 → validation
-→ approval-boundary filtering
-→ validation after filtering
-→ Current State derivation
-→ HTML-facing entity detail projection
-→ public JSON-facing projection
-→ projection leak and reference checks
+→ approved Public Projection
+→ Matsuri Home and Festival Detail view models
+→ Astro static HTML
 ```
 
-D3 must replace fixture-only Matsuri rendering with Public Projection consumption while preserving accepted Home H1 and Detail C behavior.
+Home observation metrics, recent Change Events, and recent Occurrences are generated from Projection data. The 脚折雨乞 Detail C surface consumes projected identity, Current State, Place, Occurrence, Change, Relation, Designation, Evidence, and Source views, with explicit empty states when a record group is absent.
 
 Only reviewed public-safe canonical records belong in repository data. Unresolved private research notes and source conflicts remain outside the public data layer.
 
 ## Next gates
 
-After D3:
+After E1:
 
 ```text
-E1 — Browse surfaces
 E2 — Search and initial filters
 E3 — Machine-readable baseline
 ```
