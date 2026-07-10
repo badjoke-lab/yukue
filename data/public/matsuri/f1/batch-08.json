@@ -1,0 +1,323 @@
+{
+  "entities": [
+    {
+      "id": "fst-hirosaki-neputa-300",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "hirosaki-neputa-300",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "component",
+      "names": [
+        {
+          "value": "弘前ねぷた300年祭",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-hirosaki-neputa-300-program"]
+        }
+      ],
+      "summary_ja": "弘前ねぷたの文献初出から300年の節目にあたる2022年を通じて展開された記念事業群。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "02",
+            "prefecture_name_ja": "青森県",
+            "municipality_name_ja": "弘前市"
+          }
+        ],
+        "scope_type": "multi_site",
+        "description_ja": "弘前市内各地で記念行事、特別運行、展示、講習会などが展開された。"
+      },
+      "primary_place_id": "plc-hirosaki-neputa-routes",
+      "default_place_ids": ["plc-hirosaki-neputa-routes"],
+      "external_links": [
+        {
+          "kind": "official_tourism_page",
+          "platform": "web",
+          "url": "https://www.hirosaki-kanko.or.jp/edit.html?id=neputa300",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "composite_festival",
+      "usual_months": [],
+      "season_tags": ["通年"]
+    },
+    {
+      "id": "org-hirosaki-neputa-300-committee",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "hirosaki-neputa-300-committee",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "弘前ねぷた300年祭実行委員会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-hirosaki-neputa-300-program"]
+        }
+      ],
+      "summary_ja": "2022年の1年間を弘前ねぷた300年祭として位置づけ、記念事業や後援事業を展開した実行委員会。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "02",
+            "prefecture_name_ja": "青森県",
+            "municipality_name_ja": "弘前市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "official_tourism_page",
+          "platform": "web",
+          "url": "https://www.hirosaki-kanko.or.jp/edit.html?id=neputa300",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "festival_committee",
+      "official_url": "https://www.hirosaki-kanko.or.jp/edit.html?id=neputa300"
+    },
+    {
+      "id": "org-hirosaki-neputa-participant-council",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "hirosaki-neputa-participant-council",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "弘前ねぷた参加団体協議会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-hirosaki-neputa-300-program"]
+        }
+      ],
+      "summary_ja": "弘前ねぷたの参加団体を束ね、300年祭関連事業への協力や主催活動を行った協議会。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "02",
+            "prefecture_name_ja": "青森県",
+            "municipality_name_ja": "弘前市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [],
+      "record_lifecycle": "active",
+      "organization_kind": "association"
+    }
+  ],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [
+    {
+      "id": "chg-hirosaki-neputa-300-anniversary-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "other",
+      "subject_entity_ids": ["fst-hirosaki-neputa", "fst-hirosaki-neputa-300"],
+      "effective_period": {"start": "2022", "end": "2022"},
+      "summary_ja": "弘前ねぷたの文献初出から300年の節目として、2022年の1年間が弘前ねぷた300年祭と位置づけられ、各種記念事業が展開された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-hirosaki-neputa-300-organized-by-committee",
+        "rel-hirosaki-neputa-300-supported-by-council",
+        "rel-hirosaki-neputa-300-part-of-main-tradition"
+      ],
+      "evidence_ids": ["evd-hirosaki-neputa-300-change-2022"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-hirosaki-neputa-300-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-hirosaki-neputa-300",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2022",
+        "end": "2022",
+        "precision": "year"
+      },
+      "outcome": "held",
+      "scale": "expanded",
+      "venue_place_ids": ["plc-hirosaki-neputa-routes"],
+      "organizer_entity_ids": ["org-hirosaki-neputa-300-committee"],
+      "evidence_ids": ["evd-hirosaki-neputa-300-occ-2022"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [
+    {
+      "id": "rel-hirosaki-neputa-300-organized-by-committee",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-hirosaki-neputa-300",
+      "relation_type": "organized_by",
+      "target_entity_id": "org-hirosaki-neputa-300-committee",
+      "valid_period": {"start": "2022", "end": "2022"},
+      "evidence_ids": ["evd-rel-hirosaki-neputa-300-organized-by"],
+      "review_status": "approved"
+    },
+    {
+      "id": "rel-hirosaki-neputa-300-supported-by-council",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-hirosaki-neputa-300",
+      "relation_type": "supported_by",
+      "target_entity_id": "org-hirosaki-neputa-participant-council",
+      "valid_period": {"start": "2022", "end": "2022"},
+      "evidence_ids": ["evd-rel-hirosaki-neputa-300-supported-by"],
+      "review_status": "approved"
+    },
+    {
+      "id": "rel-hirosaki-neputa-300-part-of-main-tradition",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-hirosaki-neputa-300",
+      "relation_type": "part_of_tradition",
+      "target_entity_id": "fst-hirosaki-neputa",
+      "valid_period": {"start": "2022", "end": "2022"},
+      "evidence_ids": ["evd-rel-hirosaki-neputa-300-part-of-tradition"],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-hirosaki-neputa-300-program",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_tourism",
+      "title": "弘前ねぷた300年祭",
+      "publisher": "公益社団法人 弘前観光コンベンション協会",
+      "url": "https://www.hirosaki-kanko.or.jp/edit.html?id=neputa300",
+      "accessed_at": "2026-07-10",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-hirosaki-neputa-300-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-300-program",
+      "target_type": "entity_identity",
+      "target_id": "fst-hirosaki-neputa-300",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "公式観光ページは、2022年の1年間を弘前ねぷた300年祭として各種行事を展開したと説明している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hirosaki-neputa-300-committee-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-300-program",
+      "target_type": "entity_identity",
+      "target_id": "org-hirosaki-neputa-300-committee",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "公式観光ページは弘前ねぷた300年祭実行委員会を記念事業の主体として明示し、事務局を弘前市観光部観光課内としている。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hirosaki-neputa-participant-council-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-300-program",
+      "target_type": "entity_identity",
+      "target_id": "org-hirosaki-neputa-participant-council",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "公式観光ページは弘前ねぷた参加団体協議会を協力団体として記載し、複数の300年祭関連行事の主催者としても記録している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hirosaki-neputa-300-change-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-300-program",
+      "target_type": "change_event",
+      "target_id": "chg-hirosaki-neputa-300-anniversary-2022",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "公式観光ページは1722年の文献初出から2022年に300年の節目を迎え、同年1年間を弘前ねぷた300年祭として位置づけたと説明している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hirosaki-neputa-300-occ-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-300-program",
+      "target_type": "occurrence",
+      "target_id": "occ-hirosaki-neputa-300-2022",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "公式観光ページは2022年を通じた記念事業、特別運行、展示、講習会、配信などの実施記録を掲載している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-hirosaki-neputa-300-organized-by",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-300-program",
+      "target_type": "relation",
+      "target_id": "rel-hirosaki-neputa-300-organized-by-committee",
+      "assertion_code": "supports_relation",
+      "summary_ja": "公式観光ページは弘前ねぷた300年祭実行委員会が2022年の1年間を300年祭として各種行事を展開したと説明している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-hirosaki-neputa-300-supported-by",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-300-program",
+      "target_type": "relation",
+      "target_id": "rel-hirosaki-neputa-300-supported-by-council",
+      "assertion_code": "supports_relation",
+      "summary_ja": "公式観光ページは弘前ねぷた参加団体協議会を300年祭記念事業の協力団体として記載し、関連行事の主催実績も示している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-hirosaki-neputa-300-part-of-tradition",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-300-program",
+      "target_type": "relation",
+      "target_id": "rel-hirosaki-neputa-300-part-of-main-tradition",
+      "assertion_code": "supports_relation",
+      "summary_ja": "公式観光ページは弘前ねぷたの300年の節目を祝う年として弘前ねぷた300年祭を位置づけている。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
