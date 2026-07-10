@@ -1,0 +1,400 @@
+{
+  "entities": [
+    {
+      "id": "fpf-yosakoi-soran-performance",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "yosakoi-soran-performance",
+      "entity_type": "folk_performance",
+      "home_surface": "matsuri",
+      "tradition_scope": "collective",
+      "names": [
+        {
+          "value": "YOSAKOIソーラン演舞",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-yosakoi-soran-about", "src-yosakoi-soran-knowledge"]
+        }
+      ],
+      "summary_ja": "鳴子を手に持ち、ソーラン節のフレーズを含む楽曲で、各チームが独自の踊りを披露する集合的な演舞文化。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "01",
+            "prefecture_name_ja": "北海道",
+            "municipality_name_ja": "札幌市"
+          }
+        ],
+        "scope_type": "distributed",
+        "description_ja": "大通公園を中心に札幌市内の複数会場で演舞が行われる。"
+      },
+      "primary_place_id": "plc-sapporo-yosakoi-soran-area",
+      "default_place_ids": ["plc-sapporo-yosakoi-soran-area"],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.yosakoi-soran.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active",
+      "performance_kind": "dance",
+      "forms": ["パレード形式", "ステージ形式"],
+      "recurrence_pattern": {
+        "pattern_type": "annual",
+        "rule_text_ja": "毎年6月に開催されるYOSAKOIソーラン祭りの期間中に披露される",
+        "evidence_ids": ["evd-yosakoi-soran-recurrence"]
+      },
+      "usual_months": [6],
+      "occurrence_series_ids": ["ser-yosakoi-soran-annual"]
+    },
+    {
+      "id": "org-yosakoi-soran-committee",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "yosakoi-soran-committee",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "一般社団法人YOSAKOIソーラン祭り組織委員会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-yosakoi-soran-about"]
+        }
+      ],
+      "summary_ja": "YOSAKOIソーラン祭り公式サイトを運営し、祭りの開催を担う組織委員会。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "01",
+            "prefecture_name_ja": "北海道",
+            "municipality_name_ja": "札幌市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.yosakoi-soran.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "festival_committee",
+      "official_url": "https://www.yosakoi-soran.jp/"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-sapporo-yosakoi-soran-area",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "札幌市内YOSAKOIソーラン演舞会場群",
+      "place_kind": "distributed_performance_area",
+      "country_code": "JP",
+      "prefecture_code": "01",
+      "prefecture_name_ja": "北海道",
+      "municipality_name_ja": "札幌市",
+      "coordinate_precision": "municipality",
+      "source_ids": ["src-yosakoi-soran-about", "src-yosakoi-soran-knowledge"]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-yosakoi-soran-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fpf-yosakoi-soran-performance",
+      "state_schema": "matsuri.folk_performance.v1",
+      "state_code": "active",
+      "observed_at": "2026-07-10",
+      "basis_evidence_ids": ["evd-yosakoi-soran-state"],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-yosakoi-soran-suspension-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_started",
+      "subject_entity_ids": ["fpf-yosakoi-soran-performance"],
+      "effective_period": {"start": "2020", "end": "2020"},
+      "summary_ja": "2020年の第29回YOSAKOIソーラン祭りは開催中止となり、年次演舞の中断が始まった。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-yosakoi-soran-suspension-2020"],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-yosakoi-soran-suspension-ended-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_ended",
+      "subject_entity_ids": ["fpf-yosakoi-soran-performance"],
+      "effective_period": {"start": "2022", "end": "2022"},
+      "summary_ja": "2020年と2021年の開催中止後、2022年の第31回大会でYOSAKOIソーランの年次演舞が再開した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": ["rel-yosakoi-soran-organized-by-committee"],
+      "evidence_ids": ["evd-yosakoi-soran-suspension-ended-2022"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-yosakoi-soran-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fpf-yosakoi-soran-performance",
+      "series_id": "ser-yosakoi-soran-annual",
+      "occurrence_type": "performance_cycle",
+      "temporal_extent": {"start": "2020", "end": "2020", "precision": "year"},
+      "outcome": "cancelled",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-sapporo-yosakoi-soran-area"],
+      "organizer_entity_ids": ["org-yosakoi-soran-committee"],
+      "evidence_ids": ["evd-yosakoi-soran-occ-2020"],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-yosakoi-soran-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fpf-yosakoi-soran-performance",
+      "series_id": "ser-yosakoi-soran-annual",
+      "occurrence_type": "performance_cycle",
+      "temporal_extent": {"start": "2021", "end": "2021", "precision": "year"},
+      "outcome": "cancelled",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-sapporo-yosakoi-soran-area"],
+      "organizer_entity_ids": ["org-yosakoi-soran-committee"],
+      "evidence_ids": ["evd-yosakoi-soran-occ-2021"],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-yosakoi-soran-2022-return",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fpf-yosakoi-soran-performance",
+      "series_id": "ser-yosakoi-soran-annual",
+      "occurrence_type": "performance_cycle",
+      "temporal_extent": {"start": "2022", "end": "2022", "precision": "year"},
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-sapporo-yosakoi-soran-area"],
+      "organizer_entity_ids": ["org-yosakoi-soran-committee"],
+      "evidence_ids": ["evd-yosakoi-soran-occ-2022"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-yosakoi-soran-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fpf-yosakoi-soran-performance",
+      "series_type": "annual_performance_cycle",
+      "name_ja": "YOSAKOIソーラン 年次演舞",
+      "recurrence_pattern_id": "rec-yosakoi-soran-annual",
+      "default_venue_place_ids": ["plc-sapporo-yosakoi-soran-area"],
+      "evidence_ids": ["evd-yosakoi-soran-recurrence"]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-yosakoi-soran-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年6月",
+      "evidence_ids": ["evd-yosakoi-soran-recurrence"]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-yosakoi-soran-organized-by-committee",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fpf-yosakoi-soran-performance",
+      "relation_type": "organized_by",
+      "target_entity_id": "org-yosakoi-soran-committee",
+      "evidence_ids": ["evd-rel-yosakoi-soran-committee"],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-yosakoi-soran-about",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "YOSAKOIソーラン祭りとは？",
+      "publisher": "一般社団法人YOSAKOIソーラン祭り組織委員会",
+      "url": "https://www.yosakoi-soran.jp/about/",
+      "accessed_at": "2026-07-10",
+      "language": "ja"
+    },
+    {
+      "id": "src-yosakoi-soran-knowledge",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "YOSAKOIソーラン祭り 基礎知識",
+      "publisher": "一般社団法人YOSAKOIソーラン祭り組織委員会",
+      "url": "https://www.yosakoi-soran.jp/knowledge/",
+      "accessed_at": "2026-07-10",
+      "language": "ja"
+    },
+    {
+      "id": "src-yosakoi-soran-history",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "歴史と開催結果",
+      "publisher": "一般社団法人YOSAKOIソーラン祭り組織委員会",
+      "url": "https://www.yosakoi-soran.jp/event_result/",
+      "accessed_at": "2026-07-10",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-yosakoi-soran-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yosakoi-soran-about",
+      "target_type": "entity_identity",
+      "target_id": "fpf-yosakoi-soran-performance",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "公式ページは、鳴子を持ち、ソーラン節のフレーズを含む楽曲で各チームが独自の演舞を披露するYOSAKOIソーランの構造を説明している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yosakoi-soran-state",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yosakoi-soran-about",
+      "target_type": "state_snapshot",
+      "target_id": "sts-yosakoi-soran-current",
+      "assertion_code": "supports_current_state",
+      "summary_ja": "公式サイトは2026年の第35回大会開催情報を公開し、現在も年次演舞が継続していることを示している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yosakoi-soran-recurrence",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yosakoi-soran-history",
+      "target_type": "recurrence_pattern",
+      "target_id": "rec-yosakoi-soran-annual",
+      "assertion_code": "supports_recurrence",
+      "summary_ja": "公式の開催結果は1992年から年次大会を連続して記録し、公式案内は6月を開催期としている。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yosakoi-soran-suspension-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yosakoi-soran-history",
+      "target_type": "change_event",
+      "target_id": "chg-yosakoi-soran-suspension-2020",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "公式の開催結果は第29回（2020年）と第30回（2021年）が新型コロナウイルス感染症の影響により開催中止となったことを明記している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yosakoi-soran-suspension-ended-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yosakoi-soran-history",
+      "target_type": "change_event",
+      "target_id": "chg-yosakoi-soran-suspension-ended-2022",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "公式の開催結果は2022年の第31回大会で195チーム、参加者1.9万人、観客140.5万人、10会場と2サテライト会場の開催実績を記録している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yosakoi-soran-occ-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yosakoi-soran-history",
+      "target_type": "occurrence",
+      "target_id": "occ-yosakoi-soran-2020",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "公式の開催結果は第29回（2020年）を開催中止としている。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yosakoi-soran-occ-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yosakoi-soran-history",
+      "target_type": "occurrence",
+      "target_id": "occ-yosakoi-soran-2021",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "公式の開催結果は第30回（2021年）を開催中止としている。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yosakoi-soran-occ-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yosakoi-soran-history",
+      "target_type": "occurrence",
+      "target_id": "occ-yosakoi-soran-2022-return",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "公式の開催結果は第31回（2022年）の参加チーム数、参加者数、観客動員数、会場数を記録しており、開催実績を裏付ける。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yosakoi-soran-committee-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yosakoi-soran-about",
+      "target_type": "entity_identity",
+      "target_id": "org-yosakoi-soran-committee",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "公式サイトは運営主体として一般社団法人YOSAKOIソーラン祭り組織委員会を明示している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-yosakoi-soran-committee",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yosakoi-soran-about",
+      "target_type": "relation",
+      "target_id": "rel-yosakoi-soran-organized-by-committee",
+      "assertion_code": "supports_relation",
+      "summary_ja": "公式サイトは組織委員会を運営主体として表示し、同サイトで演舞の構造と開催情報を公開している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
