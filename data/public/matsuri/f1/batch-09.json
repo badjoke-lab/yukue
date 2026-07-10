@@ -1,0 +1,369 @@
+{
+  "entities": [
+    {
+      "id": "fpf-dainichido-bugaku",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "dainichido-bugaku",
+      "entity_type": "folk_performance",
+      "home_surface": "matsuri",
+      "tradition_scope": "collective",
+      "names": [
+        {
+          "value": "大日堂舞楽",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-dainichido-kazuno", "src-dainichido-bunka"]
+        },
+        {
+          "value": "ザイドウ",
+          "lang": "ja",
+          "kind": "local",
+          "is_preferred": false,
+          "source_ids": ["src-dainichido-kazuno"]
+        }
+      ],
+      "summary_ja": "鹿角市八幡平の4地区が分担して継承し、毎年1月2日に大日霊貴神社で奉納する舞楽。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "05",
+            "prefecture_name_ja": "秋田県",
+            "municipality_name_ja": "鹿角市"
+          }
+        ],
+        "scope_type": "multi_area",
+        "description_ja": "大里、小豆沢、谷内、長嶺の4地区が異なる舞を分担して継承する。"
+      },
+      "primary_place_id": "plc-dainichireiki-jinja",
+      "default_place_ids": ["plc-dainichireiki-jinja"],
+      "external_links": [
+        {
+          "kind": "municipal_cultural_property_page",
+          "platform": "web",
+          "url": "https://www.city.kazuno.lg.jp/soshiki/shogaigakushu/bunkazai/gyomu/1/2/mukeiminzokubunkazai0512/dainitidoubugaku/10557.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active",
+      "performance_kind": "ritual_performance",
+      "forms": [
+        "神子舞",
+        "神名手舞",
+        "権現舞",
+        "田楽舞",
+        "駒舞",
+        "鳥舞",
+        "工匠舞",
+        "烏遍舞",
+        "五大尊舞"
+      ],
+      "recurrence_pattern": {
+        "pattern_type": "annual",
+        "rule_text_ja": "毎年1月2日",
+        "evidence_ids": ["evd-dainichido-recurrence"]
+      },
+      "usual_months": [1],
+      "date_rule_text_ja": "毎年1月2日",
+      "occurrence_series_ids": ["ser-dainichido-annual"]
+    },
+    {
+      "id": "org-dainichido-bugaku-hozonkai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "dainichido-bugaku-hozonkai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "大日堂舞楽保存会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-dainichido-kazuno", "src-dainichido-bunka"]
+        }
+      ],
+      "summary_ja": "大日堂舞楽の保存団体として鹿角市と文化庁の記録に明示される保存会。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "05",
+            "prefecture_name_ja": "秋田県",
+            "municipality_name_ja": "鹿角市"
+          }
+        ],
+        "scope_type": "multi_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "preservation_group_website",
+          "platform": "web",
+          "url": "https://dainichido.p1.bindsite.jp/bugaku/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "preservation_group",
+      "official_url": "https://dainichido.p1.bindsite.jp/bugaku/"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-dainichireiki-jinja",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "大日霊貴神社",
+      "place_kind": "shrine",
+      "country_code": "JP",
+      "prefecture_code": "05",
+      "prefecture_name_ja": "秋田県",
+      "municipality_name_ja": "鹿角市",
+      "locality_ja": "八幡平字小豆沢",
+      "coordinate_precision": "venue",
+      "source_ids": ["src-dainichido-kazuno"]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-dainichido-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fpf-dainichido-bugaku",
+      "state_schema": "matsuri.folk_performance.v1",
+      "state_code": "active",
+      "observed_at": "2026-07-10",
+      "basis_evidence_ids": ["evd-dainichido-state"],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-dainichido-historical-suspension",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_started",
+      "subject_entity_ids": ["fpf-dainichido-bugaku"],
+      "summary_ja": "大日堂舞楽は18世紀後半に中断し、その中断は約60年間続いた。一次資料が正確な開始年を示さないため、開始年は記録しない。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-dainichido-suspension"],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-dainichido-historical-restart",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_ended",
+      "subject_entity_ids": ["fpf-dainichido-bugaku"],
+      "summary_ja": "約60年間の中断後に大日堂舞楽は再開され、その後も毎年1月2日の奉納芸能として継承されている。一次資料が正確な再開年を示さないため、再開年は記録しない。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": ["rel-dainichido-maintained-by-hozonkai"],
+      "evidence_ids": ["evd-dainichido-restart"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [],
+  "occurrenceSeries": [
+    {
+      "id": "ser-dainichido-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fpf-dainichido-bugaku",
+      "series_type": "annual_ritual_performance",
+      "name_ja": "大日堂舞楽 年次奉納",
+      "recurrence_pattern_id": "rec-dainichido-annual",
+      "default_venue_place_ids": ["plc-dainichireiki-jinja"],
+      "evidence_ids": ["evd-dainichido-recurrence"]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-dainichido-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年1月2日",
+      "evidence_ids": ["evd-dainichido-recurrence"]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-dainichido-maintained-by-hozonkai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fpf-dainichido-bugaku",
+      "relation_type": "maintained_by",
+      "target_entity_id": "org-dainichido-bugaku-hozonkai",
+      "evidence_ids": ["evd-rel-dainichido-hozonkai"],
+      "review_status": "approved"
+    },
+    {
+      "id": "rel-dainichido-performed-at-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fpf-dainichido-bugaku",
+      "relation_type": "performed_at",
+      "target_entity_id": "shr-dainichireiki-jinja",
+      "evidence_ids": ["evd-rel-dainichido-jinja"],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-dainichido-kazuno",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipal_official",
+      "title": "概要と開催状況",
+      "publisher": "鹿角市",
+      "url": "https://www.city.kazuno.lg.jp/soshiki/shogaigakushu/bunkazai/gyomu/1/2/mukeiminzokubunkazai0512/dainitidoubugaku/10557.html",
+      "accessed_at": "2026-07-10",
+      "language": "ja"
+    },
+    {
+      "id": "src-dainichido-bunka",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "national_cultural_database",
+      "title": "大日堂舞楽",
+      "publisher": "文化庁 文化遺産オンライン",
+      "url": "https://online.bunka.go.jp/heritages/detail/169958",
+      "accessed_at": "2026-07-10",
+      "language": "ja"
+    },
+    {
+      "id": "src-dainichido-unesco",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "international_heritage_registry",
+      "title": "Dainichido Bugaku",
+      "publisher": "UNESCO Intangible Cultural Heritage",
+      "url": "https://ich.unesco.org/en/RL/dainichido-bugaku-00275",
+      "accessed_at": "2026-07-10",
+      "language": "en"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-dainichido-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-dainichido-kazuno",
+      "target_type": "entity_identity",
+      "target_id": "fpf-dainichido-bugaku",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "鹿角市公式ページは大日堂舞楽の名称、ザイドウという地元呼称、9演目、4地区による継承構造を説明している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-dainichido-state",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-dainichido-kazuno",
+      "target_type": "state_snapshot",
+      "target_id": "sts-dainichido-current",
+      "assertion_code": "supports_current_state",
+      "summary_ja": "鹿角市公式ページは毎年1月2日の奉納を現行行事として案内し、2026年1月2日の開催予定も掲載している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-dainichido-recurrence",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-dainichido-kazuno",
+      "target_type": "recurrence_pattern",
+      "target_id": "rec-dainichido-annual",
+      "assertion_code": "supports_recurrence",
+      "summary_ja": "鹿角市公式ページは大日堂舞楽が毎年正月2日に大日霊貴神社へ奉納されることを説明している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-dainichido-hozonkai-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-dainichido-bunka",
+      "target_type": "entity_identity",
+      "target_id": "org-dainichido-bugaku-hozonkai",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "文化庁の文化遺産オンラインは保護団体として大日堂舞楽保存会を明示している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-dainichido-suspension",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-dainichido-unesco",
+      "target_type": "change_event",
+      "target_id": "chg-dainichido-historical-suspension",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "UNESCOの登録記録は、大日堂舞楽が18世紀後半に中断し、その中断が約60年間続いたことを説明している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-dainichido-restart",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-dainichido-unesco",
+      "target_type": "change_event",
+      "target_id": "chg-dainichido-historical-restart",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "UNESCOの登録記録は、約60年間の中断後に大日堂舞楽が再開され、現在も1月2日に実践されていることを説明している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-dainichido-hozonkai",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-dainichido-kazuno",
+      "target_type": "relation",
+      "target_id": "rel-dainichido-maintained-by-hozonkai",
+      "assertion_code": "supports_relation",
+      "summary_ja": "鹿角市公式ページは保存団体として大日堂舞楽保存会を明示している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-dainichido-jinja",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-dainichido-kazuno",
+      "target_type": "relation",
+      "target_id": "rel-dainichido-performed-at-jinja",
+      "assertion_code": "supports_relation",
+      "summary_ja": "鹿角市公式ページは大日堂舞楽を大日霊貴神社の養老礼祭に奉納される芸能として説明している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-dainichido-four-community-continuity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-dainichido-bunka",
+      "target_type": "entity_identity",
+      "target_id": "fpf-dainichido-bugaku",
+      "assertion_code": "supports_collective_transmission",
+      "summary_ja": "文化庁の文化遺産オンラインは、大里、谷内、小豆沢、長嶺の4集落が異なる舞を分担して伝承する構造を説明している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
