@@ -1,0 +1,159 @@
+---
+import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
+import PageShell from "@badjoke-lab/yukue-ui/components/PageShell.astro";
+import SiteFooter from "@badjoke-lab/yukue-ui/components/SiteFooter.astro";
+import SiteHeader from "@badjoke-lab/yukue-ui/components/SiteHeader.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  kicker: string;
+  heading: string;
+  intro: string;
+  activeReference?: "about" | "methodology" | "data" | "status";
+}
+
+const {
+  title,
+  description,
+  kicker,
+  heading,
+  intro,
+  activeReference,
+} = Astro.props;
+
+const navItems = [
+  { label: "祭礼", href: "/festivals/" },
+  { label: "民俗芸能", href: "/performances/" },
+  { label: "地域", href: "/regions/" },
+  { label: "変化", href: "/changes/" },
+  { label: "検索", href: "/search/" },
+  { label: "このサイトについて", href: "/about/", active: activeReference === "about" },
+];
+
+const footerGroups = [
+  {
+    heading: "記録",
+    links: [
+      { label: "祭礼", href: "/festivals/" },
+      { label: "民俗芸能", href: "/performances/" },
+      { label: "組織", href: "/organizations/" },
+    ],
+  },
+  {
+    heading: "調べる",
+    links: [
+      { label: "地域", href: "/regions/" },
+      { label: "変化", href: "/changes/" },
+      { label: "状態", href: "/states/" },
+    ],
+  },
+  {
+    heading: "この資料について",
+    links: [
+      { label: "方法論", href: "/methodology/" },
+      { label: "データ", href: "/data/" },
+      { label: "ステータス", href: "/status/" },
+    ],
+  },
+];
+---
+
+<PageShell site="matsuri" title={title} description={description}>
+  <SiteHeader
+    slot="header"
+    siteName="祭のゆくえ"
+    romanLabel="Matsuri Yukue"
+    navItems={navItems}
+  />
+
+  <section class="reference-intro">
+    <Container size="wide">
+      <p class="reference-intro__kicker">{kicker}</p>
+      <h1>{heading}</h1>
+      <p class="reference-intro__lead">{intro}</p>
+    </Container>
+  </section>
+
+  <Container size="wide">
+    <main class="reference-content">
+      <slot />
+    </main>
+  </Container>
+
+  <SiteFooter
+    slot="footer"
+    siteName="祭のゆくえ"
+    groups={footerGroups}
+  />
+</PageShell>
+
+<style>
+  .reference-intro {
+    padding-block: var(--space-14) var(--space-10);
+    border-bottom: var(--rule-standard);
+  }
+
+  .reference-intro__kicker {
+    margin: 0 0 var(--space-3);
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.12em;
+  }
+
+  .reference-intro h1 {
+    margin: 0;
+    font-size: var(--font-size-entity);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  .reference-intro__lead {
+    max-width: var(--container-prose);
+    margin: var(--space-5) 0 0;
+    color: var(--color-text-soft);
+    font-size: var(--font-size-lead);
+    line-height: var(--line-height-lead);
+  }
+
+  .reference-content {
+    max-width: var(--container-prose);
+    padding-block: var(--space-12) var(--space-16);
+  }
+
+  .reference-content :global(section + section) {
+    margin-top: var(--space-12);
+    padding-top: var(--space-10);
+    border-top: var(--rule-standard);
+  }
+
+  .reference-content :global(h2) {
+    margin: 0 0 var(--space-5);
+    font-size: var(--font-size-h2);
+    font-weight: 500;
+  }
+
+  .reference-content :global(h3) {
+    margin: var(--space-7) 0 var(--space-3);
+    font-size: var(--font-size-h3);
+    font-weight: 500;
+  }
+
+  .reference-content :global(p),
+  .reference-content :global(li),
+  .reference-content :global(dd) {
+    color: var(--color-text-soft);
+    line-height: var(--line-height-body);
+  }
+
+  .reference-content :global(a) {
+    color: var(--color-text);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .reference-content :global(code) {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.92em;
+  }
+</style>
