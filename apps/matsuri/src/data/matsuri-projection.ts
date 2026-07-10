@@ -8,8 +8,9 @@ import stateSnapshots from "../../../../data/public/matsuri/d1/state-snapshots.j
 import batch01 from "../../../../data/public/matsuri/f1/batch-01.json";
 import batch02 from "../../../../data/public/matsuri/f1/batch-02.json";
 import batch03 from "../../../../data/public/matsuri/f1/batch-03.json";
+import batch04 from "../../../../data/public/matsuri/f1/batch-04.json";
 
-const batches = [batch01, batch02, batch03];
+const batches = [batch01, batch02, batch03, batch04];
 const batchRecords = <TKey extends keyof (typeof batches)[number]>(key: TKey) =>
   batches.flatMap((batch) => batch[key]);
 
