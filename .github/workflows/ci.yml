@@ -25,4 +25,19 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: Build workspaces
-        run: pnpm build
+        id: build
+        continue-on-error: true
+        run: pnpm build > workspace-build.log 2>&1
+
+      - name: Upload build diagnostics
+        if: steps.build.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2-runtime-diagnostics
+          path: workspace-build.log
+
+      - name: Fail on build error
+        if: steps.build.outcome == 'failure'
+        run: |
+          cat workspace-build.log
+          exit 1
