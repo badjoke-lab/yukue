@@ -1,0 +1,285 @@
+{
+  "entities": [
+    {
+      "id": "fst-nunobashi-kanjoe",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "nunobashi-kanjoe",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "布橋灌頂会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-tateyama-nunobashi"]
+        }
+      ],
+      "summary_ja": "立山信仰に基づき、女性の極楽往生を願う儀式。約130年間の中断を経て1996年に復活した。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "16",
+            "prefecture_name_ja": "富山県",
+            "municipality_name_ja": "立山町"
+          }
+        ],
+        "scope_type": "single_area",
+        "description_ja": "立山町芦峅寺の閻魔堂、布橋、遥望館周辺で行われる。"
+      },
+      "primary_place_id": "plc-ashikuraji-nunobashi-area",
+      "default_place_ids": ["plc-ashikuraji-nunobashi-area"],
+      "external_links": [
+        {
+          "kind": "municipality_page",
+          "platform": "web",
+          "url": "https://www.town.tateyama.toyama.jp/soshikikarasagasu/shokokankoka/kankokoryugakari/1/6/10784.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "ritual_festival",
+      "recurrence_pattern": {
+        "pattern_type": "triennial",
+        "rule_text_ja": "3年に1回開催",
+        "evidence_ids": ["evd-nunobashi-recurrence"]
+      }
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-ashikuraji-nunobashi-area",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "芦峅寺・布橋灌頂会行事区域",
+      "place_kind": "community_area",
+      "country_code": "JP",
+      "prefecture_code": "16",
+      "prefecture_name_ja": "富山県",
+      "municipality_name_ja": "立山町",
+      "locality_ja": "芦峅寺",
+      "coordinate_precision": "approximate",
+      "source_ids": ["src-tateyama-nunobashi"]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-nunobashi-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-nunobashi-kanjoe",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-07-10",
+      "basis_evidence_ids": ["evd-nunobashi-state"],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-nunobashi-revival-1996",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "revival_completed",
+      "subject_entity_ids": ["fst-nunobashi-kanjoe"],
+      "effective_period": {"start": "1996"},
+      "summary_ja": "約130年間中断していた布橋灌頂会が1996年に復活した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-nunobashi-revival-1996"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-nunobashi-1996-revival",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-nunobashi-kanjoe",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "1996",
+        "end": "1996",
+        "precision": "year"
+      },
+      "outcome": "held",
+      "scale": "normal",
+      "venue_place_ids": ["plc-ashikuraji-nunobashi-area"],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-nunobashi-occ-1996"],
+      "review_status": "approved",
+      "series_id": "ser-nunobashi-triennial"
+    },
+    {
+      "id": "occ-suneori-2028-schedule",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-suneori-amagoi",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2028",
+        "precision": "season",
+        "approximate": true,
+        "display_text_ja": "2028年夏"
+      },
+      "outcome": "scheduled",
+      "scale": "normal",
+      "venue_place_ids": ["plc-suneori-shirahige", "plc-suneori-raidenike"],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-suneori-occ-2028"],
+      "review_status": "approved",
+      "series_id": "ser-suneori-amagoi-quadrennial"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-nunobashi-triennial",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-nunobashi-kanjoe",
+      "series_type": "triennial_festival_edition",
+      "name_ja": "布橋灌頂会 3年周期開催",
+      "recurrence_pattern_id": "rec-nunobashi-triennial",
+      "default_venue_place_ids": ["plc-ashikuraji-nunobashi-area"],
+      "evidence_ids": ["evd-nunobashi-recurrence"]
+    },
+    {
+      "id": "ser-suneori-amagoi-quadrennial",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-suneori-amagoi",
+      "series_type": "quadrennial_festival_edition",
+      "name_ja": "脚折雨乞 4年周期開催",
+      "recurrence_pattern_id": "rec-suneori-amagoi-quadrennial",
+      "default_venue_place_ids": ["plc-suneori-shirahige", "plc-suneori-raidenike"],
+      "evidence_ids": ["evd-suneori-recurrence-quadrennial"]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-nunobashi-triennial",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "triennial",
+      "rule_text_ja": "3年に1回開催",
+      "evidence_ids": ["evd-nunobashi-recurrence"]
+    },
+    {
+      "id": "rec-suneori-amagoi-quadrennial",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "quadrennial",
+      "rule_text_ja": "4年に1回開催",
+      "evidence_ids": ["evd-suneori-recurrence-quadrennial"]
+    }
+  ],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-tateyama-nunobashi",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "布橋灌頂会 Nunobashi Kanjoe Ceremony",
+      "publisher": "立山町",
+      "url": "https://www.town.tateyama.toyama.jp/soshikikarasagasu/shokokankoka/kankokoryugakari/1/6/10784.html",
+      "published_at": "2024-11-28",
+      "accessed_at": "2026-07-10",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-nunobashi-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-tateyama-nunobashi",
+      "target_type": "entity_identity",
+      "target_id": "fst-nunobashi-kanjoe",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "立山町公式ページが布橋灌頂会を、江戸時代に女性の極楽往生を願って成立した儀式として説明している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-nunobashi-state",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-tateyama-nunobashi",
+      "target_type": "state_snapshot",
+      "target_id": "sts-nunobashi-current",
+      "assertion_code": "supports_current_state",
+      "summary_ja": "立山町公式ページは布橋灌頂会が現在3年に1回開催されていると説明している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-nunobashi-recurrence",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-tateyama-nunobashi",
+      "target_type": "recurrence_pattern",
+      "target_id": "rec-nunobashi-triennial",
+      "assertion_code": "supports_recurrence",
+      "summary_ja": "立山町公式ページは現在の布橋灌頂会を3年に1回開催と明記している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-nunobashi-revival-1996",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-tateyama-nunobashi",
+      "target_type": "change_event",
+      "target_id": "chg-nunobashi-revival-1996",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "立山町公式ページは約130年間の中断後、1996年に布橋灌頂会が復活したと明記している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-nunobashi-occ-1996",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-tateyama-nunobashi",
+      "target_type": "occurrence",
+      "target_id": "occ-nunobashi-1996-revival",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "立山町公式ページの1996年復活記録が、同年の復活開催Occurrenceを裏付ける。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-suneori-recurrence-quadrennial",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-tsurugashima-suneori",
+      "target_type": "recurrence_pattern",
+      "target_id": "rec-suneori-amagoi-quadrennial",
+      "assertion_code": "supports_recurrence",
+      "summary_ja": "鶴ヶ島市公式ページは脚折雨乞を4年に1度行われる行事と説明している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-suneori-occ-2028",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-tsurugashima-suneori",
+      "target_type": "occurrence",
+      "target_id": "occ-suneori-2028-schedule",
+      "assertion_code": "supports_occurrence_schedule",
+      "summary_ja": "鶴ヶ島市公式ページは次回の脚折雨乞を2028年夏の開催予定としている。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
