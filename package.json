@@ -9,6 +9,9 @@
   },
   "scripts": {
     "build": "pnpm -r --if-present build",
+    "build:matsuri:pages": "pnpm --filter @badjoke-lab/yukue-matsuri... build",
+    "check:matsuri:pages": "node scripts/check-matsuri-pages-build.mjs",
+    "verify:matsuri:pages": "pnpm build:matsuri:pages && pnpm check:matsuri:pages",
     "check": "pnpm -r --if-present check",
     "typecheck": "pnpm -r --if-present typecheck"
   },
