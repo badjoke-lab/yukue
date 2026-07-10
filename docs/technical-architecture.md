@@ -64,7 +64,7 @@ The public build must consume approved public projection data rather than unpubl
 
 ## Package responsibilities
 
-- `observation-core`: shared domain primitives and vocabulary contracts.
+- `observation-core`: shared observation logic and Public Projection assembly from validated approved records.
 - `schemas`: record schemas and site-specific extensions.
 - `validation`: schema, referential integrity, vocabulary, semantic warning, and projection-safety checks.
 - `machine-readable`: Manifest, version, public feeds, and discovery-file generation.
