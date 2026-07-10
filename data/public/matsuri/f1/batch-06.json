@@ -1,0 +1,369 @@
+{
+  "entities": [
+    {
+      "id": "fst-aso-onda-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "aso-onda-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "御田祭",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-aso-onda"]
+        },
+        {
+          "value": "御田植神幸式",
+          "lang": "ja",
+          "kind": "official",
+          "is_preferred": false,
+          "source_ids": ["src-aso-onda"]
+        },
+        {
+          "value": "おんだ祭",
+          "lang": "ja",
+          "kind": "common",
+          "is_preferred": false,
+          "source_ids": ["src-aso-onda"]
+        }
+      ],
+      "summary_ja": "阿蘇神社の神々を載せた神輿が青田を巡り、稲の生育を見分する神幸行事。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "43",
+            "prefecture_name_ja": "熊本県",
+            "municipality_name_ja": "阿蘇市"
+          }
+        ],
+        "scope_type": "route_based",
+        "description_ja": "阿蘇神社と神社周辺の青田、御旅所を巡る。"
+      },
+      "primary_place_id": "plc-aso-jinja",
+      "default_place_ids": ["plc-aso-jinja", "plc-aso-onda-route"],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://asojinja.or.jp/events/onda/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "ritual_festival",
+      "recurrence_pattern": {
+        "pattern_type": "annual",
+        "rule_text_ja": "毎年7月28日",
+        "evidence_ids": ["evd-aso-onda-recurrence"]
+      },
+      "usual_months": [7],
+      "usual_duration_days": 1,
+      "season_tags": ["夏"]
+    },
+    {
+      "id": "shr-aso-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "slug": "aso-jinja",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "阿蘇神社",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-aso-restoration"]
+        }
+      ],
+      "summary_ja": "阿蘇の農耕祭事を伝承する神社。2016年熊本地震で主要社殿が被災し、災害復旧事業が進められた。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "43",
+            "prefecture_name_ja": "熊本県",
+            "municipality_name_ja": "阿蘇市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-aso-jinja",
+      "default_place_ids": ["plc-aso-jinja"],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://asojinja.or.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-aso-jinja",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "阿蘇神社",
+      "place_kind": "shrine",
+      "country_code": "JP",
+      "prefecture_code": "43",
+      "prefecture_name_ja": "熊本県",
+      "municipality_name_ja": "阿蘇市",
+      "locality_ja": "一の宮町宮地",
+      "street_address_ja": "3083-1",
+      "postal_code": "869-2612",
+      "coordinate_precision": "venue",
+      "source_ids": ["src-aso-restoration"]
+    },
+    {
+      "id": "plc-aso-onda-route",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "御田祭神幸区域",
+      "place_kind": "procession_route",
+      "country_code": "JP",
+      "prefecture_code": "43",
+      "prefecture_name_ja": "熊本県",
+      "municipality_name_ja": "阿蘇市",
+      "locality_ja": "一の宮町宮地周辺",
+      "coordinate_precision": "approximate",
+      "source_ids": ["src-aso-onda"]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-aso-onda-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-aso-onda-matsuri",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-07-10",
+      "basis_evidence_ids": ["evd-aso-onda-state"],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-aso-jinja-disaster-interruption-2016",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "disaster_interruption",
+      "subject_entity_ids": ["shr-aso-jinja"],
+      "effective_period": {"start": "2016-04"},
+      "summary_ja": "2016年4月の熊本地震により、阿蘇神社の主要社殿が甚大な被害を受け、長期の災害復旧事業が必要となった。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-aso-disaster-2016"],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-aso-jinja-restoration-ended-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "other",
+      "subject_entity_ids": ["shr-aso-jinja"],
+      "announced_at": "2025-02-17",
+      "effective_period": {"start": "2025-02-17"},
+      "summary_ja": "阿蘇神社が平成28年熊本地震からの災害復旧事業の終了を公表した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-aso-restoration-ended-2025"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-aso-onda-2026-schedule",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-aso-onda-matsuri",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-07-28",
+        "end": "2026-07-28",
+        "precision": "day"
+      },
+      "outcome": "scheduled",
+      "scale": "normal",
+      "venue_place_ids": ["plc-aso-jinja", "plc-aso-onda-route"],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-aso-onda-occ-2026"],
+      "review_status": "approved",
+      "series_id": "ser-aso-onda-annual"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-aso-onda-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-aso-onda-matsuri",
+      "series_type": "annual_festival_edition",
+      "name_ja": "阿蘇神社 御田祭 年次開催",
+      "recurrence_pattern_id": "rec-aso-onda-annual",
+      "default_venue_place_ids": ["plc-aso-jinja", "plc-aso-onda-route"],
+      "evidence_ids": ["evd-aso-onda-recurrence"]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-aso-onda-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年7月28日",
+      "evidence_ids": ["evd-aso-onda-recurrence"]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-aso-onda-dedicated-at-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-aso-onda-matsuri",
+      "relation_type": "dedicated_at",
+      "target_entity_id": "shr-aso-jinja",
+      "evidence_ids": ["evd-rel-aso-onda-jinja"],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-aso-onda",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "shrine_official",
+      "title": "御田祭",
+      "publisher": "阿蘇神社",
+      "url": "https://asojinja.or.jp/events/onda/",
+      "accessed_at": "2026-07-10",
+      "language": "ja"
+    },
+    {
+      "id": "src-aso-restoration",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "shrine_official",
+      "title": "復旧の歩み",
+      "publisher": "阿蘇神社",
+      "url": "https://asojinja.or.jp/restoration/",
+      "accessed_at": "2026-07-10",
+      "language": "ja"
+    },
+    {
+      "id": "src-aso-home-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "shrine_official",
+      "title": "阿蘇神社公式ホームページ",
+      "publisher": "阿蘇神社",
+      "url": "https://asojinja.or.jp/",
+      "accessed_at": "2026-07-10",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-aso-onda-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aso-onda",
+      "target_type": "entity_identity",
+      "target_id": "fst-aso-onda-matsuri",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "阿蘇神社公式ページが御田祭の名称、別称、行列構成と神幸内容を説明している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-aso-onda-state",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aso-home-2026",
+      "target_type": "state_snapshot",
+      "target_id": "sts-aso-onda-current",
+      "assertion_code": "supports_current_state",
+      "summary_ja": "阿蘇神社公式ホームページが2026年7月2日付で令和8年の御田植神幸式案内を掲載している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-aso-disaster-2016",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aso-restoration",
+      "target_type": "change_event",
+      "target_id": "chg-aso-jinja-disaster-interruption-2016",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "阿蘇神社公式の復旧記録は、2016年4月の熊本地震が主要社殿に甚大な被害を与え、長期の災害復旧事業につながったことを説明している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-aso-restoration-ended-2025",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aso-home-2026",
+      "target_type": "change_event",
+      "target_id": "chg-aso-jinja-restoration-ended-2025",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "阿蘇神社公式ホームページは2025年2月17日付で熊本地震からの災害復旧事業終了を告知している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-aso-onda-occ-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aso-home-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-aso-onda-2026-schedule",
+      "assertion_code": "supports_occurrence_schedule",
+      "summary_ja": "阿蘇神社公式ホームページの2026年7月2日付案内と、御田祭公式ページの7月28日開催情報を合わせて令和8年の予定Occurrenceを裏付ける。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-aso-onda-recurrence",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aso-onda",
+      "target_type": "recurrence_pattern",
+      "target_id": "rec-aso-onda-annual",
+      "assertion_code": "supports_recurrence",
+      "summary_ja": "阿蘇神社公式の御田祭ページは御田祭を7月28日の行事として案内している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-aso-onda-jinja",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aso-onda",
+      "target_type": "relation",
+      "target_id": "rel-aso-onda-dedicated-at-jinja",
+      "assertion_code": "supports_relation",
+      "summary_ja": "阿蘇神社公式ページは御田祭を阿蘇神社の祭礼として説明し、阿蘇神社の神々を載せた神輿による神幸行事を記載している。",
+      "captured_at": "2026-07-10",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}

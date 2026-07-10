@@ -44,7 +44,7 @@ Execution Stage F — Corpus Expansion and Launch Preparation
 - E1 Projection-backed Browse surfaces for Festivals, Performances, Regions, and Changes completed and validated,
 - E2 Pagefind full-text search and initial Entity Type, Prefecture, and Current State filters completed and validated,
 - E3 machine-readable public baseline completed and validated,
-- F1 corpus expansion batches 01 through 05 completed and validated.
+- F1 corpus expansion batches 01 through 06 completed and validated.
 
 ## Current UI direction
 
@@ -115,7 +115,7 @@ Evidence coverage
 
 Do not maximize Entity count while leaving Occurrence, Change, Relation, or Evidence coverage weak.
 
-F1 progress now includes five validated expansion batches. Batch 01 and batch 02 broadened Festival, Folk Performance, Organization, Occurrence, Relation, Designation, and Evidence coverage. Batch 03 shifted emphasis toward occurrence and change-history depth, including cancelled, partially held, reduced-scale, and scheduled annual editions while keeping Current State separate from individual Occurrence outcomes. Batch 04 deepened existing D1 entities without adding new Entities, recording a schedule-rule change for 相馬野馬追 and a revival-completion Event plus return Occurrence for 鷹山. Batch 05 added a first-party documented long-hiatus revival case for 布橋灌頂会 and deepened 脚折雨乞 with a quadrennial Series, Recurrence Pattern, and 2028 scheduled Occurrence.
+F1 progress now includes six validated expansion batches. Batch 01 and batch 02 broadened Festival, Folk Performance, Organization, Occurrence, Relation, Designation, and Evidence coverage. Batch 03 shifted emphasis toward occurrence and change-history depth, including cancelled, partially held, reduced-scale, and scheduled annual editions while keeping Current State separate from individual Occurrence outcomes. Batch 04 deepened existing D1 entities without adding new Entities, recording a schedule-rule change for 相馬野馬追 and a revival-completion Event plus return Occurrence for 鷹山. Batch 05 added a first-party documented long-hiatus revival case for 布橋灌頂会 and deepened 脚折雨乞 with a quadrennial Series, Recurrence Pattern, and 2028 scheduled Occurrence. Batch 06 added an official-source disaster-recovery lifecycle around 阿蘇神社 and 御田祭, keeping shrine damage and restoration Events separate from festival Current State and the 2026 scheduled Occurrence instead of inferring an unsupported festival cancellation.
 
 The machine-readable baseline now generates:
 
