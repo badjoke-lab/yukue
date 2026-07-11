@@ -95,6 +95,18 @@ Repository Launch Readiness: **Completed**
 
 The repository-ready candidate is reproducible, content-addressed, and verified without selecting a production origin.
 
+### Repository visual-review maintenance
+
+```text
+F2-M01  exhaustive desktop/mobile full-page screenshot workflow
+```
+
+Status: **Active**
+
+This maintenance workstream adds retained successful renders, capture manifests, screenshot integrity checks, contact sheets, and a human visual-review contract. It runs against a local GitHub Actions preview and does not require Cloudflare.
+
+F2-M01 does not reopen the MVP, replace the repository gate, or activate external deployment work.
+
 ### External deployment and production verification
 
 ```text
