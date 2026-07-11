@@ -22,11 +22,11 @@ const counts = {
   <section>
     <h2>現在の公開レコード</h2>
     <dl class="status-counts">
-      <div><dt>Entities</dt><dd>{counts.entities}</dd></div>
-      <div><dt>Current States</dt><dd>{counts.currentStates}</dd></div>
-      <div><dt>Occurrences</dt><dd>{counts.occurrences}</dd></div>
-      <div><dt>Change Events</dt><dd>{counts.changeEvents}</dd></div>
-      <div><dt>Relations</dt><dd>{counts.relations}</dd></div>
+      <div><dt>Entities</dt><dd data-record-count="entities">{counts.entities}</dd></div>
+      <div><dt>Current States</dt><dd data-record-count="current_states">{counts.currentStates}</dd></div>
+      <div><dt>Occurrences</dt><dd data-record-count="occurrences">{counts.occurrences}</dd></div>
+      <div><dt>Change Events</dt><dd data-record-count="events">{counts.changeEvents}</dd></div>
+      <div><dt>Relations</dt><dd data-record-count="relations">{counts.relations}</dd></div>
     </dl>
   </section>
 
