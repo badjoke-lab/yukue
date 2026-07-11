@@ -103,22 +103,9 @@ F2-M01  exhaustive desktop/mobile full-page screenshot workflow
 
 Status: **Completed**
 
-The repository now retains successful full-page renders, capture manifests, screenshot integrity reports, contact sheets, and desktop/mobile archives from a local GitHub Actions preview. The first exhaustive baseline captured all 20 routes on desktop and mobile and completed human visual review.
+The repository retains successful full-page renders, capture manifests, screenshot integrity reports, contact sheets, and desktop/mobile archives from a local GitHub Actions preview. The first exhaustive baseline captured all 20 routes on desktop and mobile and completed human visual review.
 
-Final baseline evidence:
-
-```text
-Workflow run: 29152930338
-Artifact: matsuri-full-page-screenshots-all-29152930338
-Desktop: 20 / 20
-Mobile: 20 / 20
-Automated failures: 0
-Automated warnings: 0
-```
-
-The first review found and corrected nested `main` landmarks, raw Change Event codes, and an orphaned mobile Home headline ending.
-
-F2-M01 does not reopen the MVP, replace the repository gate, or activate external deployment work. The workflow remains available for future non-trivial UI maintenance.
+The workflow remains available for future non-trivial UI maintenance.
 
 ### External deployment and production verification
 
@@ -138,9 +125,20 @@ F2-27  production traffic verification
 F2-28  final F2 Launch Gate
 ```
 
-External deployment and production verification: **Operational hold**
+External deployment and production verification: **Active at F2-16**
 
-F2-16 or later becomes active only after an explicit governing-document update removes the hold.
+The operational hold was removed on 2026-07-12.
+
+Current external state:
+
+```text
+F2-16  active
+F2-17–F2-28  pending in fixed order
+```
+
+The first deployment uses Cloudflare Pages Git integration, project name `matsuri-yukue`, production branch `main`, repository-root build command `pnpm build:matsuri:pages`, and output directory `apps/matsuri/dist`.
+
+Do not enable a custom domain, canonical origin, Search indexing work, or Analytics before the corresponding gate.
 
 ## Phase 10 — Stabilization
 
