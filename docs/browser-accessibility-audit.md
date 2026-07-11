@@ -98,8 +98,30 @@ When browser tests fail, CI retains:
 
 These are short-lived workflow artifacts and are not committed to the public repository.
 
+## Relationship to visual review
+
+The browser audit is a deterministic automated gate. Its normal screenshots are failure diagnostics only.
+
+Successful full-page renders for subjective UI review are produced by the separate workflow governed by:
+
+```text
+docs/visual-review-workflow.md
+```
+
+The two systems have different responsibilities:
+
+```text
+browser/accessibility audit
+= structure, keyboard, overflow, target size, console errors, and automated WCAG checks
+
+visual-review workflow
+= retained successful desktop/mobile full-page PNGs, contact sheets, and human page-scale review
+```
+
+A page may pass this automated audit and still require visual correction for hierarchy, whitespace, density, or mobile reading rhythm.
+
 ## Boundary
 
 Automated browser and axe checks detect many structural, responsive, keyboard, naming, target-size, and contrast defects. They do not prove that every user with every assistive technology will encounter no barrier.
 
-Manual review remains appropriate for subjective reading quality, cognitive clarity, zoom behavior beyond the automated matrix, and assistive-technology combinations not represented by the Chromium baseline.
+Manual review remains appropriate for subjective reading quality, cognitive clarity, zoom behavior beyond the automated matrix, assistive-technology combinations not represented by the Chromium baseline, and the full-page visual review defined separately.
