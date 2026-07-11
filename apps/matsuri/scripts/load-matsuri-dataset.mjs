@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url";
 
 const d1Directory = new URL("../../../data/public/matsuri/d1/", import.meta.url);
 const f1Directory = new URL("../../../data/public/matsuri/f1/", import.meta.url);
+const f2Directory = new URL("../../../data/public/matsuri/f2/", import.meta.url);
 
 export const matsuriF1BatchFiles = [
   "batch-01.json",
@@ -18,9 +19,36 @@ export const matsuriF1BatchFiles = [
   "batch-10.json",
 ];
 
+export const matsuriF2CorrectionFiles = ["corrections-01.json"];
+
 function readJson(directory, fileName) {
   const filePath = fileURLToPath(new URL(fileName, directory));
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function applyRecordOverrides(records, overrides, familyName) {
+  if (overrides.length === 0) return records;
+
+  const recordsById = new Map(records.map((record) => [record.id, record]));
+
+  for (const override of overrides) {
+    const previous = recordsById.get(override.id);
+    if (!previous) {
+      throw new Error(
+        `Matsuri ${familyName} correction ${override.id} does not replace an existing record.`,
+      );
+    }
+
+    if (override.record_version <= previous.record_version) {
+      throw new Error(
+        `Matsuri ${familyName} correction ${override.id} must increase record_version above ${previous.record_version}.`,
+      );
+    }
+
+    recordsById.set(override.id, override);
+  }
+
+  return records.map((record) => recordsById.get(record.id));
 }
 
 export function loadMatsuriDataset() {
@@ -28,7 +56,21 @@ export function loadMatsuriDataset() {
   const batches = matsuriF1BatchFiles.map((fileName) =>
     readJson(f1Directory, fileName),
   );
+  const corrections = matsuriF2CorrectionFiles.map((fileName) =>
+    readJson(f2Directory, fileName),
+  );
   const batchRecords = (key) => batches.flatMap((batch) => batch[key] ?? []);
+  const correctionRecords = (key) =>
+    corrections.flatMap((correction) => correction[key] ?? []);
+
+  const occurrences = [
+    ...records.occurrences,
+    ...batchRecords("occurrences"),
+  ];
+  const evidence = [
+    ...readJson(d1Directory, "evidence.json"),
+    ...batchRecords("evidence"),
+  ];
 
   return {
     entities: [
@@ -44,7 +86,11 @@ export function loadMatsuriDataset() {
       ...batchRecords("stateSnapshots"),
     ],
     changeEvents: [...records.changeEvents, ...batchRecords("changeEvents")],
-    occurrences: [...records.occurrences, ...batchRecords("occurrences")],
+    occurrences: applyRecordOverrides(
+      occurrences,
+      correctionRecords("occurrences"),
+      "Occurrence",
+    ),
     occurrenceSeries: [
       ...records.occurrenceSeries,
       ...batchRecords("occurrenceSeries"),
@@ -56,10 +102,11 @@ export function loadMatsuriDataset() {
     relations: [...records.relations, ...batchRecords("relations")],
     designations: [...records.designations, ...batchRecords("designations")],
     sources: [...records.sources, ...batchRecords("sources")],
-    evidence: [
-      ...readJson(d1Directory, "evidence.json"),
-      ...batchRecords("evidence"),
-    ],
+    evidence: applyRecordOverrides(
+      evidence,
+      correctionRecords("evidence"),
+      "Evidence",
+    ),
     images: [...records.images, ...batchRecords("images")],
   };
 }
