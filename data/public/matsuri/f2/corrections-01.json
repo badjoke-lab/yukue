@@ -1,0 +1,46 @@
+{
+  "occurrences": [
+    {
+      "id": "occ-soma-2026-schedule",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "subject_entity_id": "fst-soma-nomaoi",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-05-23",
+        "end": "2026-05-25",
+        "precision": "range"
+      },
+      "outcome": "unknown",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-soma-hibarigahara",
+        "plc-soma-nakamura-jinja",
+        "plc-soma-ota-jinja",
+        "plc-soma-odaka-jinja"
+      ],
+      "organizer_entity_ids": [
+        "org-soma-nomaoi"
+      ],
+      "evidence_ids": [
+        "evd-soma-occ-2026"
+      ],
+      "review_status": "approved",
+      "series_id": "ser-soma-nomaoi-annual"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-soma-occ-2026",
+      "schema_version": "common.v1",
+      "record_version": 2,
+      "source_id": "src-soma-schedule-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-soma-2026-schedule",
+      "assertion_code": "supports_occurrence_schedule_only",
+      "summary_ja": "公式日程ページは令和8年度の行事を2026年5月23日から25日までと掲載しているが、この資料だけでは実施結果と実施規模を確認できないため、結果と規模は未確認として扱う。",
+      "captured_at": "2026-07-11",
+      "review_status": "approved"
+    }
+  ]
+}
