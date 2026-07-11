@@ -115,7 +115,7 @@ for (const marker of [
   "search-artifact-ready",
   "machine-readable-ready",
   "deployment-artifact-ready",
-  "external-deployment-held",
+  "external-deployment-activation",
   "analytics-activation-required",
 ]) {
   assert(
@@ -123,8 +123,20 @@ for (const marker of [
     `Status page is missing infrastructure marker ${marker}.`,
   );
 }
-assertContains(statusHtml, "未実施。外部配備工程は運用上の保留中", "Status page");
-assertContains(statusHtml, "未有効。Cloudflare Pages project作成後", "Status page");
+assertContains(
+  statusHtml,
+  "Cloudflare Pages接続工程を開始。公開URLと配備内容は初回deploy後に検証します",
+  "Status page",
+);
+assertContains(
+  statusHtml,
+  "未有効。初回deployとcanonical検証後",
+  "Status page",
+);
+assert(
+  !statusHtml.includes('data-infrastructure-status="external-deployment-held"'),
+  "Status page must not claim that external deployment remains held after F2-16 activation.",
+);
 assert(
   !statusHtml.includes('data-infrastructure-status="analytics-enabled"'),
   "Status page must not claim that Analytics is enabled before external activation.",
@@ -258,5 +270,5 @@ assert(
 );
 
 console.log(
-  `Matsuri public content audit passed: ${manifest.files.length} Data links, ${allHtmlPaths.length} HTML files, ${dataset.images.length} approved images, explicit held infrastructure status, honest empty states, and route-based map treatment.`,
+  `Matsuri public content audit passed: ${manifest.files.length} Data links, ${allHtmlPaths.length} HTML files, ${dataset.images.length} approved images, explicit deployment-activation status, honest empty states, and route-based map treatment.`,
 );
