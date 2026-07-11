@@ -26,6 +26,7 @@ const requiredDocs = [
   "docs/browser-accessibility-audit.md",
   "docs/public-content-audit.md",
   "docs/repository-launch-readiness.md",
+  "docs/cloudflare-pages-launch-runbook.md",
   "docs/development-schedule.md",
   "docs/project-status.md",
   "docs/roadmap.md",
@@ -44,7 +45,7 @@ const completedIds = [
   "F2-14",
 ];
 
-const pendingIds = [
+const externalIds = [
   "F2-16",
   "F2-17",
   "F2-18",
@@ -100,12 +101,12 @@ assert(releaseManifest.format_version === 1, "Unexpected release manifest format
 assert(releaseManifest.project_id === "yukue-series", "Unexpected release project_id.");
 assert(releaseManifest.site_id === "matsuri", "Unexpected release site_id.");
 assert(
-  releaseManifest.release_status === "repository-verified-external-deployment-held",
+  releaseManifest.release_status === "repository-verified-external-activation-active",
   `Unexpected release_status: ${String(releaseManifest.release_status)}`,
 );
 assert(
   releaseManifest.canonical_origin === null,
-  "Repository-ready candidate must not claim a canonical production origin.",
+  "Repository-ready candidate must not claim a canonical production origin before F2-20.",
 );
 assert(
   typeof releaseManifest.source_commit === "string" &&
@@ -134,10 +135,10 @@ for (const id of completedIds) {
   );
 }
 
-for (const id of pendingIds) {
+for (const id of externalIds) {
   assert(
     releaseManifest.external_pending_work.some((value) => value.startsWith(id)),
-    `Release candidate does not preserve pending external work ${id}.`,
+    `Release candidate does not preserve external work ${id}.`,
   );
 }
 
@@ -187,10 +188,10 @@ for (const id of [...completedIds, "F2-15"]) {
     `Development schedule is missing ${id}.`,
   );
 }
-for (const id of pendingIds) {
+for (const id of externalIds) {
   assert(
     developmentSchedule.includes(id),
-    `Development schedule is missing held external work ${id}.`,
+    `Development schedule is missing external work ${id}.`,
   );
 }
 assert(
@@ -198,15 +199,15 @@ assert(
   "Project status does not record F2-15 completion.",
 );
 assert(
-  projectStatus.includes("F2-16–F2-28") && projectStatus.includes("Operational hold"),
-  "Project status does not preserve the external operational hold.",
+  projectStatus.includes("F2-16 — Cloudflare Pages project connection — active"),
+  "Project status does not record F2-16 as active.",
 );
 assert(
   roadmap.includes("Repository Launch Readiness: **Completed**") &&
-    roadmap.includes("External deployment and production verification: **Operational hold**"),
-  "Roadmap does not reflect repository readiness and the external hold.",
+    roadmap.includes("External deployment and production verification: **Active at F2-16**"),
+  "Roadmap does not reflect repository readiness and active external deployment.",
 );
 
 console.log(
-  `Matsuri F2-15 repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-28 remain held.`,
+  `Matsuri F2-15 repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 external activation is active and canonical origin remains unset.`,
 );
