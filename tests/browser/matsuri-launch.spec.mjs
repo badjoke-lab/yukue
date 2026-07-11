@@ -34,6 +34,7 @@ for (const route of matsuriPublicRoutes) {
     await expect(page.locator("html")).toHaveAttribute("lang", "ja");
     await expect(page).toHaveTitle(/\S/u);
     await expect(page.locator('meta[name="viewport"]')).toHaveCount(1);
+    await expect(page.locator("main")).toHaveCount(1);
     await expect(page.locator("main#yk-main-content")).toHaveCount(1);
     await expect(page.locator("h1")).toHaveCount(1);
 
