@@ -38,8 +38,8 @@ const counts = {
       <div data-infrastructure-status="search-artifact-ready"><dt>Search</dt><dd>Pagefind静的indexをbuild時に生成し、リポジトリ検証済み</dd></div>
       <div data-infrastructure-status="machine-readable-ready"><dt>Machine-readable layer</dt><dd>JSON feeds、manifest、discovery filesを生成し、相互整合性を検査</dd></div>
       <div data-infrastructure-status="deployment-artifact-ready"><dt>Deployment artifact</dt><dd>CIで必須HTML、検索runtime、公開データファイル、内部リンク、ブラウザ表示を検査</dd></div>
-      <div data-infrastructure-status="external-deployment-held"><dt>Public deployment</dt><dd>未実施。外部配備工程は運用上の保留中</dd></div>
-      <div data-infrastructure-status="analytics-activation-required"><dt>Web Analytics</dt><dd>未有効。Cloudflare Pages project作成後にproject側で有効化とtraffic確認が必要</dd></div>
+      <div data-infrastructure-status="external-deployment-activation"><dt>Public deployment</dt><dd>Cloudflare Pages接続工程を開始。公開URLと配備内容は初回deploy後に検証します</dd></div>
+      <div data-infrastructure-status="analytics-activation-required"><dt>Web Analytics</dt><dd>未有効。初回deployとcanonical検証後にproject側で有効化とtraffic確認が必要</dd></div>
     </dl>
   </section>
 
