@@ -20,6 +20,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
 | `technical-architecture.md` | Current direction | Build, projection, search, deployment |
 | `release-verification.md` | F2 repository baseline | Unified release-candidate command, workspace contract, CI stages, and external limits |
+| `source-evidence-audit.md` | F2 repository baseline | Source metadata, Evidence targeting, Current State freshness, and audit boundaries |
 | `analytics.md` | Initial baseline | Launch analytics purpose, activation, verification, and privacy boundary |
 | `roadmap.md` | Current | Long-range phases and gates |
 | `development-schedule.md` | Current | Concrete implementation and PR sequence |
