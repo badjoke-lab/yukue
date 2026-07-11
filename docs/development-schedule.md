@@ -14,16 +14,29 @@ GitHub PR numbers are not used as permanent schedule identifiers because documen
 
 ## Current position
 
-Completed foundation work:
+Completed implementation stages:
 
 ```text
 Foundation 1  Monorepo foundation
 Foundation 2  Project reference document set
 Foundation 3  UI direction, design tokens, UI foundation specification
 Governance    Development schedule and AGENTS hierarchy
+Stage A       UI foundation implementation
+Stage B       Matsuri static surfaces
+Stage C       Data core
+Stage D       Sample canonical data and Public Projection
+Stage E       Browse, Search, and machine-readable baseline
+Stage F1      Initial corpus expansion
+F2-01–F2-06  Repository launch baselines and schedule alignment
 ```
 
-Active next work begins with Stage A.
+Active work:
+
+```text
+F2-07 — Unified release verification command
+```
+
+External deployment work is under an operational hold. Continue repository-only F2 readiness work through F2-15. Do not select F2-16 or later as active work until the hold is explicitly removed in the governing documents.
 
 ---
 
@@ -374,19 +387,307 @@ Evidence coverage
 
 Do not maximize Entity count while leaving Occurrence, Change, Relation, or Evidence coverage weak.
 
+Status: **Completed through validated batches 01–10.**
+
 ### F2 — Launch preparation
 
+F2 is split into three ordered blocks:
+
 ```text
-Cloudflare deployment
-custom domain decision
-canonical URL validation
-sitemap validation
-search indexing checks
-analytics baseline
-status page
-methodology page
-data access page
+A. completed repository launch baselines and schedule alignment
+B. repository-only launch readiness work
+C. external deployment and production verification
 ```
+
+External deployment being unavailable does not stop block B. Block C remains on operational hold until the governing documents explicitly reactivate it.
+
+#### Block A — Completed repository launch baselines and schedule alignment
+
+##### F2-01 — Pages build and artifact contract
+
+Status: **Completed**
+
+Scope:
+
+- repository-root Matsuri Pages build command,
+- static output directory contract,
+- Node.js and pnpm version pins,
+- generated artifact verification in CI.
+
+##### F2-02 — Public reference and secondary browse surfaces
+
+Status: **Completed**
+
+Scope:
+
+- About,
+- Methodology,
+- Data Access,
+- public Status,
+- Organization Browse,
+- Current State Browse.
+
+##### F2-03 — Deployed and canonical verification tooling
+
+Status: **Completed**
+
+Scope:
+
+- deployed-origin HTTP verifier,
+- canonical-origin strict mode,
+- public route and machine-readable response checks,
+- manifest and sitemap origin checks.
+
+##### F2-04 — Deployment verifier hardening
+
+Status: **Completed**
+
+Scope:
+
+- representative Entity feed assertion,
+- Search page Pagefind asset assertion,
+- sitemap structure assertion,
+- stale or incomplete deployment detection.
+
+##### F2-05 — Analytics policy baseline
+
+Status: **Completed**
+
+Scope:
+
+- bounded analytics purpose,
+- Cloudflare project-level activation model,
+- privacy and repository boundary,
+- account-level verification gate.
+
+##### F2-06 — Schedule and status realignment
+
+Status: **Completed**
+
+Scope:
+
+- expand F2 into stable work-package IDs,
+- separate repository-only work from external deployment work,
+- record the operational hold without exposing private operational details,
+- align `development-schedule.md`, `project-status.md`, `roadmap.md`, `deployment.md`, and `decision-log.md`.
+
+Gate:
+
+- all schedule documents advance current work to F2-07,
+- F2-07 through F2-15 are ordered before external deployment,
+- F2-16 through F2-28 are explicitly held,
+- no deferred product feature is promoted into MVP scope.
+
+#### Block B — Repository-only launch readiness
+
+##### F2-07 — Unified release verification command
+
+Status: **Active**
+
+Scope:
+
+```text
+workspace build
+workspace check
+workspace typecheck
+Matsuri Pages build
+Pages artifact verification
+deployed-verifier syntax verification
+```
+
+Gate:
+
+- one documented repository command runs the complete release-candidate verification set,
+- CI uses or mirrors the same contract,
+- missing scripts are reported rather than silently ignored where launch assurance requires them.
+
+##### F2-08 — Static route and internal-link integrity
+
+Scope:
+
+- require every published Home, Browse, Reference, Search, and Detail route,
+- detect broken internal links,
+- prevent links to unpublished Shrine or Temple detail routes,
+- compare generated route inventory with sitemap inventory.
+
+Gate:
+
+- generated internal links resolve within the static artifact,
+- no invented detail route is linked,
+- sitemap path inventory matches publishable routes.
+
+##### F2-09 — HTML, JSON, Search, and sitemap consistency
+
+Scope:
+
+- compare public record counts,
+- compare Current State presentation across HTML and JSON,
+- verify Pagefind records derive only from Public Projection,
+- verify manifest inventory and counts,
+- prevent placeholder production origins when canonical origin is unset.
+
+Gate:
+
+- HTML, machine-readable output, Search, manifest, and sitemap agree on the reviewed public dataset,
+- no internal field or unpublished record appears in public discovery output.
+
+##### F2-10 — Public data semantic audit
+
+Scope:
+
+- State versus Occurrence separation,
+- Change Event versus Occurrence separation,
+- revival modeling,
+- Relation endpoint correctness,
+- Designation separation,
+- duplicate-identity review,
+- scheduled versus historical occurrence treatment.
+
+Gate:
+
+- all F1 batches pass the semantic review checklist,
+- no unsupported State transition or identity duplication remains in the launch corpus.
+
+##### F2-11 — Source and Evidence audit
+
+Scope:
+
+- Current State freshness,
+- Evidence target specificity,
+- Relation evidence coverage,
+- Occurrence outcome and date evidence,
+- source metadata quality,
+- long-term State conclusions not relying on weak evidence alone.
+
+Gate:
+
+- every launch-critical assertion has appropriate public Evidence,
+- unsupported or conflicted material remains outside Public Projection.
+
+##### F2-12 — Full responsive and accessibility audit
+
+Scope:
+
+- all public surfaces at desktop and mobile widths,
+- keyboard navigation,
+- heading and landmark structure,
+- table semantics,
+- focus visibility,
+- text alternatives and non-color status communication,
+- map and lightbox fallback behavior where applicable.
+
+Gate:
+
+- the accessibility baseline applies to all launch surfaces, not only the original Home and representative Detail fixtures,
+- blocking defects are corrected before release-candidate freeze.
+
+##### F2-13 — Public content, empty-state, and image-boundary audit
+
+Scope:
+
+- Methodology and implementation alignment,
+- Data Access inventory accuracy,
+- Status wording accuracy,
+- honest empty states,
+- zero-image behavior,
+- image-rights gate,
+- route-based and distributed map representation,
+- external-link labeling.
+
+Gate:
+
+- no public page claims an inactive capability is active,
+- no placeholder or unapproved image enters the artifact,
+- empty and sparse datasets remain intentional and readable.
+
+##### F2-14 — Release-candidate artifact freeze
+
+Scope:
+
+- generate the exact static release candidate,
+- record route inventory,
+- record public record counts,
+- record machine-readable file inventory,
+- record checks and known external-only verification limits.
+
+Gate:
+
+- a reproducible release-candidate artifact passes F2-07 through F2-13,
+- remaining checks are exclusively external deployment or production checks.
+
+##### F2-15 — Repository Launch Readiness Gate
+
+Required state:
+
+```text
+build green
+check green
+typecheck green
+static routes complete
+internal links valid
+Public Projection safe
+HTML / JSON / Search consistent
+Source / Evidence audit passed
+responsive review passed
+accessibility review passed
+image rights boundary passed
+release artifact verified
+```
+
+Gate:
+
+- repository-side launch preparation is complete,
+- continued work is limited to approved data freshness corrections until external deployment resumes,
+- do not invent additional prelaunch product scope merely because external deployment remains held.
+
+#### Block C — External deployment and production verification
+
+Status for F2-16 through F2-28: **Operational hold**
+
+These items must remain in order and must not become active until the hold is explicitly removed.
+
+##### F2-16 — Create or connect the Cloudflare Pages project
+
+##### F2-17 — First Pages deployment and reachable URL acquisition
+
+##### F2-18 — Deployed-origin smoke verification
+
+Run the deployed verifier against the first reachable deployment URL.
+
+##### F2-19 — Canonical public origin and domain decision
+
+##### F2-20 — Configure `MATSURI_PUBLIC_ORIGIN` and redeploy
+
+##### F2-21 — Canonical manifest and sitemap verification
+
+##### F2-22 — Browser Pagefind Search verification on production
+
+##### F2-23 — Robots, canonical, sitemap, and crawler-reachability review
+
+##### F2-24 — Search-engine sitemap submission and indexability check
+
+##### F2-25 — Enable Cloudflare Web Analytics
+
+##### F2-26 — Deploy after analytics activation
+
+##### F2-27 — Verify production traffic in the private analytics dashboard
+
+##### F2-28 — Final F2 Launch Gate
+
+Required state:
+
+```text
+deployed public build reachable
+canonical origin configured and validated
+sitemap validated against canonical origin
+browser Search verified
+crawler and indexability checks completed
+Web Analytics enabled
+production traffic observed
+public Status wording updated to the verified state
+```
+
+After F2-28, advance to stabilization rather than adding deferred MVP scope.
 
 ---
 

@@ -15,7 +15,7 @@ Execution Stage F — Corpus Expansion and Launch Preparation
 - portal app skeleton created,
 - Matsuri app skeleton created,
 - shared package skeletons created,
-- baseline CI green,
+- baseline CI established,
 - initial data-model validation batches completed,
 - repository project reference set merged,
 - Home IA accepted: H1 Search First Hybrid,
@@ -46,10 +46,12 @@ Execution Stage F — Corpus Expansion and Launch Preparation
 - E3 machine-readable public baseline completed and validated,
 - F1 corpus expansion batches 01 through 10 completed and validated,
 - F1 corpus-expansion gate completed with balanced Festival, Folk Performance, Organization, Occurrence, Change Event, Relation, and Evidence coverage,
-- F2 Cloudflare Pages repository deployment baseline completed and validated,
-- F2 About, Methodology, Data Access, public Status, Organization Browse, and Current State Browse surfaces completed and validated,
-- F2 deployed-site smoke verification and canonical-origin verification tooling completed and validated,
-- F2 analytics purpose, activation model, verification gate, privacy boundary, and public Status wording documented as the repository analytics baseline.
+- F2-01 Pages build and artifact contract completed,
+- F2-02 public reference and secondary browse surfaces completed,
+- F2-03 deployed and canonical verification tooling completed,
+- F2-04 deployment verifier hardening completed,
+- F2-05 analytics policy baseline completed,
+- F2-06 schedule and status realignment completed.
 
 ## Current UI direction
 
@@ -103,37 +105,24 @@ project-status.md
 ## Current work
 
 ```text
-F2 — Launch preparation
+F2-07 — Unified release verification command
 ```
 
-Launch preparation covers:
+The active F2 sequence is divided into:
 
 ```text
-Cloudflare deployment
-custom domain decision
-canonical URL validation
-sitemap validation
-search indexing checks
-analytics baseline
-status page
-methodology page
-data access page
+F2-01–F2-06  completed repository launch baselines and schedule alignment
+F2-07–F2-15  repository-only launch readiness
+F2-16–F2-28  external deployment and production verification
 ```
 
-Immediate implementation order:
+External deployment and production verification are under an operational hold. The hold does not block repository-only readiness work. Do not select F2-16 or later as active work until the hold is explicitly removed in the governing documents.
 
-```text
-1. Cloudflare Pages repository deployment baseline — completed
-2. About, Methodology, Data Access, public Status, Organization Browse, and Current State Browse surfaces — completed
-3. deployed-site and canonical-origin verification tooling — completed
-4. analytics repository baseline and activation policy — completed
-5. first Pages project deployment and reachable URL verification
-6. canonical public origin decision, configuration, redeployment, and strict verification
-7. browser Search UI check on the deployed origin
-8. Pages Web Analytics enablement and traffic verification
-```
+## F2 completed repository baselines
 
-The repository deployment baseline fixes the Matsuri Pages build contract at repository root with:
+### F2-01 — Pages build and artifact contract
+
+Repository build contract:
 
 ```text
 Build command: pnpm build:matsuri:pages
@@ -142,9 +131,11 @@ Node.js: 24
 pnpm: 11.10.0
 ```
 
-CI verifies that the generated Pages artifact contains the static HTML entry points, Pagefind runtime, machine-readable public JSON feeds, discovery text files, and sitemap. The actual Cloudflare account project deployment and resulting public URL are not yet completed and remain the next external deployment step.
+CI verifies that the generated artifact contains static HTML entry points, Pagefind runtime, machine-readable public JSON feeds, discovery text files, and sitemap output.
 
-The public reference and secondary browse layer includes:
+### F2-02 — Public reference and secondary browse surfaces
+
+Implemented routes include:
 
 ```text
 /about/
@@ -156,22 +147,124 @@ The public reference and secondary browse layer includes:
 /states/<state-code>/
 ```
 
-These routes are generated as static HTML, included in the sitemap inventory, and enforced by the Pages artifact checker. Public Status counts are generated from the approved Public Projection. Organization and Current State browse rows are likewise projection-backed, and links are limited to published browse surfaces rather than invented detail routes.
+These routes derive public counts and browse rows from the approved Public Projection. Links are limited to published surfaces rather than invented detail routes.
 
-Launch verification tooling now provides:
+### F2-03 and F2-04 — Deployment verification tooling
+
+Repository commands:
 
 ```text
 MATSURI_CHECK_ORIGIN=https://<deployment-host> pnpm check:matsuri:deployed
 MATSURI_CHECK_ORIGIN=https://<canonical-origin> pnpm check:matsuri:canonical
 ```
 
-The deployed check verifies public HTML routes, Pagefind runtime, machine-readable feeds, discovery files, sitemap response status, Content-Type families, non-empty bodies, Matsuri site markers, and a non-empty public Entity feed. Canonical mode additionally requires `manifest.site_origin` to equal the checked origin and every sitemap `<loc>` to use that origin. One browser Search UI check remains required after deployment because the HTTP verifier does not emulate the browser Pagefind runtime.
+The deployed check verifies public HTML routes, Pagefind assets, machine-readable feeds, discovery files, sitemap response status, Content-Type families, non-empty bodies, Matsuri markers, a representative Entity record, and a non-empty public Entity feed.
 
-The analytics repository baseline is documented in `docs/analytics.md`. Cloudflare Web Analytics remains a Pages project-level activation and verification step. The repository does not contain analytics tokens, site-specific beacon credentials, private dashboard exports, or raw visitor analytics. F2 analytics is complete only after the Pages project exists, Web Analytics is enabled, a post-enable deployment occurs, and production traffic is observed in the private analytics dashboard.
+Canonical mode additionally requires:
 
-F1 closed after ten validated expansion batches. Batch 01 and batch 02 broadened Festival, Folk Performance, Organization, Occurrence, Relation, Designation, and Evidence coverage. Batch 03 shifted emphasis toward occurrence and change-history depth, including cancelled, partially held, reduced-scale, and scheduled annual editions while keeping Current State separate from individual Occurrence outcomes. Batch 04 deepened existing D1 entities without adding new Entities, recording a schedule-rule change for 相馬野馬追 and a revival-completion Event plus return Occurrence for 鷹山. Batch 05 added a first-party documented long-hiatus revival case for 布橋灌頂会 and deepened 脚折雨乞 with a quadrennial Series, Recurrence Pattern, and 2028 scheduled Occurrence. Batch 06 added an official-source disaster-recovery lifecycle around 阿蘇神社 and 御田祭, keeping shrine damage and restoration Events separate from festival Current State and the 2026 scheduled Occurrence instead of inferring an unsupported festival cancellation. Batch 07 added 弘前ねぷたまつり as an explicit festival-level continuity sequence: cancelled 2020, cancelled 2021, held again in 2022, with suspension-start and suspension-end Events linked to the occurrence history. Batch 08 deepened Organization and Relation coverage around 弘前ねぷた300年祭 by separating the anniversary program, its execution committee, and the participant-group council, then representing organized-by, supported-by, and part-of-tradition relationships explicitly. Batch 09 deepened Folk Performance continuity with 大日堂舞楽 by recording historical suspension and restart Events without invented dates, four-community transmission, annual January 2 recurrence, a preservation-group Organization, a maintained-by Relation, and a performed-at Relation to a shrine context Entity. Batch 10 closed the remaining Folk Performance occurrence-history gap with a three-year YOSAKOIソーラン sequence: cancelled 2020, cancelled 2021, held again in 2022, linked to suspension-start and suspension-end Events while keeping Current State independent from historical Occurrence outcomes.
+```text
+manifest.site_origin == checked origin
+all sitemap <loc> values use the checked origin
+```
 
-The machine-readable baseline generates:
+These commands are prepared but cannot complete production verification without a reachable external deployment.
+
+### F2-05 — Analytics policy baseline
+
+The repository defines:
+
+- bounded launch analytics questions,
+- Cloudflare project-level activation,
+- no analytics token or private dashboard export in the public repository,
+- separation between HTTP deployment checks and account-level traffic verification.
+
+Analytics activation remains an external production task and is therefore held with F2-25 through F2-27.
+
+### F2-06 — Schedule and status realignment
+
+The governing documents now define:
+
+```text
+F2-01–F2-06  completed repository baseline and schedule work
+F2-07–F2-15  repository-only readiness before deployment
+F2-16–F2-28  held external deployment and production work
+```
+
+No private operational reason is stored in the public repository. The external sequence remains documented in exact order and can resume only after an explicit governing-document update removes the hold.
+
+## Immediate repository-only implementation order
+
+```text
+F2-07  unified release verification command — active
+F2-08  static route and internal-link integrity
+F2-09  HTML, JSON, Search, and sitemap consistency
+F2-10  public data semantic audit
+F2-11  Source and Evidence audit
+F2-12  full responsive and accessibility audit
+F2-13  public content, empty-state, and image-boundary audit
+F2-14  release-candidate artifact freeze
+F2-15  repository Launch Readiness Gate
+```
+
+The detailed scope and gate for every work package are defined in `docs/development-schedule.md`.
+
+## External work under operational hold
+
+```text
+F2-16  create or connect the Cloudflare Pages project
+F2-17  first Pages deployment and reachable URL acquisition
+F2-18  deployed-origin smoke verification
+F2-19  canonical public origin and domain decision
+F2-20  configure MATSURI_PUBLIC_ORIGIN and redeploy
+F2-21  canonical manifest and sitemap verification
+F2-22  browser Pagefind Search verification
+F2-23  robots, canonical, sitemap, and crawler-reachability review
+F2-24  search-engine sitemap submission and indexability check
+F2-25  enable Cloudflare Web Analytics
+F2-26  deploy after analytics activation
+F2-27  verify production traffic
+F2-28  final F2 Launch Gate
+```
+
+No public deployment URL or canonical production origin is recorded yet. Development builds continue to use path-based sitemap locations when `MATSURI_PUBLIC_ORIGIN` is unset.
+
+## Corpus status
+
+F1 closed after ten validated expansion batches.
+
+The launch corpus includes structurally different cases across:
+
+- Festivals,
+- Folk Performances,
+- Tradition Units,
+- Organizations,
+- Shrine context seeds,
+- Current State snapshots,
+- held, cancelled, partially held, and scheduled Occurrences,
+- suspension, return, revival, format, schedule, organization, designation, and disaster-recovery Change Events,
+- precise organizer, preservation, ritual, venue, component, and tradition Relations,
+- Source and Evidence records targeted to individual assertions.
+
+Representative continuity cases include:
+
+```text
+脚折雨乞
+相馬野馬追
+祇園祭 / 鷹山
+早池峰神楽
+佐陀神能
+東栄町の花祭 / 布川地区花祭
+布橋灌頂会
+弘前ねぷたまつり
+大日堂舞楽
+YOSAKOIソーラン演舞
+```
+
+Current State remains separate from annual Occurrence outcomes. Historical revival remains a Change Event rather than a normal Current State value.
+
+## Machine-readable baseline
+
+Generated public files:
 
 ```text
 /version.json
@@ -185,9 +278,7 @@ The machine-readable baseline generates:
 /sitemap.xml
 ```
 
-All baseline machine-readable files are generated from the same approved Public Projection used by public rendering and search. The manifest includes public record counts, version markers, data-safety markers, and the public file inventory.
-
-Production sitemap origins are supplied through deployment configuration. Development builds use path-based sitemap locations until Launch Preparation establishes and validates the canonical public origin.
+All baseline files are generated from the same approved Public Projection used by public rendering and Search. The manifest includes public record counts, version markers, data-safety markers, and the public file inventory.
 
 The public rendering and discovery path is:
 
@@ -201,13 +292,15 @@ reviewed canonical data
 → machine-readable public baseline
 ```
 
-Search remains available at:
+## Public Search and Browse
+
+Search route:
 
 ```text
 /search/
 ```
 
-with predictable URL state:
+Predictable URL state:
 
 ```text
 q
@@ -216,7 +309,7 @@ prefecture
 state
 ```
 
-and initial filters:
+Initial filters:
 
 ```text
 Entity Type
@@ -224,7 +317,7 @@ Prefecture
 Current State
 ```
 
-Public Browse surfaces include:
+Public Browse surfaces:
 
 ```text
 /festivals/
@@ -235,37 +328,30 @@ Public Browse surfaces include:
 /states/
 ```
 
-D1 representative sample coverage remains:
-
-```text
-脚折雨乞
-相馬野馬追
-祇園祭 / 鷹山
-早池峰神楽
-佐陀神能
-東栄町の花祭 / 布川地区花祭
-```
-
-Only reviewed public-safe canonical records belong in repository data. Unresolved private research notes and source conflicts remain outside the public data layer.
-
 ## Next gate
 
-Complete F2 launch preparation without adding deferred product scope.
+Complete F2-07 without adding deferred product scope.
 
-The launch gate requires:
+F2-07 requires one documented repository release-verification contract covering:
 
 ```text
-deployed public build
-canonical origin configured and validated
-sitemap validated against the canonical origin
-search index checked on the deployed site
-Web Analytics enabled and production traffic verified
-status page available — completed
-methodology page available — completed
-data access page available — completed
+workspace build
+workspace check
+workspace typecheck
+Matsuri Pages build
+Pages artifact verification
+deployed-verifier syntax verification
 ```
 
-Repository-side deployment preparation, reference surfaces, artifact checks, deployed smoke checks, canonical verification tooling, and analytics policy baseline are complete. The remaining F2 gate items require an actual Cloudflare Pages project, reachable deployment URL, canonical-origin decision, production redeployment, browser Search verification, and Pages Web Analytics activation with traffic verification.
+The command and CI must use or mirror the same checks. Missing launch-critical scripts must be reported rather than silently ignored.
+
+After F2-07, the next implementation item is:
+
+```text
+F2-08 — Static route and internal-link integrity
+```
+
+The next major gate is F2-15 Repository Launch Readiness. The final F2 Launch Gate remains F2-28 and cannot be completed until the external operational hold is removed and production checks pass.
 
 ## Not yet committed to MVP
 

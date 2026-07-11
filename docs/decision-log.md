@@ -142,6 +142,45 @@ project-status.md
 
 When implementation changes public behavior, the governing document should be updated in the same bounded PR where practical. Decision changes go to `decision-log.md`; phase or gate changes go to `project-status.md`; material implementation-order changes go to `development-schedule.md`.
 
+## 2026-07-11 — F2 repository readiness before external deployment
+
+Decision:
+
+```text
+F2-01–F2-05  completed repository launch baselines
+F2-06–F2-15  repository-only launch readiness
+F2-16–F2-28  external deployment and production verification
+```
+
+External deployment and production verification are placed under an operational hold.
+
+The hold does not stop repository-only readiness work. F2-06 through F2-15 proceed before any Cloudflare Pages project creation, public deployment URL acquisition, canonical production-origin decision, production Search verification, indexability work, or Web Analytics activation.
+
+The external sequence remains ordered and documented so that it can resume without redesign:
+
+```text
+Cloudflare project
+→ first reachable deployment
+→ deployed smoke check
+→ canonical origin decision
+→ canonical redeployment
+→ canonical and sitemap verification
+→ browser Search verification
+→ crawler and indexability checks
+→ Web Analytics activation
+→ post-activation deployment
+→ production traffic verification
+→ final F2 Launch Gate
+```
+
+The hold is removed only through an explicit update to the governing documents. Do not record a placeholder public URL or claim production-only checks are complete while the hold remains active.
+
+Repository Launch Readiness at F2-15 is distinct from the final F2 Launch Gate at F2-28.
+
+F2-15 requires the static artifact, internal links, Public Projection safety, HTML/JSON/Search consistency, Source and Evidence quality, responsive and accessibility review, content and image boundaries, and release-candidate verification to pass without external deployment.
+
+F2-28 additionally requires a reachable public build, validated canonical origin and sitemap, browser Search, crawler and indexability checks, Web Analytics activation, and verified production traffic.
+
 ## Open decisions
 
 - final map component implementation,
