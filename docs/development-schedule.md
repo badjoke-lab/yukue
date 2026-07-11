@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-M01 visual-review maintenance active / external sequence held
+**Status:** Repository-ready maintenance state / F2-M01 completed / external sequence held
 
 This document defines the stable implementation order. It complements:
 
@@ -16,13 +16,13 @@ The project is gate-driven rather than deadline-driven. Stable work-package IDs 
 Foundation through Stage E  completed
 F1 corpus expansion          completed
 F2-01 through F2-15          completed
-F2-M01                       active
+F2-M01                       completed
 F2-16 through F2-28          Operational hold
 ```
 
-The active implementation package is F2-M01.
+There is no active implementation package.
 
-F2-16 remains inactive and begins only after an explicit governing-document update removes the external hold.
+The screenshot workflow remains available for relevant UI maintenance. F2-16 remains inactive and begins only after an explicit governing-document update removes the external hold.
 
 ---
 
@@ -374,7 +374,7 @@ After F2-15, do not invent additional prelaunch product scope solely because ext
 
 ##### F2-M01 — Full-page screenshot visual-review workflow
 
-Status: **Active**
+Status: **Completed**
 
 Governing specification:
 
@@ -382,26 +382,26 @@ Governing specification:
 docs/visual-review-workflow.md
 ```
 
-Implementation order:
+Completed implementation sequence:
 
 ```text
-1. define the shared route and device contract
-2. make the existing browser audit consume the shared route contract
-3. capture all current public routes on desktop and mobile
-4. record route-level screenshot metrics and SHA-256 values
-5. audit screenshot completeness and rendered integrity
-6. generate desktop and mobile contact sheets
-7. generate desktop and mobile ZIP archives
-8. add manual and UI-path-triggered GitHub Actions execution
-9. upload the complete artifact for 14 days
-10. run the first complete 40-image capture
-11. inspect the contact sheets and affected full-page PNG regions
-12. correct concrete UI defects found by the images
-13. recapture and record the post-fix result
-14. close F2-M01 and return to maintenance state
+1. defined the shared route and device contract
+2. made the existing browser audit consume the shared route contract
+3. captured all current public routes on desktop and mobile
+4. recorded route-level screenshot metrics and SHA-256 values
+5. audited screenshot completeness and rendered integrity
+6. generated desktop and mobile contact sheets
+7. generated desktop and mobile ZIP archives
+8. added manual and UI-path-triggered GitHub Actions execution
+9. uploaded the complete artifact for 14 days
+10. ran the first complete 40-image capture
+11. inspected both contact sheets and representative full-page PNG regions
+12. corrected concrete UI defects found by the images
+13. recaptured and recorded the post-fix result
+14. returned the project to repository-ready maintenance state
 ```
 
-Required current coverage:
+Final coverage:
 
 ```text
 20 generated public routes
@@ -410,7 +410,7 @@ Required current coverage:
 = 40 full-page PNGs
 ```
 
-Required outputs:
+Final outputs:
 
 ```text
 artifacts/matsuri-screenshots/desktop/*.png
@@ -425,9 +425,35 @@ artifacts/matsuri-screenshots/screenshots-desktop.zip
 artifacts/matsuri-screenshots/screenshots-mobile.zip
 ```
 
-F2-M01 uses the GitHub Actions local build. It must not wait for Cloudflare and must not claim production review.
+Final evidence:
 
-A successful automated screenshot audit is not human visual approval. UI-change pull requests must record the workflow run, artifact, reviewed images, findings, corrections, remaining limitations, and post-fix result.
+```text
+Screenshot workflow run  29152930338
+Artifact                 matsuri-full-page-screenshots-all-29152930338
+Artifact ID              8248671759
+Artifact digest          sha256:d1b6eaeca9c276ac65dc66e63261028817c9b3a27dea7018a89dd331d96866ba
+Desktop                  20 / 20
+Mobile                   20 / 20
+Automated failures       0
+Automated warnings       0
+Repository CI run        29152930340
+```
+
+The first review found and corrected:
+
+- nested `main` landmarks on Browse and Reference surfaces,
+- raw internal Change Event codes on public surfaces,
+- an orphaned final character in the mobile Home headline.
+
+The detailed audit is recorded in:
+
+```text
+docs/audits/matsuri-f2-m01-visual-review-2026-07-11.md
+```
+
+F2-M01 uses the GitHub Actions local build. It did not wait for Cloudflare and does not claim production review.
+
+The workflow remains active as a maintenance capability. A successful automated screenshot audit is not human visual approval. Future UI-change pull requests must record the workflow run, artifact, reviewed images, findings, corrections, remaining limitations, and post-fix result.
 
 #### Block B — External deployment and production verification
 
