@@ -25,4 +25,16 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: Verify release candidate
-        run: pnpm verify:release
+        shell: bash
+        run: |
+          set -o pipefail
+          pnpm verify:release 2>&1 | tee release-verification.log
+
+      - name: Upload failed verification log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-verification-log
+          path: release-verification.log
+          if-no-files-found: error
+          retention-days: 7

@@ -31,7 +31,7 @@ The preflight requires:
 - every discovered workspace to define `build`,
 - every shared package under `packages/*` to define `check`,
 - every shared package under `packages/*` to define `typecheck`,
-- the repository root to define the release-critical Matsuri build and artifact scripts.
+- the repository root to define the release-critical Matsuri build and verification scripts.
 
 The Astro applications currently use their production build as their compile-time validation boundary and do not define separate `check` or `typecheck` scripts. The verifier reports those omissions explicitly instead of allowing the recursive `--if-present` commands to skip them silently.
 
@@ -49,7 +49,7 @@ The command runs these stages in order:
 5. node --check scripts/check-matsuri-deployed.mjs
 ```
 
-Stage 4 rebuilds the exact Matsuri Pages target and runs both static artifact integrity and public-output consistency checks. This intentionally preserves the Pages-specific build contract even after the full workspace build has passed.
+Stage 4 rebuilds the exact Matsuri Pages target and runs static artifact integrity, public-output consistency, and corpus semantic checks. This intentionally preserves the Pages-specific build contract even after the full workspace build has passed.
 
 The command stops on the first failed stage and reports the stage name and exit condition.
 
@@ -93,6 +93,44 @@ It verifies:
 
 The build-only Pagefind sidecar is stored under `apps/matsuri/.build-verification/`, excluded from Git, and not included in the Cloudflare Pages output directory.
 
+## Corpus semantic audit
+
+`pnpm check:matsuri:semantics` assembles the complete reviewed Matsuri dataset and first runs the shared cross-record validator. It then applies launch-specific semantic checks.
+
+The audit verifies:
+
+- public records carrying `review_status` are approved,
+- canonical Entity records do not store derived Current State directly,
+- Current State derives from approved State Snapshots and matches public JSON,
+- `revived` and `active_modified` are not used as Current State values,
+- State Snapshots do not contain Occurrence outcomes,
+- Occurrences do not contain Entity State or Change Event fields,
+- Change Events do not contain Occurrence-only fields,
+- Change Event resulting State Snapshots belong to the same subject Entity,
+- a revival-completion Event does not point to a non-active resulting State Snapshot,
+- a past Occurrence is not left with `outcome: scheduled`,
+- Relations are not self-relations and do not use generic association codes,
+- likely duplicate identities are detected by normalized preferred name, Entity Type, and geographic scope,
+- same-name cross-type identity splits have an explicit Relation,
+- Designation data remains in separate Designation records.
+
+The audit date defaults to the current UTC build date. A reproducible date can be supplied with:
+
+```text
+MATSURI_AUDIT_DATE=YYYY-MM-DD pnpm check:matsuri:semantics
+```
+
+### Versioned correction layer
+
+Confirmed public corrections may be stored under `data/public/matsuri/f2/` as full replacement records with the same stable ID and a higher `record_version`.
+
+The canonical dataset loader rejects a correction when:
+
+- the stable ID does not already exist,
+- the replacement does not increase `record_version`.
+
+This keeps the original reviewed batch visible while ensuring the current Public Projection uses only the latest accepted record version.
+
 ## CI contract
 
 GitHub Actions installs the pinned Node.js and pnpm versions, installs dependencies, and runs:
@@ -102,6 +140,8 @@ pnpm verify:release
 ```
 
 CI and local release-candidate verification therefore use the same top-level command rather than maintaining separate command lists.
+
+The workflow preserves `release-verification.log` as a short-lived artifact when verification fails. This makes the exact audit findings reviewable without committing generated logs to the repository.
 
 ## What this proves
 
@@ -117,6 +157,7 @@ A passing release verification establishes that:
 - generated public HTML contains no broken local `href` targets,
 - generated public HTML does not link to unpublished Shrine or Temple detail surfaces,
 - JSON feeds, manifest counts, Status counts, State pages, Pagefind inputs, and sitemap-origin mode agree,
+- the complete launch corpus passes the semantic audit,
 - the deployed-site verifier is syntactically valid.
 
 ## What this does not prove

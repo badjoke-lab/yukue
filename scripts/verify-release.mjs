@@ -17,6 +17,8 @@ const requiredRootScripts = [
   "typecheck",
   "build:matsuri:pages",
   "check:matsuri:pages",
+  "check:matsuri:consistency",
+  "check:matsuri:semantics",
 ];
 
 const missingRootScripts = requiredRootScripts.filter(
@@ -107,7 +109,7 @@ const stages = [
     args: ["typecheck"],
   },
   {
-    name: "Build and verify the Matsuri Pages artifact",
+    name: "Build and verify Matsuri Pages, public outputs, and corpus semantics",
     command: packageManagerCommand,
     args: ["verify:matsuri:pages"],
   },
