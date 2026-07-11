@@ -24,6 +24,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
+      - name: Install Chromium for browser audit
+        run: pnpm exec playwright install --with-deps chromium
+
       - name: Verify release candidate
         shell: bash
         run: |
@@ -37,4 +40,13 @@ jobs:
           name: release-verification-log
           path: release-verification.log
           if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload failed browser audit artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-audit-artifacts
+          path: test-results/
+          if-no-files-found: ignore
           retention-days: 7
