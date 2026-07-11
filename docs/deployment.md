@@ -144,9 +144,25 @@ Do not use a branch preview URL as `MATSURI_PUBLIC_ORIGIN`.
 
 ## Analytics baseline
 
-Cloudflare Pages Web Analytics is enabled at the Pages project level after the project exists. Keep analytics credentials and site-specific configuration out of the repository.
+The governing launch analytics baseline is defined in `docs/analytics.md`.
+
+Cloudflare Web Analytics is enabled at the Pages project level after the project exists. Keep analytics credentials and site-specific configuration out of the repository.
+
+Activation sequence:
+
+```text
+Cloudflare dashboard
+→ Workers & Pages
+→ Matsuri Pages project
+→ Metrics
+→ Web Analytics
+→ Enable
+→ next deployment
+```
 
 After enabling analytics for the Pages project, trigger or confirm the next deployment and verify that the Web Analytics site begins receiving production traffic before closing the F2 analytics gate.
+
+Do not treat repository build success or deployed HTTP smoke success as proof that the private analytics dashboard is receiving traffic.
 
 ## Completed F2 public surfaces
 
@@ -171,5 +187,6 @@ The following reference and supporting Browse surfaces are implemented and inclu
 4. configure MATSURI_PUBLIC_ORIGIN and redeploy
 5. run canonical and sitemap verification
 6. perform one browser Search UI check
-7. enable and verify the Pages Web Analytics baseline
+7. enable Web Analytics in the Pages project
+8. deploy after enablement and verify production traffic in the private dashboard
 ```
