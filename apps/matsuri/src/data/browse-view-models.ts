@@ -32,6 +32,7 @@ export interface BrowseEntityItem {
   name: string;
   typeLabel: string;
   region: string;
+  stateCode?: string;
   stateLabel?: string;
   summary?: string;
   href?: string;
@@ -120,7 +121,10 @@ function toBrowseEntity(
     typeLabel,
     region: regionLabel(entity),
     ...(stateCode
-      ? { stateLabel: stateLabels[stateCode] ?? "状態確認中" }
+      ? {
+          stateCode,
+          stateLabel: stateLabels[stateCode] ?? "状態確認中",
+        }
       : {}),
     ...(entity.summary_ja ? { summary: entity.summary_ja } : {}),
     ...(detailHref(entity) ? { href: detailHref(entity) } : {}),
