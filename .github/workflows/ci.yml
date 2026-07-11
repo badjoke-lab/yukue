@@ -33,6 +33,18 @@ jobs:
           set -o pipefail
           pnpm verify:release 2>&1 | tee release-verification.log
 
+      - name: Freeze verified Matsuri release candidate
+        run: pnpm freeze:matsuri:release
+
+      - name: Upload verified Matsuri release candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: matsuri-release-candidate-${{ github.sha }}
+          path: .release-candidate/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Upload failed verification log
         if: failure()
         uses: actions/upload-artifact@v4
