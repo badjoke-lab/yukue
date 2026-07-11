@@ -75,7 +75,7 @@ function sourceCommit() {
 
 if (process.env.MATSURI_PUBLIC_ORIGIN) {
   throw new Error(
-    "F2-14 repository release-candidate freeze requires MATSURI_PUBLIC_ORIGIN to remain unset while external deployment is held.",
+    "F2-14 repository release-candidate freeze requires MATSURI_PUBLIC_ORIGIN to remain unset until F2-20 canonical-origin activation.",
   );
 }
 
@@ -94,7 +94,7 @@ const version = JSON.parse(
 
 if (Object.hasOwn(manifest, "site_origin")) {
   throw new Error(
-    `Repository release candidate must not contain a production site_origin while deployment is held: ${String(manifest.site_origin)}`,
+    `Repository release candidate must not contain a production site_origin before F2-20: ${String(manifest.site_origin)}`,
   );
 }
 
@@ -151,7 +151,7 @@ const releaseManifest = {
   source_commit: sourceCommit(),
   dataset_version: version.dataset_version,
   schema_version: version.schema_version,
-  release_status: "repository-verified-external-deployment-held",
+  release_status: "repository-verified-external-activation-active",
   canonical_origin: null,
   verification_command: "pnpm verify:release",
   completed_repository_work: completedRepositoryWork,
@@ -175,7 +175,7 @@ fs.writeFileSync(
 );
 
 const summary = `# Matsuri Release Candidate\n\n` +
-  `Status: **repository verified; external deployment held**\n\n` +
+  `Status: **repository verified; external activation active; canonical origin not configured**\n\n` +
   `- Source commit: \`${releaseManifest.source_commit ?? "unavailable"}\`\n` +
   `- Dataset version: \`${releaseManifest.dataset_version}\`\n` +
   `- Schema version: \`${releaseManifest.schema_version}\`\n` +
@@ -185,7 +185,7 @@ const summary = `# Matsuri Release Candidate\n\n` +
   `- Artifact SHA-256: \`${aggregateHash}\`\n` +
   `- Canonical origin: not configured\n\n` +
   `The copied site under \`matsuri-site/\` is the exact static artifact that passed \`pnpm verify:release\`. ` +
-  `Cloudflare deployment, canonical-origin, production Search, crawler, indexing, and Analytics checks remain outside this candidate.\n`;
+  `Cloudflare project creation, deployed-origin, canonical-origin, production Search, crawler, indexing, and Analytics checks remain external tasks.\n`;
 
 fs.writeFileSync(path.join(candidateRoot, "README.md"), summary, "utf8");
 
