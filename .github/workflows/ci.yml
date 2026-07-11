@@ -41,6 +41,7 @@ jobs:
         with:
           name: matsuri-release-candidate-${{ github.sha }}
           path: .release-candidate/
+          include-hidden-files: true
           if-no-files-found: error
           retention-days: 30
 
