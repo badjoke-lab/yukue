@@ -102,6 +102,22 @@ if (!Array.isArray(entities.records) || entities.records.length === 0) {
   throw new Error("Entity feed contains no public records");
 }
 
+if (!entities.records.some((record) => record.id === "fst-suneori-amagoi")) {
+  throw new Error(
+    "Representative record fst-suneori-amagoi is missing from the deployed entity feed",
+  );
+}
+
+const searchHtml = bodies.get("/search/");
+if (!searchHtml.toLowerCase().includes("pagefind")) {
+  throw new Error("Search page does not reference Pagefind assets");
+}
+
+const sitemap = bodies.get("/sitemap.xml");
+if (!sitemap.includes("<urlset")) {
+  throw new Error("Sitemap does not contain a <urlset> element");
+}
+
 if (canonicalMode) {
   if (manifest.site_origin !== origin) {
     throw new Error(
@@ -109,7 +125,6 @@ if (canonicalMode) {
     );
   }
 
-  const sitemap = bodies.get("/sitemap.xml");
   const locations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(
     (match) => match[1],
   );
