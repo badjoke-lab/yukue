@@ -49,9 +49,28 @@ The command runs these stages in order:
 5. node --check scripts/check-matsuri-deployed.mjs
 ```
 
-Stage 4 rebuilds the exact Matsuri Pages target and then verifies the generated static artifact. This intentionally preserves the Pages-specific build contract even after the full workspace build has passed.
+Stage 4 rebuilds the exact Matsuri Pages target and verifies the generated static artifact. This intentionally preserves the Pages-specific build contract even after the full workspace build has passed.
 
 The command stops on the first failed stage and reports the stage name and exit condition.
+
+## Static artifact integrity
+
+The Matsuri Pages artifact check verifies:
+
+- every required Home, Browse, Reference, Search, Current State, and published Detail route,
+- the Pagefind runtime and baseline machine-readable files,
+- every generated public `index.html` route against `sitemap.xml`,
+- duplicate sitemap locations,
+- sitemap locations without generated HTML,
+- generated HTML routes missing from the sitemap,
+- every internal `href` target found in generated public HTML,
+- internal links to static assets,
+- links to unpublished Shrine or Temple detail surfaces,
+- Matsuri `site_id` markers in the manifest and version files.
+
+Public route discovery is based on generated `index.html` files rather than a second manually maintained route list. The required-route list remains as a minimum launch contract, while the generated-route inventory catches newly added pages that were not added to the sitemap.
+
+External links, fragment-only links, and non-HTTP schemes such as `mailto:` are outside the local artifact link check.
 
 ## CI contract
 
@@ -73,6 +92,9 @@ A passing release verification establishes that:
 - shared-package typechecks pass,
 - the exact Matsuri Pages build completes,
 - required static routes and public files exist in the Pages artifact,
+- generated public routes and sitemap routes agree,
+- generated public HTML contains no broken local `href` targets,
+- generated public HTML does not link to unpublished Shrine or Temple detail surfaces,
 - the deployed-site verifier is syntactically valid.
 
 ## What this does not prove
