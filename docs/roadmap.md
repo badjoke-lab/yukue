@@ -125,6 +125,7 @@ F2-02  public reference and secondary browse surfaces
 F2-03  deployed and canonical verification tooling
 F2-04  deployment verifier hardening
 F2-05  analytics policy baseline
+F2-06  schedule and status realignment
 ```
 
 Status: **Completed**
@@ -132,7 +133,6 @@ Status: **Completed**
 ### Repository-only launch readiness
 
 ```text
-F2-06  schedule and status realignment
 F2-07  unified release verification command
 F2-08  static route and internal-link integrity
 F2-09  HTML, JSON, Search, and sitemap consistency
@@ -144,7 +144,7 @@ F2-14  release-candidate artifact freeze
 F2-15  repository Launch Readiness Gate
 ```
 
-Status: **In progress — F2-06 active**
+Status: **In progress — F2-07 active**
 
 ### External deployment and production verification
 
@@ -166,7 +166,7 @@ F2-28  final F2 Launch Gate
 
 Status: **Operational hold**
 
-The hold does not block F2-06 through F2-15. F2-16 or later becomes active only after an explicit governing-document update removes the hold.
+The hold does not block F2-07 through F2-15. F2-16 or later becomes active only after an explicit governing-document update removes the hold.
 
 ## Phase 10 — Stabilization
 
