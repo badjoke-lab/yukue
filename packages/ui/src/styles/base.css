@@ -94,6 +94,7 @@ h2,
 h3 {
   line-height: var(--line-height-heading);
   font-weight: 500;
+  text-wrap: balance;
 }
 
 p {
