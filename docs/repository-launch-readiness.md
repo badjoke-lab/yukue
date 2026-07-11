@@ -1,6 +1,6 @@
 # Repository Launch Readiness
 
-**Status:** Completed repository gate / external deployment held
+**Status:** Completed repository gate / visual-review maintenance active / external deployment held
 
 ## Decision
 
@@ -66,6 +66,7 @@ The gate requires:
 
 ```text
 repository launch readiness   completed
+visual-review maintenance     F2-M01 active
 public Cloudflare deployment  not performed
 canonical production origin   not configured
 production browser Search     not verified
@@ -73,6 +74,26 @@ crawler and indexability      not verified
 Web Analytics                 not enabled
 production traffic            not verified
 ```
+
+## Visual-review maintenance after the gate
+
+F2-M01 adds a successful-render review workflow without reopening product scope or changing the F2-15 release gate.
+
+The workflow:
+
+- builds the site in GitHub Actions,
+- serves the local build without Cloudflare,
+- captures every current public route on desktop and mobile,
+- retains full-page PNGs, manifests, audits, ZIP files, and contact sheets,
+- supports human review of hierarchy, whitespace, density, long-page structure, and mobile reading rhythm.
+
+The governing specification is:
+
+```text
+docs/visual-review-workflow.md
+```
+
+A green repository gate remains necessary but is not treated as proof that subjective UI review is complete.
 
 ## External hold
 
@@ -94,7 +115,7 @@ F2-27  production traffic verification
 F2-28  final F2 Launch Gate
 ```
 
-None of these items becomes active merely because the repository gate is complete.
+None of these items becomes active merely because the repository gate is complete or because local screenshots are available.
 
 The hold is removed only through an explicit governing-document update.
 
@@ -106,6 +127,8 @@ While external deployment remains held:
 - accept reviewed factual corrections,
 - preserve passing repository checks,
 - regenerate the release candidate after any public code or data change,
+- capture and review successful full-page screenshots for non-trivial UI changes,
+- use screenshot findings for bounded UI maintenance,
 - do not add new prelaunch product scope solely to fill the waiting period.
 
 Stats, Compare, dynamic API, MCP, paid API, x402, D1 canonical storage, and real-time ingestion remain outside the MVP unless separately approved.
