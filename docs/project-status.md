@@ -12,12 +12,13 @@ Execution Stage F — Launch Preparation
 
 ```text
 F2-15 — Repository Launch Readiness Gate — completed
+F2-M01 — Full-page screenshot visual-review workflow — active
 F2-16–F2-28 — External deployment and production verification — Operational hold
 ```
 
 `祭のゆくえ` has completed repository-side launch preparation. The reviewed data, static application, Search artifact, machine-readable output, internal navigation, semantic rules, Evidence, public content, browser behavior, and release-candidate artifact pass the unified repository gate.
 
-This does **not** mean that a public production deployment exists.
+F2-M01 adds retained successful full-page renders for human UI review. It does not mean that a public production deployment exists and does not activate the external sequence.
 
 ## Completed implementation
 
@@ -97,6 +98,41 @@ F2-14  release-candidate artifact freeze — completed
 F2-15  Repository Launch Readiness Gate — completed
 ```
 
+## Active repository maintenance package
+
+### F2-M01 — Full-page screenshot visual-review workflow
+
+Status: **Active**
+
+Governing specification:
+
+```text
+docs/visual-review-workflow.md
+```
+
+Required implementation:
+
+- one shared Matsuri visual-route and device contract,
+- all current public routes captured on desktop and mobile,
+- successful full-page PNGs retained after Actions success,
+- desktop and mobile manifests,
+- screenshot integrity audit in JSON and Markdown,
+- desktop and mobile contact sheets,
+- desktop and mobile ZIP archives,
+- dedicated manual and UI-path-triggered GitHub Actions workflow,
+- 14-day artifact retention,
+- pull-request review fields for human visual findings.
+
+With the current route inventory, the target is:
+
+```text
+20 desktop screenshots
+20 mobile screenshots
+40 full-page PNGs total
+```
+
+Cloudflare is not required. The workflow must build and serve the local static site inside GitHub Actions.
+
 ## Repository gate command
 
 ```text
@@ -127,6 +163,8 @@ The verified repository contract includes:
 - automated WCAG A/AA checks on desktop and mobile,
 - release-candidate freeze,
 - per-file and aggregate SHA-256 verification.
+
+The screenshot visual-review workflow is separate from this deterministic gate. A green gate is not treated as proof that subjective UI review is complete.
 
 ## Current public artifact shape
 
@@ -194,7 +232,9 @@ Do not select F2-16 or later as active work until an explicit governing-document
 - Source and Evidence maintenance,
 - security or dependency maintenance,
 - repairs required to keep the repository gate green,
-- regeneration of the release candidate after an accepted public change.
+- regeneration of the release candidate after an accepted public change,
+- screenshot capture and human visual review for UI maintenance,
+- bounded UI corrections derived from reviewed screenshot artifacts.
 
 Do not invent additional prelaunch product scope merely because external deployment remains held.
 
@@ -212,6 +252,8 @@ Do not invent additional prelaunch product scope merely because external deploym
 
 ## Next activation condition
 
-There is no active implementation package after F2-15 while the external hold remains in force.
+The active package is F2-M01.
 
-The next scheduled package is F2-16 only after the hold is explicitly removed. Until then, the project remains in repository-ready maintenance state.
+After F2-M01 is implemented and its first complete desktop/mobile artifact passes automated and human review, the project returns to repository-ready maintenance state with no active implementation package.
+
+F2-16 remains the next external package and may start only after the operational hold is explicitly removed.
