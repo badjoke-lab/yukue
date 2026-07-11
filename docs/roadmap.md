@@ -101,11 +101,24 @@ The repository-ready candidate is reproducible, content-addressed, and verified 
 F2-M01  exhaustive desktop/mobile full-page screenshot workflow
 ```
 
-Status: **Active**
+Status: **Completed**
 
-This maintenance workstream adds retained successful renders, capture manifests, screenshot integrity checks, contact sheets, and a human visual-review contract. It runs against a local GitHub Actions preview and does not require Cloudflare.
+The repository now retains successful full-page renders, capture manifests, screenshot integrity reports, contact sheets, and desktop/mobile archives from a local GitHub Actions preview. The first exhaustive baseline captured all 20 routes on desktop and mobile and completed human visual review.
 
-F2-M01 does not reopen the MVP, replace the repository gate, or activate external deployment work.
+Final baseline evidence:
+
+```text
+Workflow run: 29152930338
+Artifact: matsuri-full-page-screenshots-all-29152930338
+Desktop: 20 / 20
+Mobile: 20 / 20
+Automated failures: 0
+Automated warnings: 0
+```
+
+The first review found and corrected nested `main` landmarks, raw Change Event codes, and an orphaned mobile Home headline ending.
+
+F2-M01 does not reopen the MVP, replace the repository gate, or activate external deployment work. The workflow remains available for future non-trivial UI maintenance.
 
 ### External deployment and production verification
 
