@@ -181,6 +181,42 @@ F2-15 requires the static artifact, internal links, Public Projection safety, HT
 
 F2-28 additionally requires a reachable public build, validated canonical origin and sitemap, browser Search, crawler and indexability checks, Web Analytics activation, and verified production traffic.
 
+## 2026-07-11 — F2-15 Repository Launch Readiness completed
+
+Decision:
+
+```text
+repository launch readiness  completed
+external production launch   not completed
+F2-16 through F2-28           Operational hold
+```
+
+The repository gate is represented by:
+
+```text
+pnpm gate:matsuri:repository
+```
+
+The command must:
+
+1. run the complete unified release verification,
+2. freeze the exact verified static candidate,
+3. verify every frozen file and aggregate artifact digest,
+4. confirm repository documentation records F2-15 completion,
+5. confirm F2-16 through F2-28 remain pending external work.
+
+A successful repository gate permits only maintenance, reviewed corrections, freshness updates, security or dependency work, and changes required to keep the gate green while external deployment remains held.
+
+Repository readiness does not authorize:
+
+- Cloudflare project creation,
+- public URL issuance,
+- canonical-origin selection,
+- production Search or crawler claims,
+- Web Analytics activation,
+- production-traffic claims,
+- new prelaunch product scope.
+
 ## Open decisions
 
 - final map component implementation,

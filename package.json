@@ -21,6 +21,7 @@
     "verify:matsuri:pages": "pnpm build:matsuri:pages && pnpm check:matsuri:pages && pnpm check:matsuri:consistency && pnpm check:matsuri:semantics && pnpm check:matsuri:evidence && pnpm check:matsuri:content && pnpm check:matsuri:browser",
     "verify:release": "node scripts/verify-release.mjs",
     "freeze:matsuri:release": "node scripts/freeze-matsuri-release-candidate.mjs",
+    "gate:matsuri:repository": "pnpm verify:release && pnpm freeze:matsuri:release && node scripts/check-matsuri-readiness-gate.mjs",
     "check": "pnpm -r --if-present check",
     "typecheck": "pnpm -r --if-present typecheck"
   },
