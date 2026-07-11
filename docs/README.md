@@ -22,6 +22,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `release-verification.md` | F2 repository baseline | Unified release-candidate command, workspace contract, CI stages, and external limits |
 | `source-evidence-audit.md` | F2 repository baseline | Source metadata, Evidence targeting, Current State freshness, and audit boundaries |
 | `browser-accessibility-audit.md` | F2 repository baseline | Chromium viewport matrix, WCAG checks, keyboard behavior, and audit limits |
+| `public-content-audit.md` | F2 repository baseline | Data and Methodology alignment, held infrastructure status, empty states, image and map boundaries |
 | `analytics.md` | Initial baseline | Launch analytics purpose, activation, verification, and privacy boundary |
 | `roadmap.md` | Current | Long-range phases and gates |
 | `development-schedule.md` | Current | Concrete implementation and PR sequence |
