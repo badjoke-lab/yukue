@@ -2,6 +2,7 @@ node_modules/
 dist/
 .astro/
 .pagefind/
+.build-verification/
 .wrangler/
 .dev.vars
 .env
