@@ -122,6 +122,8 @@ const evidenceTargetLabels: Record<string, string> = {
   place: "場所",
 };
 
+const publishedDetailIds = new Set(["fst-suneori-amagoi"]);
+
 type ProjectedEntity = PublicProjection["json"]["entities"][number];
 
 type MatsuriProfileFields = {
@@ -171,17 +173,26 @@ function regionLabel(entity: ProjectedEntity | PublicEntityDetailProjection["ent
 }
 
 function entityHref(entity: ProjectedEntity | PublicEntityDetailProjection["entity"]): string {
-  const slug = entity.slug ?? entity.id;
+  if (
+    publishedDetailIds.has(entity.id) &&
+    entity.entity_type === "festival" &&
+    entity.slug
+  ) {
+    return `/festivals/${entity.slug}/`;
+  }
+
+  const anchor = encodeURIComponent(entity.id);
+
   switch (entity.entity_type) {
     case "festival":
     case "tradition_unit":
-      return `/festivals/${slug}/`;
+      return `/festivals/#${anchor}`;
     case "folk_performance":
-      return `/performances/${slug}/`;
+      return `/performances/#${anchor}`;
     case "organization":
-      return `/organizations/${slug}/`;
+      return `/organizations/#${anchor}`;
     default:
-      return `/${entity.entity_type}/${slug}/`;
+      return `/search/?q=${encodeURIComponent(preferredName(entity))}`;
   }
 }
 
