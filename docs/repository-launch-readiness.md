@@ -1,6 +1,6 @@
 # Repository Launch Readiness
 
-**Status:** Completed repository gate / visual-review baseline implemented / external deployment held
+**Status:** Completed repository gate / visual-review baseline implemented / external activation resumed
 
 ## Decision
 
@@ -10,7 +10,7 @@ This means the reviewed canonical dataset, Public Projection, static site, Searc
 
 The first exhaustive successful-render visual-review baseline is also implemented and reviewed.
 
-It does not mean that a public production deployment exists.
+It does not mean that the public production launch is complete.
 
 ## Gate command
 
@@ -63,7 +63,7 @@ The repository gate requires:
 - desktop and mobile pass the automated WCAG A/AA scan,
 - the verified artifact freezes successfully,
 - every frozen file and aggregate artifact digest revalidate,
-- the release manifest records F2-16 through F2-28 as pending external work.
+- the release manifest records F2-16 through F2-28 as external work.
 
 The screenshot workflow remains separate because successful-render retention and human visual review are not deterministic release-integrity checks.
 
@@ -72,7 +72,8 @@ The screenshot workflow remains separate because successful-render retention and
 ```text
 repository launch readiness   completed
 visual-review baseline        implemented and reviewed
-public Cloudflare deployment  not performed
+F2-16 Pages activation        active
+public deployment URL         not yet recorded
 canonical production origin   not configured
 production browser Search     not verified
 crawler and indexability      not verified
@@ -104,28 +105,21 @@ The first review record is:
 docs/audits/matsuri-f2-m01-visual-review-2026-07-11.md
 ```
 
-Final evidence:
-
-```text
-Workflow run: 29152930338
-Artifact: matsuri-full-page-screenshots-all-29152930338
-Artifact ID: 8248671759
-Desktop: 20 / 20
-Mobile: 20 / 20
-Automated failures: 0
-Automated warnings: 0
-```
-
-The baseline found and corrected nested `main` landmarks, raw Change Event codes, and an orphaned mobile Home headline ending.
-
 A green repository gate remains necessary but is not treated as proof that subjective UI review is complete. Future non-trivial UI changes must generate and review a new screenshot artifact.
 
-## External hold
+## External activation
 
-The following work remains under operational hold:
+The operational hold was removed on 2026-07-12.
+
+Active work:
 
 ```text
 F2-16  create or connect the Cloudflare Pages project
+```
+
+Pending sequence:
+
+```text
 F2-17  first deployment and reachable URL
 F2-18  deployed-origin smoke verification
 F2-19  canonical origin and domain decision
@@ -140,20 +134,21 @@ F2-27  production traffic verification
 F2-28  final F2 Launch Gate
 ```
 
-None of these items becomes active merely because the repository gate is complete or because local screenshots are available.
+The governing external runbook is:
 
-The hold is removed only through an explicit governing-document update.
+```text
+docs/cloudflare-pages-launch-runbook.md
+```
 
-## Maintenance while held
+F2-16 does not authorize custom-domain activation, Analytics activation, or production-readiness claims.
 
-While external deployment remains held:
+## Maintenance during activation
 
 - keep approved Current State and scheduled Occurrence records fresh,
 - accept reviewed factual corrections,
 - preserve passing repository checks,
 - regenerate the release candidate after any public code or data change,
 - capture and review successful full-page screenshots for non-trivial UI changes,
-- use screenshot findings for bounded UI maintenance,
-- do not add new prelaunch product scope solely to fill the waiting period.
+- keep deployment and canonical claims aligned with verified external evidence.
 
 Stats, Compare, dynamic API, MCP, paid API, x402, D1 canonical storage, and real-time ingestion remain outside the MVP unless separately approved.
