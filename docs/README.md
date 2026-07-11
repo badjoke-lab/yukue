@@ -22,7 +22,8 @@ Before implementing a feature, check the relevant document here. When a decision
 | `release-verification.md` | F2 repository baseline | Unified release-candidate command, workspace contract, CI stages, and external limits |
 | `release-candidate.md` | F2 repository baseline | Verified static artifact freeze, hashes, CI retention, and reproduction |
 | `repository-launch-readiness.md` | Completed repository gate | F2-15 decision, required checks, maintenance state, and held external work |
-| `visual-review-workflow.md` | Implementation specification | Successful full-page screenshot capture, automated screenshot checks, contact sheets, and human UI review |
+| `visual-review-workflow.md` | Implemented repository baseline | Successful full-page screenshot capture, automated screenshot checks, contact sheets, and human UI review |
+| `audits/matsuri-f2-m01-visual-review-2026-07-11.md` | Passed audit | First exhaustive Matsuri desktop/mobile screenshot review, findings, corrections, and evidence |
 | `source-evidence-audit.md` | F2 repository baseline | Source metadata, Evidence targeting, Current State freshness, and audit boundaries |
 | `browser-accessibility-audit.md` | F2 repository baseline | Chromium viewport matrix, WCAG checks, keyboard behavior, and audit limits |
 | `public-content-audit.md` | F2 repository baseline | Data and Methodology alignment, held infrastructure status, empty states, image and map boundaries |
