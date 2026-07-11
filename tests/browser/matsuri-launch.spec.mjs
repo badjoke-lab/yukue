@@ -95,7 +95,11 @@ for (const route of publicRoutes) {
         if (table.querySelectorAll("th").length === 0) {
           issues.push("table has no header cells");
         }
-        if (!table.querySelector("caption") && !table.getAttribute("aria-label") && !table.getAttribute("aria-labelledby")) {
+        if (
+          !table.querySelector("caption") &&
+          !table.getAttribute("aria-label") &&
+          !table.getAttribute("aria-labelledby")
+        ) {
           issues.push("table has no caption or accessible label");
         }
       }
@@ -163,12 +167,18 @@ for (const route of publicRoutes) {
 
     const smallControls = await page.evaluate(() =>
       [...document.querySelectorAll("button, summary, input, select, textarea")]
-        .filter((element) => {
-          const style = getComputedStyle(element);
-          return style.display !== "none" && style.visibility !== "hidden";
-        })
         .map((element) => {
           const rect = element.getBoundingClientRect();
+          const style = getComputedStyle(element);
+          const rendered =
+            rect.width > 0 &&
+            rect.height > 0 &&
+            element.getClientRects().length > 0 &&
+            style.display !== "none" &&
+            style.visibility !== "hidden";
+
+          if (!rendered) return null;
+
           return {
             tag: element.tagName.toLowerCase(),
             name:
@@ -180,6 +190,7 @@ for (const route of publicRoutes) {
             height: rect.height,
           };
         })
+        .filter((control) => control !== null)
         .filter((control) => control.width < 24 || control.height < 24),
     );
     expect(
