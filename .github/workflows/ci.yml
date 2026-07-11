@@ -24,11 +24,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Build workspaces
-        run: pnpm build
-
-      - name: Verify Matsuri Pages artifact
-        run: pnpm check:matsuri:pages
-
-      - name: Validate Matsuri deployed verifier
-        run: node --check scripts/check-matsuri-deployed.mjs
+      - name: Verify release candidate
+        run: pnpm verify:release

@@ -14,6 +14,7 @@
     "check:matsuri:deployed": "node scripts/check-matsuri-deployed.mjs",
     "check:matsuri:canonical": "node scripts/check-matsuri-deployed.mjs --canonical",
     "verify:matsuri:pages": "pnpm build:matsuri:pages && pnpm check:matsuri:pages",
+    "verify:release": "node scripts/verify-release.mjs",
     "check": "pnpm -r --if-present check",
     "typecheck": "pnpm -r --if-present typecheck"
   },
