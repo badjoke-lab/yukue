@@ -11,7 +11,12 @@ const { items, ariaLabel } = Astro.props;
 
 <div class="browse-entity-list" aria-label={ariaLabel}>
   {items.map((item) => (
-    <article class="browse-entity-row" id={item.id}>
+    <article
+      class="browse-entity-row"
+      id={item.id}
+      data-entity-id={item.id}
+      data-current-state={item.stateCode}
+    >
       <div class="browse-entity-row__meta">
         <span>{item.typeLabel}</span>
         {item.stateLabel && <span class="browse-entity-row__state">{item.stateLabel}</span>}
