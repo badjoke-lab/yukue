@@ -1,32 +1,43 @@
 # Deployment
 
-**Status:** F2 launch-preparation baseline / external sequence on operational hold
+**Status:** F2-16 active / external deployment sequence resumed
 
 ## Operational status
 
 The repository-side deployment contract and verification tooling are implemented.
 
-The external sequence is currently under an operational hold:
+The external operational hold was removed on 2026-07-12.
+
+Current work:
 
 ```text
-Cloudflare Pages project creation or connection
-first external deployment
-reachable deployment URL acquisition
-canonical origin configuration
-production Search verification
-crawler and indexability checks
-Web Analytics activation and traffic verification
+F2-16  create or connect the Cloudflare Pages project
 ```
 
-Do not execute those steps, record a placeholder deployment URL, or select an external deployment item as current work until the hold is explicitly removed in `development-schedule.md`, `project-status.md`, and `decision-log.md`.
+Pending external sequence:
 
-Repository-only launch readiness continues through F2-15. The instructions below are retained as the exact future execution contract for F2-16 through F2-28.
+```text
+F2-17  first external deployment and reachable URL
+F2-18  deployed-origin smoke verification
+F2-19  canonical origin decision
+F2-20  canonical-origin configuration and redeployment
+F2-21  canonical verification
+F2-22  production Search verification
+F2-23  crawler reachability review
+F2-24  sitemap submission and indexability check
+F2-25  Web Analytics activation
+F2-26  post-activation deployment
+F2-27  production traffic verification
+F2-28  final F2 Launch Gate
+```
+
+The operational dashboard procedure is defined in `docs/cloudflare-pages-launch-runbook.md`.
 
 ## Matsuri target
 
-`祭のゆくえ` is deployed as a static Astro site on Cloudflare Pages when the external sequence resumes.
+`祭のゆくえ` is deployed as a static Astro site on Cloudflare Pages.
 
-The deployment contract deliberately keeps the existing static architecture:
+The deployment contract keeps the existing static architecture:
 
 ```text
 reviewed canonical data
@@ -42,33 +53,52 @@ No Cloudflare SSR adapter, Pages Functions, D1 canonical database, KV dependency
 
 ## Cloudflare Pages project settings
 
-When F2-16 becomes active, configure the Pages project from repository `badjoke-lab/yukue` with:
+Configure the Pages project from repository `badjoke-lab/yukue` with:
 
 ```text
+Project name: matsuri-yukue
 Production branch: main
-Root directory: /
+Framework preset: None
+Root directory: repository root / blank
 Build command: pnpm build:matsuri:pages
 Build output directory: apps/matsuri/dist
+Build system: v3 / current default
 ```
 
-Use the repository root as the Pages root directory because the Matsuri app consumes workspace packages from `packages/*`.
+Use the repository root as the Pages root directory because the Matsuri app consumes workspace packages from `packages/*` and root scripts.
 
 The build command uses pnpm filtering to build the Matsuri workspace and its direct and transitive workspace dependencies.
 
+Do not select `apps/matsuri` as the Pages root. Doing so would remove the root workspace context required by the build.
+
 ## Build environment
 
-Set these Cloudflare Pages environment variables for both Production and Preview unless a later deployment policy explicitly changes them:
+Set these Cloudflare Pages environment variables for both Production and Preview:
 
 ```text
 NODE_VERSION=24
 PNPM_VERSION=11.10.0
 ```
 
-Do not rely on the Cloudflare build image defaults for these versions.
+The repository also contains `.node-version` with `24`. The explicit dashboard value keeps the external build contract visible and avoids relying on build-image defaults.
+
+The Cloudflare Pages v3 build image does not infer the desired pnpm version from the lockfile or the package-manager declaration, so `PNPM_VERSION` is required.
+
+## Git integration boundary
+
+Use Cloudflare Pages Git integration.
+
+This enables:
+
+- automatic production builds from `main`,
+- preview deployments for pull requests and non-production branches,
+- deployment records linked to Git commits.
+
+A Git-integrated Pages project cannot later be converted into a Direct Upload project. Automatic deployments may be disabled later and Wrangler may deploy to the existing project if the operating model changes.
 
 ## Canonical origin boundary
 
-Do not set `MATSURI_PUBLIC_ORIGIN` during the repository baseline or first-deployment step.
+Do not set `MATSURI_PUBLIC_ORIGIN` during F2-16 or the first deployment at F2-17.
 
 The first successful Pages deployment establishes a reachable deployment URL. F2-19 then decides the canonical public origin before F2-20 configures:
 
@@ -76,9 +106,9 @@ The first successful Pages deployment establishes a reachable deployment URL. F2
 MATSURI_PUBLIC_ORIGIN=https://<canonical-origin>
 ```
 
-This prevents preview deployment URLs from being treated as canonical origins in generated discovery files.
+This prevents preview deployment URLs or an unverified hostname from being treated as canonical origins in generated discovery files.
 
-While external deployment is held, keep `MATSURI_PUBLIC_ORIGIN` unset for normal development and release-readiness builds. Do not invent a production origin to make canonical checks appear complete.
+Normal repository release-readiness builds keep `MATSURI_PUBLIC_ORIGIN` unset until F2-20.
 
 ## Repository commands
 
@@ -94,7 +124,7 @@ Validate the generated Pages artifact:
 pnpm check:matsuri:pages
 ```
 
-Run both in sequence:
+Run the full repository target verification:
 
 ```text
 pnpm verify:matsuri:pages
@@ -102,11 +132,24 @@ pnpm verify:matsuri:pages
 
 The artifact check requires the static site, Browse, Reference, Current State, and Search entry pages, Pagefind runtime, machine-readable JSON files, discovery text files, and sitemap to exist under `apps/matsuri/dist`.
 
-Repository-only release readiness is governed by F2-07 through F2-15 in `development-schedule.md`. Passing the local artifact check does not claim that production deployment, canonical origin, browser Search, indexability, or analytics verification is complete.
+Passing repository verification does not prove external deployment, canonical origin, browser Search, indexability, Analytics, or production traffic.
 
 ## First-deployment verification
 
-After F2-17 produces the first reachable Cloudflare Pages deployment, set the reachable deployment origin and run:
+After F2-17 produces the first reachable Cloudflare Pages deployment, use the manual GitHub Actions workflow:
+
+```text
+Verify Matsuri deployed origin
+```
+
+Inputs:
+
+```text
+origin     exact https://<deployment-host>
+canonical  false
+```
+
+Equivalent command:
 
 ```text
 MATSURI_CHECK_ORIGIN=https://<deployment-host> pnpm check:matsuri:deployed
@@ -122,7 +165,7 @@ It also requires:
 - Search HTML that references Pagefind assets,
 - sitemap content with a valid `<urlset>` structure.
 
-The check covers these public surfaces:
+The check covers:
 
 ```text
 /
@@ -149,7 +192,7 @@ The check covers these public surfaces:
 /sitemap.xml
 ```
 
-After automated smoke verification, F2-22 also requires one browser Search UI check that returns at least one known Matsuri record. The HTTP verifier confirms deployed assets are reachable but does not emulate the browser Pagefind runtime.
+The HTTP verifier confirms deployed assets are reachable but does not emulate the browser Pagefind runtime. Browser Search remains F2-22.
 
 ## Canonical-origin verification
 
@@ -165,7 +208,13 @@ Deploy again, then run F2-21 strict canonical verification against that same ori
 MATSURI_CHECK_ORIGIN=https://<canonical-origin> pnpm check:matsuri:canonical
 ```
 
-Canonical mode performs the normal deployed checks and additionally requires:
+or use the manual workflow with:
+
+```text
+canonical  true
+```
+
+Canonical mode requires:
 
 ```text
 data/manifest.json site_origin == checked origin
@@ -186,7 +235,7 @@ After canonical verification and browser Search verification:
 6. submit or register the sitemap only after the canonical production state is verified,
 7. record indexability checks without claiming that indexing itself is guaranteed.
 
-These are F2-23 and F2-24. They cannot be completed against a local artifact or a nonexistent public origin.
+These are F2-23 and F2-24. They cannot be completed against a local artifact or an unverified public origin.
 
 ## Analytics baseline
 
@@ -206,7 +255,7 @@ Cloudflare dashboard
 → next deployment
 ```
 
-After enabling analytics, F2-26 requires a subsequent deployment. F2-27 then verifies that production traffic reaches the private analytics dashboard before the analytics gate is complete.
+After enabling Analytics, F2-26 requires a subsequent deployment. F2-27 then verifies that production traffic reaches the private analytics dashboard before the Analytics gate is complete.
 
 Do not treat repository build success, artifact verification, or deployed HTTP smoke success as proof that the private analytics dashboard is receiving traffic.
 
@@ -224,30 +273,22 @@ The following reference and supporting Browse surfaces are implemented and inclu
 /states/<state-code>/
 ```
 
-## External launch sequence — operational hold
-
-The future external sequence is fixed in this order:
+## External launch order
 
 ```text
-F2-16  create or connect the Cloudflare Pages project
-F2-17  obtain the first reachable deployment URL
-F2-18  run deployed-origin smoke verification
-F2-19  decide the canonical public origin and domain
-F2-20  configure MATSURI_PUBLIC_ORIGIN and redeploy
-F2-21  run canonical manifest and sitemap verification
-F2-22  perform browser Pagefind Search verification
-F2-23  review robots, canonical, sitemap, and crawler reachability
-F2-24  submit the sitemap and check indexability
-F2-25  enable Cloudflare Web Analytics
-F2-26  deploy after analytics activation
-F2-27  verify production traffic in the private dashboard
-F2-28  complete the final F2 Launch Gate
+F2-16  create or connect the Cloudflare Pages project — active
+F2-17  obtain the first reachable deployment URL — pending
+F2-18  run deployed-origin smoke verification — pending
+F2-19  decide the canonical public origin and domain — pending
+F2-20  configure MATSURI_PUBLIC_ORIGIN and redeploy — pending
+F2-21  run canonical manifest and sitemap verification — pending
+F2-22  perform browser Pagefind Search verification — pending
+F2-23  review robots, canonical, sitemap, and crawler reachability — pending
+F2-24  submit the sitemap and check indexability — pending
+F2-25  enable Cloudflare Web Analytics — pending
+F2-26  deploy after Analytics activation — pending
+F2-27  verify production traffic in the private dashboard — pending
+F2-28  complete the final F2 Launch Gate — pending
 ```
 
-Until the operational hold is explicitly removed:
-
-- do not create or connect the Pages project as part of this schedule,
-- do not issue or record a public deployment URL,
-- do not choose a canonical production origin,
-- do not run production-only verification,
-- do not claim Analytics or indexing gates are complete.
+Do not skip directly from Pages project creation to custom-domain, indexing, or Analytics work.
