@@ -14,14 +14,17 @@
     "check:matsuri:consistency": "node scripts/check-matsuri-consistency.mjs",
     "check:matsuri:semantics": "pnpm --filter @badjoke-lab/yukue-validation build && node scripts/check-matsuri-semantics.mjs",
     "check:matsuri:evidence": "node scripts/check-matsuri-evidence.mjs",
+    "check:matsuri:browser": "playwright test --config=playwright.config.mjs",
     "check:matsuri:deployed": "node scripts/check-matsuri-deployed.mjs",
     "check:matsuri:canonical": "node scripts/check-matsuri-deployed.mjs --canonical",
-    "verify:matsuri:pages": "pnpm build:matsuri:pages && pnpm check:matsuri:pages && pnpm check:matsuri:consistency && pnpm check:matsuri:semantics && pnpm check:matsuri:evidence",
+    "verify:matsuri:pages": "pnpm build:matsuri:pages && pnpm check:matsuri:pages && pnpm check:matsuri:consistency && pnpm check:matsuri:semantics && pnpm check:matsuri:evidence && pnpm check:matsuri:browser",
     "verify:release": "node scripts/verify-release.mjs",
     "check": "pnpm -r --if-present check",
     "typecheck": "pnpm -r --if-present typecheck"
   },
   "devDependencies": {
+    "@axe-core/playwright": "latest",
+    "@playwright/test": "latest",
     "typescript": "6.0.3"
   }
 }

@@ -3,6 +3,8 @@ dist/
 .astro/
 .pagefind/
 .build-verification/
+test-results/
+playwright-report/
 .wrangler/
 .dev.vars
 .env
