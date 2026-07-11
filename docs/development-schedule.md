@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** Repository-ready maintenance state / external sequence held
+**Status:** F2-M01 visual-review maintenance active / external sequence held
 
 This document defines the stable implementation order. It complements:
 
@@ -16,12 +16,13 @@ The project is gate-driven rather than deadline-driven. Stable work-package IDs 
 Foundation through Stage E  completed
 F1 corpus expansion          completed
 F2-01 through F2-15          completed
+F2-M01                       active
 F2-16 through F2-28          Operational hold
 ```
 
-There is no active implementation package while the external hold remains in force.
+The active implementation package is F2-M01.
 
-The next package is F2-16 only after an explicit governing-document update removes the hold.
+F2-16 remains inactive and begins only after an explicit governing-document update removes the external hold.
 
 ---
 
@@ -194,6 +195,7 @@ F2 is divided into:
 
 ```text
 Block A  repository baselines and launch-readiness work
+Block M  repository maintenance while external work is held
 Block B  external deployment and production verification
 ```
 
@@ -368,6 +370,65 @@ external hold preserved
 
 After F2-15, do not invent additional prelaunch product scope solely because external deployment is held.
 
+#### Block M — Repository maintenance while external work is held
+
+##### F2-M01 — Full-page screenshot visual-review workflow
+
+Status: **Active**
+
+Governing specification:
+
+```text
+docs/visual-review-workflow.md
+```
+
+Implementation order:
+
+```text
+1. define the shared route and device contract
+2. make the existing browser audit consume the shared route contract
+3. capture all current public routes on desktop and mobile
+4. record route-level screenshot metrics and SHA-256 values
+5. audit screenshot completeness and rendered integrity
+6. generate desktop and mobile contact sheets
+7. generate desktop and mobile ZIP archives
+8. add manual and UI-path-triggered GitHub Actions execution
+9. upload the complete artifact for 14 days
+10. run the first complete 40-image capture
+11. inspect the contact sheets and affected full-page PNG regions
+12. correct concrete UI defects found by the images
+13. recapture and record the post-fix result
+14. close F2-M01 and return to maintenance state
+```
+
+Required current coverage:
+
+```text
+20 generated public routes
+× desktop 1440 × 900
+× mobile 390 × 844
+= 40 full-page PNGs
+```
+
+Required outputs:
+
+```text
+artifacts/matsuri-screenshots/desktop/*.png
+artifacts/matsuri-screenshots/mobile/*.png
+artifacts/matsuri-screenshots/manifest.desktop.json
+artifacts/matsuri-screenshots/manifest.mobile.json
+artifacts/matsuri-screenshots/visual-audit.json
+artifacts/matsuri-screenshots/visual-audit.md
+artifacts/matsuri-screenshots/contact-sheet.desktop.png
+artifacts/matsuri-screenshots/contact-sheet.mobile.png
+artifacts/matsuri-screenshots/screenshots-desktop.zip
+artifacts/matsuri-screenshots/screenshots-mobile.zip
+```
+
+F2-M01 uses the GitHub Actions local build. It must not wait for Cloudflare and must not claim production review.
+
+A successful automated screenshot audit is not human visual approval. UI-change pull requests must record the workflow run, artifact, reviewed images, findings, corrections, remaining limitations, and post-fix result.
+
 #### Block B — External deployment and production verification
 
 Status for F2-16 through F2-28: **Operational hold**
@@ -425,7 +486,9 @@ Allowed:
 - Source and Evidence maintenance,
 - security and dependency maintenance,
 - fixes required to keep the repository gate green,
-- regeneration of the release candidate after accepted changes.
+- regeneration of the release candidate after accepted changes,
+- screenshot-based visual review,
+- bounded UI corrections derived from reviewed screenshot artifacts.
 
 Not automatically activated:
 
