@@ -49,7 +49,7 @@ The command runs these stages in order:
 5. node --check scripts/check-matsuri-deployed.mjs
 ```
 
-Stage 4 rebuilds the exact Matsuri Pages target and verifies the generated static artifact. This intentionally preserves the Pages-specific build contract even after the full workspace build has passed.
+Stage 4 rebuilds the exact Matsuri Pages target and runs both static artifact integrity and public-output consistency checks. This intentionally preserves the Pages-specific build contract even after the full workspace build has passed.
 
 The command stops on the first failed stage and reports the stage name and exit condition.
 
@@ -71,6 +71,27 @@ The Matsuri Pages artifact check verifies:
 Public route discovery is based on generated `index.html` files rather than a second manually maintained route list. The required-route list remains as a minimum launch contract, while the generated-route inventory catches newly added pages that were not added to the sitemap.
 
 External links, fragment-only links, and non-HTTP schemes such as `mailto:` are outside the local artifact link check.
+
+## Public-output consistency
+
+`pnpm check:matsuri:consistency` cross-checks outputs generated from the approved Public Projection.
+
+It verifies:
+
+- version, manifest, and every JSON feed use the same project, site, dataset, and schema markers,
+- manifest file inventory matches the declared machine-readable baseline,
+- manifest record counts equal feed `record_count` values and actual array lengths,
+- feed record IDs are unique,
+- public Status HTML counts equal the JSON feeds and derived Current State count,
+- each `/states/<state-code>/` page contains exactly the Entities whose public JSON Current State has that code,
+- State-page rows expose the same Entity ID and Current State code used by public JSON,
+- Pagefind input contains exactly the searchable Festival, Tradition Unit, and Folk Performance records,
+- Pagefind Entity Type, Current State, and result URL agree with public JSON,
+- the Pagefind verification sidecar is generated outside the deployable `dist` directory,
+- development builds omit `manifest.site_origin` and use path-only sitemap locations when `MATSURI_PUBLIC_ORIGIN` is unset,
+- configured builds use the exact non-placeholder origin in both manifest and sitemap.
+
+The build-only Pagefind sidecar is stored under `apps/matsuri/.build-verification/`, excluded from Git, and not included in the Cloudflare Pages output directory.
 
 ## CI contract
 
@@ -95,6 +116,7 @@ A passing release verification establishes that:
 - generated public routes and sitemap routes agree,
 - generated public HTML contains no broken local `href` targets,
 - generated public HTML does not link to unpublished Shrine or Temple detail surfaces,
+- JSON feeds, manifest counts, Status counts, State pages, Pagefind inputs, and sitemap-origin mode agree,
 - the deployed-site verifier is syntactically valid.
 
 ## What this does not prove
@@ -103,8 +125,8 @@ A passing repository verification does not establish:
 
 - that a Cloudflare Pages project exists,
 - that a public deployment URL is reachable,
-- that the canonical public origin is configured,
-- that canonical markup and sitemap locations are correct in production,
+- that the canonical public origin is configured in production,
+- that canonical markup and sitemap locations are correct on the deployed host,
 - that browser Pagefind Search works on the deployed origin,
 - that crawlers or search engines can reach or index the site,
 - that Cloudflare Web Analytics is enabled,

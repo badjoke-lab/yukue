@@ -6,6 +6,12 @@ import * as pagefind from "pagefind";
 import { loadMatsuriProjection } from "./load-matsuri-projection.mjs";
 
 const outputDirectory = fileURLToPath(new URL("../dist/pagefind/", import.meta.url));
+const verificationDirectory = fileURLToPath(
+  new URL("../.build-verification/", import.meta.url),
+);
+const verificationFile = fileURLToPath(
+  new URL("../.build-verification/search-index.json", import.meta.url),
+);
 
 function resolveRecordUrl(record) {
   if (record.id === "fst-suneori-amagoi") {
@@ -53,6 +59,27 @@ try {
   fs.rmSync(outputDirectory, { recursive: true, force: true });
   const { errors } = await index.writeFiles({ outputPath: outputDirectory });
   assertNoErrors("Pagefind writeFiles", errors);
+
+  fs.mkdirSync(verificationDirectory, { recursive: true });
+  fs.writeFileSync(
+    verificationFile,
+    `${JSON.stringify(
+      {
+        site_id: "matsuri",
+        source: "approved-public-projection",
+        record_count: records.length,
+        records: records.map((record) => ({
+          id: record.id,
+          entity_type: record.filters.entity_type[0] ?? null,
+          current_state: record.filters.current_state[0] ?? null,
+          url: resolveRecordUrl(record),
+        })),
+      },
+      null,
+      2,
+    )}\n`,
+    "utf8",
+  );
 
   console.log(`Pagefind indexed ${records.length} Matsuri records.`);
 } finally {

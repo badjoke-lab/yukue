@@ -89,7 +89,10 @@ function toBrowseItem(entity: ProjectedEntity): BrowseEntityItem {
     typeLabel: entityTypeLabel(entity.entity_type),
     region: regionLabel(entity),
     ...(stateCode
-      ? { stateLabel: stateLabels[stateCode] ?? "状態確認中" }
+      ? {
+          stateCode,
+          stateLabel: stateLabels[stateCode] ?? "状態確認中",
+        }
       : {}),
     ...(entity.summary_ja ? { summary: entity.summary_ja } : {}),
     ...(href ? { href } : {}),
