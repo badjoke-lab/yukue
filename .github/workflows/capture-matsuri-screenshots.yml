@@ -1,0 +1,130 @@
+name: Capture Matsuri full-page screenshots
+
+on:
+  workflow_dispatch:
+    inputs:
+      device:
+        description: Screenshot device set
+        required: true
+        default: all
+        type: choice
+        options:
+          - desktop
+          - mobile
+          - all
+  pull_request:
+    paths:
+      - 'apps/matsuri/src/**'
+      - 'packages/ui/**'
+      - 'config/matsuri-visual-routes.mjs'
+      - 'tests/browser/**'
+      - 'scripts/capture-matsuri-screenshots.mjs'
+      - 'scripts/audit-matsuri-screenshots.mjs'
+      - 'scripts/build-matsuri-contact-sheets.mjs'
+      - 'scripts/lib/matsuri-visual-utils.mjs'
+      - 'playwright.config.mjs'
+      - 'package.json'
+      - 'docs/visual-review-workflow.md'
+      - '.github/workflows/capture-matsuri-screenshots.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/capture-matsuri-screenshots.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      CAPTURE_DEVICE: ${{ github.event_name == 'pull_request' && 'all' || github.event.inputs.device || 'all' }}
+      CAPTURE_BASE_URL: http://127.0.0.1:4321
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        run: npm install --global pnpm@11.10.0
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Install Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Build Matsuri Pages artifact
+        run: pnpm build:matsuri:pages
+
+      - name: Start local Matsuri preview
+        shell: bash
+        run: |
+          pnpm --dir apps/matsuri exec astro preview --host 127.0.0.1 --port 4321 > /tmp/matsuri-screenshot-preview.log 2>&1 &
+          echo $! > /tmp/matsuri-screenshot-preview.pid
+          for attempt in $(seq 1 60); do
+            if curl -fsS "$CAPTURE_BASE_URL/status/" > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/matsuri-screenshot-preview.log
+          exit 1
+
+      - name: Capture full-page screenshots
+        run: node scripts/capture-matsuri-screenshots.mjs --device "$CAPTURE_DEVICE" --base-url "$CAPTURE_BASE_URL"
+
+      - name: Audit screenshot artifacts
+        if: always()
+        run: node scripts/audit-matsuri-screenshots.mjs --device "$CAPTURE_DEVICE"
+
+      - name: Build screenshot contact sheets
+        if: success()
+        run: node scripts/build-matsuri-contact-sheets.mjs --device "$CAPTURE_DEVICE"
+
+      - name: Upload screenshot review artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: matsuri-full-page-screenshots-${{ env.CAPTURE_DEVICE }}-${{ github.run_id }}
+          path: artifacts/matsuri-screenshots/**
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Write workflow summary
+        if: always()
+        shell: bash
+        run: |
+          echo "## Matsuri full-page screenshot review" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Device selection: $CAPTURE_DEVICE" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Source: local GitHub Actions preview" >> "$GITHUB_STEP_SUMMARY"
+          for DEVICE in desktop mobile; do
+            MANIFEST="artifacts/matsuri-screenshots/manifest.$DEVICE.json"
+            if [ -f "$MANIFEST" ]; then
+              CAPTURED=$(node -e "const x=require('./$MANIFEST'); console.log(x.captured_count)")
+              SELECTED=$(node -e "const x=require('./$MANIFEST'); console.log(x.selected_route_count)")
+              FAILED=$(node -e "const x=require('./$MANIFEST'); console.log(x.failed_count)")
+              BYTES=$(node -e "const x=require('./$MANIFEST'); console.log(x.records.reduce((sum, row) => sum + row.screenshot_bytes, 0))")
+              echo "- $DEVICE: $CAPTURED / $SELECTED captured, $FAILED failed, $BYTES PNG bytes" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+          AUDIT="artifacts/matsuri-screenshots/visual-audit.json"
+          if [ -f "$AUDIT" ]; then
+            RESULT=$(node -e "const x=require('./$AUDIT'); console.log(x.ok ? 'PASS' : 'FAIL')")
+            echo "- Automated screenshot audit: $RESULT" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "- Automated screenshot audit: artifact missing" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          for DEVICE in desktop mobile; do
+            CONTACT="artifacts/matsuri-screenshots/contact-sheet.$DEVICE.png"
+            if [ -f "$CONTACT" ]; then
+              echo "- $DEVICE contact sheet: generated" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
