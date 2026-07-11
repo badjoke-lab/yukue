@@ -20,6 +20,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
 | `technical-architecture.md` | Current direction | Build, projection, search, deployment |
 | `release-verification.md` | F2 repository baseline | Unified release-candidate command, workspace contract, CI stages, and external limits |
+| `release-candidate.md` | F2 repository baseline | Verified static artifact freeze, hashes, CI retention, and reproduction |
 | `source-evidence-audit.md` | F2 repository baseline | Source metadata, Evidence targeting, Current State freshness, and audit boundaries |
 | `browser-accessibility-audit.md` | F2 repository baseline | Chromium viewport matrix, WCAG checks, keyboard behavior, and audit limits |
 | `public-content-audit.md` | F2 repository baseline | Data and Methodology alignment, held infrastructure status, empty states, image and map boundaries |
