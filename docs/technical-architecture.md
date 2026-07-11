@@ -11,7 +11,7 @@ TypeScript
 Git-managed public canonical data
 schema validation
 Pagefind
-Cloudflare Workers Static Assets
+Cloudflare Pages Git integration
 GitHub Actions
 ```
 
@@ -101,14 +101,73 @@ current state
 
 ## Deployment
 
+The accepted first-launch architecture is Cloudflare Pages Git integration with a static Astro artifact.
+
 ```text
-GitHub
-→ GitHub Actions
-→ build
-→ Cloudflare Workers Static Assets
+GitHub repository
+badjoke-lab/yukue
+        ↓
+GitHub Actions repository verification
+        ↓
+Cloudflare Pages Git integration
+        ↓
+pnpm build:matsuri:pages
+        ↓
+apps/matsuri/dist
+        ↓
+Matsuri Pages project
 ```
 
-Portal and Matsuri should remain separately deployable.
+GitHub Actions and Cloudflare Pages have different responsibilities:
+
+```text
+GitHub Actions
+= repository gate, release-candidate verification, browser audit, visual-review artifacts
+
+Cloudflare Pages
+= external build, preview deployment, production deployment, pages.dev origin
+```
+
+Matsuri is static output. Do not add the Cloudflare Astro SSR adapter or Pages Functions unless a later approved requirement introduces server-side behavior.
+
+The initial Pages project contract is:
+
+```text
+project name       matsuri-yukue
+repository         badjoke-lab/yukue
+production branch  main
+root directory     repository root
+build command      pnpm build:matsuri:pages
+output directory   apps/matsuri/dist
+Node.js             24
+pnpm                11.10.0
+```
+
+The repository root remains the Pages build root because the Matsuri application depends on workspace packages and root scripts.
+
+Portal and Matsuri remain separately deployable and must use separate Cloudflare project names.
+
+## Origin activation sequence
+
+The first deployment intentionally runs without `MATSURI_PUBLIC_ORIGIN` because the Cloudflare production URL does not exist before project creation.
+
+```text
+first Pages deployment
+→ obtain reachable pages.dev origin
+→ deployed-origin smoke verification
+→ canonical origin decision
+→ configure MATSURI_PUBLIC_ORIGIN
+→ redeploy
+→ canonical manifest and sitemap verification
+```
+
+Do not use `CF_PAGES_URL` as the canonical public origin automatically. Preview and deployment-specific URLs are not a substitute for an explicit canonical-origin decision.
+
+The operational launch sequence is governed by:
+
+```text
+docs/cloudflare-pages-launch-runbook.md
+```
 
 ## Future operational layer
 

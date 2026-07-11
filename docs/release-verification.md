@@ -49,7 +49,7 @@ The command runs these stages in order:
 5. node --check scripts/check-matsuri-deployed.mjs
 ```
 
-Stage 4 rebuilds the exact Matsuri Pages target and runs static artifact integrity, public-output consistency, and corpus semantic checks. This intentionally preserves the Pages-specific build contract even after the full workspace build has passed.
+Stage 4 rebuilds the exact Matsuri Pages target and runs static artifact integrity, public-output consistency, corpus semantic checks, Source and Evidence checks, public-content checks, and browser checks. This intentionally preserves the Pages-specific build contract even after the full workspace build has passed.
 
 The command stops on the first failed stage and reports the stage name and exit condition.
 
@@ -143,6 +143,25 @@ CI and local release-candidate verification therefore use the same top-level com
 
 The workflow preserves `release-verification.log` as a short-lived artifact when verification fails. This makes the exact audit findings reviewable without committing generated logs to the repository.
 
+## Deployed-origin verification
+
+External HTTP verification is performed separately from the repository gate.
+
+Manual GitHub Actions workflow:
+
+```text
+Verify Matsuri deployed origin
+```
+
+Inputs:
+
+```text
+origin     exact deployed origin
+canonical  false for F2-18, true after F2-20
+```
+
+The workflow executes `scripts/check-matsuri-deployed.mjs` with `MATSURI_CHECK_ORIGIN` and optionally `--canonical`.
+
 ## What this proves
 
 A passing release verification establishes that:
@@ -173,4 +192,4 @@ A passing repository verification does not establish:
 - that Cloudflare Web Analytics is enabled,
 - that production traffic reaches a private analytics dashboard.
 
-Those remain external F2-16 through F2-28 tasks and stay under the operational hold defined in the governing schedule.
+Those are external F2-16 through F2-28 tasks. The external hold was removed on 2026-07-12, and F2-16 is the active work package.

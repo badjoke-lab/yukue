@@ -1,6 +1,6 @@
 # Public Content and Image Boundary Audit
 
-**Status:** F2 repository baseline
+**Status:** F2 repository baseline / deployment activation state
 
 ## Purpose
 
@@ -48,7 +48,7 @@ It must also state that:
 
 The Status page distinguishes repository-ready infrastructure from external production state.
 
-Required public markers include:
+Required public markers during F2-16 activation include:
 
 ```text
 Public Projection ready
@@ -56,15 +56,18 @@ Browse ready
 Search artifact ready
 machine-readable layer ready
 deployment artifact ready
-external deployment held
+external deployment activation started
 Analytics activation required
 ```
 
-Until the external hold is removed and production verification succeeds, the Status page must explicitly say that:
+Until each external gate is verified, the Status page must explicitly state that:
 
-- public deployment is not yet performed,
+- Cloudflare Pages connection has started,
+- the public URL and deployed content still require first-deployment verification,
 - Web Analytics is not enabled,
-- Cloudflare project-level activation and traffic verification remain required.
+- canonical verification and production traffic verification remain pending.
+
+The page must not retain the old `external-deployment-held` marker after the hold is removed, and must not claim that deployment, Analytics, canonical configuration, indexing, or production traffic is complete before evidence exists.
 
 ## Empty states
 
@@ -110,4 +113,4 @@ Generated external links must:
 - avoid using only the raw URL as label text,
 - include `noopener noreferrer` when opening a new tab.
 
-Live external reachability remains outside this repository build audit.
+Live external reachability remains outside this repository build audit and is verified separately beginning with F2-18.

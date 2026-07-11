@@ -1,10 +1,10 @@
 # Matsuri Release Candidate
 
-**Status:** F2 repository baseline
+**Status:** F2 repository baseline / external activation active
 
 ## Purpose
 
-After the complete repository verification succeeds, the Matsuri static site can be frozen as an immutable CI artifact for later external deployment.
+After the complete repository verification succeeds, the Matsuri static site can be frozen as an immutable CI artifact for external deployment comparison and reproduction.
 
 Run locally after a successful verification:
 
@@ -35,7 +35,7 @@ The command writes:
 - source commit,
 - project and site IDs,
 - dataset and schema versions,
-- repository-verification status,
+- repository-verification and external-activation status,
 - canonical origin as unconfigured,
 - completed repository work,
 - external work that remains pending,
@@ -48,20 +48,28 @@ The command writes:
 
 The aggregate digest is derived from each file path, byte size, and file digest. It identifies the exact static candidate independently of the workflow ZIP container.
 
-## Held external boundary
+## Pre-canonical boundary
 
-The F2-14 repository candidate requires `MATSURI_PUBLIC_ORIGIN` to remain unset.
+The repository candidate requires `MATSURI_PUBLIC_ORIGIN` to remain unset until F2-20.
 
 The freeze command fails when:
 
 - the verified `dist` directory is missing,
-- a production `MATSURI_PUBLIC_ORIGIN` is set,
+- a production `MATSURI_PUBLIC_ORIGIN` is set before F2-20,
 - `manifest.site_origin` is present,
 - the frozen route inventory differs from `sitemap.xml`.
 
-This prevents a placeholder or prematurely selected production origin from entering the repository-side candidate.
+This prevents a placeholder, preview deployment URL, or prematurely selected production origin from entering the repository-side candidate.
 
-The candidate explicitly records F2-16 through F2-28 as pending external work.
+The candidate records F2-16 through F2-28 as external work until each external state is separately verified and the release process is revised at the corresponding gate.
+
+Current release status value:
+
+```text
+repository-verified-external-activation-active
+```
+
+This means the repository artifact is verified, the external sequence has started, and the canonical origin is not yet configured.
 
 ## CI artifact
 
@@ -97,3 +105,16 @@ pnpm freeze:matsuri:release
 Compare the resulting `artifact_sha256` and per-file hashes with the CI release manifest.
 
 Differences indicate a dependency, environment, source, or build-output difference that must be understood before treating the artifacts as equivalent.
+
+## Relationship to Cloudflare Pages
+
+The Cloudflare Pages project builds from the Git repository rather than uploading this artifact directly.
+
+The frozen candidate remains useful for:
+
+- proving what the repository gate accepted,
+- comparing route and file inventories,
+- reproducing the Pages build from the same source commit,
+- diagnosing differences between repository and external build environments.
+
+The Pages launch settings are governed by `docs/cloudflare-pages-launch-runbook.md`.
