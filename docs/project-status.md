@@ -50,7 +50,8 @@ Execution Stage F — Corpus Expansion and Launch Preparation
 - F2-02 public reference and secondary browse surfaces completed,
 - F2-03 deployed and canonical verification tooling completed,
 - F2-04 deployment verifier hardening completed,
-- F2-05 analytics policy baseline completed.
+- F2-05 analytics policy baseline completed,
+- F2-06 schedule and status realignment completed.
 
 ## Current UI direction
 
@@ -104,14 +105,14 @@ project-status.md
 ## Current work
 
 ```text
-F2-06 — Schedule and status realignment
+F2-07 — Unified release verification command
 ```
 
-The active F2 sequence is now divided into:
+The active F2 sequence is divided into:
 
 ```text
-F2-01–F2-05  completed repository launch baselines
-F2-06–F2-15  repository-only launch readiness
+F2-01–F2-06  completed repository launch baselines and schedule alignment
+F2-07–F2-15  repository-only launch readiness
 F2-16–F2-28  external deployment and production verification
 ```
 
@@ -179,11 +180,22 @@ The repository defines:
 
 Analytics activation remains an external production task and is therefore held with F2-25 through F2-27.
 
+### F2-06 — Schedule and status realignment
+
+The governing documents now define:
+
+```text
+F2-01–F2-06  completed repository baseline and schedule work
+F2-07–F2-15  repository-only readiness before deployment
+F2-16–F2-28  held external deployment and production work
+```
+
+No private operational reason is stored in the public repository. The external sequence remains documented in exact order and can resume only after an explicit governing-document update removes the hold.
+
 ## Immediate repository-only implementation order
 
 ```text
-F2-06  schedule and status realignment — active
-F2-07  unified release verification command
+F2-07  unified release verification command — active
 F2-08  static route and internal-link integrity
 F2-09  HTML, JSON, Search, and sitemap consistency
 F2-10  public data semantic audit
@@ -318,22 +330,25 @@ Public Browse surfaces:
 
 ## Next gate
 
-Complete F2-06 and advance through the repository-only readiness sequence without adding deferred product scope.
+Complete F2-07 without adding deferred product scope.
 
-F2-06 requires:
+F2-07 requires one documented repository release-verification contract covering:
 
 ```text
-F2 schedule expanded into stable IDs
-repository-only and external work separated
-F2-07 through F2-15 ordered before deployment
-F2-16 through F2-28 marked as held
-roadmap, deployment, decision log, and current status aligned
+workspace build
+workspace check
+workspace typecheck
+Matsuri Pages build
+Pages artifact verification
+deployed-verifier syntax verification
 ```
 
-After F2-06, the next implementation item is:
+The command and CI must use or mirror the same checks. Missing launch-critical scripts must be reported rather than silently ignored.
+
+After F2-07, the next implementation item is:
 
 ```text
-F2-07 — Unified release verification command
+F2-08 — Static route and internal-link integrity
 ```
 
 The next major gate is F2-15 Repository Launch Readiness. The final F2 Launch Gate remains F2-28 and cannot be completed until the external operational hold is removed and production checks pass.
