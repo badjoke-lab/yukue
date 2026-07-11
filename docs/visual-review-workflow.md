@@ -1,6 +1,6 @@
 # Matsuri Visual Review Workflow
 
-**Status:** Implementation specification / F2-M01 active
+**Status:** Implemented repository baseline / F2-M01 completed
 
 ## Purpose
 
@@ -227,3 +227,34 @@ production verification
 ```
 
 The visual-review workflow may expose a defect even when the repository gate is green. Such a defect must be handled as a bounded UI maintenance change and re-captured before visual closure is claimed.
+
+## First baseline result
+
+The first exhaustive implementation and review completed on 2026-07-11.
+
+Final evidence:
+
+```text
+Workflow run: 29152930338
+Artifact: matsuri-full-page-screenshots-all-29152930338
+Artifact ID: 8248671759
+Artifact digest: sha256:d1b6eaeca9c276ac65dc66e63261028817c9b3a27dea7018a89dd331d96866ba
+Desktop: 20 / 20
+Mobile: 20 / 20
+Automated failures: 0
+Automated warnings: 0
+```
+
+The first review found and corrected:
+
+- nested `main` landmarks on Browse and Reference surfaces,
+- raw internal Change Event codes in public labels,
+- an orphaned final character in the mobile Home headline.
+
+The detailed review record is:
+
+```text
+docs/audits/matsuri-f2-m01-visual-review-2026-07-11.md
+```
+
+F2-M01 is complete. The workflow remains an ongoing UI-maintenance requirement.
