@@ -27,13 +27,13 @@ Stage C       Data core
 Stage D       Sample canonical data and Public Projection
 Stage E       Browse, Search, and machine-readable baseline
 Stage F1      Initial corpus expansion
-F2-01–F2-05  Repository launch baselines
+F2-01–F2-06  Repository launch baselines and schedule alignment
 ```
 
 Active work:
 
 ```text
-F2-06 — Schedule and status realignment
+F2-07 — Unified release verification command
 ```
 
 External deployment work is under an operational hold. Continue repository-only F2 readiness work through F2-15. Do not select F2-16 or later as active work until the hold is explicitly removed in the governing documents.
@@ -394,14 +394,14 @@ Status: **Completed through validated batches 01–10.**
 F2 is split into three ordered blocks:
 
 ```text
-A. completed repository launch baselines
+A. completed repository launch baselines and schedule alignment
 B. repository-only launch readiness work
 C. external deployment and production verification
 ```
 
 External deployment being unavailable does not stop block B. Block C remains on operational hold until the governing documents explicitly reactivate it.
 
-#### Block A — Completed repository launch baselines
+#### Block A — Completed repository launch baselines and schedule alignment
 
 ##### F2-01 — Pages build and artifact contract
 
@@ -460,11 +460,9 @@ Scope:
 - privacy and repository boundary,
 - account-level verification gate.
 
-#### Block B — Repository-only launch readiness
-
 ##### F2-06 — Schedule and status realignment
 
-Status: **Active**
+Status: **Completed**
 
 Scope:
 
@@ -475,12 +473,16 @@ Scope:
 
 Gate:
 
-- all schedule documents identify F2-06 as current,
+- all schedule documents advance current work to F2-07,
 - F2-07 through F2-15 are ordered before external deployment,
 - F2-16 through F2-28 are explicitly held,
 - no deferred product feature is promoted into MVP scope.
 
+#### Block B — Repository-only launch readiness
+
 ##### F2-07 — Unified release verification command
+
+Status: **Active**
 
 Scope:
 
