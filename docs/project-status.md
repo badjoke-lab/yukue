@@ -1,6 +1,6 @@
 # Project Status
 
-**Last updated:** 2026-07-10
+**Last updated:** 2026-07-11
 
 ## Current phase
 
@@ -48,7 +48,8 @@ Execution Stage F — Corpus Expansion and Launch Preparation
 - F1 corpus-expansion gate completed with balanced Festival, Folk Performance, Organization, Occurrence, Change Event, Relation, and Evidence coverage,
 - F2 Cloudflare Pages repository deployment baseline completed and validated,
 - F2 About, Methodology, Data Access, public Status, Organization Browse, and Current State Browse surfaces completed and validated,
-- F2 deployed-site smoke verification and canonical-origin verification tooling completed and validated.
+- F2 deployed-site smoke verification and canonical-origin verification tooling completed and validated,
+- F2 analytics purpose, activation model, verification gate, privacy boundary, and public Status wording documented as the repository analytics baseline.
 
 ## Current UI direction
 
@@ -125,10 +126,11 @@ Immediate implementation order:
 1. Cloudflare Pages repository deployment baseline — completed
 2. About, Methodology, Data Access, public Status, Organization Browse, and Current State Browse surfaces — completed
 3. deployed-site and canonical-origin verification tooling — completed
-4. first Pages project deployment and reachable URL verification
-5. canonical public origin decision, configuration, redeployment, and strict verification
-6. browser Search UI check on the deployed origin
-7. Pages Web Analytics enablement and traffic verification
+4. analytics repository baseline and activation policy — completed
+5. first Pages project deployment and reachable URL verification
+6. canonical public origin decision, configuration, redeployment, and strict verification
+7. browser Search UI check on the deployed origin
+8. Pages Web Analytics enablement and traffic verification
 ```
 
 The repository deployment baseline fixes the Matsuri Pages build contract at repository root with:
@@ -164,6 +166,8 @@ MATSURI_CHECK_ORIGIN=https://<canonical-origin> pnpm check:matsuri:canonical
 ```
 
 The deployed check verifies public HTML routes, Pagefind runtime, machine-readable feeds, discovery files, sitemap response status, Content-Type families, non-empty bodies, Matsuri site markers, and a non-empty public Entity feed. Canonical mode additionally requires `manifest.site_origin` to equal the checked origin and every sitemap `<loc>` to use that origin. One browser Search UI check remains required after deployment because the HTTP verifier does not emulate the browser Pagefind runtime.
+
+The analytics repository baseline is documented in `docs/analytics.md`. Cloudflare Web Analytics remains a Pages project-level activation and verification step. The repository does not contain analytics tokens, site-specific beacon credentials, private dashboard exports, or raw visitor analytics. F2 analytics is complete only after the Pages project exists, Web Analytics is enabled, a post-enable deployment occurs, and production traffic is observed in the private analytics dashboard.
 
 F1 closed after ten validated expansion batches. Batch 01 and batch 02 broadened Festival, Folk Performance, Organization, Occurrence, Relation, Designation, and Evidence coverage. Batch 03 shifted emphasis toward occurrence and change-history depth, including cancelled, partially held, reduced-scale, and scheduled annual editions while keeping Current State separate from individual Occurrence outcomes. Batch 04 deepened existing D1 entities without adding new Entities, recording a schedule-rule change for 相馬野馬追 and a revival-completion Event plus return Occurrence for 鷹山. Batch 05 added a first-party documented long-hiatus revival case for 布橋灌頂会 and deepened 脚折雨乞 with a quadrennial Series, Recurrence Pattern, and 2028 scheduled Occurrence. Batch 06 added an official-source disaster-recovery lifecycle around 阿蘇神社 and 御田祭, keeping shrine damage and restoration Events separate from festival Current State and the 2026 scheduled Occurrence instead of inferring an unsupported festival cancellation. Batch 07 added 弘前ねぷたまつり as an explicit festival-level continuity sequence: cancelled 2020, cancelled 2021, held again in 2022, with suspension-start and suspension-end Events linked to the occurrence history. Batch 08 deepened Organization and Relation coverage around 弘前ねぷた300年祭 by separating the anniversary program, its execution committee, and the participant-group council, then representing organized-by, supported-by, and part-of-tradition relationships explicitly. Batch 09 deepened Folk Performance continuity with 大日堂舞楽 by recording historical suspension and restart Events without invented dates, four-community transmission, annual January 2 recurrence, a preservation-group Organization, a maintained-by Relation, and a performed-at Relation to a shrine context Entity. Batch 10 closed the remaining Folk Performance occurrence-history gap with a three-year YOSAKOIソーラン sequence: cancelled 2020, cancelled 2021, held again in 2022, linked to suspension-start and suspension-end Events while keeping Current State independent from historical Occurrence outcomes.
 
@@ -255,13 +259,13 @@ deployed public build
 canonical origin configured and validated
 sitemap validated against the canonical origin
 search index checked on the deployed site
-analytics baseline established
+Web Analytics enabled and production traffic verified
 status page available — completed
 methodology page available — completed
 data access page available — completed
 ```
 
-Repository-side deployment preparation, reference surfaces, artifact checks, deployed smoke checks, and canonical verification tooling are complete. The remaining F2 gate items require an actual Cloudflare Pages project, reachable deployment URL, canonical-origin decision, production redeployment, browser Search verification, and Pages Web Analytics activation.
+Repository-side deployment preparation, reference surfaces, artifact checks, deployed smoke checks, canonical verification tooling, and analytics policy baseline are complete. The remaining F2 gate items require an actual Cloudflare Pages project, reachable deployment URL, canonical-origin decision, production redeployment, browser Search verification, and Pages Web Analytics activation with traffic verification.
 
 ## Not yet committed to MVP
 
