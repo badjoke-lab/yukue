@@ -12,13 +12,13 @@ Execution Stage F — Launch Preparation
 
 ```text
 F2-15 — Repository Launch Readiness Gate — completed
-F2-M01 — Full-page screenshot visual-review workflow — active
+F2-M01 — Full-page screenshot visual-review workflow — completed
 F2-16–F2-28 — External deployment and production verification — Operational hold
 ```
 
-`祭のゆくえ` has completed repository-side launch preparation. The reviewed data, static application, Search artifact, machine-readable output, internal navigation, semantic rules, Evidence, public content, browser behavior, and release-candidate artifact pass the unified repository gate.
+`祭のゆくえ` has completed repository-side launch preparation and the first exhaustive screenshot visual-review baseline. The reviewed data, static application, Search artifact, machine-readable output, internal navigation, semantic rules, Evidence, public content, browser behavior, release-candidate artifact, and successful-render visual review now have repository-side verification.
 
-F2-M01 adds retained successful full-page renders for human UI review. It does not mean that a public production deployment exists and does not activate the external sequence.
+This does not mean that a public production deployment exists and does not activate the external sequence.
 
 ## Completed implementation
 
@@ -96,13 +96,10 @@ F2-12  responsive and accessibility browser audit — completed
 F2-13  public content, empty-state, and image-boundary audit — completed
 F2-14  release-candidate artifact freeze — completed
 F2-15  Repository Launch Readiness Gate — completed
+F2-M01 full-page screenshot visual-review workflow — completed
 ```
 
-## Active repository maintenance package
-
-### F2-M01 — Full-page screenshot visual-review workflow
-
-Status: **Active**
+## F2-M01 result
 
 Governing specification:
 
@@ -110,10 +107,16 @@ Governing specification:
 docs/visual-review-workflow.md
 ```
 
-Required implementation:
+Detailed audit:
+
+```text
+docs/audits/matsuri-f2-m01-visual-review-2026-07-11.md
+```
+
+Implemented baseline:
 
 - one shared Matsuri visual-route and device contract,
-- all current public routes captured on desktop and mobile,
+- all 20 public routes captured on desktop and mobile,
 - successful full-page PNGs retained after Actions success,
 - desktop and mobile manifests,
 - screenshot integrity audit in JSON and Markdown,
@@ -123,15 +126,27 @@ Required implementation:
 - 14-day artifact retention,
 - pull-request review fields for human visual findings.
 
-With the current route inventory, the target is:
+Final reviewed execution:
 
 ```text
-20 desktop screenshots
-20 mobile screenshots
-40 full-page PNGs total
+Screenshot workflow run   29152930338
+Screenshot artifact       matsuri-full-page-screenshots-all-29152930338
+Artifact ID               8248671759
+Artifact digest           sha256:d1b6eaeca9c276ac65dc66e63261028817c9b3a27dea7018a89dd331d96866ba
+Desktop                    20 / 20
+Mobile                     20 / 20
+Automated failures         0
+Automated warnings         0
+Repository CI run          29152930340
 ```
 
-Cloudflare is not required. The workflow must build and serve the local static site inside GitHub Actions.
+The first review found and corrected:
+
+- nested `main` landmarks on Browse and Reference surfaces,
+- raw internal Change Event codes on public surfaces,
+- an orphaned final character in the mobile Home headline.
+
+Cloudflare was not required. The workflow built and served the local static site inside GitHub Actions.
 
 ## Repository gate command
 
@@ -252,8 +267,8 @@ Do not invent additional prelaunch product scope merely because external deploym
 
 ## Next activation condition
 
-The active package is F2-M01.
+There is no active implementation package.
 
-After F2-M01 is implemented and its first complete desktop/mobile artifact passes automated and human review, the project returns to repository-ready maintenance state with no active implementation package.
+The project is in repository-ready maintenance state. The screenshot workflow remains available for manual execution and for relevant UI pull requests.
 
 F2-16 remains the next external package and may start only after the operational hold is explicitly removed.
