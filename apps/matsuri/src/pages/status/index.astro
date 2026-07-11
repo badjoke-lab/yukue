@@ -16,7 +16,7 @@ const counts = {
   description="祭のゆくえの公開データ、検索、machine-readable layer、更新方針の現在状況を示します。"
   kicker="Status"
   heading="公開ステータス"
-  intro="公開中の記録量と、公開基盤の状態を示します。件数はbuild時の承認済みPublic Projectionから生成されます。"
+  intro="公開中の記録量と、リポジトリ内で確認済みの公開基盤を示します。件数はbuild時の承認済みPublic Projectionから生成されます。"
   activeReference="status"
 >
   <section>
@@ -33,12 +33,13 @@ const counts = {
   <section>
     <h2>公開基盤</h2>
     <dl class="status-list">
-      <div><dt>Public Projection</dt><dd>承認済みrecordのみを公開</dd></div>
-      <div><dt>Browse</dt><dd>祭礼・民俗芸能・地域・変化・組織・状態</dd></div>
-      <div><dt>Search</dt><dd>Pagefind静的indexをbuild時に生成</dd></div>
-      <div><dt>Machine-readable layer</dt><dd>JSON feeds、manifest、discovery filesを生成</dd></div>
-      <div><dt>Deployment artifact</dt><dd>CIで必須HTML、検索runtime、公開データファイルを検査</dd></div>
-      <div><dt>Web Analytics</dt><dd>Cloudflare Pages project側で有効化する方式。公開repoにはtokenを保存しない</dd></div>
+      <div data-infrastructure-status="public-projection-ready"><dt>Public Projection</dt><dd>承認済みrecordのみを公開</dd></div>
+      <div data-infrastructure-status="browse-ready"><dt>Browse</dt><dd>祭礼・民俗芸能・地域・変化・組織・状態</dd></div>
+      <div data-infrastructure-status="search-artifact-ready"><dt>Search</dt><dd>Pagefind静的indexをbuild時に生成し、リポジトリ検証済み</dd></div>
+      <div data-infrastructure-status="machine-readable-ready"><dt>Machine-readable layer</dt><dd>JSON feeds、manifest、discovery filesを生成し、相互整合性を検査</dd></div>
+      <div data-infrastructure-status="deployment-artifact-ready"><dt>Deployment artifact</dt><dd>CIで必須HTML、検索runtime、公開データファイル、内部リンク、ブラウザ表示を検査</dd></div>
+      <div data-infrastructure-status="external-deployment-held"><dt>Public deployment</dt><dd>未実施。外部配備工程は運用上の保留中</dd></div>
+      <div data-infrastructure-status="analytics-activation-required"><dt>Web Analytics</dt><dd>未有効。Cloudflare Pages project作成後にproject側で有効化とtraffic確認が必要</dd></div>
     </dl>
   </section>
 

@@ -20,6 +20,7 @@ const requiredRootScripts = [
   "check:matsuri:consistency",
   "check:matsuri:semantics",
   "check:matsuri:evidence",
+  "check:matsuri:content",
   "check:matsuri:browser",
 ];
 
@@ -111,7 +112,7 @@ const stages = [
     args: ["typecheck"],
   },
   {
-    name: "Build and verify Matsuri Pages, public outputs, corpus semantics, Evidence, and browser behavior",
+    name: "Build and verify Matsuri Pages, public outputs, corpus semantics, Evidence, public content, and browser behavior",
     command: packageManagerCommand,
     args: ["verify:matsuri:pages"],
   },
