@@ -38,6 +38,17 @@ for (const route of matsuriPublicRoutes) {
     await expect(page.locator("main#yk-main-content")).toHaveCount(1);
     await expect(page.locator("h1")).toHaveCount(1);
 
+    const publicChangeTypeLabels = await page
+      .locator(".recent-change-row__type, .change-row__meta span")
+      .allTextContents();
+    const rawChangeTypeLabels = publicChangeTypeLabels
+      .map((label) => label.trim())
+      .filter((label) => /^[a-z][a-z_]*$/u.test(label));
+    expect(
+      rawChangeTypeLabels,
+      `Raw Change Event codes are visible on ${route}: ${JSON.stringify(rawChangeTypeLabels)}`,
+    ).toEqual([]);
+
     const overflow = await page.evaluate(() => ({
       body: document.body.scrollWidth - window.innerWidth,
       document: document.documentElement.scrollWidth - window.innerWidth,
