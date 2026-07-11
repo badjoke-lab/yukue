@@ -1,0 +1,51 @@
+name: Verify Matsuri deployed origin
+
+on:
+  workflow_dispatch:
+    inputs:
+      origin:
+        description: Exact deployed Matsuri origin, for example https://matsuri-yukue.pages.dev
+        required: true
+        type: string
+      canonical:
+        description: Verify manifest and sitemap canonical origin
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      MATSURI_CHECK_ORIGIN: ${{ inputs.origin }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Verify deployed origin
+        shell: bash
+        run: |
+          if [ "${{ inputs.canonical }}" = "true" ]; then
+            node scripts/check-matsuri-deployed.mjs --canonical
+          else
+            node scripts/check-matsuri-deployed.mjs
+          fi
+
+      - name: Write verification summary
+        if: always()
+        shell: bash
+        run: |
+          echo "## Matsuri deployed-origin verification" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Origin: $MATSURI_CHECK_ORIGIN" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Canonical mode: ${{ inputs.canonical }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Commit: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
