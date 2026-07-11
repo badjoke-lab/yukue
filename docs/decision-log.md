@@ -28,6 +28,8 @@ Cloudflare Workers Static Assets
 
 Dynamic infrastructure is deferred until justified.
 
+This original deployment label is superseded for the first Matsuri launch by the 2026-07-12 Cloudflare Pages Git-integration decision below. The static-first and no-dynamic-infrastructure parts remain unchanged.
+
 ## 2026-07-09 — Two-layer product model
 
 Decision:
@@ -152,11 +154,11 @@ F2-06–F2-15  repository-only launch readiness
 F2-16–F2-28  external deployment and production verification
 ```
 
-External deployment and production verification are placed under an operational hold.
+External deployment and production verification were placed under an operational hold.
 
-The hold does not stop repository-only readiness work. F2-06 through F2-15 proceed before any Cloudflare Pages project creation, public deployment URL acquisition, canonical production-origin decision, production Search verification, indexability work, or Web Analytics activation.
+The hold did not stop repository-only readiness work. F2-06 through F2-15 proceeded before any Cloudflare Pages project creation, public deployment URL acquisition, canonical production-origin decision, production Search verification, indexability work, or Web Analytics activation.
 
-The external sequence remains ordered and documented so that it can resume without redesign:
+The external sequence remained ordered and documented so that it could resume without redesign:
 
 ```text
 Cloudflare project
@@ -172,8 +174,6 @@ Cloudflare project
 → production traffic verification
 → final F2 Launch Gate
 ```
-
-The hold is removed only through an explicit update to the governing documents. Do not record a placeholder public URL or claim production-only checks are complete while the hold remains active.
 
 Repository Launch Readiness at F2-15 is distinct from the final F2 Launch Gate at F2-28.
 
@@ -205,17 +205,14 @@ The command must:
 4. confirm repository documentation records F2-15 completion,
 5. confirm F2-16 through F2-28 remain pending external work.
 
-A successful repository gate permits only maintenance, reviewed corrections, freshness updates, security or dependency work, and changes required to keep the gate green while external deployment remains held.
+Repository readiness does not itself prove:
 
-Repository readiness does not authorize:
-
-- Cloudflare project creation,
-- public URL issuance,
-- canonical-origin selection,
-- production Search or crawler claims,
-- Web Analytics activation,
-- production-traffic claims,
-- new prelaunch product scope.
+- a Cloudflare project exists,
+- a public URL has been issued,
+- the canonical origin is selected,
+- production Search or crawler behavior works,
+- Web Analytics is enabled,
+- production traffic exists.
 
 ## 2026-07-11 — Successful-render visual review before production
 
@@ -244,7 +241,46 @@ The workflow also produces capture manifests, an automated screenshot audit, des
 
 A green automated screenshot audit is not visual approval. Non-trivial UI changes require the pull request to identify the screenshot run and artifact and record what desktop and mobile images were reviewed, what problems were found, what was changed, and what limitations intentionally remain.
 
-F2-M01 is repository maintenance under the existing external hold. It does not activate F2-16 through F2-28 and does not add product scope.
+## 2026-07-12 — External hold removed and F2-16 activated
+
+Decision:
+
+```text
+external operational hold  removed
+active work package         F2-16
+launch platform             Cloudflare Pages Git integration
+Pages project name          matsuri-yukue
+repository                  badjoke-lab/yukue
+production branch           main
+```
+
+The first Matsuri deployment uses Cloudflare Pages Git integration with a static Astro artifact.
+
+Accepted build contract:
+
+```text
+root directory     repository root
+build command      pnpm build:matsuri:pages
+output directory   apps/matsuri/dist
+Node.js             24
+pnpm                11.10.0
+```
+
+GitHub Actions remains the repository verification system. Cloudflare Pages performs the external build and deployment.
+
+The project remains static. Do not add the Cloudflare Astro SSR adapter, Pages Functions, D1, or other runtime infrastructure for the first launch.
+
+Git integration is accepted despite the fact that Cloudflare does not permit later conversion of that project into a Direct Upload project. Automatic Git deployments may be disabled later, and Wrangler may deploy to the existing Git-integrated project if the operating model changes.
+
+The first deployment intentionally leaves `MATSURI_PUBLIC_ORIGIN` unset. After Cloudflare issues a reachable production URL, the project must complete F2-18 smoke verification before choosing the canonical origin at F2-19.
+
+Do not enable Web Analytics, add a custom domain, or claim production readiness during F2-16 or F2-17.
+
+The governing operational document is:
+
+```text
+docs/cloudflare-pages-launch-runbook.md
+```
 
 ## Open decisions
 
@@ -253,6 +289,6 @@ F2-M01 is repository maintenance under the existing external hold. It does not a
 - ULID versus UUIDv7,
 - slug policy,
 - JSON partition threshold,
-- final domain,
+- final canonical domain,
 - whether Stats enters MVP,
 - whether Compare enters MVP.
