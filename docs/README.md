@@ -19,6 +19,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
 | `technical-architecture.md` | Current direction | Build, projection, search, deployment |
+| `analytics.md` | Initial baseline | Launch analytics purpose, activation, verification, and privacy boundary |
 | `roadmap.md` | Current | Long-range phases and gates |
 | `development-schedule.md` | Current | Concrete implementation and PR sequence |
 | `verification-policy.md` | Current | Review and publication rules |
