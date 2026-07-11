@@ -18,6 +18,7 @@ const completedRepositoryWork = [
   "F2-11 Source and Evidence audit",
   "F2-12 responsive and accessibility browser audit",
   "F2-13 public content, empty-state, and image-boundary audit",
+  "F2-14 release-candidate artifact freeze",
 ];
 
 const externalPendingWork = [
