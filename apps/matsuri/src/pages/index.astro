@@ -71,7 +71,7 @@ const home = buildMatsuriHomeViewModel(matsuriProjection);
   <section class="home-hero">
     <Container size="wide">
       <p class="home-hero__kicker">祭礼と民俗芸能の記録</p>
-      <h1>祭礼と民俗芸能の、<br />現在と変化を記録する。</h1>
+      <h1>祭礼と民俗芸能の、<br />現在と変化を<span class="home-hero__closing">記録する。</span></h1>
       <p class="home-hero__lead">名称、由来、開催時期、場所といった基本情報に加え、現在状態、年ごとの実施履歴、休止・復活・変更、関係する場所と組織、そして根拠資料を記録します。</p>
       <div class="home-hero__search">
         <SearchForm
@@ -179,6 +179,10 @@ const home = buildMatsuriHomeViewModel(matsuriProjection);
     font-size: var(--font-size-hero);
     font-weight: 500;
     letter-spacing: 0.06em;
+  }
+
+  .home-hero__closing {
+    white-space: nowrap;
   }
 
   .home-hero__lead {

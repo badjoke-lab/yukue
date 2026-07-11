@@ -12,12 +12,13 @@ Execution Stage F — Launch Preparation
 
 ```text
 F2-15 — Repository Launch Readiness Gate — completed
+F2-M01 — Full-page screenshot visual-review workflow — completed
 F2-16–F2-28 — External deployment and production verification — Operational hold
 ```
 
-`祭のゆくえ` has completed repository-side launch preparation. The reviewed data, static application, Search artifact, machine-readable output, internal navigation, semantic rules, Evidence, public content, browser behavior, and release-candidate artifact pass the unified repository gate.
+`祭のゆくえ` has completed repository-side launch preparation and the first exhaustive screenshot visual-review baseline. The reviewed data, static application, Search artifact, machine-readable output, internal navigation, semantic rules, Evidence, public content, browser behavior, release-candidate artifact, and successful-render visual review now have repository-side verification.
 
-This does **not** mean that a public production deployment exists.
+This does not mean that a public production deployment exists and does not activate the external sequence.
 
 ## Completed implementation
 
@@ -95,7 +96,57 @@ F2-12  responsive and accessibility browser audit — completed
 F2-13  public content, empty-state, and image-boundary audit — completed
 F2-14  release-candidate artifact freeze — completed
 F2-15  Repository Launch Readiness Gate — completed
+F2-M01 full-page screenshot visual-review workflow — completed
 ```
+
+## F2-M01 result
+
+Governing specification:
+
+```text
+docs/visual-review-workflow.md
+```
+
+Detailed audit:
+
+```text
+docs/audits/matsuri-f2-m01-visual-review-2026-07-11.md
+```
+
+Implemented baseline:
+
+- one shared Matsuri visual-route and device contract,
+- all 20 public routes captured on desktop and mobile,
+- successful full-page PNGs retained after Actions success,
+- desktop and mobile manifests,
+- screenshot integrity audit in JSON and Markdown,
+- desktop and mobile contact sheets,
+- desktop and mobile ZIP archives,
+- dedicated manual and UI-path-triggered GitHub Actions workflow,
+- 14-day artifact retention,
+- pull-request review fields for human visual findings.
+
+Final reviewed execution:
+
+```text
+Screenshot workflow run   29152930338
+Screenshot artifact       matsuri-full-page-screenshots-all-29152930338
+Artifact ID               8248671759
+Artifact digest           sha256:d1b6eaeca9c276ac65dc66e63261028817c9b3a27dea7018a89dd331d96866ba
+Desktop                    20 / 20
+Mobile                     20 / 20
+Automated failures         0
+Automated warnings         0
+Repository CI run          29152930340
+```
+
+The first review found and corrected:
+
+- nested `main` landmarks on Browse and Reference surfaces,
+- raw internal Change Event codes on public surfaces,
+- an orphaned final character in the mobile Home headline.
+
+Cloudflare was not required. The workflow built and served the local static site inside GitHub Actions.
 
 ## Repository gate command
 
@@ -127,6 +178,8 @@ The verified repository contract includes:
 - automated WCAG A/AA checks on desktop and mobile,
 - release-candidate freeze,
 - per-file and aggregate SHA-256 verification.
+
+The screenshot visual-review workflow is separate from this deterministic gate. A green gate is not treated as proof that subjective UI review is complete.
 
 ## Current public artifact shape
 
@@ -194,7 +247,9 @@ Do not select F2-16 or later as active work until an explicit governing-document
 - Source and Evidence maintenance,
 - security or dependency maintenance,
 - repairs required to keep the repository gate green,
-- regeneration of the release candidate after an accepted public change.
+- regeneration of the release candidate after an accepted public change,
+- screenshot capture and human visual review for UI maintenance,
+- bounded UI corrections derived from reviewed screenshot artifacts.
 
 Do not invent additional prelaunch product scope merely because external deployment remains held.
 
@@ -212,6 +267,8 @@ Do not invent additional prelaunch product scope merely because external deploym
 
 ## Next activation condition
 
-There is no active implementation package after F2-15 while the external hold remains in force.
+There is no active implementation package.
 
-The next scheduled package is F2-16 only after the hold is explicitly removed. Until then, the project remains in repository-ready maintenance state.
+The project is in repository-ready maintenance state. The screenshot workflow remains available for manual execution and for relevant UI pull requests.
+
+F2-16 remains the next external package and may start only after the operational hold is explicitly removed.

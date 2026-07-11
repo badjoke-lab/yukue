@@ -1,4 +1,8 @@
 import { defineConfig } from "@playwright/test";
+import {
+  matsuriTabletBrowserDevice,
+  matsuriVisualDevices,
+} from "./config/matsuri-visual-routes.mjs";
 
 export default defineConfig({
   testDir: "./tests/browser",
@@ -28,24 +32,24 @@ export default defineConfig({
       name: "desktop-chromium",
       use: {
         browserName: "chromium",
-        viewport: { width: 1440, height: 900 },
+        viewport: matsuriVisualDevices.desktop.viewport,
       },
     },
     {
       name: "tablet-chromium",
       use: {
         browserName: "chromium",
-        viewport: { width: 768, height: 1024 },
-        hasTouch: true,
+        viewport: matsuriTabletBrowserDevice.viewport,
+        hasTouch: matsuriTabletBrowserDevice.hasTouch,
       },
     },
     {
       name: "mobile-chromium",
       use: {
         browserName: "chromium",
-        viewport: { width: 390, height: 844 },
-        hasTouch: true,
-        isMobile: true,
+        viewport: matsuriVisualDevices.mobile.viewport,
+        hasTouch: matsuriVisualDevices.mobile.hasTouch,
+        isMobile: matsuriVisualDevices.mobile.isMobile,
       },
     },
   ],

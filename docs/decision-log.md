@@ -217,6 +217,35 @@ Repository readiness does not authorize:
 - production-traffic claims,
 - new prelaunch product scope.
 
+## 2026-07-11 — Successful-render visual review before production
+
+Decision:
+
+```text
+F2-M01  local full-page screenshot and visual-review workflow
+Cloudflare required  no
+current coverage     all 20 public routes
+capture devices      desktop + mobile
+```
+
+The repository browser audit remains the measurable rendering and accessibility gate. A separate GitHub Actions workflow preserves successful full-page PNGs for human review of hierarchy, whitespace, density, page length, and mobile reading rhythm.
+
+The workflow builds and serves the site inside GitHub Actions. It does not require a Cloudflare Pages project, public URL, canonical origin, or production deployment.
+
+While the route count remains 20, screenshot review is exhaustive:
+
+```text
+20 desktop PNGs
+20 mobile PNGs
+40 full-page PNGs total
+```
+
+The workflow also produces capture manifests, an automated screenshot audit, desktop and mobile ZIP files, and device contact sheets.
+
+A green automated screenshot audit is not visual approval. Non-trivial UI changes require the pull request to identify the screenshot run and artifact and record what desktop and mobile images were reviewed, what problems were found, what was changed, and what limitations intentionally remain.
+
+F2-M01 is repository maintenance under the existing external hold. It does not activate F2-16 through F2-28 and does not add product scope.
+
 ## Open decisions
 
 - final map component implementation,

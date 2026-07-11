@@ -4,6 +4,7 @@ dist/
 .pagefind/
 .build-verification/
 .release-candidate/
+artifacts/
 test-results/
 playwright-report/
 .wrangler/

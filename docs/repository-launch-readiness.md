@@ -1,12 +1,14 @@
 # Repository Launch Readiness
 
-**Status:** Completed repository gate / external deployment held
+**Status:** Completed repository gate / visual-review baseline implemented / external deployment held
 
 ## Decision
 
 `祭のゆくえ` has completed the repository-side launch-preparation gate.
 
 This means the reviewed canonical dataset, Public Projection, static site, Search artifact, machine-readable output, internal navigation, semantic rules, Evidence, public content, browser behavior, and release-candidate artifact have passed the unified repository checks.
+
+The first exhaustive successful-render visual-review baseline is also implemented and reviewed.
 
 It does not mean that a public production deployment exists.
 
@@ -38,11 +40,12 @@ F2-12  responsive and accessibility browser audit
 F2-13  public content, empty-state, and image-boundary audit
 F2-14  release-candidate artifact freeze
 F2-15  Repository Launch Readiness Gate
+F2-M01 full-page screenshot visual-review workflow
 ```
 
 ## Required passing state
 
-The gate requires:
+The repository gate requires:
 
 - all workspaces build,
 - shared checks and typechecks pass,
@@ -62,10 +65,13 @@ The gate requires:
 - every frozen file and aggregate artifact digest revalidate,
 - the release manifest records F2-16 through F2-28 as pending external work.
 
+The screenshot workflow remains separate because successful-render retention and human visual review are not deterministic release-integrity checks.
+
 ## Current operating state
 
 ```text
 repository launch readiness   completed
+visual-review baseline        implemented and reviewed
 public Cloudflare deployment  not performed
 canonical production origin   not configured
 production browser Search     not verified
@@ -73,6 +79,46 @@ crawler and indexability      not verified
 Web Analytics                 not enabled
 production traffic            not verified
 ```
+
+## Visual-review baseline after the gate
+
+F2-M01 added a successful-render review workflow without reopening product scope or changing the F2-15 release gate.
+
+The workflow:
+
+- builds the site in GitHub Actions,
+- serves the local build without Cloudflare,
+- captures every current public route on desktop and mobile,
+- retains full-page PNGs, manifests, audits, ZIP files, and contact sheets,
+- supports human review of hierarchy, whitespace, density, long-page structure, and mobile reading rhythm.
+
+The governing specification is:
+
+```text
+docs/visual-review-workflow.md
+```
+
+The first review record is:
+
+```text
+docs/audits/matsuri-f2-m01-visual-review-2026-07-11.md
+```
+
+Final evidence:
+
+```text
+Workflow run: 29152930338
+Artifact: matsuri-full-page-screenshots-all-29152930338
+Artifact ID: 8248671759
+Desktop: 20 / 20
+Mobile: 20 / 20
+Automated failures: 0
+Automated warnings: 0
+```
+
+The baseline found and corrected nested `main` landmarks, raw Change Event codes, and an orphaned mobile Home headline ending.
+
+A green repository gate remains necessary but is not treated as proof that subjective UI review is complete. Future non-trivial UI changes must generate and review a new screenshot artifact.
 
 ## External hold
 
@@ -94,7 +140,7 @@ F2-27  production traffic verification
 F2-28  final F2 Launch Gate
 ```
 
-None of these items becomes active merely because the repository gate is complete.
+None of these items becomes active merely because the repository gate is complete or because local screenshots are available.
 
 The hold is removed only through an explicit governing-document update.
 
@@ -106,6 +152,8 @@ While external deployment remains held:
 - accept reviewed factual corrections,
 - preserve passing repository checks,
 - regenerate the release candidate after any public code or data change,
+- capture and review successful full-page screenshots for non-trivial UI changes,
+- use screenshot findings for bounded UI maintenance,
 - do not add new prelaunch product scope solely to fill the waiting period.
 
 Stats, Compare, dynamic API, MCP, paid API, x402, D1 canonical storage, and real-time ingestion remain outside the MVP unless separately approved.

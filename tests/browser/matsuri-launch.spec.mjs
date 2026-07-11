@@ -1,28 +1,11 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
+import {
+  assertMatsuriVisualContract,
+  matsuriPublicRoutes,
+} from "../../config/matsuri-visual-routes.mjs";
 
-const publicRoutes = [
-  "/",
-  "/about/",
-  "/festivals/",
-  "/festivals/suneori-amagoi/",
-  "/performances/",
-  "/organizations/",
-  "/regions/",
-  "/changes/",
-  "/states/",
-  "/states/active/",
-  "/states/reduced_activity/",
-  "/states/suspended/",
-  "/states/dormant/",
-  "/states/reviving/",
-  "/states/discontinued/",
-  "/states/unknown/",
-  "/search/",
-  "/methodology/",
-  "/data/",
-  "/status/",
-];
+assertMatsuriVisualContract();
 
 function formatViolations(violations) {
   return violations
@@ -35,7 +18,7 @@ function formatViolations(violations) {
     .join("\n");
 }
 
-for (const route of publicRoutes) {
+for (const route of matsuriPublicRoutes) {
   test(`${route} is responsive and accessible`, async ({ page }, testInfo) => {
     const pageErrors = [];
     const consoleErrors = [];
@@ -51,8 +34,20 @@ for (const route of publicRoutes) {
     await expect(page.locator("html")).toHaveAttribute("lang", "ja");
     await expect(page).toHaveTitle(/\S/u);
     await expect(page.locator('meta[name="viewport"]')).toHaveCount(1);
+    await expect(page.locator("main")).toHaveCount(1);
     await expect(page.locator("main#yk-main-content")).toHaveCount(1);
     await expect(page.locator("h1")).toHaveCount(1);
+
+    const publicChangeTypeLabels = await page
+      .locator(".recent-change-row__type, .change-row__meta span")
+      .allTextContents();
+    const rawChangeTypeLabels = publicChangeTypeLabels
+      .map((label) => label.trim())
+      .filter((label) => /^[a-z][a-z_]*$/u.test(label));
+    expect(
+      rawChangeTypeLabels,
+      `Raw Change Event codes are visible on ${route}: ${JSON.stringify(rawChangeTypeLabels)}`,
+    ).toEqual([]);
 
     const overflow = await page.evaluate(() => ({
       body: document.body.scrollWidth - window.innerWidth,

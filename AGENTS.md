@@ -123,6 +123,23 @@ docs/design-tokens.md
 docs/ui-foundation-spec.md
 ```
 
+## Visual review discipline
+
+For a non-trivial Matsuri UI, layout, typography, spacing, responsive, or shared-shell change:
+
+1. read `docs/visual-review-workflow.md`,
+2. run or trigger the dedicated full-page screenshot workflow,
+3. inspect the desktop and mobile contact sheets,
+4. inspect the top, middle, and bottom of every affected full-resolution PNG,
+5. record the workflow run and artifact in the pull request,
+6. record problems found, corrections made, intentional remaining limitations, and the post-fix recapture result.
+
+A green browser/accessibility audit is not proof that the visual review is complete.
+
+A green screenshot integrity audit is not human visual approval.
+
+Do not claim UI closure from source inspection alone when rendered screenshot artifacts are available or required.
+
 ## Implementation discipline
 
 Keep PRs bounded to the active schedule item.
@@ -171,6 +188,15 @@ A PR should state:
 - validation run,
 - known limitations,
 - documentation updated when needed.
+
+A non-trivial UI PR should additionally state:
+
+- screenshot workflow run,
+- screenshot artifact name,
+- desktop routes reviewed,
+- mobile routes reviewed,
+- visual findings,
+- post-fix recapture result.
 
 Do not merge before required CI is green.
 
