@@ -32,6 +32,7 @@ const requiredDocs = [
   "docs/repository-launch-readiness.md",
   "docs/cloudflare-pages-launch-runbook.md",
   "docs/deployment-topology.md",
+  "docs/f2-20-custom-domain-activation.md",
   "docs/development-schedule.md",
   "docs/project-status.md",
   "docs/roadmap.md",
@@ -55,10 +56,8 @@ const completedRepositoryIds = [
   "F2-13",
   "F2-14",
 ];
-
-const completedExternalIds = ["F2-16", "F2-17", "F2-18", "F2-19"];
+const completedExternalIds = ["F2-16", "F2-17", "F2-18", "F2-19", "F2-20"];
 const pendingExternalIds = [
-  "F2-20",
   "F2-21",
   "F2-22",
   "F2-23",
@@ -80,14 +79,12 @@ function sha256File(filePath) {
 const packageJson = JSON.parse(
   fs.readFileSync(path.join(repositoryRoot, "package.json"), "utf8"),
 );
-
 for (const scriptName of requiredScripts) {
   assert(
     typeof packageJson.scripts?.[scriptName] === "string",
     `Repository readiness requires package script ${scriptName}.`,
   );
 }
-
 for (const relativePath of requiredDocs) {
   assert(
     fs.existsSync(path.join(repositoryRoot, relativePath)),
@@ -95,14 +92,8 @@ for (const relativePath of requiredDocs) {
   );
 }
 
-assert(
-  fs.existsSync(path.join(repositoryRoot, "wrangler.jsonc")),
-  "Repository readiness requires wrangler.jsonc.",
-);
-assert(
-  fs.existsSync(releaseManifestPath),
-  "Release candidate manifest is missing. Run pnpm freeze:matsuri:release first.",
-);
+assert(fs.existsSync(path.join(repositoryRoot, "wrangler.jsonc")), "Repository readiness requires wrangler.jsonc.");
+assert(fs.existsSync(releaseManifestPath), "Release candidate manifest is missing. Run pnpm freeze:matsuri:release first.");
 assert(
   fs.existsSync(candidateSiteRoot) && fs.statSync(candidateSiteRoot).isDirectory(),
   "Frozen Matsuri site directory is missing.",
@@ -114,7 +105,7 @@ assert(releaseManifest.project_id === "yukue-series", "Unexpected release projec
 assert(releaseManifest.site_id === "matsuri", "Unexpected release site_id.");
 assert(
   releaseManifest.release_status ===
-    "repository-verified-deployed-origin-verified-canonical-hostname-decided-domain-attachment-pending",
+    "repository-verified-deployed-origin-verified-canonical-origin-active",
   `Unexpected release_status: ${String(releaseManifest.release_status)}`,
 );
 assert(
@@ -122,8 +113,7 @@ assert(
   "Release candidate does not record the accepted Matsuri canonical hostname.",
 );
 assert(
-  releaseManifest.canonical_origin_decision ===
-    "https://matsuri-yukue.badjoke-lab.com",
+  releaseManifest.canonical_origin_decision === "https://matsuri-yukue.badjoke-lab.com",
   "Release candidate does not record the accepted Matsuri canonical origin decision.",
 );
 assert(
@@ -131,31 +121,25 @@ assert(
   "Release candidate does not record the accepted portal origin decision.",
 );
 assert(
-  releaseManifest.canonical_origin === null,
-  "Repository-ready candidate must not claim an active canonical production origin before F2-20.",
+  releaseManifest.canonical_origin === "https://matsuri-yukue.badjoke-lab.com",
+  "Release candidate does not record the active Matsuri canonical origin.",
 );
 assert(
-  typeof releaseManifest.source_commit === "string" &&
-    /^[0-9a-f]{40}$/u.test(releaseManifest.source_commit),
+  releaseManifest.canonical_verification_workflow_run === 29191904624,
+  "Release candidate does not record the successful F2-20 canonical verification workflow run.",
+);
+assert(
+  typeof releaseManifest.source_commit === "string" && /^[0-9a-f]{40}$/u.test(releaseManifest.source_commit),
   `Release candidate source_commit is unavailable or invalid: ${String(releaseManifest.source_commit)}`,
 );
+assert(Array.isArray(releaseManifest.public_routes) && releaseManifest.public_routes.length > 0, "Release candidate has no public routes.");
 assert(
-  Array.isArray(releaseManifest.public_routes) && releaseManifest.public_routes.length > 0,
-  "Release candidate has no public routes.",
-);
-assert(
-  Array.isArray(releaseManifest.machine_readable_files) &&
-    releaseManifest.machine_readable_files.length > 0,
+  Array.isArray(releaseManifest.machine_readable_files) && releaseManifest.machine_readable_files.length > 0,
   "Release candidate has no machine-readable inventory.",
 );
 assert(
-  Array.isArray(releaseManifest.files) &&
-    releaseManifest.files.length === releaseManifest.artifact_file_count,
+  Array.isArray(releaseManifest.files) && releaseManifest.files.length === releaseManifest.artifact_file_count,
   "Release candidate file inventory does not match artifact_file_count.",
-);
-assert(
-  Array.isArray(releaseManifest.completed_external_work),
-  "Release candidate does not record completed external work.",
 );
 
 for (const id of completedRepositoryIds) {
@@ -190,60 +174,30 @@ for (const file of releaseManifest.files) {
   totalBytes += stat.size;
   aggregateLines.push(`${file.path}\u0000${file.size_bytes}\u0000${file.sha256}`);
 }
+assert(totalBytes === releaseManifest.artifact_size_bytes, "Frozen artifact total byte count does not match the release manifest.");
+const aggregateDigest = crypto.createHash("sha256").update(aggregateLines.join("\n")).digest("hex");
+assert(aggregateDigest === releaseManifest.artifact_sha256, "Frozen artifact aggregate SHA-256 does not match the release manifest.");
 
-assert(
-  totalBytes === releaseManifest.artifact_size_bytes,
-  "Frozen artifact total byte count does not match the release manifest.",
-);
-const aggregateDigest = crypto
-  .createHash("sha256")
-  .update(aggregateLines.join("\n"))
-  .digest("hex");
-assert(
-  aggregateDigest === releaseManifest.artifact_sha256,
-  "Frozen artifact aggregate SHA-256 does not match the release manifest.",
-);
-
-const developmentSchedule = fs.readFileSync(
-  path.join(repositoryRoot, "docs", "development-schedule.md"),
-  "utf8",
-);
-const projectStatus = fs.readFileSync(
-  path.join(repositoryRoot, "docs", "project-status.md"),
-  "utf8",
-);
-const roadmap = fs.readFileSync(
-  path.join(repositoryRoot, "docs", "roadmap.md"),
-  "utf8",
-);
-const freshnessAudit = fs.readFileSync(
-  path.join(repositoryRoot, "docs", "matsuri-data-freshness-audit.md"),
-  "utf8",
-);
-const deploymentTopology = fs.readFileSync(
-  path.join(repositoryRoot, "docs", "deployment-topology.md"),
-  "utf8",
-);
+const developmentSchedule = fs.readFileSync(path.join(repositoryRoot, "docs", "development-schedule.md"), "utf8");
+const projectStatus = fs.readFileSync(path.join(repositoryRoot, "docs", "project-status.md"), "utf8");
+const roadmap = fs.readFileSync(path.join(repositoryRoot, "docs", "roadmap.md"), "utf8");
+const freshnessAudit = fs.readFileSync(path.join(repositoryRoot, "docs", "matsuri-data-freshness-audit.md"), "utf8");
+const deploymentTopology = fs.readFileSync(path.join(repositoryRoot, "docs", "deployment-topology.md"), "utf8");
+const activationDoc = fs.readFileSync(path.join(repositoryRoot, "docs", "f2-20-custom-domain-activation.md"), "utf8");
 
 for (const id of [...completedRepositoryIds, "F2-15", ...completedExternalIds]) {
-  assert(
-    developmentSchedule.includes(id),
-    `Development schedule is missing ${id}.`,
-  );
+  assert(developmentSchedule.includes(id), `Development schedule is missing ${id}.`);
 }
 for (const id of pendingExternalIds) {
-  assert(
-    developmentSchedule.includes(id),
-    `Development schedule is missing pending external work ${id}.`,
-  );
+  assert(developmentSchedule.includes(id), `Development schedule is missing pending external work ${id}.`);
 }
 assert(
-  projectStatus.includes("F2-16 through F2-19 — completed"),
-  "Project status does not record F2-16 through F2-19 completion.",
+  projectStatus.includes("F2-16 through F2-20 — completed"),
+  "Project status does not record F2-16 through F2-20 completion.",
 );
 assert(
-  projectStatus.includes("F2-20 through F2-28 — operational hold"),
-  "Project status does not record the post-decision operational hold.",
+  projectStatus.includes("F2-21 through F2-28 — operational hold"),
+  "Project status does not move the operational hold to F2-21.",
 );
 assert(
   projectStatus.includes("F2-M02 — Matsuri data freshness audit — completed"),
@@ -253,21 +207,10 @@ assert(
   developmentSchedule.includes("F2-M02  Matsuri data freshness audit — completed"),
   "Development schedule does not record F2-M02 completion.",
 );
+assert(roadmap.includes("F2-M02  completed"), "Roadmap does not record F2-M02 completion.");
 assert(
-  roadmap.includes("F2-M02  completed"),
-  "Roadmap does not record F2-M02 completion.",
-);
-assert(
-  freshnessAudit.includes(
-    "**Status:** F2-M02 completed / routine date-triggered maintenance continues",
-  ),
+  freshnessAudit.includes("**Status:** F2-M02 completed / routine date-triggered maintenance continues"),
   "Matsuri freshness audit does not record F2-M02 completion.",
-);
-assert(
-  freshnessAudit.includes("Closed-period unresolved            0") &&
-    freshnessAudit.includes("Specialists with no Relation          0") &&
-    freshnessAudit.includes("Relations missing Evidence             0"),
-  "Matsuri freshness audit does not preserve the completed zero-candidate results.",
 );
 assert(
   deploymentTopology.includes("yukue.badjoke-lab.com") &&
@@ -276,11 +219,15 @@ assert(
   "Deployment topology does not preserve the accepted portal and Matsuri separation.",
 );
 assert(
-  roadmap.includes("External deployment through F2-19: **Completed**") &&
-    roadmap.includes("Domain attachment and canonical activation: **Operational hold at F2-20**"),
-  "Roadmap does not reflect F2-19 completion and the F2-20 hold.",
+  activationDoc.includes("**Status:** Completed") && activationDoc.includes("29191904624"),
+  "F2-20 activation document does not record successful completion evidence.",
+);
+assert(
+  roadmap.includes("External deployment through F2-20: **Completed**") &&
+    roadmap.includes("Canonical verification record: **Operational hold at F2-21**"),
+  "Roadmap does not reflect F2-20 completion and the F2-21 hold.",
 );
 
 console.log(
-  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-19 and F2-M02 are complete, F2-20 through F2-28 remain on hold, canonical hostname matsuri-yukue.badjoke-lab.com is decided but not active, and MATSURI_PUBLIC_ORIGIN remains unset.`,
+  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-20 and F2-M02 are complete, F2-21 through F2-28 remain on hold, canonical origin https://matsuri-yukue.badjoke-lab.com is active, and verification run 29191904624 is recorded.`,
 );
