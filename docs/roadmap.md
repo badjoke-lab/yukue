@@ -67,7 +67,7 @@ Phase 9 is implemented as F2 work packages.
 ### Repository baselines
 
 ```text
-F2-01  Pages build and artifact contract
+F2-01  static build and artifact contract
 F2-02  public reference and secondary browse surfaces
 F2-03  deployed and canonical verification tooling
 F2-04  deployment verifier hardening
@@ -103,18 +103,16 @@ F2-M01  exhaustive desktop/mobile full-page screenshot workflow
 
 Status: **Completed**
 
-The repository retains successful full-page renders, capture manifests, screenshot integrity reports, contact sheets, and desktop/mobile archives from a local GitHub Actions preview. The first exhaustive baseline captured all 20 routes on desktop and mobile and completed human visual review.
-
-The workflow remains available for future non-trivial UI maintenance.
+The repository retains successful full-page renders, capture manifests, screenshot integrity reports, contact sheets, and desktop/mobile archives from a local GitHub Actions preview. The workflow remains available for future non-trivial UI maintenance.
 
 ### External deployment and production verification
 
 ```text
-F2-16  Cloudflare Pages project connection
-F2-17  first deployment and reachable URL
+F2-16  Cloudflare Workers Builds connection
+F2-17  first Workers Static Assets deployment and reachable URL
 F2-18  deployed-origin smoke verification
-F2-19  canonical origin and domain decision
-F2-20  canonical-origin configuration and redeployment
+F2-19  exact canonical Matsuri subdomain decision
+F2-20  custom-domain attachment, canonical-origin configuration, and redeployment
 F2-21  canonical manifest and sitemap verification
 F2-22  production browser Search verification
 F2-23  crawler-reachability review
@@ -136,7 +134,22 @@ F2-16  active
 F2-17–F2-28  pending in fixed order
 ```
 
-The first deployment uses Cloudflare Pages Git integration, project name `matsuri-yukue`, production branch `main`, repository-root build command `pnpm build:matsuri:pages`, and output directory `apps/matsuri/dist`.
+The first deployment uses Cloudflare Workers Builds Git integration with:
+
+```text
+Worker name                    matsuri-yukue
+repository                     badjoke-lab/yukue
+production branch              main
+root directory                 repository root
+build command                  pnpm build:matsuri:workers
+deploy command                 npx wrangler@latest deploy
+non-production deploy command  npx wrangler@latest versions upload
+asset directory                apps/matsuri/dist
+```
+
+The root `wrangler.jsonc` contains no `main` entry, so the launch serves static assets only. Do not add SSR or Worker runtime code.
+
+The accepted public topology uses the series parent domain for the portal and a separate subdomain for each specialist site. The exact domain remains pending at F2-19.
 
 Do not enable a custom domain, canonical origin, Search indexing work, or Analytics before the corresponding gate.
 
