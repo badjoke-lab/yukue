@@ -1,16 +1,16 @@
 # Repository Launch Readiness
 
-**Status:** Completed repository gate / visual-review baseline implemented / external activation resumed
+**Status:** Completed repository gate / F2-19 canonical topology accepted
 
 ## Decision
 
 `祭のゆくえ` has completed the repository-side launch-preparation gate.
 
-This means the reviewed canonical dataset, Public Projection, static site, Search artifact, machine-readable output, internal navigation, semantic rules, Evidence, public content, browser behavior, and release-candidate artifact have passed the unified repository checks.
+This means the reviewed canonical dataset, Public Projection, static site, Search artifact, machine-readable output, internal navigation, semantic rules, Evidence, public content, browser behavior, release-candidate artifact, and accepted deployment topology have passed the unified repository checks.
 
 The first exhaustive successful-render visual-review baseline is also implemented and reviewed.
 
-It does not mean that the public production launch is complete.
+It does not mean that the custom domain or public production launch is complete.
 
 ## Gate command
 
@@ -23,12 +23,14 @@ pnpm gate:matsuri:repository
 The gate executes:
 
 ```text
+pnpm check:yukue:deployment-topology
+pnpm check:matsuri:workers-config
 pnpm verify:release
 pnpm freeze:matsuri:release
 node scripts/check-matsuri-readiness-gate.mjs
 ```
 
-## Completed repository work
+## Completed repository and maintenance work
 
 ```text
 F2-07  unified release verification
@@ -41,15 +43,19 @@ F2-13  public content, empty-state, and image-boundary audit
 F2-14  release-candidate artifact freeze
 F2-15  Repository Launch Readiness Gate
 F2-M01 full-page screenshot visual-review workflow
+F2-M02 Matsuri data freshness audit
 ```
 
 ## Required passing state
 
 The repository gate requires:
 
+- the accepted portal and specialist-site topology validates,
+- portal and Matsuri Worker names and hostnames remain distinct,
+- specialist sites are not nested under a portal path,
 - all workspaces build,
 - shared checks and typechecks pass,
-- the exact Matsuri Pages artifact builds,
+- the exact Matsuri static artifact builds,
 - required routes and local assets exist,
 - internal links resolve,
 - sitemap and route inventories match,
@@ -59,11 +65,13 @@ The repository gate requires:
 - Current State Evidence meets the freshness rule,
 - public content and infrastructure status remain honest,
 - image, empty-state, map, and external-link boundaries pass,
-- all 20 public routes pass the desktop, tablet, and mobile Chromium audit,
+- all public routes pass the desktop, tablet, and mobile Chromium audit,
 - desktop and mobile pass the automated WCAG A/AA scan,
 - the verified artifact freezes successfully,
 - every frozen file and aggregate artifact digest revalidate,
-- the release manifest records F2-16 through F2-28 as external work.
+- the release manifest records F2-16 through F2-19 as completed external work,
+- the release manifest records F2-20 through F2-28 as pending,
+- the accepted Matsuri hostname is recorded as a decision but not as an active canonical origin.
 
 The screenshot workflow remains separate because successful-render retention and human visual review are not deterministic release-integrity checks.
 
@@ -72,16 +80,45 @@ The screenshot workflow remains separate because successful-render retention and
 ```text
 repository launch readiness   completed
 visual-review baseline        implemented and reviewed
-F2-16 Pages activation        active
-public deployment URL         not yet recorded
-canonical production origin   not configured
+F2-M02 data audit             completed
+Workers deployment            reachable and verified
+F2-19 hostname decision       completed
+Matsuri custom domain         not attached
+MATSURI_PUBLIC_ORIGIN         unset
+active canonical origin       none
 production browser Search     not verified
 crawler and indexability      not verified
 Web Analytics                 not enabled
 production traffic            not verified
 ```
 
-## Visual-review baseline after the gate
+## Accepted topology
+
+```text
+yukue.badjoke-lab.com          portal
+matsuri-yukue.badjoke-lab.com  Matsuri
+```
+
+```text
+apps/portal   → Worker yukue-portal
+apps/matsuri  → Worker matsuri-yukue
+```
+
+The portal is the series entrance. It does not serve Matsuri from a `/matsuri/` path.
+
+Governing specification:
+
+```text
+docs/deployment-topology.md
+```
+
+Machine-readable contract:
+
+```text
+config/yukue-deployment-topology.json
+```
+
+## Visual-review baseline
 
 F2-M01 added a successful-render review workflow without reopening product scope or changing the F2-15 release gate.
 
@@ -105,25 +142,23 @@ The first review record is:
 docs/audits/matsuri-f2-m01-visual-review-2026-07-11.md
 ```
 
-A green repository gate remains necessary but is not treated as proof that subjective UI review is complete. Future non-trivial UI changes must generate and review a new screenshot artifact.
+A green repository gate remains necessary but is not proof that subjective UI review is complete. Future non-trivial UI changes must generate and review a new screenshot artifact.
 
-## External activation
+## External activation sequence
 
-The operational hold was removed on 2026-07-12.
-
-Active work:
+Completed:
 
 ```text
-F2-16  create or connect the Cloudflare Pages project
+F2-16  Workers Builds connection
+F2-17  first Workers Static Assets deployment and reachable URL
+F2-18  deployed-origin smoke verification
+F2-19  exact canonical Matsuri hostname decision
 ```
 
-Pending sequence:
+Pending:
 
 ```text
-F2-17  first deployment and reachable URL
-F2-18  deployed-origin smoke verification
-F2-19  canonical origin and domain decision
-F2-20  configure MATSURI_PUBLIC_ORIGIN and redeploy
+F2-20  attach custom domain, configure MATSURI_PUBLIC_ORIGIN, redeploy
 F2-21  canonical manifest and sitemap verification
 F2-22  production browser Search verification
 F2-23  crawler-reachability review
@@ -140,7 +175,7 @@ The governing external runbook is:
 docs/cloudflare-pages-launch-runbook.md
 ```
 
-F2-16 does not authorize custom-domain activation, Analytics activation, or production-readiness claims.
+F2-19 does not authorize canonical production claims. F2-20 must attach the exact hostname, set the exact HTTPS environment value, and redeploy before canonical verification begins.
 
 ## Maintenance during activation
 
