@@ -1,0 +1,120 @@
+{
+  "entities": [
+    {
+      "id": "org-suneori-amagoi-hozonkai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-12T00:00:00Z",
+      "updated_at": "2026-07-12T00:00:00Z",
+      "slug": "suneori-amagoi-hozonkai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "脚折雨乞行事保存会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-tsurugashima-suneori-record-2024"]
+        }
+      ],
+      "summary_ja": "脚折雨乞の主催と、龍蛇の素材作りから記録映像製作までを担う保存団体。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "11",
+            "prefecture_name_ja": "埼玉県",
+            "municipality_name_ja": "鶴ヶ島市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "municipality_page",
+          "platform": "web",
+          "url": "https://www.city.tsurugashima.lg.jp/bunka-sports-kankou/bunkazai/ashioriamagoi/page011157.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-07-12"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "preservation_group"
+    }
+  ],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [
+    {
+      "id": "rel-suneori-organized-by-hozonkai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-suneori-amagoi",
+      "relation_type": "organized_by",
+      "target_entity_id": "org-suneori-amagoi-hozonkai",
+      "evidence_ids": ["evd-rel-suneori-organized-by-hozonkai"],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-tsurugashima-suneori-record-2024",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "「脚折雨乞」令和6年度記録映像が完成しました",
+      "publisher": "鶴ヶ島市",
+      "url": "https://www.city.tsurugashima.lg.jp/bunka-sports-kankou/bunkazai/ashioriamagoi/page011157.html",
+      "published_at": "2025-01-23",
+      "accessed_at": "2026-07-12",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-suneori-hozonkai-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-tsurugashima-suneori-record-2024",
+      "target_type": "entity_identity",
+      "target_id": "org-suneori-amagoi-hozonkai",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "鶴ヶ島市公式ページは脚折雨乞行事保存会を2024年の脚折雨乞の主催者として明記し、龍蛇の素材作りから記録映像製作までを担ったと説明している。",
+      "captured_at": "2026-07-12",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-suneori-organized-by-hozonkai",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-tsurugashima-suneori-record-2024",
+      "target_type": "relation",
+      "target_id": "rel-suneori-organized-by-hozonkai",
+      "assertion_code": "supports_relation",
+      "summary_ja": "鶴ヶ島市公式ページが脚折雨乞行事保存会を行事の主催者と明記しており、脚折雨乞と保存会の主催関係を裏付ける。",
+      "captured_at": "2026-07-12",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-suneori-occ-organizer-2024",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-tsurugashima-suneori-record-2024",
+      "target_type": "occurrence",
+      "target_id": "occ-suneori-2024",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "鶴ヶ島市公式ページは2024年8月4日に脚折雨乞が開催され、脚折雨乞行事保存会が主催したと記録している。",
+      "captured_at": "2026-07-12",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
