@@ -19,7 +19,7 @@
       "worker_name": "matsuri-yukue",
       "canonical_hostname": "matsuri-yukue.badjoke-lab.com",
       "canonical_origin": "https://matsuri-yukue.badjoke-lab.com",
-      "deployment_status": "workers-origin-verified-custom-domain-pending"
+      "deployment_status": "custom-domain-configured-deployment-pending"
     },
     {
       "site_id": "jinja",

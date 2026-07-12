@@ -10,7 +10,7 @@
   "scripts": {
     "build": "pnpm -r --if-present build",
     "build:matsuri:pages": "pnpm --filter @badjoke-lab/yukue-matsuri... build",
-    "build:matsuri:workers": "pnpm build:matsuri:pages",
+    "build:matsuri:workers": "node scripts/build-matsuri-workers.mjs",
     "check:yukue:deployment-topology": "node scripts/check-yukue-deployment-topology.mjs",
     "check:matsuri:pages": "node scripts/check-matsuri-pages-build.mjs",
     "check:matsuri:workers-config": "node scripts/check-matsuri-workers-config.mjs",
@@ -27,10 +27,10 @@
     "audit:matsuri:relations": "node scripts/audit-matsuri-relation-coverage.mjs",
     "contact:matsuri:screenshots": "node scripts/build-matsuri-contact-sheets.mjs",
     "verify:matsuri:pages": "pnpm build:matsuri:pages && pnpm check:matsuri:pages && pnpm check:matsuri:consistency && pnpm check:matsuri:semantics && pnpm check:matsuri:evidence && pnpm check:matsuri:content && pnpm check:matsuri:browser",
-    "verify:matsuri:workers": "pnpm check:yukue:deployment-topology && pnpm check:matsuri:workers-config && pnpm verify:matsuri:pages",
+    "verify:matsuri:workers": "node scripts/verify-matsuri-workers.mjs",
     "verify:release": "node scripts/verify-release.mjs",
     "freeze:matsuri:release": "node scripts/freeze-matsuri-release-candidate.mjs",
-    "gate:matsuri:repository": "pnpm check:yukue:deployment-topology && pnpm check:matsuri:workers-config && pnpm verify:release && pnpm freeze:matsuri:release && node scripts/check-matsuri-readiness-gate.mjs",
+    "gate:matsuri:repository": "pnpm verify:matsuri:workers && pnpm verify:release && pnpm freeze:matsuri:release && node scripts/check-matsuri-readiness-gate.mjs",
     "check": "pnpm -r --if-present check",
     "typecheck": "pnpm -r --if-present typecheck"
   },

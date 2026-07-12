@@ -1,6 +1,6 @@
 # Deployment
 
-**Status:** F2-16 through F2-19 completed / F2-20 operational hold
+**Status:** F2-16 through F2-19 completed / F2-20 configuration committed / production deployment and verification pending
 
 ## Verified deployment baseline
 
@@ -31,6 +31,8 @@ F2-17  first Workers Static Assets deployment and reachable URL
 F2-18  deployed-origin smoke verification
 F2-19  exact canonical Matsuri hostname decision
 ```
+
+F2-20 code configuration is committed but does not become completed external evidence until production deployment and canonical verification succeed.
 
 ## Accepted public topology
 
@@ -83,12 +85,16 @@ No Astro Cloudflare SSR adapter, Worker runtime entry point, runtime binding, D1
 The repository root contains `wrangler.jsonc`:
 
 ```text
-name              matsuri-yukue
-assets.directory  ./apps/matsuri/dist
-main              absent
+name                         matsuri-yukue
+assets.directory             ./apps/matsuri/dist
+main                         absent
+routes[0].pattern            matsuri-yukue.badjoke-lab.com
+routes[0].custom_domain      true
 ```
 
 The absence of `main` is intentional. The deployment uploads and serves static files only.
+
+The Custom Domain is version-controlled. On production `wrangler deploy`, Cloudflare applies the hostname, DNS record, and certificate state.
 
 Validate the contract with:
 
@@ -119,13 +125,15 @@ pnpm     11.10.0
 
 No runtime secrets or bindings are required.
 
-The canonical hostname decision is:
+The production build does not depend on a dashboard-only environment variable. `scripts/build-matsuri-workers.mjs` reads the accepted public origin from `config/yukue-deployment-topology.json` and passes:
 
 ```text
-matsuri-yukue.badjoke-lab.com
+MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
 ```
 
-`MATSURI_PUBLIC_ORIGIN` remains unset until the custom domain is attached in F2-20.
+to the static build child process.
+
+The value is public configuration, not a secret.
 
 ## Repository commands
 
@@ -139,6 +147,20 @@ pnpm gate:matsuri:repository
 ```
 
 The historical `check:matsuri:pages` name validates the static artifact shape; it does not imply use of the legacy Pages product.
+
+`pnpm gate:matsuri:repository` now verifies two build modes:
+
+```text
+Workers production mode
+- MATSURI_PUBLIC_ORIGIN injected
+- manifest.site_origin present
+- canonical sitemap origin present
+
+Repository release-candidate mode
+- rebuilt without active origin
+- canonical_origin remains null
+- external F2-20 result remains unclaimed
+```
 
 ## Deployed-origin verification
 
@@ -158,51 +180,49 @@ canonical
 false
 ```
 
-The verifier checks the required public routes, Pagefind runtime, public JSON, discovery files, Matsuri markers, representative Entity data, and sitemap structure.
-
-The permanent Workers origin is also reachable:
+After the F2-20 production deployment, run:
 
 ```text
-https://matsuri-yukue.badjoke-lab.workers.dev/
+origin
+https://matsuri-yukue.badjoke-lab.com/
+
+canonical
+true
 ```
 
-## Canonical decision versus activation
+The verifier checks required public routes, Pagefind runtime, public JSON, discovery files, Matsuri markers, representative Entity data, manifest origin, and sitemap structure.
 
-F2-19 decides the intended canonical hostname. It does not activate that origin.
+## F2-20 activation state
 
-Current state:
+Repository configuration:
 
 ```text
 canonical hostname decision  matsuri-yukue.badjoke-lab.com
-custom domain attachment     pending
-MATSURI_PUBLIC_ORIGIN        unset
-active canonical origin      none
+Custom Domain route          committed
+canonical build wrapper      committed
+production deployment        pending
+external HTTPS verification  pending
+active completion claim      none
 ```
 
-Do not emit active canonical production claims until F2-20 succeeds.
-
-## F2-20 activation procedure
-
-F2-20 must be performed in this order:
-
-1. confirm that `matsuri-yukue.badjoke-lab.com` has no conflicting DNS record,
-2. attach it as a Custom Domain to Worker `matsuri-yukue`,
-3. set the Workers Builds environment variable:
+The merge to `main` triggers Workers Builds. The production sequence is:
 
 ```text
-MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
+pnpm build:matsuri:workers
+→ canonical static artifact
+→ npx wrangler deploy
+→ Custom Domain application
+→ DNS and certificate provisioning
+→ external verification
 ```
 
-4. trigger a production deployment,
-5. verify the custom-domain response before canonical checks begin.
+Configuration alone is not F2-20 completion.
 
-Cloudflare Custom Domains create the required DNS record and certificate for the attached hostname. A conflicting existing CNAME must be removed before attachment.
-
-## Domain-dependent hold
+## Remaining hold
 
 ```text
-F2-20  attach custom domain, configure MATSURI_PUBLIC_ORIGIN, redeploy — hold
-F2-21  canonical manifest and sitemap verification — hold
+F2-20  production deployment and canonical custom-domain verification — active
+F2-21  canonical manifest and sitemap verification as a recorded gate — hold
 F2-22  browser Pagefind Search verification on canonical origin — hold
 F2-23  crawler-reachability review — hold
 F2-24  sitemap submission and indexability check — hold
@@ -212,29 +232,30 @@ F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
-The Workers origin is a verified deployment origin, not the canonical public origin.
+The Workers origin remains a verified deployment origin but is not canonical.
 
 Do not:
 
-- treat the hostname decision as proof that the domain is attached,
-- set `MATSURI_PUBLIC_ORIGIN` before attachment,
-- add canonical production claims before the F2-20 deployment,
+- claim that the custom domain is active before HTTPS verification,
+- mark F2-20 complete from repository configuration alone,
 - submit the sitemap before F2-24,
 - enable Web Analytics before F2-25,
-- claim F2-20 through F2-28 completion.
+- claim F2-21 through F2-28 completion.
 
-## Work allowed during the hold
+## Work allowed while external activation is pending
 
-The verified Workers origin may be used for maintenance checks, but not canonical verification.
+- inspect Workers Builds and Wrangler logs,
+- retry a failed production deployment after fixing a verified cause,
+- run DNS and HTTPS checks,
+- run deployed-origin verification,
+- perform date-triggered Occurrence outcome maintenance,
+- review Current State freshness,
+- correct Source and Evidence records,
+- perform security and dependency maintenance,
+- preserve a passing repository gate.
 
-Allowed work includes:
+Focused activation specification:
 
-- date-triggered Occurrence outcome maintenance,
-- Current State freshness reviews,
-- Source and Evidence corrections,
-- Relation improvements when new evidence appears,
-- reviewed factual corrections,
-- security and dependency maintenance,
-- deployed-origin maintenance checks,
-- screenshot-based visual review,
-- repairs required to keep the repository gate green.
+```text
+docs/f2-20-custom-domain-activation.md
+```

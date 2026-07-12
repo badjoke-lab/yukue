@@ -18,10 +18,11 @@ Before implementing a feature, check the relevant document here. When a decision
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, layout language |
 | `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
-| `technical-architecture.md` | F2-19 topology accepted | Build, projection, search, multi-Worker deployment, and origin activation |
+| `technical-architecture.md` | F2-20 configuration committed | Build, projection, search, multi-Worker deployment, dual artifact verification, and canonical activation |
 | `deployment-topology.md` | F2-19 accepted | Exact portal and specialist-site hostnames, separate Worker boundary, and migration invariants |
-| `cloudflare-pages-launch-runbook.md` | F2-16–F2-19 completed | Workers Builds contract, verified deployment, hostname decision, and F2-20 dashboard procedure |
-| `deployment.md` | F2-19 completed / F2-20 hold | Current Workers deployment state, accepted hostname, and canonical-activation boundary |
+| `f2-20-custom-domain-activation.md` | External verification pending | Code-managed Custom Domain, canonical build wrapper, merge sequence, and completion evidence |
+| `cloudflare-pages-launch-runbook.md` | F2-20 configuration committed | Workers Builds contract, verified deployment, code-managed activation, and external verification boundary |
+| `deployment.md` | F2-20 deployment pending | Current Workers state, Custom Domain configuration, dual build modes, and canonical-verification boundary |
 | `matsuri-data-freshness-audit.md` | F2-M02 completed | Completed fixed-date audit and rules for routine Occurrence, State, Source, Evidence, and Relation maintenance |
 | `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, Current State, and external-link freshness candidate inventory |
 | `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 post-event Evidence and `held` correction for the 2026 相馬野馬追 Occurrence |

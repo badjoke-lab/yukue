@@ -4,5 +4,11 @@
   "compatibility_date": "2026-07-12",
   "assets": {
     "directory": "./apps/matsuri/dist"
-  }
+  },
+  "routes": [
+    {
+      "pattern": "matsuri-yukue.badjoke-lab.com",
+      "custom_domain": true
+    }
+  ]
 }
