@@ -19,8 +19,10 @@ import batch10 from "../../../../data/public/matsuri/f1/batch-10.json";
 import maintenance01 from "../../../../data/public/matsuri/f2/maintenance-01.json";
 import maintenance02 from "../../../../data/public/matsuri/f2/maintenance-02.json";
 import maintenance03 from "../../../../data/public/matsuri/f2/maintenance-03.json";
+import maintenance04 from "../../../../data/public/matsuri/f2/maintenance-04.json";
 import corrections01 from "../../../../data/public/matsuri/f2/corrections-01.json";
 import corrections02 from "../../../../data/public/matsuri/f2/corrections-02.json";
+import corrections03 from "../../../../data/public/matsuri/f2/corrections-03.json";
 
 type CanonicalRecord = {
   id: string;
@@ -43,9 +45,10 @@ const additiveBundles = [
   maintenance01,
   maintenance02,
   maintenance03,
+  maintenance04,
 ];
 
-const correctionBundles = [corrections01, corrections02];
+const correctionBundles = [corrections01, corrections02, corrections03];
 
 const bundleRecords = (
   bundles: ReadonlyArray<Record<string, unknown>>,
