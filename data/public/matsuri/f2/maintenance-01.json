@@ -1,0 +1,86 @@
+{
+  "entities": [
+    {
+      "id": "org-gujo-odori-hozonkai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-12T00:00:00Z",
+      "updated_at": "2026-07-12T00:00:00Z",
+      "slug": "gujo-odori-hozonkai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "郡上おどり保存会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-gujo-about"]
+        }
+      ],
+      "summary_ja": "郡上おどりの保存団体として、踊り会場で保存会員による審査と免許状公布を行う組織。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "21",
+            "prefecture_name_ja": "岐阜県",
+            "municipality_name_ja": "郡上市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [],
+      "record_lifecycle": "active",
+      "organization_kind": "preservation_group"
+    }
+  ],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [
+    {
+      "id": "rel-gujo-odori-maintained-by-hozonkai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fpf-gujo-odori",
+      "relation_type": "maintained_by",
+      "target_entity_id": "org-gujo-odori-hozonkai",
+      "evidence_ids": ["evd-rel-gujo-odori-hozonkai"],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [],
+  "evidence": [
+    {
+      "id": "evd-gujo-hozonkai-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-gujo-about",
+      "target_type": "entity_identity",
+      "target_id": "org-gujo-odori-hozonkai",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "郡上八幡観光協会の公式案内は郡上おどり保存会を明記し、保存会員が踊り会場で審査を行い、免許状を公布する仕組みを説明している。",
+      "captured_at": "2026-07-12",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-gujo-odori-hozonkai",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-gujo-about",
+      "target_type": "relation",
+      "target_id": "rel-gujo-odori-maintained-by-hozonkai",
+      "assertion_code": "supports_relation",
+      "summary_ja": "公式観光案内は郡上おどり保存会の会員が踊りの審査と免許状公布を担うと説明しており、同保存会が郡上おどりの維持・継承に関与する関係を裏付ける。",
+      "captured_at": "2026-07-12",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
