@@ -18,11 +18,11 @@ Before implementing a feature, check the relevant document here. When a decision
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, layout language |
 | `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
-| `technical-architecture.md` | F2-20 configuration committed | Build, projection, search, multi-Worker deployment, dual artifact verification, and canonical activation |
+| `technical-architecture.md` | F2-20 active baseline | Build, projection, search, multi-Worker deployment, dual artifact verification, and canonical activation |
 | `deployment-topology.md` | F2-19 accepted | Exact portal and specialist-site hostnames, separate Worker boundary, and migration invariants |
-| `f2-20-custom-domain-activation.md` | External verification pending | Code-managed Custom Domain, canonical build wrapper, merge sequence, and completion evidence |
-| `cloudflare-pages-launch-runbook.md` | F2-20 configuration committed | Workers Builds contract, verified deployment, code-managed activation, and external verification boundary |
-| `deployment.md` | F2-20 deployment pending | Current Workers state, Custom Domain configuration, dual build modes, and canonical-verification boundary |
+| `f2-20-custom-domain-activation.md` | Completed | Code-managed Custom Domain, canonical build wrapper, successful external verification, and portal protection |
+| `cloudflare-pages-launch-runbook.md` | F2-20 completed | Workers Builds contract, verified deployment, code-managed activation, and canonical verification boundary |
+| `deployment.md` | F2-20 completed / F2-21 next | Active canonical deployment, dual build modes, and next verification gate |
 | `matsuri-data-freshness-audit.md` | F2-M02 completed | Completed fixed-date audit and rules for routine Occurrence, State, Source, Evidence, and Relation maintenance |
 | `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, Current State, and external-link freshness candidate inventory |
 | `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 post-event Evidence and `held` correction for the 2026 相馬野馬追 Occurrence |
@@ -30,13 +30,13 @@ Before implementing a feature, check the relevant document here. When a decision
 | `audits/matsuri-f2-m02-suneori-relation-2026-07-12.md` | Maintenance batch 02 | 脚折雨乞行事保存会 Entity, `organized_by` Relation, and 2024 Occurrence organizer correction |
 | `audits/matsuri-f2-m02-nunobashi-relation-2026-07-12.md` | Maintenance batch 03 | 富山県［立山博物館］ Entity, conservative `supported_by` Relation, and completion of initial zero-Relation coverage |
 | `release-verification.md` | F2 repository baseline | Unified release verification, topology check, CI stages, and external limits |
-| `release-candidate.md` | F2-19 decision recorded | Verified static artifact, hashes, accepted hostname decision, and active-origin boundary |
-| `repository-launch-readiness.md` | Completed repository gate | F2-15 decision, required checks, accepted topology, and F2-20 activation boundary |
+| `release-candidate.md` | F2-20 completion recorded | Verified static artifact, hashes, active canonical origin metadata, and pending external gates |
+| `repository-launch-readiness.md` | Completed repository gate | F2-15 decision, required checks, accepted topology, and F2-21 boundary |
 | `visual-review-workflow.md` | Implemented repository baseline | Successful full-page screenshot capture, automated checks, contact sheets, and human UI review |
 | `audits/matsuri-f2-m01-visual-review-2026-07-11.md` | Passed audit | First exhaustive Matsuri desktop/mobile screenshot review |
 | `source-evidence-audit.md` | F2 repository baseline | Source metadata, Evidence targeting, Current State freshness, and audit boundaries |
 | `browser-accessibility-audit.md` | F2 repository baseline | Chromium viewport matrix, WCAG checks, keyboard behavior, and audit limits |
-| `public-content-audit.md` | F2 repository baseline | Data and Methodology alignment, deployment status, empty states, image and map boundaries |
+| `public-content-audit.md` | F2 repository baseline | Data and Methodology alignment, deployment status, empty states, and image-boundary audit |
 | `analytics.md` | Initial baseline | Launch analytics purpose, activation, verification, and privacy boundary |
 | `roadmap.md` | Current | Long-range phases and gates |
 | `development-schedule.md` | Current | Concrete implementation and PR sequence |
