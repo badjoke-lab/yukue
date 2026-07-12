@@ -18,8 +18,9 @@ Before implementing a feature, check the relevant document here. When a decision
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, layout language |
 | `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
-| `technical-architecture.md` | Current direction | Build, projection, search, deployment |
-| `cloudflare-pages-launch-runbook.md` | F2-16 active | Git integration, monorepo build settings, first deploy, evidence, and verification sequence |
+| `technical-architecture.md` | Current direction | Build, projection, search, and Workers Static Assets deployment |
+| `cloudflare-pages-launch-runbook.md` | F2-16 active | Current Workers Builds Git integration, static-asset settings, first deploy, evidence, and verification sequence; historical filename retained temporarily |
+| `deployment.md` | F2-16 active | Wrangler contract, Workers Builds settings, canonical boundary, and external launch sequence |
 | `release-verification.md` | F2 repository baseline | Unified release-candidate command, workspace contract, CI stages, and external limits |
 | `release-candidate.md` | F2 repository baseline | Verified static artifact freeze, hashes, CI retention, and reproduction |
 | `repository-launch-readiness.md` | Completed repository gate | F2-15 decision, required checks, maintenance state, and external activation boundary |
