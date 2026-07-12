@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-M02 active / domain-dependent launch work on hold
+**Status:** F2-M02 completed / domain-dependent launch work on hold
 
 This document defines the stable implementation order. It complements:
 
@@ -17,7 +17,7 @@ Foundation through Stage E  completed
 F1 corpus expansion          completed
 F2-01 through F2-18          completed
 F2-M01                       completed
-F2-M02                       active
+F2-M02                       completed
 F2-19 through F2-28          operational hold
 ```
 
@@ -70,19 +70,29 @@ pnpm gate:matsuri:repository
 
 ```text
 F2-M01  full-page screenshot visual-review workflow — completed
-F2-M02  Matsuri data freshness audit — active
+F2-M02  Matsuri data freshness audit — completed
 ```
 
-#### F2-M02 implementation order
+#### F2-M02 completed sequence
 
-1. generate or manually establish the audit candidate inventory,
-2. review approved Occurrences whose dates are not in the future and outcomes remain `scheduled` or unresolved `unknown`,
-3. review Current State snapshots for stale observations and later official changes,
-4. review Source and Evidence accuracy and accessibility,
-5. strengthen cross-site reusable Relations,
-6. make approved corrections in bounded batches,
-7. run the full repository gate,
-8. update the audit summary and known limitations.
+1. established the Occurrence, Current State, external-link, and Relation candidate inventories,
+2. reviewed all approved non-future scheduled and unresolved Occurrences,
+3. confirmed zero stale Current State candidates at the fixed audit date,
+4. confirmed zero stale external-link candidates at the fixed audit date,
+5. resolved the initial zero-Relation specialist inventory with evidence-backed bounded batches,
+6. corrected the 2026 相馬野馬追 outcome from `unknown` to `held`,
+7. ran the full repository gate and screenshot workflow,
+8. recorded remaining future-date review points without treating them as current defects.
+
+Completion result:
+
+```text
+closed-period unresolved Occurrences  0
+specialist Entities with no Relation  0
+stale Current State candidates        0
+stale external-link candidates        0
+Relations missing Evidence            0
+```
 
 Governing document:
 
@@ -90,7 +100,14 @@ Governing document:
 docs/matsuri-data-freshness-audit.md
 ```
 
-F2-M02 must not attach a domain, set `MATSURI_PUBLIC_ORIGIN`, declare a canonical origin, submit a sitemap, enable Analytics, or claim final launch completion.
+F2-M02 did not attach a domain, set `MATSURI_PUBLIC_ORIGIN`, declare a canonical origin, submit a sitemap, enable Analytics, or claim final launch completion.
+
+Future-dated Occurrence checks continue as normal maintenance:
+
+```text
+博多祇園山笠 2026  review after 2026-07-15
+郡上おどり 2026    review after 2026-09-05
+```
 
 ### Block B — External deployment and production verification
 
@@ -131,12 +148,11 @@ The hold begins at F2-19 because the next steps depend on the exact custom domai
 
 ## Work allowed during the hold
 
-- F2-M02 data freshness and evidence work,
 - reviewed factual corrections,
+- date-triggered Occurrence outcome maintenance,
 - Current State freshness maintenance,
-- Occurrence outcome maintenance,
 - Source and Evidence maintenance,
-- Relation improvements,
+- Relation improvements when new evidence appears,
 - security and dependency maintenance,
 - repairs required to keep the repository gate green,
 - deployed Workers-origin maintenance checks,
