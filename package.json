@@ -23,6 +23,7 @@
     "capture:matsuri:screenshots": "node scripts/capture-matsuri-screenshots.mjs",
     "audit:matsuri:screenshots": "node scripts/audit-matsuri-screenshots.mjs",
     "audit:matsuri:freshness": "node scripts/audit-matsuri-data-freshness.mjs",
+    "audit:matsuri:relations": "node scripts/audit-matsuri-relation-coverage.mjs",
     "contact:matsuri:screenshots": "node scripts/build-matsuri-contact-sheets.mjs",
     "verify:matsuri:pages": "pnpm build:matsuri:pages && pnpm check:matsuri:pages && pnpm check:matsuri:consistency && pnpm check:matsuri:semantics && pnpm check:matsuri:evidence && pnpm check:matsuri:content && pnpm check:matsuri:browser",
     "verify:matsuri:workers": "pnpm check:matsuri:workers-config && pnpm verify:matsuri:pages",
