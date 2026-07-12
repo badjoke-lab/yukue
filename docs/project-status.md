@@ -15,7 +15,7 @@ F2-15 — Repository Launch Readiness Gate — completed
 F2-M01 — Full-page screenshot visual-review workflow — completed
 F2-16 through F2-18 — completed
 F2-19 through F2-28 — operational hold
-F2-M02 — Matsuri data freshness audit — active
+F2-M02 — Matsuri data freshness audit — completed
 ```
 
 The first Matsuri Cloudflare Workers Static Assets deployment is reachable and has passed the deployed-origin verification workflow. Domain-dependent work is paused until custom-domain operations can resume.
@@ -95,7 +95,31 @@ F2-13  public content, empty-state, and image-boundary audit — completed
 F2-14  release-candidate artifact freeze — completed
 F2-15  Repository Launch Readiness Gate — completed
 F2-M01 full-page screenshot visual-review workflow — completed
+F2-M02 Matsuri data freshness audit — completed
 ```
+
+### F2-M02 completion result
+
+```text
+Occurrences total                    24
+Resolved Occurrences                 15
+Closed-period unresolved              0
+Stale Current State candidates        0
+Stale external-link candidates        0
+Specialist Entities with no Relation  0
+Relations missing Evidence            0
+```
+
+Completed bounded maintenance:
+
+```text
+郡上おどり    → 郡上おどり保存会          maintained_by
+脚折雨乞      → 脚折雨乞行事保存会        organized_by
+布橋灌頂会    → 富山県［立山博物館］      supported_by
+相馬野馬追2026                           outcome: held
+```
+
+Future-dated Occurrences remain subject to normal date-triggered maintenance. Their future review dates do not keep F2-M02 open.
 
 ### F2 external deployment
 
@@ -145,11 +169,7 @@ During the hold:
 - do not enable Web Analytics,
 - do not claim final launch completion.
 
-## Active package: F2-M02
-
-### Goal
-
-Review and improve the public Matsuri corpus while domain work is paused.
+## Routine maintenance after F2-M02
 
 Governing document:
 
@@ -157,17 +177,14 @@ Governing document:
 docs/matsuri-data-freshness-audit.md
 ```
 
-Priority order:
+Scheduled review points:
 
 ```text
-1. non-future scheduled and unresolved Occurrence outcomes
-2. Current State observation freshness
-3. Source and Evidence quality
-4. cross-site reusable Relations
-5. deployed-environment maintenance checks
+博多祇園山笠 2026  review after 2026-07-15
+郡上おどり 2026    review after 2026-09-05
 ```
 
-F2-M02 does not replace F2-19 through F2-28 and does not make the Workers origin canonical.
+New official changes, Source failures, corrections, and security or dependency repairs may be handled as normal bounded maintenance without reopening F2-M02.
 
 ## Repository gate
 
@@ -175,7 +192,7 @@ F2-M02 does not replace F2-19 through F2-28 and does not make the Workers origin
 pnpm gate:matsuri:repository
 ```
 
-The gate verifies the static artifact, Workers configuration, internal links, semantic consistency, Source and Evidence rules, responsive and accessibility behavior, public-content boundaries, release-candidate hashes, completed external work through F2-18, and preservation of the F2-19 through F2-28 hold.
+The gate verifies the static artifact, Workers configuration, internal links, semantic consistency, Source and Evidence rules, responsive and accessibility behavior, public-content boundaries, release-candidate hashes, completed external work through F2-18, completed F2-M02 audit records, and preservation of the F2-19 through F2-28 hold.
 
 ## Current release status
 
@@ -185,4 +202,4 @@ repository-verified-deployed-origin-verified-domain-hold
 
 ## Immediate next action
 
-Run the F2-M02 candidate inventory and begin the first bounded data-freshness correction batch. Keep domain, canonical, indexing, and Analytics work untouched.
+Keep the verified repository and Workers deployment maintained. Perform the 博多祇園山笠 2026 outcome review after 2026-07-15, or resume F2-19 when custom-domain operations can proceed. Do not advance canonical, indexing, or Analytics work before that boundary is available.

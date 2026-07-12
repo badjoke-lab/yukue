@@ -91,10 +91,22 @@ Status:
 
 ```text
 F2-M01  completed
-F2-M02  active
+F2-M02  completed
 ```
 
-F2-M02 reviews Occurrence outcomes, Current State freshness, Source and Evidence quality, and cross-site reusable Relations while domain-dependent work is paused.
+F2-M02 completed its initial maintenance gate with:
+
+```text
+closed-period unresolved Occurrences  0
+specialist Entities with no Relation  0
+stale Current State candidates        0
+stale external-link candidates        0
+Relations missing Evidence            0
+```
+
+The audit added evidence-backed Relation coverage for 郡上おどり, 脚折雨乞, and 布橋灌頂会 and resolved the 2026 相馬野馬追 outcome as `held` while retaining `scale: unknown`.
+
+Future-dated Occurrences continue through normal date-triggered maintenance rather than keeping F2-M02 open.
 
 ### External deployment and production verification
 

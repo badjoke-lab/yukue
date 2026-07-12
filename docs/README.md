@@ -21,7 +21,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `technical-architecture.md` | Current direction | Build, projection, search, deployment |
 | `cloudflare-pages-launch-runbook.md` | F2-16–F2-18 completed | Workers Builds deployment contract, first deployment evidence, and hold boundary |
 | `deployment.md` | F2-18 verified / F2-19 hold | Current Workers deployment state and canonical-origin boundary |
-| `matsuri-data-freshness-audit.md` | F2-M02 active | Occurrence, Current State, Source, Evidence, Relation, and deployed-origin maintenance audit |
+| `matsuri-data-freshness-audit.md` | F2-M02 completed | Completed fixed-date audit and rules for routine Occurrence, State, Source, Evidence, and Relation maintenance |
 | `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, Current State, and external-link freshness candidate inventory |
 | `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 post-event Evidence and `held` correction for the 2026 相馬野馬追 Occurrence |
 | `audits/matsuri-f2-m02-relation-inventory-2026-07-12.md` | Baseline completed | Initial Relation coverage inventory, first maintenance correction, and remaining evidence candidates |
