@@ -23,6 +23,7 @@ const requiredRootScripts = [
   "check:matsuri:content",
   "check:matsuri:browser",
   "audit:matsuri:freshness",
+  "audit:matsuri:relations",
 ];
 
 const missingRootScripts = requiredRootScripts.filter(
@@ -121,6 +122,11 @@ const stages = [
     name: "Report Matsuri data freshness candidates",
     command: packageManagerCommand,
     args: ["audit:matsuri:freshness"],
+  },
+  {
+    name: "Report Matsuri Relation coverage candidates",
+    command: packageManagerCommand,
+    args: ["audit:matsuri:relations"],
   },
   {
     name: "Validate the deployed-site verifier syntax",

@@ -16,8 +16,16 @@ import batch08 from "../../../../data/public/matsuri/f1/batch-08.json";
 import batch09 from "../../../../data/public/matsuri/f1/batch-09.json";
 import batch09Context from "../../../../data/public/matsuri/f1/batch-09-context.json";
 import batch10 from "../../../../data/public/matsuri/f1/batch-10.json";
+import maintenance01 from "../../../../data/public/matsuri/f2/maintenance-01.json";
+import corrections01 from "../../../../data/public/matsuri/f2/corrections-01.json";
 
-const batches = [
+type CanonicalRecord = {
+  id: string;
+  record_version: number;
+  [key: string]: unknown;
+};
+
+const additiveBundles = [
   batch01,
   batch02,
   batch03,
@@ -29,29 +37,75 @@ const batches = [
   batch09,
   batch09Context,
   batch10,
+  maintenance01,
 ];
-const batchRecords = <TKey extends keyof (typeof batches)[number]>(key: TKey) =>
-  batches.flatMap((batch) => batch[key]);
+
+const additiveRecords = (key: string): CanonicalRecord[] =>
+  additiveBundles.flatMap((bundle) => {
+    const recordsForKey = (bundle as Record<string, unknown>)[key];
+    return Array.isArray(recordsForKey) ? (recordsForKey as CanonicalRecord[]) : [];
+  });
+
+function applyRecordOverrides(
+  baseRecords: CanonicalRecord[],
+  overrides: CanonicalRecord[],
+): CanonicalRecord[] {
+  if (overrides.length === 0) return baseRecords;
+
+  const recordsById = new Map(baseRecords.map((record) => [record.id, record]));
+
+  for (const override of overrides) {
+    const previous = recordsById.get(override.id);
+    if (!previous) {
+      throw new Error(
+        `Matsuri projection correction ${override.id} does not replace an existing record.`,
+      );
+    }
+    if (override.record_version <= previous.record_version) {
+      throw new Error(
+        `Matsuri projection correction ${override.id} must increase record_version above ${previous.record_version}.`,
+      );
+    }
+    recordsById.set(override.id, override);
+  }
+
+  return baseRecords.map((record) => recordsById.get(record.id) ?? record);
+}
+
+const occurrenceRecords = [
+  ...(records.occurrences as CanonicalRecord[]),
+  ...additiveRecords("occurrences"),
+];
+const evidenceRecords = [
+  ...(evidence as CanonicalRecord[]),
+  ...additiveRecords("evidence"),
+];
 
 const canonicalBundle = {
-  entities: [...entities, ...batchRecords("entities")],
-  places: [...places, ...batchRecords("places")],
-  stateSnapshots: [...stateSnapshots, ...batchRecords("stateSnapshots")],
-  changeEvents: [...records.changeEvents, ...batchRecords("changeEvents")],
-  occurrences: [...records.occurrences, ...batchRecords("occurrences")],
+  entities: [...entities, ...additiveRecords("entities")],
+  places: [...places, ...additiveRecords("places")],
+  stateSnapshots: [...stateSnapshots, ...additiveRecords("stateSnapshots")],
+  changeEvents: [...records.changeEvents, ...additiveRecords("changeEvents")],
+  occurrences: applyRecordOverrides(
+    occurrenceRecords,
+    corrections01.occurrences as CanonicalRecord[],
+  ),
   occurrenceSeries: [
     ...records.occurrenceSeries,
-    ...batchRecords("occurrenceSeries"),
+    ...additiveRecords("occurrenceSeries"),
   ],
   recurrencePatterns: [
     ...records.recurrencePatterns,
-    ...batchRecords("recurrencePatterns"),
+    ...additiveRecords("recurrencePatterns"),
   ],
-  relations: [...records.relations, ...batchRecords("relations")],
-  designations: [...records.designations, ...batchRecords("designations")],
-  sources: [...records.sources, ...batchRecords("sources")],
-  evidence: [...evidence, ...batchRecords("evidence")],
-  images: [...records.images, ...batchRecords("images")],
+  relations: [...records.relations, ...additiveRecords("relations")],
+  designations: [...records.designations, ...additiveRecords("designations")],
+  sources: [...records.sources, ...additiveRecords("sources")],
+  evidence: applyRecordOverrides(
+    evidenceRecords,
+    corrections01.evidence as CanonicalRecord[],
+  ),
+  images: [...records.images, ...additiveRecords("images")],
 } as unknown as Parameters<typeof buildPublicProjection>[0];
 
 export const matsuriProjection = buildPublicProjection(canonicalBundle);

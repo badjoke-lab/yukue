@@ -1,6 +1,6 @@
 # Matsuri Data Freshness Audit
 
-**Status:** F2-M02 active / initial candidate inventory completed
+**Status:** F2-M02 active / initial Occurrence and Relation inventories completed
 
 ## Purpose
 
@@ -26,7 +26,9 @@ f6fdd5055c2712838ef30ed54048abf7f0674b4c
 
 F2-16 through F2-18 are complete. F2-19 through F2-28 remain on operational hold until custom-domain work can resume.
 
-## Automated inventory
+## Automated inventories
+
+### Occurrence and freshness inventory
 
 Run after the Matsuri static build:
 
@@ -48,7 +50,28 @@ pnpm audit:matsuri:freshness -- --as-of 2026-07-12 --json
 
 The command reads the generated approved Public Projection under `apps/matsuri/dist/data`. It reports review candidates but does not automatically change canonical records or fail merely because candidates exist. It fails on missing feeds, malformed dates, unsupported temporal values, or invalid date ranges.
 
-## Initial inventory result
+### Relation coverage inventory
+
+```text
+pnpm audit:matsuri:relations
+```
+
+JSON output:
+
+```text
+pnpm audit:matsuri:relations -- --json
+```
+
+The Relation command reads the complete canonical dataset. It reports:
+
+- specialist Entities with no Relation,
+- Occurrences that name an organizer without a matching `organized_by` Relation,
+- specialist and shrine or temple Entities that share a canonical Place but have no explicit Relation,
+- Relations with no Evidence IDs.
+
+These are review candidates, not permission to infer a Relation automatically.
+
+## Initial Occurrence inventory result
 
 Audit report:
 
@@ -84,6 +107,45 @@ scale: unknown
 ```
 
 The official 2026 schedule confirms the planned dates and program, but the first evidence pass did not locate an authoritative post-event record sufficient to classify the outcome of the entire multi-day occurrence. The record therefore remains `unknown` rather than being changed by inference.
+
+## Initial Relation inventory result
+
+Audit report:
+
+```text
+docs/audits/matsuri-f2-m02-relation-inventory-2026-07-12.md
+```
+
+Summary after maintenance batch 01:
+
+```text
+Entities total                       42
+Specialist Entities checked          25
+Relations total                      23
+Specialists with no Relation          2
+Occurrence organizer Relation gaps    0
+Place-context Relation gaps            0
+Relations missing Evidence             0
+```
+
+Maintenance batch 01 added:
+
+```text
+郡上おどり
+  └─ maintained_by
+       └─ 郡上おどり保存会
+```
+
+The existing official tourism source identifies the preservation association and explains its venue judging and formal-license role. The batch adds the preservation-group Entity, the directed Relation, and Evidence for both assertions.
+
+Remaining zero-Relation specialists:
+
+```text
+fst-nunobashi-kanjoe  布橋灌頂会
+fst-suneori-amagoi    脚折雨乞
+```
+
+Neither receives a guessed Relation. Further official evidence is required.
 
 ## Audit scope
 
@@ -163,19 +225,22 @@ F2-M02 must not:
 ## Deliverables
 
 ```text
-1. candidate inventory — completed for 2026-07-12 baseline
-2. evidence review notes — active
-3. approved data corrections in bounded batches — pending evidence
-4. validation results — automated on each repository gate
-5. updated audit summary — maintained during F2-M02
+1. Occurrence and freshness candidate inventory — completed for 2026-07-12 baseline
+2. Relation coverage candidate inventory — completed for 2026-07-12 baseline
+3. evidence review notes — active
+4. approved data corrections in bounded batches — maintenance batch 01 completed
+5. validation results — automated on each repository gate
+6. updated audit summary — maintained during F2-M02
 ```
 
 ## Next review points
 
 ```text
-相馬野馬追 2026  continue authoritative post-event evidence search
+相馬野馬追 2026    continue authoritative post-event evidence search
 博多祇園山笠 2026  review after 2026-07-15
 郡上おどり 2026    review after 2026-09-05
+脚折雨乞            inspect official material for a named preservation or execution body
+布橋灌頂会          inspect official material for a named organizer or institutional Relation
 ```
 
 ## Completion condition
