@@ -19,8 +19,14 @@ export const matsuriF1BatchFiles = [
   "batch-10.json",
 ];
 
-export const matsuriF2MaintenanceFiles = ["maintenance-01.json"];
-export const matsuriF2CorrectionFiles = ["corrections-01.json"];
+export const matsuriF2MaintenanceFiles = [
+  "maintenance-01.json",
+  "maintenance-02.json",
+];
+export const matsuriF2CorrectionFiles = [
+  "corrections-01.json",
+  "corrections-02.json",
+];
 
 function readJson(directory, fileName) {
   const filePath = fileURLToPath(new URL(fileName, directory));

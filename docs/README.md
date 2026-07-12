@@ -24,6 +24,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `matsuri-data-freshness-audit.md` | F2-M02 active | Occurrence, Current State, Source, Evidence, Relation, and deployed-origin maintenance audit |
 | `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, Current State, and external-link freshness candidate inventory |
 | `audits/matsuri-f2-m02-relation-inventory-2026-07-12.md` | Baseline completed | Initial Relation coverage inventory, first maintenance correction, and remaining evidence candidates |
+| `audits/matsuri-f2-m02-suneori-relation-2026-07-12.md` | Maintenance batch 02 | 脚折雨乞行事保存会 Entity, `organized_by` Relation, and 2024 Occurrence organizer correction |
 | `release-verification.md` | F2 repository baseline | Unified release-candidate command, workspace contract, CI stages, and external limits |
 | `release-candidate.md` | F2 repository baseline | Verified static artifact freeze, hashes, CI retention, and reproduction |
 | `repository-launch-readiness.md` | Completed repository gate | F2-15 decision, required checks, maintenance state, and external activation boundary |

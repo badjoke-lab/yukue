@@ -1,0 +1,33 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [
+    {
+      "id": "occ-suneori-2024",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "subject_entity_id": "fst-suneori-amagoi",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2024-08-04",
+        "end": "2024-08-04",
+        "precision": "day"
+      },
+      "outcome": "held",
+      "scale": "normal",
+      "venue_place_ids": ["plc-suneori-shirahige", "plc-suneori-raidenike"],
+      "organizer_entity_ids": ["org-suneori-amagoi-hozonkai"],
+      "evidence_ids": ["evd-suneori-occ-2024", "evd-suneori-occ-organizer-2024"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
