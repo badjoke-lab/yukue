@@ -1,0 +1,75 @@
+name: Verify Matsuri canonical origin gate
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-canonical-pr.yml"
+      - "docs/f2-20-custom-domain-activation.md"
+      - "docs/project-status.md"
+      - "docs/deployment.md"
+      - "docs/cloudflare-pages-launch-runbook.md"
+      - "config/yukue-deployment-topology.json"
+      - "wrangler.jsonc"
+      - "scripts/check-matsuri-deployed.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-matsuri-canonical-origin
+  cancel-in-progress: true
+
+jobs:
+  verify-canonical-origin:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      MATSURI_CHECK_ORIGIN: https://matsuri-yukue.badjoke-lab.com
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Verify canonical origin with provisioning retries
+        shell: bash
+        run: |
+          set +e
+          attempts=18
+          delay_seconds=30
+
+          for attempt in $(seq 1 "$attempts"); do
+            echo "Canonical verification attempt $attempt of $attempts"
+            node scripts/check-matsuri-deployed.mjs --canonical
+            status=$?
+
+            if [ "$status" -eq 0 ]; then
+              echo "Canonical verification succeeded on attempt $attempt."
+              exit 0
+            fi
+
+            if [ "$attempt" -lt "$attempts" ]; then
+              echo "Custom Domain is not ready or verification failed; retrying in ${delay_seconds}s."
+              sleep "$delay_seconds"
+            fi
+          done
+
+          echo "Canonical verification did not succeed after $attempts attempts."
+          exit 1
+
+      - name: Write verification summary
+        if: always()
+        shell: bash
+        run: |
+          echo "## Matsuri canonical-origin gate" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Origin: $MATSURI_CHECK_ORIGIN" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Canonical mode: true" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Retry window: 18 attempts × 30 seconds" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Commit: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
