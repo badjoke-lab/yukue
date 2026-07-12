@@ -1,6 +1,6 @@
 # F2-20 Matsuri Custom Domain Activation
 
-**Status:** Configuration committed / production deployment and external verification pending
+**Status:** Completed
 
 ## Objective
 
@@ -37,7 +37,7 @@ F2-20 is managed from the repository.
 }
 ```
 
-On the next production `wrangler deploy`, Cloudflare should attach the hostname to Worker `matsuri-yukue`, create the required DNS record, and provision the certificate.
+Cloudflare Workers Builds applies the hostname, DNS record, certificate, and static deployment from `main`.
 
 ### Canonical build origin
 
@@ -47,29 +47,23 @@ The production Workers build command is:
 pnpm build:matsuri:workers
 ```
 
-It executes:
-
-```text
-scripts/build-matsuri-workers.mjs
-```
-
-The wrapper reads the accepted origin from:
+`scripts/build-matsuri-workers.mjs` reads the accepted origin from:
 
 ```text
 config/yukue-deployment-topology.json
 ```
 
-and runs the static Matsuri build with:
+and builds with:
 
 ```text
 MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
 ```
 
-The origin is public configuration, not a secret. Keeping it in the accepted topology avoids a second independent value in the Cloudflare dashboard.
+The origin is public configuration, not a secret. It is not duplicated in a dashboard-only variable.
 
 ## Separation from repository release candidate
 
-The repository gate verifies two different artifacts:
+The repository gate verifies two artifacts:
 
 ```text
 Workers production artifact
@@ -79,49 +73,57 @@ Workers production artifact
 
 Repository release candidate
 - rebuilt without MATSURI_PUBLIC_ORIGIN
-- canonical_origin remains null
-- preserves evidence that external activation still requires verification
+- remains origin-neutral as an artifact
+- records the externally verified active canonical origin in release metadata
 ```
 
-The repository release candidate must not claim F2-20 completion merely because activation configuration exists.
-
-## Merge and deployment sequence
+## Successful external completion evidence
 
 ```text
-1. merge the F2-20 activation PR to main
-2. Workers Builds runs pnpm build:matsuri:workers
-3. Wrangler deploys the static artifact
-4. Wrangler applies the Custom Domain route
-5. Cloudflare creates DNS and certificate state
-6. verify HTTPS reachability
-7. run canonical deployed-origin verification
-8. record F2-20 completion only after external success
+Active canonical origin
+https://matsuri-yukue.badjoke-lab.com/
+
+Verification workflow
+Verify Matsuri canonical origin gate
+
+GitHub Actions run
+29191904624
+
+Result
+success
 ```
 
-## External completion evidence
-
-F2-20 is complete only when all of the following are true:
+The independent GitHub Actions gate confirmed:
 
 ```text
 matsuri-yukue.badjoke-lab.com resolves
 HTTPS request succeeds
 served site is 祭のゆくえ
+required public routes respond
+Pagefind assets respond
+public JSON and discovery files respond
 manifest.site_origin equals https://matsuri-yukue.badjoke-lab.com
 sitemap locations use the exact canonical origin
-canonical deployed-origin workflow succeeds
 workers.dev remains non-canonical
 ```
 
-## Failure boundary
+## Completion decision
 
-If the production deployment or Custom Domain provisioning fails:
+F2-20 is complete because:
 
-- F2-20 remains incomplete,
-- F2-21 through F2-28 remain blocked,
-- do not submit a sitemap,
-- do not enable Analytics,
-- do not mark the custom domain active in project status,
-- inspect Workers Builds and Wrangler deployment logs before retrying.
+1. the code-managed Custom Domain route is deployed,
+2. the canonical production build is active,
+3. the exact hostname is reachable through HTTPS,
+4. the live manifest and sitemap carry the accepted origin,
+5. GitHub Actions run `29191904624` completed successfully.
+
+## Next gate
+
+```text
+F2-21  canonical manifest and sitemap verification as a recorded gate
+```
+
+F2-21 must preserve exact evidence for the live `manifest.site_origin` and sitemap locations. It may reuse the successful F2-20 canonical gate as external evidence, but it must record the verified values explicitly before completion.
 
 ## Portal protection
 
@@ -131,10 +133,17 @@ This activation affects only:
 matsuri-yukue.badjoke-lab.com
 ```
 
-It must not create, attach, or redirect:
+It does not create, attach, or redirect:
 
 ```text
 yukue.badjoke-lab.com
 ```
 
 The latter remains reserved for separate Worker `yukue-portal`.
+
+## Remaining restrictions
+
+- do not submit the sitemap before F2-24,
+- do not enable Cloudflare Web Analytics before F2-25,
+- do not claim production traffic before F2-27,
+- do not claim the final F2 Launch Gate before F2-28.
