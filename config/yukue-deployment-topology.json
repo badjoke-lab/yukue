@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "decision_id": "F2-19",
+  "decision_status": "accepted",
+  "decided_at": "2026-07-12",
+  "parent_zone": "badjoke-lab.com",
+  "portal": {
+    "site_id": "portal",
+    "app_path": "apps/portal",
+    "worker_name": "yukue-portal",
+    "canonical_hostname": "yukue.badjoke-lab.com",
+    "canonical_origin": "https://yukue.badjoke-lab.com",
+    "deployment_status": "planned"
+  },
+  "sites": [
+    {
+      "site_id": "matsuri",
+      "app_path": "apps/matsuri",
+      "worker_name": "matsuri-yukue",
+      "canonical_hostname": "matsuri-yukue.badjoke-lab.com",
+      "canonical_origin": "https://matsuri-yukue.badjoke-lab.com",
+      "deployment_status": "workers-origin-verified-custom-domain-pending"
+    },
+    {
+      "site_id": "jinja",
+      "app_path": "apps/jinja",
+      "worker_name": "jinja-yukue",
+      "canonical_hostname": "jinja-yukue.badjoke-lab.com",
+      "canonical_origin": "https://jinja-yukue.badjoke-lab.com",
+      "deployment_status": "future-site-gate"
+    },
+    {
+      "site_id": "jiin",
+      "app_path": "apps/jiin",
+      "worker_name": "jiin-yukue",
+      "canonical_hostname": "jiin-yukue.badjoke-lab.com",
+      "canonical_origin": "https://jiin-yukue.badjoke-lab.com",
+      "deployment_status": "future-site-gate"
+    },
+    {
+      "site_id": "tomurai",
+      "app_path": "apps/tomurai",
+      "worker_name": "tomurai-yukue",
+      "canonical_hostname": "tomurai-yukue.badjoke-lab.com",
+      "canonical_origin": "https://tomurai-yukue.badjoke-lab.com",
+      "deployment_status": "future-site-gate"
+    }
+  ],
+  "invariants": {
+    "separate_public_sites": true,
+    "separate_cloudflare_workers": true,
+    "specialist_sites_nested_under_portal_path": false,
+    "workers_dev_is_canonical": false,
+    "custom_domain_required_for_canonical_activation": true,
+    "dedicated_parent_domain_migration_supported": true
+  }
+}

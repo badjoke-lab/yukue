@@ -1,6 +1,6 @@
 # Deployment
 
-**Status:** F2-16 through F2-18 completed / F2-19 operational hold
+**Status:** F2-16 through F2-19 completed / F2-20 operational hold
 
 ## Verified deployment baseline
 
@@ -29,6 +29,39 @@ Completed external work:
 F2-16  Workers Builds connection
 F2-17  first Workers Static Assets deployment and reachable URL
 F2-18  deployed-origin smoke verification
+F2-19  exact canonical Matsuri hostname decision
+```
+
+## Accepted public topology
+
+```text
+yukue.badjoke-lab.com
+└─ Yukue Series portal
+
+matsuri-yukue.badjoke-lab.com
+└─ 祭のゆくえ
+```
+
+The portal and Matsuri are separate applications and separate Cloudflare Workers.
+
+```text
+apps/portal   → Worker yukue-portal   → yukue.badjoke-lab.com
+apps/matsuri  → Worker matsuri-yukue  → matsuri-yukue.badjoke-lab.com
+```
+
+The Matsuri site is not hosted below a portal path such as `yukue.badjoke-lab.com/matsuri/`. Deploying the portal later does not replace or reconfigure the Matsuri Worker build contract.
+
+The complete accepted topology is documented in:
+
+```text
+docs/deployment-topology.md
+config/yukue-deployment-topology.json
+```
+
+Validate it with:
+
+```text
+pnpm check:yukue:deployment-topology
 ```
 
 ## Static deployment model
@@ -86,11 +119,18 @@ pnpm     11.10.0
 
 No runtime secrets or bindings are required.
 
-`MATSURI_PUBLIC_ORIGIN` remains unset while F2-19 through F2-20 are on hold.
+The canonical hostname decision is:
+
+```text
+matsuri-yukue.badjoke-lab.com
+```
+
+`MATSURI_PUBLIC_ORIGIN` remains unset until the custom domain is attached in F2-20.
 
 ## Repository commands
 
 ```text
+pnpm check:yukue:deployment-topology
 pnpm build:matsuri:workers
 pnpm check:matsuri:workers-config
 pnpm check:matsuri:pages
@@ -126,23 +166,41 @@ The permanent Workers origin is also reachable:
 https://matsuri-yukue.badjoke-lab.workers.dev/
 ```
 
-## Canonical-origin boundary
+## Canonical decision versus activation
 
-The Workers origin is a verified deployment origin, not the canonical public origin.
+F2-19 decides the intended canonical hostname. It does not activate that origin.
 
-Do not:
+Current state:
 
-- attach a custom domain during the hold,
-- set `MATSURI_PUBLIC_ORIGIN`,
-- add canonical production claims,
-- submit the sitemap to a search engine,
-- enable Cloudflare Web Analytics,
-- claim F2-19 through F2-28 completion.
+```text
+canonical hostname decision  matsuri-yukue.badjoke-lab.com
+custom domain attachment     pending
+MATSURI_PUBLIC_ORIGIN        unset
+active canonical origin      none
+```
+
+Do not emit active canonical production claims until F2-20 succeeds.
+
+## F2-20 activation procedure
+
+F2-20 must be performed in this order:
+
+1. confirm that `matsuri-yukue.badjoke-lab.com` has no conflicting DNS record,
+2. attach it as a Custom Domain to Worker `matsuri-yukue`,
+3. set the Workers Builds environment variable:
+
+```text
+MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
+```
+
+4. trigger a production deployment,
+5. verify the custom-domain response before canonical checks begin.
+
+Cloudflare Custom Domains create the required DNS record and certificate for the attached hostname. A conflicting existing CNAME must be removed before attachment.
 
 ## Domain-dependent hold
 
 ```text
-F2-19  exact canonical Matsuri subdomain decision — hold
 F2-20  attach custom domain, configure MATSURI_PUBLIC_ORIGIN, redeploy — hold
 F2-21  canonical manifest and sitemap verification — hold
 F2-22  browser Pagefind Search verification on canonical origin — hold
@@ -154,13 +212,16 @@ F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
-When domain work resumes, F2-19 first records the exact canonical Matsuri hostname. F2-20 then attaches that hostname, sets:
+The Workers origin is a verified deployment origin, not the canonical public origin.
 
-```text
-MATSURI_PUBLIC_ORIGIN=https://<canonical-matsuri-subdomain>
-```
+Do not:
 
-and triggers a new production deployment.
+- treat the hostname decision as proof that the domain is attached,
+- set `MATSURI_PUBLIC_ORIGIN` before attachment,
+- add canonical production claims before the F2-20 deployment,
+- submit the sitemap before F2-24,
+- enable Web Analytics before F2-25,
+- claim F2-20 through F2-28 completion.
 
 ## Work allowed during the hold
 
@@ -168,18 +229,12 @@ The verified Workers origin may be used for maintenance checks, but not canonica
 
 Allowed work includes:
 
-- Occurrence outcome updates,
+- date-triggered Occurrence outcome maintenance,
 - Current State freshness reviews,
 - Source and Evidence corrections,
-- Relation improvements,
+- Relation improvements when new evidence appears,
 - reviewed factual corrections,
 - security and dependency maintenance,
 - deployed-origin maintenance checks,
 - screenshot-based visual review,
 - repairs required to keep the repository gate green.
-
-The active maintenance package is governed by:
-
-```text
-docs/matsuri-data-freshness-audit.md
-```

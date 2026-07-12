@@ -11,6 +11,7 @@ const releaseManifestPath = path.join(candidateRoot, "release-candidate.json");
 const requiredScripts = [
   "verify:release",
   "freeze:matsuri:release",
+  "check:yukue:deployment-topology",
   "check:matsuri:pages",
   "check:matsuri:workers-config",
   "check:matsuri:consistency",
@@ -30,6 +31,7 @@ const requiredDocs = [
   "docs/public-content-audit.md",
   "docs/repository-launch-readiness.md",
   "docs/cloudflare-pages-launch-runbook.md",
+  "docs/deployment-topology.md",
   "docs/development-schedule.md",
   "docs/project-status.md",
   "docs/roadmap.md",
@@ -54,9 +56,8 @@ const completedRepositoryIds = [
   "F2-14",
 ];
 
-const completedExternalIds = ["F2-16", "F2-17", "F2-18"];
+const completedExternalIds = ["F2-16", "F2-17", "F2-18", "F2-19"];
 const pendingExternalIds = [
-  "F2-19",
   "F2-20",
   "F2-21",
   "F2-22",
@@ -113,12 +114,25 @@ assert(releaseManifest.project_id === "yukue-series", "Unexpected release projec
 assert(releaseManifest.site_id === "matsuri", "Unexpected release site_id.");
 assert(
   releaseManifest.release_status ===
-    "repository-verified-deployed-origin-verified-domain-hold",
+    "repository-verified-deployed-origin-verified-canonical-hostname-decided-domain-attachment-pending",
   `Unexpected release_status: ${String(releaseManifest.release_status)}`,
 );
 assert(
+  releaseManifest.canonical_hostname_decision === "matsuri-yukue.badjoke-lab.com",
+  "Release candidate does not record the accepted Matsuri canonical hostname.",
+);
+assert(
+  releaseManifest.canonical_origin_decision ===
+    "https://matsuri-yukue.badjoke-lab.com",
+  "Release candidate does not record the accepted Matsuri canonical origin decision.",
+);
+assert(
+  releaseManifest.portal_origin_decision === "https://yukue.badjoke-lab.com",
+  "Release candidate does not record the accepted portal origin decision.",
+);
+assert(
   releaseManifest.canonical_origin === null,
-  "Repository-ready candidate must not claim a canonical production origin before F2-20.",
+  "Repository-ready candidate must not claim an active canonical production origin before F2-20.",
 );
 assert(
   typeof releaseManifest.source_commit === "string" &&
@@ -206,6 +220,10 @@ const freshnessAudit = fs.readFileSync(
   path.join(repositoryRoot, "docs", "matsuri-data-freshness-audit.md"),
   "utf8",
 );
+const deploymentTopology = fs.readFileSync(
+  path.join(repositoryRoot, "docs", "deployment-topology.md"),
+  "utf8",
+);
 
 for (const id of [...completedRepositoryIds, "F2-15", ...completedExternalIds]) {
   assert(
@@ -220,12 +238,12 @@ for (const id of pendingExternalIds) {
   );
 }
 assert(
-  projectStatus.includes("F2-16 through F2-18 — completed"),
-  "Project status does not record F2-16 through F2-18 completion.",
+  projectStatus.includes("F2-16 through F2-19 — completed"),
+  "Project status does not record F2-16 through F2-19 completion.",
 );
 assert(
-  projectStatus.includes("F2-19 through F2-28 — operational hold"),
-  "Project status does not record the domain-dependent operational hold.",
+  projectStatus.includes("F2-20 through F2-28 — operational hold"),
+  "Project status does not record the post-decision operational hold.",
 );
 assert(
   projectStatus.includes("F2-M02 — Matsuri data freshness audit — completed"),
@@ -252,11 +270,17 @@ assert(
   "Matsuri freshness audit does not preserve the completed zero-candidate results.",
 );
 assert(
-  roadmap.includes("External deployment through F2-18: **Completed**") &&
-    roadmap.includes("Domain-dependent launch work: **Operational hold at F2-19**"),
-  "Roadmap does not reflect verified deployment and the domain hold.",
+  deploymentTopology.includes("yukue.badjoke-lab.com") &&
+    deploymentTopology.includes("matsuri-yukue.badjoke-lab.com") &&
+    deploymentTopology.includes("must not be nested below the portal path"),
+  "Deployment topology does not preserve the accepted portal and Matsuri separation.",
+);
+assert(
+  roadmap.includes("External deployment through F2-19: **Completed**") &&
+    roadmap.includes("Domain attachment and canonical activation: **Operational hold at F2-20**"),
+  "Roadmap does not reflect F2-19 completion and the F2-20 hold.",
 );
 
 console.log(
-  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-18 and F2-M02 are complete, F2-19 through F2-28 remain on hold, routine date-triggered maintenance is documented, and canonical origin remains unset.`,
+  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-19 and F2-M02 are complete, F2-20 through F2-28 remain on hold, canonical hostname matsuri-yukue.badjoke-lab.com is decided but not active, and MATSURI_PUBLIC_ORIGIN remains unset.`,
 );

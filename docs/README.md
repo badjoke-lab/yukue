@@ -18,18 +18,19 @@ Before implementing a feature, check the relevant document here. When a decision
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, layout language |
 | `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
-| `technical-architecture.md` | Current direction | Build, projection, search, deployment |
-| `cloudflare-pages-launch-runbook.md` | F2-16–F2-18 completed | Workers Builds deployment contract, first deployment evidence, and hold boundary |
-| `deployment.md` | F2-18 verified / F2-19 hold | Current Workers deployment state and canonical-origin boundary |
+| `technical-architecture.md` | F2-19 topology accepted | Build, projection, search, multi-Worker deployment, and origin activation |
+| `deployment-topology.md` | F2-19 accepted | Exact portal and specialist-site hostnames, separate Worker boundary, and migration invariants |
+| `cloudflare-pages-launch-runbook.md` | F2-16–F2-19 completed | Workers Builds contract, verified deployment, hostname decision, and F2-20 dashboard procedure |
+| `deployment.md` | F2-19 completed / F2-20 hold | Current Workers deployment state, accepted hostname, and canonical-activation boundary |
 | `matsuri-data-freshness-audit.md` | F2-M02 completed | Completed fixed-date audit and rules for routine Occurrence, State, Source, Evidence, and Relation maintenance |
 | `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, Current State, and external-link freshness candidate inventory |
 | `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 post-event Evidence and `held` correction for the 2026 相馬野馬追 Occurrence |
 | `audits/matsuri-f2-m02-relation-inventory-2026-07-12.md` | Baseline completed | Initial Relation coverage inventory, first maintenance correction, and remaining evidence candidates |
 | `audits/matsuri-f2-m02-suneori-relation-2026-07-12.md` | Maintenance batch 02 | 脚折雨乞行事保存会 Entity, `organized_by` Relation, and 2024 Occurrence organizer correction |
 | `audits/matsuri-f2-m02-nunobashi-relation-2026-07-12.md` | Maintenance batch 03 | 富山県［立山博物館］ Entity, conservative `supported_by` Relation, and completion of initial zero-Relation coverage |
-| `release-verification.md` | F2 repository baseline | Unified release-candidate command, workspace contract, CI stages, and external limits |
-| `release-candidate.md` | F2 repository baseline | Verified static artifact freeze, hashes, CI retention, and reproduction |
-| `repository-launch-readiness.md` | Completed repository gate | F2-15 decision, required checks, maintenance state, and external activation boundary |
+| `release-verification.md` | F2 repository baseline | Unified release verification, topology check, CI stages, and external limits |
+| `release-candidate.md` | F2-19 decision recorded | Verified static artifact, hashes, accepted hostname decision, and active-origin boundary |
+| `repository-launch-readiness.md` | Completed repository gate | F2-15 decision, required checks, accepted topology, and F2-20 activation boundary |
 | `visual-review-workflow.md` | Implemented repository baseline | Successful full-page screenshot capture, automated checks, contact sheets, and human UI review |
 | `audits/matsuri-f2-m01-visual-review-2026-07-11.md` | Passed audit | First exhaustive Matsuri desktop/mobile screenshot review |
 | `source-evidence-audit.md` | F2 repository baseline | Source metadata, Evidence targeting, Current State freshness, and audit boundaries |
@@ -77,4 +78,4 @@ Repository documents are the implementation reference for public project behavio
 
 ## Update discipline
 
-A pull request that changes public behavior should update the relevant specification when it affects record structure, publication behavior, page structure, navigation, evidence rules, image rules, UI direction, design tokens, UI foundation behavior, technical architecture, roadmap gates, active implementation sequence, or project status.
+A pull request that changes public behavior should update the relevant specification when it affects record structure, publication behavior, page structure, navigation, evidence rules, image rules, UI direction, design tokens, UI foundation behavior, technical architecture, deployment topology, roadmap gates, active implementation sequence, or project status.

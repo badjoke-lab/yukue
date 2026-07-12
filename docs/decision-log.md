@@ -132,7 +132,7 @@ The repository gate is:
 pnpm gate:matsuri:repository
 ```
 
-Repository readiness does not itself prove a Cloudflare project exists, a public URL has been issued, the canonical origin is selected, production Search or crawler behavior works, Web Analytics is enabled, or production traffic exists.
+Repository readiness does not itself prove a Cloudflare deployment exists, a public URL has been issued, the canonical origin is active, production Search or crawler behavior works, Web Analytics is enabled, or production traffic exists.
 
 ## 2026-07-11 — Successful-render visual review before production
 
@@ -163,17 +163,19 @@ This superseded the earlier same-day assumption that the legacy Cloudflare Pages
 
 The root `wrangler.jsonc` is the deployment contract. It has no `main` field because Matsuri is fully pre-rendered and requires no Worker runtime code or Astro Cloudflare SSR adapter.
 
-## 2026-07-12 — Subdomain public topology
+## 2026-07-12 — Separate-site public topology
 
 ```text
-parent domain root  Yukue Series portal
-Matsuri subdomain   祭のゆくえ
-Jinja subdomain     神社のゆくえ
-Jiin subdomain      寺院のゆくえ
-Tomurai subdomain   弔いのゆくえ
+series portal       separate public site
+Matsuri             separate public site
+Jinja               future separate public site
+Jiin                future separate public site
+Tomurai             future separate public site
 ```
 
 The specialist sites remain separate public sites while sharing the monorepo, canonical data, schemas, validation, Relations, Evidence, and common packages.
+
+The portal is a series entrance and cross-site guide. It is not a runtime path parent for the specialist sites.
 
 ## 2026-07-12 — F2-16 through F2-18 completed
 
@@ -200,37 +202,82 @@ Verified source commit
 f6fdd5055c2712838ef30ed54048abf7f0674b4c
 ```
 
-The verified Workers origin is deployment evidence. It is not automatically the canonical public origin.
+The verified Workers origin is deployment evidence. It is not the canonical public origin.
 
-## 2026-07-12 — Domain-dependent launch work paused at F2-19
+## 2026-07-12 — F2-M02 data freshness audit completed
 
 ```text
-F2-19 through F2-28  operational hold
+closed-period unresolved Occurrences  0
+specialist Entities with no Relation  0
+stale Current State candidates        0
+stale external-link candidates        0
+Relations missing Evidence            0
+```
+
+Future-dated Occurrences continue as normal date-triggered maintenance.
+
+## 2026-07-12 — F2-19 exact canonical topology accepted
+
+```text
+Portal Worker             yukue-portal
+Portal hostname           yukue.badjoke-lab.com
+
+Matsuri Worker            matsuri-yukue
+Matsuri hostname          matsuri-yukue.badjoke-lab.com
+Matsuri origin decision   https://matsuri-yukue.badjoke-lab.com
+```
+
+The portal and Matsuri remain separate applications and separate Workers.
+
+Rejected path topology:
+
+```text
+yukue.badjoke-lab.com/matsuri/
+```
+
+Accepted topology:
+
+```text
+yukue.badjoke-lab.com
+matsuri-yukue.badjoke-lab.com
+```
+
+Deploying the portal later must not replace, rename, or repurpose Worker `matsuri-yukue`.
+
+The future hostname convention is reserved but does not activate future sites:
+
+```text
+jinja-yukue.badjoke-lab.com
+jiin-yukue.badjoke-lab.com
+tomurai-yukue.badjoke-lab.com
+```
+
+The machine-readable decision is stored in:
+
+```text
+config/yukue-deployment-topology.json
+```
+
+## 2026-07-12 — Hostname decision is separate from canonical activation
+
+```text
+F2-19  hostname decision                     completed
+F2-20  custom-domain attachment and deploy   pending
+```
+
+Current state:
+
+```text
 MATSURI_PUBLIC_ORIGIN  unset
-custom domain           not attached
-canonical origin        not declared
-sitemap submission      not performed
-Web Analytics           not enabled
+custom domain          not attached
+active canonical       none
+workers.dev canonical  false
 ```
 
-The hold does not reverse the completed deployment. It prevents domain-dependent canonical, indexing, Analytics, and final-launch claims until custom-domain operations can resume.
-
-## 2026-07-12 — F2-M02 data freshness audit activated
-
-```text
-active maintenance package  F2-M02
-scope                       Occurrence outcomes
-                            Current State freshness
-                            Source and Evidence quality
-                            cross-site reusable Relations
-                            deployed-origin maintenance checks
-```
-
-F2-M02 may proceed while F2-19 through F2-28 are on hold. It must not attach a domain, set `MATSURI_PUBLIC_ORIGIN`, declare the Workers origin canonical, submit a sitemap, enable Analytics, or claim final launch completion.
+F2-20 will attach `matsuri-yukue.badjoke-lab.com`, set the exact HTTPS origin, and redeploy. Canonical, indexing, and Analytics work remains blocked until that succeeds.
 
 ## Open decisions
 
-- exact canonical parent domain and Matsuri subdomain,
 - final map component implementation,
 - exact image storage and optimization pipeline,
 - ULID versus UUIDv7,

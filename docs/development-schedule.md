@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-M02 completed / domain-dependent launch work on hold
+**Status:** F2-19 completed / F2-20 domain activation on hold
 
 This document defines the stable implementation order. It complements:
 
@@ -15,10 +15,10 @@ The project is gate-driven rather than deadline-driven. Stable work-package IDs 
 ```text
 Foundation through Stage E  completed
 F1 corpus expansion          completed
-F2-01 through F2-18          completed
+F2-01 through F2-19          completed
 F2-M01                       completed
 F2-M02                       completed
-F2-19 through F2-28          operational hold
+F2-20 through F2-28          operational hold
 ```
 
 ## Foundation through Stage E
@@ -66,6 +66,12 @@ Repository gate:
 pnpm gate:matsuri:repository
 ```
 
+The gate now includes:
+
+```text
+pnpm check:yukue:deployment-topology
+```
+
 ### Block M — Parallel maintenance work
 
 ```text
@@ -100,8 +106,6 @@ Governing document:
 docs/matsuri-data-freshness-audit.md
 ```
 
-F2-M02 did not attach a domain, set `MATSURI_PUBLIC_ORIGIN`, declare a canonical origin, submit a sitemap, enable Analytics, or claim final launch completion.
-
 Future-dated Occurrence checks continue as normal maintenance:
 
 ```text
@@ -117,9 +121,10 @@ Future-dated Occurrence checks continue as normal maintenance:
 F2-16  Cloudflare Workers Builds connection — completed
 F2-17  first Workers Static Assets deployment and reachable URL — completed
 F2-18  deployed-origin smoke verification — completed
+F2-19  exact canonical Matsuri hostname decision — completed
 ```
 
-Evidence:
+Evidence and decisions:
 
 ```text
 Worker                  matsuri-yukue
@@ -127,12 +132,22 @@ Permanent origin        https://matsuri-yukue.badjoke-lab.workers.dev/
 Verified deployment     https://f757f092-matsuri-yukue.badjoke-lab.workers.dev/
 Verification workflow   GitHub Actions run 29182976642 — success
 Verified source commit  f6fdd5055c2712838ef30ed54048abf7f0674b4c
+Portal hostname         yukue.badjoke-lab.com
+Matsuri hostname        matsuri-yukue.badjoke-lab.com
 ```
+
+Topology contract:
+
+```text
+docs/deployment-topology.md
+config/yukue-deployment-topology.json
+```
+
+The portal and Matsuri are separate Workers. The specialist site must not be nested under the portal path.
 
 #### Operational hold
 
 ```text
-F2-19  exact canonical Matsuri subdomain decision — hold
 F2-20  attach custom domain, configure MATSURI_PUBLIC_ORIGIN, redeploy — hold
 F2-21  canonical manifest and sitemap verification — hold
 F2-22  browser Pagefind Search verification on canonical origin — hold
@@ -144,7 +159,19 @@ F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
-The hold begins at F2-19 because the next steps depend on the exact custom domain and canonical origin. The existing Workers origin remains available for maintenance checks but is not canonical.
+The hold now begins at F2-20. The intended hostname is decided, but no active canonical origin exists until the custom domain is attached, `MATSURI_PUBLIC_ORIGIN` is set, and a new production deployment succeeds.
+
+#### F2-20 execution order
+
+```text
+1. confirm no conflicting DNS record exists
+2. attach matsuri-yukue.badjoke-lab.com to Worker matsuri-yukue
+3. set MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
+4. trigger production deployment from main
+5. record custom-domain reachability and deployment evidence
+```
+
+Do not attach `yukue.badjoke-lab.com` to the Matsuri Worker. That hostname is reserved for the separate portal Worker.
 
 ## Work allowed during the hold
 

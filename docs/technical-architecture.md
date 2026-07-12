@@ -1,6 +1,6 @@
 # Technical Architecture
 
-**Status:** Current direction
+**Status:** Current direction / F2-19 deployment topology accepted
 
 ## Stack
 
@@ -34,11 +34,14 @@ packages/
 data/
   public/
 
+config/
 scripts/
 docs/
 ```
 
 Only `portal` and `matsuri` are initial applications. Additional site applications should be added after their project gates.
+
+One monorepo does not mean one public deployment. Each public application remains separately buildable and separately deployable.
 
 ## Data flow
 
@@ -100,7 +103,52 @@ prefecture
 current state
 ```
 
-## Deployment
+## Public deployment topology
+
+The accepted topology is stored in:
+
+```text
+config/yukue-deployment-topology.json
+```
+
+Validate it with:
+
+```text
+pnpm check:yukue:deployment-topology
+```
+
+Accepted public origins:
+
+```text
+yukue.badjoke-lab.com          Yukue Series portal
+matsuri-yukue.badjoke-lab.com  祭のゆくえ
+jinja-yukue.badjoke-lab.com    神社のゆくえ — future gate
+jiin-yukue.badjoke-lab.com     寺院のゆくえ — future gate
+tomurai-yukue.badjoke-lab.com  弔いのゆくえ — future gate
+```
+
+Each public application uses a separate Cloudflare Worker.
+
+```text
+apps/portal   → Worker yukue-portal
+apps/matsuri  → Worker matsuri-yukue
+```
+
+Future applications follow the same pattern only after their site gates.
+
+The portal is the series entrance and cross-site guide. It is not a runtime path parent for the specialist applications. The specialist sites must not be served as `/matsuri/`, `/jinja/`, `/jiin/`, or `/tomurai/` paths under the portal build.
+
+This separation preserves independent:
+
+- build artifacts,
+- Search indexes,
+- sitemaps,
+- canonical URL spaces,
+- deployment lifecycles,
+- release gates,
+- rollback boundaries.
+
+## Matsuri deployment
 
 The accepted first-launch architecture is Cloudflare Workers Builds with a static Astro artifact uploaded through Workers Static Assets.
 
@@ -118,7 +166,7 @@ apps/matsuri/dist
         ↓
 npx wrangler@latest deploy
         ↓
-Matsuri Worker static assets
+Worker matsuri-yukue static assets
 ```
 
 GitHub Actions and Cloudflare Workers Builds have different responsibilities:
@@ -128,12 +176,12 @@ GitHub Actions
 = repository gate, release-candidate verification, browser audit, visual-review artifacts
 
 Cloudflare Workers Builds
-= external build, preview version upload, production deployment, workers.dev origin
+= external build, preview version upload, production deployment, workers.dev origin, custom-domain delivery
 ```
 
 Matsuri is static output. Do not add the Cloudflare Astro SSR adapter, a Worker `main` entry point, runtime bindings, or server-side rendering unless a later approved requirement introduces server-side behavior.
 
-The initial Worker contract is:
+The Matsuri Worker contract is:
 
 ```text
 Worker name                    matsuri-yukue
@@ -150,7 +198,7 @@ pnpm                           11.10.0
 
 The repository root remains the build root because the Matsuri application depends on workspace packages and root scripts.
 
-The root `wrangler.jsonc` is the deployment contract. It must:
+The root `wrangler.jsonc` is the Matsuri deployment contract. It must:
 
 ```text
 name              matsuri-yukue
@@ -160,31 +208,84 @@ main              absent
 
 The absence of `main` is deliberate: the first launch serves only generated static assets and does not execute Worker application code.
 
-Portal and Matsuri remain separately deployable and must use separate Cloudflare Worker names. The accepted public topology uses the series parent domain for the portal and a Matsuri subdomain for `祭のゆくえ`; the exact canonical hostname is configured only after the first `workers.dev` deployment is verified.
+## Portal deployment boundary
+
+The portal application exists under:
+
+```text
+apps/portal
+```
+
+Its accepted future public identity is:
+
+```text
+Worker             yukue-portal
+canonical hostname yukue.badjoke-lab.com
+```
+
+The portal deployment remains a separate future activation. It must not reuse `wrangler.jsonc`, Worker `matsuri-yukue`, or the Matsuri asset directory.
+
+Deploying the portal later does not require changing the Matsuri build command, asset directory, or Worker identity. Only the independent portal deployment contract will be added when its gate is activated.
 
 ## Origin activation sequence
 
-The first deployment intentionally runs without `MATSURI_PUBLIC_ORIGIN` because the Cloudflare production URL does not exist before Worker creation.
+The first Matsuri deployment intentionally ran without `MATSURI_PUBLIC_ORIGIN` because no custom domain was active.
 
 ```text
 first Workers deployment
 → obtain reachable workers.dev origin
 → deployed-origin smoke verification
-→ exact canonical custom subdomain decision
-→ configure MATSURI_PUBLIC_ORIGIN and custom domain
+→ exact portal and Matsuri hostname decision
+→ attach Matsuri custom domain
+→ configure MATSURI_PUBLIC_ORIGIN
 → redeploy
 → canonical manifest and sitemap verification
 ```
 
-Do not derive the canonical public origin automatically from a preview or deployment-specific URL. An explicit canonical-origin decision remains required.
+Completed:
+
+```text
+F2-16 through F2-19
+```
+
+Pending:
+
+```text
+F2-20 custom-domain attachment and canonical activation
+```
+
+The accepted decision is:
+
+```text
+MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
+```
+
+This value must remain unset until the matching custom domain is attached. The hostname decision is not itself an active canonical origin.
+
+Do not derive the canonical public origin automatically from a preview or workers.dev URL.
 
 The operational launch sequence is governed by:
 
 ```text
 docs/cloudflare-pages-launch-runbook.md
+docs/deployment-topology.md
 ```
 
-The historical file name remains temporarily for compatibility, but its contents govern Workers Static Assets deployment.
+The historical runbook file name remains for compatibility, but its contents govern Workers Static Assets deployment.
+
+## Future dedicated-domain migration
+
+The current `badjoke-lab.com` topology must remain migratable to a dedicated parent domain:
+
+```text
+<parent-domain>
+matsuri.<parent-domain>
+jinja.<parent-domain>
+jiin.<parent-domain>
+tomurai.<parent-domain>
+```
+
+A migration requires an explicit later decision, redirects, canonical changes, sitemap changes, and verification. It is not an automatic deployment change.
 
 ## Future operational layer
 

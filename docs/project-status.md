@@ -13,12 +13,12 @@ Execution Stage F — Launch Preparation
 ```text
 F2-15 — Repository Launch Readiness Gate — completed
 F2-M01 — Full-page screenshot visual-review workflow — completed
-F2-16 through F2-18 — completed
-F2-19 through F2-28 — operational hold
+F2-16 through F2-19 — completed
+F2-20 through F2-28 — operational hold
 F2-M02 — Matsuri data freshness audit — completed
 ```
 
-The first Matsuri Cloudflare Workers Static Assets deployment is reachable and has passed the deployed-origin verification workflow. Domain-dependent work is paused until custom-domain operations can resume.
+The first Matsuri Cloudflare Workers Static Assets deployment is reachable and verified. The exact portal and Matsuri hostnames are now decided. The remaining hold begins at the external custom-domain attachment step.
 
 ## Verified external baseline
 
@@ -41,7 +41,32 @@ f6fdd5055c2712838ef30ed54048abf7f0674b4c
 
 The deployed-origin verifier confirmed the required public HTML routes, Pagefind assets, public JSON, discovery files, Matsuri markers, representative Entity data, and sitemap structure.
 
-This does not mean that a canonical origin, custom domain, production Search on that canonical origin, crawler reachability, search-engine indexability, Web Analytics, or production traffic has been verified.
+This does not mean that the custom domain, active canonical origin, production Search on that origin, crawler reachability, search-engine indexability, Web Analytics, or production traffic has been verified.
+
+## Accepted deployment topology
+
+```text
+yukue.badjoke-lab.com          Yukue Series portal
+matsuri-yukue.badjoke-lab.com  祭のゆくえ
+```
+
+Deployment boundary:
+
+```text
+apps/portal   → Worker yukue-portal
+apps/matsuri  → Worker matsuri-yukue
+```
+
+The portal and Matsuri are separate public deployments. Matsuri will not later move under `yukue.badjoke-lab.com/matsuri/`.
+
+The portal deployment remains planned. The Matsuri Worker and build contract remain unchanged when the portal is deployed later.
+
+Governing files:
+
+```text
+docs/deployment-topology.md
+config/yukue-deployment-topology.json
+```
 
 ## Completed implementation
 
@@ -127,9 +152,10 @@ Future-dated Occurrences remain subject to normal date-triggered maintenance. Th
 F2-16  Cloudflare Workers Builds connection — completed
 F2-17  first Workers Static Assets deployment and reachable URL — completed
 F2-18  deployed-origin smoke verification — completed
+F2-19  exact canonical Matsuri hostname decision — completed
 ```
 
-Accepted deployment contract:
+Accepted Matsuri deployment contract:
 
 ```text
 Worker name                    matsuri-yukue
@@ -141,14 +167,14 @@ Deploy command                 npx wrangler deploy
 Non-production deploy command  npx wrangler versions upload
 Asset directory                ./apps/matsuri/dist
 Worker main entry              absent
+Canonical hostname decision    matsuri-yukue.badjoke-lab.com
 ```
 
 The deployment remains fully static. Do not add an Astro Cloudflare SSR adapter, Worker runtime entry point, runtime bindings, D1, KV, or runtime ingestion without a later approved requirement.
 
-## Domain-dependent operational hold
+## Domain activation operational hold
 
 ```text
-F2-19  exact canonical Matsuri subdomain decision — hold
 F2-20  custom-domain attachment, MATSURI_PUBLIC_ORIGIN, redeployment — hold
 F2-21  canonical manifest and sitemap verification — hold
 F2-22  browser Pagefind Search verification on canonical origin — hold
@@ -160,14 +186,22 @@ F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
+Current activation state:
+
+```text
+Matsuri custom domain       not attached
+MATSURI_PUBLIC_ORIGIN       unset
+active canonical origin     none
+workers.dev canonical       false
+```
+
 During the hold:
 
-- do not attach a custom domain,
-- do not set `MATSURI_PUBLIC_ORIGIN`,
-- do not treat the Workers origin as canonical,
+- do not treat the hostname decision as an active canonical origin,
+- do not set `MATSURI_PUBLIC_ORIGIN` before the custom domain is attached,
 - do not submit the sitemap,
 - do not enable Web Analytics,
-- do not claim final launch completion.
+- do not claim F2-20 through F2-28 completion.
 
 ## Routine maintenance after F2-M02
 
@@ -192,14 +226,21 @@ New official changes, Source failures, corrections, and security or dependency r
 pnpm gate:matsuri:repository
 ```
 
-The gate verifies the static artifact, Workers configuration, internal links, semantic consistency, Source and Evidence rules, responsive and accessibility behavior, public-content boundaries, release-candidate hashes, completed external work through F2-18, completed F2-M02 audit records, and preservation of the F2-19 through F2-28 hold.
+The gate verifies the accepted deployment topology, static artifact, Workers configuration, internal links, semantic consistency, Source and Evidence rules, responsive and accessibility behavior, public-content boundaries, release-candidate hashes, completed external work through F2-19, completed F2-M02 audit records, and preservation of the F2-20 through F2-28 hold.
 
 ## Current release status
 
 ```text
-repository-verified-deployed-origin-verified-domain-hold
+repository-verified-deployed-origin-verified-canonical-hostname-decided-domain-attachment-pending
 ```
 
 ## Immediate next action
 
-Keep the verified repository and Workers deployment maintained. Perform the 博多祇園山笠 2026 outcome review after 2026-07-15, or resume F2-19 when custom-domain operations can proceed. Do not advance canonical, indexing, or Analytics work before that boundary is available.
+Perform F2-20 in Cloudflare:
+
+1. attach `matsuri-yukue.badjoke-lab.com` to Worker `matsuri-yukue`,
+2. set `MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com`,
+3. trigger a new production deployment,
+4. record the resulting custom-domain URL and deployment evidence.
+
+Do not attach `yukue.badjoke-lab.com` to the Matsuri Worker; it is reserved for the separate portal deployment.
