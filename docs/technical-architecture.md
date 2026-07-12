@@ -11,7 +11,8 @@ TypeScript
 Git-managed public canonical data
 schema validation
 Pagefind
-Cloudflare Pages Git integration
+Cloudflare Workers Builds
+Cloudflare Workers Static Assets
 GitHub Actions
 ```
 
@@ -101,7 +102,7 @@ current state
 
 ## Deployment
 
-The accepted first-launch architecture is Cloudflare Pages Git integration with a static Astro artifact.
+The accepted first-launch architecture is Cloudflare Workers Builds with a static Astro artifact uploaded through Workers Static Assets.
 
 ```text
 GitHub repository
@@ -109,65 +110,81 @@ badjoke-lab/yukue
         ↓
 GitHub Actions repository verification
         ↓
-Cloudflare Pages Git integration
+Cloudflare Workers Builds Git integration
         ↓
-pnpm build:matsuri:pages
+pnpm build:matsuri:workers
         ↓
 apps/matsuri/dist
         ↓
-Matsuri Pages project
+npx wrangler@latest deploy
+        ↓
+Matsuri Worker static assets
 ```
 
-GitHub Actions and Cloudflare Pages have different responsibilities:
+GitHub Actions and Cloudflare Workers Builds have different responsibilities:
 
 ```text
 GitHub Actions
 = repository gate, release-candidate verification, browser audit, visual-review artifacts
 
-Cloudflare Pages
-= external build, preview deployment, production deployment, pages.dev origin
+Cloudflare Workers Builds
+= external build, preview version upload, production deployment, workers.dev origin
 ```
 
-Matsuri is static output. Do not add the Cloudflare Astro SSR adapter or Pages Functions unless a later approved requirement introduces server-side behavior.
+Matsuri is static output. Do not add the Cloudflare Astro SSR adapter, a Worker `main` entry point, runtime bindings, or server-side rendering unless a later approved requirement introduces server-side behavior.
 
-The initial Pages project contract is:
+The initial Worker contract is:
 
 ```text
-project name       matsuri-yukue
-repository         badjoke-lab/yukue
-production branch  main
-root directory     repository root
-build command      pnpm build:matsuri:pages
-output directory   apps/matsuri/dist
-Node.js             24
-pnpm                11.10.0
+Worker name                    matsuri-yukue
+repository                     badjoke-lab/yukue
+production branch              main
+root directory                 repository root
+build command                  pnpm build:matsuri:workers
+deploy command                 npx wrangler@latest deploy
+non-production deploy command  npx wrangler@latest versions upload
+asset directory                apps/matsuri/dist
+Node.js                        24
+pnpm                           11.10.0
 ```
 
-The repository root remains the Pages build root because the Matsuri application depends on workspace packages and root scripts.
+The repository root remains the build root because the Matsuri application depends on workspace packages and root scripts.
 
-Portal and Matsuri remain separately deployable and must use separate Cloudflare project names.
+The root `wrangler.jsonc` is the deployment contract. It must:
+
+```text
+name              matsuri-yukue
+assets.directory  ./apps/matsuri/dist
+main              absent
+```
+
+The absence of `main` is deliberate: the first launch serves only generated static assets and does not execute Worker application code.
+
+Portal and Matsuri remain separately deployable and must use separate Cloudflare Worker names. The accepted public topology uses the series parent domain for the portal and a Matsuri subdomain for `祭のゆくえ`; the exact canonical hostname is configured only after the first `workers.dev` deployment is verified.
 
 ## Origin activation sequence
 
-The first deployment intentionally runs without `MATSURI_PUBLIC_ORIGIN` because the Cloudflare production URL does not exist before project creation.
+The first deployment intentionally runs without `MATSURI_PUBLIC_ORIGIN` because the Cloudflare production URL does not exist before Worker creation.
 
 ```text
-first Pages deployment
-→ obtain reachable pages.dev origin
+first Workers deployment
+→ obtain reachable workers.dev origin
 → deployed-origin smoke verification
-→ canonical origin decision
-→ configure MATSURI_PUBLIC_ORIGIN
+→ exact canonical custom subdomain decision
+→ configure MATSURI_PUBLIC_ORIGIN and custom domain
 → redeploy
 → canonical manifest and sitemap verification
 ```
 
-Do not use `CF_PAGES_URL` as the canonical public origin automatically. Preview and deployment-specific URLs are not a substitute for an explicit canonical-origin decision.
+Do not derive the canonical public origin automatically from a preview or deployment-specific URL. An explicit canonical-origin decision remains required.
 
 The operational launch sequence is governed by:
 
 ```text
 docs/cloudflare-pages-launch-runbook.md
 ```
+
+The historical file name remains temporarily for compatibility, but its contents govern Workers Static Assets deployment.
 
 ## Future operational layer
 

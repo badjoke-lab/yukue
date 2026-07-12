@@ -10,7 +10,9 @@
   "scripts": {
     "build": "pnpm -r --if-present build",
     "build:matsuri:pages": "pnpm --filter @badjoke-lab/yukue-matsuri... build",
+    "build:matsuri:workers": "pnpm build:matsuri:pages",
     "check:matsuri:pages": "node scripts/check-matsuri-pages-build.mjs",
+    "check:matsuri:workers-config": "node scripts/check-matsuri-workers-config.mjs",
     "check:matsuri:consistency": "node scripts/check-matsuri-consistency.mjs",
     "check:matsuri:semantics": "pnpm --filter @badjoke-lab/yukue-validation build && node scripts/check-matsuri-semantics.mjs",
     "check:matsuri:evidence": "node scripts/check-matsuri-evidence.mjs",
@@ -22,9 +24,10 @@
     "audit:matsuri:screenshots": "node scripts/audit-matsuri-screenshots.mjs",
     "contact:matsuri:screenshots": "node scripts/build-matsuri-contact-sheets.mjs",
     "verify:matsuri:pages": "pnpm build:matsuri:pages && pnpm check:matsuri:pages && pnpm check:matsuri:consistency && pnpm check:matsuri:semantics && pnpm check:matsuri:evidence && pnpm check:matsuri:content && pnpm check:matsuri:browser",
+    "verify:matsuri:workers": "pnpm check:matsuri:workers-config && pnpm verify:matsuri:pages",
     "verify:release": "node scripts/verify-release.mjs",
     "freeze:matsuri:release": "node scripts/freeze-matsuri-release-candidate.mjs",
-    "gate:matsuri:repository": "pnpm verify:release && pnpm freeze:matsuri:release && node scripts/check-matsuri-readiness-gate.mjs",
+    "gate:matsuri:repository": "pnpm check:matsuri:workers-config && pnpm verify:release && pnpm freeze:matsuri:release && node scripts/check-matsuri-readiness-gate.mjs",
     "check": "pnpm -r --if-present check",
     "typecheck": "pnpm -r --if-present typecheck"
   },

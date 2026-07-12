@@ -13,13 +13,13 @@ Execution Stage F — Launch Preparation
 ```text
 F2-15 — Repository Launch Readiness Gate — completed
 F2-M01 — Full-page screenshot visual-review workflow — completed
-F2-16 — Cloudflare Pages project connection — active
+F2-16 — Cloudflare Workers Builds connection — active
 F2-17–F2-28 — pending in fixed order
 ```
 
 The external operational hold was removed on 2026-07-12.
 
-`祭のゆくえ` has completed repository-side launch preparation and the first exhaustive screenshot visual-review baseline. The active task is now the first Cloudflare Pages Git-integration setup.
+`祭のゆくえ` has completed repository-side launch preparation and the first exhaustive screenshot visual-review baseline. The active task is now the first Cloudflare Workers Builds Git-integration setup using Workers Static Assets.
 
 This does not mean that a public deployment URL, canonical origin, production Search, crawler reachability, indexability, Web Analytics, or production traffic has been verified.
 
@@ -65,26 +65,14 @@ Stage E  Browse, Pagefind Search, and machine-readable baseline
 
 F1 batches 01 through 10 are completed and validated.
 
-The corpus covers:
-
-- Festivals,
-- Folk Performances,
-- Tradition Units,
-- Organizations,
-- Shrine context seeds,
-- Current State Snapshots,
-- held, cancelled, partially held, scheduled, and unknown-outcome Occurrences,
-- Change Events,
-- precise Relations,
-- Designations,
-- Sources and Evidence.
+The corpus covers Festivals, Folk Performances, Tradition Units, Organizations, Shrine context seeds, Current State Snapshots, Occurrences, Change Events, Relations, Designations, Sources, and Evidence.
 
 Current State remains separate from annual Occurrence outcomes. Revival remains a Change Event and State transition rather than a normal `revived` Current State value.
 
 ### F2 repository launch preparation
 
 ```text
-F2-01  Pages build and artifact contract — completed
+F2-01  static build and artifact contract — completed
 F2-02  public reference and secondary browse surfaces — completed
 F2-03  deployed and canonical verification tooling — completed
 F2-04  deployment verifier hardening — completed
@@ -106,7 +94,7 @@ F2-M01 full-page screenshot visual-review workflow — completed
 
 ### Goal
 
-Create and connect the Cloudflare Pages project for Matsuri using GitHub Git integration.
+Create and connect the Cloudflare Worker `matsuri-yukue` through Workers Builds Git integration and deploy the Matsuri static artifact through Workers Static Assets.
 
 ### Governing documents
 
@@ -114,35 +102,44 @@ Create and connect the Cloudflare Pages project for Matsuri using GitHub Git int
 docs/cloudflare-pages-launch-runbook.md
 docs/deployment.md
 docs/technical-architecture.md
+wrangler.jsonc
 ```
 
-### Required Pages settings
+The runbook file name is retained temporarily for compatibility; its contents now govern Workers Builds rather than legacy Pages creation.
+
+### Required Workers settings
 
 ```text
-Project name       matsuri-yukue
-Repository         badjoke-lab/yukue
-Production branch  main
-Framework preset   None
-Root directory     repository root / blank
-Build command      pnpm build:matsuri:pages
-Build output       apps/matsuri/dist
-Build system       v3 / current default
-NODE_VERSION       24
-PNPM_VERSION       11.10.0
+Worker name                    matsuri-yukue
+Repository                     badjoke-lab/yukue
+Production branch              main
+Root directory                 repository root / blank
+Build command                  pnpm build:matsuri:workers
+Deploy command                 npx wrangler@latest deploy
+Non-production deploy command  npx wrangler@latest versions upload
+NODE_VERSION                   24
+PNPM_VERSION                   11.10.0 when the dashboard exposes that build variable
+```
+
+The committed Wrangler contract is:
+
+```text
+name              matsuri-yukue
+assets.directory  ./apps/matsuri/dist
+main              absent
 ```
 
 Do not set `MATSURI_PUBLIC_ORIGIN` during F2-16 or the first deployment.
 
-Do not add the Cloudflare Astro SSR adapter, Pages Functions, a custom domain, or Web Analytics.
+Do not add the Cloudflare Astro SSR adapter, Worker runtime code, runtime bindings, a custom domain, or Web Analytics.
 
 ### F2-16 completion condition
 
 ```text
 GitHub repository connected
-Cloudflare Pages project created
-project name recorded
+Cloudflare Worker created with matching name
 production branch recorded
-build settings recorded
+build and deploy settings recorded
 first production build started
 ```
 
@@ -156,19 +153,13 @@ Completion requires:
 
 ```text
 Cloudflare build success
-production pages.dev URL issued
+production workers.dev URL issued
 URL reachable
 source commit recorded
 build environment recorded
 ```
 
-Expected project-derived hostname:
-
-```text
-https://matsuri-yukue.pages.dev
-```
-
-Do not assume this URL until Cloudflare displays and serves it.
+Do not assume the exact hostname until Cloudflare displays and serves it. A Workers URL includes the account's `workers.dev` subdomain.
 
 ## Deployed-origin verification capability
 
@@ -181,11 +172,11 @@ Verify Matsuri deployed origin
 For F2-18 use:
 
 ```text
-origin     exact issued pages.dev origin
+origin     exact issued workers.dev origin
 canonical  false
 ```
 
-Canonical mode remains disabled until F2-20.
+Canonical mode remains disabled until the accepted custom Matsuri subdomain is configured.
 
 ## Repository gate command
 
@@ -195,10 +186,11 @@ pnpm gate:matsuri:repository
 
 The verified repository contract includes:
 
+- Workers Static Assets configuration validation,
 - workspace build,
 - shared checks and typechecks,
-- exact Matsuri Pages build,
-- static route and internal-link checks,
+- exact Matsuri static build,
+- route and internal-link checks,
 - sitemap inventory checks,
 - HTML / JSON / Search consistency,
 - corpus semantic audit,
@@ -242,7 +234,7 @@ repository-verified-external-activation-active
 ## Current external state
 
 ```text
-Cloudflare Pages project       not yet verified as created
+Cloudflare Worker              not yet verified as created
 public deployment URL          not issued or recorded
 canonical production origin    not configured
 production Search              not browser-verified
@@ -252,16 +244,28 @@ Web Analytics                  not enabled
 production traffic             not verified
 ```
 
-The public Status page now states that Cloudflare Pages activation has started and that the public URL remains subject to first-deployment verification.
+## Accepted public URL topology
+
+The series will use subdomains rather than placing the four specialist sites under parent-domain subdirectories.
+
+```text
+parent domain root  series portal
+Matsuri subdomain   祭のゆくえ
+Jinja subdomain     神社のゆくえ
+Jiin subdomain      寺院のゆくえ
+Tomurai subdomain   弔いのゆくえ
+```
+
+The exact parent domain and final Matsuri hostname remain pending at F2-19. The first `workers.dev` URL is a deployment-verification origin, not an automatic canonical decision.
 
 ## Remaining external sequence
 
 ```text
-F2-16  Cloudflare Pages project connection — active
-F2-17  first Pages deployment and reachable URL — pending
+F2-16  Workers Builds connection — active
+F2-17  first Workers deployment and reachable URL — pending
 F2-18  deployed-origin smoke verification — pending
-F2-19  canonical public origin and domain decision — pending
-F2-20  configure MATSURI_PUBLIC_ORIGIN and redeploy — pending
+F2-19  exact canonical Matsuri subdomain decision — pending
+F2-20  attach custom domain, configure MATSURI_PUBLIC_ORIGIN, and redeploy — pending
 F2-21  canonical manifest and sitemap verification — pending
 F2-22  production browser Pagefind Search verification — pending
 F2-23  robots, canonical, sitemap, and crawler-reachability review — pending
@@ -274,7 +278,7 @@ F2-28  final F2 Launch Gate — pending
 
 ## Work allowed during activation
 
-- Cloudflare Pages setup according to the runbook,
+- Workers Builds setup according to the runbook,
 - first-deployment diagnosis,
 - deployed-origin verification,
 - approved factual corrections,
@@ -301,4 +305,4 @@ Do not invent additional prelaunch product scope.
 
 ## Immediate next action
 
-Connect `badjoke-lab/yukue` to the Cloudflare Pages project `matsuri-yukue` using the exact settings above, then record the issued production URL and build result.
+Merge the Workers Static Assets activation changes into `main`, then use the current Cloudflare `Import a repository / Continue with GitHub` flow to connect `badjoke-lab/yukue` as Worker `matsuri-yukue` with the exact settings above.
