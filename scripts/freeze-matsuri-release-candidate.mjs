@@ -21,14 +21,17 @@ const completedRepositoryWork = [
   "F2-14 release-candidate artifact freeze",
 ];
 
-const externalPendingWork = [
-  "F2-16 create or connect the Cloudflare Pages project",
-  "F2-17 first Pages deployment and reachable URL acquisition",
+const completedExternalWork = [
+  "F2-16 Cloudflare Workers Builds connection",
+  "F2-17 first Workers Static Assets deployment and reachable URL acquisition",
   "F2-18 deployed-origin smoke verification",
-  "F2-19 canonical public origin and domain decision",
-  "F2-20 configure MATSURI_PUBLIC_ORIGIN and redeploy",
+];
+
+const externalPendingWork = [
+  "F2-19 exact canonical Matsuri subdomain decision",
+  "F2-20 attach custom domain, configure MATSURI_PUBLIC_ORIGIN, and redeploy",
   "F2-21 canonical manifest and sitemap verification",
-  "F2-22 browser Pagefind Search verification on production",
+  "F2-22 browser Pagefind Search verification on canonical production origin",
   "F2-23 robots, canonical, sitemap, and crawler-reachability review",
   "F2-24 search-engine sitemap submission and indexability check",
   "F2-25 enable Cloudflare Web Analytics",
@@ -57,11 +60,6 @@ function sha256File(filePath) {
   return hash.digest("hex");
 }
 
-function htmlFileToRoute(relativePath) {
-  if (relativePath === "index.html") return "/";
-  return `/${relativePath.slice(0, -"index.html".length)}`;
-}
-
 function sourceCommit() {
   if (process.env.GITHUB_SHA) return process.env.GITHUB_SHA;
 
@@ -75,7 +73,7 @@ function sourceCommit() {
 
 if (process.env.MATSURI_PUBLIC_ORIGIN) {
   throw new Error(
-    "F2-14 repository release-candidate freeze requires MATSURI_PUBLIC_ORIGIN to remain unset until F2-20 canonical-origin activation.",
+    "Repository release-candidate freeze requires MATSURI_PUBLIC_ORIGIN to remain unset until F2-20 canonical-origin activation.",
   );
 }
 
@@ -120,7 +118,11 @@ const publicRoutes = files
       !relativePath.startsWith("pagefind/") &&
       !relativePath.startsWith("_astro/"),
   )
-  .map(htmlFileToRoute)
+  .map((relativePath) =>
+    relativePath === "index.html"
+      ? "/"
+      : `/${relativePath.slice(0, -"index.html".length)}`,
+  )
   .sort((a, b) => a.localeCompare(b));
 
 const sitemap = fs.readFileSync(path.join(candidateSiteRoot, "sitemap.xml"), "utf8");
@@ -151,10 +153,11 @@ const releaseManifest = {
   source_commit: sourceCommit(),
   dataset_version: version.dataset_version,
   schema_version: version.schema_version,
-  release_status: "repository-verified-external-activation-active",
+  release_status: "repository-verified-deployed-origin-verified-domain-hold",
   canonical_origin: null,
   verification_command: "pnpm verify:release",
   completed_repository_work: completedRepositoryWork,
+  completed_external_work: completedExternalWork,
   external_pending_work: externalPendingWork,
   record_counts: manifest.record_counts,
   machine_readable_files: manifest.files,
@@ -175,7 +178,7 @@ fs.writeFileSync(
 );
 
 const summary = `# Matsuri Release Candidate\n\n` +
-  `Status: **repository verified; external activation active; canonical origin not configured**\n\n` +
+  `Status: **repository verified; deployed origin verified; canonical domain work on hold**\n\n` +
   `- Source commit: \`${releaseManifest.source_commit ?? "unavailable"}\`\n` +
   `- Dataset version: \`${releaseManifest.dataset_version}\`\n` +
   `- Schema version: \`${releaseManifest.schema_version}\`\n` +
@@ -183,9 +186,10 @@ const summary = `# Matsuri Release Candidate\n\n` +
   `- Artifact files: ${releaseManifest.artifact_file_count}\n` +
   `- Artifact bytes: ${releaseManifest.artifact_size_bytes}\n` +
   `- Artifact SHA-256: \`${aggregateHash}\`\n` +
+  `- Verified public origin: \`https://matsuri-yukue.badjoke-lab.workers.dev/\`\n` +
   `- Canonical origin: not configured\n\n` +
   `The copied site under \`matsuri-site/\` is the exact static artifact that passed \`pnpm verify:release\`. ` +
-  `Cloudflare project creation, deployed-origin, canonical-origin, production Search, crawler, indexing, and Analytics checks remain external tasks.\n`;
+  `F2-16 through F2-18 are complete. F2-19 through F2-28 remain external work and are paused until custom-domain work can resume.\n`;
 
 fs.writeFileSync(path.join(candidateRoot, "README.md"), summary, "utf8");
 
