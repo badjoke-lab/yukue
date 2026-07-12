@@ -40,7 +40,7 @@ const expectedSites = {
     worker_name: "matsuri-yukue",
     canonical_hostname: "matsuri-yukue.badjoke-lab.com",
     canonical_origin: "https://matsuri-yukue.badjoke-lab.com",
-    deployment_status: "workers-origin-verified-custom-domain-pending",
+    deployment_status: "custom-domain-configured-deployment-pending",
   },
   jinja: {
     app_path: "apps/jinja",
@@ -127,5 +127,5 @@ assert(
 );
 
 console.log(
-  "Yukue deployment topology passed: portal yukue.badjoke-lab.com; Matsuri matsuri-yukue.badjoke-lab.com; separate Workers; no path nesting.",
+  "Yukue deployment topology passed: portal yukue.badjoke-lab.com; Matsuri matsuri-yukue.badjoke-lab.com; F2-20 custom-domain configuration prepared; separate Workers; no path nesting.",
 );
