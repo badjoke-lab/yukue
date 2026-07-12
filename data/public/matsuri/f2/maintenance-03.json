@@ -1,0 +1,93 @@
+{
+  "entities": [
+    {
+      "id": "org-toyama-tateyama-museum",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-12T00:00:00Z",
+      "updated_at": "2026-07-12T00:00:00Z",
+      "slug": "toyama-tateyama-museum",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "富山県［立山博物館］",
+          "lang": "ja",
+          "kind": "official",
+          "is_preferred": true,
+          "source_ids": ["src-tateyama-nunobashi"]
+        },
+        {
+          "value": "富山県立山博物館",
+          "lang": "ja",
+          "kind": "common",
+          "is_preferred": false,
+          "source_ids": ["src-tateyama-nunobashi"]
+        }
+      ],
+      "summary_ja": "布橋灌頂会と立山信仰に関する展示、映像、姥尊像を保存・公開する博物館。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "16",
+            "prefecture_name_ja": "富山県",
+            "municipality_name_ja": "立山町"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "default_place_ids": [],
+      "external_links": [],
+      "record_lifecycle": "active",
+      "organization_kind": "public_agency"
+    }
+  ],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [
+    {
+      "id": "rel-nunobashi-supported-by-tateyama-museum",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-nunobashi-kanjoe",
+      "relation_type": "supported_by",
+      "target_entity_id": "org-toyama-tateyama-museum",
+      "evidence_ids": ["evd-rel-nunobashi-tateyama-museum"],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [],
+  "evidence": [
+    {
+      "id": "evd-tateyama-museum-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-tateyama-nunobashi",
+      "target_type": "entity_identity",
+      "target_id": "org-toyama-tateyama-museum",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "立山町公式ページは富山県［立山博物館］を明記し、布橋灌頂会の展示、映像、姥尊像を確認できる博物館として案内している。",
+      "captured_at": "2026-07-12",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-nunobashi-tateyama-museum",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-tateyama-nunobashi",
+      "target_type": "relation",
+      "target_id": "rel-nunobashi-supported-by-tateyama-museum",
+      "assertion_code": "supports_relation",
+      "summary_ja": "立山町公式ページは、布橋灌頂会の伝統が富山県［立山博物館］で展示、映像、姥尊像を通じて保存・公開されていると説明しており、博物館による保存支援関係を裏付ける。",
+      "captured_at": "2026-07-12",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
