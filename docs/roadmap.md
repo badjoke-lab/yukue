@@ -78,7 +78,7 @@ F2-07 through F2-15
 
 Repository Launch Readiness: **Completed**
 
-The repository-ready candidate is reproducible, content-addressed, and verified without selecting a canonical production origin.
+The repository-ready candidate is reproducible, content-addressed, and verified. The intended canonical hostname is now decided, but canonical activation remains pending.
 
 ### Repository visual and data maintenance
 
@@ -114,7 +114,7 @@ Future-dated Occurrences continue through normal date-triggered maintenance rath
 F2-16  Cloudflare Workers Builds connection
 F2-17  first Workers Static Assets deployment and reachable URL
 F2-18  deployed-origin smoke verification
-F2-19  exact canonical Matsuri subdomain decision
+F2-19  exact canonical Matsuri hostname decision
 F2-20  custom-domain attachment, canonical-origin configuration, redeployment
 F2-21  canonical manifest and sitemap verification
 F2-22  browser Search verification on canonical origin
@@ -126,11 +126,11 @@ F2-27  production traffic verification
 F2-28  final F2 Launch Gate
 ```
 
-External deployment through F2-18: **Completed**
+External deployment through F2-19: **Completed**
 
-Domain-dependent launch work: **Operational hold at F2-19**
+Domain attachment and canonical activation: **Operational hold at F2-20**
 
-Verified external baseline:
+Verified external baseline and accepted decisions:
 
 ```text
 Worker                  matsuri-yukue
@@ -138,9 +138,13 @@ Permanent origin        https://matsuri-yukue.badjoke-lab.workers.dev/
 Verified deployment     https://f757f092-matsuri-yukue.badjoke-lab.workers.dev/
 Verification workflow   GitHub Actions run 29182976642 — success
 Verified source commit  f6fdd5055c2712838ef30ed54048abf7f0674b4c
+Portal hostname         yukue.badjoke-lab.com
+Matsuri hostname        matsuri-yukue.badjoke-lab.com
 ```
 
-The Workers origin is verified for deployment reachability but is not the canonical public origin. F2-19 through F2-28 resume only when custom-domain operations can proceed.
+The portal and Matsuri are separate applications and separate Workers. Matsuri is not nested below a portal path.
+
+The Workers origin is verified for deployment reachability but is not canonical. F2-20 must attach `matsuri-yukue.badjoke-lab.com`, set `MATSURI_PUBLIC_ORIGIN`, and redeploy before canonical verification begins.
 
 ## Phase 10 — Stabilization
 
