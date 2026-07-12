@@ -18,14 +18,15 @@ Before implementing a feature, check the relevant document here. When a decision
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, layout language |
 | `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
-| `technical-architecture.md` | Current direction | Build, projection, search, and Workers Static Assets deployment |
-| `cloudflare-pages-launch-runbook.md` | F2-16 active | Current Workers Builds Git integration, static-asset settings, first deploy, evidence, and verification sequence; historical filename retained temporarily |
-| `deployment.md` | F2-16 active | Wrangler contract, Workers Builds settings, canonical boundary, and external launch sequence |
+| `technical-architecture.md` | Current direction | Build, projection, search, deployment |
+| `cloudflare-pages-launch-runbook.md` | F2-16–F2-18 completed | Workers Builds deployment contract, first deployment evidence, and hold boundary |
+| `deployment.md` | F2-18 verified / F2-19 hold | Current Workers deployment state and canonical-origin boundary |
+| `matsuri-data-freshness-audit.md` | F2-M02 active | Occurrence, Current State, Source, Evidence, Relation, and deployed-origin maintenance audit |
 | `release-verification.md` | F2 repository baseline | Unified release-candidate command, workspace contract, CI stages, and external limits |
 | `release-candidate.md` | F2 repository baseline | Verified static artifact freeze, hashes, CI retention, and reproduction |
 | `repository-launch-readiness.md` | Completed repository gate | F2-15 decision, required checks, maintenance state, and external activation boundary |
-| `visual-review-workflow.md` | Implemented repository baseline | Successful full-page screenshot capture, automated screenshot checks, contact sheets, and human UI review |
-| `audits/matsuri-f2-m01-visual-review-2026-07-11.md` | Passed audit | First exhaustive Matsuri desktop/mobile screenshot review, findings, corrections, and evidence |
+| `visual-review-workflow.md` | Implemented repository baseline | Successful full-page screenshot capture, automated checks, contact sheets, and human UI review |
+| `audits/matsuri-f2-m01-visual-review-2026-07-11.md` | Passed audit | First exhaustive Matsuri desktop/mobile screenshot review |
 | `source-evidence-audit.md` | F2 repository baseline | Source metadata, Evidence targeting, Current State freshness, and audit boundaries |
 | `browser-accessibility-audit.md` | F2 repository baseline | Chromium viewport matrix, WCAG checks, keyboard behavior, and audit limits |
 | `public-content-audit.md` | F2 repository baseline | Data and Methodology alignment, deployment status, empty states, image and map boundaries |
@@ -43,8 +44,6 @@ Before implementing a feature, check the relevant document here. When a decision
 
 ## Schedule model
 
-Use the three schedule documents for different purposes:
-
 ```text
 roadmap.md
 = long-range phases and gates
@@ -58,11 +57,7 @@ project-status.md
 
 ## Agent instruction hierarchy
 
-Repository work is also governed by hierarchical `AGENTS.md` files.
-
 Read the root `AGENTS.md` first, then the nearest nested `AGENTS.md` for the path being changed.
-
-Current instruction layers:
 
 ```text
 /AGENTS.md
@@ -73,9 +68,7 @@ Current instruction layers:
 
 ## Source-of-truth rule
 
-The repository documents are the implementation reference for public project behavior.
-
-Private research notes, candidate queues, internal confidence notes, unresolved source conflicts under review, private operational notes, and internal commercial planning are not stored in this public repository.
+Repository documents are the implementation reference for public project behavior. Private research notes, candidate queues, internal confidence notes, unresolved source conflicts under review, private operational notes, and internal commercial planning are not stored in this public repository.
 
 ## Update discipline
 
