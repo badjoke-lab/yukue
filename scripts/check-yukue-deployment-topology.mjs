@@ -40,7 +40,7 @@ const expectedSites = {
     worker_name: "matsuri-yukue",
     canonical_hostname: "matsuri-yukue.badjoke-lab.com",
     canonical_origin: "https://matsuri-yukue.badjoke-lab.com",
-    deployment_status: "custom-domain-configured-deployment-pending",
+    deployment_status: "canonical-origin-verified",
   },
   jinja: {
     app_path: "apps/jinja",
@@ -78,6 +78,22 @@ for (const [siteId, expected] of Object.entries(expectedSites)) {
     assert(actual[key] === value, `${siteId}.${key} is invalid.`);
   }
 }
+
+const matsuri = topology.sites.find((site) => site.site_id === "matsuri");
+assert(matsuri.activated_at === "2026-07-12", "Matsuri activation date is missing.");
+assert(
+  matsuri.verification?.provider === "github_actions" &&
+    matsuri.verification?.workflow_name === "Verify Matsuri canonical origin gate" &&
+    matsuri.verification?.workflow_run_id === 29191904624,
+  "Matsuri canonical verification workflow evidence is invalid.",
+);
+assert(
+  matsuri.verification?.verified_origin === matsuri.canonical_origin &&
+    matsuri.verification?.https_reachable === true &&
+    matsuri.verification?.manifest_origin_verified === true &&
+    matsuri.verification?.canonical_sitemap_verified === true,
+  "Matsuri canonical verification result is incomplete.",
+);
 
 const workers = [topology.portal.worker_name, ...topology.sites.map((site) => site.worker_name)];
 const hostnames = [
@@ -127,5 +143,5 @@ assert(
 );
 
 console.log(
-  "Yukue deployment topology passed: portal yukue.badjoke-lab.com; Matsuri matsuri-yukue.badjoke-lab.com; F2-20 custom-domain configuration prepared; separate Workers; no path nesting.",
+  "Yukue deployment topology passed: Matsuri canonical origin verified by GitHub Actions run 29191904624; portal remains separate; workers.dev remains non-canonical.",
 );
