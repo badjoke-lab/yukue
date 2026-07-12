@@ -108,24 +108,12 @@ scale: unknown
 
 The official 2026 schedule confirms the planned dates and program, but the first evidence pass did not locate an authoritative post-event record sufficient to classify the outcome of the entire multi-day occurrence. The record therefore remains `unknown` rather than being changed by inference.
 
-## Initial Relation inventory result
+## Relation inventory result
 
-Audit report:
+Initial report:
 
 ```text
 docs/audits/matsuri-f2-m02-relation-inventory-2026-07-12.md
-```
-
-Summary after maintenance batch 01:
-
-```text
-Entities total                       42
-Specialist Entities checked          25
-Relations total                      23
-Specialists with no Relation          2
-Occurrence organizer Relation gaps    0
-Place-context Relation gaps            0
-Relations missing Evidence             0
 ```
 
 Maintenance batch 01 added:
@@ -136,16 +124,43 @@ Maintenance batch 01 added:
        └─ 郡上おどり保存会
 ```
 
-The existing official tourism source identifies the preservation association and explains its venue judging and formal-license role. The batch adds the preservation-group Entity, the directed Relation, and Evidence for both assertions.
+The official tourism source identifies the preservation association and explains its venue judging and formal-license role.
 
-Remaining zero-Relation specialists:
+Maintenance batch 02 report:
+
+```text
+docs/audits/matsuri-f2-m02-suneori-relation-2026-07-12.md
+```
+
+Maintenance batch 02 adds:
+
+```text
+脚折雨乞
+  └─ organized_by
+       └─ 脚折雨乞行事保存会
+```
+
+The official 鶴ヶ島市 record identifies the preservation association as the organizer of the 2024 edition. The batch also updates `occ-suneori-2024` to record the organizer while preserving its existing date, outcome, scale, venues, and prior Evidence.
+
+Summary after maintenance batch 02:
+
+```text
+Entities total                       43
+Specialist Entities checked          25
+Relations total                      24
+Specialists with no Relation          1
+Occurrence organizer Relation gaps    0
+Place-context Relation gaps            0
+Relations missing Evidence             0
+```
+
+Remaining zero-Relation specialist:
 
 ```text
 fst-nunobashi-kanjoe  布橋灌頂会
-fst-suneori-amagoi    脚折雨乞
 ```
 
-Neither receives a guessed Relation. Further official evidence is required.
+No Relation is inferred from the ritual route, shared geography, or a museum reference alone. An authoritative source must identify a modelled institution and its role.
 
 ## Audit scope
 
@@ -228,7 +243,7 @@ F2-M02 must not:
 1. Occurrence and freshness candidate inventory — completed for 2026-07-12 baseline
 2. Relation coverage candidate inventory — completed for 2026-07-12 baseline
 3. evidence review notes — active
-4. approved data corrections in bounded batches — maintenance batch 01 completed
+4. approved data corrections in bounded batches — maintenance batches 01 and 02 completed
 5. validation results — automated on each repository gate
 6. updated audit summary — maintained during F2-M02
 ```
@@ -239,7 +254,6 @@ F2-M02 must not:
 相馬野馬追 2026    continue authoritative post-event evidence search
 博多祇園山笠 2026  review after 2026-07-15
 郡上おどり 2026    review after 2026-09-05
-脚折雨乞            inspect official material for a named preservation or execution body
 布橋灌頂会          inspect official material for a named organizer or institutional Relation
 ```
 
