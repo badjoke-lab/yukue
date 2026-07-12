@@ -12,6 +12,7 @@ const requiredScripts = [
   "verify:release",
   "freeze:matsuri:release",
   "check:matsuri:pages",
+  "check:matsuri:workers-config",
   "check:matsuri:consistency",
   "check:matsuri:semantics",
   "check:matsuri:evidence",
@@ -86,6 +87,11 @@ for (const relativePath of requiredDocs) {
     `Repository readiness document is missing: ${relativePath}`,
   );
 }
+
+assert(
+  fs.existsSync(path.join(repositoryRoot, "wrangler.jsonc")),
+  "Repository readiness requires wrangler.jsonc.",
+);
 
 assert(
   fs.existsSync(releaseManifestPath),
@@ -199,8 +205,8 @@ assert(
   "Project status does not record F2-15 completion.",
 );
 assert(
-  projectStatus.includes("F2-16 — Cloudflare Pages project connection — active"),
-  "Project status does not record F2-16 as active.",
+  projectStatus.includes("F2-16 — Cloudflare Workers Builds connection — active"),
+  "Project status does not record F2-16 Workers Builds activation.",
 );
 assert(
   roadmap.includes("Repository Launch Readiness: **Completed**") &&
@@ -209,5 +215,5 @@ assert(
 );
 
 console.log(
-  `Matsuri F2-15 repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 external activation is active and canonical origin remains unset.`,
+  `Matsuri F2-15 repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 Workers Static Assets activation is active and canonical origin remains unset.`,
 );
