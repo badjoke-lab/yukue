@@ -23,6 +23,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `deployment.md` | F2-18 verified / F2-19 hold | Current Workers deployment state and canonical-origin boundary |
 | `matsuri-data-freshness-audit.md` | F2-M02 active | Occurrence, Current State, Source, Evidence, Relation, and deployed-origin maintenance audit |
 | `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, Current State, and external-link freshness candidate inventory |
+| `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 post-event Evidence and `held` correction for the 2026 相馬野馬追 Occurrence |
 | `audits/matsuri-f2-m02-relation-inventory-2026-07-12.md` | Baseline completed | Initial Relation coverage inventory, first maintenance correction, and remaining evidence candidates |
 | `audits/matsuri-f2-m02-suneori-relation-2026-07-12.md` | Maintenance batch 02 | 脚折雨乞行事保存会 Entity, `organized_by` Relation, and 2024 Occurrence organizer correction |
 | `audits/matsuri-f2-m02-nunobashi-relation-2026-07-12.md` | Maintenance batch 03 | 富山県［立山博物館］ Entity, conservative `supported_by` Relation, and completion of initial zero-Relation coverage |
