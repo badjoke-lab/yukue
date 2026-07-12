@@ -132,7 +132,7 @@ Maintenance batch 02 report:
 docs/audits/matsuri-f2-m02-suneori-relation-2026-07-12.md
 ```
 
-Maintenance batch 02 adds:
+Maintenance batch 02 added:
 
 ```text
 脚折雨乞
@@ -142,25 +142,35 @@ Maintenance batch 02 adds:
 
 The official 鶴ヶ島市 record identifies the preservation association as the organizer of the 2024 edition. The batch also updates `occ-suneori-2024` to record the organizer while preserving its existing date, outcome, scale, venues, and prior Evidence.
 
-Summary after maintenance batch 02:
+Maintenance batch 03 report:
 
 ```text
-Entities total                       43
+docs/audits/matsuri-f2-m02-nunobashi-relation-2026-07-12.md
+```
+
+Maintenance batch 03 adds:
+
+```text
+布橋灌頂会
+  └─ supported_by
+       └─ 富山県［立山博物館］
+```
+
+The 立山町 official page states that the tradition is preserved and presented at the museum through displays, video footage, and 姥尊像. The conservative `supported_by` Relation records preservation and interpretation support without claiming that the museum organizes or controls the recurring ceremony.
+
+Summary after maintenance batch 03:
+
+```text
+Entities total                       44
 Specialist Entities checked          25
-Relations total                      24
-Specialists with no Relation          1
+Relations total                      25
+Specialists with no Relation          0
 Occurrence organizer Relation gaps    0
 Place-context Relation gaps            0
 Relations missing Evidence             0
 ```
 
-Remaining zero-Relation specialist:
-
-```text
-fst-nunobashi-kanjoe  布橋灌頂会
-```
-
-No Relation is inferred from the ritual route, shared geography, or a museum reference alone. An authoritative source must identify a modelled institution and its role.
+The initial zero-Relation specialist inventory is now fully resolved with evidence-backed Relations.
 
 ## Audit scope
 
@@ -243,9 +253,10 @@ F2-M02 must not:
 1. Occurrence and freshness candidate inventory — completed for 2026-07-12 baseline
 2. Relation coverage candidate inventory — completed for 2026-07-12 baseline
 3. evidence review notes — active
-4. approved data corrections in bounded batches — maintenance batches 01 and 02 completed
-5. validation results — automated on each repository gate
-6. updated audit summary — maintained during F2-M02
+4. approved data corrections in bounded batches — maintenance batches 01 through 03 completed
+5. initial zero-Relation specialist inventory — resolved
+6. validation results — automated on each repository gate
+7. updated audit summary — maintained during F2-M02
 ```
 
 ## Next review points
@@ -254,7 +265,6 @@ F2-M02 must not:
 相馬野馬追 2026    continue authoritative post-event evidence search
 博多祇園山笠 2026  review after 2026-07-15
 郡上おどり 2026    review after 2026-09-05
-布橋灌頂会          inspect official material for a named organizer or institutional Relation
 ```
 
 ## Completion condition
