@@ -265,16 +265,55 @@ F2-19  hostname decision                     completed
 F2-20  custom-domain attachment and deploy   pending
 ```
 
-Current state:
+Current state before F2-20 production deployment:
 
 ```text
-MATSURI_PUBLIC_ORIGIN  unset
-custom domain          not attached
-active canonical       none
+custom domain          not externally verified
+active canonical       not externally verified
 workers.dev canonical  false
 ```
 
-F2-20 will attach `matsuri-yukue.badjoke-lab.com`, set the exact HTTPS origin, and redeploy. Canonical, indexing, and Analytics work remains blocked until that succeeds.
+Canonical, indexing, and Analytics work remains blocked until F2-20 production deployment and verification succeed.
+
+## 2026-07-12 — F2-20 activation is repository-managed
+
+Decision:
+
+```text
+Custom Domain source of truth  wrangler.jsonc
+canonical origin source        config/yukue-deployment-topology.json
+production build wrapper       scripts/build-matsuri-workers.mjs
+dashboard-only origin value    not used
+```
+
+`wrangler.jsonc` defines:
+
+```text
+pattern        matsuri-yukue.badjoke-lab.com
+custom_domain  true
+```
+
+The Workers production build reads the accepted canonical origin and passes:
+
+```text
+MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
+```
+
+to the static build child process.
+
+The origin is public configuration rather than a secret. Keeping the hostname and origin in one accepted topology avoids dashboard drift and duplicate configuration.
+
+The repository gate verifies both:
+
+```text
+canonical Workers production artifact
++
+pre-completion repository release candidate
+```
+
+Configuration committed to Git does not itself complete F2-20. Completion still requires a successful production deployment, DNS and certificate availability, HTTPS reachability, canonical manifest and sitemap checks, and deployed-origin verification.
+
+The portal hostname remains excluded from the Matsuri Wrangler configuration.
 
 ## Open decisions
 
