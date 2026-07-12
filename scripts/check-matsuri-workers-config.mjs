@@ -45,10 +45,15 @@ assert(
   "Wrangler Matsuri route must use custom_domain=true.",
 );
 assert(
-  matsuri.deployment_status === "custom-domain-configured-deployment-pending",
-  "Matsuri topology must record custom-domain configuration pending deployment.",
+  matsuri.deployment_status === "canonical-origin-verified",
+  "Matsuri topology must record a verified canonical origin.",
+);
+assert(
+  matsuri.verification?.workflow_run_id === 29191904624 &&
+    matsuri.verification?.verified_origin === matsuri.canonical_origin,
+  "Matsuri Custom Domain verification evidence is missing.",
 );
 
 console.log(
-  `Matsuri Workers Static Assets configuration is valid with Custom Domain ${matsuri.canonical_hostname}.`,
+  `Matsuri Workers Static Assets configuration is valid with verified Custom Domain ${matsuri.canonical_hostname}.`,
 );

@@ -1,70 +1,59 @@
 # Deployment
 
-**Status:** F2-16 through F2-19 completed / F2-20 configuration committed / production deployment and verification pending
+**Status:** F2-16 through F2-21 completed / F2-22 browser Search verification next
 
-## Verified deployment baseline
+## Verified production deployment
 
 `祭のゆくえ` is deployed as a fully pre-rendered Astro site through Cloudflare Workers Static Assets.
 
 ```text
-Cloudflare Worker
+Worker
 matsuri-yukue
 
-Permanent Workers origin
+Canonical origin
+https://matsuri-yukue.badjoke-lab.com/
+
+Permanent non-canonical Workers origin
 https://matsuri-yukue.badjoke-lab.workers.dev/
-
-Verified deployment origin
-https://f757f092-matsuri-yukue.badjoke-lab.workers.dev/
-
-GitHub Actions deployed-origin verification
-run 29182976642 — success
-
-Verified source commit
-f6fdd5055c2712838ef30ed54048abf7f0674b4c
 ```
 
-Completed external work:
+Canonical activation evidence:
 
 ```text
-F2-16  Workers Builds connection
-F2-17  first Workers Static Assets deployment and reachable URL
-F2-18  deployed-origin smoke verification
-F2-19  exact canonical Matsuri hostname decision
+Activation merge
+f978bc50a1ab51964687ec0457a448dc37b2aaf9
+
+Verification workflow
+Verify Matsuri canonical origin gate
+
+Verification run
+29191904624 — success
+
+Successful attempt
+1 of 18
 ```
 
-F2-20 code configuration is committed but does not become completed external evidence until production deployment and canonical verification succeed.
+The external verifier confirmed HTTPS, required public routes, Pagefind asset reachability, public JSON, exact `manifest.site_origin`, and canonical sitemap locations.
 
-## Accepted public topology
+Detailed evidence:
 
 ```text
-yukue.badjoke-lab.com
-└─ Yukue Series portal
-
-matsuri-yukue.badjoke-lab.com
-└─ 祭のゆくえ
+docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
 ```
 
-The portal and Matsuri are separate applications and separate Cloudflare Workers.
+## Public topology
 
 ```text
-apps/portal   → Worker yukue-portal   → yukue.badjoke-lab.com
-apps/matsuri  → Worker matsuri-yukue  → matsuri-yukue.badjoke-lab.com
+yukue.badjoke-lab.com          portal — planned
+matsuri-yukue.badjoke-lab.com  Matsuri — canonical origin verified
 ```
-
-The Matsuri site is not hosted below a portal path such as `yukue.badjoke-lab.com/matsuri/`. Deploying the portal later does not replace or reconfigure the Matsuri Worker build contract.
-
-The complete accepted topology is documented in:
 
 ```text
-docs/deployment-topology.md
-config/yukue-deployment-topology.json
+apps/portal   → Worker yukue-portal
+apps/matsuri  → Worker matsuri-yukue
 ```
 
-Validate it with:
-
-```text
-pnpm check:yukue:deployment-topology
-```
+Matsuri is not hosted below a portal path.
 
 ## Static deployment model
 
@@ -78,54 +67,34 @@ reviewed canonical data
 → Workers Static Assets
 ```
 
-No Astro Cloudflare SSR adapter, Worker runtime entry point, runtime binding, D1 canonical database, KV dependency, or runtime ingestion is required for the launch baseline.
+No Astro Cloudflare SSR adapter, Worker runtime entry point, runtime binding, D1 canonical database, KV dependency, or runtime ingestion is required.
 
 ## Wrangler contract
 
-The repository root contains `wrangler.jsonc`:
-
 ```text
-name                         matsuri-yukue
-assets.directory             ./apps/matsuri/dist
-main                         absent
-routes[0].pattern            matsuri-yukue.badjoke-lab.com
-routes[0].custom_domain      true
+name                      matsuri-yukue
+assets.directory          ./apps/matsuri/dist
+main                      absent
+routes[0].pattern         matsuri-yukue.badjoke-lab.com
+routes[0].custom_domain   true
 ```
 
-The absence of `main` is intentional. The deployment uploads and serves static files only.
+The Custom Domain is version-controlled. Cloudflare creates and maintains the matching DNS and certificate state.
 
-The Custom Domain is version-controlled. On production `wrangler deploy`, Cloudflare applies the hostname, DNS record, and certificate state.
-
-Validate the contract with:
+## Workers Builds contract
 
 ```text
-pnpm check:matsuri:workers-config
-```
-
-## Workers Builds settings
-
-```text
-Worker name                    matsuri-yukue
 Repository                     badjoke-lab/yukue
 Production branch              main
 Root directory                 repository root
 Build command                  pnpm build:matsuri:workers
 Deploy command                 npx wrangler deploy
 Non-production deploy command  npx wrangler versions upload
+Node.js                        24
+pnpm                           11.10.0
 ```
 
-The repository root is required because Matsuri consumes workspace packages from `packages/*` and root scripts.
-
-## Build environment
-
-```text
-Node.js  24
-pnpm     11.10.0
-```
-
-No runtime secrets or bindings are required.
-
-The production build does not depend on a dashboard-only environment variable. `scripts/build-matsuri-workers.mjs` reads the accepted public origin from `config/yukue-deployment-topology.json` and passes:
+`scripts/build-matsuri-workers.mjs` loads the verified canonical origin from `config/yukue-deployment-topology.json` and passes:
 
 ```text
 MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
@@ -133,97 +102,36 @@ MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
 
 to the static build child process.
 
-The value is public configuration, not a secret.
+## Dual artifact verification
 
-## Repository commands
-
-```text
-pnpm check:yukue:deployment-topology
-pnpm build:matsuri:workers
-pnpm check:matsuri:workers-config
-pnpm check:matsuri:pages
-pnpm verify:matsuri:workers
-pnpm gate:matsuri:repository
-```
-
-The historical `check:matsuri:pages` name validates the static artifact shape; it does not imply use of the legacy Pages product.
-
-`pnpm gate:matsuri:repository` now verifies two build modes:
+The repository gate verifies:
 
 ```text
-Workers production mode
-- MATSURI_PUBLIC_ORIGIN injected
+Workers production artifact
+- canonical origin configured
 - manifest.site_origin present
-- canonical sitemap origin present
+- canonical sitemap locations present
 
-Repository release-candidate mode
-- rebuilt without active origin
-- canonical_origin remains null
-- external F2-20 result remains unclaimed
+Repository release candidate
+- origin-neutral artifact copy
+- separately records the verified canonical origin and workflow evidence
 ```
 
-## Deployed-origin verification
-
-The manual GitHub Actions workflow is:
+## Completed external work
 
 ```text
-Verify Matsuri deployed origin
+F2-16  Workers Builds connection — completed
+F2-17  first Workers Static Assets deployment — completed
+F2-18  workers.dev smoke verification — completed
+F2-19  exact canonical hostname decision — completed
+F2-20  Custom Domain activation, canonical build, HTTPS verification — completed
+F2-21  canonical manifest and sitemap verification — completed
 ```
 
-F2-18 was completed with:
+## Remaining sequence
 
 ```text
-origin
-https://f757f092-matsuri-yukue.badjoke-lab.workers.dev/
-
-canonical
-false
-```
-
-After the F2-20 production deployment, run:
-
-```text
-origin
-https://matsuri-yukue.badjoke-lab.com/
-
-canonical
-true
-```
-
-The verifier checks required public routes, Pagefind runtime, public JSON, discovery files, Matsuri markers, representative Entity data, manifest origin, and sitemap structure.
-
-## F2-20 activation state
-
-Repository configuration:
-
-```text
-canonical hostname decision  matsuri-yukue.badjoke-lab.com
-Custom Domain route          committed
-canonical build wrapper      committed
-production deployment        pending
-external HTTPS verification  pending
-active completion claim      none
-```
-
-The merge to `main` triggers Workers Builds. The production sequence is:
-
-```text
-pnpm build:matsuri:workers
-→ canonical static artifact
-→ npx wrangler deploy
-→ Custom Domain application
-→ DNS and certificate provisioning
-→ external verification
-```
-
-Configuration alone is not F2-20 completion.
-
-## Remaining hold
-
-```text
-F2-20  production deployment and canonical custom-domain verification — active
-F2-21  canonical manifest and sitemap verification as a recorded gate — hold
-F2-22  browser Pagefind Search verification on canonical origin — hold
+F2-22  browser Pagefind Search verification — next
 F2-23  crawler-reachability review — hold
 F2-24  sitemap submission and indexability check — hold
 F2-25  Web Analytics activation — hold
@@ -232,30 +140,6 @@ F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
-The Workers origin remains a verified deployment origin but is not canonical.
+Do not treat fetched Search HTML and Pagefind assets as proof of interactive browser Search. F2-22 must submit queries and follow results in Chromium.
 
-Do not:
-
-- claim that the custom domain is active before HTTPS verification,
-- mark F2-20 complete from repository configuration alone,
-- submit the sitemap before F2-24,
-- enable Web Analytics before F2-25,
-- claim F2-21 through F2-28 completion.
-
-## Work allowed while external activation is pending
-
-- inspect Workers Builds and Wrangler logs,
-- retry a failed production deployment after fixing a verified cause,
-- run DNS and HTTPS checks,
-- run deployed-origin verification,
-- perform date-triggered Occurrence outcome maintenance,
-- review Current State freshness,
-- correct Source and Evidence records,
-- perform security and dependency maintenance,
-- preserve a passing repository gate.
-
-Focused activation specification:
-
-```text
-docs/f2-20-custom-domain-activation.md
-```
+Do not submit the sitemap before F2-24 or enable Analytics before F2-25.

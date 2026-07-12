@@ -20,6 +20,17 @@ const matsuriTopology = topology.sites.find((site) => site.site_id === "matsuri"
 if (!matsuriTopology) {
   throw new Error("Accepted deployment topology is missing the Matsuri site.");
 }
+if (matsuriTopology.deployment_status !== "canonical-origin-verified") {
+  throw new Error("Matsuri canonical origin is not recorded as verified.");
+}
+if (
+  matsuriTopology.verification?.workflow_run_id !== 29191904624 ||
+  matsuriTopology.verification?.https_reachable !== true ||
+  matsuriTopology.verification?.manifest_origin_verified !== true ||
+  matsuriTopology.verification?.canonical_sitemap_verified !== true
+) {
+  throw new Error("Matsuri canonical verification evidence is incomplete.");
+}
 
 const completedRepositoryWork = [
   "F2-07 unified release verification",
@@ -37,11 +48,11 @@ const completedExternalWork = [
   "F2-17 first Workers Static Assets deployment and reachable URL acquisition",
   "F2-18 deployed-origin smoke verification",
   "F2-19 exact canonical Matsuri hostname decision",
+  "F2-20 custom-domain attachment, canonical build, and HTTPS verification",
+  "F2-21 canonical manifest and sitemap verification",
 ];
 
 const externalPendingWork = [
-  "F2-20 attach custom domain, configure MATSURI_PUBLIC_ORIGIN, and redeploy",
-  "F2-21 canonical manifest and sitemap verification",
   "F2-22 browser Pagefind Search verification on canonical production origin",
   "F2-23 robots, canonical, sitemap, and crawler-reachability review",
   "F2-24 search-engine sitemap submission and indexability check",
@@ -84,7 +95,7 @@ function sourceCommit() {
 
 if (process.env.MATSURI_PUBLIC_ORIGIN) {
   throw new Error(
-    "Repository release-candidate freeze requires MATSURI_PUBLIC_ORIGIN to remain unset until F2-20 custom-domain activation.",
+    "Repository release-candidate freeze requires an origin-neutral build; unset MATSURI_PUBLIC_ORIGIN before freezing.",
   );
 }
 
@@ -103,7 +114,7 @@ const version = JSON.parse(
 
 if (Object.hasOwn(manifest, "site_origin")) {
   throw new Error(
-    `Repository release candidate must not contain an active production site_origin before F2-20: ${String(manifest.site_origin)}`,
+    `Origin-neutral repository release candidate must not contain manifest.site_origin: ${String(manifest.site_origin)}`,
   );
 }
 
@@ -164,12 +175,13 @@ const releaseManifest = {
   source_commit: sourceCommit(),
   dataset_version: version.dataset_version,
   schema_version: version.schema_version,
-  release_status:
-    "repository-verified-deployed-origin-verified-canonical-hostname-decided-domain-attachment-pending",
+  release_status: "repository-verified-canonical-origin-verified-browser-search-pending",
+  artifact_origin_mode: "origin-neutral-repository-candidate",
   canonical_hostname_decision: matsuriTopology.canonical_hostname,
   canonical_origin_decision: matsuriTopology.canonical_origin,
   portal_origin_decision: topology.portal.canonical_origin,
-  canonical_origin: null,
+  canonical_origin: matsuriTopology.canonical_origin,
+  canonical_origin_verification: matsuriTopology.verification,
   verification_command: "pnpm verify:release",
   completed_repository_work: completedRepositoryWork,
   completed_external_work: completedExternalWork,
@@ -194,22 +206,24 @@ fs.writeFileSync(
 
 const summary =
   `# Matsuri Release Candidate\n\n` +
-  `Status: **repository verified; deployed origin verified; canonical hostname decided; custom-domain attachment pending**\n\n` +
+  `Status: **repository verified; canonical origin verified; browser Search verification pending**\n\n` +
   `- Source commit: \`${releaseManifest.source_commit ?? "unavailable"}\`\n` +
   `- Dataset version: \`${releaseManifest.dataset_version}\`\n` +
   `- Schema version: \`${releaseManifest.schema_version}\`\n` +
+  `- Artifact origin mode: \`${releaseManifest.artifact_origin_mode}\`\n` +
   `- Public routes: ${publicRoutes.length}\n` +
   `- Artifact files: ${releaseManifest.artifact_file_count}\n` +
   `- Artifact bytes: ${releaseManifest.artifact_size_bytes}\n` +
   `- Artifact SHA-256: \`${aggregateHash}\`\n` +
-  `- Verified deployment origin: \`https://matsuri-yukue.badjoke-lab.workers.dev/\`\n` +
-  `- Canonical hostname decision: \`${releaseManifest.canonical_hostname_decision}\`\n` +
-  `- Canonical origin activation: pending F2-20\n\n` +
-  `The copied site under \`matsuri-site/\` is the exact static artifact that passed \`pnpm verify:release\`. ` +
-  `F2-16 through F2-19 are complete. F2-20 through F2-28 remain external work.\n`;
+  `- Verified canonical origin: \`${releaseManifest.canonical_origin}\`\n` +
+  `- Canonical verification workflow run: \`${matsuriTopology.verification.workflow_run_id}\`\n` +
+  `- Next external gate: F2-22 browser Pagefind Search verification\n\n` +
+  `The copied site under \`matsuri-site/\` is the origin-neutral static artifact that passed \`pnpm verify:release\`. ` +
+  `The active canonical deployment is recorded separately through verified external evidence. ` +
+  `F2-16 through F2-21 are complete. F2-22 through F2-28 remain external work.\n`;
 
 fs.writeFileSync(path.join(candidateRoot, "README.md"), summary, "utf8");
 
 console.log(
-  `Matsuri release candidate frozen: ${publicRoutes.length} routes, ${fileEntries.length} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${aggregateHash}; canonical hostname ${matsuriTopology.canonical_hostname} decided, activation pending F2-20.`,
+  `Matsuri release candidate frozen: ${publicRoutes.length} routes, ${fileEntries.length} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${aggregateHash}; canonical origin ${releaseManifest.canonical_origin} verified by run ${matsuriTopology.verification.workflow_run_id}; browser Search verification pending F2-22.`,
 );

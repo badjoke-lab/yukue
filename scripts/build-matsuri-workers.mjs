@@ -25,8 +25,15 @@ assert(
   "Unexpected Matsuri canonical origin in deployment topology.",
 );
 assert(
-  matsuri.deployment_status === "custom-domain-configured-deployment-pending",
-  "Matsuri deployment topology is not activated for the F2-20 Workers build.",
+  matsuri.deployment_status === "canonical-origin-verified",
+  "Matsuri deployment topology must record a verified canonical origin.",
+);
+assert(
+  matsuri.verification?.workflow_run_id === 29191904624 &&
+    matsuri.verification?.https_reachable === true &&
+    matsuri.verification?.manifest_origin_verified === true &&
+    matsuri.verification?.canonical_sitemap_verified === true,
+  "Matsuri canonical verification evidence is incomplete.",
 );
 
 const command = process.platform === "win32" ? "pnpm.cmd" : "pnpm";
@@ -46,5 +53,5 @@ if (result.status !== 0) {
 }
 
 console.log(
-  `Matsuri Workers artifact built with MATSURI_PUBLIC_ORIGIN=${matsuri.canonical_origin}`,
+  `Matsuri Workers artifact built with verified canonical origin ${matsuri.canonical_origin}`,
 );

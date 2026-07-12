@@ -1,24 +1,18 @@
 # Development Schedule
 
-**Status:** F2-19 completed / F2-20 domain activation on hold
+**Status:** F2-21 completed / F2-22 browser Search verification next
 
-This document defines the stable implementation order. It complements:
-
-- `roadmap.md` — long-range phases and gates,
-- `project-status.md` — current position,
-- this file — concrete work-package sequence.
-
-The project is gate-driven rather than deadline-driven. Stable work-package IDs are independent from GitHub PR numbers.
+This document defines the stable implementation order. It complements `roadmap.md` and `project-status.md`. The project is gate-driven rather than deadline-driven.
 
 ## Current position
 
 ```text
 Foundation through Stage E  completed
 F1 corpus expansion          completed
-F2-01 through F2-19          completed
+F2-01 through F2-21          completed
 F2-M01                       completed
 F2-M02                       completed
-F2-20 through F2-28          operational hold
+F2-22 through F2-28          operational hold
 ```
 
 ## Foundation through Stage E
@@ -36,11 +30,9 @@ Stage E     Browse, Pagefind Search, machine-readable layer — completed
 
 Status: **Completed through validated batches 01–10**
 
-Coverage includes Festivals, Folk Performances, Tradition Units, Organizations, Shrine context seeds, Occurrence history, Change Events, Relations, Designations, Sources, and Evidence.
-
 ## F2 — Launch preparation
 
-### Block A — Repository work
+### Repository work
 
 ```text
 F2-01  static build and artifact contract — completed
@@ -66,31 +58,14 @@ Repository gate:
 pnpm gate:matsuri:repository
 ```
 
-The gate now includes:
-
-```text
-pnpm check:yukue:deployment-topology
-```
-
-### Block M — Parallel maintenance work
+### Parallel maintenance
 
 ```text
 F2-M01  full-page screenshot visual-review workflow — completed
 F2-M02  Matsuri data freshness audit — completed
 ```
 
-#### F2-M02 completed sequence
-
-1. established the Occurrence, Current State, external-link, and Relation candidate inventories,
-2. reviewed all approved non-future scheduled and unresolved Occurrences,
-3. confirmed zero stale Current State candidates at the fixed audit date,
-4. confirmed zero stale external-link candidates at the fixed audit date,
-5. resolved the initial zero-Relation specialist inventory with evidence-backed bounded batches,
-6. corrected the 2026 相馬野馬追 outcome from `unknown` to `held`,
-7. ran the full repository gate and screenshot workflow,
-8. recorded remaining future-date review points without treating them as current defects.
-
-Completion result:
+F2-M02 completion result:
 
 ```text
 closed-period unresolved Occurrences  0
@@ -100,57 +75,48 @@ stale external-link candidates        0
 Relations missing Evidence            0
 ```
 
-Governing document:
-
-```text
-docs/matsuri-data-freshness-audit.md
-```
-
-Future-dated Occurrence checks continue as normal maintenance:
+Routine date-triggered checks:
 
 ```text
 博多祇園山笠 2026  review after 2026-07-15
 郡上おどり 2026    review after 2026-09-05
 ```
 
-### Block B — External deployment and production verification
+### External deployment and production verification
 
 #### Completed
 
 ```text
 F2-16  Cloudflare Workers Builds connection — completed
-F2-17  first Workers Static Assets deployment and reachable URL — completed
+F2-17  first Workers Static Assets deployment — completed
 F2-18  deployed-origin smoke verification — completed
 F2-19  exact canonical Matsuri hostname decision — completed
+F2-20  Custom Domain activation, canonical build, HTTPS verification — completed
+F2-21  canonical manifest and sitemap verification — completed
 ```
 
-Evidence and decisions:
+Canonical evidence:
 
 ```text
-Worker                  matsuri-yukue
-Permanent origin        https://matsuri-yukue.badjoke-lab.workers.dev/
-Verified deployment     https://f757f092-matsuri-yukue.badjoke-lab.workers.dev/
-Verification workflow   GitHub Actions run 29182976642 — success
-Verified source commit  f6fdd5055c2712838ef30ed54048abf7f0674b4c
-Portal hostname         yukue.badjoke-lab.com
-Matsuri hostname        matsuri-yukue.badjoke-lab.com
+Canonical origin          https://matsuri-yukue.badjoke-lab.com
+Verification workflow     Verify Matsuri canonical origin gate
+Verification run          29191904624 — success
+Successful attempt        1 of 18
+Activation merge          f978bc50a1ab51964687ec0457a448dc37b2aaf9
 ```
 
-Topology contract:
+The verifier confirmed required routes, Pagefind asset reachability, public JSON, exact `manifest.site_origin`, and canonical sitemap locations.
+
+Evidence record:
 
 ```text
-docs/deployment-topology.md
-config/yukue-deployment-topology.json
+docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
 ```
 
-The portal and Matsuri are separate Workers. The specialist site must not be nested under the portal path.
-
-#### Operational hold
+#### Next gate and hold
 
 ```text
-F2-20  attach custom domain, configure MATSURI_PUBLIC_ORIGIN, redeploy — hold
-F2-21  canonical manifest and sitemap verification — hold
-F2-22  browser Pagefind Search verification on canonical origin — hold
+F2-22  browser Pagefind Search verification on canonical origin — next
 F2-23  robots, canonical, sitemap, crawler-reachability review — hold
 F2-24  search-engine sitemap submission and indexability check — hold
 F2-25  Cloudflare Web Analytics activation — hold
@@ -159,33 +125,17 @@ F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
-The hold now begins at F2-20. The intended hostname is decided, but no active canonical origin exists until the custom domain is attached, `MATSURI_PUBLIC_ORIGIN` is set, and a new production deployment succeeds.
+F2-22 must use a real browser to submit queries, observe Pagefind results, and follow result navigation. HTTP asset reachability from F2-20/F2-21 is not sufficient.
 
-#### F2-20 execution order
+## Work allowed before F2-22 completion
 
-```text
-1. confirm no conflicting DNS record exists
-2. attach matsuri-yukue.badjoke-lab.com to Worker matsuri-yukue
-3. set MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
-4. trigger production deployment from main
-5. record custom-domain reachability and deployment evidence
-```
-
-Do not attach `yukue.badjoke-lab.com` to the Matsuri Worker. That hostname is reserved for the separate portal Worker.
-
-## Work allowed during the hold
-
-- reviewed factual corrections,
-- date-triggered Occurrence outcome maintenance,
-- Current State freshness maintenance,
-- Source and Evidence maintenance,
-- Relation improvements when new evidence appears,
+- F2-22 browser verification tooling and evidence,
+- reviewed factual and date-triggered maintenance,
+- Source, Evidence, and Relation corrections,
 - security and dependency maintenance,
-- repairs required to keep the repository gate green,
-- deployed Workers-origin maintenance checks,
-- screenshot-based visual review for non-trivial UI changes.
+- repairs required to keep repository and canonical-origin gates green.
 
-## Work not activated by the hold
+## Work not activated
 
 ```text
 Stats
@@ -201,12 +151,4 @@ complex graph visualization
 
 ## Documentation rule
 
-Before implementation:
-
-1. read root `AGENTS.md`,
-2. read the nearest nested `AGENTS.md`,
-3. read `docs/project-status.md`,
-4. read this schedule,
-5. read the governing specification.
-
-Update the governing document when behavior changes, `decision-log.md` when a decision changes, `project-status.md` when current position changes, and this schedule when implementation order changes.
+Before implementation, read root and nearest `AGENTS.md`, `project-status.md`, this schedule, and the governing specification. Update status, roadmap, and decision records when their governed state changes.

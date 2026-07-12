@@ -1,6 +1,6 @@
 # Technical Architecture
 
-**Status:** Current direction / F2-20 activation configuration committed
+**Status:** Current direction / Matsuri canonical deployment verified through F2-21
 
 ## Stack
 
@@ -39,325 +39,139 @@ scripts/
 docs/
 ```
 
-Only `portal` and `matsuri` are initial applications. Additional site applications should be added after their project gates.
-
-One monorepo does not mean one public deployment. Each public application remains separately buildable and separately deployable.
+One monorepo does not mean one deployment. Each public application remains separately buildable and deployable.
 
 ## Data flow
 
 ```text
-Reviewed public canonical data
-        ↓
-Schema validation
-        ↓
-Cross-record integrity validation
-        ↓
-Public Projection
-        ├── HTML page data
-        ├── Public JSON
-        ├── JSON-LD
-        ├── Search index
-        ├── Sitemap
-        ├── Manifest
-        ├── version.json
-        ├── llms.txt
-        └── ai.txt
+reviewed canonical data
+→ schema and cross-record validation
+→ approved Public Projection
+→ Astro HTML
+→ public JSON and discovery files
+→ Pagefind static index
+→ sitemap
+→ Workers Static Assets
 ```
 
-The public build must consume approved public projection data rather than unpublished candidate or review material.
-
-## Package responsibilities
-
-- `observation-core`: shared observation logic and Public Projection assembly from validated approved records.
-- `schemas`: record schemas and site-specific extensions.
-- `validation`: schema, referential integrity, vocabulary, semantic warning, and projection-safety checks.
-- `machine-readable`: Manifest, version, public feeds, and discovery-file generation.
-- `search`: search indexing helpers and structured filter output.
-- `ui`: shared design tokens and presentation components after UI direction is approved.
-
-## Validation layers
-
-1. Schema validation.
-2. Referential integrity.
-3. Vocabulary validation.
-4. Semantic warnings.
-5. Public Projection leak checks.
-
-Expected checks include ID uniqueness, slug uniqueness, Relation endpoint integrity, Evidence target integrity, State and Occurrence vocabulary checks, Place reference integrity, image rights gate, maximum one primary image per Entity, and required credit when attribution is required.
-
-## Search
-
-Initial direction:
-
-```text
-Pagefind full-text search
-+
-build-time structured filters
-```
-
-Initial filters:
-
-```text
-entity type
-prefecture
-current state
-```
+The public build never consumes private candidate or review material.
 
 ## Public deployment topology
 
-The accepted topology is stored in:
+```text
+apps/portal   → Worker yukue-portal   → yukue.badjoke-lab.com — planned
+apps/matsuri  → Worker matsuri-yukue  → matsuri-yukue.badjoke-lab.com — verified
+```
+
+Future Jinja, Jiin, and Tomurai applications use separate Workers only after their own project gates.
+
+The portal is the series entrance, not a runtime parent. Specialist sites are not served from `/matsuri/`, `/jinja/`, `/jiin/`, or `/tomurai/` paths below the portal.
+
+Topology contract:
 
 ```text
 config/yukue-deployment-topology.json
 ```
 
-Validate it with:
+Validation:
 
 ```text
 pnpm check:yukue:deployment-topology
 ```
 
-Accepted public origins:
-
-```text
-yukue.badjoke-lab.com          Yukue Series portal
-matsuri-yukue.badjoke-lab.com  祭のゆくえ
-jinja-yukue.badjoke-lab.com    神社のゆくえ — future gate
-jiin-yukue.badjoke-lab.com     寺院のゆくえ — future gate
-tomurai-yukue.badjoke-lab.com  弔いのゆくえ — future gate
-```
-
-Each public application uses a separate Cloudflare Worker.
-
-```text
-apps/portal   → Worker yukue-portal
-apps/matsuri  → Worker matsuri-yukue
-```
-
-Future applications follow the same pattern only after their site gates.
-
-The portal is the series entrance and cross-site guide. It is not a runtime path parent for the specialist applications. The specialist sites must not be served as `/matsuri/`, `/jinja/`, `/jiin/`, or `/tomurai/` paths under the portal build.
-
-This separation preserves independent:
-
-- build artifacts,
-- Search indexes,
-- sitemaps,
-- canonical URL spaces,
-- deployment lifecycles,
-- release gates,
-- rollback boundaries.
-
-## Matsuri deployment
-
-The accepted first-launch architecture is Cloudflare Workers Builds with a static Astro artifact uploaded through Workers Static Assets.
+## Matsuri Workers architecture
 
 ```text
 GitHub repository
-badjoke-lab/yukue
-        ↓
-GitHub Actions repository verification
-        ↓
-Cloudflare Workers Builds Git integration
-        ↓
-pnpm build:matsuri:workers
-        ↓
-canonical origin injected from accepted topology
-        ↓
-apps/matsuri/dist
-        ↓
-npx wrangler@latest deploy
-        ↓
-Worker matsuri-yukue static assets + Custom Domain
+→ GitHub Actions repository gate
+→ Cloudflare Workers Builds
+→ pnpm build:matsuri:workers
+→ canonical origin injected from verified topology
+→ apps/matsuri/dist
+→ npx wrangler deploy
+→ Worker matsuri-yukue
+→ Custom Domain matsuri-yukue.badjoke-lab.com
 ```
 
-GitHub Actions and Cloudflare Workers Builds have different responsibilities:
+The site is static-only.
 
 ```text
-GitHub Actions
-= repository gate, canonical Workers artifact verification, release-candidate verification, browser audit, visual-review artifacts
-
-Cloudflare Workers Builds
-= external build, preview version upload, production deployment, workers.dev origin, custom-domain delivery
+Worker main entry            absent
+assets.directory             ./apps/matsuri/dist
+Custom Domain pattern        matsuri-yukue.badjoke-lab.com
+custom_domain                true
+Astro Cloudflare SSR adapter absent
+runtime bindings             absent
 ```
 
-Matsuri is static output. Do not add the Cloudflare Astro SSR adapter, a Worker `main` entry point, runtime bindings, or server-side rendering unless a later approved requirement introduces server-side behavior.
+## Canonical production build
 
-The Matsuri Worker contract is:
+`scripts/build-matsuri-workers.mjs` loads:
 
 ```text
-Worker name                    matsuri-yukue
-repository                     badjoke-lab/yukue
-production branch              main
-root directory                 repository root
-build command                  pnpm build:matsuri:workers
-deploy command                 npx wrangler@latest deploy
-non-production deploy command  npx wrangler@latest versions upload
-asset directory                apps/matsuri/dist
-Node.js                        24
-pnpm                           11.10.0
+https://matsuri-yukue.badjoke-lab.com
 ```
 
-The repository root remains the build root because the Matsuri application depends on workspace packages and root scripts.
-
-The root `wrangler.jsonc` is the Matsuri deployment contract. It must:
+from the verified deployment topology and passes it as:
 
 ```text
-name                      matsuri-yukue
-assets.directory          ./apps/matsuri/dist
-main                      absent
-routes[0].pattern         matsuri-yukue.badjoke-lab.com
-routes[0].custom_domain   true
+MATSURI_PUBLIC_ORIGIN
 ```
 
-The absence of `main` is deliberate: the launch serves only generated static assets and does not execute Worker application code.
+to the static build child process.
 
-The Custom Domain is managed as code. Production `wrangler deploy` applies the route and asks Cloudflare to create the corresponding DNS and certificate state.
+The origin is public configuration rather than a secret or a duplicate dashboard variable.
 
-## Production canonical build wrapper
+## Dual artifact model
 
-The Cloudflare production build command runs:
+### Production Workers artifact
 
 ```text
-scripts/build-matsuri-workers.mjs
+manifest.site_origin present
+canonical absolute sitemap locations
+Custom Domain deployment
 ```
-
-The wrapper:
-
-1. loads `config/yukue-deployment-topology.json`,
-2. requires the Matsuri status `custom-domain-configured-deployment-pending`,
-3. requires the exact accepted origin,
-4. starts the static build child process with:
-
-```text
-MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
-```
-
-The value is public configuration and is not stored as a dashboard secret or duplicated build variable.
-
-## Dual artifact verification
-
-The repository gate intentionally verifies two artifacts.
-
-### Workers production artifact
-
-```text
-pnpm verify:matsuri:workers
-```
-
-This build includes the canonical origin and verifies:
-
-- required static routes,
-- `manifest.site_origin`,
-- absolute sitemap origins,
-- exact accepted hostname consistency,
-- Custom Domain Wrangler configuration.
 
 ### Repository release candidate
 
 ```text
-pnpm verify:release
-pnpm freeze:matsuri:release
+origin-neutral copied artifact
+per-file and aggregate hashes
+verified canonical origin recorded in release metadata
+external workflow evidence recorded separately
 ```
 
-This build is regenerated without an active production origin and records:
+This preserves reproducibility without denying the active canonical deployment.
+
+## External verification
 
 ```text
-canonical hostname decision  present
-canonical origin decision    present
-active canonical_origin      null
-F2-20 external completion    unclaimed
+Canonical origin       https://matsuri-yukue.badjoke-lab.com
+Workflow               Verify Matsuri canonical origin gate
+Run                    29191904624 — success
+Attempt                1 of 18
 ```
 
-The split prevents repository configuration from being mistaken for external deployment evidence.
+The verifier confirmed HTTPS, required routes, Pagefind asset reachability, public JSON, exact manifest origin, and canonical sitemap locations.
 
-## Portal deployment boundary
-
-The portal application exists under:
+## Current gate boundary
 
 ```text
-apps/portal
+F2-16 through F2-21  completed
+F2-22                 browser Pagefind Search verification next
+F2-23 through F2-28  hold
 ```
 
-Its accepted future public identity is:
-
-```text
-Worker             yukue-portal
-canonical hostname yukue.badjoke-lab.com
-```
-
-The portal deployment remains a separate future activation. It must not reuse `wrangler.jsonc`, Worker `matsuri-yukue`, or the Matsuri asset directory.
-
-Deploying the portal later does not require changing the Matsuri build command, asset directory, Worker identity, or Custom Domain.
-
-## Origin activation sequence
-
-The first Matsuri deployment intentionally ran without `MATSURI_PUBLIC_ORIGIN` because no custom domain was selected.
-
-```text
-first Workers deployment
-→ obtain reachable workers.dev origin
-→ deployed-origin smoke verification
-→ exact portal and Matsuri hostname decision
-→ commit Custom Domain route
-→ commit canonical Workers build wrapper
-→ merge to main
-→ Workers Builds production deployment
-→ DNS and certificate provisioning
-→ HTTPS and canonical verification
-```
-
-Completed:
-
-```text
-F2-16 through F2-19
-F2-20 repository configuration
-```
-
-Pending:
-
-```text
-F2-20 production deployment and external verification
-```
-
-Do not derive the canonical public origin automatically from a preview or workers.dev URL.
-
-The operational launch sequence is governed by:
-
-```text
-docs/cloudflare-pages-launch-runbook.md
-docs/deployment-topology.md
-docs/f2-20-custom-domain-activation.md
-```
-
-The historical runbook file name remains for compatibility, but its contents govern Workers Static Assets deployment.
-
-## Future dedicated-domain migration
-
-The current `badjoke-lab.com` topology must remain migratable to a dedicated parent domain:
-
-```text
-<parent-domain>
-matsuri.<parent-domain>
-jinja.<parent-domain>
-jiin.<parent-domain>
-tomurai.<parent-domain>
-```
-
-A migration requires an explicit later decision, redirects, canonical changes, sitemap changes, and verification. It is not an automatic deployment change.
+F2-22 must use a real browser to submit queries and follow result links. Static HTTP reachability is not sufficient.
 
 ## Future operational layer
 
-D1, R2, Cron Triggers, Queues, or Worker APIs may be added when justified.
-
-Intended boundary:
+D1, R2, Cron Triggers, Queues, Worker APIs, runtime ingestion, or dynamic rendering may be added only when justified by an approved requirement.
 
 ```text
 Git-reviewed public data
-= reviewed canonical public layer
+= canonical public layer
 
-Operational systems
-= candidate collection, monitoring, workflow support
+future operational systems
+= candidate collection and workflow support
 ```
-
-Dynamic infrastructure should not be introduced solely because it is available.

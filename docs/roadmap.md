@@ -65,36 +65,28 @@ Phase 9 is implemented as F2 work packages.
 ### Repository baselines
 
 ```text
-F2-01 through F2-06
+F2-01 through F2-15
 ```
 
 Status: **Completed**
 
-### Repository launch readiness
-
-```text
-F2-07 through F2-15
-```
-
-Repository Launch Readiness: **Completed**
-
-The repository-ready candidate is reproducible, content-addressed, and verified. The intended canonical hostname is now decided, but canonical activation remains pending.
+The repository-ready candidate is reproducible, content-addressed, and verified. The active canonical origin is now recorded separately from the origin-neutral repository artifact.
 
 ### Repository visual and data maintenance
 
 ```text
-F2-M01  exhaustive desktop/mobile full-page screenshot workflow
-F2-M02  Matsuri data freshness audit
+F2-M01  exhaustive desktop/mobile full-page screenshot workflow — completed
+F2-M02  Matsuri data freshness audit — completed
 ```
 
-Status:
+Stable status markers:
 
 ```text
 F2-M01  completed
 F2-M02  completed
 ```
 
-F2-M02 completed its initial maintenance gate with:
+F2-M02 completion result:
 
 ```text
 closed-period unresolved Occurrences  0
@@ -104,10 +96,6 @@ stale external-link candidates        0
 Relations missing Evidence            0
 ```
 
-The audit added evidence-backed Relation coverage for 郡上おどり, 脚折雨乞, and 布橋灌頂会 and resolved the 2026 相馬野馬追 outcome as `held` while retaining `scale: unknown`.
-
-Future-dated Occurrences continue through normal date-triggered maintenance rather than keeping F2-M02 open.
-
 ### External deployment and production verification
 
 ```text
@@ -115,7 +103,7 @@ F2-16  Cloudflare Workers Builds connection
 F2-17  first Workers Static Assets deployment and reachable URL
 F2-18  deployed-origin smoke verification
 F2-19  exact canonical Matsuri hostname decision
-F2-20  custom-domain attachment, canonical-origin configuration, redeployment
+F2-20  Custom Domain activation, canonical build, HTTPS verification
 F2-21  canonical manifest and sitemap verification
 F2-22  browser Search verification on canonical origin
 F2-23  crawler-reachability review
@@ -126,39 +114,36 @@ F2-27  production traffic verification
 F2-28  final F2 Launch Gate
 ```
 
-External deployment through F2-19: **Completed**
+External deployment through F2-21: **Completed**
 
-Domain attachment and canonical activation: **Operational hold at F2-20**
+Browser Search verification: **Next gate at F2-22**
 
-Verified external baseline and accepted decisions:
+Verified canonical baseline:
 
 ```text
 Worker                  matsuri-yukue
-Permanent origin        https://matsuri-yukue.badjoke-lab.workers.dev/
-Verified deployment     https://f757f092-matsuri-yukue.badjoke-lab.workers.dev/
-Verification workflow   GitHub Actions run 29182976642 — success
-Verified source commit  f6fdd5055c2712838ef30ed54048abf7f0674b4c
-Portal hostname         yukue.badjoke-lab.com
-Matsuri hostname        matsuri-yukue.badjoke-lab.com
+Canonical origin        https://matsuri-yukue.badjoke-lab.com
+Verification workflow   Verify Matsuri canonical origin gate
+Verification run        29191904624 — success
+Successful attempt      1 of 18
+Activation merge        f978bc50a1ab51964687ec0457a448dc37b2aaf9
 ```
 
-The portal and Matsuri are separate applications and separate Workers. Matsuri is not nested below a portal path.
+The verifier confirmed HTTPS, required public routes, Pagefind asset reachability, public JSON, exact `manifest.site_origin`, and canonical sitemap locations.
 
-The Workers origin is verified for deployment reachability but is not canonical. F2-20 must attach `matsuri-yukue.badjoke-lab.com`, set `MATSURI_PUBLIC_ORIGIN`, and redeploy before canonical verification begins.
+The portal and Matsuri remain separate applications and Workers. The portal hostname remains planned and is not attached to the Matsuri Worker.
+
+Pending:
+
+```text
+F2-22 through F2-28
+```
+
+F2-22 must verify interactive Pagefind queries and result navigation in a real browser. F2-23 through F2-28 remain blocked until that passes.
 
 ## Phase 10 — Stabilization
 
-After F2-28, observe:
-
-- indexation,
-- search impressions and organic clicks,
-- Search queries and zero-result searches,
-- corrections and Source access,
-- AI referral signs,
-- public JSON access,
-- research and media inquiries,
-- API interest,
-- maintenance burden.
+After F2-28, observe indexation, search impressions, Search queries, corrections, public JSON access, referral signs, inquiries, API interest, and maintenance burden.
 
 Status: **Not started — requires F2-28**
 

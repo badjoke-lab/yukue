@@ -19,7 +19,17 @@
       "worker_name": "matsuri-yukue",
       "canonical_hostname": "matsuri-yukue.badjoke-lab.com",
       "canonical_origin": "https://matsuri-yukue.badjoke-lab.com",
-      "deployment_status": "custom-domain-configured-deployment-pending"
+      "deployment_status": "canonical-origin-verified",
+      "activated_at": "2026-07-12",
+      "verification": {
+        "provider": "github_actions",
+        "workflow_name": "Verify Matsuri canonical origin gate",
+        "workflow_run_id": 29191904624,
+        "verified_origin": "https://matsuri-yukue.badjoke-lab.com",
+        "https_reachable": true,
+        "manifest_origin_verified": true,
+        "canonical_sitemap_verified": true
+      }
     },
     {
       "site_id": "jinja",
