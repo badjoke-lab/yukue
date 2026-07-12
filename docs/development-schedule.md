@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-16 active / Workers Static Assets external sequence
+**Status:** F2-M02 active / domain-dependent launch work on hold
 
 This document defines the stable implementation order. It complements:
 
@@ -15,127 +15,32 @@ The project is gate-driven rather than deadline-driven. Stable work-package IDs 
 ```text
 Foundation through Stage E  completed
 F1 corpus expansion          completed
-F2-01 through F2-15          completed
+F2-01 through F2-18          completed
 F2-M01                       completed
-F2-16                         active
-F2-17 through F2-28          pending
+F2-M02                       active
+F2-19 through F2-28          operational hold
 ```
 
-The external operational hold was removed on 2026-07-12.
-
----
-
-## Foundation
-
-### Foundation 1 — Monorepo and application skeletons
-
-Status: **Completed**
-
-- pnpm workspace,
-- portal and Matsuri application skeletons,
-- shared package skeletons,
-- baseline CI.
-
-### Foundation 2 — Public project reference set
-
-Status: **Completed**
-
-- project concept,
-- product and MVP specifications,
-- public data model,
-- information architecture,
-- technical architecture,
-- verification, Source, Evidence, image, versioning, and machine-readable policies,
-- roadmap, schedule, status, and decision log.
-
-### Foundation 3 — Accepted UI direction
-
-Status: **Completed**
-
-- Home H1 Search First Hybrid,
-- Detail C Integrated Overview,
-- white / black / gray visual base,
-- Mincho-only typography direction,
-- four-site accent palette,
-- shared UI foundation specification.
-
----
-
-## Stage A — Shared UI Foundation
+## Foundation through Stage E
 
 ```text
-A1  design tokens and layout primitives — completed
-A2  navigation and reference patterns — completed
-A3  history, relation, evidence, place, and image patterns — completed
+Foundation  monorepo, app skeletons, shared packages, CI — completed
+Stage A     shared UI foundation — completed
+Stage B     Matsuri static surfaces — completed
+Stage C     data core — completed
+Stage D     canonical data and Public Projection — completed
+Stage E     Browse, Pagefind Search, machine-readable layer — completed
 ```
 
-## Stage B — Matsuri Static Surfaces
-
-```text
-B1  Matsuri Home H1 static implementation — completed
-B2  Festival Detail C static implementation — completed
-B3  responsive and accessibility corrections — completed
-```
-
-## Stage C — Data Core
-
-```text
-C1  common record contracts — completed
-C2  Matsuri extensions and vocabularies — completed
-C3  cross-record validation — completed
-```
-
-## Stage D — Canonical Data and Public Projection
-
-```text
-D1  representative canonical sample — completed
-D2  Public Projection pipeline — completed
-D3  Home and Detail integration — completed
-```
-
-## Stage E — Browse, Search, and Machine-readable Layer
-
-```text
-E1  Projection-backed Browse surfaces — completed
-E2  Pagefind Search and initial filters — completed
-E3  machine-readable baseline — completed
-```
-
-Public baseline:
-
-```text
-/version.json
-/data/manifest.json
-/data/entities.json
-/data/events.json
-/data/relations.json
-/data/occurrences.json
-/llms.txt
-/ai.txt
-/sitemap.xml
-```
-
----
-
-## Stage F — Corpus Expansion and Launch Preparation
-
-### F1 — Corpus expansion
+## F1 — Corpus expansion
 
 Status: **Completed through validated batches 01–10**
 
-Expansion covered Festivals, Folk Performances, Tradition Units, Organizations, Shrine context seeds, Occurrence history, Change Events, Relations, Designations, Sources, and Evidence.
+Coverage includes Festivals, Folk Performances, Tradition Units, Organizations, Shrine context seeds, Occurrence history, Change Events, Relations, Designations, Sources, and Evidence.
 
-### F2 — Launch preparation
+## F2 — Launch preparation
 
-F2 is divided into:
-
-```text
-Block A  repository baselines and launch-readiness work
-Block M  repository visual-review maintenance
-Block B  external deployment and production verification
-```
-
-#### Block A — Repository work
+### Block A — Repository work
 
 ```text
 F2-01  static build and artifact contract — completed
@@ -155,226 +60,89 @@ F2-14  release-candidate artifact freeze — completed
 F2-15  Repository Launch Readiness Gate — completed
 ```
 
-Repository gate command:
+Repository gate:
 
 ```text
 pnpm gate:matsuri:repository
 ```
 
-The gate now includes `wrangler.jsonc` validation for the static Workers deployment contract.
-
-#### Block M — Repository visual review
+### Block M — Parallel maintenance work
 
 ```text
 F2-M01  full-page screenshot visual-review workflow — completed
+F2-M02  Matsuri data freshness audit — active
 ```
 
-The workflow remains available for non-trivial UI maintenance.
+#### F2-M02 implementation order
 
-#### Block B — External deployment and production verification
+1. generate or manually establish the audit candidate inventory,
+2. review approved Occurrences whose dates are not in the future and outcomes remain `scheduled` or unresolved `unknown`,
+3. review Current State snapshots for stale observations and later official changes,
+4. review Source and Evidence accuracy and accessibility,
+5. strengthen cross-site reusable Relations,
+6. make approved corrections in bounded batches,
+7. run the full repository gate,
+8. update the audit summary and known limitations.
 
-The external operational hold was removed on 2026-07-12.
-
-##### F2-16 — Cloudflare Workers Builds connection
-
-Status: **Active**
-
-Governing runbook:
+Governing document:
 
 ```text
-docs/cloudflare-pages-launch-runbook.md
+docs/matsuri-data-freshness-audit.md
 ```
 
-The historical filename is retained temporarily, but the document now governs Workers Builds and Workers Static Assets.
+F2-M02 must not attach a domain, set `MATSURI_PUBLIC_ORIGIN`, declare a canonical origin, submit a sitemap, enable Analytics, or claim final launch completion.
 
-Implementation order:
+### Block B — External deployment and production verification
+
+#### Completed
 
 ```text
-1. merge the Workers Static Assets activation PR into main
-2. open Cloudflare Workers & Pages
-3. select Create application
-4. select Import a repository / Continue with GitHub
-5. select badjoke-lab/yukue
-6. set Worker name matsuri-yukue
-7. set production branch main
-8. keep root directory at repository root / blank
-9. set build command pnpm build:matsuri:workers
-10. set deploy command npx wrangler@latest deploy
-11. keep non-production deploy command npx wrangler@latest versions upload
-12. set NODE_VERSION=24
-13. set PNPM_VERSION=11.10.0 when offered as a build variable
-14. leave MATSURI_PUBLIC_ORIGIN unset
-15. confirm Cloudflare recognizes the committed wrangler.jsonc
-16. select Save and Deploy
-17. record Worker name, branch, build settings, deploy settings, and first build start
+F2-16  Cloudflare Workers Builds connection — completed
+F2-17  first Workers Static Assets deployment and reachable URL — completed
+F2-18  deployed-origin smoke verification — completed
 ```
 
-F2-16 completion condition:
+Evidence:
 
 ```text
-GitHub repository connected
-Cloudflare Worker created
-Worker name matches wrangler.jsonc
-production branch recorded
-build and deploy settings recorded
-first production build started
+Worker                  matsuri-yukue
+Permanent origin        https://matsuri-yukue.badjoke-lab.workers.dev/
+Verified deployment     https://f757f092-matsuri-yukue.badjoke-lab.workers.dev/
+Verification workflow   GitHub Actions run 29182976642 — success
+Verified source commit  f6fdd5055c2712838ef30ed54048abf7f0674b4c
 ```
 
-Do not:
-
-- select `apps/matsuri` as the root directory,
-- allow Cloudflare autoconfiguration to replace the committed Wrangler contract,
-- add the Cloudflare Astro SSR adapter,
-- add Worker runtime code or a `main` entry,
-- add runtime bindings,
-- set `MATSURI_PUBLIC_ORIGIN`,
-- attach a custom domain,
-- enable Web Analytics.
-
-##### F2-17 — First deployment and reachable URL acquisition
-
-Status: **Pending; may begin in the same dashboard session as F2-16**
-
-Completion condition:
+#### Operational hold
 
 ```text
-Cloudflare build succeeded
-production workers.dev URL issued
-URL reachable
-source commit recorded
-Node and pnpm versions recorded
+F2-19  exact canonical Matsuri subdomain decision — hold
+F2-20  attach custom domain, configure MATSURI_PUBLIC_ORIGIN, redeploy — hold
+F2-21  canonical manifest and sitemap verification — hold
+F2-22  browser Pagefind Search verification on canonical origin — hold
+F2-23  robots, canonical, sitemap, crawler-reachability review — hold
+F2-24  search-engine sitemap submission and indexability check — hold
+F2-25  Cloudflare Web Analytics activation — hold
+F2-26  post-activation deployment — hold
+F2-27  production traffic verification — hold
+F2-28  final F2 Launch Gate — hold
 ```
 
-Do not record or assume the exact `workers.dev` hostname until Cloudflare issues and serves it.
+The hold begins at F2-19 because the next steps depend on the exact custom domain and canonical origin. The existing Workers origin remains available for maintenance checks but is not canonical.
 
-##### F2-18 — Deployed-origin smoke verification
+## Work allowed during the hold
 
-Status: **Pending**
-
-Use the manual workflow:
-
-```text
-Verify Matsuri deployed origin
-```
-
-Inputs:
-
-```text
-origin     exact issued workers.dev production origin
-canonical  false
-```
-
-Completion condition:
-
-- required public routes return successful responses,
-- Pagefind assets are reachable,
-- public JSON and discovery files are reachable,
-- Matsuri site markers match,
-- the representative Entity is present,
-- sitemap structure is valid.
-
-##### F2-19 — Exact canonical Matsuri subdomain decision
-
-Status: **Pending**
-
-The topology decision is already fixed as subdomains:
-
-```text
-parent domain root  series portal
-Matsuri subdomain   祭のゆくえ
-Jinja subdomain     神社のゆくえ
-Jiin subdomain      寺院のゆくえ
-Tomurai subdomain   弔いのゆくえ
-```
-
-F2-19 resolves and records the exact parent domain and Matsuri hostname. Do not use a preview URL.
-
-##### F2-20 — Attach custom domain, configure `MATSURI_PUBLIC_ORIGIN`, and redeploy
-
-Status: **Pending**
-
-Attach the exact accepted Matsuri subdomain, set the Production build variable to that origin, and trigger a new deployment.
-
-##### F2-21 — Canonical manifest and sitemap verification
-
-Status: **Pending**
-
-Require:
-
-```text
-manifest.site_origin == checked origin
-all sitemap <loc> values use the checked origin
-```
-
-##### F2-22 — Browser Pagefind Search verification
-
-Status: **Pending**
-
-Verify in a real browser that a known Matsuri record can be found on the production origin.
-
-##### F2-23 — Robots, canonical, sitemap, and crawler-reachability review
-
-Status: **Pending**
-
-Confirm public accessibility, canonical markup, sitemap reachability, and absence of accidental crawler blocking.
-
-##### F2-24 — Search-engine sitemap submission and indexability check
-
-Status: **Pending**
-
-Submit only after F2-21 through F2-23 pass. Record indexability without claiming guaranteed indexing.
-
-##### F2-25 — Enable Cloudflare Web Analytics
-
-Status: **Pending**
-
-Enable only after canonical and crawler verification.
-
-##### F2-26 — Deploy after Analytics activation
-
-Status: **Pending**
-
-Trigger a new production deployment after Analytics is enabled.
-
-##### F2-27 — Verify production traffic
-
-Status: **Pending**
-
-Confirm real production requests appear in the private Analytics dashboard.
-
-##### F2-28 — Final F2 Launch Gate
-
-Status: **Pending**
-
-Required result:
-
-```text
-public build reachable
-canonical subdomain configured and validated
-sitemap validated
-browser Search verified
-crawler and indexability checks completed
-Web Analytics enabled
-production traffic observed
-public Status updated to verified production state
-```
-
----
-
-## Work allowed during external activation
-
-- Workers Builds setup according to the runbook,
-- first-deployment diagnosis,
-- deployed-origin verification,
+- F2-M02 data freshness and evidence work,
 - reviewed factual corrections,
 - Current State freshness maintenance,
 - Occurrence outcome maintenance,
 - Source and Evidence maintenance,
+- Relation improvements,
 - security and dependency maintenance,
-- fixes required to keep the repository gate green,
+- repairs required to keep the repository gate green,
+- deployed Workers-origin maintenance checks,
 - screenshot-based visual review for non-trivial UI changes.
 
-Not automatically activated:
+## Work not activated by the hold
 
 ```text
 Stats
@@ -388,8 +156,6 @@ real-time ingestion
 complex graph visualization
 ```
 
----
-
 ## Documentation rule
 
 Before implementation:
@@ -398,11 +164,6 @@ Before implementation:
 2. read the nearest nested `AGENTS.md`,
 3. read `docs/project-status.md`,
 4. read this schedule,
-5. read the governing specifications.
+5. read the governing specification.
 
-Update:
-
-- the governing document when public behavior changes,
-- `decision-log.md` when a decision changes,
-- `project-status.md` when current position changes,
-- this schedule when implementation order changes.
+Update the governing document when behavior changes, `decision-log.md` when a decision changes, `project-status.md` when current position changes, and this schedule when implementation order changes.
