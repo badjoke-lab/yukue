@@ -23,12 +23,12 @@ Git-reviewed public canonical data
 build-time validation
 Public Projection
 Pagefind
-Cloudflare Workers Static Assets
+Cloudflare static-asset delivery
 ```
 
 Dynamic infrastructure is deferred until justified.
 
-This original deployment label is superseded for the first Matsuri launch by the 2026-07-12 Cloudflare Pages Git-integration decision below. The static-first and no-dynamic-infrastructure parts remain unchanged.
+The exact Cloudflare delivery product changed during launch preparation. The static-first and no-runtime requirements did not change.
 
 ## 2026-07-09 — Two-layer product model
 
@@ -154,11 +154,7 @@ F2-06–F2-15  repository-only launch readiness
 F2-16–F2-28  external deployment and production verification
 ```
 
-External deployment and production verification were placed under an operational hold.
-
-The hold did not stop repository-only readiness work. F2-06 through F2-15 proceeded before any Cloudflare Pages project creation, public deployment URL acquisition, canonical production-origin decision, production Search verification, indexability work, or Web Analytics activation.
-
-The external sequence remained ordered and documented so that it could resume without redesign:
+The external sequence remains ordered:
 
 ```text
 Cloudflare project
@@ -177,10 +173,6 @@ Cloudflare project
 
 Repository Launch Readiness at F2-15 is distinct from the final F2 Launch Gate at F2-28.
 
-F2-15 requires the static artifact, internal links, Public Projection safety, HTML/JSON/Search consistency, Source and Evidence quality, responsive and accessibility review, content and image boundaries, and release-candidate verification to pass without external deployment.
-
-F2-28 additionally requires a reachable public build, validated canonical origin and sitemap, browser Search, crawler and indexability checks, Web Analytics activation, and verified production traffic.
-
 ## 2026-07-11 — F2-15 Repository Launch Readiness completed
 
 Decision:
@@ -188,7 +180,7 @@ Decision:
 ```text
 repository launch readiness  completed
 external production launch   not completed
-F2-16 through F2-28           Operational hold
+F2-16 through F2-28           external work
 ```
 
 The repository gate is represented by:
@@ -197,22 +189,7 @@ The repository gate is represented by:
 pnpm gate:matsuri:repository
 ```
 
-The command must:
-
-1. run the complete unified release verification,
-2. freeze the exact verified static candidate,
-3. verify every frozen file and aggregate artifact digest,
-4. confirm repository documentation records F2-15 completion,
-5. confirm F2-16 through F2-28 remain pending external work.
-
-Repository readiness does not itself prove:
-
-- a Cloudflare project exists,
-- a public URL has been issued,
-- the canonical origin is selected,
-- production Search or crawler behavior works,
-- Web Analytics is enabled,
-- production traffic exists.
+Repository readiness does not itself prove a Cloudflare project exists, a public URL has been issued, the canonical origin is selected, production Search or crawler behavior works, Web Analytics is enabled, or production traffic exists.
 
 ## 2026-07-11 — Successful-render visual review before production
 
@@ -225,21 +202,7 @@ current coverage     all 20 public routes
 capture devices      desktop + mobile
 ```
 
-The repository browser audit remains the measurable rendering and accessibility gate. A separate GitHub Actions workflow preserves successful full-page PNGs for human review of hierarchy, whitespace, density, page length, and mobile reading rhythm.
-
-The workflow builds and serves the site inside GitHub Actions. It does not require a Cloudflare Pages project, public URL, canonical origin, or production deployment.
-
-While the route count remains 20, screenshot review is exhaustive:
-
-```text
-20 desktop PNGs
-20 mobile PNGs
-40 full-page PNGs total
-```
-
-The workflow also produces capture manifests, an automated screenshot audit, desktop and mobile ZIP files, and device contact sheets.
-
-A green automated screenshot audit is not visual approval. Non-trivial UI changes require the pull request to identify the screenshot run and artifact and record what desktop and mobile images were reviewed, what problems were found, what was changed, and what limitations intentionally remain.
+The repository browser audit remains the measurable rendering and accessibility gate. A separate GitHub Actions workflow preserves successful full-page PNGs for human review.
 
 ## 2026-07-12 — External hold removed and F2-16 activated
 
@@ -248,47 +211,63 @@ Decision:
 ```text
 external operational hold  removed
 active work package         F2-16
-launch platform             Cloudflare Pages Git integration
-Pages project name          matsuri-yukue
 repository                  badjoke-lab/yukue
 production branch           main
 ```
 
-The first Matsuri deployment uses Cloudflare Pages Git integration with a static Astro artifact.
+The first attempt assumed the legacy Cloudflare Pages Git-integration screen was still the current creation path. That assumption was invalidated by the current dashboard, which routes new Git repository imports through Workers Builds.
 
-Accepted build contract:
+## 2026-07-12 — Workers Builds and Workers Static Assets adopted
 
-```text
-root directory     repository root
-build command      pnpm build:matsuri:pages
-output directory   apps/matsuri/dist
-Node.js             24
-pnpm                11.10.0
-```
-
-GitHub Actions remains the repository verification system. Cloudflare Pages performs the external build and deployment.
-
-The project remains static. Do not add the Cloudflare Astro SSR adapter, Pages Functions, D1, or other runtime infrastructure for the first launch.
-
-Git integration is accepted despite the fact that Cloudflare does not permit later conversion of that project into a Direct Upload project. Automatic Git deployments may be disabled later, and Wrangler may deploy to the existing Git-integrated project if the operating model changes.
-
-The first deployment intentionally leaves `MATSURI_PUBLIC_ORIGIN` unset. After Cloudflare issues a reachable production URL, the project must complete F2-18 smoke verification before choosing the canonical origin at F2-19.
-
-Do not enable Web Analytics, add a custom domain, or claim production readiness during F2-16 or F2-17.
-
-The governing operational document is:
+Decision:
 
 ```text
-docs/cloudflare-pages-launch-runbook.md
+launch platform             Cloudflare Workers Builds
+asset delivery              Cloudflare Workers Static Assets
+Worker name                 matsuri-yukue
+repository                  badjoke-lab/yukue
+production branch           main
+root directory              repository root
+build command               pnpm build:matsuri:workers
+deploy command              npx wrangler@latest deploy
+non-production command      npx wrangler@latest versions upload
+asset directory             ./apps/matsuri/dist
+Worker main entry           none
 ```
+
+This decision supersedes the earlier same-day Cloudflare Pages project-creation decision.
+
+The committed root `wrangler.jsonc` is the external deployment contract. It has no `main` field because Matsuri is fully pre-rendered and requires no Worker runtime code or Astro Cloudflare SSR adapter.
+
+Cloudflare autoconfiguration must not replace this contract or create an SSR-oriented pull request.
+
+GitHub Actions remains the repository verification system. Workers Builds performs the external build and deployment.
+
+The first deployment intentionally leaves `MATSURI_PUBLIC_ORIGIN` unset. After Cloudflare issues a reachable `workers.dev` URL, the project completes F2-18 smoke verification before attaching the accepted custom domain.
+
+## 2026-07-12 — Subdomain public topology
+
+Decision:
+
+```text
+parent domain root  Yukue Series portal
+Matsuri subdomain   祭のゆくえ
+Jinja subdomain     神社のゆくえ
+Jiin subdomain      寺院のゆくえ
+Tomurai subdomain   弔いのゆくえ
+```
+
+The four specialist sites remain separate public sites while sharing the monorepo, canonical data, schemas, validation, Relations, Evidence, and common packages.
+
+The exact parent domain and final Matsuri hostname remain unresolved until F2-19. The initial `workers.dev` URL is a deployment-verification origin and is not automatically canonical.
 
 ## Open decisions
 
+- exact canonical parent domain and Matsuri subdomain,
 - final map component implementation,
 - exact image storage and optimization pipeline,
 - ULID versus UUIDv7,
 - slug policy,
 - JSON partition threshold,
-- final canonical domain,
 - whether Stats enters MVP,
 - whether Compare enters MVP.
