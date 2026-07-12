@@ -18,6 +18,8 @@ const requiredScripts = [
   "check:matsuri:evidence",
   "check:matsuri:content",
   "check:matsuri:browser",
+  "audit:matsuri:freshness",
+  "audit:matsuri:relations",
 ];
 
 const requiredDocs = [
@@ -34,6 +36,8 @@ const requiredDocs = [
   "docs/deployment.md",
   "docs/decision-log.md",
   "docs/matsuri-data-freshness-audit.md",
+  "docs/audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md",
+  "docs/audits/matsuri-f2-m02-relation-inventory-2026-07-12.md",
 ];
 
 const completedRepositoryIds = [
@@ -227,5 +231,5 @@ assert(
 );
 
 console.log(
-  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-18 are complete, F2-19 through F2-28 remain on hold, and canonical origin remains unset.`,
+  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-18 are complete, F2-19 through F2-28 remain on hold, F2-M02 freshness and Relation inventories are required, and canonical origin remains unset.`,
 );
