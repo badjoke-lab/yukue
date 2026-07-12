@@ -1,6 +1,6 @@
 # Matsuri Data Freshness Audit
 
-**Status:** F2-M02 active
+**Status:** F2-M02 active / initial candidate inventory completed
 
 ## Purpose
 
@@ -25,6 +25,65 @@ f6fdd5055c2712838ef30ed54048abf7f0674b4c
 ```
 
 F2-16 through F2-18 are complete. F2-19 through F2-28 remain on operational hold until custom-domain work can resume.
+
+## Automated inventory
+
+Run after the Matsuri static build:
+
+```text
+pnpm audit:matsuri:freshness
+```
+
+Fixed audit date:
+
+```text
+pnpm audit:matsuri:freshness -- --as-of 2026-07-12
+```
+
+JSON output:
+
+```text
+pnpm audit:matsuri:freshness -- --as-of 2026-07-12 --json
+```
+
+The command reads the generated approved Public Projection under `apps/matsuri/dist/data`. It reports review candidates but does not automatically change canonical records or fail merely because candidates exist. It fails on missing feeds, malformed dates, unsupported temporal values, or invalid date ranges.
+
+## Initial inventory result
+
+Audit report:
+
+```text
+docs/audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md
+```
+
+Summary:
+
+```text
+Occurrences total                  24
+Resolved Occurrences               14
+Closed-period unresolved            1
+In-progress scheduled               2
+Future scheduled                    7
+
+Entities total                     41
+Current State snapshots checked    23
+Stale Current State candidates      0
+
+External links checked             40
+Stale external-link candidates      0
+```
+
+The single closed-period unresolved candidate is:
+
+```text
+occ-soma-2026-schedule
+相馬野馬追
+2026-05-23 through 2026-05-25
+outcome: unknown
+scale: unknown
+```
+
+The official 2026 schedule confirms the planned dates and program, but the first evidence pass did not locate an authoritative post-event record sufficient to classify the outcome of the entire multi-day occurrence. The record therefore remains `unknown` rather than being changed by inference.
 
 ## Audit scope
 
@@ -85,15 +144,7 @@ Each Relation must remain directed, evidence-backed, and time-bounded when the s
 
 ### 5. Deployed-environment maintenance review
 
-The Workers origin may be used to check:
-
-- representative public routes,
-- internal navigation,
-- Pagefind loading,
-- machine-readable files,
-- 404 behavior,
-- static asset loading,
-- desktop and mobile rendering.
+The Workers origin may be used to check representative routes, internal navigation, Pagefind loading, machine-readable files, 404 behavior, static assets, and desktop/mobile rendering.
 
 These checks are maintenance evidence only. They do not complete F2-21 through F2-24 because no canonical custom domain is configured.
 
@@ -112,14 +163,20 @@ F2-M02 must not:
 ## Deliverables
 
 ```text
-1. candidate inventory
-2. evidence review notes
-3. approved data corrections in bounded batches
-4. validation results
-5. updated audit summary
+1. candidate inventory — completed for 2026-07-12 baseline
+2. evidence review notes — active
+3. approved data corrections in bounded batches — pending evidence
+4. validation results — automated on each repository gate
+5. updated audit summary — maintained during F2-M02
 ```
 
-Data changes remain subject to the normal canonical-data review, schema validation, referential-integrity checks, Public Projection safety checks, browser checks, and repository gate.
+## Next review points
+
+```text
+相馬野馬追 2026  continue authoritative post-event evidence search
+博多祇園山笠 2026  review after 2026-07-15
+郡上おどり 2026    review after 2026-09-05
+```
 
 ## Completion condition
 
