@@ -1,6 +1,8 @@
-# Matsuri Cloudflare Pages Launch Runbook
+# Matsuri Cloudflare Workers Static Assets Launch Runbook
 
 **Status:** F2-16 active
+
+> The file name is retained for compatibility with existing repository references. The accepted deployment platform is now Cloudflare Workers Builds with Workers Static Assets, not a legacy Pages project.
 
 ## Purpose
 
@@ -8,42 +10,52 @@ This runbook governs the first external deployment of `祭のゆくえ` from the
 
 The first deployment has two purposes only:
 
-1. connect the GitHub repository to Cloudflare Pages,
-2. obtain a reachable `*.pages.dev` production URL for deployed-origin verification.
+1. connect `badjoke-lab/yukue` to a Cloudflare Worker through Workers Builds,
+2. obtain a reachable `*.workers.dev` production URL for deployed-origin verification.
 
-Do not add a custom domain, canonical production origin, Web Analytics, or production claims during F2-16.
+Do not add a custom domain, canonical production origin, Web Analytics, runtime bindings, or production claims during F2-16.
 
 ## Deployment model
 
 ```text
 GitHub repository
 badjoke-lab/yukue
-        ↓ Git integration
-Cloudflare Pages project
+        ↓ Workers Builds Git integration
+Cloudflare Worker
 matsuri-yukue
         ↓ repository-root build
-pnpm build:matsuri:pages
+pnpm build:matsuri:workers
         ↓
 apps/matsuri/dist
+        ↓ Wrangler Static Assets upload
+*.workers.dev
 ```
 
-GitHub Actions remains the repository verification system. Cloudflare Pages Git integration performs the external build and deployment.
+GitHub Actions remains the repository verification system. Workers Builds performs the external build and deployment.
 
-The Matsuri site is static Astro output. Do not add the Cloudflare Astro SSR adapter or Pages Functions for this launch.
+Matsuri remains a fully pre-rendered Astro site. The root `wrangler.jsonc` has no `main` field and uploads only `apps/matsuri/dist`. Do not add the Astro Cloudflare SSR adapter, Worker runtime code, Pages Functions, D1, KV, R2, or runtime bindings for this launch.
 
-## Git integration decision
+## Repository precondition
 
-Use Cloudflare Pages Git integration rather than Direct Upload.
+Before using the Cloudflare dashboard, the production branch must contain:
 
-This gives the project:
+```text
+wrangler.jsonc
+name              matsuri-yukue
+assets.directory  ./apps/matsuri/dist
+main               absent
+```
 
-- automatic production deployment from `main`,
-- preview deployments for non-production branches and pull requests,
-- a deployment record linked to the Git commit.
+Repository validation:
 
-Cloudflare does not allow a Git-integrated Pages project to be converted into a Direct Upload project later. Automatic deployments can still be disabled later and Wrangler can deploy to the existing Git-integrated project if the operating model changes.
+```text
+pnpm check:matsuri:workers-config
+pnpm verify:matsuri:workers
+```
 
-## F2-16 dashboard settings
+The Worker name shown in Cloudflare must exactly match the Wrangler `name` value.
+
+## F2-16 dashboard path
 
 Open:
 
@@ -51,43 +63,48 @@ Open:
 Cloudflare dashboard
 → Workers & Pages
 → Create application
-→ Pages
-→ Connect to Git / Import an existing Git repository
+→ Import a repository / Continue with GitHub
 ```
+
+The current Cloudflare dashboard may label the surrounding flow as creating a Worker. This is the accepted route. Do not search for the removed legacy Pages-specific start screen.
 
 Select:
 
 ```text
-Git provider       GitHub
-Repository         badjoke-lab/yukue
+Git provider  GitHub
+Repository    badjoke-lab/yukue
 ```
 
-Use these project settings exactly:
+## Required build settings
+
+Use these settings exactly:
 
 ```text
-Project name       matsuri-yukue
-Production branch  main
-Framework preset   None
-Root directory     repository root / blank
-Build command      pnpm build:matsuri:pages
-Build output       apps/matsuri/dist
-Build system       v3 / current default
+Worker name                       matsuri-yukue
+Production branch                 main
+Root directory                    repository root / blank
+Build command                     pnpm build:matsuri:workers
+Deploy command                    npx wrangler@latest deploy
+Non-production deploy command     npx wrangler@latest versions upload
 ```
 
-The repository root must remain the build root because the Matsuri application depends on workspace packages and root scripts.
+Keep the repository root as the build root because Matsuri depends on workspace packages and root scripts.
 
-Do not use the Astro preset defaults without overriding them. The default `npm run build` and `dist` values do not describe this monorepo deployment target.
+Do not select `apps/matsuri` as the root directory.
 
-## Build environment variables
+## Build environment
 
-Set for both Production and Preview when the dashboard offers environment scoping:
+Set the build variable:
 
 ```text
-NODE_VERSION  24
-PNPM_VERSION  11.10.0
+NODE_VERSION=24
 ```
 
-The repository also contains `.node-version` with `24`, but the explicit dashboard value makes the external build contract visible.
+The repository declares pnpm `11.10.0` through `packageManager`. If the dashboard provides a build variable for pnpm selection, set:
+
+```text
+PNPM_VERSION=11.10.0
+```
 
 Do not set:
 
@@ -95,9 +112,9 @@ Do not set:
 MATSURI_PUBLIC_ORIGIN
 ```
 
-on the first deploy. The production URL does not exist until Cloudflare creates the project. Without this variable, the first build intentionally emits development-origin-neutral manifest and sitemap output.
+on the first deploy. The production URL does not exist until Cloudflare creates the Worker deployment.
 
-Do not add secrets. The current static Matsuri build requires none.
+No secrets or runtime variables are required.
 
 ## First deployment
 
@@ -107,43 +124,38 @@ After reviewing the settings, select:
 Save and Deploy
 ```
 
-F2-16 and F2-17 can occur in the same dashboard session, but they remain separate recorded states:
+F2-16 and F2-17 can occur in the same dashboard session, but remain separate recorded states:
 
 ```text
 F2-16 complete
-= GitHub repository connected and Pages project created
+= GitHub repository connected and Worker created
 
 F2-17 complete
-= first production deployment succeeded and a reachable URL was issued
+= production build and deployment succeeded and a reachable workers.dev URL was issued
 ```
 
-## Required evidence to record
+## Required evidence
 
-After the first build, record:
+Record:
 
 ```text
-Cloudflare project name
-production pages.dev URL
+Worker name
+production workers.dev URL
 deployed Git commit SHA
 build result
 build start and completion time
 build command
-output directory
+deploy command
+asset directory
 Node version
 pnpm version
 ```
 
-The expected initial production URL is:
-
-```text
-https://matsuri-yukue.pages.dev
-```
-
-Do not assume this URL until Cloudflare displays it. If the project name is unavailable, do not invent a replacement name during setup; stop before deployment and record the conflict.
+Do not assume the exact `workers.dev` hostname before Cloudflare displays it. The account subdomain is part of the issued URL.
 
 ## F2-18 verification
 
-After the URL is issued, run the manual GitHub Actions workflow:
+After Cloudflare issues the URL, run the manual GitHub Actions workflow:
 
 ```text
 Verify Matsuri deployed origin
@@ -152,28 +164,42 @@ Verify Matsuri deployed origin
 Input:
 
 ```text
-origin     exact https://*.pages.dev production origin
+origin     exact issued https://*.workers.dev origin
 canonical  false
 ```
 
-The smoke verifier checks public HTML routes, Pagefind assets, JSON feeds, discovery files, sitemap structure, Matsuri site markers, and the representative Festival record.
+Canonical mode remains false until the accepted custom subdomain is configured.
 
-Canonical mode must remain false until F2-19 and F2-20 establish and configure the accepted canonical origin.
+## Subdomain topology
+
+The accepted series topology is:
+
+```text
+parent domain root       series portal
+Matsuri subdomain        祭のゆくえ
+Jinja subdomain          神社のゆくえ
+Jiin subdomain           寺院のゆくえ
+Tomurai subdomain        弔いのゆくえ
+```
+
+F2-16 does not attach the final Matsuri subdomain. The exact parent domain and custom hostname remain part of the canonical-origin step.
 
 ## Stop conditions
 
 Stop and record the exact message when:
 
-- `badjoke-lab/yukue` is not visible to the Cloudflare GitHub integration,
-- `main` cannot be selected as the production branch,
-- `matsuri-yukue` is unavailable,
+- `badjoke-lab/yukue` is not visible,
+- `main` cannot be selected,
+- the Worker name cannot be `matsuri-yukue`,
+- Cloudflare proposes or creates an automatic configuration PR despite the committed `wrangler.jsonc`,
+- the root directory is forced away from the repository root,
 - dependency installation fails,
-- Cloudflare uses a Node or pnpm version other than the pinned versions,
 - the build command exits non-zero,
 - `apps/matsuri/dist` is not found,
-- the deployment completes but no production URL is reachable.
+- Wrangler reports a name mismatch,
+- deployment succeeds but no production URL is reachable.
 
-Do not compensate by changing application code, adding SSR, changing the root directory to `apps/matsuri`, or selecting a different package manager without a repository decision.
+Do not compensate by adding SSR, Worker runtime code, the Astro Cloudflare adapter, or a different package manager.
 
 ## Work after the first URL
 
@@ -181,8 +207,8 @@ Proceed in this order:
 
 ```text
 F2-18  deployed-origin smoke verification
-F2-19  canonical origin and domain decision
-F2-20  set MATSURI_PUBLIC_ORIGIN and redeploy
+F2-19  exact canonical origin and custom subdomain decision
+F2-20  set MATSURI_PUBLIC_ORIGIN and attach the custom domain
 F2-21  canonical manifest and sitemap verification
 F2-22  production browser Search verification
 F2-23  crawler-reachability review
@@ -193,4 +219,4 @@ F2-27  production traffic verification
 F2-28  final F2 Launch Gate
 ```
 
-Do not skip directly from the first deployment to Analytics or a custom domain.
+Do not skip directly from the first deployment to Analytics or the custom domain.
