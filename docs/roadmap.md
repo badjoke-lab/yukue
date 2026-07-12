@@ -2,9 +2,7 @@
 
 **Status:** Current phase-and-gate roadmap
 
-This roadmap uses phases and gates rather than fixed daily deadlines.
-
-Detailed implementation order is defined in `development-schedule.md`. Current position is defined in `project-status.md`.
+This roadmap uses phases and gates rather than fixed daily deadlines. Detailed implementation order is defined in `development-schedule.md`; current position is defined in `project-status.md`.
 
 ## Phase 0 — Foundation
 
@@ -67,12 +65,7 @@ Phase 9 is implemented as F2 work packages.
 ### Repository baselines
 
 ```text
-F2-01  static build and artifact contract
-F2-02  public reference and secondary browse surfaces
-F2-03  deployed and canonical verification tooling
-F2-04  deployment verifier hardening
-F2-05  analytics policy baseline
-F2-06  schedule and status realignment
+F2-01 through F2-06
 ```
 
 Status: **Completed**
@@ -80,30 +73,28 @@ Status: **Completed**
 ### Repository launch readiness
 
 ```text
-F2-07  unified release verification
-F2-08  static route and internal-link integrity
-F2-09  HTML, JSON, Search, and sitemap consistency
-F2-10  public data semantic audit
-F2-11  Source and Evidence audit
-F2-12  responsive and accessibility browser audit
-F2-13  public content, empty-state, and image-boundary audit
-F2-14  release-candidate artifact freeze
-F2-15  Repository Launch Readiness Gate
+F2-07 through F2-15
 ```
 
 Repository Launch Readiness: **Completed**
 
-The repository-ready candidate is reproducible, content-addressed, and verified without selecting a production origin.
+The repository-ready candidate is reproducible, content-addressed, and verified without selecting a canonical production origin.
 
-### Repository visual-review maintenance
+### Repository visual and data maintenance
 
 ```text
 F2-M01  exhaustive desktop/mobile full-page screenshot workflow
+F2-M02  Matsuri data freshness audit
 ```
 
-Status: **Completed**
+Status:
 
-The repository retains successful full-page renders, capture manifests, screenshot integrity reports, contact sheets, and desktop/mobile archives from a local GitHub Actions preview. The workflow remains available for future non-trivial UI maintenance.
+```text
+F2-M01  completed
+F2-M02  active
+```
+
+F2-M02 reviews Occurrence outcomes, Current State freshness, Source and Evidence quality, and cross-site reusable Relations while domain-dependent work is paused.
 
 ### External deployment and production verification
 
@@ -112,9 +103,9 @@ F2-16  Cloudflare Workers Builds connection
 F2-17  first Workers Static Assets deployment and reachable URL
 F2-18  deployed-origin smoke verification
 F2-19  exact canonical Matsuri subdomain decision
-F2-20  custom-domain attachment, canonical-origin configuration, and redeployment
+F2-20  custom-domain attachment, canonical-origin configuration, redeployment
 F2-21  canonical manifest and sitemap verification
-F2-22  production browser Search verification
+F2-22  browser Search verification on canonical origin
 F2-23  crawler-reachability review
 F2-24  sitemap submission and indexability check
 F2-25  Web Analytics activation
@@ -123,35 +114,21 @@ F2-27  production traffic verification
 F2-28  final F2 Launch Gate
 ```
 
-External deployment and production verification: **Active at F2-16**
+External deployment through F2-18: **Completed**
 
-The operational hold was removed on 2026-07-12.
+Domain-dependent launch work: **Operational hold at F2-19**
 
-Current external state:
-
-```text
-F2-16  active
-F2-17–F2-28  pending in fixed order
-```
-
-The first deployment uses Cloudflare Workers Builds Git integration with:
+Verified external baseline:
 
 ```text
-Worker name                    matsuri-yukue
-repository                     badjoke-lab/yukue
-production branch              main
-root directory                 repository root
-build command                  pnpm build:matsuri:workers
-deploy command                 npx wrangler@latest deploy
-non-production deploy command  npx wrangler@latest versions upload
-asset directory                apps/matsuri/dist
+Worker                  matsuri-yukue
+Permanent origin        https://matsuri-yukue.badjoke-lab.workers.dev/
+Verified deployment     https://f757f092-matsuri-yukue.badjoke-lab.workers.dev/
+Verification workflow   GitHub Actions run 29182976642 — success
+Verified source commit  f6fdd5055c2712838ef30ed54048abf7f0674b4c
 ```
 
-The root `wrangler.jsonc` contains no `main` entry, so the launch serves static assets only. Do not add SSR or Worker runtime code.
-
-The accepted public topology uses the series parent domain for the portal and a separate subdomain for each specialist site. The exact domain remains pending at F2-19.
-
-Do not enable a custom domain, canonical origin, Search indexing work, or Analytics before the corresponding gate.
+The Workers origin is verified for deployment reachability but is not the canonical public origin. F2-19 through F2-28 resume only when custom-domain operations can proceed.
 
 ## Phase 10 — Stabilization
 
@@ -171,6 +148,6 @@ Status: **Not started — requires F2-28**
 
 ## Phase 11 — Next-site Gate
 
-Review Matsuri maintenance burden, shared-package reuse, cross-site seed quality, relation value, update pace, and external demand before adding the next public site application.
+Review Matsuri maintenance burden, shared-package reuse, cross-site seed quality, Relation value, update pace, and external demand before adding the next public site application.
 
 Status: **Deferred until stabilization evidence exists and an explicit gate review is completed**
