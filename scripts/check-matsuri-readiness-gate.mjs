@@ -37,7 +37,10 @@ const requiredDocs = [
   "docs/decision-log.md",
   "docs/matsuri-data-freshness-audit.md",
   "docs/audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md",
+  "docs/audits/matsuri-f2-m02-soma-outcome-2026-07-12.md",
   "docs/audits/matsuri-f2-m02-relation-inventory-2026-07-12.md",
+  "docs/audits/matsuri-f2-m02-suneori-relation-2026-07-12.md",
+  "docs/audits/matsuri-f2-m02-nunobashi-relation-2026-07-12.md",
 ];
 
 const completedRepositoryIds = [

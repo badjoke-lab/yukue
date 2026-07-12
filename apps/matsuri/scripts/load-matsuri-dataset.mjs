@@ -23,10 +23,12 @@ export const matsuriF2MaintenanceFiles = [
   "maintenance-01.json",
   "maintenance-02.json",
   "maintenance-03.json",
+  "maintenance-04.json",
 ];
 export const matsuriF2CorrectionFiles = [
   "corrections-01.json",
   "corrections-02.json",
+  "corrections-03.json",
 ];
 
 function readJson(directory, fileName) {

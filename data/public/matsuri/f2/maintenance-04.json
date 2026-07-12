@@ -1,0 +1,39 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-minamisoma-soma-nomaoi-2026-topics",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "〖令和8年5月23,24,25日〗相馬野馬追",
+      "publisher": "南相馬市",
+      "url": "https://www.city.minamisoma.lg.jp/portal/admin/koho_kocho/1/minamisomatopics/31294.html",
+      "accessed_at": "2026-07-12",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-soma-occ-2026-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-minamisoma-soma-nomaoi-2026-topics",
+      "target_type": "occurrence",
+      "target_id": "occ-soma-2026-schedule",
+      "assertion_code": "supports_occurrence_outcome",
+      "summary_ja": "南相馬市公式の事後トピックスが「令和8年5月23,24,25日 相馬野馬追」として3日間の行事を記録しており、2026年の相馬野馬追が予定期間に実施されたことを裏付ける。実施規模はこの記録だけでは確定しない。",
+      "captured_at": "2026-07-12",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}

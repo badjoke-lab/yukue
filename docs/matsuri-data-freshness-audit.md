@@ -71,15 +71,15 @@ The Relation command reads the complete canonical dataset. It reports:
 
 These are review candidates, not permission to infer a Relation automatically.
 
-## Initial Occurrence inventory result
+## Occurrence inventory result
 
-Audit report:
+Initial report:
 
 ```text
 docs/audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md
 ```
 
-Summary:
+Initial summary:
 
 ```text
 Occurrences total                  24
@@ -96,7 +96,7 @@ External links checked             40
 Stale external-link candidates      0
 ```
 
-The single closed-period unresolved candidate is:
+The initial closed-period unresolved candidate was:
 
 ```text
 occ-soma-2026-schedule
@@ -106,7 +106,34 @@ outcome: unknown
 scale: unknown
 ```
 
-The official 2026 schedule confirms the planned dates and program, but the first evidence pass did not locate an authoritative post-event record sufficient to classify the outcome of the entire multi-day occurrence. The record therefore remains `unknown` rather than being changed by inference.
+The official schedule established the planned period but not the result. A second pass located a 南相馬市 official post-event topic titled `〖令和8年5月23,24,25日〗相馬野馬追`, covering the full scheduled period.
+
+Resolution report:
+
+```text
+docs/audits/matsuri-f2-m02-soma-outcome-2026-07-12.md
+```
+
+The Occurrence is corrected to:
+
+```text
+outcome: held
+scale: unknown
+```
+
+The municipality record supports that the multi-day occurrence was held. It does not establish a structured scale classification, so `unknown` is retained rather than inferring `normal`.
+
+Current summary after the correction:
+
+```text
+Occurrences total                  24
+Resolved Occurrences               15
+Closed-period unresolved            0
+In-progress scheduled               2
+Future scheduled                    7
+```
+
+The initial closed-period unresolved inventory is now empty.
 
 ## Relation inventory result
 
@@ -251,18 +278,18 @@ F2-M02 must not:
 
 ```text
 1. Occurrence and freshness candidate inventory — completed for 2026-07-12 baseline
-2. Relation coverage candidate inventory — completed for 2026-07-12 baseline
-3. evidence review notes — active
-4. approved data corrections in bounded batches — maintenance batches 01 through 03 completed
-5. initial zero-Relation specialist inventory — resolved
-6. validation results — automated on each repository gate
-7. updated audit summary — maintained during F2-M02
+2. initial closed-period unresolved inventory — resolved
+3. Relation coverage candidate inventory — completed for 2026-07-12 baseline
+4. evidence review notes — active
+5. approved data corrections in bounded batches — maintenance batches 01 through 04 completed
+6. initial zero-Relation specialist inventory — resolved
+7. validation results — automated on each repository gate
+8. updated audit summary — maintained during F2-M02
 ```
 
 ## Next review points
 
 ```text
-相馬野馬追 2026    continue authoritative post-event evidence search
 博多祇園山笠 2026  review after 2026-07-15
 郡上おどり 2026    review after 2026-09-05
 ```
