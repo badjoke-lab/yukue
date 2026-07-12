@@ -79,6 +79,13 @@ F2-M01  exhaustive desktop/mobile full-page screenshot workflow — completed
 F2-M02  Matsuri data freshness audit — completed
 ```
 
+Stable status markers:
+
+```text
+F2-M01  completed
+F2-M02  completed
+```
+
 F2-M02 completion result:
 
 ```text
