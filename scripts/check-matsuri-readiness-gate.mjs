@@ -33,9 +33,10 @@ const requiredDocs = [
   "docs/roadmap.md",
   "docs/deployment.md",
   "docs/decision-log.md",
+  "docs/matsuri-data-freshness-audit.md",
 ];
 
-const completedIds = [
+const completedRepositoryIds = [
   "F2-07",
   "F2-08",
   "F2-09",
@@ -46,10 +47,8 @@ const completedIds = [
   "F2-14",
 ];
 
-const externalIds = [
-  "F2-16",
-  "F2-17",
-  "F2-18",
+const completedExternalIds = ["F2-16", "F2-17", "F2-18"];
+const pendingExternalIds = [
   "F2-19",
   "F2-20",
   "F2-21",
@@ -92,7 +91,6 @@ assert(
   fs.existsSync(path.join(repositoryRoot, "wrangler.jsonc")),
   "Repository readiness requires wrangler.jsonc.",
 );
-
 assert(
   fs.existsSync(releaseManifestPath),
   "Release candidate manifest is missing. Run pnpm freeze:matsuri:release first.",
@@ -107,7 +105,8 @@ assert(releaseManifest.format_version === 1, "Unexpected release manifest format
 assert(releaseManifest.project_id === "yukue-series", "Unexpected release project_id.");
 assert(releaseManifest.site_id === "matsuri", "Unexpected release site_id.");
 assert(
-  releaseManifest.release_status === "repository-verified-external-activation-active",
+  releaseManifest.release_status ===
+    "repository-verified-deployed-origin-verified-domain-hold",
   `Unexpected release_status: ${String(releaseManifest.release_status)}`,
 );
 assert(
@@ -133,18 +132,27 @@ assert(
     releaseManifest.files.length === releaseManifest.artifact_file_count,
   "Release candidate file inventory does not match artifact_file_count.",
 );
+assert(
+  Array.isArray(releaseManifest.completed_external_work),
+  "Release candidate does not record completed external work.",
+);
 
-for (const id of completedIds) {
+for (const id of completedRepositoryIds) {
   assert(
     releaseManifest.completed_repository_work.some((value) => value.startsWith(id)),
     `Release candidate does not record completed repository work ${id}.`,
   );
 }
-
-for (const id of externalIds) {
+for (const id of completedExternalIds) {
+  assert(
+    releaseManifest.completed_external_work.some((value) => value.startsWith(id)),
+    `Release candidate does not record completed external work ${id}.`,
+  );
+}
+for (const id of pendingExternalIds) {
   assert(
     releaseManifest.external_pending_work.some((value) => value.startsWith(id)),
-    `Release candidate does not preserve external work ${id}.`,
+    `Release candidate does not preserve pending external work ${id}.`,
   );
 }
 
@@ -188,32 +196,36 @@ const roadmap = fs.readFileSync(
   "utf8",
 );
 
-for (const id of [...completedIds, "F2-15"]) {
+for (const id of [...completedRepositoryIds, "F2-15", ...completedExternalIds]) {
   assert(
     developmentSchedule.includes(id),
     `Development schedule is missing ${id}.`,
   );
 }
-for (const id of externalIds) {
+for (const id of pendingExternalIds) {
   assert(
     developmentSchedule.includes(id),
-    `Development schedule is missing external work ${id}.`,
+    `Development schedule is missing pending external work ${id}.`,
   );
 }
 assert(
-  projectStatus.includes("F2-15 — Repository Launch Readiness Gate — completed"),
-  "Project status does not record F2-15 completion.",
+  projectStatus.includes("F2-16 through F2-18 — completed"),
+  "Project status does not record F2-16 through F2-18 completion.",
 );
 assert(
-  projectStatus.includes("F2-16 — Cloudflare Workers Builds connection — active"),
-  "Project status does not record F2-16 Workers Builds activation.",
+  projectStatus.includes("F2-19 through F2-28 — operational hold"),
+  "Project status does not record the domain-dependent operational hold.",
 );
 assert(
-  roadmap.includes("Repository Launch Readiness: **Completed**") &&
-    roadmap.includes("External deployment and production verification: **Active at F2-16**"),
-  "Roadmap does not reflect repository readiness and active external deployment.",
+  projectStatus.includes("F2-M02 — Matsuri data freshness audit — active"),
+  "Project status does not record F2-M02 as active.",
+);
+assert(
+  roadmap.includes("External deployment through F2-18: **Completed**") &&
+    roadmap.includes("Domain-dependent launch work: **Operational hold at F2-19**"),
+  "Roadmap does not reflect verified deployment and the domain hold.",
 );
 
 console.log(
-  `Matsuri F2-15 repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 Workers Static Assets activation is active and canonical origin remains unset.`,
+  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-18 are complete, F2-19 through F2-28 remain on hold, and canonical origin remains unset.`,
 );
