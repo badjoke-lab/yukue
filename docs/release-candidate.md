@@ -1,23 +1,19 @@
 # Matsuri Release Candidate
 
-**Status:** F2 repository baseline / canonical hostname decided / activation pending
+**Status:** Repository artifact verified / canonical origin verified / browser Search pending
 
 ## Purpose
 
-After complete repository verification succeeds, the Matsuri static site is frozen as an immutable CI artifact for external deployment comparison and reproduction.
-
-Run locally after a successful verification:
+After repository verification succeeds, the Matsuri static site is frozen as an immutable CI artifact for reproduction and comparison.
 
 ```text
 pnpm verify:release
 pnpm freeze:matsuri:release
 ```
 
-The freeze command does not rebuild or revalidate the site. It copies the exact `apps/matsuri/dist` artifact that just passed the unified verification contract.
+The frozen site is intentionally origin-neutral. Active deployment state is recorded separately in release metadata and external verification evidence.
 
 ## Output
-
-The command writes:
 
 ```text
 .release-candidate/
@@ -26,141 +22,68 @@ The command writes:
   matsuri-site/
 ```
 
-`matsuri-site/` is the exact static Workers Static Assets candidate.
-
 ## Release manifest
 
 `release-candidate.json` records:
 
 - source commit,
-- project and site IDs,
 - dataset and schema versions,
-- repository-verification and external-activation status,
-- accepted canonical hostname and origin decisions,
-- active canonical origin as unconfigured,
-- completed repository work,
-- completed external work through F2-19,
-- external work that remains pending from F2-20,
-- public record counts,
-- machine-readable file inventory,
-- public route inventory,
-- total artifact file count and byte size,
-- SHA-256 for every artifact file,
-- one aggregate SHA-256 for the complete ordered artifact inventory.
+- origin-neutral artifact mode,
+- verified canonical hostname and origin,
+- canonical verification workflow evidence,
+- completed external work through F2-21,
+- pending external work from F2-22,
+- public record counts and route inventory,
+- per-file and aggregate SHA-256 digests.
 
-The aggregate digest is derived from each file path, byte size, and file digest. It identifies the exact static candidate independently of the workflow ZIP container.
-
-## Canonical decision boundary
-
-The accepted decisions are:
+Current status:
 
 ```text
-portal_origin_decision
-https://yukue.badjoke-lab.com
+repository-verified-canonical-origin-verified-browser-search-pending
+```
 
-canonical_hostname_decision
-matsuri-yukue.badjoke-lab.com
+Canonical deployment metadata:
 
-canonical_origin_decision
+```text
+canonical_origin
 https://matsuri-yukue.badjoke-lab.com
+
+canonical verification workflow run
+29191904624
 ```
 
-These fields record F2-19 intent. They do not mean that the Matsuri custom domain is attached or active.
-
-The active field remains:
+Artifact mode:
 
 ```text
-canonical_origin: null
+origin-neutral-repository-candidate
 ```
 
-until F2-20 succeeds.
+The copied artifact omits `manifest.site_origin` because it is the reproducible repository candidate. The production Workers artifact is built separately with the verified canonical origin.
 
-The repository candidate requires `MATSURI_PUBLIC_ORIGIN` to remain unset until F2-20.
-
-The freeze command fails when:
-
-- the verified `dist` directory is missing,
-- a production `MATSURI_PUBLIC_ORIGIN` is set before F2-20,
-- `manifest.site_origin` is present before activation,
-- the frozen route inventory differs from `sitemap.xml`,
-- the accepted deployment topology does not contain the Matsuri decision.
-
-This prevents a placeholder, preview URL, workers.dev URL, or decided-but-not-attached hostname from entering the repository-side artifact as an active canonical origin.
-
-## External work state
-
-Completed external work:
+## Completed and pending work
 
 ```text
-F2-16  Workers Builds connection
-F2-17  first Workers Static Assets deployment
-F2-18  deployed-origin smoke verification
-F2-19  exact canonical Matsuri hostname decision
+F2-16 through F2-21  completed
+F2-22 through F2-28  pending
 ```
 
-Pending external work:
-
-```text
-F2-20 through F2-28
-```
-
-Current release status value:
-
-```text
-repository-verified-deployed-origin-verified-canonical-hostname-decided-domain-attachment-pending
-```
-
-This means the repository artifact is verified, the workers.dev deployment is verified, the intended custom hostname is decided, and the custom-domain attachment and active canonical build remain pending.
-
-## CI artifact
-
-After `pnpm verify:release` succeeds, CI runs:
-
-```text
-pnpm freeze:matsuri:release
-```
-
-It uploads `.release-candidate/` as:
-
-```text
-matsuri-release-candidate-<commit-sha>
-```
-
-The artifact is retained for 30 days.
-
-A passing build therefore produces both:
-
-1. evidence that the full verification contract passed,
-2. a content-addressed copy of the exact static site that passed it.
+The next external gate is browser Pagefind Search verification on the canonical origin.
 
 ## Reproduction
-
-To reproduce the candidate from the recorded source commit:
 
 ```text
 pnpm install --no-frozen-lockfile
 pnpm gate:matsuri:repository
 ```
 
-Compare the resulting `artifact_sha256`, per-file hashes, status fields, and hostname decisions with the CI release manifest.
+Compare the resulting artifact digest, per-file hashes, canonical verification metadata, and status fields with the CI artifact.
 
-Differences indicate a dependency, environment, source, topology, or build-output difference that must be understood before treating the artifacts as equivalent.
+## Relationship to Workers Builds
 
-## Relationship to Cloudflare Workers Builds
-
-Workers Builds builds from the Git repository rather than uploading the frozen CI artifact directly.
-
-The frozen candidate remains useful for:
-
-- proving what the repository gate accepted,
-- comparing route and file inventories,
-- reproducing the Workers build from the same source commit,
-- confirming the exact F2-19 hostname decision,
-- diagnosing differences between repository and external build environments.
-
-The external launch settings are governed by:
+Workers Builds creates the production artifact from the same repository with:
 
 ```text
-docs/cloudflare-pages-launch-runbook.md
-docs/deployment-topology.md
+MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
 ```
+
+The frozen origin-neutral candidate remains useful for reproducibility, while the verified external record proves the active Custom Domain and canonical output.
