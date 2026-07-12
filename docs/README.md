@@ -18,31 +18,32 @@ Before implementing a feature, check the relevant document here. When a decision
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, layout language |
 | `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
-| `technical-architecture.md` | F2-20 configuration committed | Build, projection, search, multi-Worker deployment, dual artifact verification, and canonical activation |
-| `deployment-topology.md` | F2-19 accepted | Exact portal and specialist-site hostnames, separate Worker boundary, and migration invariants |
-| `f2-20-custom-domain-activation.md` | External verification pending | Code-managed Custom Domain, canonical build wrapper, merge sequence, and completion evidence |
-| `cloudflare-pages-launch-runbook.md` | F2-20 configuration committed | Workers Builds contract, verified deployment, code-managed activation, and external verification boundary |
-| `deployment.md` | F2-20 deployment pending | Current Workers state, Custom Domain configuration, dual build modes, and canonical-verification boundary |
-| `matsuri-data-freshness-audit.md` | F2-M02 completed | Completed fixed-date audit and rules for routine Occurrence, State, Source, Evidence, and Relation maintenance |
-| `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, Current State, and external-link freshness candidate inventory |
-| `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 post-event Evidence and `held` correction for the 2026 相馬野馬追 Occurrence |
-| `audits/matsuri-f2-m02-relation-inventory-2026-07-12.md` | Baseline completed | Initial Relation coverage inventory, first maintenance correction, and remaining evidence candidates |
-| `audits/matsuri-f2-m02-suneori-relation-2026-07-12.md` | Maintenance batch 02 | 脚折雨乞行事保存会 Entity, `organized_by` Relation, and 2024 Occurrence organizer correction |
-| `audits/matsuri-f2-m02-nunobashi-relation-2026-07-12.md` | Maintenance batch 03 | 富山県［立山博物館］ Entity, conservative `supported_by` Relation, and completion of initial zero-Relation coverage |
+| `technical-architecture.md` | F2-21 canonical baseline | Build, projection, search, multi-Worker deployment, dual artifact verification, and canonical activation |
+| `deployment-topology.md` | Matsuri active | Exact portal and specialist-site hostnames, separate Worker boundary, active Matsuri origin, and migration invariants |
+| `f2-20-custom-domain-activation.md` | Completed | Repository-managed Custom Domain, canonical build, and external verification evidence |
+| `cloudflare-pages-launch-runbook.md` | F2-16–F2-21 completed | Workers Builds contract, canonical deployment, and remaining launch sequence |
+| `deployment.md` | F2-21 completed | Verified canonical Workers deployment and F2-22 browser boundary |
+| `audits/matsuri-f2-20-canonical-activation-2026-07-12.md` | Passed audit | HTTPS, required routes, manifest origin, and canonical sitemap verification run |
+| `matsuri-data-freshness-audit.md` | F2-M02 completed | Completed fixed-date audit and routine maintenance rules |
+| `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, State, and external-link inventory |
+| `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 Evidence and `held` correction for 相馬野馬追 2026 |
+| `audits/matsuri-f2-m02-relation-inventory-2026-07-12.md` | Baseline completed | Initial Relation coverage inventory |
+| `audits/matsuri-f2-m02-suneori-relation-2026-07-12.md` | Maintenance batch 02 | 脚折雨乞 organization and Relation correction |
+| `audits/matsuri-f2-m02-nunobashi-relation-2026-07-12.md` | Maintenance batch 03 | 富山県［立山博物館］ Relation coverage |
 | `release-verification.md` | F2 repository baseline | Unified release verification, topology check, CI stages, and external limits |
-| `release-candidate.md` | F2-19 decision recorded | Verified static artifact, hashes, accepted hostname decision, and active-origin boundary |
-| `repository-launch-readiness.md` | Completed repository gate | F2-15 decision, required checks, accepted topology, and F2-20 activation boundary |
-| `visual-review-workflow.md` | Implemented repository baseline | Successful full-page screenshot capture, automated checks, contact sheets, and human UI review |
-| `audits/matsuri-f2-m01-visual-review-2026-07-11.md` | Passed audit | First exhaustive Matsuri desktop/mobile screenshot review |
-| `source-evidence-audit.md` | F2 repository baseline | Source metadata, Evidence targeting, Current State freshness, and audit boundaries |
-| `browser-accessibility-audit.md` | F2 repository baseline | Chromium viewport matrix, WCAG checks, keyboard behavior, and audit limits |
-| `public-content-audit.md` | F2 repository baseline | Data and Methodology alignment, deployment status, empty states, image and map boundaries |
-| `analytics.md` | Initial baseline | Launch analytics purpose, activation, verification, and privacy boundary |
+| `release-candidate.md` | Canonical origin verified | Origin-neutral artifact, hashes, active origin metadata, and F2-22 pending state |
+| `repository-launch-readiness.md` | Completed repository gate | Required checks, verified canonical state, and remaining external gates |
+| `visual-review-workflow.md` | Implemented repository baseline | Full-page screenshot capture, checks, contact sheets, and review |
+| `audits/matsuri-f2-m01-visual-review-2026-07-11.md` | Passed audit | First exhaustive desktop/mobile visual review |
+| `source-evidence-audit.md` | F2 repository baseline | Source metadata, Evidence targeting, and freshness boundaries |
+| `browser-accessibility-audit.md` | F2 repository baseline | Chromium viewport matrix, WCAG checks, and keyboard behavior |
+| `public-content-audit.md` | F2 repository baseline | Public content and infrastructure-status boundaries |
+| `analytics.md` | Initial baseline | Analytics purpose, activation, verification, and privacy boundary |
 | `roadmap.md` | Current | Long-range phases and gates |
-| `development-schedule.md` | Current | Concrete implementation and PR sequence |
+| `development-schedule.md` | Current | Concrete implementation sequence |
 | `verification-policy.md` | Current | Review and publication rules |
 | `source-policy.md` | Current | Source and evidence rules |
-| `image-policy.md` | Current | Real-image, rights, credit, gallery rules |
+| `image-policy.md` | Current | Real-image, rights, credit, and gallery rules |
 | `data-workflow.md` | Current direction | Research-to-public data workflow |
 | `versioning-policy.md` | Current direction | Schema and record versioning rules |
 | `machine-readable-layer.md` | Current direction | Public machine-readable outputs and invariants |
