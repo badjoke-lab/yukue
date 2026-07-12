@@ -18,6 +18,7 @@ import batch09Context from "../../../../data/public/matsuri/f1/batch-09-context.
 import batch10 from "../../../../data/public/matsuri/f1/batch-10.json";
 import maintenance01 from "../../../../data/public/matsuri/f2/maintenance-01.json";
 import maintenance02 from "../../../../data/public/matsuri/f2/maintenance-02.json";
+import maintenance03 from "../../../../data/public/matsuri/f2/maintenance-03.json";
 import corrections01 from "../../../../data/public/matsuri/f2/corrections-01.json";
 import corrections02 from "../../../../data/public/matsuri/f2/corrections-02.json";
 
@@ -41,6 +42,7 @@ const additiveBundles = [
   batch10,
   maintenance01,
   maintenance02,
+  maintenance03,
 ];
 
 const correctionBundles = [corrections01, corrections02];
