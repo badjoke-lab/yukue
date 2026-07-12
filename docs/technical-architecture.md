@@ -1,6 +1,6 @@
 # Technical Architecture
 
-**Status:** Current direction / F2-19 deployment topology accepted
+**Status:** Current direction / F2-20 activation configuration committed
 
 ## Stack
 
@@ -162,18 +162,20 @@ Cloudflare Workers Builds Git integration
         ↓
 pnpm build:matsuri:workers
         ↓
+canonical origin injected from accepted topology
+        ↓
 apps/matsuri/dist
         ↓
 npx wrangler@latest deploy
         ↓
-Worker matsuri-yukue static assets
+Worker matsuri-yukue static assets + Custom Domain
 ```
 
 GitHub Actions and Cloudflare Workers Builds have different responsibilities:
 
 ```text
 GitHub Actions
-= repository gate, release-candidate verification, browser audit, visual-review artifacts
+= repository gate, canonical Workers artifact verification, release-candidate verification, browser audit, visual-review artifacts
 
 Cloudflare Workers Builds
 = external build, preview version upload, production deployment, workers.dev origin, custom-domain delivery
@@ -201,12 +203,73 @@ The repository root remains the build root because the Matsuri application depen
 The root `wrangler.jsonc` is the Matsuri deployment contract. It must:
 
 ```text
-name              matsuri-yukue
-assets.directory  ./apps/matsuri/dist
-main              absent
+name                      matsuri-yukue
+assets.directory          ./apps/matsuri/dist
+main                      absent
+routes[0].pattern         matsuri-yukue.badjoke-lab.com
+routes[0].custom_domain   true
 ```
 
-The absence of `main` is deliberate: the first launch serves only generated static assets and does not execute Worker application code.
+The absence of `main` is deliberate: the launch serves only generated static assets and does not execute Worker application code.
+
+The Custom Domain is managed as code. Production `wrangler deploy` applies the route and asks Cloudflare to create the corresponding DNS and certificate state.
+
+## Production canonical build wrapper
+
+The Cloudflare production build command runs:
+
+```text
+scripts/build-matsuri-workers.mjs
+```
+
+The wrapper:
+
+1. loads `config/yukue-deployment-topology.json`,
+2. requires the Matsuri status `custom-domain-configured-deployment-pending`,
+3. requires the exact accepted origin,
+4. starts the static build child process with:
+
+```text
+MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
+```
+
+The value is public configuration and is not stored as a dashboard secret or duplicated build variable.
+
+## Dual artifact verification
+
+The repository gate intentionally verifies two artifacts.
+
+### Workers production artifact
+
+```text
+pnpm verify:matsuri:workers
+```
+
+This build includes the canonical origin and verifies:
+
+- required static routes,
+- `manifest.site_origin`,
+- absolute sitemap origins,
+- exact accepted hostname consistency,
+- Custom Domain Wrangler configuration.
+
+### Repository release candidate
+
+```text
+pnpm verify:release
+pnpm freeze:matsuri:release
+```
+
+This build is regenerated without an active production origin and records:
+
+```text
+canonical hostname decision  present
+canonical origin decision    present
+active canonical_origin      null
+F2-20 external completion    unclaimed
+```
+
+The split prevents repository configuration from being mistaken for external deployment evidence.
 
 ## Portal deployment boundary
 
@@ -225,42 +288,37 @@ canonical hostname yukue.badjoke-lab.com
 
 The portal deployment remains a separate future activation. It must not reuse `wrangler.jsonc`, Worker `matsuri-yukue`, or the Matsuri asset directory.
 
-Deploying the portal later does not require changing the Matsuri build command, asset directory, or Worker identity. Only the independent portal deployment contract will be added when its gate is activated.
+Deploying the portal later does not require changing the Matsuri build command, asset directory, Worker identity, or Custom Domain.
 
 ## Origin activation sequence
 
-The first Matsuri deployment intentionally ran without `MATSURI_PUBLIC_ORIGIN` because no custom domain was active.
+The first Matsuri deployment intentionally ran without `MATSURI_PUBLIC_ORIGIN` because no custom domain was selected.
 
 ```text
 first Workers deployment
 → obtain reachable workers.dev origin
 → deployed-origin smoke verification
 → exact portal and Matsuri hostname decision
-→ attach Matsuri custom domain
-→ configure MATSURI_PUBLIC_ORIGIN
-→ redeploy
-→ canonical manifest and sitemap verification
+→ commit Custom Domain route
+→ commit canonical Workers build wrapper
+→ merge to main
+→ Workers Builds production deployment
+→ DNS and certificate provisioning
+→ HTTPS and canonical verification
 ```
 
 Completed:
 
 ```text
 F2-16 through F2-19
+F2-20 repository configuration
 ```
 
 Pending:
 
 ```text
-F2-20 custom-domain attachment and canonical activation
+F2-20 production deployment and external verification
 ```
-
-The accepted decision is:
-
-```text
-MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
-```
-
-This value must remain unset until the matching custom domain is attached. The hostname decision is not itself an active canonical origin.
 
 Do not derive the canonical public origin automatically from a preview or workers.dev URL.
 
@@ -269,6 +327,7 @@ The operational launch sequence is governed by:
 ```text
 docs/cloudflare-pages-launch-runbook.md
 docs/deployment-topology.md
+docs/f2-20-custom-domain-activation.md
 ```
 
 The historical runbook file name remains for compatibility, but its contents govern Workers Static Assets deployment.
