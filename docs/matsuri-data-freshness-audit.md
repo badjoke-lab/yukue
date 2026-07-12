@@ -24,7 +24,7 @@ Verified source commit
 f6fdd5055c2712838ef30ed54048abf7f0674b4c
 ```
 
-F2-16 through F2-18 are complete. F2-19 through F2-28 remain on operational hold until custom-domain operations can resume.
+F2-16 through F2-19 are complete. F2-20 through F2-28 remain on operational hold until custom-domain attachment can proceed.
 
 ## Automated inventories
 
@@ -220,10 +220,10 @@ These are normal date-triggered maintenance checks and do not keep F2-M02 open.
 
 Routine maintenance must not:
 
-- attach or choose the final custom domain,
-- set `MATSURI_PUBLIC_ORIGIN`,
+- attach the decided custom domain outside F2-20,
+- set `MATSURI_PUBLIC_ORIGIN` before the matching custom domain is attached,
 - declare the Workers origin canonical,
 - submit a sitemap,
 - enable Cloudflare Web Analytics,
-- claim F2-19 through F2-28 completion,
+- claim F2-20 through F2-28 completion,
 - add unrelated product scope.
