@@ -19,6 +19,7 @@ export const matsuriF1BatchFiles = [
   "batch-10.json",
 ];
 
+export const matsuriF2MaintenanceFiles = ["maintenance-01.json"];
 export const matsuriF2CorrectionFiles = ["corrections-01.json"];
 
 function readJson(directory, fileName) {
@@ -56,36 +57,50 @@ export function loadMatsuriDataset() {
   const batches = matsuriF1BatchFiles.map((fileName) =>
     readJson(f1Directory, fileName),
   );
+  const maintenance = matsuriF2MaintenanceFiles.map((fileName) =>
+    readJson(f2Directory, fileName),
+  );
   const corrections = matsuriF2CorrectionFiles.map((fileName) =>
     readJson(f2Directory, fileName),
   );
   const batchRecords = (key) => batches.flatMap((batch) => batch[key] ?? []);
+  const maintenanceRecords = (key) =>
+    maintenance.flatMap((batch) => batch[key] ?? []);
   const correctionRecords = (key) =>
     corrections.flatMap((correction) => correction[key] ?? []);
 
   const occurrences = [
     ...records.occurrences,
     ...batchRecords("occurrences"),
+    ...maintenanceRecords("occurrences"),
   ];
   const evidence = [
     ...readJson(d1Directory, "evidence.json"),
     ...batchRecords("evidence"),
+    ...maintenanceRecords("evidence"),
   ];
 
   return {
     entities: [
       ...readJson(d1Directory, "entities.json"),
       ...batchRecords("entities"),
+      ...maintenanceRecords("entities"),
     ],
     places: [
       ...readJson(d1Directory, "places.json"),
       ...batchRecords("places"),
+      ...maintenanceRecords("places"),
     ],
     stateSnapshots: [
       ...readJson(d1Directory, "state-snapshots.json"),
       ...batchRecords("stateSnapshots"),
+      ...maintenanceRecords("stateSnapshots"),
     ],
-    changeEvents: [...records.changeEvents, ...batchRecords("changeEvents")],
+    changeEvents: [
+      ...records.changeEvents,
+      ...batchRecords("changeEvents"),
+      ...maintenanceRecords("changeEvents"),
+    ],
     occurrences: applyRecordOverrides(
       occurrences,
       correctionRecords("occurrences"),
@@ -94,19 +109,37 @@ export function loadMatsuriDataset() {
     occurrenceSeries: [
       ...records.occurrenceSeries,
       ...batchRecords("occurrenceSeries"),
+      ...maintenanceRecords("occurrenceSeries"),
     ],
     recurrencePatterns: [
       ...records.recurrencePatterns,
       ...batchRecords("recurrencePatterns"),
+      ...maintenanceRecords("recurrencePatterns"),
     ],
-    relations: [...records.relations, ...batchRecords("relations")],
-    designations: [...records.designations, ...batchRecords("designations")],
-    sources: [...records.sources, ...batchRecords("sources")],
+    relations: [
+      ...records.relations,
+      ...batchRecords("relations"),
+      ...maintenanceRecords("relations"),
+    ],
+    designations: [
+      ...records.designations,
+      ...batchRecords("designations"),
+      ...maintenanceRecords("designations"),
+    ],
+    sources: [
+      ...records.sources,
+      ...batchRecords("sources"),
+      ...maintenanceRecords("sources"),
+    ],
     evidence: applyRecordOverrides(
       evidence,
       correctionRecords("evidence"),
       "Evidence",
     ),
-    images: [...records.images, ...batchRecords("images")],
+    images: [
+      ...records.images,
+      ...batchRecords("images"),
+      ...maintenanceRecords("images"),
+    ],
   };
 }
