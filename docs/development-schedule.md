@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-16 active / external sequence resumed
+**Status:** F2-16 active / Workers Static Assets external sequence
 
 This document defines the stable implementation order. It complements:
 
@@ -22,8 +22,6 @@ F2-17 through F2-28          pending
 ```
 
 The external operational hold was removed on 2026-07-12.
-
-The active implementation package is F2-16.
 
 ---
 
@@ -71,8 +69,6 @@ A2  navigation and reference patterns — completed
 A3  history, relation, evidence, place, and image patterns — completed
 ```
 
----
-
 ## Stage B — Matsuri Static Surfaces
 
 ```text
@@ -80,8 +76,6 @@ B1  Matsuri Home H1 static implementation — completed
 B2  Festival Detail C static implementation — completed
 B3  responsive and accessibility corrections — completed
 ```
-
----
 
 ## Stage C — Data Core
 
@@ -91,8 +85,6 @@ C2  Matsuri extensions and vocabularies — completed
 C3  cross-record validation — completed
 ```
 
----
-
 ## Stage D — Canonical Data and Public Projection
 
 ```text
@@ -100,8 +92,6 @@ D1  representative canonical sample — completed
 D2  Public Projection pipeline — completed
 D3  Home and Detail integration — completed
 ```
-
----
 
 ## Stage E — Browse, Search, and Machine-readable Layer
 
@@ -133,18 +123,7 @@ Public baseline:
 
 Status: **Completed through validated batches 01–10**
 
-Expansion covered:
-
-- Festival records,
-- Folk Performance records,
-- Tradition Units,
-- Organization records,
-- Shrine context seeds,
-- Occurrence history,
-- Change Events,
-- Relations,
-- Designations,
-- Source and Evidence coverage.
+Expansion covered Festivals, Folk Performances, Tradition Units, Organizations, Shrine context seeds, Occurrence history, Change Events, Relations, Designations, Sources, and Evidence.
 
 ### F2 — Launch preparation
 
@@ -159,7 +138,7 @@ Block B  external deployment and production verification
 #### Block A — Repository work
 
 ```text
-F2-01  Pages build and artifact contract — completed
+F2-01  static build and artifact contract — completed
 F2-02  public reference and secondary browse surfaces — completed
 F2-03  deployed and canonical verification tooling — completed
 F2-04  deployment verifier hardening — completed
@@ -182,6 +161,8 @@ Repository gate command:
 pnpm gate:matsuri:repository
 ```
 
+The gate now includes `wrangler.jsonc` validation for the static Workers deployment contract.
+
 #### Block M — Repository visual review
 
 ```text
@@ -194,7 +175,7 @@ The workflow remains available for non-trivial UI maintenance.
 
 The external operational hold was removed on 2026-07-12.
 
-##### F2-16 — Cloudflare Pages project connection
+##### F2-16 — Cloudflare Workers Builds connection
 
 Status: **Active**
 
@@ -204,46 +185,50 @@ Governing runbook:
 docs/cloudflare-pages-launch-runbook.md
 ```
 
+The historical filename is retained temporarily, but the document now governs Workers Builds and Workers Static Assets.
+
 Implementation order:
 
 ```text
-1. open Cloudflare Workers & Pages
-2. create a Pages application through Git integration
-3. authorize GitHub access to badjoke-lab/yukue
-4. select repository badjoke-lab/yukue
-5. set project name matsuri-yukue
-6. set production branch main
-7. leave framework preset as None
+1. merge the Workers Static Assets activation PR into main
+2. open Cloudflare Workers & Pages
+3. select Create application
+4. select Import a repository / Continue with GitHub
+5. select badjoke-lab/yukue
+6. set Worker name matsuri-yukue
+7. set production branch main
 8. keep root directory at repository root / blank
-9. set build command pnpm build:matsuri:pages
-10. set output directory apps/matsuri/dist
-11. set NODE_VERSION=24
-12. set PNPM_VERSION=11.10.0
-13. leave MATSURI_PUBLIC_ORIGIN unset
-14. review settings
-15. select Save and Deploy
-16. record project name, selected branch, build settings, and first build start
+9. set build command pnpm build:matsuri:workers
+10. set deploy command npx wrangler@latest deploy
+11. keep non-production deploy command npx wrangler@latest versions upload
+12. set NODE_VERSION=24
+13. set PNPM_VERSION=11.10.0 when offered as a build variable
+14. leave MATSURI_PUBLIC_ORIGIN unset
+15. confirm Cloudflare recognizes the committed wrangler.jsonc
+16. select Save and Deploy
+17. record Worker name, branch, build settings, deploy settings, and first build start
 ```
 
 F2-16 completion condition:
 
 ```text
 GitHub repository connected
-Cloudflare Pages project created
-project name recorded
+Cloudflare Worker created
+Worker name matches wrangler.jsonc
 production branch recorded
-build settings recorded
+build and deploy settings recorded
 first production build started
 ```
 
 Do not:
 
 - select `apps/matsuri` as the root directory,
-- use the unmodified Astro preset defaults,
+- allow Cloudflare autoconfiguration to replace the committed Wrangler contract,
 - add the Cloudflare Astro SSR adapter,
-- add Pages Functions,
+- add Worker runtime code or a `main` entry,
+- add runtime bindings,
 - set `MATSURI_PUBLIC_ORIGIN`,
-- add a custom domain,
+- attach a custom domain,
 - enable Web Analytics.
 
 ##### F2-17 — First deployment and reachable URL acquisition
@@ -254,19 +239,13 @@ Completion condition:
 
 ```text
 Cloudflare build succeeded
-production pages.dev URL issued
+production workers.dev URL issued
 URL reachable
 source commit recorded
 Node and pnpm versions recorded
 ```
 
-Expected project-derived hostname:
-
-```text
-https://matsuri-yukue.pages.dev
-```
-
-Do not record it as actual until Cloudflare issues and serves it.
+Do not record or assume the exact `workers.dev` hostname until Cloudflare issues and serves it.
 
 ##### F2-18 — Deployed-origin smoke verification
 
@@ -281,7 +260,7 @@ Verify Matsuri deployed origin
 Inputs:
 
 ```text
-origin     exact issued production origin
+origin     exact issued workers.dev production origin
 canonical  false
 ```
 
@@ -294,25 +273,33 @@ Completion condition:
 - the representative Entity is present,
 - sitemap structure is valid.
 
-##### F2-19 — Canonical public origin and domain decision
+##### F2-19 — Exact canonical Matsuri subdomain decision
 
 Status: **Pending**
 
-Decide whether the first canonical origin is the production `pages.dev` hostname or an approved custom domain.
+The topology decision is already fixed as subdomains:
 
-Do not use a branch preview URL.
+```text
+parent domain root  series portal
+Matsuri subdomain   祭のゆくえ
+Jinja subdomain     神社のゆくえ
+Jiin subdomain      寺院のゆくえ
+Tomurai subdomain   弔いのゆくえ
+```
 
-##### F2-20 — Configure `MATSURI_PUBLIC_ORIGIN` and redeploy
+F2-19 resolves and records the exact parent domain and Matsuri hostname. Do not use a preview URL.
+
+##### F2-20 — Attach custom domain, configure `MATSURI_PUBLIC_ORIGIN`, and redeploy
 
 Status: **Pending**
 
-Set the exact accepted canonical origin for Production and trigger a new deployment.
+Attach the exact accepted Matsuri subdomain, set the Production build variable to that origin, and trigger a new deployment.
 
 ##### F2-21 — Canonical manifest and sitemap verification
 
 Status: **Pending**
 
-Run deployed verification in canonical mode and require:
+Require:
 
 ```text
 manifest.site_origin == checked origin
@@ -363,7 +350,7 @@ Required result:
 
 ```text
 public build reachable
-canonical origin configured and validated
+canonical subdomain configured and validated
 sitemap validated
 browser Search verified
 crawler and indexability checks completed
@@ -376,7 +363,7 @@ public Status updated to verified production state
 
 ## Work allowed during external activation
 
-- Cloudflare Pages setup according to the runbook,
+- Workers Builds setup according to the runbook,
 - first-deployment diagnosis,
 - deployed-origin verification,
 - reviewed factual corrections,
