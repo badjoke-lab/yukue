@@ -13,15 +13,35 @@ Execution Stage F — Launch Preparation
 ```text
 F2-15 — Repository Launch Readiness Gate — completed
 F2-M01 — Full-page screenshot visual-review workflow — completed
-F2-16 — Cloudflare Workers Builds connection — active
-F2-17–F2-28 — pending in fixed order
+F2-16 through F2-18 — completed
+F2-19 through F2-28 — operational hold
+F2-M02 — Matsuri data freshness audit — active
 ```
 
-The external operational hold was removed on 2026-07-12.
+The first Matsuri Cloudflare Workers Static Assets deployment is reachable and has passed the deployed-origin verification workflow. Domain-dependent work is paused until custom-domain operations can resume.
 
-`祭のゆくえ` has completed repository-side launch preparation and the first exhaustive screenshot visual-review baseline. The active task is now the first Cloudflare Workers Builds Git-integration setup using Workers Static Assets.
+## Verified external baseline
 
-This does not mean that a public deployment URL, canonical origin, production Search, crawler reachability, indexability, Web Analytics, or production traffic has been verified.
+```text
+Cloudflare Worker
+matsuri-yukue
+
+Permanent Workers origin
+https://matsuri-yukue.badjoke-lab.workers.dev/
+
+Verified deployment origin
+https://f757f092-matsuri-yukue.badjoke-lab.workers.dev/
+
+GitHub Actions verification
+run 29182976642 — success
+
+Verified source commit
+f6fdd5055c2712838ef30ed54048abf7f0674b4c
+```
+
+The deployed-origin verifier confirmed the required public HTML routes, Pagefind assets, public JSON, discovery files, Matsuri markers, representative Entity data, and sitemap structure.
+
+This does not mean that a canonical origin, custom domain, production Search on that canonical origin, crawler reachability, search-engine indexability, Web Analytics, or production traffic has been verified.
 
 ## Completed implementation
 
@@ -42,15 +62,6 @@ This does not mean that a public deployment URL, canonical origin, production Se
 - Mincho-only public typography direction,
 - four-site accent palette.
 
-Palette:
-
-```text
-祭のゆくえ      #284B63
-神社のゆくえ    #A33A32
-寺院のゆくえ    #684B78
-弔いのゆくえ    #486457
-```
-
 ### Stages A through E
 
 ```text
@@ -63,11 +74,7 @@ Stage E  Browse, Pagefind Search, and machine-readable baseline
 
 ### F1 corpus expansion
 
-F1 batches 01 through 10 are completed and validated.
-
-The corpus covers Festivals, Folk Performances, Tradition Units, Organizations, Shrine context seeds, Current State Snapshots, Occurrences, Change Events, Relations, Designations, Sources, and Evidence.
-
-Current State remains separate from annual Occurrence outcomes. Revival remains a Change Event and State transition rather than a normal `revived` Current State value.
+F1 batches 01 through 10 are completed and validated. The corpus covers Festivals, Folk Performances, Tradition Units, Organizations, Shrine context seeds, Current State Snapshots, Occurrences, Change Events, Relations, Designations, Sources, and Evidence.
 
 ### F2 repository launch preparation
 
@@ -90,219 +97,92 @@ F2-15  Repository Launch Readiness Gate — completed
 F2-M01 full-page screenshot visual-review workflow — completed
 ```
 
-## Active package: F2-16
-
-### Goal
-
-Create and connect the Cloudflare Worker `matsuri-yukue` through Workers Builds Git integration and deploy the Matsuri static artifact through Workers Static Assets.
-
-### Governing documents
+### F2 external deployment
 
 ```text
-docs/cloudflare-pages-launch-runbook.md
-docs/deployment.md
-docs/technical-architecture.md
-wrangler.jsonc
+F2-16  Cloudflare Workers Builds connection — completed
+F2-17  first Workers Static Assets deployment and reachable URL — completed
+F2-18  deployed-origin smoke verification — completed
 ```
 
-The runbook file name is retained temporarily for compatibility; its contents now govern Workers Builds rather than legacy Pages creation.
-
-### Required Workers settings
+Accepted deployment contract:
 
 ```text
 Worker name                    matsuri-yukue
 Repository                     badjoke-lab/yukue
 Production branch              main
-Root directory                 repository root / blank
+Root directory                 repository root
 Build command                  pnpm build:matsuri:workers
-Deploy command                 npx wrangler@latest deploy
-Non-production deploy command  npx wrangler@latest versions upload
-NODE_VERSION                   24
-PNPM_VERSION                   11.10.0 when the dashboard exposes that build variable
+Deploy command                 npx wrangler deploy
+Non-production deploy command  npx wrangler versions upload
+Asset directory                ./apps/matsuri/dist
+Worker main entry              absent
 ```
 
-The committed Wrangler contract is:
+The deployment remains fully static. Do not add an Astro Cloudflare SSR adapter, Worker runtime entry point, runtime bindings, D1, KV, or runtime ingestion without a later approved requirement.
+
+## Domain-dependent operational hold
 
 ```text
-name              matsuri-yukue
-assets.directory  ./apps/matsuri/dist
-main              absent
+F2-19  exact canonical Matsuri subdomain decision — hold
+F2-20  custom-domain attachment, MATSURI_PUBLIC_ORIGIN, redeployment — hold
+F2-21  canonical manifest and sitemap verification — hold
+F2-22  browser Pagefind Search verification on canonical origin — hold
+F2-23  crawler-reachability review — hold
+F2-24  sitemap submission and indexability check — hold
+F2-25  Web Analytics activation — hold
+F2-26  post-activation deployment — hold
+F2-27  production traffic verification — hold
+F2-28  final F2 Launch Gate — hold
 ```
 
-Do not set `MATSURI_PUBLIC_ORIGIN` during F2-16 or the first deployment.
+During the hold:
 
-Do not add the Cloudflare Astro SSR adapter, Worker runtime code, runtime bindings, a custom domain, or Web Analytics.
+- do not attach a custom domain,
+- do not set `MATSURI_PUBLIC_ORIGIN`,
+- do not treat the Workers origin as canonical,
+- do not submit the sitemap,
+- do not enable Web Analytics,
+- do not claim final launch completion.
 
-### F2-16 completion condition
+## Active package: F2-M02
+
+### Goal
+
+Review and improve the public Matsuri corpus while domain work is paused.
+
+Governing document:
 
 ```text
-GitHub repository connected
-Cloudflare Worker created with matching name
-production branch recorded
-build and deploy settings recorded
-first production build started
+docs/matsuri-data-freshness-audit.md
 ```
 
-The dashboard's `Save and Deploy` action may start F2-17 immediately after F2-16 setup.
-
-## Next pending package
-
-### F2-17 — First deployment and reachable URL
-
-Completion requires:
+Priority order:
 
 ```text
-Cloudflare build success
-production workers.dev URL issued
-URL reachable
-source commit recorded
-build environment recorded
+1. non-future scheduled and unresolved Occurrence outcomes
+2. Current State observation freshness
+3. Source and Evidence quality
+4. cross-site reusable Relations
+5. deployed-environment maintenance checks
 ```
 
-Do not assume the exact hostname until Cloudflare displays and serves it. A Workers URL includes the account's `workers.dev` subdomain.
+F2-M02 does not replace F2-19 through F2-28 and does not make the Workers origin canonical.
 
-## Deployed-origin verification capability
-
-A manual GitHub Actions workflow is available:
-
-```text
-Verify Matsuri deployed origin
-```
-
-For F2-18 use:
-
-```text
-origin     exact issued workers.dev origin
-canonical  false
-```
-
-Canonical mode remains disabled until the accepted custom Matsuri subdomain is configured.
-
-## Repository gate command
+## Repository gate
 
 ```text
 pnpm gate:matsuri:repository
 ```
 
-The verified repository contract includes:
+The gate verifies the static artifact, Workers configuration, internal links, semantic consistency, Source and Evidence rules, responsive and accessibility behavior, public-content boundaries, release-candidate hashes, completed external work through F2-18, and preservation of the F2-19 through F2-28 hold.
 
-- Workers Static Assets configuration validation,
-- workspace build,
-- shared checks and typechecks,
-- exact Matsuri static build,
-- route and internal-link checks,
-- sitemap inventory checks,
-- HTML / JSON / Search consistency,
-- corpus semantic audit,
-- Source and Evidence audit,
-- Current State freshness checks,
-- public-content and image-boundary audit,
-- 20 public routes across desktop, tablet, and mobile Chromium,
-- automated WCAG A/AA checks on desktop and mobile,
-- release-candidate freeze,
-- per-file and aggregate SHA-256 verification.
-
-A green repository gate is required before and during external activation, but it does not prove deployed behavior.
-
-## Current public artifact shape
-
-The repository-ready static candidate contains:
+## Current release status
 
 ```text
-20 public HTML routes
-Pagefind static Search artifact
-9 machine-readable baseline files
-version and manifest metadata
-public Entity, Event, Relation, and Occurrence feeds
-llms.txt
-ai.txt
-sitemap.xml
+repository-verified-deployed-origin-verified-domain-hold
 ```
-
-The exact file count, byte count, route list, record counts, and SHA-256 values are generated for each candidate in:
-
-```text
-.release-candidate/release-candidate.json
-```
-
-Current repository release status:
-
-```text
-repository-verified-external-activation-active
-```
-
-## Current external state
-
-```text
-Cloudflare Worker              not yet verified as created
-public deployment URL          not issued or recorded
-canonical production origin    not configured
-production Search              not browser-verified
-crawler reachability           not verified
-search-engine indexability     not verified
-Web Analytics                  not enabled
-production traffic             not verified
-```
-
-## Accepted public URL topology
-
-The series will use subdomains rather than placing the four specialist sites under parent-domain subdirectories.
-
-```text
-parent domain root  series portal
-Matsuri subdomain   祭のゆくえ
-Jinja subdomain     神社のゆくえ
-Jiin subdomain      寺院のゆくえ
-Tomurai subdomain   弔いのゆくえ
-```
-
-The exact parent domain and final Matsuri hostname remain pending at F2-19. The first `workers.dev` URL is a deployment-verification origin, not an automatic canonical decision.
-
-## Remaining external sequence
-
-```text
-F2-16  Workers Builds connection — active
-F2-17  first Workers deployment and reachable URL — pending
-F2-18  deployed-origin smoke verification — pending
-F2-19  exact canonical Matsuri subdomain decision — pending
-F2-20  attach custom domain, configure MATSURI_PUBLIC_ORIGIN, and redeploy — pending
-F2-21  canonical manifest and sitemap verification — pending
-F2-22  production browser Pagefind Search verification — pending
-F2-23  robots, canonical, sitemap, and crawler-reachability review — pending
-F2-24  sitemap submission and indexability check — pending
-F2-25  enable Cloudflare Web Analytics — pending
-F2-26  deploy after Analytics activation — pending
-F2-27  verify production traffic — pending
-F2-28  final F2 Launch Gate — pending
-```
-
-## Work allowed during activation
-
-- Workers Builds setup according to the runbook,
-- first-deployment diagnosis,
-- deployed-origin verification,
-- approved factual corrections,
-- Current State freshness updates,
-- Occurrence outcome corrections after scheduled dates pass,
-- Source and Evidence maintenance,
-- security or dependency maintenance,
-- repairs required to keep the repository gate green,
-- screenshot capture and human visual review for non-trivial UI changes.
-
-Do not invent additional prelaunch product scope.
-
-## Not committed to the MVP
-
-- Stats,
-- Compare,
-- dynamic API,
-- MCP,
-- paid API,
-- x402 billing,
-- D1 canonical database,
-- real-time ingestion,
-- complex graph visualization.
 
 ## Immediate next action
 
-Merge the Workers Static Assets activation changes into `main`, then use the current Cloudflare `Import a repository / Continue with GitHub` flow to connect `badjoke-lab/yukue` as Worker `matsuri-yukue` with the exact settings above.
+Run the F2-M02 candidate inventory and begin the first bounded data-freshness correction batch. Keep domain, canonical, indexing, and Analytics work untouched.

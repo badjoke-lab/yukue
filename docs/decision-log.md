@@ -4,8 +4,6 @@ This file records public project decisions that affect implementation.
 
 ## 2026-07-09 — Monorepo and initial apps
 
-Decision:
-
 ```text
 one monorepo
 initial apps: portal + matsuri
@@ -13,8 +11,6 @@ future apps added after project gates
 ```
 
 ## 2026-07-09 — Static-first architecture
-
-Decision:
 
 ```text
 Astro
@@ -26,13 +22,9 @@ Pagefind
 Cloudflare static-asset delivery
 ```
 
-Dynamic infrastructure is deferred until justified.
-
-The exact Cloudflare delivery product changed during launch preparation. The static-first and no-runtime requirements did not change.
+Dynamic infrastructure is deferred until justified. The exact Cloudflare delivery product changed during launch preparation; the static-first and no-runtime requirements did not.
 
 ## 2026-07-09 — Two-layer product model
-
-Decision:
 
 ```text
 Basic Profile Layer
@@ -64,8 +56,6 @@ The first Overview combines Current State, verification date, latest Occurrence,
 
 ## 2026-07-09 — Real images only
 
-Decision:
-
 - no AI-generated images,
 - no generic illustrative replacement images,
 - no placeholders,
@@ -76,13 +66,9 @@ Decision:
 
 ## 2026-07-09 — Map-ready Place model
 
-Decision: Place and Geographic Scope are separate concepts. Entity default places and Occurrence-specific venues remain separate.
-
-Map treatment must follow single-site, multi-site, route-based, or distributed scope rather than forcing all subjects into one-pin display.
+Place and Geographic Scope are separate. Entity default places and Occurrence-specific venues remain separate. Map treatment must follow the actual spatial scope rather than forcing every subject into one-pin display.
 
 ## 2026-07-10 — Visual direction
-
-Decision:
 
 ```text
 high-quality Japanese cultural reference work
@@ -98,28 +84,20 @@ The UI uses white backgrounds, black and gray typography, thin rules, controlled
 
 ## 2026-07-10 — Typography
 
-Decision: use one Mincho family system throughout the public UI.
-
-Do not use a separate textbook-style family as a second primary typography system.
+Use one Mincho family system throughout the public UI.
 
 ## 2026-07-10 — Series accent palette
 
-Decision:
-
 ```text
-祭のゆくえ      #284B63  indigo / iron blue
-神社のゆくえ    #A33A32  muted vermilion
-寺院のゆくえ    #684B78  deep traditional purple
-弔いのゆくえ    #486457  deep green
+祭のゆくえ      #284B63
+神社のゆくえ    #A33A32
+寺院のゆくえ    #684B78
+弔いのゆくえ    #486457
 ```
-
-Accent colors are used sparingly for links, selected navigation, state emphasis, timeline markers, focus treatment, and thin structural accents.
 
 ## 2026-07-10 — Repository-reference-driven development
 
-Decision: implementation work is governed by repository documentation and hierarchical `AGENTS.md` files.
-
-Required reading flow:
+Implementation work is governed by repository documentation and hierarchical `AGENTS.md` files.
 
 ```text
 root AGENTS.md
@@ -129,24 +107,9 @@ root AGENTS.md
 → governing specifications
 ```
 
-Schedule responsibilities are separated:
-
-```text
-roadmap.md
-= long-range phases and gates
-
-development-schedule.md
-= concrete implementation and PR sequence
-
-project-status.md
-= current position and next gate
-```
-
-When implementation changes public behavior, the governing document should be updated in the same bounded PR where practical. Decision changes go to `decision-log.md`; phase or gate changes go to `project-status.md`; material implementation-order changes go to `development-schedule.md`.
+Decision changes go to `decision-log.md`; phase or gate changes go to `project-status.md`; material implementation-order changes go to `development-schedule.md`.
 
 ## 2026-07-11 — F2 repository readiness before external deployment
-
-Decision:
 
 ```text
 F2-01–F2-05  completed repository launch baselines
@@ -154,36 +117,16 @@ F2-06–F2-15  repository-only launch readiness
 F2-16–F2-28  external deployment and production verification
 ```
 
-The external sequence remains ordered:
-
-```text
-Cloudflare project
-→ first reachable deployment
-→ deployed smoke check
-→ canonical origin decision
-→ canonical redeployment
-→ canonical and sitemap verification
-→ browser Search verification
-→ crawler and indexability checks
-→ Web Analytics activation
-→ post-activation deployment
-→ production traffic verification
-→ final F2 Launch Gate
-```
-
 Repository Launch Readiness at F2-15 is distinct from the final F2 Launch Gate at F2-28.
 
 ## 2026-07-11 — F2-15 Repository Launch Readiness completed
 
-Decision:
-
 ```text
 repository launch readiness  completed
 external production launch   not completed
-F2-16 through F2-28           external work
 ```
 
-The repository gate is represented by:
+The repository gate is:
 
 ```text
 pnpm gate:matsuri:repository
@@ -193,8 +136,6 @@ Repository readiness does not itself prove a Cloudflare project exists, a public
 
 ## 2026-07-11 — Successful-render visual review before production
 
-Decision:
-
 ```text
 F2-M01  local full-page screenshot and visual-review workflow
 Cloudflare required  no
@@ -202,24 +143,7 @@ current coverage     all 20 public routes
 capture devices      desktop + mobile
 ```
 
-The repository browser audit remains the measurable rendering and accessibility gate. A separate GitHub Actions workflow preserves successful full-page PNGs for human review.
-
-## 2026-07-12 — External hold removed and F2-16 activated
-
-Decision:
-
-```text
-external operational hold  removed
-active work package         F2-16
-repository                  badjoke-lab/yukue
-production branch           main
-```
-
-The first attempt assumed the legacy Cloudflare Pages Git-integration screen was still the current creation path. That assumption was invalidated by the current dashboard, which routes new Git repository imports through Workers Builds.
-
 ## 2026-07-12 — Workers Builds and Workers Static Assets adopted
-
-Decision:
 
 ```text
 launch platform             Cloudflare Workers Builds
@@ -229,25 +153,17 @@ repository                  badjoke-lab/yukue
 production branch           main
 root directory              repository root
 build command               pnpm build:matsuri:workers
-deploy command              npx wrangler@latest deploy
-non-production command      npx wrangler@latest versions upload
+deploy command              npx wrangler deploy
+non-production command      npx wrangler versions upload
 asset directory             ./apps/matsuri/dist
 Worker main entry           none
 ```
 
-This decision supersedes the earlier same-day Cloudflare Pages project-creation decision.
+This superseded the earlier same-day assumption that the legacy Cloudflare Pages Git-integration creation screen was still available.
 
-The committed root `wrangler.jsonc` is the external deployment contract. It has no `main` field because Matsuri is fully pre-rendered and requires no Worker runtime code or Astro Cloudflare SSR adapter.
-
-Cloudflare autoconfiguration must not replace this contract or create an SSR-oriented pull request.
-
-GitHub Actions remains the repository verification system. Workers Builds performs the external build and deployment.
-
-The first deployment intentionally leaves `MATSURI_PUBLIC_ORIGIN` unset. After Cloudflare issues a reachable `workers.dev` URL, the project completes F2-18 smoke verification before attaching the accepted custom domain.
+The root `wrangler.jsonc` is the deployment contract. It has no `main` field because Matsuri is fully pre-rendered and requires no Worker runtime code or Astro Cloudflare SSR adapter.
 
 ## 2026-07-12 — Subdomain public topology
-
-Decision:
 
 ```text
 parent domain root  Yukue Series portal
@@ -257,9 +173,60 @@ Jiin subdomain      寺院のゆくえ
 Tomurai subdomain   弔いのゆくえ
 ```
 
-The four specialist sites remain separate public sites while sharing the monorepo, canonical data, schemas, validation, Relations, Evidence, and common packages.
+The specialist sites remain separate public sites while sharing the monorepo, canonical data, schemas, validation, Relations, Evidence, and common packages.
 
-The exact parent domain and final Matsuri hostname remain unresolved until F2-19. The initial `workers.dev` URL is a deployment-verification origin and is not automatically canonical.
+## 2026-07-12 — F2-16 through F2-18 completed
+
+Decision and evidence:
+
+```text
+F2-16  Workers Builds connection — completed
+F2-17  first Workers Static Assets deployment — completed
+F2-18  deployed-origin smoke verification — completed
+
+Worker
+matsuri-yukue
+
+Permanent Workers origin
+https://matsuri-yukue.badjoke-lab.workers.dev/
+
+Verified deployment origin
+https://f757f092-matsuri-yukue.badjoke-lab.workers.dev/
+
+GitHub Actions verification
+run 29182976642 — success
+
+Verified source commit
+f6fdd5055c2712838ef30ed54048abf7f0674b4c
+```
+
+The verified Workers origin is deployment evidence. It is not automatically the canonical public origin.
+
+## 2026-07-12 — Domain-dependent launch work paused at F2-19
+
+```text
+F2-19 through F2-28  operational hold
+MATSURI_PUBLIC_ORIGIN  unset
+custom domain           not attached
+canonical origin        not declared
+sitemap submission      not performed
+Web Analytics           not enabled
+```
+
+The hold does not reverse the completed deployment. It prevents domain-dependent canonical, indexing, Analytics, and final-launch claims until custom-domain operations can resume.
+
+## 2026-07-12 — F2-M02 data freshness audit activated
+
+```text
+active maintenance package  F2-M02
+scope                       Occurrence outcomes
+                            Current State freshness
+                            Source and Evidence quality
+                            cross-site reusable Relations
+                            deployed-origin maintenance checks
+```
+
+F2-M02 may proceed while F2-19 through F2-28 are on hold. It must not attach a domain, set `MATSURI_PUBLIC_ORIGIN`, declare the Workers origin canonical, submit a sitemap, enable Analytics, or claim final launch completion.
 
 ## Open decisions
 
