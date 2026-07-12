@@ -1,17 +1,17 @@
 # Yukue Series Deployment Topology
 
-**Status:** F2-19 accepted / F2-20 activation pending
+**Status:** F2-19 accepted / Matsuri canonical origin verified through F2-21
 
-## Decision
+## Public topology
 
 The Yukue Series uses one monorepo and separate public deployments.
 
 ```text
 yukue.badjoke-lab.com
-└─ Yukue Series portal
+└─ Yukue Series portal — planned
 
 matsuri-yukue.badjoke-lab.com
-└─ 祭のゆくえ
+└─ 祭のゆくえ — canonical origin verified
 
 jinja-yukue.badjoke-lab.com
 └─ 神社のゆくえ — future site gate
@@ -23,13 +23,13 @@ tomurai-yukue.badjoke-lab.com
 └─ 弔いのゆくえ — future site gate
 ```
 
-The accepted machine-readable contract is:
+Machine-readable contract:
 
 ```text
 config/yukue-deployment-topology.json
 ```
 
-Validate it with:
+Validation:
 
 ```text
 pnpm check:yukue:deployment-topology
@@ -41,7 +41,7 @@ The portal is the series entrance and cross-site guide. It is not a path contain
 
 Specialist sites must not be nested below the portal path.
 
-Rejected topology:
+Rejected:
 
 ```text
 yukue.badjoke-lab.com/matsuri/
@@ -50,7 +50,7 @@ yukue.badjoke-lab.com/jiin/
 yukue.badjoke-lab.com/tomurai/
 ```
 
-Accepted topology:
+Accepted:
 
 ```text
 yukue.badjoke-lab.com
@@ -60,7 +60,7 @@ jiin-yukue.badjoke-lab.com
 tomurai-yukue.badjoke-lab.com
 ```
 
-This keeps each site's build, sitemap, Search index, canonical URLs, deployment lifecycle, and later project gate independent.
+This preserves independent builds, Search indexes, sitemaps, canonical URL spaces, deployment lifecycles, release gates, and rollback boundaries.
 
 ## Cloudflare deployment boundary
 
@@ -73,51 +73,41 @@ apps/matsuri  → Worker matsuri-yukue  → matsuri-yukue.badjoke-lab.com
 
 Future applications follow the same pattern only after their own project gates.
 
-The existing `matsuri-yukue` Worker is not replaced or repurposed when the portal is deployed. The Matsuri build command, asset directory, and Worker identity remain Matsuri-specific.
+Deploying the portal later does not replace or repurpose Worker `matsuri-yukue`.
 
 ## Current activation state
 
 ```text
-Portal hostname decision    accepted
-Portal deployment           not activated
+Portal hostname decision       accepted
+Portal deployment              not activated
 
-Matsuri hostname decision   accepted
-Matsuri workers.dev origin  verified
-Matsuri custom domain       not attached
-MATSURI_PUBLIC_ORIGIN       unset
-Active canonical origin     none
+Matsuri hostname decision      accepted
+Matsuri Custom Domain          active
+Matsuri HTTPS                   verified
+Matsuri manifest origin        verified
+Matsuri canonical sitemap      verified
+Matsuri canonical origin       https://matsuri-yukue.badjoke-lab.com
+Matsuri verification run       29191904624 — success
+workers.dev canonical          false
 ```
 
-The hostname decision and canonical activation are separate steps.
-
-F2-19 records the intended canonical hostname:
+Detailed evidence:
 
 ```text
-matsuri-yukue.badjoke-lab.com
+docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
 ```
-
-F2-20 will:
-
-1. attach `matsuri-yukue.badjoke-lab.com` to Worker `matsuri-yukue`,
-2. set `MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com`,
-3. trigger a production deployment,
-4. confirm that the custom domain is reachable before canonical verification begins.
-
-Until F2-20 succeeds, the build must not emit an active production `site_origin`, canonical URL set, or canonical sitemap origin.
 
 ## workers.dev boundary
 
-The verified Workers origin remains useful for deployment and maintenance checks:
+The permanent Workers origin remains useful for deployment and maintenance checks:
 
 ```text
 https://matsuri-yukue.badjoke-lab.workers.dev/
 ```
 
-It is not the canonical public origin and does not replace the custom-domain decision.
+It is not canonical.
 
 ## Future dedicated-domain migration
-
-The current topology uses `badjoke-lab.com` so deployment is not delayed by a separate domain purchase.
 
 A later migration to a dedicated parent domain remains supported:
 
@@ -138,6 +128,5 @@ Such a migration requires an explicit later decision, redirects, canonical chang
 - each application uses a separate Worker,
 - the portal is the series entrance rather than a runtime parent for specialist sites,
 - workers.dev origins are never canonical,
-- hostname decisions are recorded before activation,
-- canonical activation occurs only after the matching custom domain and environment value are configured,
+- active canonical origins require matching Custom Domain and external verification,
 - future site hostnames do not activate those sites before their project gates.
