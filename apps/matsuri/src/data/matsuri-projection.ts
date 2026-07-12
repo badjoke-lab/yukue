@@ -17,7 +17,9 @@ import batch09 from "../../../../data/public/matsuri/f1/batch-09.json";
 import batch09Context from "../../../../data/public/matsuri/f1/batch-09-context.json";
 import batch10 from "../../../../data/public/matsuri/f1/batch-10.json";
 import maintenance01 from "../../../../data/public/matsuri/f2/maintenance-01.json";
+import maintenance02 from "../../../../data/public/matsuri/f2/maintenance-02.json";
 import corrections01 from "../../../../data/public/matsuri/f2/corrections-01.json";
+import corrections02 from "../../../../data/public/matsuri/f2/corrections-02.json";
 
 type CanonicalRecord = {
   id: string;
@@ -38,13 +40,25 @@ const additiveBundles = [
   batch09Context,
   batch10,
   maintenance01,
+  maintenance02,
 ];
 
-const additiveRecords = (key: string): CanonicalRecord[] =>
-  additiveBundles.flatMap((bundle) => {
-    const recordsForKey = (bundle as Record<string, unknown>)[key];
+const correctionBundles = [corrections01, corrections02];
+
+const bundleRecords = (
+  bundles: ReadonlyArray<Record<string, unknown>>,
+  key: string,
+): CanonicalRecord[] =>
+  bundles.flatMap((bundle) => {
+    const recordsForKey = bundle[key];
     return Array.isArray(recordsForKey) ? (recordsForKey as CanonicalRecord[]) : [];
   });
+
+const additiveRecords = (key: string): CanonicalRecord[] =>
+  bundleRecords(additiveBundles as unknown as Array<Record<string, unknown>>, key);
+
+const correctionRecords = (key: string): CanonicalRecord[] =>
+  bundleRecords(correctionBundles as unknown as Array<Record<string, unknown>>, key);
 
 function applyRecordOverrides(
   baseRecords: CanonicalRecord[],
@@ -88,7 +102,7 @@ const canonicalBundle = {
   changeEvents: [...records.changeEvents, ...additiveRecords("changeEvents")],
   occurrences: applyRecordOverrides(
     occurrenceRecords,
-    corrections01.occurrences as CanonicalRecord[],
+    correctionRecords("occurrences"),
   ),
   occurrenceSeries: [
     ...records.occurrenceSeries,
@@ -101,10 +115,7 @@ const canonicalBundle = {
   relations: [...records.relations, ...additiveRecords("relations")],
   designations: [...records.designations, ...additiveRecords("designations")],
   sources: [...records.sources, ...additiveRecords("sources")],
-  evidence: applyRecordOverrides(
-    evidenceRecords,
-    corrections01.evidence as CanonicalRecord[],
-  ),
+  evidence: applyRecordOverrides(evidenceRecords, correctionRecords("evidence")),
   images: [...records.images, ...additiveRecords("images")],
 } as unknown as Parameters<typeof buildPublicProjection>[0];
 
