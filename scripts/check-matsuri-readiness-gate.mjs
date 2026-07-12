@@ -202,6 +202,10 @@ const roadmap = fs.readFileSync(
   path.join(repositoryRoot, "docs", "roadmap.md"),
   "utf8",
 );
+const freshnessAudit = fs.readFileSync(
+  path.join(repositoryRoot, "docs", "matsuri-data-freshness-audit.md"),
+  "utf8",
+);
 
 for (const id of [...completedRepositoryIds, "F2-15", ...completedExternalIds]) {
   assert(
@@ -224,8 +228,28 @@ assert(
   "Project status does not record the domain-dependent operational hold.",
 );
 assert(
-  projectStatus.includes("F2-M02 — Matsuri data freshness audit — active"),
-  "Project status does not record F2-M02 as active.",
+  projectStatus.includes("F2-M02 — Matsuri data freshness audit — completed"),
+  "Project status does not record F2-M02 completion.",
+);
+assert(
+  developmentSchedule.includes("F2-M02  Matsuri data freshness audit — completed"),
+  "Development schedule does not record F2-M02 completion.",
+);
+assert(
+  roadmap.includes("F2-M02  completed"),
+  "Roadmap does not record F2-M02 completion.",
+);
+assert(
+  freshnessAudit.includes(
+    "**Status:** F2-M02 completed / routine date-triggered maintenance continues",
+  ),
+  "Matsuri freshness audit does not record F2-M02 completion.",
+);
+assert(
+  freshnessAudit.includes("Closed-period unresolved            0") &&
+    freshnessAudit.includes("Specialists with no Relation          0") &&
+    freshnessAudit.includes("Relations missing Evidence             0"),
+  "Matsuri freshness audit does not preserve the completed zero-candidate results.",
 );
 assert(
   roadmap.includes("External deployment through F2-18: **Completed**") &&
@@ -234,5 +258,5 @@ assert(
 );
 
 console.log(
-  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-18 are complete, F2-19 through F2-28 remain on hold, F2-M02 freshness and Relation inventories are required, and canonical origin remains unset.`,
+  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-18 and F2-M02 are complete, F2-19 through F2-28 remain on hold, routine date-triggered maintenance is documented, and canonical origin remains unset.`,
 );
