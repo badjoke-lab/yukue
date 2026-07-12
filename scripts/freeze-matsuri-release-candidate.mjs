@@ -37,11 +37,11 @@ const completedExternalWork = [
   "F2-17 first Workers Static Assets deployment and reachable URL acquisition",
   "F2-18 deployed-origin smoke verification",
   "F2-19 exact canonical Matsuri hostname decision",
+  "F2-20 custom-domain attachment, canonical-origin activation, and external verification",
 ];
 
 const externalPendingWork = [
-  "F2-20 attach custom domain, configure MATSURI_PUBLIC_ORIGIN, and redeploy",
-  "F2-21 canonical manifest and sitemap verification",
+  "F2-21 canonical manifest and sitemap verification as a recorded gate",
   "F2-22 browser Pagefind Search verification on canonical production origin",
   "F2-23 robots, canonical, sitemap, and crawler-reachability review",
   "F2-24 search-engine sitemap submission and indexability check",
@@ -84,7 +84,7 @@ function sourceCommit() {
 
 if (process.env.MATSURI_PUBLIC_ORIGIN) {
   throw new Error(
-    "Repository release-candidate freeze requires MATSURI_PUBLIC_ORIGIN to remain unset until F2-20 custom-domain activation.",
+    "Repository release-candidate freeze must remain origin-neutral; use build:matsuri:workers for the canonical production artifact.",
   );
 }
 
@@ -103,7 +103,7 @@ const version = JSON.parse(
 
 if (Object.hasOwn(manifest, "site_origin")) {
   throw new Error(
-    `Repository release candidate must not contain an active production site_origin before F2-20: ${String(manifest.site_origin)}`,
+    `Origin-neutral repository release candidate unexpectedly contains site_origin: ${String(manifest.site_origin)}`,
   );
 }
 
@@ -165,11 +165,12 @@ const releaseManifest = {
   dataset_version: version.dataset_version,
   schema_version: version.schema_version,
   release_status:
-    "repository-verified-deployed-origin-verified-canonical-hostname-decided-domain-attachment-pending",
+    "repository-verified-deployed-origin-verified-canonical-origin-active",
   canonical_hostname_decision: matsuriTopology.canonical_hostname,
   canonical_origin_decision: matsuriTopology.canonical_origin,
   portal_origin_decision: topology.portal.canonical_origin,
-  canonical_origin: null,
+  canonical_origin: matsuriTopology.canonical_origin,
+  canonical_verification_workflow_run: 29191904624,
   verification_command: "pnpm verify:release",
   completed_repository_work: completedRepositoryWork,
   completed_external_work: completedExternalWork,
@@ -194,7 +195,7 @@ fs.writeFileSync(
 
 const summary =
   `# Matsuri Release Candidate\n\n` +
-  `Status: **repository verified; deployed origin verified; canonical hostname decided; custom-domain attachment pending**\n\n` +
+  `Status: **repository verified; deployed origin verified; canonical origin active**\n\n` +
   `- Source commit: \`${releaseManifest.source_commit ?? "unavailable"}\`\n` +
   `- Dataset version: \`${releaseManifest.dataset_version}\`\n` +
   `- Schema version: \`${releaseManifest.schema_version}\`\n` +
@@ -203,13 +204,13 @@ const summary =
   `- Artifact bytes: ${releaseManifest.artifact_size_bytes}\n` +
   `- Artifact SHA-256: \`${aggregateHash}\`\n` +
   `- Verified deployment origin: \`https://matsuri-yukue.badjoke-lab.workers.dev/\`\n` +
-  `- Canonical hostname decision: \`${releaseManifest.canonical_hostname_decision}\`\n` +
-  `- Canonical origin activation: pending F2-20\n\n` +
-  `The copied site under \`matsuri-site/\` is the exact static artifact that passed \`pnpm verify:release\`. ` +
-  `F2-16 through F2-19 are complete. F2-20 through F2-28 remain external work.\n`;
+  `- Active canonical origin: \`${releaseManifest.canonical_origin}\`\n` +
+  `- Canonical verification workflow run: \`${releaseManifest.canonical_verification_workflow_run}\`\n\n` +
+  `The copied site under \`matsuri-site/\` remains an origin-neutral repository artifact. ` +
+  `F2-16 through F2-20 are complete. F2-21 through F2-28 remain external work.\n`;
 
 fs.writeFileSync(path.join(candidateRoot, "README.md"), summary, "utf8");
 
 console.log(
-  `Matsuri release candidate frozen: ${publicRoutes.length} routes, ${fileEntries.length} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${aggregateHash}; canonical hostname ${matsuriTopology.canonical_hostname} decided, activation pending F2-20.`,
+  `Matsuri release candidate frozen: ${publicRoutes.length} routes, ${fileEntries.length} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${aggregateHash}; canonical origin ${matsuriTopology.canonical_origin} is active and F2-20 is complete.`,
 );
