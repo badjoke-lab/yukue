@@ -223,7 +223,7 @@ assert(
   "Project status does not record F2-M02 completion.",
 );
 assert(developmentSchedule.includes("F2-M02  Matsuri data freshness audit — completed"), "Development schedule does not record F2-M02 completion.");
-assert(roadmap.includes("F2-M02  completed"), "Roadmap does not record F2-M02 completion.");
+assert(roadmap.includes("F2-M02  Matsuri data freshness audit — completed"), "Roadmap does not record F2-M02 completion.");
 assert(
   freshnessAudit.includes("**Status:** F2-M02 completed / routine date-triggered maintenance continues"),
   "Matsuri freshness audit does not record F2-M02 completion.",
@@ -241,10 +241,10 @@ assert(
   "Deployment topology does not preserve the accepted portal and Matsuri separation.",
 );
 assert(
-  activationAudit.includes("29191904624") &&
-    activationAudit.includes("F2-20") &&
-    activationAudit.includes("F2-21") &&
-    activationAudit.includes("conclusion") === false,
+  activationAudit.includes("Run ID\n29191904624") &&
+    activationAudit.includes("Conclusion\nsuccess") &&
+    activationAudit.includes("F2-20  custom-domain attachment, canonical build, HTTPS verification — completed") &&
+    activationAudit.includes("F2-21  canonical manifest and sitemap verification — completed"),
   "Canonical activation audit is incomplete.",
 );
 assert(
