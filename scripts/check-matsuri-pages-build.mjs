@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const repositoryRoot = fileURLToPath(new URL("../", import.meta.url));
 const outputRoot = path.join(repositoryRoot, "apps", "matsuri", "dist");
 const localOrigin = "https://matsuri.invalid";
+const configuredOrigin = process.env.MATSURI_PUBLIC_ORIGIN?.replace(/\/$/u, "");
 
 const requiredRoutes = [
   "/",
@@ -97,6 +98,19 @@ function decodeXmlEntities(value) {
 
 function decodeHtmlAttribute(value) {
   return decodeXmlEntities(value).replaceAll("&#39;", "'");
+}
+
+function extractCanonicalHref(html) {
+  const tags = html.match(/<link\b[^>]*>/giu) ?? [];
+  for (const tag of tags) {
+    const rel = tag.match(/\brel\s*=\s*(["'])(.*?)\1/iu)?.[2] ?? "";
+    if (!rel.split(/\s+/u).some((token) => token.toLowerCase() === "canonical")) {
+      continue;
+    }
+    const href = tag.match(/\bhref\s*=\s*(["'])(.*?)\1/iu)?.[2];
+    return href ? decodeHtmlAttribute(href) : null;
+  }
+  return null;
 }
 
 function normalizeSitemapLocation(location) {
@@ -208,11 +222,31 @@ if (sitemapErrors.length > 0) {
 
 const brokenInternalLinks = [];
 const forbiddenInternalLinks = [];
+const canonicalErrors = [];
 const hrefPattern = /\bhref\s*=\s*(["'])(.*?)\1/giu;
 
 for (const route of publicRoutes) {
   const htmlFile = routeToHtmlFile(route);
   const html = fs.readFileSync(path.join(outputRoot, htmlFile), "utf8");
+  const canonicalHref = extractCanonicalHref(html);
+
+  if (configuredOrigin) {
+    const expectedCanonical = new URL(route, `${configuredOrigin}/`).href;
+    if (!canonicalHref) {
+      canonicalErrors.push(`${route}: missing canonical link`);
+    } else {
+      const actualCanonical = new URL(canonicalHref, `${configuredOrigin}/`).href;
+      if (actualCanonical !== expectedCanonical) {
+        canonicalErrors.push(
+          `${route}: ${actualCanonical} !== ${expectedCanonical}`,
+        );
+      }
+    }
+  } else if (canonicalHref) {
+    canonicalErrors.push(
+      `${route}: origin-neutral build unexpectedly contains ${canonicalHref}`,
+    );
+  }
 
   for (const match of html.matchAll(hrefPattern)) {
     const rawHref = decodeHtmlAttribute(match[2].trim());
@@ -241,7 +275,11 @@ for (const route of publicRoutes) {
   }
 }
 
-if (forbiddenInternalLinks.length > 0 || brokenInternalLinks.length > 0) {
+if (
+  forbiddenInternalLinks.length > 0 ||
+  brokenInternalLinks.length > 0 ||
+  canonicalErrors.length > 0
+) {
   const linkErrors = [];
 
   if (forbiddenInternalLinks.length > 0) {
@@ -260,6 +298,15 @@ if (forbiddenInternalLinks.length > 0 || brokenInternalLinks.length > 0) {
       `broken internal links:\n${[...new Set(brokenInternalLinks)]
         .sort((a, b) => a.localeCompare(b))
         .map((link) => `  - ${link}`)
+        .join("\n")}`,
+    );
+  }
+
+  if (canonicalErrors.length > 0) {
+    linkErrors.push(
+      `canonical link errors:\n${canonicalErrors
+        .sort((a, b) => a.localeCompare(b))
+        .map((value) => `  - ${value}`)
         .join("\n")}`,
     );
   }
@@ -288,5 +335,5 @@ if (version.site_id !== "matsuri") {
 }
 
 console.log(
-  `Matsuri Pages artifact verified: ${requiredFiles.length} required files, ${publicRoutes.length} public routes, ${sitemapLocations.length} sitemap routes, and all internal links valid.`,
+  `Matsuri Pages artifact verified: ${requiredFiles.length} required files, ${publicRoutes.length} public routes, ${sitemapLocations.length} sitemap routes, all internal links valid, and ${configuredOrigin ? "canonical self-links verified" : "origin-neutral canonical links absent"}.`,
 );
