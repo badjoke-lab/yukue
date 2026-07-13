@@ -80,6 +80,7 @@ An earlier natural-language probe contained the indexed Japanese word `記録` a
 The successful browser run recorded:
 
 ```text
+browser errors  0
 page errors     0
 console errors  0
 ```
