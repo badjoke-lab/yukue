@@ -1,6 +1,6 @@
 # Matsuri Cloudflare Workers Static Assets Launch Runbook
 
-**Status:** F2-16 through F2-21 completed / F2-22 browser Search verification next
+**Status:** F2-16 through F2-22 completed / F2-23 crawler review next
 
 > The file name is retained for compatibility. The accepted platform is Cloudflare Workers Builds with Workers Static Assets, not a legacy Pages project.
 
@@ -17,22 +17,27 @@ Permanent non-canonical Workers origin
 https://matsuri-yukue.badjoke-lab.workers.dev/
 ```
 
-Canonical verification:
+## External verification
 
 ```text
-Workflow    Verify Matsuri canonical origin gate
-Run         29191904624
-Conclusion  success
-Attempt     1 of 18
-Activation  f978bc50a1ab51964687ec0457a448dc37b2aaf9
+Canonical HTTP workflow
+Verify Matsuri canonical origin gate
+run 29191904624 — success
+
+Canonical browser Search workflow
+Verify Matsuri canonical browser Search
+run 29227617530 — success
 ```
 
-The gate confirmed HTTPS, all required public routes, Pagefind asset reachability, public JSON, exact `manifest.site_origin`, and canonical sitemap locations.
+The HTTP gate confirmed HTTPS, all required public routes, Pagefind assets, public JSON, exact `manifest.site_origin`, and canonical sitemap locations.
+
+The Chromium gate confirmed exact query execution, prefecture filtering, result rendering, same-origin result navigation, the public empty state, zero page errors, zero console errors, and zero application request failures.
 
 Evidence:
 
 ```text
 docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
+docs/audits/matsuri-f2-22-browser-search-2026-07-13.md
 ```
 
 ## Series topology
@@ -70,20 +75,9 @@ The site remains fully pre-rendered. Do not add an Astro Cloudflare SSR adapter,
 
 ## Repository-managed activation
 
-`wrangler.jsonc` defines:
+`wrangler.jsonc` defines the Custom Domain, while `config/yukue-deployment-topology.json` records the verified canonical origin and browser Search evidence.
 
-```json
-{
-  "routes": [
-    {
-      "pattern": "matsuri-yukue.badjoke-lab.com",
-      "custom_domain": true
-    }
-  ]
-}
-```
-
-`config/yukue-deployment-topology.json` records the verified canonical origin. `scripts/build-matsuri-workers.mjs` injects it into the static build as:
+`scripts/build-matsuri-workers.mjs` injects:
 
 ```text
 MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
@@ -100,20 +94,18 @@ F2-18  workers.dev smoke verification — completed
 F2-19  exact canonical hostname decision — completed
 F2-20  Custom Domain activation, canonical build, HTTPS verification — completed
 F2-21  canonical manifest and sitemap verification — completed
+F2-22  canonical browser Pagefind Search verification — completed
 ```
 
 ## Next sequence
 
 ```text
-F2-22  browser Pagefind Search verification — next
-F2-23  crawler-reachability review — hold
+F2-23  robots, canonical, sitemap, and crawler-reachability review — next
 F2-24  sitemap submission and indexability check — hold
 F2-25  Web Analytics activation — hold
 F2-26  post-activation deployment — hold
 F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
-
-F2-22 must use a real browser to enter representative queries, observe Pagefind results, and follow result links. The F2-20/F2-21 HTTP verifier did not exercise interactive Search.
 
 Do not skip directly to sitemap submission or Analytics.
