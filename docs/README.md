@@ -21,6 +21,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `technical-architecture.md` | F2-21 canonical baseline | Build, projection, search, multi-Worker deployment, dual artifact verification, and canonical activation |
 | `deployment-topology.md` | Matsuri active | Exact portal and specialist-site hostnames, separate Worker boundary, active Matsuri origin, and migration invariants |
 | `f2-20-custom-domain-activation.md` | Completed | Repository-managed Custom Domain, canonical build, and external verification evidence |
+| `f2-22-browser-search-verification.md` | Verification prepared | Live Chromium query, filter, result-navigation, empty-state, and evidence contract |
 | `cloudflare-pages-launch-runbook.md` | F2-16–F2-21 completed | Workers Builds contract, canonical deployment, and remaining launch sequence |
 | `deployment.md` | F2-21 completed | Verified canonical Workers deployment and F2-22 browser boundary |
 | `audits/matsuri-f2-20-canonical-activation-2026-07-12.md` | Passed audit | HTTPS, required routes, manifest origin, and canonical sitemap verification run |
