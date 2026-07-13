@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-22 completed / F2-23 crawler reachability next
+**Status:** F2-23 completed / F2-24 sitemap submission and indexability next
 
 This document defines the stable implementation order. It complements `roadmap.md` and `project-status.md`. The project is gate-driven rather than deadline-driven.
 
@@ -9,10 +9,10 @@ This document defines the stable implementation order. It complements `roadmap.m
 ```text
 Foundation through Stage E  completed
 F1 corpus expansion          completed
-F2-01 through F2-22          completed
+F2-01 through F2-23          completed
 F2-M01                       completed
 F2-M02                       completed
-F2-23 through F2-28          operational hold
+F2-24 through F2-28          operational hold
 ```
 
 ## Foundation through Stage E
@@ -35,21 +35,7 @@ Status: **Completed through validated batches 01–10**
 ### Repository work
 
 ```text
-F2-01  static build and artifact contract — completed
-F2-02  public reference and secondary browse surfaces — completed
-F2-03  deployed and canonical verification tooling — completed
-F2-04  deployment verifier hardening — completed
-F2-05  analytics policy baseline — completed
-F2-06  schedule and status realignment — completed
-F2-07  unified release verification — completed
-F2-08  static route and internal-link integrity — completed
-F2-09  HTML, JSON, Search, and sitemap consistency — completed
-F2-10  public data semantic audit — completed
-F2-11  Source and Evidence audit — completed
-F2-12  responsive and accessibility browser audit — completed
-F2-13  public content, empty-state, and image-boundary audit — completed
-F2-14  release-candidate artifact freeze — completed
-F2-15  Repository Launch Readiness Gate — completed
+F2-01 through F2-15 — completed
 ```
 
 Repository gate:
@@ -94,23 +80,18 @@ F2-19  exact canonical Matsuri hostname decision — completed
 F2-20  Custom Domain activation, canonical build, HTTPS verification — completed
 F2-21  canonical manifest and sitemap verification — completed
 F2-22  browser Pagefind Search verification on canonical origin — completed
+F2-23  robots, canonical, sitemap, crawler-reachability review — completed
 ```
 
-Canonical-origin evidence:
+Verified evidence:
 
 ```text
 Canonical origin          https://matsuri-yukue.badjoke-lab.com
-Verification workflow     Verify Matsuri canonical origin gate
-Verification run          29191904624 — success
-```
-
-Canonical Search evidence:
-
-```text
-Verification workflow     Verify Matsuri canonical Search
-Verification run          29193201911 — success
-Job                       86651403427 — success
-Artifact                  8260207484
+Origin verification run   29191904624 — success
+Search verification run   29193201911 — success
+Search artifact           8260207484
+Crawler verification run  29230233384 — success
+Crawler artifact          8271238535
 ```
 
 Evidence records:
@@ -118,45 +99,38 @@ Evidence records:
 ```text
 docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
 docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md
+docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md
 ```
+
+F2-23 verified robots policy, canonical Sitemap discovery, all sitemap routes, self-canonical links, indexable directives, representative crawler labels, and public discovery files.
 
 #### Next gate and hold
 
 ```text
-F2-23  robots, canonical, sitemap, crawler-reachability review — next
-F2-24  search-engine sitemap submission and indexability check — hold
+F2-24  search-engine sitemap submission and indexability check — next
 F2-25  Cloudflare Web Analytics activation — hold
 F2-26  post-activation deployment — hold
 F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
-### F2-23 scope
+F2-24 must distinguish:
 
-F2-23 must:
+- sitemap availability,
+- search-console ownership or access,
+- submission acceptance,
+- discovered or indexed state.
 
-- inspect the published `robots.txt`,
-- inspect canonical link output on representative pages,
-- inspect the canonical sitemap and discovery routes,
-- verify live reachability for the accepted crawler-facing public surface,
-- distinguish search-discovery crawlers from unrelated bulk or abusive access policy,
-- record reproducible evidence.
+Successful submission must not be described as successful indexation.
 
-F2-23 must not:
+## Work allowed before F2-24 completion
 
-- submit a sitemap to a search engine,
-- claim indexation,
-- enable Web Analytics,
-- change the portal deployment,
-- begin Jinja, Jiin, or Tomurai implementation.
-
-## Work allowed before F2-23 completion
-
-- F2-23 crawler-reachability verification and evidence,
+- search-engine ownership and submission-path review,
+- sitemap submission when account access exists,
+- indexability evidence collection,
 - reviewed factual and date-triggered maintenance,
-- Source, Evidence, and Relation corrections,
-- security and dependency maintenance,
-- repairs required to keep repository, canonical-origin, and canonical Search gates green.
+- Source, Evidence, Relation, security, and dependency maintenance,
+- repairs required to keep repository and production gates green.
 
 ## Work not activated
 
