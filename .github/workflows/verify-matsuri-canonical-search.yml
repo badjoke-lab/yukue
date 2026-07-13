@@ -1,0 +1,75 @@
+name: Verify Matsuri canonical Search
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-canonical-search.yml"
+      - "playwright.canonical-search.config.mjs"
+      - "tests/canonical/matsuri-search.spec.mjs"
+      - "package.json"
+      - "docs/f2-22-canonical-search-verification.md"
+      - "docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md"
+      - "docs/project-status.md"
+      - "docs/development-schedule.md"
+      - "docs/roadmap.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-matsuri-canonical-search
+  cancel-in-progress: true
+
+jobs:
+  verify-search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      MATSURI_CANONICAL_ORIGIN: https://matsuri-yukue.badjoke-lab.com
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.10.0
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Install Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Verify canonical Search interactions
+        run: pnpm check:matsuri:canonical-search
+
+      - name: Upload canonical Search evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: matsuri-canonical-search-${{ github.sha }}
+          path: |
+            playwright-report/canonical-search
+            test-results/canonical-search
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Write verification summary
+        if: always()
+        shell: bash
+        run: |
+          echo "## Matsuri canonical Search verification" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Origin: $MATSURI_CANONICAL_ORIGIN" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Browser projects: desktop Chromium, mobile Chromium" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Coverage: exact-name query, structured filters, no-result state, result navigation" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Evidence artifact: matsuri-canonical-search-$GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"

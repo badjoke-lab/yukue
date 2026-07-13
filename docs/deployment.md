@@ -1,6 +1,6 @@
 # Deployment
 
-**Status:** F2-16 through F2-21 completed / F2-22 browser Search verification next
+**Status:** F2-16 through F2-22 completed / F2-23 crawler reachability next
 
 ## Verified production deployment
 
@@ -20,32 +20,38 @@ https://matsuri-yukue.badjoke-lab.workers.dev/
 Canonical activation evidence:
 
 ```text
-Activation merge
-f978bc50a1ab51964687ec0457a448dc37b2aaf9
-
 Verification workflow
 Verify Matsuri canonical origin gate
 
 Verification run
 29191904624 — success
-
-Successful attempt
-1 of 18
 ```
 
-The external verifier confirmed HTTPS, required public routes, Pagefind asset reachability, public JSON, exact `manifest.site_origin`, and canonical sitemap locations.
+Canonical Search evidence:
+
+```text
+Verification workflow
+Verify Matsuri canonical Search
+
+Verification run
+29193201911 — success
+
+Artifact ID
+8260207484
+```
 
 Detailed evidence:
 
 ```text
 docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
+docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md
 ```
 
 ## Public topology
 
 ```text
 yukue.badjoke-lab.com          portal — planned
-matsuri-yukue.badjoke-lab.com  Matsuri — canonical origin verified
+matsuri-yukue.badjoke-lab.com  Matsuri — canonical origin and Search verified
 ```
 
 ```text
@@ -102,7 +108,7 @@ MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
 
 to the static build child process.
 
-## Dual artifact verification
+## Dual artifact and external-evidence model
 
 The repository gate verifies:
 
@@ -114,7 +120,8 @@ Workers production artifact
 
 Repository release candidate
 - origin-neutral artifact copy
-- separately records the verified canonical origin and workflow evidence
+- separately records canonical-origin evidence
+- separately records canonical browser Search evidence
 ```
 
 ## Completed external work
@@ -126,13 +133,13 @@ F2-18  workers.dev smoke verification — completed
 F2-19  exact canonical hostname decision — completed
 F2-20  Custom Domain activation, canonical build, HTTPS verification — completed
 F2-21  canonical manifest and sitemap verification — completed
+F2-22  browser Pagefind Search verification — completed
 ```
 
 ## Remaining sequence
 
 ```text
-F2-22  browser Pagefind Search verification — next
-F2-23  crawler-reachability review — hold
+F2-23  crawler-reachability review — next
 F2-24  sitemap submission and indexability check — hold
 F2-25  Web Analytics activation — hold
 F2-26  post-activation deployment — hold
@@ -140,6 +147,6 @@ F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
-Do not treat fetched Search HTML and Pagefind assets as proof of interactive browser Search. F2-22 must submit queries and follow results in Chromium.
+F2-23 reviews live `robots.txt`, canonical links, sitemap, crawler policy, and relevant crawler-facing reachability. It does not submit the sitemap or claim indexation.
 
 Do not submit the sitemap before F2-24 or enable Analytics before F2-25.
