@@ -79,13 +79,13 @@ function assertForbiddenKeysAbsent(value, forbiddenKeys, path = "$root") {
   }
 }
 
-test("baseline generator emits the exact required E3 file inventory", () => {
+test("baseline generator emits the exact required public file inventory", () => {
   const files = generateMachineReadableBaseline(loadProjection(), config);
   assert.deepEqual(
     files.map((file) => file.path).sort(),
     [...baselineFileInventory].sort(),
   );
-  assert.equal(files.length, 9);
+  assert.equal(files.length, 10);
 });
 
 test("manifest counts and safety markers match Public Projection", () => {
@@ -141,29 +141,38 @@ test("generated JSON feeds contain no forbidden internal object keys", () => {
   }
 });
 
-test("discovery files explain dataset limits and sitemap honors configured origin", () => {
+test("discovery files explain limits and canonical discovery paths", () => {
   const files = generateMachineReadableBaseline(loadProjection(), config);
   const llms = byPath(files, "/llms.txt").content;
   const ai = byPath(files, "/ai.txt").content;
+  const robots = byPath(files, "/robots.txt").content;
   const sitemap = byPath(files, "/sitemap.xml").content;
 
   assert.match(llms, /人気ランキングではありません/);
   assert.match(llms, /Public Projection/);
   assert.match(ai, /public_manifest: \/data\/manifest\.json/);
+  assert.match(robots, /^User-agent: \*$/m);
+  assert.match(robots, /^Allow: \/$/m);
+  assert.match(robots, /^Sitemap: https:\/\/matsuri\.example\/sitemap\.xml$/m);
+  assert.doesNotMatch(robots, /^Disallow: \/$/m);
   assert.match(
     sitemap,
     /<loc>https:\/\/matsuri\.example\/festivals\/<\/loc>/,
   );
 });
 
-test("development sitemap uses public paths when no canonical origin is configured", () => {
+test("development discovery files remain origin-neutral", () => {
   const projection = loadProjection();
   const files = generateMachineReadableBaseline(projection, {
     ...config,
     siteOrigin: undefined,
   });
+  const robots = byPath(files, "/robots.txt").content;
   const sitemap = byPath(files, "/sitemap.xml").content;
 
+  assert.match(robots, /^User-agent: \*$/m);
+  assert.match(robots, /^Allow: \/$/m);
+  assert.doesNotMatch(robots, /^Sitemap:/m);
   assert.match(sitemap, /<loc>\/festivals\/<\/loc>/);
   assert.doesNotMatch(sitemap, /matsuri\.example/);
 });
