@@ -1,0 +1,32 @@
+{
+  "format_version": 1,
+  "site_id": "matsuri",
+  "canonical_origin": "https://matsuri-yukue.badjoke-lab.com",
+  "sitemap_url": "https://matsuri-yukue.badjoke-lab.com/sitemap.xml",
+  "search_engine": "google-search-console",
+  "status": "pending-owner-action",
+  "property_type": null,
+  "ownership_verified": false,
+  "submitted": false,
+  "submitted_at": null,
+  "submission_result": null,
+  "submission_evidence_document": null,
+  "representative_url_inspections": [],
+  "claims": {
+    "technical_indexability_verified": false,
+    "sitemap_submission_verified": false,
+    "indexation_claimed": false,
+    "f2_24_complete": false
+  },
+  "privacy": {
+    "exclude_account_email": true,
+    "exclude_account_identifier": true,
+    "exclude_private_property_tokens": true,
+    "public_safe_evidence_only": true
+  },
+  "boundary": {
+    "submission_does_not_equal_indexation": true,
+    "owner_account_action_required": true,
+    "analytics_not_authorized": true
+  }
+}

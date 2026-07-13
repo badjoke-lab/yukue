@@ -18,7 +18,7 @@ F2-16 through F2-23 — completed
 F2-24 through F2-28 — operational hold
 ```
 
-The Matsuri Custom Domain, canonical output, interactive browser Search, and crawler-facing production surface have passed independent GitHub Actions verification. The next launch gate is F2-24 sitemap submission and indexability checking.
+The Matsuri Custom Domain, canonical output, interactive browser Search, and crawler-facing production surface have passed independent GitHub Actions verification. The active gate is F2-24 sitemap submission and indexability checking.
 
 ## Verified canonical production baseline
 
@@ -120,23 +120,47 @@ F2-22  browser Pagefind Search verification — completed
 F2-23  robots, canonical, sitemap, crawler-reachability review — completed
 ```
 
+## F2-24 preparation state
+
+```text
+Technical indexability preflight        implemented
+Search-engine submission record         pending-owner-action
+Google Search Console ownership          not claimed
+Canonical sitemap submitted              not claimed
+F2-24 completion                         not claimed
+```
+
+Implemented preparation:
+
+```text
+scripts/check-matsuri-indexability-preflight.mjs
+scripts/check-matsuri-search-engine-submission-record.mjs
+config/matsuri-search-engine-submission.json
+docs/f2-24-sitemap-submission-indexability.md
+docs/templates/matsuri-f2-24-submission-evidence.md
+.github/workflows/verify-matsuri-indexability-preflight.yml
+```
+
+The automated preflight verifies public technical indexability but cannot use a private search-engine owner account. The submission record remains mechanically incomplete until public-safe owner-account evidence is added.
+
 ## Remaining launch sequence
 
 ```text
-F2-24  search-engine sitemap submission and indexability check — next gate
+F2-24  search-engine sitemap submission and indexability check — owner action pending
 F2-25  Cloudflare Web Analytics activation — hold
 F2-26  post-activation deployment — hold
 F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
-F2-24 must record the actual search-engine submission or ownership boundary and distinguish successful submission from indexation. F2-23 did not submit the sitemap and does not claim that any search engine has indexed the site.
+F2-24 must record the actual search-engine ownership and submission result and distinguish successful submission from indexation. F2-23 did not submit the sitemap and the F2-24 preflight does not claim that any search engine has indexed the site.
 
 Do not:
 
+- mark F2-24 complete from a technical preflight alone,
 - claim indexation without search-engine evidence,
+- expose owner email, account identifier, or verification token,
 - enable Web Analytics before F2-25,
-- claim F2-24 through F2-28 completion without their evidence,
 - begin portal deployment or a future specialist-site implementation during this sequence.
 
 ## Routine maintenance after F2-M02
@@ -152,7 +176,7 @@ Do not:
 pnpm gate:matsuri:repository
 ```
 
-The gate verifies the accepted topology, canonical and origin-neutral artifacts, canonical-origin evidence, browser Search evidence, crawler-reachability evidence, internal links, semantic consistency, Source and Evidence rules, browser and accessibility behavior, release-candidate hashes, completed external work through F2-23, and the F2-24 through F2-28 boundary.
+The repository gate preserves completed external work through F2-23 and the F2-24 through F2-28 boundary. The dedicated F2-24 workflow separately validates the pending submission record and live indexability preflight.
 
 ## Current release status
 
@@ -162,4 +186,4 @@ repository-verified-crawler-reachability-verified-sitemap-submission-pending
 
 ## Immediate next action
 
-Run F2-24: determine the available search-engine ownership and sitemap-submission path, submit the canonical sitemap when access is available, and record submission and indexability evidence without claiming indexation prematurely.
+Run the F2-24 preflight, then use a verified Google Search Console property to submit the exact canonical sitemap and record sanitized submission plus representative URL Inspection evidence. Until that owner action occurs, F2-24 remains incomplete.
