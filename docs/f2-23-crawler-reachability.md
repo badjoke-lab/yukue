@@ -124,3 +124,5 @@ F2-26  post-activation deployment — hold
 F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
+
+The completion-record pull request must keep the repository, canonical-origin, browser Search, and live crawler gates green before merge.
