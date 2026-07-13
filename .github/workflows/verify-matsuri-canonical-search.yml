@@ -1,0 +1,78 @@
+name: Verify Matsuri canonical browser Search
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-canonical-search.yml"
+      - "config/yukue-deployment-topology.json"
+      - "package.json"
+      - "scripts/verify-matsuri-canonical-search.mjs"
+      - "apps/matsuri/src/pages/search/index.astro"
+      - "docs/f2-22-browser-search-verification.md"
+      - "docs/audits/matsuri-f2-22-browser-search-*.md"
+      - "docs/project-status.md"
+      - "docs/development-schedule.md"
+      - "docs/roadmap.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-matsuri-canonical-browser-search-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify-canonical-browser-search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      MATSURI_CHECK_ORIGIN: https://matsuri-yukue.badjoke-lab.com
+      MATSURI_SEARCH_ARTIFACT_DIR: .artifacts/matsuri-f2-22-search
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        run: npm install --global pnpm@11.10.0
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Install Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Verify canonical browser Search
+        run: pnpm check:matsuri:canonical-search
+
+      - name: Upload F2-22 browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: matsuri-f2-22-browser-search-${{ github.sha }}
+          path: .artifacts/matsuri-f2-22-search/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Write verification summary
+        if: always()
+        shell: bash
+        run: |
+          echo "## Matsuri F2-22 canonical browser Search" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Origin: \`$MATSURI_CHECK_ORIGIN\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Browser: Chromium" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Evidence artifact: \`matsuri-f2-22-browser-search-$GITHUB_SHA\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Commit: \`$GITHUB_SHA\`" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f "$MATSURI_SEARCH_ARTIFACT_DIR/summary.md" ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            cat "$MATSURI_SEARCH_ARTIFACT_DIR/summary.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
