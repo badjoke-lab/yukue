@@ -23,6 +23,8 @@ Before implementing a feature, check the relevant document here. When a decision
 | `f2-20-custom-domain-activation.md` | Completed | Repository-managed Custom Domain, canonical build, and external verification evidence |
 | `f2-22-canonical-search-verification.md` | Completed | Canonical desktop/mobile Pagefind interaction gate and evidence |
 | `f2-23-crawler-reachability.md` | Completed | robots, canonical HTML, sitemap discovery, representative User-Agent, and public discovery verification |
+| `f2-24-sitemap-submission-indexability.md` | Owner action pending | Technical preflight, Search Console procedure, evidence rules, and completion boundary |
+| `templates/matsuri-f2-24-submission-evidence.md` | Template | Public-safe sitemap submission and URL Inspection evidence format |
 | `cloudflare-pages-launch-runbook.md` | F2-16–F2-23 completed | Workers Builds contract, canonical deployment, browser Search, crawler reachability, and remaining launch sequence |
 | `deployment.md` | F2-23 completed | Verified canonical Workers deployment and F2-24 submission boundary |
 | `audits/matsuri-f2-20-canonical-activation-2026-07-12.md` | Passed audit | HTTPS, required routes, manifest origin, and canonical sitemap verification run |
