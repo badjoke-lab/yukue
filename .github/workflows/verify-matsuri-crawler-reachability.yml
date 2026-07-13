@@ -1,0 +1,88 @@
+name: Verify Matsuri crawler reachability
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-crawler-reachability.yml"
+      - "apps/matsuri/astro.config.mjs"
+      - "packages/machine-readable/**"
+      - "packages/ui/src/components/PageShell.astro"
+      - "scripts/check-matsuri-crawler-artifact.mjs"
+      - "scripts/check-matsuri-crawler-reachability.mjs"
+      - "wrangler.jsonc"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-matsuri-crawler-reachability
+  cancel-in-progress: true
+
+jobs:
+  verify-crawler-reachability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      MATSURI_CRAWLER_ORIGIN: https://matsuri-yukue.badjoke-lab.com
+      MATSURI_CRAWLER_REPORT: test-results/crawler/crawler-verification.json
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Verify crawler reachability with deployment retries
+        shell: bash
+        run: |
+          set +e
+          attempts=18
+          delay_seconds=30
+
+          for attempt in $(seq 1 "$attempts"); do
+            echo "Crawler verification attempt $attempt of $attempts"
+            node scripts/check-matsuri-crawler-reachability.mjs
+            status=$?
+
+            if [ "$status" -eq 0 ]; then
+              echo "Crawler reachability succeeded on attempt $attempt."
+              exit 0
+            fi
+
+            if [ "$attempt" -lt "$attempts" ]; then
+              echo "Production deployment is not ready or crawler verification failed; retrying in ${delay_seconds}s."
+              sleep "$delay_seconds"
+            fi
+          done
+
+          echo "Crawler reachability did not succeed after $attempts attempts."
+          exit 1
+
+      - name: Upload crawler evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: matsuri-crawler-reachability-${{ github.sha }}
+          path: test-results/crawler/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Write verification summary
+        if: always()
+        shell: bash
+        run: |
+          echo "## Matsuri crawler-reachability verification" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Origin: $MATSURI_CRAWLER_ORIGIN" >> "$GITHUB_STEP_SUMMARY"
+          echo "- robots.txt: required" >> "$GITHUB_STEP_SUMMARY"
+          echo "- sitemap discovery: required" >> "$GITHUB_STEP_SUMMARY"
+          echo "- canonical HTML routes: /, /search/, /festivals/suneori-amagoi/" >> "$GITHUB_STEP_SUMMARY"
+          echo "- representative user agents: Googlebot, Bingbot, OAI-SearchBot" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Sitemap submission: not performed" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Analytics activation: not performed" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Commit: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
