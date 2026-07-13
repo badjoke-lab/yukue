@@ -95,6 +95,26 @@ assert(
   "Matsuri canonical verification result is incomplete.",
 );
 
+const browserSearch = matsuri.verification?.browser_search;
+assert(
+  browserSearch?.workflow_name === "Verify Matsuri canonical Search" &&
+    browserSearch?.workflow_run_id === 29227591583 &&
+    browserSearch?.artifact_id === 8270324780 &&
+    browserSearch?.artifact_digest ===
+      "sha256:d7ffcdff20e361dd6e4ecef7aec06ae1002545dc67c3915c4a23007d1cbac2d1",
+  "Matsuri canonical Search workflow evidence is invalid.",
+);
+assert(
+  browserSearch?.browser === "chromium" &&
+    browserSearch?.result_navigation_verified === true &&
+    browserSearch?.zero_result_verified === true &&
+    browserSearch?.browser_errors === 0 &&
+    browserSearch?.verified_at === "2026-07-13" &&
+    browserSearch?.exact_queries_verified?.includes("脚折雨乞") &&
+    browserSearch?.exact_queries_verified?.includes("相馬野馬追"),
+  "Matsuri canonical Search browser result is incomplete.",
+);
+
 const workers = [topology.portal.worker_name, ...topology.sites.map((site) => site.worker_name)];
 const hostnames = [
   topology.portal.canonical_hostname,
@@ -143,5 +163,5 @@ assert(
 );
 
 console.log(
-  "Yukue deployment topology passed: Matsuri canonical origin verified by GitHub Actions run 29191904624; portal remains separate; workers.dev remains non-canonical.",
+  "Yukue deployment topology passed: Matsuri canonical origin verified by run 29191904624 and canonical Search verified by run 29227591583; portal remains separate; workers.dev remains non-canonical.",
 );
