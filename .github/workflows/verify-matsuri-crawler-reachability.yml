@@ -9,17 +9,26 @@ on:
       - "packages/machine-readable/**"
       - "apps/matsuri/scripts/build-machine-readable.mjs"
       - "scripts/check-matsuri-crawler-reachability.mjs"
-      - "scripts/check-matsuri-deployed.mjs"
       - "scripts/check-matsuri-consistency.mjs"
       - "package.json"
       - "docs/f2-23-crawler-reachability.md"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-crawler-reachability.yml"
+      - "docs/f2-23-crawler-reachability.md"
+      - "docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md"
+      - "docs/project-status.md"
+      - "docs/development-schedule.md"
+      - "docs/roadmap.md"
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: verify-matsuri-crawler-reachability
+  group: verify-matsuri-crawler-reachability-${{ github.event_name }}
   cancel-in-progress: true
 
 jobs:
