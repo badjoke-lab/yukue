@@ -6,7 +6,9 @@ on:
       - main
     paths:
       - ".github/workflows/verify-matsuri-crawler-reachability.yml"
+      - "apps/matsuri/astro.config.mjs"
       - "packages/machine-readable/**"
+      - "packages/ui/src/components/PageShell.astro"
       - "apps/matsuri/scripts/build-machine-readable.mjs"
       - "scripts/check-matsuri-crawler-reachability.mjs"
       - "scripts/check-matsuri-deployed.mjs"

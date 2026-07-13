@@ -1,6 +1,6 @@
 # F2-23 Matsuri Crawler Reachability
 
-**Status:** Gate implemented / external result pending
+**Status:** Crawler surface implemented / canonical metadata correction prepared / external result pending
 
 ## Objective
 
@@ -32,6 +32,37 @@ Sitemap: https://matsuri-yukue.badjoke-lab.com/sitemap.xml
 The origin-neutral repository artifact keeps the allow policy but omits the absolute Sitemap directive because no production origin is active in that artifact.
 
 `robots.txt` is a publication-policy signal. It is not authentication, authorization, rate limiting, or a private-route security boundary.
+
+## Canonical HTML metadata
+
+The production build maps `MATSURI_PUBLIC_ORIGIN` to Astro's `site` setting through:
+
+```text
+apps/matsuri/astro.config.mjs
+```
+
+The shared `PageShell` emits on every public route:
+
+```text
+<link rel="canonical" href="<exact canonical route URL>">
+<meta name="robots" content="index,follow,...">
+```
+
+When no approved production origin is configured, the same shell emits no canonical link and uses:
+
+```text
+noindex,nofollow
+```
+
+This prevents an origin-neutral artifact from presenting itself as an alternative production origin.
+
+Static validation command:
+
+```text
+pnpm check:matsuri:canonical-metadata
+```
+
+The repository gate runs it in both canonical and origin-neutral build modes before external deployment.
 
 ## Verification command
 
@@ -100,13 +131,14 @@ The gate verifies public access to:
 Verify Matsuri crawler reachability
 ```
 
-The workflow uploads the JSON and Markdown report for 30 days.
+The workflow runs after relevant changes reach `main`, retries while Workers Builds deploys, and uploads the JSON and Markdown report for 30 days.
 
 ## Completion boundary
 
 F2-23 is complete only after:
 
 - the canonical production deployment contains the generated robots policy,
+- every sitemap route has an exact self-canonical link and indexable robots metadata,
 - the hosted crawler-reachability workflow succeeds,
 - the workflow run and artifact are recorded in an audit document,
 - release metadata and repository governance advance to F2-24.
