@@ -6,71 +6,49 @@ This roadmap uses phases and gates rather than fixed daily deadlines. Detailed i
 
 ## Phase 0 — Foundation
 
-Goal: monorepo, portal skeleton, Matsuri skeleton, shared packages, and CI baseline.
-
 Status: **Completed**
 
 ## Phase 1 — Project Reference Documents
-
-Goal: public-safe implementation references, policies, roadmap, schedule, status, and decision log.
 
 Status: **Completed**
 
 ## Phase 2 — UI Direction Review
 
-Goal: accepted Home H1, Detail C, visual direction, typography, palette, tokens, and UI foundation.
-
 Status: **Completed**
 
 ## Phase 3 — Data Core
-
-Goal: common and Matsuri schemas, cross-record validation, Place and Image contracts, and representative canonical data.
 
 Status: **Completed**
 
 ## Phase 4 — Public Projection
 
-Goal: approved-only deterministic HTML-facing and JSON-facing projection with private-field leak prevention.
-
 Status: **Completed**
 
 ## Phase 5 — UI Foundation
-
-Goal: shared responsive shell, navigation, state, history, relation, evidence, place, and image patterns.
 
 Status: **Completed**
 
 ## Phase 6 — Matsuri MVP Surfaces
 
-Goal: Projection-backed Home, Detail, Browse, Search, Reference, Data, Methodology, and Status surfaces.
-
 Status: **Completed**
 
 ## Phase 7 — Search, Browse, and Machine-readable Layer
-
-Goal: Pagefind Search, initial filters, public JSON feeds, manifest, version, discovery text, and sitemap.
 
 Status: **Completed**
 
 ## Phase 8 — Initial Corpus Expansion
 
-Goal: balanced reviewed coverage across identity, Current State, Occurrence history, Change Events, Relations, Designations, Sources, and Evidence.
-
 Status: **Completed through F1 batches 01–10**
 
 ## Phase 9 — Launch Preparation
 
-Phase 9 is implemented as F2 work packages.
-
 ### Repository baselines
 
 ```text
-F2-01 through F2-15
+F2-01 through F2-15 — completed
 ```
 
-Status: **Completed**
-
-The repository-ready candidate is reproducible, content-addressed, and verified. Active production evidence is recorded separately from the origin-neutral repository artifact.
+The repository candidate is reproducible, content-addressed, and origin-neutral. Active production evidence is recorded separately.
 
 ### Repository visual and data maintenance
 
@@ -107,11 +85,11 @@ F2-27  production traffic verification
 F2-28  final F2 Launch Gate
 ```
 
-External deployment through F2-22: **Completed**
+External deployment through F2-23: **Completed**
 
-Crawler reachability: **Next gate at F2-23**
+Sitemap submission and indexability: **Next gate at F2-24**
 
-Verified canonical baseline:
+Verified production baseline:
 
 ```text
 Worker                    matsuri-yukue
@@ -119,19 +97,21 @@ Canonical origin          https://matsuri-yukue.badjoke-lab.com
 Canonical origin run      29191904624 — success
 Canonical Search run      29193201911 — success
 Canonical Search artifact 8260207484
+Crawler reachability run  29230233384 — success
+Crawler evidence artifact 8271238535
 ```
 
-The canonical Search run exercised exact-name queries, structured filters, no-result behavior, and result navigation in desktop and mobile Chromium without page or console errors.
+F2-23 confirmed the public robots policy, canonical Sitemap discovery, self-canonical links on sitemap routes, indexable response directives, representative crawler labels, and public discovery files.
 
 The portal and Matsuri remain separate applications and Workers. The portal hostname remains planned and is not attached to the Matsuri Worker.
 
 Pending:
 
 ```text
-F2-23 through F2-28
+F2-24 through F2-28
 ```
 
-F2-23 reviews robots, canonical, sitemap, and crawler reachability. It does not submit the sitemap or claim indexation. F2-24 through F2-28 remain blocked until F2-23 passes.
+F2-24 addresses search-engine account ownership, sitemap submission, and indexability evidence. Sitemap availability and successful submission are not treated as proof of indexation.
 
 ## Phase 10 — Stabilization
 
