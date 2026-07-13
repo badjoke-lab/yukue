@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "gate_id": "F2-24",
+  "canonical_origin": "https://matsuri-yukue.badjoke-lab.com",
+  "sitemap_url": "https://matsuri-yukue.badjoke-lab.com/sitemap.xml",
+  "google_search_console": {
+    "property_type": "url-prefix",
+    "property": "https://matsuri-yukue.badjoke-lab.com/",
+    "ownership_status": "external-access-pending",
+    "verification_method": "not-selected",
+    "robots_txt_sitemap_discovery": "active",
+    "sitemaps_report_submission": "not-recorded",
+    "api_submission": "not-used",
+    "submission_evidence": null,
+    "indexability_status": "not-verified",
+    "indexation_status": "not-claimed"
+  },
+  "boundaries": {
+    "robots_discovery_is_not_search_console_submission": true,
+    "submission_is_not_indexation": true,
+    "indexability_is_not_indexation": true,
+    "no_account_identifier_in_public_repository": true,
+    "no_oauth_token_in_public_repository": true
+  }
+}
