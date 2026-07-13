@@ -69,6 +69,7 @@ jobs:
           echo "## Matsuri canonical Search verification" >> "$GITHUB_STEP_SUMMARY"
           echo "- Origin: $MATSURI_CANONICAL_ORIGIN" >> "$GITHUB_STEP_SUMMARY"
           echo "- Browser: Chromium" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Queries: 脚折雨乞, 相馬野馬追, zero-result case" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Exact queries: 脚折雨乞, 相馬野馬追" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Zero-result probe: qxjv9072416358zmkp" >> "$GITHUB_STEP_SUMMARY"
           echo "- Result navigation: required" >> "$GITHUB_STEP_SUMMARY"
           echo "- Commit: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
