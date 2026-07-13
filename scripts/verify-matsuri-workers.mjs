@@ -44,8 +44,9 @@ run(["check:yukue:deployment-topology"]);
 run(["check:matsuri:workers-config"]);
 run(["build:matsuri:workers"]);
 run(["check:matsuri:pages"]);
+run(["check:matsuri:crawler-artifact"], { canonical: true });
 run(["check:matsuri:consistency"], { canonical: true });
 
 console.log(
-  `Matsuri Workers artifact verified with canonical origin ${matsuri.canonical_origin}.`,
+  `Matsuri Workers artifact verified with canonical origin ${matsuri.canonical_origin}, indexable robots policy, canonical HTML metadata, and canonical sitemap discovery.`,
 );
