@@ -153,7 +153,7 @@ repository                  badjoke-lab/yukue
 production branch           main
 root directory              repository root
 build command               pnpm build:matsuri:workers
-deploy command              npx wrangler deploy
+deploy command               npx wrangler deploy
 non-production command      npx wrangler versions upload
 asset directory             ./apps/matsuri/dist
 Worker main entry           none
@@ -178,8 +178,6 @@ The specialist sites remain separate public sites while sharing the monorepo, ca
 The portal is a series entrance and cross-site guide. It is not a runtime path parent for the specialist sites.
 
 ## 2026-07-12 — F2-16 through F2-18 completed
-
-Decision and evidence:
 
 ```text
 F2-16  Workers Builds connection — completed
@@ -262,22 +260,12 @@ config/yukue-deployment-topology.json
 
 ```text
 F2-19  hostname decision                     completed
-F2-20  custom-domain attachment and deploy   pending
+F2-20  custom-domain attachment and deploy   separate external gate
 ```
 
-Current state before F2-20 production deployment:
-
-```text
-custom domain          not externally verified
-active canonical       not externally verified
-workers.dev canonical  false
-```
-
-Canonical, indexing, and Analytics work remains blocked until F2-20 production deployment and verification succeed.
+A decided hostname does not become canonical merely by appearing in documentation or configuration. Canonical activation requires deployment and external verification.
 
 ## 2026-07-12 — F2-20 activation is repository-managed
-
-Decision:
 
 ```text
 Custom Domain source of truth  wrangler.jsonc
@@ -293,27 +281,59 @@ pattern        matsuri-yukue.badjoke-lab.com
 custom_domain  true
 ```
 
-The Workers production build reads the accepted canonical origin and passes:
+The Workers production build passes:
 
 ```text
 MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
 ```
 
-to the static build child process.
+The origin is public configuration rather than a secret. Keeping hostname and origin in one accepted topology avoids dashboard drift and duplicate configuration.
 
-The origin is public configuration rather than a secret. Keeping the hostname and origin in one accepted topology avoids dashboard drift and duplicate configuration.
+The repository gate verifies both the canonical Workers production artifact and an origin-neutral reproducible release candidate.
 
-The repository gate verifies both:
+## 2026-07-12 — F2-20 and F2-21 completed
+
+Activation and verification evidence:
 
 ```text
-canonical Workers production artifact
-+
-pre-completion repository release candidate
+Activation PR
+#57
+
+Activation merge commit
+f978bc50a1ab51964687ec0457a448dc37b2aaf9
+
+Canonical origin
+https://matsuri-yukue.badjoke-lab.com
+
+Verification workflow
+Verify Matsuri canonical origin gate
+
+GitHub Actions run
+29191904624 — success
+
+Successful attempt
+1 of 18
 ```
 
-Configuration committed to Git does not itself complete F2-20. Completion still requires a successful production deployment, DNS and certificate availability, HTTPS reachability, canonical manifest and sitemap checks, and deployed-origin verification.
+The independent GitHub-hosted verifier confirmed:
 
-The portal hostname remains excluded from the Matsuri Wrangler configuration.
+- hostname resolution and HTTPS reachability,
+- all required public HTML routes,
+- Pagefind runtime asset reachability,
+- public JSON and discovery files,
+- Matsuri identity and representative Entity data,
+- exact `manifest.site_origin`,
+- canonical absolute sitemap locations.
+
+Therefore:
+
+```text
+F2-20  Custom Domain activation, canonical build, HTTPS verification — completed
+F2-21  canonical manifest and sitemap verification — completed
+F2-22  interactive browser Pagefind Search verification — next
+```
+
+The workers.dev origin remains non-canonical. The portal hostname remains reserved for Worker `yukue-portal` and was not attached to Matsuri.
 
 ## Open decisions
 
