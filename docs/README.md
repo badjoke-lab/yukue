@@ -18,22 +18,23 @@ Before implementing a feature, check the relevant document here. When a decision
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, layout language |
 | `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
-| `technical-architecture.md` | F2-21 canonical baseline | Build, projection, search, multi-Worker deployment, dual artifact verification, and canonical activation |
-| `deployment-topology.md` | Matsuri active | Exact portal and specialist-site hostnames, separate Worker boundary, active Matsuri origin, and migration invariants |
+| `technical-architecture.md` | F2-22 verified baseline | Build, projection, deployment, dual artifacts, canonical HTTP, and live browser Search |
+| `deployment-topology.md` | Matsuri active | Separate portal/site Workers, active Matsuri origin, browser Search evidence, and migration invariants |
 | `f2-20-custom-domain-activation.md` | Completed | Repository-managed Custom Domain, canonical build, and external verification evidence |
-| `f2-22-browser-search-verification.md` | Verification prepared | Live Chromium query, filter, result-navigation, empty-state, and evidence contract |
-| `cloudflare-pages-launch-runbook.md` | F2-16–F2-21 completed | Workers Builds contract, canonical deployment, and remaining launch sequence |
-| `deployment.md` | F2-21 completed | Verified canonical Workers deployment and F2-22 browser boundary |
+| `f2-22-browser-search-verification.md` | Completed | Live Chromium query, filter, result-navigation, empty-state, and evidence contract |
+| `cloudflare-pages-launch-runbook.md` | F2-16–F2-22 completed | Workers Builds contract, canonical deployment, browser Search verification, and remaining sequence |
+| `deployment.md` | F2-22 completed | Verified canonical Workers deployment, browser Search, and F2-23 crawler boundary |
 | `audits/matsuri-f2-20-canonical-activation-2026-07-12.md` | Passed audit | HTTPS, required routes, manifest origin, and canonical sitemap verification run |
+| `audits/matsuri-f2-22-browser-search-2026-07-13.md` | Passed audit | Exact query, prefecture filter, result navigation, empty state, errors, and screenshots |
 | `matsuri-data-freshness-audit.md` | F2-M02 completed | Completed fixed-date audit and routine maintenance rules |
 | `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, State, and external-link inventory |
 | `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 Evidence and `held` correction for 相馬野馬追 2026 |
 | `audits/matsuri-f2-m02-relation-inventory-2026-07-12.md` | Baseline completed | Initial Relation coverage inventory |
 | `audits/matsuri-f2-m02-suneori-relation-2026-07-12.md` | Maintenance batch 02 | 脚折雨乞 organization and Relation correction |
 | `audits/matsuri-f2-m02-nunobashi-relation-2026-07-12.md` | Maintenance batch 03 | 富山県［立山博物館］ Relation coverage |
-| `release-verification.md` | F2 repository baseline | Unified release verification, topology check, CI stages, and external limits |
-| `release-candidate.md` | Canonical origin verified | Origin-neutral artifact, hashes, active origin metadata, and F2-22 pending state |
-| `repository-launch-readiness.md` | Completed repository gate | Required checks, verified canonical state, and remaining external gates |
+| `release-verification.md` | F2-22 verified baseline | Unified release, topology, canonical HTTP, browser Search, and external limits |
+| `release-candidate.md` | F2-22 evidence recorded | Origin-neutral artifact, hashes, canonical metadata, browser Search metadata, and F2-23 pending state |
+| `repository-launch-readiness.md` | Completed repository gate | Required checks, verified canonical and Search state, and remaining external gates |
 | `visual-review-workflow.md` | Implemented repository baseline | Full-page screenshot capture, checks, contact sheets, and review |
 | `audits/matsuri-f2-m01-visual-review-2026-07-11.md` | Passed audit | First exhaustive desktop/mobile visual review |
 | `source-evidence-audit.md` | F2 repository baseline | Source metadata, Evidence targeting, and freshness boundaries |
