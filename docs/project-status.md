@@ -1,6 +1,6 @@
 # Project Status
 
-**Last updated:** 2026-07-12
+**Last updated:** 2026-07-13
 
 ## Current phase
 
@@ -14,52 +14,51 @@ Execution Stage F — Launch Preparation
 F2-15 — Repository Launch Readiness Gate — completed
 F2-M01 — Full-page screenshot visual-review workflow — completed
 F2-M02 — Matsuri data freshness audit — completed
-F2-16 through F2-21 — completed
-F2-22 through F2-28 — operational hold
+F2-16 through F2-22 — completed
+F2-23 through F2-28 — operational hold
 ```
 
-The Matsuri Custom Domain is active and the exact canonical origin has passed independent GitHub Actions verification. The next launch gate is interactive browser Search verification on the canonical origin.
+The Matsuri canonical origin and interactive Pagefind Search have passed independent GitHub Actions verification. The next launch gate is the robots, canonical, sitemap, and crawler-reachability review.
 
 ## Verified canonical production baseline
 
 ```text
-Cloudflare Worker
+Worker
 matsuri-yukue
 
 Canonical origin
 https://matsuri-yukue.badjoke-lab.com/
 
-Canonical verification workflow
-Verify Matsuri canonical origin gate
+Canonical HTTP verification
+run 29191904624 — success
 
-GitHub Actions run
-29191904624 — success
-
-Successful attempt
-1 of 18
-
-Activation merge commit
-f978bc50a1ab51964687ec0457a448dc37b2aaf9
+Canonical browser Search verification
+run 29227617530 — success
 ```
 
-The canonical verifier confirmed:
+Canonical HTTP evidence confirms HTTPS, required public routes, Pagefind asset reachability, public JSON, exact `manifest.site_origin`, and canonical sitemap locations.
 
-- HTTPS reachability,
-- required public HTML routes,
-- Pagefind runtime asset reachability,
-- public JSON and discovery files,
-- Matsuri identity markers,
-- representative Entity data,
-- exact `manifest.site_origin`,
-- canonical absolute sitemap locations.
+Browser Search evidence confirms:
 
-Verification record:
+```text
+Exact query          脚折雨乞 → 1 result
+Destination          /festivals/suneori-amagoi/
+Filtered query       雨乞 + 埼玉県 → 1 result
+Empty query          0 results and correct empty state
+Page errors          0
+Console errors       0
+Application failures 0
+Screenshots          4
+```
+
+Evidence records:
 
 ```text
 docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
+docs/audits/matsuri-f2-22-browser-search-2026-07-13.md
 ```
 
-The permanent Workers origin remains available as non-canonical deployment infrastructure:
+The permanent Workers origin remains non-canonical deployment infrastructure:
 
 ```text
 https://matsuri-yukue.badjoke-lab.workers.dev/
@@ -69,24 +68,15 @@ https://matsuri-yukue.badjoke-lab.workers.dev/
 
 ```text
 yukue.badjoke-lab.com          Yukue Series portal — planned
-matsuri-yukue.badjoke-lab.com  祭のゆくえ — canonical origin verified
+matsuri-yukue.badjoke-lab.com  祭のゆくえ — canonical origin and Search verified
 ```
-
-Deployment boundary:
 
 ```text
 apps/portal   → Worker yukue-portal
 apps/matsuri  → Worker matsuri-yukue
 ```
 
-The portal and Matsuri are separate public deployments. Matsuri is not hosted under `yukue.badjoke-lab.com/matsuri/`.
-
-Governing files:
-
-```text
-docs/deployment-topology.md
-config/yukue-deployment-topology.json
-```
+The portal and Matsuri remain separate public deployments. Matsuri is not hosted under a portal path.
 
 ## Completed implementation
 
@@ -103,7 +93,7 @@ Stage E     Browse, Pagefind Search, machine-readable layer — completed
 
 ### F1 corpus expansion
 
-F1 batches 01 through 10 are completed and validated. The corpus covers Festivals, Folk Performances, Tradition Units, Organizations, Shrine context seeds, Current State Snapshots, Occurrences, Change Events, Relations, Designations, Sources, and Evidence.
+F1 batches 01 through 10 are completed and validated.
 
 ### F2 repository and maintenance work
 
@@ -134,6 +124,7 @@ F2-18  deployed-origin smoke verification — completed
 F2-19  exact canonical Matsuri hostname decision — completed
 F2-20  Custom Domain activation, canonical build, HTTPS verification — completed
 F2-21  canonical manifest and sitemap verification — completed
+F2-22  canonical browser Pagefind Search verification — completed
 ```
 
 Accepted Matsuri deployment contract:
@@ -152,13 +143,12 @@ Custom Domain                  matsuri-yukue.badjoke-lab.com
 Canonical origin               https://matsuri-yukue.badjoke-lab.com
 ```
 
-The deployment remains fully static. Do not add an Astro Cloudflare SSR adapter, Worker runtime entry point, runtime bindings, D1, KV, or runtime ingestion without a later approved requirement.
+The deployment remains fully static.
 
 ## Remaining launch sequence
 
 ```text
-F2-22  browser Pagefind Search verification on canonical origin — next gate
-F2-23  crawler-reachability review — hold
+F2-23  robots, canonical, sitemap, and crawler-reachability review — next gate
 F2-24  sitemap submission and indexability check — hold
 F2-25  Web Analytics activation — hold
 F2-26  post-activation deployment — hold
@@ -166,13 +156,13 @@ F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
-F2-22 must exercise Search in a real browser. The HTTP canonical verifier proving that `/search/` and Pagefind assets are reachable does not by itself prove interactive query behavior.
+F2-23 must verify the live `robots.txt`, canonical links, sitemap references, crawler-visible response behavior, and absence of unintended crawler blocking before sitemap submission begins.
 
 Do not:
 
 - submit the sitemap before F2-24,
 - enable Web Analytics before F2-25,
-- claim F2-22 through F2-28 completion without their evidence.
+- claim F2-23 through F2-28 completion without their evidence.
 
 ## Routine maintenance after F2-M02
 
@@ -181,22 +171,20 @@ Do not:
 郡上おどり 2026    review after 2026-09-05
 ```
 
-New official changes, Source failures, corrections, and security or dependency repairs may be handled as normal bounded maintenance without reopening F2-M02.
-
 ## Repository gate
 
 ```text
 pnpm gate:matsuri:repository
 ```
 
-The gate verifies the accepted topology, static artifacts, Workers Custom Domain configuration, canonical verification evidence, internal links, semantic consistency, Source and Evidence rules, browser and accessibility behavior, release-candidate hashes, completed external work through F2-21, and preservation of the F2-22 through F2-28 boundary.
+The gate verifies the accepted topology, canonical and browser Search evidence, static artifacts, Workers configuration, internal links, semantic consistency, Source and Evidence rules, browser and accessibility behavior, release-candidate hashes, completed external work through F2-22, and preservation of the F2-23 through F2-28 boundary.
 
 ## Current release status
 
 ```text
-repository-verified-canonical-origin-verified-browser-search-pending
+repository-verified-canonical-origin-and-browser-search-verified-crawler-review-pending
 ```
 
 ## Immediate next action
 
-Run F2-22: open the canonical Search page in Chromium, submit representative queries, confirm Pagefind results and result navigation, and preserve the browser evidence. Do not advance crawler, sitemap-submission, or Analytics work before F2-22 passes.
+Run F2-23: verify the live crawler surface and record robots, canonical, sitemap, and crawler-reachability evidence before any search-engine submission.
