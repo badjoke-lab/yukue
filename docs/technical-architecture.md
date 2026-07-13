@@ -1,6 +1,6 @@
 # Technical Architecture
 
-**Status:** Current direction / Matsuri canonical deployment and browser Search verified through F2-22
+**Status:** Current direction / F2-23 crawler implementation prepared
 
 ## Stack
 
@@ -51,7 +51,7 @@ reviewed canonical data
 → Astro HTML
 → public JSON and discovery files
 → Pagefind static index
-→ sitemap
+→ robots and sitemap
 → Workers Static Assets
 ```
 
@@ -103,6 +103,38 @@ https://matsuri-yukue.badjoke-lab.com
 
 from the verified deployment topology and passes it as `MATSURI_PUBLIC_ORIGIN` to the static build child process.
 
+`apps/matsuri/astro.config.mjs` maps that value to Astro's `site` configuration. Shared `PageShell` then emits one absolute canonical link per route and an indexable robots meta value.
+
+## Crawler-facing build modes
+
+### Canonical production mode
+
+```text
+robots.txt       User-agent: * / Allow: /
+sitemap          advertised from robots.txt
+canonical links  absolute exact route URLs
+robots meta      index,follow
+```
+
+### Origin-neutral mode
+
+```text
+robots.txt       Disallow: /
+sitemap          path-only locations
+canonical links  omitted
+robots meta      noindex,nofollow
+```
+
+The origin-neutral mode prevents repository or accidental secondary deployments from presenting themselves as the approved public origin.
+
+## Artifact validation
+
+```text
+pnpm check:matsuri:crawler-artifact
+```
+
+The checker inspects every generated HTML route and requires robots policy, canonical metadata, robots meta, and sitemap inventory to match the current build mode.
+
 ## Dual artifact model
 
 ### Production Workers artifact
@@ -110,6 +142,8 @@ from the verified deployment topology and passes it as `MATSURI_PUBLIC_ORIGIN` t
 ```text
 manifest.site_origin present
 canonical absolute sitemap locations
+indexable robots policy
+absolute canonical HTML metadata
 Custom Domain deployment
 ```
 
@@ -118,9 +152,8 @@ Custom Domain deployment
 ```text
 origin-neutral copied artifact
 per-file and aggregate hashes
-verified canonical origin recorded in release metadata
-verified canonical Search recorded in release metadata
-external workflow evidence recorded separately
+no production canonical claim in copied HTML
+verified external evidence recorded in release metadata
 ```
 
 This preserves reproducibility without denying the active canonical deployment.
@@ -134,8 +167,6 @@ Workflow  Verify Matsuri canonical origin gate
 Run       29191904624 — success
 ```
 
-This verifies HTTPS, required routes, Pagefind asset reachability, public JSON, exact manifest origin, and canonical sitemap locations.
-
 ### Canonical browser Search
 
 ```text
@@ -145,17 +176,26 @@ Job          86651403427 — success
 Artifact ID  8260207484
 ```
 
-The browser layer uses desktop and mobile Chromium against the live canonical origin. It verifies exact-name Search, result rendering, result navigation, structured filters, no-result behavior, and runtime error absence.
+### Crawler reachability
+
+```text
+Workflow  Verify Matsuri crawler reachability
+Status    deployment and external evidence pending
+```
+
+The live verifier checks `robots.txt`, sitemap discovery, canonical HTML, indexability metadata, challenge-page absence, and representative public requests using Googlebot, Bingbot, and OAI-SearchBot User-Agent values.
+
+The workflow runs after a relevant push to `main`, retries while Workers Builds deploys, and preserves a JSON report.
 
 ## Current gate boundary
 
 ```text
 F2-16 through F2-22  completed
-F2-23                 crawler-reachability review next
+F2-23                 repository implementation prepared; external verification pending
 F2-24 through F2-28  hold
 ```
 
-F2-23 reviews live crawler-facing policy and reachability. It does not submit the sitemap or claim indexation.
+F2-23 does not submit the sitemap or claim indexation.
 
 ## Future operational layer
 
