@@ -10,7 +10,7 @@
 Workflow
 Verify Matsuri crawler reachability
 
-Run ID
+Primary evidence run ID
 29230233384
 
 Conclusion
@@ -27,9 +27,12 @@ sha256:ae292efac09e25fc9ad0cefd0a7de3c40d4a38c28472734035d728ecd26f2506
 
 Retention
 30 days
+
+Final PR-head revalidation run
+29230870502 — success
 ```
 
-The independent GitHub-hosted runner verified the production surface after the canonical metadata correction reached `main`.
+The independent GitHub-hosted runner verified the production surface after the canonical metadata correction reached `main`. The final evidence branch was revalidated against the same production origin after the release metadata and governance records were updated.
 
 ## Verified crawler-facing signals
 
