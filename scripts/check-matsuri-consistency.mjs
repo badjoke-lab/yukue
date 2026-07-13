@@ -180,85 +180,155 @@ for (const [feedKey, spec] of Object.entries(feedSpecs)) {
     feed.records.length,
     `manifest ${feedKey} count mismatch`,
   );
+
+  const ids = feed.records.map((record) => record.id);
+  assertEqual(
+    new Set(ids).size,
+    ids.length,
+    `${feedKey} feed contains duplicate record IDs`,
+  );
 }
 
+const entityRecords = feeds.entities.records;
+const currentStateRecords = entityRecords.filter((entity) => entity.current_state);
 const statusHtml = fs.readFileSync(path.join(outputRoot, "status", "index.html"), "utf8");
 const statusCounts = parseStatusCounts(statusHtml);
-assertEqual(statusCounts.get("entities"), feeds.entities.records.length, "status entity count mismatch");
-assertEqual(statusCounts.get("events"), feeds.events.records.length, "status event count mismatch");
-assertEqual(statusCounts.get("relations"), feeds.relations.records.length, "status relation count mismatch");
-assertEqual(statusCounts.get("occurrences"), feeds.occurrences.records.length, "status occurrence count mismatch");
+const expectedStatusCounts = {
+  entities: entityRecords.length,
+  current_states: currentStateRecords.length,
+  occurrences: feeds.occurrences.records.length,
+  events: feeds.events.records.length,
+  relations: feeds.relations.records.length,
+};
 
-const entityStateById = new Map(
-  feeds.entities.records.map((entity) => [entity.id, entity.current_state?.state_code ?? "unknown"]),
-);
+for (const [key, expectedCount] of Object.entries(expectedStatusCounts)) {
+  if (!statusCounts.has(key)) {
+    throw new Error(`Status HTML is missing data-record-count=${key}`);
+  }
+  assertEqual(statusCounts.get(key), expectedCount, `Status HTML ${key} count mismatch`);
+}
+
 for (const stateCode of stateCodes) {
+  const expectedIds = entityRecords
+    .filter((entity) => entity.current_state?.state_code === stateCode)
+    .map((entity) => entity.id);
   const stateHtml = fs.readFileSync(
     path.join(outputRoot, "states", stateCode, "index.html"),
     "utf8",
   );
   const rows = parseStateRows(stateHtml);
-  const expectedIds = feeds.entities.records
-    .filter((entity) => (entity.current_state?.state_code ?? "unknown") === stateCode)
-    .map((entity) => entity.id);
-  assertArrayEqual(
-    rows.map((row) => row.id),
-    expectedIds,
-    `state page ${stateCode} entity IDs mismatch`,
-  );
+
   for (const row of rows) {
     assertEqual(
       row.stateCode,
-      entityStateById.get(row.id),
-      `state page ${stateCode} row state mismatch for ${row.id}`,
+      stateCode,
+      `State page ${stateCode} contains entity ${row.id} with another state`,
     );
   }
+
+  assertArrayEqual(
+    rows.map((row) => row.id),
+    expectedIds,
+    `State page ${stateCode} entity inventory mismatch`,
+  );
 }
 
-const searchVerification = JSON.parse(fs.readFileSync(searchVerificationPath, "utf8"));
-const expectedSearchRecords = feeds.entities.records.filter((entity) =>
-  searchableEntityTypes.has(entity.entity_type),
+if (!fs.existsSync(searchVerificationPath)) {
+  throw new Error(
+    `Pagefind verification sidecar is missing: ${path.relative(repositoryRoot, searchVerificationPath)}`,
+  );
+}
+
+const searchVerification = JSON.parse(
+  fs.readFileSync(searchVerificationPath, "utf8"),
+);
+assertEqual(searchVerification.site_id, "matsuri", "search sidecar site_id mismatch");
+assertEqual(
+  searchVerification.source,
+  "approved-public-projection",
+  "search sidecar source mismatch",
 );
 assertEqual(
   searchVerification.record_count,
-  expectedSearchRecords.length,
-  "Pagefind input record count mismatch",
+  searchVerification.records.length,
+  "search sidecar record_count mismatch",
 );
 
-for (const entity of expectedSearchRecords) {
-  const indexed = searchVerification.records.find((record) => record.id === entity.id);
-  if (!indexed) throw new Error(`Pagefind input is missing entity ${entity.id}`);
-  assertEqual(indexed.entity_type, entity.entity_type, `Pagefind entity type mismatch for ${entity.id}`);
+const expectedSearchEntities = entityRecords.filter((entity) =>
+  searchableEntityTypes.has(entity.entity_type),
+);
+assertArrayEqual(
+  searchVerification.records.map((record) => record.id),
+  expectedSearchEntities.map((entity) => entity.id),
+  "Pagefind input entity inventory mismatch",
+);
+
+const entitiesById = new Map(entityRecords.map((entity) => [entity.id, entity]));
+for (const record of searchVerification.records) {
+  const entity = entitiesById.get(record.id);
+  if (!entity) {
+    throw new Error(`Pagefind sidecar contains unknown entity ${record.id}`);
+  }
+
   assertEqual(
-    indexed.current_state,
-    entity.current_state?.state_code ?? "unknown",
-    `Pagefind Current State mismatch for ${entity.id}`,
+    record.entity_type,
+    entity.entity_type,
+    `Pagefind entity_type mismatch for ${record.id}`,
   );
-  assertEqual(indexed.url, expectedSearchUrl(entity), `Pagefind URL mismatch for ${entity.id}`);
+  assertEqual(
+    record.current_state,
+    entity.current_state?.state_code ?? null,
+    `Pagefind current_state mismatch for ${record.id}`,
+  );
+  assertEqual(
+    record.url,
+    expectedSearchUrl(entity),
+    `Pagefind URL mismatch for ${record.id}`,
+  );
 }
 
 const sitemapLocations = parseSitemapLocations(
   fs.readFileSync(path.join(outputRoot, "sitemap.xml"), "utf8"),
 );
-if (process.env.MATSURI_PUBLIC_ORIGIN) {
-  const origin = process.env.MATSURI_PUBLIC_ORIGIN.replace(/\/$/u, "");
-  assertEqual(manifest.site_origin, origin, "manifest site_origin mismatch");
+const configuredOrigin = process.env.MATSURI_PUBLIC_ORIGIN?.replace(/\/$/u, "");
+
+if (configuredOrigin) {
+  assertEqual(
+    manifest.site_origin,
+    configuredOrigin,
+    "manifest site_origin does not match MATSURI_PUBLIC_ORIGIN",
+  );
+
+  const configuredUrl = new URL(configuredOrigin);
+  if (
+    configuredUrl.hostname === "localhost" ||
+    configuredUrl.hostname === "127.0.0.1" ||
+    configuredUrl.hostname.endsWith(".invalid")
+  ) {
+    throw new Error(`Placeholder or local MATSURI_PUBLIC_ORIGIN is not allowed: ${configuredOrigin}`);
+  }
+
   for (const location of sitemapLocations) {
-    if (!location.startsWith(`${origin}/`) && location !== origin) {
-      throw new Error(`sitemap location is outside configured origin: ${location}`);
+    if (!location.startsWith(`${configuredOrigin}/`) && location !== configuredOrigin) {
+      throw new Error(`Sitemap location does not use configured origin: ${location}`);
     }
   }
 } else {
   if (Object.hasOwn(manifest, "site_origin")) {
-    throw new Error("origin-neutral manifest must omit site_origin");
+    throw new Error(
+      `manifest.site_origin must be absent when MATSURI_PUBLIC_ORIGIN is unset: ${manifest.site_origin}`,
+    );
   }
+
   for (const location of sitemapLocations) {
-    if (!location.startsWith("/")) {
-      throw new Error(`origin-neutral sitemap must use path-only locations: ${location}`);
+    if (!location.startsWith("/") || /^[a-z][a-z\d+.-]*:/iu.test(location)) {
+      throw new Error(
+        `Development sitemap must use path-only locations when MATSURI_PUBLIC_ORIGIN is unset: ${location}`,
+      );
     }
   }
 }
 
 console.log(
-  `Matsuri public-output consistency passed: ${feeds.entities.records.length} entities, ${feeds.events.records.length} events, ${feeds.relations.records.length} relations, ${feeds.occurrences.records.length} occurrences, ${sitemapLocations.length} sitemap locations, ${expectedManifestFiles.length} manifest files, and ${searchVerification.record_count} Pagefind input records agree.`,
+  `Matsuri public outputs are consistent: ${entityRecords.length} entities, ${currentStateRecords.length} current states, ${searchVerification.records.length} Pagefind records, ${sitemapLocations.length} sitemap locations, and ${expectedManifestFiles.length} manifest files.`,
 );
