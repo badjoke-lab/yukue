@@ -1,6 +1,6 @@
 # Machine-readable Public Layer
 
-**Status:** Current direction
+**Status:** Current direction / crawler discovery baseline included
 
 ## Purpose
 
@@ -9,8 +9,6 @@ The machine-readable layer exposes the same approved public projection used by t
 It is not a private research feed and must not expose candidate records or internal review material.
 
 ## Baseline public files
-
-Initial target outputs:
 
 ```text
 /version.json
@@ -21,6 +19,7 @@ Initial target outputs:
 /data/occurrences.json
 /llms.txt
 /ai.txt
+/robots.txt
 /sitemap.xml
 ```
 
@@ -35,39 +34,64 @@ Additional feeds such as `/data/changes.json`, partitions, pagination, bulk expo
 - no unresolved private source conflicts,
 - stable IDs,
 - explicit schema and dataset version information,
-- public HTML and public JSON generated from the same approved projection.
+- public HTML and public JSON generated from the same approved projection,
+- crawler policy and sitemap discovery generated from the configured deployment origin.
 
 ## version.json
 
-Should identify the project, site, registry or dataset type, and version markers required by consumers.
+Identifies the project, site, dataset type, and version markers required by consumers.
 
 ## manifest.json
 
-Should describe:
-
-- primary record type,
-- supporting record types,
-- record counts,
-- schema or data version,
-- data-safety notes,
-- public file inventory.
+Describes primary and supporting record types, record counts, schema and dataset versions, data-safety notes, public file inventory, and the active site origin when configured.
 
 ## Discovery text files
 
-`llms.txt` and `ai.txt` should explain the nature and limits of the dataset, including that it is not a popularity ranking and that current-state claims are evidence-based observations subject to verification date.
+`llms.txt` and `ai.txt` explain the nature and limits of the dataset, including that it is not a popularity ranking and that current-state claims are evidence-based observations subject to verification date.
+
+## robots.txt
+
+The build generates two deliberate modes.
+
+### Canonical production mode
+
+```text
+User-agent: *
+Allow: /
+
+Sitemap: https://<canonical-origin>/sitemap.xml
+```
+
+The public site is crawlable and the exact canonical sitemap is advertised.
+
+### Origin-neutral mode
+
+```text
+User-agent: *
+Disallow: /
+```
+
+Repository-only and origin-neutral artifacts do not advertise a production sitemap and discourage accidental crawling if deployed outside the approved canonical origin.
+
+## Canonical HTML metadata
+
+When Astro receives an approved `site` origin, every public page emits:
+
+- one absolute canonical link using the route pathname,
+- an indexable robots meta value.
+
+Without an approved site origin, public pages emit `noindex,nofollow` and no canonical link.
 
 ## Build rule
 
-Machine-readable outputs should be generated during build and validated in CI.
-
-The intended flow is:
+Machine-readable outputs and crawler metadata are generated during build and validated in CI.
 
 ```text
 Approved canonical data
 → validation
 → Public Projection
 → machine-readable generation
-→ consistency checks
+→ canonical and crawler consistency checks
 ```
 
 ## Future query layer
