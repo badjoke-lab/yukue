@@ -39,6 +39,7 @@ const requiredAssetFiles = [
   "data/occurrences.json",
   "llms.txt",
   "ai.txt",
+  "robots.txt",
   "sitemap.xml",
 ];
 
