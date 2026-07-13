@@ -50,7 +50,7 @@ const emptyStatus =
   "条件に一致する記録はありません。検索語や絞り込み条件を変更してください。";
 
 const report = {
-  schema_version: 1,
+  schema_version: 2,
   gate_id: "F2-22",
   status: "running",
   canonical_origin: origin,
@@ -62,6 +62,7 @@ const report = {
   page_errors: [],
   console_errors: [],
   same_origin_request_failures: [],
+  ignored_telemetry_request_failures: [],
   screenshots: [],
   error: null,
 };
@@ -95,7 +96,8 @@ function writeEvidence() {
     `- Empty-query result count: ${report.empty_query?.result_count ?? "not completed"}`,
     `- Page errors: ${report.page_errors.length}`,
     `- Console errors: ${report.console_errors.length}`,
-    `- Same-origin request failures: ${report.same_origin_request_failures.length}`,
+    `- Same-origin application request failures: ${report.same_origin_request_failures.length}`,
+    `- Ignored aborted Cloudflare RUM requests: ${report.ignored_telemetry_request_failures.length}`,
     `- Screenshots: ${report.screenshots.length}`,
   ];
 
@@ -148,13 +150,25 @@ page.on("console", (message) => {
 page.on("requestfailed", (request) => {
   try {
     const requestUrl = new URL(request.url());
-    if (requestUrl.origin === origin) {
-      report.same_origin_request_failures.push({
-        url: request.url(),
-        method: request.method(),
-        failure: request.failure()?.errorText ?? "unknown",
-      });
+    if (requestUrl.origin !== origin) return;
+
+    const failure = {
+      url: request.url(),
+      method: request.method(),
+      failure: request.failure()?.errorText ?? "unknown",
+    };
+
+    const isAbortedCloudflareRum =
+      requestUrl.pathname === "/cdn-cgi/rum" &&
+      failure.method === "POST" &&
+      failure.failure === "net::ERR_ABORTED";
+
+    if (isAbortedCloudflareRum) {
+      report.ignored_telemetry_request_failures.push(failure);
+      return;
     }
+
+    report.same_origin_request_failures.push(failure);
   } catch {
     // Ignore malformed browser-internal request URLs.
   }
@@ -310,7 +324,7 @@ try {
   assert.deepEqual(
     report.same_origin_request_failures,
     [],
-    "The page emitted same-origin request failures.",
+    "The page emitted same-origin application request failures.",
   );
 
   report.status = "passed";
@@ -337,5 +351,5 @@ if (report.status !== "passed") {
 }
 
 console.log(
-  `Matsuri F2-22 canonical browser Search verification passed: exact query ${report.exact_query.result_count} result(s), filtered query ${report.filtered_query.result_count} result(s), empty query ${report.empty_query.result_count} result(s), destination ${report.exact_query.destination_url}.`,
+  `Matsuri F2-22 canonical browser Search verification passed: exact query ${report.exact_query.result_count} result(s), filtered query ${report.filtered_query.result_count} result(s), empty query ${report.empty_query.result_count} result(s), destination ${report.exact_query.destination_url}, ignored aborted Cloudflare RUM requests ${report.ignored_telemetry_request_failures.length}.`,
 );
