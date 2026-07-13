@@ -28,7 +28,22 @@
         "verified_origin": "https://matsuri-yukue.badjoke-lab.com",
         "https_reachable": true,
         "manifest_origin_verified": true,
-        "canonical_sitemap_verified": true
+        "canonical_sitemap_verified": true,
+        "browser_search": {
+          "workflow_name": "Verify Matsuri canonical Search",
+          "workflow_run_id": 29227591583,
+          "artifact_id": 8270324780,
+          "artifact_digest": "sha256:d7ffcdff20e361dd6e4ecef7aec06ae1002545dc67c3915c4a23007d1cbac2d1",
+          "browser": "chromium",
+          "exact_queries_verified": [
+            "脚折雨乞",
+            "相馬野馬追"
+          ],
+          "result_navigation_verified": true,
+          "zero_result_verified": true,
+          "browser_errors": 0,
+          "verified_at": "2026-07-13"
+        }
       }
     },
     {
