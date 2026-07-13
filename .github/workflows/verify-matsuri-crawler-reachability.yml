@@ -1,7 +1,7 @@
 name: Verify Matsuri crawler reachability
 
 on:
-  pull_request:
+  push:
     branches:
       - main
     paths:
@@ -10,14 +10,9 @@ on:
       - "apps/matsuri/scripts/build-machine-readable.mjs"
       - "scripts/check-matsuri-crawler-reachability.mjs"
       - "scripts/check-matsuri-deployed.mjs"
-      - "scripts/check-matsuri-pages-build.mjs"
       - "scripts/check-matsuri-consistency.mjs"
       - "package.json"
       - "docs/f2-23-crawler-reachability.md"
-      - "docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md"
-      - "docs/project-status.md"
-      - "docs/development-schedule.md"
-      - "docs/roadmap.md"
   workflow_dispatch:
 
 permissions:
@@ -48,8 +43,19 @@ jobs:
         with:
           version: 11.10.0
 
-      - name: Verify crawler-facing production surface
-        run: pnpm check:matsuri:crawler-reachability
+      - name: Verify crawler-facing production surface with deployment retries
+        shell: bash
+        run: |
+          for attempt in $(seq 1 18); do
+            echo "Crawler verification attempt $attempt of 18"
+            if pnpm check:matsuri:crawler-reachability; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 18 ]; then
+              exit 1
+            fi
+            sleep 30
+          done
 
       - name: Upload crawler reachability evidence
         if: always()
