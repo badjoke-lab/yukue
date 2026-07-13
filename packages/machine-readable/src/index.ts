@@ -26,6 +26,7 @@ const baselineFileInventory = [
   "/data/occurrences.json",
   "/llms.txt",
   "/ai.txt",
+  "/robots.txt",
   "/sitemap.xml",
 ] as const;
 
@@ -97,6 +98,17 @@ function buildSitemap(
     "</urlset>",
     "",
   ].join("\n");
+}
+
+function buildRobotsText(siteOrigin: string | undefined): string {
+  const origin = normalizeOrigin(siteOrigin);
+  const lines = ["User-agent: *", "Allow: /"];
+
+  if (origin) {
+    lines.push("", `Sitemap: ${origin}/sitemap.xml`);
+  }
+
+  return `${lines.join("\n")}\n`;
 }
 
 function buildLlmsText(config: MachineReadableConfig): string {
@@ -211,6 +223,7 @@ export function generateMachineReadableBaseline(
     ),
     textFile("/llms.txt", buildLlmsText(config)),
     textFile("/ai.txt", buildAiText(config)),
+    textFile("/robots.txt", buildRobotsText(config.siteOrigin)),
     textFile(
       "/sitemap.xml",
       buildSitemap(config.sitemapPaths, config.siteOrigin),
