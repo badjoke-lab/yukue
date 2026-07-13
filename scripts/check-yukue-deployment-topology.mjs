@@ -95,6 +95,41 @@ assert(
   "Matsuri canonical verification result is incomplete.",
 );
 
+const searchVerification = matsuri.search_verification;
+assert(
+  searchVerification?.provider === "github_actions" &&
+    searchVerification?.workflow_name === "Verify Matsuri canonical browser Search" &&
+    searchVerification?.workflow_run_id === 29227617530,
+  "Matsuri F2-22 browser Search workflow evidence is invalid.",
+);
+assert(
+  searchVerification?.verified_origin === matsuri.canonical_origin &&
+    searchVerification?.browser === "chromium" &&
+    searchVerification?.exact_query === "脚折雨乞" &&
+    searchVerification?.exact_result_count === 1 &&
+    searchVerification?.filtered_query === "雨乞" &&
+    searchVerification?.filtered_prefecture === "埼玉県" &&
+    searchVerification?.filtered_result_count === 1 &&
+    searchVerification?.empty_result_count === 0 &&
+    searchVerification?.destination_path === "/festivals/suneori-amagoi/",
+  "Matsuri F2-22 browser Search result evidence is incomplete.",
+);
+assert(
+  searchVerification?.page_error_count === 0 &&
+    searchVerification?.console_error_count === 0 &&
+    searchVerification?.application_request_failure_count === 0 &&
+    searchVerification?.screenshot_count === 4,
+  "Matsuri F2-22 browser error or screenshot evidence is invalid.",
+);
+assert(
+  searchVerification?.artifact_id === 8270337394 &&
+    searchVerification?.artifact_name ===
+      "matsuri-f2-22-browser-search-2fd5f4f5f1716d8f72e55f661eaa2c17f27a8ddd" &&
+    searchVerification?.artifact_sha256 ===
+      "367466dac434cc26bc755604d858ed70a1234e327e8d9b4ff9cdbf4bfc461e1a",
+  "Matsuri F2-22 browser evidence artifact is invalid.",
+);
+
 const workers = [topology.portal.worker_name, ...topology.sites.map((site) => site.worker_name)];
 const hostnames = [
   topology.portal.canonical_hostname,
@@ -143,5 +178,5 @@ assert(
 );
 
 console.log(
-  "Yukue deployment topology passed: Matsuri canonical origin verified by GitHub Actions run 29191904624; portal remains separate; workers.dev remains non-canonical.",
+  "Yukue deployment topology passed: Matsuri canonical origin verified by run 29191904624; browser Search verified by run 29227617530; portal remains separate; workers.dev remains non-canonical.",
 );
