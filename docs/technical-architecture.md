@@ -1,6 +1,6 @@
 # Technical Architecture
 
-**Status:** Current direction / Matsuri canonical deployment verified through F2-21
+**Status:** Current direction / Matsuri canonical deployment and Search verified through F2-22
 
 ## Stack
 
@@ -14,6 +14,7 @@ Pagefind
 Cloudflare Workers Builds
 Cloudflare Workers Static Assets
 GitHub Actions
+Playwright
 ```
 
 ## Monorepo
@@ -22,7 +23,6 @@ GitHub Actions
 apps/
   portal/
   matsuri/
-
 packages/
   observation-core/
   schemas/
@@ -30,10 +30,7 @@ packages/
   machine-readable/
   search/
   ui/
-
-data/
-  public/
-
+data/public/
 config/
 scripts/
 docs/
@@ -63,19 +60,12 @@ apps/portal   → Worker yukue-portal   → yukue.badjoke-lab.com — planned
 apps/matsuri  → Worker matsuri-yukue  → matsuri-yukue.badjoke-lab.com — verified
 ```
 
-Future Jinja, Jiin, and Tomurai applications use separate Workers only after their own project gates.
+The portal is the series entrance, not a runtime parent. Specialist sites are not served from paths below the portal.
 
-The portal is the series entrance, not a runtime parent. Specialist sites are not served from `/matsuri/`, `/jinja/`, `/jiin/`, or `/tomurai/` paths below the portal.
-
-Topology contract:
+Topology contract and validation:
 
 ```text
 config/yukue-deployment-topology.json
-```
-
-Validation:
-
-```text
 pnpm check:yukue:deployment-topology
 ```
 
@@ -106,23 +96,11 @@ runtime bindings             absent
 
 ## Canonical production build
 
-`scripts/build-matsuri-workers.mjs` loads:
-
-```text
-https://matsuri-yukue.badjoke-lab.com
-```
-
-from the verified deployment topology and passes it as:
-
-```text
-MATSURI_PUBLIC_ORIGIN
-```
-
-to the static build child process.
+`scripts/build-matsuri-workers.mjs` loads the verified canonical origin from the deployment topology and passes it as `MATSURI_PUBLIC_ORIGIN` to the static build child process.
 
 The origin is public configuration rather than a secret or a duplicate dashboard variable.
 
-## Dual artifact model
+## Artifact and evidence model
 
 ### Production Workers artifact
 
@@ -138,31 +116,36 @@ Custom Domain deployment
 origin-neutral copied artifact
 per-file and aggregate hashes
 verified canonical origin recorded in release metadata
-external workflow evidence recorded separately
+browser Search verification recorded in release metadata
 ```
 
-This preserves reproducibility without denying the active canonical deployment.
+### Canonical Search browser evidence
+
+```text
+playwright.canonical.config.mjs
+tests/canonical/matsuri-search.spec.mjs
+.github/workflows/verify-matsuri-canonical-search.yml
+```
+
+The browser gate runs Chromium directly against the canonical production origin. It verifies Pagefind module loading, query parameters, exact results, detail navigation, zero-result behavior, and browser/console error capture.
 
 ## External verification
 
 ```text
-Canonical origin       https://matsuri-yukue.badjoke-lab.com
-Workflow               Verify Matsuri canonical origin gate
-Run                    29191904624 — success
-Attempt                1 of 18
+Canonical origin run   29191904624 — success
+Search browser run     29227591583 — success
+Search artifact ID     8270324780
 ```
-
-The verifier confirmed HTTPS, required routes, Pagefind asset reachability, public JSON, exact manifest origin, and canonical sitemap locations.
 
 ## Current gate boundary
 
 ```text
-F2-16 through F2-21  completed
-F2-22                 browser Pagefind Search verification next
-F2-23 through F2-28  hold
+F2-16 through F2-22  completed
+F2-23                 crawler-reachability review next
+F2-24 through F2-28  hold
 ```
 
-F2-22 must use a real browser to submit queries and follow result links. Static HTTP reachability is not sufficient.
+F2-23 verifies crawler-facing behavior. Sitemap submission remains F2-24 and Analytics remains F2-25.
 
 ## Future operational layer
 
