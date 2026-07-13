@@ -7,9 +7,11 @@ on:
     paths:
       - ".github/workflows/verify-matsuri-crawler-reachability.yml"
       - "packages/machine-readable/**"
+      - "packages/ui/**"
       - "apps/matsuri/scripts/build-machine-readable.mjs"
       - "scripts/check-matsuri-crawler-reachability.mjs"
       - "scripts/check-matsuri-consistency.mjs"
+      - "scripts/check-matsuri-pages-build.mjs"
       - "package.json"
       - "docs/f2-23-crawler-reachability.md"
   pull_request:
@@ -17,6 +19,8 @@ on:
       - main
     paths:
       - ".github/workflows/verify-matsuri-crawler-reachability.yml"
+      - "packages/ui/**"
+      - "scripts/check-matsuri-pages-build.mjs"
       - "docs/f2-23-crawler-reachability.md"
       - "docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md"
       - "docs/project-status.md"
