@@ -4,11 +4,9 @@
 
 ## Purpose
 
-F2-M02 reviewed and improved the public Matsuri corpus while domain-dependent launch work was paused.
+F2-M02 reviewed and improved the public Matsuri corpus while external launch work was in progress. The audit remains independent from deployment, crawler, sitemap-submission, and Analytics gates.
 
-The audit was independent from the custom-domain, canonical-origin, sitemap-submission, and Analytics sequence. It began against the verified Workers deployment and remains valid after canonical activation.
-
-## Verified deployment baseline
+## Deployment references
 
 Initial deployment reference:
 
@@ -19,24 +17,24 @@ https://matsuri-yukue.badjoke-lab.workers.dev/
 Verified deployment origin
 https://f757f092-matsuri-yukue.badjoke-lab.workers.dev/
 
-GitHub Actions deployed-origin verification
+Deployed-origin verification
 run 29182976642 — success
-
-Verified source commit
-f6fdd5055c2712838ef30ed54048abf7f0674b4c
 ```
 
-Current canonical production reference:
+Current canonical reference:
 
 ```text
 Canonical origin
 https://matsuri-yukue.badjoke-lab.com/
 
-Canonical verification run
-29191904624 — success
+Canonical HTTP verification
+run 29191904624 — success
+
+Canonical browser Search verification
+run 29227617530 — success
 ```
 
-F2-16 through F2-21 are complete. F2-22 through F2-28 remain the active launch sequence.
+F2-16 through F2-22 are complete. F2-23 through F2-28 remain the active launch sequence.
 
 ## Automated inventories
 
@@ -48,7 +46,7 @@ pnpm audit:matsuri:freshness -- --as-of 2026-07-12
 pnpm audit:matsuri:freshness -- --as-of 2026-07-12 --json
 ```
 
-The command reads the generated approved Public Projection under `apps/matsuri/dist/data`. It reports review candidates without automatically changing canonical records. It fails on missing feeds, malformed dates, unsupported temporal values, or invalid ranges.
+The command reads the approved Public Projection and reports review candidates without automatically changing canonical records.
 
 ### Relation coverage inventory
 
@@ -57,16 +55,9 @@ pnpm audit:matsuri:relations
 pnpm audit:matsuri:relations -- --json
 ```
 
-The Relation command reads the complete canonical dataset and reports:
+The Relation inventory reports specialist Entities without Relations, Occurrence organizer gaps, Place-context review signals, and Relations without Evidence. These are review signals rather than automatic Relation inferences.
 
-- specialist Entities with no Relation,
-- Occurrences that name an organizer without a matching `organized_by` Relation,
-- specialist and shrine or temple Entities that share a canonical Place but have no explicit Relation,
-- Relations with no Evidence IDs.
-
-These outputs are review signals, not permission to infer a Relation automatically.
-
-## Occurrence inventory
+## Occurrence inventory result
 
 Initial report:
 
@@ -82,15 +73,13 @@ Resolved Occurrences               14
 Closed-period unresolved            1
 In-progress scheduled               2
 Future scheduled                    7
-
 Current State snapshots checked    23
 Stale Current State candidates      0
-
 External links checked             40
 Stale external-link candidates      0
 ```
 
-The single closed-period unresolved candidate was `occ-soma-2026-schedule` for 相馬野馬追 2026.
+The one closed-period unresolved record was `occ-soma-2026-schedule` for 相馬野馬追 2026.
 
 Resolution report:
 
@@ -98,16 +87,16 @@ Resolution report:
 docs/audits/matsuri-f2-m02-soma-outcome-2026-07-12.md
 ```
 
-A 南相馬市 official post-event topic covers 2026-05-23, 24, and 25. The Occurrence was corrected to:
+Official post-event Evidence supported:
 
 ```text
 outcome: held
 scale: unknown
 ```
 
-The municipality record establishes that the multi-day occurrence was held. It does not establish a structured scale classification, so `unknown` was retained rather than inferring `normal`.
+The Evidence established that the Occurrence was held but did not support a structured scale classification.
 
-Final fixed-date summary:
+Final summary:
 
 ```text
 Occurrences total                  24
@@ -117,7 +106,7 @@ In-progress scheduled               2
 Future scheduled                    7
 ```
 
-## Relation inventory
+## Relation inventory result
 
 Initial report:
 
@@ -125,49 +114,28 @@ Initial report:
 docs/audits/matsuri-f2-m02-relation-inventory-2026-07-12.md
 ```
 
-The initial zero-Relation specialists were resolved in bounded evidence-backed batches.
-
-### Maintenance batch 01
+Completed evidence-backed maintenance:
 
 ```text
 郡上おどり
   └─ maintained_by
        └─ 郡上おどり保存会
-```
 
-The official tourism source identifies the preservation association and explains its venue judging and formal-license role.
-
-### Maintenance batch 02
-
-Report:
-
-```text
-docs/audits/matsuri-f2-m02-suneori-relation-2026-07-12.md
-```
-
-```text
 脚折雨乞
   └─ organized_by
        └─ 脚折雨乞行事保存会
-```
 
-The 鶴ヶ島市 record identifies the association as organizer of the 2024 edition. `occ-suneori-2024` was also updated to record the organizer.
-
-### Maintenance batch 03
-
-Report:
-
-```text
-docs/audits/matsuri-f2-m02-nunobashi-relation-2026-07-12.md
-```
-
-```text
 布橋灌頂会
   └─ supported_by
        └─ 富山県［立山博物館］
 ```
 
-The 立山町 page states that the tradition is preserved and presented at the museum through displays, video footage, and 姥尊像. The conservative `supported_by` Relation records preservation and interpretation support without claiming organization or ritual control.
+Supporting reports:
+
+```text
+docs/audits/matsuri-f2-m02-suneori-relation-2026-07-12.md
+docs/audits/matsuri-f2-m02-nunobashi-relation-2026-07-12.md
+```
 
 Final Relation summary:
 
@@ -195,7 +163,7 @@ When an approved Occurrence is no longer in the future and remains `scheduled` o
 
 ### Current State
 
-A stale observation is an audit candidate, not proof that an Entity State changed. Review old `observed_at` values, later official changes, weak Evidence, and conflicts with current public language.
+A stale observation is an audit candidate, not proof that an Entity State changed. Review old observation dates, later official changes, weak Evidence, and conflicts with current public language.
 
 ### Sources and Evidence
 
@@ -216,8 +184,8 @@ F2-M02 completed on 2026-07-12 after:
 - the initial zero-Relation specialist inventory reached zero,
 - Relations missing Evidence were confirmed at zero,
 - material Source, Evidence, and Relation findings were corrected or documented,
-- the full repository gate and screenshot workflow passed,
-- known future-date review points were recorded without overstating current completeness.
+- the repository gate and screenshot workflow passed,
+- future-date review points were recorded without treating them as current defects.
 
 ## Routine review points
 
@@ -236,5 +204,5 @@ Routine maintenance must not:
 - replace the verified canonical origin without an explicit migration decision,
 - submit the sitemap before F2-24,
 - enable Cloudflare Web Analytics before F2-25,
-- claim F2-22 through F2-28 completion without their evidence,
+- claim F2-23 through F2-28 completion without their evidence,
 - add unrelated product scope.
