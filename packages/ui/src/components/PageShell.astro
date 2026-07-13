@@ -14,6 +14,7 @@ interface Props {
   description?: string;
   lang?: string;
   skipLinkLabel?: string;
+  robots?: string;
 }
 
 const {
@@ -22,9 +23,14 @@ const {
   description,
   lang = "ja",
   skipLinkLabel = "本文へ移動",
+  robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
 } = Astro.props;
 
 const accent = getSiteAccent(site);
+const canonicalUrl = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site).toString()
+  : undefined;
+const robotsContent = canonicalUrl ? robots : "noindex,nofollow";
 ---
 
 <!doctype html>
@@ -34,6 +40,8 @@ const accent = getSiteAccent(site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+    <meta name="robots" content={robotsContent} />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
     <slot name="head" />
   </head>
   <body class="yk-page-shell">
