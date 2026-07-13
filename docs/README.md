@@ -18,10 +18,11 @@ Before implementing a feature, check the relevant document here. When a decision
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, layout language |
 | `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
-| `technical-architecture.md` | F2-22 production baseline | Build, projection, search, multi-Worker deployment, dual artifact verification, canonical activation, and browser Search evidence |
+| `technical-architecture.md` | F2-23 implementation prepared | Build, projection, search, deployment, canonical metadata, robots policy, and crawler verification |
 | `deployment-topology.md` | Matsuri active | Exact portal and specialist-site hostnames, separate Worker boundary, active Matsuri origin, and migration invariants |
 | `f2-20-custom-domain-activation.md` | Completed | Repository-managed Custom Domain, canonical build, and external verification evidence |
 | `f2-22-canonical-search-verification.md` | Completed | Canonical desktop/mobile Pagefind interaction gate and evidence |
+| `f2-23-crawler-reachability.md` | External evidence pending | robots, canonical HTML, sitemap discovery, crawler User-Agent, and production workflow contract |
 | `cloudflare-pages-launch-runbook.md` | F2-16–F2-22 completed | Workers Builds contract, canonical deployment, browser Search, and remaining launch sequence |
 | `deployment.md` | F2-22 completed | Verified canonical Workers deployment, browser Search, and F2-23 crawler boundary |
 | `audits/matsuri-f2-20-canonical-activation-2026-07-12.md` | Passed audit | HTTPS, required routes, manifest origin, and canonical sitemap verification run |
@@ -48,7 +49,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `image-policy.md` | Current | Real-image, rights, credit, and gallery rules |
 | `data-workflow.md` | Current direction | Research-to-public data workflow |
 | `versioning-policy.md` | Current direction | Schema and record versioning rules |
-| `machine-readable-layer.md` | Current direction | Public machine-readable outputs and invariants |
+| `machine-readable-layer.md` | Crawler baseline included | Public machine-readable outputs, robots modes, canonical metadata, and invariants |
 | `decision-log.md` | Living | Project decisions and reversals |
 | `project-status.md` | Living | Current phase and next gate |
 
@@ -82,4 +83,4 @@ Repository documents are the implementation reference for public project behavio
 
 ## Update discipline
 
-A pull request that changes public behavior should update the relevant specification when it affects record structure, publication behavior, page structure, navigation, evidence rules, image rules, UI direction, design tokens, UI foundation behavior, technical architecture, deployment topology, roadmap gates, active implementation sequence, or project status.
+A pull request that changes public behavior should update the relevant specification when it affects record structure, publication behavior, page structure, navigation, evidence rules, image rules, UI direction, design tokens, UI foundation behavior, technical architecture, deployment topology, crawler behavior, roadmap gates, active implementation sequence, or project status.
