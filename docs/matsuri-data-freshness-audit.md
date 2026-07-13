@@ -6,9 +6,11 @@
 
 F2-M02 reviewed and improved the public Matsuri corpus while domain-dependent launch work was paused.
 
-The audit was independent from the custom-domain, canonical-origin, sitemap-submission, and Analytics sequence. It used the verified Workers deployment only as a maintenance reference and did not treat that hostname as canonical.
+The audit was independent from the custom-domain, canonical-origin, sitemap-submission, and Analytics sequence. It began against the verified Workers deployment and remains valid after canonical activation.
 
 ## Verified deployment baseline
+
+Initial deployment reference:
 
 ```text
 Permanent Workers origin
@@ -24,7 +26,17 @@ Verified source commit
 f6fdd5055c2712838ef30ed54048abf7f0674b4c
 ```
 
-F2-16 through F2-19 are complete. F2-20 through F2-28 remain on operational hold until custom-domain attachment can proceed.
+Current canonical production reference:
+
+```text
+Canonical origin
+https://matsuri-yukue.badjoke-lab.com/
+
+Canonical verification run
+29191904624 — success
+```
+
+F2-16 through F2-21 are complete. F2-22 through F2-28 remain the active launch sequence.
 
 ## Automated inventories
 
@@ -220,10 +232,9 @@ These are normal date-triggered maintenance checks and do not keep F2-M02 open.
 
 Routine maintenance must not:
 
-- attach the decided custom domain outside F2-20,
-- set `MATSURI_PUBLIC_ORIGIN` before the matching custom domain is attached,
-- declare the Workers origin canonical,
-- submit a sitemap,
-- enable Cloudflare Web Analytics,
-- claim F2-20 through F2-28 completion,
+- treat the non-canonical workers.dev origin as canonical,
+- replace the verified canonical origin without an explicit migration decision,
+- submit the sitemap before F2-24,
+- enable Cloudflare Web Analytics before F2-25,
+- claim F2-22 through F2-28 completion without their evidence,
 - add unrelated product scope.
