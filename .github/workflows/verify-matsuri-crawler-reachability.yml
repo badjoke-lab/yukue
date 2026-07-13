@@ -1,0 +1,71 @@
+name: Verify Matsuri crawler reachability
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-crawler-reachability.yml"
+      - "packages/machine-readable/**"
+      - "apps/matsuri/scripts/build-machine-readable.mjs"
+      - "scripts/check-matsuri-crawler-reachability.mjs"
+      - "scripts/check-matsuri-deployed.mjs"
+      - "scripts/check-matsuri-pages-build.mjs"
+      - "scripts/check-matsuri-consistency.mjs"
+      - "package.json"
+      - "docs/f2-23-crawler-reachability.md"
+      - "docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md"
+      - "docs/project-status.md"
+      - "docs/development-schedule.md"
+      - "docs/roadmap.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-matsuri-crawler-reachability
+  cancel-in-progress: true
+
+jobs:
+  verify-crawler-reachability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      MATSURI_CHECK_ORIGIN: https://matsuri-yukue.badjoke-lab.com
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.10.0
+
+      - name: Verify crawler-facing production surface
+        run: pnpm check:matsuri:crawler-reachability
+
+      - name: Upload crawler reachability evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: matsuri-crawler-reachability-${{ github.sha }}
+          path: artifacts/matsuri-crawler-reachability
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Write verification summary
+        if: always()
+        shell: bash
+        run: |
+          echo "## Matsuri crawler reachability" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Origin: $MATSURI_CHECK_ORIGIN" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Coverage: robots.txt, sitemap, canonical links, indexing directives, sitemap routes, representative User-Agent labels, public discovery files" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Boundary: this does not submit the sitemap or prove indexation" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Evidence artifact: matsuri-crawler-reachability-$GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
