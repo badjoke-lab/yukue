@@ -59,11 +59,28 @@ prefecture  11 / 埼玉県
 state       active
 ```
 
-The matching result remained visible. Changing the prefecture to `16 / 富山県` produced the published no-result state and an empty result list.
+The matching result remained visible.
+
+The prefecture was then changed to:
+
+```text
+16 / 富山県
+```
+
+The browser verified the published no-result message and an empty result list.
 
 ## Runtime quality checks
 
-The tests fail on page-level JavaScript errors, console errors, failed navigation, missing Pagefind completion state, unexpected result URLs, or missing no-result behavior. No such failure remained in the successful run.
+The tests also failed on any:
+
+- page-level JavaScript error,
+- console error,
+- failed navigation,
+- missing Pagefind completion state,
+- unexpected result URL,
+- missing no-result state.
+
+No such failure was recorded in the successful external run.
 
 ## External evidence
 
@@ -74,11 +91,17 @@ Verify Matsuri canonical Search
 Run ID
 29193201911
 
+Job
+verify-search
+
 Job ID
 86651403427
 
 Conclusion
 success
+
+Head branch
+agent/f2-22-canonical-search-verification
 
 Head SHA
 ec1a84bdf4321bee0c7ecbcc702abe3bbba81b9e
@@ -96,12 +119,17 @@ Artifact ID
 Artifact name
 matsuri-canonical-search-290d63e1b930616867e2108e393e2f5a537eeee8
 
+Artifact size
+1232597 bytes
+
 Artifact digest
 sha256:29c05992a887951d91caa8f5bd4588d88b0bac97230353cba4381ec4ff0eb884
 
 Retention expires
 2026-08-11T12:51:43Z
 ```
+
+The artifact contains the Playwright HTML report, test results, screenshots attached for successful interactions, and retained failure diagnostics when applicable.
 
 Detailed audit:
 

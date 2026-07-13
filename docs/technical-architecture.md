@@ -1,6 +1,6 @@
 # Technical Architecture
 
-**Status:** Current direction / Matsuri canonical deployment verified through F2-21
+**Status:** Current direction / Matsuri canonical deployment and browser Search verified through F2-22
 
 ## Stack
 
@@ -14,6 +14,7 @@ Pagefind
 Cloudflare Workers Builds
 Cloudflare Workers Static Assets
 GitHub Actions
+Playwright
 ```
 
 ## Monorepo
@@ -67,18 +68,6 @@ Future Jinja, Jiin, and Tomurai applications use separate Workers only after the
 
 The portal is the series entrance, not a runtime parent. Specialist sites are not served from `/matsuri/`, `/jinja/`, `/jiin/`, or `/tomurai/` paths below the portal.
 
-Topology contract:
-
-```text
-config/yukue-deployment-topology.json
-```
-
-Validation:
-
-```text
-pnpm check:yukue:deployment-topology
-```
-
 ## Matsuri Workers architecture
 
 ```text
@@ -112,15 +101,7 @@ runtime bindings             absent
 https://matsuri-yukue.badjoke-lab.com
 ```
 
-from the verified deployment topology and passes it as:
-
-```text
-MATSURI_PUBLIC_ORIGIN
-```
-
-to the static build child process.
-
-The origin is public configuration rather than a secret or a duplicate dashboard variable.
+from the verified deployment topology and passes it as `MATSURI_PUBLIC_ORIGIN` to the static build child process.
 
 ## Dual artifact model
 
@@ -138,31 +119,43 @@ Custom Domain deployment
 origin-neutral copied artifact
 per-file and aggregate hashes
 verified canonical origin recorded in release metadata
+verified canonical Search recorded in release metadata
 external workflow evidence recorded separately
 ```
 
 This preserves reproducibility without denying the active canonical deployment.
 
-## External verification
+## External verification layers
+
+### Canonical origin
 
 ```text
-Canonical origin       https://matsuri-yukue.badjoke-lab.com
-Workflow               Verify Matsuri canonical origin gate
-Run                    29191904624 — success
-Attempt                1 of 18
+Workflow  Verify Matsuri canonical origin gate
+Run       29191904624 — success
 ```
 
-The verifier confirmed HTTPS, required routes, Pagefind asset reachability, public JSON, exact manifest origin, and canonical sitemap locations.
+This verifies HTTPS, required routes, Pagefind asset reachability, public JSON, exact manifest origin, and canonical sitemap locations.
+
+### Canonical browser Search
+
+```text
+Workflow     Verify Matsuri canonical Search
+Run          29193201911 — success
+Job          86651403427 — success
+Artifact ID  8260207484
+```
+
+The browser layer uses desktop and mobile Chromium against the live canonical origin. It verifies exact-name Search, result rendering, result navigation, structured filters, no-result behavior, and runtime error absence.
 
 ## Current gate boundary
 
 ```text
-F2-16 through F2-21  completed
-F2-22                 browser Pagefind Search verification next
-F2-23 through F2-28  hold
+F2-16 through F2-22  completed
+F2-23                 crawler-reachability review next
+F2-24 through F2-28  hold
 ```
 
-F2-22 must use a real browser to submit queries and follow result links. Static HTTP reachability is not sufficient.
+F2-23 reviews live crawler-facing policy and reachability. It does not submit the sitemap or claim indexation.
 
 ## Future operational layer
 

@@ -4,9 +4,9 @@
 
 ## Purpose
 
-F2-M02 reviewed and improved the public Matsuri corpus while domain-dependent launch work was paused.
+F2-M02 reviewed and improved the public Matsuri corpus while external launch work proceeded through separate gates.
 
-The audit was independent from the custom-domain, canonical-origin, sitemap-submission, and Analytics sequence. It began against the verified Workers deployment and remains valid after canonical activation.
+The audit is independent from custom-domain, canonical-origin, browser Search, crawler, sitemap-submission, and Analytics verification. It began against the verified Workers deployment and remains valid after canonical activation and Search verification.
 
 ## Verified deployment baseline
 
@@ -32,11 +32,14 @@ Current canonical production reference:
 Canonical origin
 https://matsuri-yukue.badjoke-lab.com/
 
-Canonical verification run
+Canonical origin run
 29191904624 — success
+
+Canonical Search run
+29193201911 — success
 ```
 
-F2-16 through F2-21 are complete. F2-22 through F2-28 remain the active launch sequence.
+F2-16 through F2-22 are complete. F2-23 through F2-28 remain the active launch sequence.
 
 ## Automated inventories
 
@@ -218,23 +221,3 @@ F2-M02 completed on 2026-07-12 after:
 - material Source, Evidence, and Relation findings were corrected or documented,
 - the full repository gate and screenshot workflow passed,
 - known future-date review points were recorded without overstating current completeness.
-
-## Routine review points
-
-```text
-博多祇園山笠 2026  review after 2026-07-15
-郡上おどり 2026    review after 2026-09-05
-```
-
-These are normal date-triggered maintenance checks and do not keep F2-M02 open.
-
-## Boundary
-
-Routine maintenance must not:
-
-- treat the non-canonical workers.dev origin as canonical,
-- replace the verified canonical origin without an explicit migration decision,
-- submit the sitemap before F2-24,
-- enable Cloudflare Web Analytics before F2-25,
-- claim F2-22 through F2-28 completion without their evidence,
-- add unrelated product scope.

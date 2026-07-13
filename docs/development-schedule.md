@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-21 completed / F2-22 browser Search verification next
+**Status:** F2-22 completed / F2-23 crawler reachability next
 
 This document defines the stable implementation order. It complements `roadmap.md` and `project-status.md`. The project is gate-driven rather than deadline-driven.
 
@@ -9,10 +9,10 @@ This document defines the stable implementation order. It complements `roadmap.m
 ```text
 Foundation through Stage E  completed
 F1 corpus expansion          completed
-F2-01 through F2-21          completed
+F2-01 through F2-22          completed
 F2-M01                       completed
 F2-M02                       completed
-F2-22 through F2-28          operational hold
+F2-23 through F2-28          operational hold
 ```
 
 ## Foundation through Stage E
@@ -93,31 +93,37 @@ F2-18  deployed-origin smoke verification — completed
 F2-19  exact canonical Matsuri hostname decision — completed
 F2-20  Custom Domain activation, canonical build, HTTPS verification — completed
 F2-21  canonical manifest and sitemap verification — completed
+F2-22  browser Pagefind Search verification on canonical origin — completed
 ```
 
-Canonical evidence:
+Canonical-origin evidence:
 
 ```text
 Canonical origin          https://matsuri-yukue.badjoke-lab.com
 Verification workflow     Verify Matsuri canonical origin gate
 Verification run          29191904624 — success
-Successful attempt        1 of 18
-Activation merge          f978bc50a1ab51964687ec0457a448dc37b2aaf9
 ```
 
-The verifier confirmed required routes, Pagefind asset reachability, public JSON, exact `manifest.site_origin`, and canonical sitemap locations.
+Canonical Search evidence:
 
-Evidence record:
+```text
+Verification workflow     Verify Matsuri canonical Search
+Verification run          29193201911 — success
+Job                       86651403427 — success
+Artifact                  8260207484
+```
+
+Evidence records:
 
 ```text
 docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
+docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md
 ```
 
 #### Next gate and hold
 
 ```text
-F2-22  browser Pagefind Search verification on canonical origin — next
-F2-23  robots, canonical, sitemap, crawler-reachability review — hold
+F2-23  robots, canonical, sitemap, crawler-reachability review — next
 F2-24  search-engine sitemap submission and indexability check — hold
 F2-25  Cloudflare Web Analytics activation — hold
 F2-26  post-activation deployment — hold
@@ -125,15 +131,32 @@ F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
-F2-22 must use a real browser to submit queries, observe Pagefind results, and follow result navigation. HTTP asset reachability from F2-20/F2-21 is not sufficient.
+### F2-23 scope
 
-## Work allowed before F2-22 completion
+F2-23 must:
 
-- F2-22 browser verification tooling and evidence,
+- inspect the published `robots.txt`,
+- inspect canonical link output on representative pages,
+- inspect the canonical sitemap and discovery routes,
+- verify live reachability for the accepted crawler-facing public surface,
+- distinguish search-discovery crawlers from unrelated bulk or abusive access policy,
+- record reproducible evidence.
+
+F2-23 must not:
+
+- submit a sitemap to a search engine,
+- claim indexation,
+- enable Web Analytics,
+- change the portal deployment,
+- begin Jinja, Jiin, or Tomurai implementation.
+
+## Work allowed before F2-23 completion
+
+- F2-23 crawler-reachability verification and evidence,
 - reviewed factual and date-triggered maintenance,
 - Source, Evidence, and Relation corrections,
 - security and dependency maintenance,
-- repairs required to keep repository and canonical-origin gates green.
+- repairs required to keep repository, canonical-origin, and canonical Search gates green.
 
 ## Work not activated
 

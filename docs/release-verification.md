@@ -1,6 +1,6 @@
 # Release Verification
 
-**Status:** Repository and canonical deployment baseline through F2-21
+**Status:** Repository, canonical deployment, and browser Search baseline through F2-22
 
 ## Commands
 
@@ -9,6 +9,7 @@ pnpm verify:matsuri:workers
 pnpm verify:release
 pnpm freeze:matsuri:release
 pnpm gate:matsuri:repository
+pnpm check:matsuri:canonical-search
 ```
 
 ## Verification layers
@@ -38,22 +39,19 @@ pnpm freeze:matsuri:release
 
 This layer rebuilds without `MATSURI_PUBLIC_ORIGIN`, verifies the complete repository contract, and freezes a reproducible origin-neutral artifact with per-file and aggregate hashes.
 
-The release metadata separately records the active verified canonical origin.
+The release metadata separately records the active verified canonical origin and canonical Search evidence.
 
-## Workspace contract
-
-The verifier discovers packages under:
+### Canonical browser Search
 
 ```text
-apps/*
-packages/*
+pnpm check:matsuri:canonical-search
 ```
 
-Every workspace must provide its required build and validation scripts. Missing release-critical scripts fail before verification stages start.
+This layer targets the live canonical origin without starting a local server. Desktop and mobile Chromium verify exact-name Search, result rendering, result navigation, structured filters, no-result behavior, and runtime error absence.
 
 ## Static artifact integrity
 
-The Matsuri checks verify:
+The repository checks verify:
 
 - every required public route,
 - generated route inventory against `sitemap.xml`,
@@ -73,9 +71,9 @@ yukue.badjoke-lab.com          → Worker yukue-portal — planned
 matsuri-yukue.badjoke-lab.com  → Worker matsuri-yukue — verified
 ```
 
-The gate rejects duplicate identities, path nesting below the portal, workers.dev canonical claims, and missing canonical verification evidence.
+The gate rejects duplicate identities, path nesting below the portal, workers.dev canonical claims, and missing external verification evidence.
 
-## External canonical verification
+## External canonical-origin verification
 
 ```text
 Origin     https://matsuri-yukue.badjoke-lab.com
@@ -84,12 +82,28 @@ Run        29191904624 — success
 Attempt    1 of 18
 ```
 
-The external verifier checks required HTML routes, Pagefind assets, public JSON, representative Entity data, exact `manifest.site_origin`, and canonical sitemap locations.
-
 Evidence:
 
 ```text
 docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
+```
+
+## External canonical Search verification
+
+```text
+Origin       https://matsuri-yukue.badjoke-lab.com
+Workflow     Verify Matsuri canonical Search
+Run          29193201911 — success
+Job          86651403427 — success
+Artifact ID  8260207484
+```
+
+The browser gate verifies desktop and mobile Chromium interactions for `脚折雨乞`, result navigation, structured filters, no-result behavior, and absence of page or console errors.
+
+Evidence:
+
+```text
+docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md
 ```
 
 ## What the current gate proves
@@ -99,15 +113,16 @@ docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
 - the Custom Domain is reachable over HTTPS,
 - required public files are served,
 - manifest and sitemap canonical values are correct,
-- F2-16 through F2-21 are complete.
+- Pagefind Search works interactively on desktop and mobile Chromium,
+- the representative result navigates to the canonical Detail page,
+- F2-16 through F2-22 are complete.
 
 ## What it does not prove
 
-- interactive Pagefind queries and result navigation in a browser,
-- crawler behavior beyond fetched launch files,
+- crawler reachability or crawler-policy correctness,
 - search-engine submission or indexation,
 - Web Analytics activation,
 - production traffic recording,
 - final launch completion.
 
-Those remain F2-22 through F2-28.
+Those remain F2-23 through F2-28.

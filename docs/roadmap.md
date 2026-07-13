@@ -70,20 +70,13 @@ F2-01 through F2-15
 
 Status: **Completed**
 
-The repository-ready candidate is reproducible, content-addressed, and verified. The active canonical origin is now recorded separately from the origin-neutral repository artifact.
+The repository-ready candidate is reproducible, content-addressed, and verified. Active production evidence is recorded separately from the origin-neutral repository artifact.
 
 ### Repository visual and data maintenance
 
 ```text
 F2-M01  exhaustive desktop/mobile full-page screenshot workflow — completed
 F2-M02  Matsuri data freshness audit — completed
-```
-
-Stable status markers:
-
-```text
-F2-M01  completed
-F2-M02  completed
 ```
 
 F2-M02 completion result:
@@ -114,32 +107,31 @@ F2-27  production traffic verification
 F2-28  final F2 Launch Gate
 ```
 
-External deployment through F2-21: **Completed**
+External deployment through F2-22: **Completed**
 
-Browser Search verification: **Next gate at F2-22**
+Crawler reachability: **Next gate at F2-23**
 
 Verified canonical baseline:
 
 ```text
-Worker                  matsuri-yukue
-Canonical origin        https://matsuri-yukue.badjoke-lab.com
-Verification workflow   Verify Matsuri canonical origin gate
-Verification run        29191904624 — success
-Successful attempt      1 of 18
-Activation merge        f978bc50a1ab51964687ec0457a448dc37b2aaf9
+Worker                    matsuri-yukue
+Canonical origin          https://matsuri-yukue.badjoke-lab.com
+Canonical origin run      29191904624 — success
+Canonical Search run      29193201911 — success
+Canonical Search artifact 8260207484
 ```
 
-The verifier confirmed HTTPS, required public routes, Pagefind asset reachability, public JSON, exact `manifest.site_origin`, and canonical sitemap locations.
+The canonical Search run exercised exact-name queries, structured filters, no-result behavior, and result navigation in desktop and mobile Chromium without page or console errors.
 
 The portal and Matsuri remain separate applications and Workers. The portal hostname remains planned and is not attached to the Matsuri Worker.
 
 Pending:
 
 ```text
-F2-22 through F2-28
+F2-23 through F2-28
 ```
 
-F2-22 must verify interactive Pagefind queries and result navigation in a real browser. F2-23 through F2-28 remain blocked until that passes.
+F2-23 reviews robots, canonical, sitemap, and crawler reachability. It does not submit the sitemap or claim indexation. F2-24 through F2-28 remain blocked until F2-23 passes.
 
 ## Phase 10 — Stabilization
 
@@ -147,8 +139,8 @@ After F2-28, observe indexation, search impressions, Search queries, corrections
 
 Status: **Not started — requires F2-28**
 
-## Phase 11 — Next-site Gate
+## Phase 11 — Portal and next-site gates
 
-Review Matsuri maintenance burden, shared-package reuse, cross-site seed quality, Relation value, update pace, and external demand before adding the next public site application.
+Review Matsuri maintenance burden, shared-package reuse, cross-site seed quality, Relation value, update pace, and external demand before formal portal deployment or adding the next public specialist application.
 
 Status: **Deferred until stabilization evidence exists and an explicit gate review is completed**
