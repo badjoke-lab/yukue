@@ -40,6 +40,7 @@ const expectedManifestFiles = [
   "/data/occurrences.json",
   "/llms.txt",
   "/ai.txt",
+  "/robots.txt",
   "/sitemap.xml",
 ];
 
@@ -289,7 +290,18 @@ for (const record of searchVerification.records) {
 const sitemapLocations = parseSitemapLocations(
   fs.readFileSync(path.join(outputRoot, "sitemap.xml"), "utf8"),
 );
+const robots = fs.readFileSync(path.join(outputRoot, "robots.txt"), "utf8");
 const configuredOrigin = process.env.MATSURI_PUBLIC_ORIGIN?.replace(/\/$/u, "");
+
+if (!/^User-agent:\s*\*\s*$/imu.test(robots)) {
+  throw new Error("robots.txt is missing User-agent: *");
+}
+if (!/^Allow:\s*\/\s*$/imu.test(robots)) {
+  throw new Error("robots.txt is missing Allow: /");
+}
+if (/^Disallow:\s*\/\s*$/imu.test(robots)) {
+  throw new Error("robots.txt blocks the complete public site");
+}
 
 if (configuredOrigin) {
   assertEqual(
@@ -307,6 +319,13 @@ if (configuredOrigin) {
     throw new Error(`Placeholder or local MATSURI_PUBLIC_ORIGIN is not allowed: ${configuredOrigin}`);
   }
 
+  const expectedSitemapDirective = `Sitemap: ${configuredOrigin}/sitemap.xml`;
+  if (!robots.split(/\r?\n/u).some((line) => line.trim() === expectedSitemapDirective)) {
+    throw new Error(
+      `robots.txt is missing exact canonical directive: ${expectedSitemapDirective}`,
+    );
+  }
+
   for (const location of sitemapLocations) {
     if (!location.startsWith(`${configuredOrigin}/`) && location !== configuredOrigin) {
       throw new Error(`Sitemap location does not use configured origin: ${location}`);
@@ -316,6 +335,12 @@ if (configuredOrigin) {
   if (Object.hasOwn(manifest, "site_origin")) {
     throw new Error(
       `manifest.site_origin must be absent when MATSURI_PUBLIC_ORIGIN is unset: ${manifest.site_origin}`,
+    );
+  }
+
+  if (/^Sitemap:/imu.test(robots)) {
+    throw new Error(
+      "Origin-neutral robots.txt must omit the absolute Sitemap directive",
     );
   }
 
@@ -329,5 +354,5 @@ if (configuredOrigin) {
 }
 
 console.log(
-  `Matsuri public outputs are consistent: ${entityRecords.length} entities, ${currentStateRecords.length} current states, ${searchVerification.records.length} Pagefind records, and ${sitemapLocations.length} sitemap locations.`,
+  `Matsuri public outputs are consistent: ${entityRecords.length} entities, ${currentStateRecords.length} current states, ${searchVerification.records.length} Pagefind records, ${sitemapLocations.length} sitemap locations, and a valid robots policy.`,
 );
