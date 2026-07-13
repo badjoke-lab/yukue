@@ -22,6 +22,8 @@
     "check:matsuri:browser": "playwright test --config=playwright.config.mjs",
     "check:matsuri:canonical-search": "playwright test --config=playwright.canonical-search.config.mjs",
     "check:matsuri:crawler-reachability": "node scripts/check-matsuri-crawler-reachability.mjs",
+    "check:matsuri:indexability-preflight": "node scripts/check-matsuri-indexability-preflight.mjs",
+    "check:matsuri:search-engine-submission-record": "node scripts/check-matsuri-search-engine-submission-record.mjs",
     "check:matsuri:deployed": "node scripts/check-matsuri-deployed.mjs",
     "check:matsuri:canonical": "node scripts/check-matsuri-deployed.mjs --canonical",
     "capture:matsuri:screenshots": "node scripts/capture-matsuri-screenshots.mjs",
