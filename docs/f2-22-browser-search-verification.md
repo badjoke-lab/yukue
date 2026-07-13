@@ -83,6 +83,18 @@ MATSURI_CHECK_ORIGIN=https://matsuri-yukue.badjoke-lab.com
 
 The script refuses a non-canonical origin by comparing it with `config/yukue-deployment-topology.json`.
 
+## Request-failure classification
+
+Same-origin failures for application HTML, Pagefind assets, public data, and result navigation fail the gate.
+
+Cloudflare may inject Real User Monitoring requests at:
+
+```text
+/cdn-cgi/rum
+```
+
+A `POST` to that path may be reported as `net::ERR_ABORTED` when Chromium leaves a page. This is a navigation-cancelled telemetry request rather than a Search or public-asset failure. The verifier records these events separately as ignored telemetry failures. It does not ignore other methods, paths, failure types, or same-origin application requests.
+
 ## Evidence output
 
 The command writes:
@@ -108,7 +120,8 @@ The JSON report records:
 - destination URL and H1,
 - filtered-query result count,
 - empty-query status,
-- same-origin request failures,
+- same-origin application request failures,
+- ignored aborted Cloudflare RUM requests,
 - page errors,
 - console errors,
 - screenshot inventory.
