@@ -70,7 +70,7 @@ F2-01 through F2-15
 
 Status: **Completed**
 
-The repository-ready candidate is reproducible, content-addressed, and verified. The active canonical origin is now recorded separately from the origin-neutral repository artifact.
+The repository-ready candidate is reproducible, content-addressed, and verified. The active canonical origin and live browser Search evidence are recorded separately from the origin-neutral repository artifact.
 
 ### Repository visual and data maintenance
 
@@ -114,32 +114,31 @@ F2-27  production traffic verification
 F2-28  final F2 Launch Gate
 ```
 
-External deployment through F2-21: **Completed**
+External deployment through F2-22: **Completed**
 
-Browser Search verification: **Next gate at F2-22**
+Crawler reachability review: **Next gate at F2-23**
 
-Verified canonical baseline:
+Verified production evidence:
 
 ```text
-Worker                  matsuri-yukue
-Canonical origin        https://matsuri-yukue.badjoke-lab.com
-Verification workflow   Verify Matsuri canonical origin gate
-Verification run        29191904624 — success
-Successful attempt      1 of 18
-Activation merge        f978bc50a1ab51964687ec0457a448dc37b2aaf9
+Canonical origin          https://matsuri-yukue.badjoke-lab.com
+Canonical HTTP run        29191904624 — success
+Browser Search run        29227617530 — success
+Exact query               脚折雨乞 → 1 result
+Filtered query            雨乞 + 埼玉県 → 1 result
+Empty query               0 results
+Application failures      0
 ```
-
-The verifier confirmed HTTPS, required public routes, Pagefind asset reachability, public JSON, exact `manifest.site_origin`, and canonical sitemap locations.
 
 The portal and Matsuri remain separate applications and Workers. The portal hostname remains planned and is not attached to the Matsuri Worker.
 
 Pending:
 
 ```text
-F2-22 through F2-28
+F2-23 through F2-28
 ```
 
-F2-22 must verify interactive Pagefind queries and result navigation in a real browser. F2-23 through F2-28 remain blocked until that passes.
+F2-23 must verify the live robots, canonical, sitemap, and crawler-visible response surface before F2-24 sitemap submission begins.
 
 ## Phase 10 — Stabilization
 
