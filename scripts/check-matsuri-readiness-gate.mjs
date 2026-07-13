@@ -15,11 +15,13 @@ const requiredScripts = [
   "check:matsuri:pages",
   "check:matsuri:workers-config",
   "check:matsuri:consistency",
+  "check:matsuri:canonical-metadata",
   "check:matsuri:semantics",
   "check:matsuri:evidence",
   "check:matsuri:content",
   "check:matsuri:browser",
   "check:matsuri:canonical-search",
+  "check:matsuri:crawler-reachability",
   "audit:matsuri:freshness",
   "audit:matsuri:relations",
 ];
@@ -35,6 +37,7 @@ const requiredDocs = [
   "docs/deployment-topology.md",
   "docs/f2-20-custom-domain-activation.md",
   "docs/f2-22-canonical-search-verification.md",
+  "docs/f2-23-crawler-reachability.md",
   "docs/development-schedule.md",
   "docs/project-status.md",
   "docs/roadmap.md",
@@ -43,6 +46,7 @@ const requiredDocs = [
   "docs/matsuri-data-freshness-audit.md",
   "docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md",
   "docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md",
+  "docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md",
   "docs/audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md",
   "docs/audits/matsuri-f2-m02-soma-outcome-2026-07-12.md",
   "docs/audits/matsuri-f2-m02-relation-inventory-2026-07-12.md",
@@ -69,15 +73,9 @@ const completedExternalIds = [
   "F2-20",
   "F2-21",
   "F2-22",
-];
-const pendingExternalIds = [
   "F2-23",
-  "F2-24",
-  "F2-25",
-  "F2-26",
-  "F2-27",
-  "F2-28",
 ];
+const pendingExternalIds = ["F2-24", "F2-25", "F2-26", "F2-27", "F2-28"];
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -105,8 +103,14 @@ for (const relativePath of requiredDocs) {
   );
 }
 
-assert(fs.existsSync(path.join(repositoryRoot, "wrangler.jsonc")), "Repository readiness requires wrangler.jsonc.");
-assert(fs.existsSync(releaseManifestPath), "Release candidate manifest is missing. Run pnpm freeze:matsuri:release first.");
+assert(
+  fs.existsSync(path.join(repositoryRoot, "wrangler.jsonc")),
+  "Repository readiness requires wrangler.jsonc.",
+);
+assert(
+  fs.existsSync(releaseManifestPath),
+  "Release candidate manifest is missing. Run pnpm freeze:matsuri:release first.",
+);
 assert(
   fs.existsSync(candidateSiteRoot) && fs.statSync(candidateSiteRoot).isDirectory(),
   "Frozen Matsuri site directory is missing.",
@@ -118,7 +122,7 @@ assert(releaseManifest.project_id === "yukue-series", "Unexpected release projec
 assert(releaseManifest.site_id === "matsuri", "Unexpected release site_id.");
 assert(
   releaseManifest.release_status ===
-    "repository-verified-canonical-origin-and-browser-search-verified-crawler-review-pending",
+    "repository-verified-crawler-reachability-verified-sitemap-submission-pending",
   `Unexpected release_status: ${String(releaseManifest.release_status)}`,
 );
 assert(
@@ -163,19 +167,41 @@ assert(
   "Release candidate does not preserve successful F2-22 canonical Search evidence.",
 );
 assert(
-  typeof releaseManifest.source_commit === "string" && /^[0-9a-f]{40}$/u.test(releaseManifest.source_commit),
+  releaseManifest.crawler_reachability_verification?.workflow_run_id === 29230233384 &&
+    releaseManifest.crawler_reachability_verification?.artifact_id === 8271238535 &&
+    releaseManifest.crawler_reachability_verification?.artifact_digest ===
+      "sha256:ae292efac09e25fc9ad0cefd0a7de3c40d4a38c28472734035d728ecd26f2506" &&
+    releaseManifest.crawler_reachability_verification?.robots_verified === true &&
+    releaseManifest.crawler_reachability_verification?.sitemap_verified === true &&
+    releaseManifest.crawler_reachability_verification?.self_canonical_verified === true &&
+    releaseManifest.crawler_reachability_verification?.indexing_directives_verified === true &&
+    releaseManifest.crawler_reachability_verification?.representative_user_agents_verified === true &&
+    releaseManifest.crawler_reachability_verification?.public_discovery_files_verified === true,
+  "Release candidate does not preserve successful F2-23 crawler evidence.",
+);
+assert(
+  typeof releaseManifest.source_commit === "string" &&
+    /^[0-9a-f]{40}$/u.test(releaseManifest.source_commit),
   `Release candidate source_commit is unavailable or invalid: ${String(releaseManifest.source_commit)}`,
 );
-assert(Array.isArray(releaseManifest.public_routes) && releaseManifest.public_routes.length > 0, "Release candidate has no public routes.");
 assert(
-  Array.isArray(releaseManifest.machine_readable_files) && releaseManifest.machine_readable_files.length > 0,
+  Array.isArray(releaseManifest.public_routes) && releaseManifest.public_routes.length > 0,
+  "Release candidate has no public routes.",
+);
+assert(
+  Array.isArray(releaseManifest.machine_readable_files) &&
+    releaseManifest.machine_readable_files.length > 0,
   "Release candidate has no machine-readable inventory.",
 );
 assert(
-  Array.isArray(releaseManifest.files) && releaseManifest.files.length === releaseManifest.artifact_file_count,
+  Array.isArray(releaseManifest.files) &&
+    releaseManifest.files.length === releaseManifest.artifact_file_count,
   "Release candidate file inventory does not match artifact_file_count.",
 );
-assert(Array.isArray(releaseManifest.completed_external_work), "Release candidate does not record completed external work.");
+assert(
+  Array.isArray(releaseManifest.completed_external_work),
+  "Release candidate does not record completed external work.",
+);
 
 for (const id of completedRepositoryIds) {
   assert(
@@ -196,8 +222,8 @@ for (const id of pendingExternalIds) {
   );
 }
 assert(
-  !releaseManifest.external_pending_work.some((value) => value.startsWith("F2-22")),
-  "Release candidate still records F2-22 as pending.",
+  !releaseManifest.external_pending_work.some((value) => value.startsWith("F2-23")),
+  "Release candidate still records F2-23 as pending.",
 );
 
 let totalBytes = 0;
@@ -214,15 +240,36 @@ for (const file of releaseManifest.files) {
   aggregateLines.push(`${file.path}\u0000${file.size_bytes}\u0000${file.sha256}`);
 }
 
-assert(totalBytes === releaseManifest.artifact_size_bytes, "Frozen artifact total byte count does not match the release manifest.");
-const aggregateDigest = crypto.createHash("sha256").update(aggregateLines.join("\n")).digest("hex");
-assert(aggregateDigest === releaseManifest.artifact_sha256, "Frozen artifact aggregate SHA-256 does not match the release manifest.");
+assert(
+  totalBytes === releaseManifest.artifact_size_bytes,
+  "Frozen artifact total byte count does not match the release manifest.",
+);
+const aggregateDigest = crypto
+  .createHash("sha256")
+  .update(aggregateLines.join("\n"))
+  .digest("hex");
+assert(
+  aggregateDigest === releaseManifest.artifact_sha256,
+  "Frozen artifact aggregate SHA-256 does not match the release manifest.",
+);
 
-const developmentSchedule = fs.readFileSync(path.join(repositoryRoot, "docs", "development-schedule.md"), "utf8");
-const projectStatus = fs.readFileSync(path.join(repositoryRoot, "docs", "project-status.md"), "utf8");
+const developmentSchedule = fs.readFileSync(
+  path.join(repositoryRoot, "docs", "development-schedule.md"),
+  "utf8",
+);
+const projectStatus = fs.readFileSync(
+  path.join(repositoryRoot, "docs", "project-status.md"),
+  "utf8",
+);
 const roadmap = fs.readFileSync(path.join(repositoryRoot, "docs", "roadmap.md"), "utf8");
-const freshnessAudit = fs.readFileSync(path.join(repositoryRoot, "docs", "matsuri-data-freshness-audit.md"), "utf8");
-const deploymentTopology = fs.readFileSync(path.join(repositoryRoot, "docs", "deployment-topology.md"), "utf8");
+const freshnessAudit = fs.readFileSync(
+  path.join(repositoryRoot, "docs", "matsuri-data-freshness-audit.md"),
+  "utf8",
+);
+const deploymentTopology = fs.readFileSync(
+  path.join(repositoryRoot, "docs", "deployment-topology.md"),
+  "utf8",
+);
 const activationAudit = fs.readFileSync(
   path.join(repositoryRoot, "docs", "audits", "matsuri-f2-20-canonical-activation-2026-07-12.md"),
   "utf8",
@@ -231,27 +278,40 @@ const searchAudit = fs.readFileSync(
   path.join(repositoryRoot, "docs", "audits", "matsuri-f2-22-canonical-search-2026-07-12.md"),
   "utf8",
 );
+const crawlerAudit = fs.readFileSync(
+  path.join(repositoryRoot, "docs", "audits", "matsuri-f2-23-crawler-reachability-2026-07-13.md"),
+  "utf8",
+);
 
 for (const id of [...completedRepositoryIds, "F2-15", ...completedExternalIds]) {
   assert(developmentSchedule.includes(id), `Development schedule is missing ${id}.`);
 }
 for (const id of pendingExternalIds) {
-  assert(developmentSchedule.includes(id), `Development schedule is missing pending external work ${id}.`);
+  assert(
+    developmentSchedule.includes(id),
+    `Development schedule is missing pending external work ${id}.`,
+  );
 }
 assert(
-  projectStatus.includes("F2-16 through F2-22 — completed"),
-  "Project status does not record F2-16 through F2-22 completion.",
+  projectStatus.includes("F2-16 through F2-23 — completed"),
+  "Project status does not record F2-16 through F2-23 completion.",
 );
 assert(
-  projectStatus.includes("F2-23 through F2-28 — operational hold"),
-  "Project status does not record the F2-23 boundary.",
+  projectStatus.includes("F2-24 through F2-28 — operational hold"),
+  "Project status does not record the F2-24 boundary.",
 );
 assert(
   projectStatus.includes("F2-M02 — Matsuri data freshness audit — completed"),
   "Project status does not record F2-M02 completion.",
 );
-assert(developmentSchedule.includes("F2-M02  Matsuri data freshness audit — completed"), "Development schedule does not record F2-M02 completion.");
-assert(roadmap.includes("F2-M02  Matsuri data freshness audit — completed"), "Roadmap does not record F2-M02 completion.");
+assert(
+  developmentSchedule.includes("F2-M02  Matsuri data freshness audit — completed"),
+  "Development schedule does not record F2-M02 completion.",
+);
+assert(
+  roadmap.includes("F2-M02  Matsuri data freshness audit — completed"),
+  "Roadmap does not record F2-M02 completion.",
+);
 assert(
   freshnessAudit.includes("**Status:** F2-M02 completed / routine date-triggered maintenance continues"),
   "Matsuri freshness audit does not record F2-M02 completion.",
@@ -284,11 +344,18 @@ assert(
   "Canonical Search audit is incomplete.",
 );
 assert(
-  roadmap.includes("External deployment through F2-22: **Completed**") &&
-    roadmap.includes("Crawler reachability: **Next gate at F2-23**"),
-  "Roadmap does not reflect F2-22 completion and the F2-23 next gate.",
+  crawlerAudit.includes("Run ID\n29230233384") &&
+    crawlerAudit.includes("Conclusion\nsuccess") &&
+    crawlerAudit.includes("Artifact ID\n8271238535") &&
+    crawlerAudit.includes("F2-23  robots, canonical, sitemap, crawler-reachability review — completed"),
+  "Crawler reachability audit is incomplete.",
+);
+assert(
+  roadmap.includes("External deployment through F2-23: **Completed**") &&
+    roadmap.includes("Sitemap submission and indexability: **Next gate at F2-24**"),
+  "Roadmap does not reflect F2-23 completion and the F2-24 next gate.",
 );
 
 console.log(
-  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-22 and F2-M02 are complete; canonical origin verified by run 29191904624; browser Search verified by run 29193201911; F2-23 through F2-28 remain pending.`,
+  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-23 and F2-M02 are complete; crawler reachability verified by run 29230233384; F2-24 through F2-28 remain pending.`,
 );
