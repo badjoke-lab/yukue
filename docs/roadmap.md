@@ -2,80 +2,27 @@
 
 **Status:** Current phase-and-gate roadmap
 
-This roadmap uses phases and gates rather than fixed daily deadlines. Detailed implementation order is defined in `development-schedule.md`; current position is defined in `project-status.md`.
+## Phases 0–8
 
-## Phase 0 — Foundation
-
-Goal: monorepo, portal skeleton, Matsuri skeleton, shared packages, and CI baseline.
-
-Status: **Completed**
-
-## Phase 1 — Project Reference Documents
-
-Goal: public-safe implementation references, policies, roadmap, schedule, status, and decision log.
-
-Status: **Completed**
-
-## Phase 2 — UI Direction Review
-
-Goal: accepted Home H1, Detail C, visual direction, typography, palette, tokens, and UI foundation.
-
-Status: **Completed**
-
-## Phase 3 — Data Core
-
-Goal: common and Matsuri schemas, cross-record validation, Place and Image contracts, and representative canonical data.
-
-Status: **Completed**
-
-## Phase 4 — Public Projection
-
-Goal: approved-only deterministic HTML-facing and JSON-facing projection with private-field leak prevention.
-
-Status: **Completed**
-
-## Phase 5 — UI Foundation
-
-Goal: shared responsive shell, navigation, state, history, relation, evidence, place, and image patterns.
-
-Status: **Completed**
-
-## Phase 6 — Matsuri MVP Surfaces
-
-Goal: Projection-backed Home, Detail, Browse, Search, Reference, Data, Methodology, and Status surfaces.
-
-Status: **Completed**
-
-## Phase 7 — Search, Browse, and Machine-readable Layer
-
-Goal: Pagefind Search, initial filters, public JSON feeds, manifest, version, discovery text, and sitemap.
-
-Status: **Completed**
-
-## Phase 8 — Initial Corpus Expansion
-
-Goal: balanced reviewed coverage across identity, Current State, Occurrence history, Change Events, Relations, Designations, Sources, and Evidence.
-
-Status: **Completed through F1 batches 01–10**
+```text
+Phase 0  Foundation — completed
+Phase 1  Project reference documents — completed
+Phase 2  UI direction — completed
+Phase 3  Data core — completed
+Phase 4  Public Projection — completed
+Phase 5  UI foundation — completed
+Phase 6  Matsuri MVP surfaces — completed
+Phase 7  Search, Browse, and machine-readable layer — completed
+Phase 8  F1 corpus expansion batches 01–10 — completed
+```
 
 ## Phase 9 — Launch Preparation
-
-Phase 9 is implemented as F2 work packages.
 
 ### Repository baselines
 
 ```text
-F2-01 through F2-15
-```
-
-Status: **Completed**
-
-The repository-ready candidate is reproducible, content-addressed, and verified. Active production evidence is recorded separately from the origin-neutral repository artifact.
-
-### Repository visual and data maintenance
-
-```text
-F2-M01  exhaustive desktop/mobile full-page screenshot workflow — completed
+F2-01 through F2-15 — completed
+F2-M01  full-page screenshot workflow — completed
 F2-M02  Matsuri data freshness audit — completed
 ```
 
@@ -89,58 +36,59 @@ stale external-link candidates        0
 Relations missing Evidence            0
 ```
 
-### External deployment and production verification
+### External deployment and verification
 
 ```text
-F2-16  Cloudflare Workers Builds connection
-F2-17  first Workers Static Assets deployment and reachable URL
-F2-18  deployed-origin smoke verification
-F2-19  exact canonical Matsuri hostname decision
-F2-20  Custom Domain activation, canonical build, HTTPS verification
-F2-21  canonical manifest and sitemap verification
-F2-22  browser Search verification on canonical origin
-F2-23  crawler-reachability review
-F2-24  sitemap submission and indexability check
-F2-25  Web Analytics activation
-F2-26  post-activation deployment
-F2-27  production traffic verification
-F2-28  final F2 Launch Gate
+F2-16  Workers Builds connection — completed
+F2-17  first static deployment — completed
+F2-18  deployed-origin verification — completed
+F2-19  canonical hostname decision — completed
+F2-20  Custom Domain and HTTPS — completed
+F2-21  canonical manifest and sitemap — completed
+F2-22  browser Search verification — completed
+F2-23  crawler reachability — completed
+F2-24  sitemap submission and indexability check — next
+F2-25  Web Analytics activation — hold
+F2-26  post-activation deployment — hold
+F2-27  production traffic verification — hold
+F2-28  final F2 Launch Gate — hold
 ```
 
-External deployment through F2-22: **Completed**
+External deployment through F2-23: **Completed**
 
-Crawler reachability: **Next gate at F2-23**
+Sitemap submission: **Next gate at F2-24**
 
-Verified canonical baseline:
+Verified production baseline:
 
 ```text
-Worker                    matsuri-yukue
-Canonical origin          https://matsuri-yukue.badjoke-lab.com
-Canonical origin run      29191904624 — success
-Canonical Search run      29193201911 — success
-Canonical Search artifact 8260207484
+Worker                     matsuri-yukue
+Canonical origin           https://matsuri-yukue.badjoke-lab.com
+Canonical origin run       29191904624 — success
+Canonical Search run       29193201911 — success
+Crawler reachability run   29230475619 — success
+Sitemap routes             20 / 20
+Representative UA checks   28 / 28
+Discovery checks           12 / 12
 ```
-
-The canonical Search run exercised exact-name queries, structured filters, no-result behavior, and result navigation in desktop and mobile Chromium without page or console errors.
 
 The portal and Matsuri remain separate applications and Workers. The portal hostname remains planned and is not attached to the Matsuri Worker.
 
 Pending:
 
 ```text
-F2-23 through F2-28
+F2-24 through F2-28
 ```
 
-F2-23 reviews robots, canonical, sitemap, and crawler reachability. It does not submit the sitemap or claim indexation. F2-24 through F2-28 remain blocked until F2-23 passes.
+F2-24 submits the exact canonical sitemap through an accepted search-engine owner account and records the submission result. Submission does not itself prove page indexation.
 
 ## Phase 10 — Stabilization
 
-After F2-28, observe indexation, search impressions, Search queries, corrections, public JSON access, referral signs, inquiries, API interest, and maintenance burden.
+After F2-28, observe indexation, search impressions, Search queries, corrections, public JSON access, referrals, inquiries, and maintenance burden.
 
 Status: **Not started — requires F2-28**
 
 ## Phase 11 — Portal and next-site gates
 
-Review Matsuri maintenance burden, shared-package reuse, cross-site seed quality, Relation value, update pace, and external demand before formal portal deployment or adding the next public specialist application.
+Review Matsuri operations, shared-package reuse, cross-site seed quality, Relation value, update pace, and external demand before formal portal deployment or adding the next public specialist application.
 
 Status: **Deferred until stabilization evidence exists and an explicit gate review is completed**
