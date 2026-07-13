@@ -1,6 +1,6 @@
 # Deployment
 
-**Status:** F2-16 through F2-21 completed / F2-22 browser Search verification next
+**Status:** F2-16 through F2-22 completed / F2-23 crawler review next
 
 ## Verified production deployment
 
@@ -17,35 +17,27 @@ Permanent non-canonical Workers origin
 https://matsuri-yukue.badjoke-lab.workers.dev/
 ```
 
-Canonical activation evidence:
+Verified external evidence:
 
 ```text
-Activation merge
-f978bc50a1ab51964687ec0457a448dc37b2aaf9
-
-Verification workflow
-Verify Matsuri canonical origin gate
-
-Verification run
-29191904624 — success
-
-Successful attempt
-1 of 18
+Canonical origin run   29191904624 — success
+Canonical Search run   29227591583 — success
+Search artifact ID     8270324780
+Browser                Chromium
 ```
 
-The external verifier confirmed HTTPS, required public routes, Pagefind asset reachability, public JSON, exact `manifest.site_origin`, and canonical sitemap locations.
-
-Detailed evidence:
+Evidence records:
 
 ```text
 docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
+docs/audits/matsuri-f2-22-browser-search-2026-07-13.md
 ```
 
 ## Public topology
 
 ```text
 yukue.badjoke-lab.com          portal — planned
-matsuri-yukue.badjoke-lab.com  Matsuri — canonical origin verified
+matsuri-yukue.badjoke-lab.com  Matsuri — canonical origin and Search verified
 ```
 
 ```text
@@ -69,52 +61,46 @@ reviewed canonical data
 
 No Astro Cloudflare SSR adapter, Worker runtime entry point, runtime binding, D1 canonical database, KV dependency, or runtime ingestion is required.
 
-## Wrangler contract
+## Wrangler and Workers Builds contract
 
 ```text
-name                      matsuri-yukue
-assets.directory          ./apps/matsuri/dist
-main                      absent
-routes[0].pattern         matsuri-yukue.badjoke-lab.com
-routes[0].custom_domain   true
+name                         matsuri-yukue
+assets.directory             ./apps/matsuri/dist
+main                         absent
+routes[0].pattern            matsuri-yukue.badjoke-lab.com
+routes[0].custom_domain      true
+production branch            main
+build command                pnpm build:matsuri:workers
+deploy command               npx wrangler deploy
+non-production command       npx wrangler versions upload
+Node.js                      24
+pnpm                         11.10.0
 ```
 
-The Custom Domain is version-controlled. Cloudflare creates and maintains the matching DNS and certificate state.
-
-## Workers Builds contract
-
-```text
-Repository                     badjoke-lab/yukue
-Production branch              main
-Root directory                 repository root
-Build command                  pnpm build:matsuri:workers
-Deploy command                 npx wrangler deploy
-Non-production deploy command  npx wrangler versions upload
-Node.js                        24
-pnpm                           11.10.0
-```
-
-`scripts/build-matsuri-workers.mjs` loads the verified canonical origin from `config/yukue-deployment-topology.json` and passes:
+`scripts/build-matsuri-workers.mjs` loads the verified canonical origin from `config/yukue-deployment-topology.json` and injects:
 
 ```text
 MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
 ```
 
-to the static build child process.
-
-## Dual artifact verification
-
-The repository gate verifies:
+## Verification layers
 
 ```text
-Workers production artifact
-- canonical origin configured
-- manifest.site_origin present
-- canonical sitemap locations present
+Canonical HTTP verification
+- HTTPS
+- required routes and assets
+- manifest.site_origin
+- canonical sitemap locations
+
+Canonical browser Search verification
+- 脚折雨乞 exact result and detail navigation
+- 相馬野馬追 exact result
+- collision-resistant zero-result state
+- zero page and console errors
 
 Repository release candidate
 - origin-neutral artifact copy
-- separately records the verified canonical origin and workflow evidence
+- separately records verified external evidence
 ```
 
 ## Completed external work
@@ -126,20 +112,18 @@ F2-18  workers.dev smoke verification — completed
 F2-19  exact canonical hostname decision — completed
 F2-20  Custom Domain activation, canonical build, HTTPS verification — completed
 F2-21  canonical manifest and sitemap verification — completed
+F2-22  browser Pagefind Search verification — completed
 ```
 
 ## Remaining sequence
 
 ```text
-F2-22  browser Pagefind Search verification — next
-F2-23  crawler-reachability review — hold
+F2-23  robots, canonical, sitemap, crawler-reachability review — next
 F2-24  sitemap submission and indexability check — hold
 F2-25  Web Analytics activation — hold
 F2-26  post-activation deployment — hold
 F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
-
-Do not treat fetched Search HTML and Pagefind assets as proof of interactive browser Search. F2-22 must submit queries and follow results in Chromium.
 
 Do not submit the sitemap before F2-24 or enable Analytics before F2-25.
