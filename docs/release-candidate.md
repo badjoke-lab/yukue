@@ -1,6 +1,6 @@
 # Matsuri Release Candidate
 
-**Status:** Repository artifact verified / canonical origin verified / browser Search pending
+**Status:** Repository artifact verified / canonical Search verified / crawler review pending
 
 ## Purpose
 
@@ -11,7 +11,7 @@ pnpm verify:release
 pnpm freeze:matsuri:release
 ```
 
-The frozen site is intentionally origin-neutral. Active deployment state is recorded separately in release metadata and external verification evidence.
+The frozen site is intentionally origin-neutral. Active deployment and browser Search evidence are recorded separately in release metadata.
 
 ## Output
 
@@ -30,26 +30,33 @@ The frozen site is intentionally origin-neutral. Active deployment state is reco
 - dataset and schema versions,
 - origin-neutral artifact mode,
 - verified canonical hostname and origin,
-- canonical verification workflow evidence,
-- completed external work through F2-21,
-- pending external work from F2-22,
+- canonical origin workflow evidence,
+- canonical Search workflow and artifact evidence,
+- completed external work through F2-22,
+- pending external work from F2-23,
 - public record counts and route inventory,
 - per-file and aggregate SHA-256 digests.
 
 Current status:
 
 ```text
-repository-verified-canonical-origin-verified-browser-search-pending
+repository-verified-canonical-search-verified-crawler-review-pending
 ```
 
-Canonical deployment metadata:
+Verified external metadata:
 
 ```text
 canonical_origin
 https://matsuri-yukue.badjoke-lab.com
 
-canonical verification workflow run
+canonical origin verification run
 29191904624
+
+browser Search verification run
+29227591583
+
+browser Search artifact ID
+8270324780
 ```
 
 Artifact mode:
@@ -63,11 +70,11 @@ The copied artifact omits `manifest.site_origin` because it is the reproducible 
 ## Completed and pending work
 
 ```text
-F2-16 through F2-21  completed
-F2-22 through F2-28  pending
+F2-16 through F2-22  completed
+F2-23 through F2-28  pending
 ```
 
-The next external gate is browser Pagefind Search verification on the canonical origin.
+The next external gate is crawler reachability and robots/canonical/sitemap review.
 
 ## Reproduction
 
@@ -76,7 +83,7 @@ pnpm install --no-frozen-lockfile
 pnpm gate:matsuri:repository
 ```
 
-Compare the resulting artifact digest, per-file hashes, canonical verification metadata, and status fields with the CI artifact.
+Compare the resulting artifact digest, per-file hashes, canonical and Search verification metadata, and status fields with the CI artifact.
 
 ## Relationship to Workers Builds
 
@@ -86,4 +93,4 @@ Workers Builds creates the production artifact from the same repository with:
 MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
 ```
 
-The frozen origin-neutral candidate remains useful for reproducibility, while the verified external record proves the active Custom Domain and canonical output.
+The frozen origin-neutral candidate remains useful for reproducibility, while the verified external records prove the active Custom Domain, canonical output, and interactive Search behavior.
