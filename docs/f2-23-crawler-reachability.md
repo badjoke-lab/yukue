@@ -1,6 +1,6 @@
 # F2-23 Matsuri Crawler Reachability
 
-**Status:** Crawler surface implemented / canonical metadata correction prepared / external result pending
+**Status:** Completed and externally verified
 
 ## Objective
 
@@ -10,98 +10,84 @@ Verify that the canonical Matsuri production surface is reachable and indexable 
 https://matsuri-yukue.badjoke-lab.com
 ```
 
-F2-23 follows the successful canonical-origin and browser Search gates. It verifies crawler-facing policy and live output without submitting the sitemap or claiming indexation.
+F2-23 verifies crawler-facing policy and live output without submitting the sitemap or claiming indexation.
 
-## Public robots baseline
+## Canonical crawler surface
 
-The static build generates:
+Production output includes:
 
 ```text
 /robots.txt
+/sitemap.xml
 ```
 
-Canonical production output must contain:
+`robots.txt` allows the public site and advertises:
 
 ```text
-User-agent: *
-Allow: /
-
 Sitemap: https://matsuri-yukue.badjoke-lab.com/sitemap.xml
 ```
 
-The origin-neutral repository artifact keeps the allow policy but omits the absolute Sitemap directive because no production origin is active in that artifact.
-
-`robots.txt` is a publication-policy signal. It is not authentication, authorization, rate limiting, or a private-route security boundary.
-
-## Canonical HTML metadata
-
-The production build maps `MATSURI_PUBLIC_ORIGIN` to Astro's `site` setting through:
-
-```text
-apps/matsuri/astro.config.mjs
-```
-
-The shared `PageShell` emits on every public route:
+Every public sitemap route emits:
 
 ```text
 <link rel="canonical" href="<exact canonical route URL>">
 <meta name="robots" content="index,follow,...">
 ```
 
-When no approved production origin is configured, the same shell emits no canonical link and uses:
+Origin-neutral repository artifacts emit no canonical link and use `noindex,nofollow`.
 
-```text
-noindex,nofollow
-```
-
-This prevents an origin-neutral artifact from presenting itself as an alternative production origin.
-
-Static validation command:
+Static validation:
 
 ```text
 pnpm check:matsuri:canonical-metadata
 ```
 
-The repository gate runs it in both canonical and origin-neutral build modes before external deployment.
-
-## Verification command
+## External verification evidence
 
 ```text
-MATSURI_CHECK_ORIGIN=https://matsuri-yukue.badjoke-lab.com \
-  pnpm check:matsuri:crawler-reachability
+Workflow
+Verify Matsuri crawler reachability
+
+Run ID
+29230233384
+
+Conclusion
+success
+
+Artifact ID
+8271238535
+
+Artifact digest
+sha256:ae292efac09e25fc9ad0cefd0a7de3c40d4a38c28472734035d728ecd26f2506
 ```
 
-The command writes:
+Detailed audit:
 
 ```text
-artifacts/matsuri-crawler-reachability/report.json
-artifacts/matsuri-crawler-reachability/report.md
+docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md
 ```
 
-## Required checks
+## Verified scope
 
 ### robots.txt
 
-- HTTP success and non-empty text response,
+- successful response,
 - `User-agent: *`,
-- `Allow: /`,
+- public `Allow: /`,
 - no complete-site `Disallow: /`,
 - exact canonical Sitemap directive.
 
-### sitemap.xml
+### sitemap and HTML
 
-- HTTP success and XML response,
-- at least one location,
-- no duplicate locations,
-- canonical origin only,
+- valid XML response,
+- unique canonical-origin locations,
 - no query strings or fragments,
-- every sitemap URL responds with indexable HTML,
-- every sitemap URL has an exact self-canonical link,
-- no blocking `meta robots` or `X-Robots-Tag` directive.
+- successful responses for sitemap routes,
+- exact self-canonical links,
+- no blocking `meta robots` or `X-Robots-Tag`,
+- no challenge pages.
 
 ### Representative User-Agent labels
-
-The external gate repeats representative public-page requests with these labels:
 
 ```text
 yukue-crawler-reachability/1.0
@@ -110,11 +96,9 @@ bingbot
 OAI-SearchBot
 ```
 
-This detects explicit User-Agent-dependent blocking from the public runner network. It does not prove access from a crawler operator's own network or verified IP ranges.
+All representative requests succeeded from the GitHub-hosted runner network. This does not guarantee future crawling or prove access from a crawler operator's verified IP ranges.
 
 ### Public discovery files
-
-The gate verifies public access to:
 
 ```text
 /robots.txt
@@ -125,32 +109,15 @@ The gate verifies public access to:
 /data/manifest.json
 ```
 
-## Evidence workflow
+## Gate result
 
 ```text
-Verify Matsuri crawler reachability
+F2-23  robots, canonical, sitemap, crawler-reachability review — completed
+F2-24  search-engine sitemap submission and indexability check — next
 ```
 
-The workflow runs after relevant changes reach `main`, retries while Workers Builds deploys, and uploads the JSON and Markdown report for 30 days.
+## Boundary
 
-## Completion boundary
+F2-23 does not establish sitemap submission, search-engine ownership, indexation, impressions, Analytics activation, production traffic, or final F2 launch completion.
 
-F2-23 is complete only after:
-
-- the canonical production deployment contains the generated robots policy,
-- every sitemap route has an exact self-canonical link and indexable robots metadata,
-- the hosted crawler-reachability workflow succeeds,
-- the workflow run and artifact are recorded in an audit document,
-- release metadata and repository governance advance to F2-24.
-
-## Remaining sequence
-
-```text
-F2-24  search-engine sitemap submission and indexability check
-F2-25  Cloudflare Web Analytics activation
-F2-26  post-activation deployment
-F2-27  production traffic verification
-F2-28  final F2 Launch Gate
-```
-
-F2-23 does not perform any of those actions.
+Those remain F2-24 through F2-28.
