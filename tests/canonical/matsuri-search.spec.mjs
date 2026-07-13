@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 const canonicalOrigin = "https://matsuri-yukue.badjoke-lab.com";
+const zeroResultQuery = "qxjv9072416358zmkp";
 
 function observeBrowserErrors(page) {
   const errors = [];
@@ -92,7 +93,7 @@ test.describe("Matsuri canonical Pagefind Search", () => {
       page.locator("#search-result-list a").filter({ hasText: "相馬野馬追" }).first(),
     ).toBeVisible();
 
-    await submitQuery(page, "該当記録なし-f2-22-browser-gate");
+    await submitQuery(page, zeroResultQuery);
     await expect(page.locator("#search-status")).toHaveText(
       "条件に一致する記録はありません。検索語や絞り込み条件を変更してください。",
     );
