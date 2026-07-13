@@ -28,7 +28,21 @@
         "verified_origin": "https://matsuri-yukue.badjoke-lab.com",
         "https_reachable": true,
         "manifest_origin_verified": true,
-        "canonical_sitemap_verified": true
+        "canonical_sitemap_verified": true,
+        "crawler_reachability": {
+          "workflow_name": "Verify Matsuri crawler reachability",
+          "workflow_run_id": 29230233384,
+          "artifact_id": 8271238535,
+          "artifact_name": "matsuri-crawler-reachability-781a6d11c17db2214f98c8607089c7039ce24b5f",
+          "artifact_digest": "sha256:ae292efac09e25fc9ad0cefd0a7de3c40d4a38c28472734035d728ecd26f2506",
+          "robots_verified": true,
+          "sitemap_verified": true,
+          "self_canonical_verified": true,
+          "indexing_directives_verified": true,
+          "representative_user_agents_verified": true,
+          "public_discovery_files_verified": true,
+          "verified_at": "2026-07-13"
+        }
       }
     },
     {
