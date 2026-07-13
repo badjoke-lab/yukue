@@ -21,6 +21,7 @@
     "check:matsuri:browser": "playwright test --config=playwright.config.mjs",
     "check:matsuri:deployed": "node scripts/check-matsuri-deployed.mjs",
     "check:matsuri:canonical": "node scripts/check-matsuri-deployed.mjs --canonical",
+    "check:matsuri:canonical-search": "node scripts/verify-matsuri-canonical-search.mjs",
     "capture:matsuri:screenshots": "node scripts/capture-matsuri-screenshots.mjs",
     "audit:matsuri:screenshots": "node scripts/audit-matsuri-screenshots.mjs",
     "audit:matsuri:freshness": "node scripts/audit-matsuri-data-freshness.mjs",
