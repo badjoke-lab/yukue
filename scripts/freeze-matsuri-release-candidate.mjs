@@ -37,6 +37,8 @@ const canonicalSearchVerification = {
   result_navigation_verified: true,
   runtime_errors_absent: true,
 };
+const crawlerReachabilityVerification =
+  matsuriTopology?.verification?.crawler_reachability;
 
 if (!matsuriTopology) {
   throw new Error("Accepted deployment topology is missing the Matsuri site.");
@@ -51,6 +53,20 @@ if (
   matsuriTopology.verification?.canonical_sitemap_verified !== true
 ) {
   throw new Error("Matsuri canonical verification evidence is incomplete.");
+}
+if (
+  crawlerReachabilityVerification?.workflow_run_id !== 29230233384 ||
+  crawlerReachabilityVerification?.artifact_id !== 8271238535 ||
+  crawlerReachabilityVerification?.artifact_digest !==
+    "sha256:ae292efac09e25fc9ad0cefd0a7de3c40d4a38c28472734035d728ecd26f2506" ||
+  crawlerReachabilityVerification?.robots_verified !== true ||
+  crawlerReachabilityVerification?.sitemap_verified !== true ||
+  crawlerReachabilityVerification?.self_canonical_verified !== true ||
+  crawlerReachabilityVerification?.indexing_directives_verified !== true ||
+  crawlerReachabilityVerification?.representative_user_agents_verified !== true ||
+  crawlerReachabilityVerification?.public_discovery_files_verified !== true
+) {
+  throw new Error("Matsuri F2-23 crawler verification evidence is incomplete.");
 }
 
 const completedRepositoryWork = [
@@ -72,10 +88,10 @@ const completedExternalWork = [
   "F2-20 custom-domain attachment, canonical build, and HTTPS verification",
   "F2-21 canonical manifest and sitemap verification",
   "F2-22 browser Pagefind Search verification on canonical production origin",
+  "F2-23 robots, canonical, sitemap, and crawler-reachability review",
 ];
 
 const externalPendingWork = [
-  "F2-23 robots, canonical, sitemap, and crawler-reachability review",
   "F2-24 search-engine sitemap submission and indexability check",
   "F2-25 enable Cloudflare Web Analytics",
   "F2-26 deploy after Analytics activation",
@@ -197,7 +213,7 @@ const releaseManifest = {
   dataset_version: version.dataset_version,
   schema_version: version.schema_version,
   release_status:
-    "repository-verified-canonical-origin-and-browser-search-verified-crawler-review-pending",
+    "repository-verified-crawler-reachability-verified-sitemap-submission-pending",
   artifact_origin_mode: "origin-neutral-repository-candidate",
   canonical_hostname_decision: matsuriTopology.canonical_hostname,
   canonical_origin_decision: matsuriTopology.canonical_origin,
@@ -205,6 +221,7 @@ const releaseManifest = {
   canonical_origin: matsuriTopology.canonical_origin,
   canonical_origin_verification: matsuriTopology.verification,
   canonical_search_verification: canonicalSearchVerification,
+  crawler_reachability_verification: crawlerReachabilityVerification,
   verification_command: "pnpm verify:release",
   completed_repository_work: completedRepositoryWork,
   completed_external_work: completedExternalWork,
@@ -229,7 +246,7 @@ fs.writeFileSync(
 
 const summary =
   `# Matsuri Release Candidate\n\n` +
-  `Status: **repository verified; canonical origin verified; browser Search verified; crawler review pending**\n\n` +
+  `Status: **repository verified; canonical origin, browser Search, and crawler reachability verified; sitemap submission pending**\n\n` +
   `- Source commit: \`${releaseManifest.source_commit ?? "unavailable"}\`\n` +
   `- Dataset version: \`${releaseManifest.dataset_version}\`\n` +
   `- Schema version: \`${releaseManifest.schema_version}\`\n` +
@@ -241,13 +258,14 @@ const summary =
   `- Verified canonical origin: \`${releaseManifest.canonical_origin}\`\n` +
   `- Canonical verification workflow run: \`${matsuriTopology.verification.workflow_run_id}\`\n` +
   `- Canonical Search workflow run: \`${canonicalSearchVerification.workflow_run_id}\`\n` +
-  `- Next external gate: F2-23 crawler-reachability review\n\n` +
+  `- Crawler reachability workflow run: \`${crawlerReachabilityVerification.workflow_run_id}\`\n` +
+  `- Next external gate: F2-24 sitemap submission and indexability check\n\n` +
   `The copied site under \`matsuri-site/\` is the origin-neutral static artifact that passed \`pnpm verify:release\`. ` +
-  `The active canonical deployment and browser Search result are recorded separately through verified external evidence. ` +
-  `F2-16 through F2-22 are complete. F2-23 through F2-28 remain external work.\n`;
+  `The active canonical deployment, browser Search, and crawler reachability are recorded separately through verified external evidence. ` +
+  `F2-16 through F2-23 are complete. F2-24 through F2-28 remain external work.\n`;
 
 fs.writeFileSync(path.join(candidateRoot, "README.md"), summary, "utf8");
 
 console.log(
-  `Matsuri release candidate frozen: ${publicRoutes.length} routes, ${fileEntries.length} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${aggregateHash}; canonical origin verified by run ${matsuriTopology.verification.workflow_run_id}; browser Search verified by run ${canonicalSearchVerification.workflow_run_id}; F2-23 crawler review remains pending.`,
+  `Matsuri release candidate frozen: ${publicRoutes.length} routes, ${fileEntries.length} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${aggregateHash}; crawler reachability verified by run ${crawlerReachabilityVerification.workflow_run_id}; F2-24 sitemap submission remains pending.`,
 );
