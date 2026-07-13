@@ -82,7 +82,7 @@ The successful browser run recorded:
 ```text
 browser errors     0
 page errors        0
-console errors     0
+console errors  0
 ```
 
 ## Retained evidence
