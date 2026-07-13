@@ -1,17 +1,17 @@
 # Matsuri Release Candidate
 
-**Status:** Repository artifact verified / canonical origin verified / browser Search verified / crawler review pending
+**Status:** Repository artifact verified / canonical origin, browser Search, and crawler reachability verified / sitemap submission pending
 
 ## Purpose
 
-After repository verification succeeds, the Matsuri static site is frozen as an immutable CI artifact for reproduction and comparison.
+The Matsuri static site is frozen as an origin-neutral, content-addressed CI artifact for reproduction and comparison.
 
 ```text
 pnpm verify:release
 pnpm freeze:matsuri:release
 ```
 
-The frozen site is intentionally origin-neutral. Active deployment and browser-verification state are recorded separately in release metadata and external evidence.
+Active production evidence is recorded separately in release metadata.
 
 ## Output
 
@@ -26,37 +26,30 @@ The frozen site is intentionally origin-neutral. Active deployment and browser-v
 
 `release-candidate.json` records:
 
-- source commit,
-- dataset and schema versions,
+- source commit and data versions,
 - origin-neutral artifact mode,
-- verified canonical hostname and origin,
+- verified canonical origin,
 - canonical-origin workflow evidence,
-- canonical Search browser workflow and artifact evidence,
-- completed external work through F2-22,
-- pending external work from F2-23,
-- public record counts and route inventory,
-- per-file and aggregate SHA-256 digests.
+- browser Search workflow and artifact evidence,
+- crawler-reachability workflow and artifact evidence,
+- completed external work through F2-23,
+- pending external work from F2-24,
+- route, file, byte, and SHA-256 inventories.
 
 Current status:
 
 ```text
-repository-verified-canonical-origin-and-browser-search-verified-crawler-review-pending
+repository-verified-canonical-origin-browser-search-and-crawler-reachability-verified-sitemap-submission-pending
 ```
 
-Canonical deployment metadata:
+External evidence:
 
 ```text
-canonical_origin
-https://matsuri-yukue.badjoke-lab.com
-
-canonical origin workflow run
-29191904624
-
-canonical Search workflow run
-29193201911
-
-canonical Search artifact ID
-8260207484
+Canonical origin run       29191904624
+Canonical Search run       29193201911
+Canonical Search artifact  8260207484
+Crawler reachability run   29230475619
+Crawler artifact           8271321515
 ```
 
 Artifact mode:
@@ -65,16 +58,16 @@ Artifact mode:
 origin-neutral-repository-candidate
 ```
 
-The copied artifact omits `manifest.site_origin` because it is the reproducible repository candidate. The production Workers artifact is built separately with the verified canonical origin.
+The copied artifact omits active-origin canonical claims and uses origin-neutral indexing metadata. The production Workers artifact is built separately with the verified canonical origin, self-canonical links, and index/follow metadata.
 
 ## Completed and pending work
 
 ```text
-F2-16 through F2-22  completed
-F2-23 through F2-28  pending
+F2-16 through F2-23  completed
+F2-24 through F2-28  pending
 ```
 
-The next external gate is crawler reachability. Sitemap submission remains F2-24 and Analytics remains F2-25.
+The next external gate is sitemap submission and indexability checking. Analytics remains F2-25.
 
 ## Reproduction
 
@@ -83,14 +76,4 @@ pnpm install --no-frozen-lockfile
 pnpm gate:matsuri:repository
 ```
 
-Compare the resulting artifact digest, per-file hashes, canonical-origin metadata, canonical Search metadata, and status fields with the CI artifact.
-
-## Relationship to Workers Builds
-
-Workers Builds creates the production artifact from the same repository with:
-
-```text
-MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
-```
-
-The frozen origin-neutral candidate remains useful for reproducibility, while the verified external records prove the active Custom Domain, canonical output, and interactive browser Search behavior.
+Compare artifact hashes, canonical-origin metadata, browser Search evidence, crawler evidence, and status fields with CI.
