@@ -1,0 +1,74 @@
+name: Verify Matsuri canonical Search
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-canonical-search.yml"
+      - "playwright.canonical.config.mjs"
+      - "tests/canonical/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "docs/f2-22-browser-search-verification.md"
+      - "docs/project-status.md"
+      - "docs/development-schedule.md"
+      - "docs/roadmap.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-matsuri-canonical-search-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify-canonical-search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      MATSURI_CANONICAL_ORIGIN: https://matsuri-yukue.badjoke-lab.com
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        run: npm install --global pnpm@11.10.0
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Install Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Verify canonical Pagefind Search
+        run: pnpm check:matsuri:canonical-search
+
+      - name: Upload browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: matsuri-canonical-search-${{ github.sha }}
+          path: |
+            test-results/canonical/
+            playwright-report/canonical/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Write verification summary
+        if: always()
+        shell: bash
+        run: |
+          echo "## Matsuri canonical Search verification" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Origin: $MATSURI_CANONICAL_ORIGIN" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Browser: Chromium" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Queries: 脚折雨乞, 相馬野馬追, zero-result case" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Result navigation: required" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Commit: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
