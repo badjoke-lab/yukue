@@ -48,6 +48,7 @@ const checks = [
   ["/data/occurrences.json", "application/json"],
   ["/llms.txt", "text/plain"],
   ["/ai.txt", "text/plain"],
+  ["/robots.txt", "text/plain"],
   ["/sitemap.xml", "xml"],
 ];
 
@@ -113,6 +114,17 @@ if (!searchHtml.toLowerCase().includes("pagefind")) {
   throw new Error("Search page does not reference Pagefind assets");
 }
 
+const robots = bodies.get("/robots.txt");
+if (!/^User-agent:\s*\*\s*$/imu.test(robots)) {
+  throw new Error("robots.txt is missing User-agent: *");
+}
+if (!/^Allow:\s*\/\s*$/imu.test(robots)) {
+  throw new Error("robots.txt is missing Allow: /");
+}
+if (/^Disallow:\s*\/\s*$/imu.test(robots)) {
+  throw new Error("robots.txt blocks the complete public site");
+}
+
 const sitemap = bodies.get("/sitemap.xml");
 if (!sitemap.includes("<urlset")) {
   throw new Error("Sitemap does not contain a <urlset> element");
@@ -122,6 +134,13 @@ if (canonicalMode) {
   if (manifest.site_origin !== origin) {
     throw new Error(
       `Manifest site_origin mismatch: ${String(manifest.site_origin)} (expected ${origin})`,
+    );
+  }
+
+  const expectedSitemapDirective = `Sitemap: ${origin}/sitemap.xml`;
+  if (!robots.split(/\r?\n/u).some((line) => line.trim() === expectedSitemapDirective)) {
+    throw new Error(
+      `robots.txt is missing exact canonical directive: ${expectedSitemapDirective}`,
     );
   }
 
@@ -146,6 +165,7 @@ if (canonicalMode) {
   }
 
   console.log(`canonical origin verified: ${origin}`);
+  console.log(`canonical robots Sitemap verified: ${origin}/sitemap.xml`);
   console.log(`canonical sitemap entries verified: ${locations.length}`);
 }
 
