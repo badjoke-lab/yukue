@@ -29,6 +29,28 @@
         "https_reachable": true,
         "manifest_origin_verified": true,
         "canonical_sitemap_verified": true
+      },
+      "search_verification": {
+        "provider": "github_actions",
+        "workflow_name": "Verify Matsuri canonical browser Search",
+        "workflow_run_id": 29227617530,
+        "verified_at": "2026-07-13T05:58:53.795Z",
+        "verified_origin": "https://matsuri-yukue.badjoke-lab.com",
+        "browser": "chromium",
+        "exact_query": "脚折雨乞",
+        "exact_result_count": 1,
+        "filtered_query": "雨乞",
+        "filtered_prefecture": "埼玉県",
+        "filtered_result_count": 1,
+        "empty_result_count": 0,
+        "destination_path": "/festivals/suneori-amagoi/",
+        "page_error_count": 0,
+        "console_error_count": 0,
+        "application_request_failure_count": 0,
+        "screenshot_count": 4,
+        "artifact_id": 8270337394,
+        "artifact_name": "matsuri-f2-22-browser-search-2fd5f4f5f1716d8f72e55f661eaa2c17f27a8ddd",
+        "artifact_sha256": "367466dac434cc26bc755604d858ed70a1234e327e8d9b4ff9cdbf4bfc461e1a"
       }
     },
     {
