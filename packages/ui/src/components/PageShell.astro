@@ -25,6 +25,11 @@ const {
 } = Astro.props;
 
 const accent = getSiteAccent(site);
+const configuredOrigin =
+  site === "matsuri" ? import.meta.env.MATSURI_PUBLIC_ORIGIN : undefined;
+const canonicalUrl = configuredOrigin
+  ? new URL(Astro.url.pathname, configuredOrigin).href
+  : undefined;
 ---
 
 <!doctype html>
@@ -34,6 +39,7 @@ const accent = getSiteAccent(site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
     <slot name="head" />
   </head>
   <body class="yk-page-shell">
