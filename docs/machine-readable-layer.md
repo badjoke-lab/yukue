@@ -21,6 +21,7 @@ Initial target outputs:
 /data/occurrences.json
 /llms.txt
 /ai.txt
+/robots.txt
 /sitemap.xml
 ```
 
@@ -55,6 +56,8 @@ Should describe:
 ## Discovery text files
 
 `llms.txt` and `ai.txt` should explain the nature and limits of the dataset, including that it is not a popularity ranking and that current-state claims are evidence-based observations subject to verification date.
+
+`robots.txt` publishes the crawler-facing policy for the approved public surface. Canonical production output includes an absolute Sitemap directive. The origin-neutral repository artifact omits that absolute directive. `robots.txt` is not an access-control boundary.
 
 ## Build rule
 
