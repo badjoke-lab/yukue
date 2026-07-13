@@ -1,6 +1,6 @@
 # Deployment
 
-**Status:** F2-16 through F2-21 completed / F2-22 browser Search verification next
+**Status:** F2-16 through F2-22 completed / F2-23 crawler review next
 
 ## Verified production deployment
 
@@ -17,35 +17,45 @@ Permanent non-canonical Workers origin
 https://matsuri-yukue.badjoke-lab.workers.dev/
 ```
 
-Canonical activation evidence:
+## External verification
 
 ```text
-Activation merge
-f978bc50a1ab51964687ec0457a448dc37b2aaf9
-
-Verification workflow
+Canonical HTTP workflow
 Verify Matsuri canonical origin gate
+run 29191904624 — success
 
-Verification run
-29191904624 — success
-
-Successful attempt
-1 of 18
+Canonical browser Search workflow
+Verify Matsuri canonical browser Search
+run 29227617530 — success
 ```
 
-The external verifier confirmed HTTPS, required public routes, Pagefind asset reachability, public JSON, exact `manifest.site_origin`, and canonical sitemap locations.
+The HTTP verifier confirmed HTTPS, required public routes, Pagefind assets, public JSON, exact `manifest.site_origin`, and canonical sitemap locations.
+
+The Chromium verifier confirmed:
+
+```text
+Exact query          脚折雨乞 → 1 result
+Destination          /festivals/suneori-amagoi/
+Filtered query       雨乞 + 埼玉県 → 1 result
+Empty query          0 results and correct empty state
+Page errors          0
+Console errors       0
+Application failures 0
+Screenshots          4
+```
 
 Detailed evidence:
 
 ```text
 docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
+docs/audits/matsuri-f2-22-browser-search-2026-07-13.md
 ```
 
 ## Public topology
 
 ```text
 yukue.badjoke-lab.com          portal — planned
-matsuri-yukue.badjoke-lab.com  Matsuri — canonical origin verified
+matsuri-yukue.badjoke-lab.com  Matsuri — canonical origin and Search verified
 ```
 
 ```text
@@ -79,8 +89,6 @@ routes[0].pattern         matsuri-yukue.badjoke-lab.com
 routes[0].custom_domain   true
 ```
 
-The Custom Domain is version-controlled. Cloudflare creates and maintains the matching DNS and certificate state.
-
 ## Workers Builds contract
 
 ```text
@@ -100,22 +108,9 @@ pnpm                           11.10.0
 MATSURI_PUBLIC_ORIGIN=https://matsuri-yukue.badjoke-lab.com
 ```
 
-to the static build child process.
+## Verification artifacts
 
-## Dual artifact verification
-
-The repository gate verifies:
-
-```text
-Workers production artifact
-- canonical origin configured
-- manifest.site_origin present
-- canonical sitemap locations present
-
-Repository release candidate
-- origin-neutral artifact copy
-- separately records the verified canonical origin and workflow evidence
-```
+The repository gate verifies both the canonical Workers production artifact and the origin-neutral repository release candidate. Release metadata separately records canonical HTTP and live browser Search evidence.
 
 ## Completed external work
 
@@ -126,20 +121,18 @@ F2-18  workers.dev smoke verification — completed
 F2-19  exact canonical hostname decision — completed
 F2-20  Custom Domain activation, canonical build, HTTPS verification — completed
 F2-21  canonical manifest and sitemap verification — completed
+F2-22  canonical browser Pagefind Search verification — completed
 ```
 
 ## Remaining sequence
 
 ```text
-F2-22  browser Pagefind Search verification — next
-F2-23  crawler-reachability review — hold
+F2-23  robots, canonical, sitemap, and crawler-reachability review — next
 F2-24  sitemap submission and indexability check — hold
 F2-25  Web Analytics activation — hold
 F2-26  post-activation deployment — hold
 F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
-
-Do not treat fetched Search HTML and Pagefind assets as proof of interactive browser Search. F2-22 must submit queries and follow results in Chromium.
 
 Do not submit the sitemap before F2-24 or enable Analytics before F2-25.
