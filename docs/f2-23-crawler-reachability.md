@@ -1,26 +1,20 @@
 # F2-23 Matsuri Crawler Reachability
 
-**Status:** Crawler surface implemented / canonical metadata correction prepared / external result pending
+**Status:** Completed and externally verified
 
 ## Objective
 
-Verify that the canonical Matsuri production surface is reachable and indexable according to its published crawler-facing signals:
+Verify the crawler-facing policy, canonical metadata, sitemap inventory, indexing directives, and public reachability of:
 
 ```text
 https://matsuri-yukue.badjoke-lab.com
 ```
 
-F2-23 follows the successful canonical-origin and browser Search gates. It verifies crawler-facing policy and live output without submitting the sitemap or claiming indexation.
+F2-23 verifies live output without submitting the sitemap or claiming search-engine indexation.
 
-## Public robots baseline
+## Published crawler baseline
 
-The static build generates:
-
-```text
-/robots.txt
-```
-
-Canonical production output must contain:
+Canonical production output includes:
 
 ```text
 User-agent: *
@@ -29,128 +23,104 @@ Allow: /
 Sitemap: https://matsuri-yukue.badjoke-lab.com/sitemap.xml
 ```
 
-The origin-neutral repository artifact keeps the allow policy but omits the absolute Sitemap directive because no production origin is active in that artifact.
+Every public HTML route includes an exact self-canonical link and indexable robots metadata. The origin-neutral repository artifact emits no canonical link and uses `noindex,nofollow` so it cannot present itself as another production origin.
 
-`robots.txt` is a publication-policy signal. It is not authentication, authorization, rate limiting, or a private-route security boundary.
-
-## Canonical HTML metadata
-
-The production build maps `MATSURI_PUBLIC_ORIGIN` to Astro's `site` setting through:
-
-```text
-apps/matsuri/astro.config.mjs
-```
-
-The shared `PageShell` emits on every public route:
-
-```text
-<link rel="canonical" href="<exact canonical route URL>">
-<meta name="robots" content="index,follow,...">
-```
-
-When no approved production origin is configured, the same shell emits no canonical link and uses:
-
-```text
-noindex,nofollow
-```
-
-This prevents an origin-neutral artifact from presenting itself as an alternative production origin.
-
-Static validation command:
+Static verification:
 
 ```text
 pnpm check:matsuri:canonical-metadata
 ```
 
-The repository gate runs it in both canonical and origin-neutral build modes before external deployment.
-
-## Verification command
+Live verification:
 
 ```text
 MATSURI_CHECK_ORIGIN=https://matsuri-yukue.badjoke-lab.com \
   pnpm check:matsuri:crawler-reachability
 ```
 
-The command writes:
+## Successful external evidence
 
 ```text
-artifacts/matsuri-crawler-reachability/report.json
-artifacts/matsuri-crawler-reachability/report.md
-```
-
-## Required checks
-
-### robots.txt
-
-- HTTP success and non-empty text response,
-- `User-agent: *`,
-- `Allow: /`,
-- no complete-site `Disallow: /`,
-- exact canonical Sitemap directive.
-
-### sitemap.xml
-
-- HTTP success and XML response,
-- at least one location,
-- no duplicate locations,
-- canonical origin only,
-- no query strings or fragments,
-- every sitemap URL responds with indexable HTML,
-- every sitemap URL has an exact self-canonical link,
-- no blocking `meta robots` or `X-Robots-Tag` directive.
-
-### Representative User-Agent labels
-
-The external gate repeats representative public-page requests with these labels:
-
-```text
-yukue-crawler-reachability/1.0
-Googlebot
-bingbot
-OAI-SearchBot
-```
-
-This detects explicit User-Agent-dependent blocking from the public runner network. It does not prove access from a crawler operator's own network or verified IP ranges.
-
-### Public discovery files
-
-The gate verifies public access to:
-
-```text
-/robots.txt
-/sitemap.xml
-/llms.txt
-/ai.txt
-/version.json
-/data/manifest.json
-```
-
-## Evidence workflow
-
-```text
+Workflow
 Verify Matsuri crawler reachability
+
+Run ID
+29230475619
+
+Job ID
+86753387839
+
+Conclusion
+success
+
+Head SHA
+62588bf5821cb5b86f5fc1b70d52dc0ca4c5c412
+
+Pull-request merge test SHA
+fe899d7004cc3f2c9b35df448c36750a7352b0dc
 ```
 
-The workflow runs after relevant changes reach `main`, retries while Workers Builds deploys, and uploads the JSON and Markdown report for 30 days.
-
-## Completion boundary
-
-F2-23 is complete only after:
-
-- the canonical production deployment contains the generated robots policy,
-- every sitemap route has an exact self-canonical link and indexable robots metadata,
-- the hosted crawler-reachability workflow succeeds,
-- the workflow run and artifact are recorded in an audit document,
-- release metadata and repository governance advance to F2-24.
-
-## Remaining sequence
+Artifact:
 
 ```text
-F2-24  search-engine sitemap submission and indexability check
-F2-25  Cloudflare Web Analytics activation
-F2-26  post-activation deployment
-F2-27  production traffic verification
-F2-28  final F2 Launch Gate
+Artifact ID
+8271321515
+
+Artifact name
+matsuri-crawler-reachability-fe899d7004cc3f2c9b35df448c36750a7352b0dc
+
+Artifact digest
+sha256:ed678ef3be66522db2f54ff4fbec3a561297a7eea9a6ad75071cbec89acff648
 ```
 
-F2-23 does not perform any of those actions.
+Detailed record:
+
+```text
+docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md
+```
+
+## Verified result
+
+```text
+robots policy                         passed
+canonical Sitemap directive           passed
+sitemap locations                     20
+canonical-origin-only locations       passed
+duplicate locations                   0
+sitemap routes with HTTP 200           20 / 20
+exact self-canonical links             20 / 20
+index/follow metadata                  20 / 20
+blocking X-Robots-Tag                  0
+representative User-Agent checks       28 / 28
+discovery-file checks                  12 / 12
+```
+
+Representative labels were `yukue-crawler-reachability/1.0`, `Googlebot`, `bingbot`, and `OAI-SearchBot`. Discovery files were checked with generic and AI-search labels.
+
+## Initial finding and remediation
+
+The first hosted run `29229537646` verified robots and sitemap output, then failed because the Home page had no canonical link. Main commit:
+
+```text
+fad66e8ad20b4ea6a76769aa21b4dc8d5905231f
+Emit canonical metadata for F2-23 crawler verification
+```
+
+added the required canonical and robots metadata plus static checks. Run `29230475619` verifies the corrected production deployment.
+
+## Interpretation boundary
+
+- User-Agent labels do not prove access from a crawler operator's verified network or IP ranges.
+- `robots.txt` is not authentication or access control.
+- F2-23 does not prove sitemap submission or indexation.
+
+## Completion result
+
+```text
+F2-23  crawler-reachability review — completed
+F2-24  search-engine sitemap submission and indexability check — next
+F2-25  Web Analytics activation — hold
+F2-26  post-activation deployment — hold
+F2-27  production traffic verification — hold
+F2-28  final F2 Launch Gate — hold
+```
