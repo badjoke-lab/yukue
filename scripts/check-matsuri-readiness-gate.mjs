@@ -19,6 +19,7 @@ const requiredScripts = [
   "check:matsuri:evidence",
   "check:matsuri:content",
   "check:matsuri:browser",
+  "check:matsuri:canonical-search",
   "audit:matsuri:freshness",
   "audit:matsuri:relations",
 ];
@@ -33,6 +34,7 @@ const requiredDocs = [
   "docs/cloudflare-pages-launch-runbook.md",
   "docs/deployment-topology.md",
   "docs/f2-20-custom-domain-activation.md",
+  "docs/f2-22-canonical-search-verification.md",
   "docs/development-schedule.md",
   "docs/project-status.md",
   "docs/roadmap.md",
@@ -40,6 +42,7 @@ const requiredDocs = [
   "docs/decision-log.md",
   "docs/matsuri-data-freshness-audit.md",
   "docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md",
+  "docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md",
   "docs/audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md",
   "docs/audits/matsuri-f2-m02-soma-outcome-2026-07-12.md",
   "docs/audits/matsuri-f2-m02-relation-inventory-2026-07-12.md",
@@ -65,9 +68,9 @@ const completedExternalIds = [
   "F2-19",
   "F2-20",
   "F2-21",
+  "F2-22",
 ];
 const pendingExternalIds = [
-  "F2-22",
   "F2-23",
   "F2-24",
   "F2-25",
@@ -115,7 +118,7 @@ assert(releaseManifest.project_id === "yukue-series", "Unexpected release projec
 assert(releaseManifest.site_id === "matsuri", "Unexpected release site_id.");
 assert(
   releaseManifest.release_status ===
-    "repository-verified-canonical-origin-verified-browser-search-pending",
+    "repository-verified-canonical-origin-and-browser-search-verified-crawler-review-pending",
   `Unexpected release_status: ${String(releaseManifest.release_status)}`,
 );
 assert(
@@ -141,6 +144,23 @@ assert(
     releaseManifest.canonical_origin_verification?.manifest_origin_verified === true &&
     releaseManifest.canonical_origin_verification?.canonical_sitemap_verified === true,
   "Release candidate does not preserve the successful canonical verification evidence.",
+);
+assert(
+  releaseManifest.canonical_search_verification?.workflow_run_id === 29193201911 &&
+    releaseManifest.canonical_search_verification?.job_id === 86651403427 &&
+    releaseManifest.canonical_search_verification?.verified_origin ===
+      "https://matsuri-yukue.badjoke-lab.com" &&
+    releaseManifest.canonical_search_verification?.artifact_id === 8260207484 &&
+    releaseManifest.canonical_search_verification?.artifact_digest ===
+      "sha256:29c05992a887951d91caa8f5bd4588d88b0bac97230353cba4381ec4ff0eb884" &&
+    releaseManifest.canonical_search_verification?.desktop_chromium_verified === true &&
+    releaseManifest.canonical_search_verification?.mobile_chromium_verified === true &&
+    releaseManifest.canonical_search_verification?.exact_name_query_verified === true &&
+    releaseManifest.canonical_search_verification?.structured_filters_verified === true &&
+    releaseManifest.canonical_search_verification?.no_result_state_verified === true &&
+    releaseManifest.canonical_search_verification?.result_navigation_verified === true &&
+    releaseManifest.canonical_search_verification?.runtime_errors_absent === true,
+  "Release candidate does not preserve successful F2-22 canonical Search evidence.",
 );
 assert(
   typeof releaseManifest.source_commit === "string" && /^[0-9a-f]{40}$/u.test(releaseManifest.source_commit),
@@ -175,6 +195,10 @@ for (const id of pendingExternalIds) {
     `Release candidate does not preserve pending external work ${id}.`,
   );
 }
+assert(
+  !releaseManifest.external_pending_work.some((value) => value.startsWith("F2-22")),
+  "Release candidate still records F2-22 as pending.",
+);
 
 let totalBytes = 0;
 const aggregateLines = [];
@@ -203,6 +227,10 @@ const activationAudit = fs.readFileSync(
   path.join(repositoryRoot, "docs", "audits", "matsuri-f2-20-canonical-activation-2026-07-12.md"),
   "utf8",
 );
+const searchAudit = fs.readFileSync(
+  path.join(repositoryRoot, "docs", "audits", "matsuri-f2-22-canonical-search-2026-07-12.md"),
+  "utf8",
+);
 
 for (const id of [...completedRepositoryIds, "F2-15", ...completedExternalIds]) {
   assert(developmentSchedule.includes(id), `Development schedule is missing ${id}.`);
@@ -211,12 +239,12 @@ for (const id of pendingExternalIds) {
   assert(developmentSchedule.includes(id), `Development schedule is missing pending external work ${id}.`);
 }
 assert(
-  projectStatus.includes("F2-16 through F2-21 — completed"),
-  "Project status does not record F2-16 through F2-21 completion.",
+  projectStatus.includes("F2-16 through F2-22 — completed"),
+  "Project status does not record F2-16 through F2-22 completion.",
 );
 assert(
-  projectStatus.includes("F2-22 through F2-28 — operational hold"),
-  "Project status does not record the F2-22 boundary.",
+  projectStatus.includes("F2-23 through F2-28 — operational hold"),
+  "Project status does not record the F2-23 boundary.",
 );
 assert(
   projectStatus.includes("F2-M02 — Matsuri data freshness audit — completed"),
@@ -248,11 +276,19 @@ assert(
   "Canonical activation audit is incomplete.",
 );
 assert(
-  roadmap.includes("External deployment through F2-21: **Completed**") &&
-    roadmap.includes("Browser Search verification: **Next gate at F2-22**"),
-  "Roadmap does not reflect F2-21 completion and the F2-22 next gate.",
+  searchAudit.includes("Run ID\n29193201911") &&
+    searchAudit.includes("Job ID\n86651403427") &&
+    searchAudit.includes("Conclusion\nsuccess") &&
+    searchAudit.includes("Artifact ID\n8260207484") &&
+    searchAudit.includes("F2-22  browser Pagefind Search verification — completed"),
+  "Canonical Search audit is incomplete.",
+);
+assert(
+  roadmap.includes("External deployment through F2-22: **Completed**") &&
+    roadmap.includes("Crawler reachability: **Next gate at F2-23**"),
+  "Roadmap does not reflect F2-22 completion and the F2-23 next gate.",
 );
 
 console.log(
-  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-21 and F2-M02 are complete; canonical origin ${releaseManifest.canonical_origin} is verified by run 29191904624; F2-22 through F2-28 remain pending.`,
+  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-22 and F2-M02 are complete; canonical origin verified by run 29191904624; browser Search verified by run 29193201911; F2-23 through F2-28 remain pending.`,
 );
