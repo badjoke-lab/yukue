@@ -1,6 +1,6 @@
 # F2-22 Matsuri Canonical Browser Search Verification
 
-**Status:** Verification tooling prepared / external browser evidence pending
+**Status:** Completed and externally verified
 
 ## Objective
 
@@ -10,64 +10,105 @@ Verify that Pagefind Search works interactively on the active canonical Matsuri 
 https://matsuri-yukue.badjoke-lab.com
 ```
 
-F2-20 and F2-21 already established that `/search/` and Pagefind assets are reachable over HTTPS and that the canonical manifest and sitemap are correct. F2-22 adds real-browser interaction evidence.
+F2-20 and F2-21 established HTTPS reachability, canonical manifest output, and canonical sitemap output. F2-22 adds real-browser query, filter, result-rendering, result-navigation, and empty-state evidence.
 
-## Required browser behavior
-
-The Chromium verification must:
-
-1. open `/search/` on the exact canonical origin,
-2. wait until the initial Pagefind query completes,
-3. enter a representative exact Japanese query,
-4. submit the form without a full-page form fallback,
-5. confirm that the URL query string updates,
-6. confirm that at least one result appears,
-7. confirm that the expected result title is present,
-8. follow the result link,
-9. confirm that navigation stays on the canonical origin,
-10. confirm that the destination page identifies the selected record,
-11. return to Search and exercise a prefecture-filtered query,
-12. exercise a no-result query and confirm the public empty state,
-13. record browser, console, request, result, destination, and screenshot evidence.
-
-## Representative cases
-
-### Exact record query
+## Verification result
 
 ```text
-query
-脚折雨乞
+Workflow
+Verify Matsuri canonical browser Search
 
-expected result title
-脚折雨乞
+Run ID
+29227617530
+
+Conclusion
+success
+
+Verified at
+2026-07-13T05:58:53.795Z
+
+Head commit
+9bafec45f648e930b3673316ee9352aaf7122b83
 ```
 
-The test does not hard-code the destination slug. It reads the generated result link, requires a same-site public path, follows it, and confirms the destination H1.
-
-### Filtered query
+Evidence artifact:
 
 ```text
-query
-雨乞
+matsuri-f2-22-browser-search-2fd5f4f5f1716d8f72e55f661eaa2c17f27a8ddd
 
-prefecture
-埼玉県
+Artifact ID
+8270337394
 
-expected result title
-脚折雨乞
+Artifact SHA-256
+367466dac434cc26bc755604d858ed70a1234e327e8d9b4ff9cdbf4bfc461e1a
 ```
 
-This verifies Pagefind query execution together with the public prefecture filter.
-
-### Empty result
-
-A deliberately unmatched query must produce:
+Detailed audit:
 
 ```text
+docs/audits/matsuri-f2-22-browser-search-2026-07-13.md
+```
+
+## Verified exact query
+
+```text
+Query                 脚折雨乞
+Status                1件の記録が見つかりました。
+Rendered results      1
+Matched title         脚折雨乞
+Matched href          /festivals/suneori-amagoi/
+Destination URL       https://matsuri-yukue.badjoke-lab.com/festivals/suneori-amagoi/
+Destination H1        脚折雨乞
+```
+
+The browser submitted the Search form, observed the URL query string, rendered the Pagefind result, followed the generated link, remained on the canonical origin, and confirmed the destination identity.
+
+## Verified filtered query
+
+```text
+Query                 雨乞
+Prefecture label      埼玉県
+Prefecture value      11
+Status                1件の記録が見つかりました。
+Rendered results      1
+Matched title         脚折雨乞
+Matched href          /festivals/suneori-amagoi/
+```
+
+This confirms that the public prefecture filter is applied together with the Pagefind query and represented in the Search URL.
+
+## Verified empty result
+
+```text
+Query
+f2x22xcanonicalxsearchxnoresultx9d7e
+
+Rendered results
+0
+
+Status
 条件に一致する記録はありません。検索語や絞り込み条件を変更してください。
 ```
 
-and an empty result list.
+This confirms the public empty state and removal of stale prior results.
+
+## Browser and request result
+
+```text
+Page errors                               0
+Console errors                            0
+Same-origin application request failures 0
+Ignored aborted Cloudflare RUM requests   2
+Screenshots                               4
+```
+
+Cloudflare may inject Real User Monitoring requests at:
+
+```text
+/cdn-cgi/rum
+```
+
+A `POST` to that path may be reported as `net::ERR_ABORTED` when Chromium leaves a page. The verifier records these navigation-cancelled telemetry requests separately. It does not ignore other methods, paths, failure types, Pagefind requests, public-data requests, HTML requests, or result-navigation failures.
 
 ## Verification command
 
@@ -83,21 +124,7 @@ MATSURI_CHECK_ORIGIN=https://matsuri-yukue.badjoke-lab.com
 
 The script refuses a non-canonical origin by comparing it with `config/yukue-deployment-topology.json`.
 
-## Request-failure classification
-
-Same-origin failures for application HTML, Pagefind assets, public data, and result navigation fail the gate.
-
-Cloudflare may inject Real User Monitoring requests at:
-
-```text
-/cdn-cgi/rum
-```
-
-A `POST` to that path may be reported as `net::ERR_ABORTED` when Chromium leaves a page. This is a navigation-cancelled telemetry request rather than a Search or public-asset failure. The verifier records these events separately as ignored telemetry failures. It does not ignore other methods, paths, failure types, or same-origin application requests.
-
 ## Evidence output
-
-The command writes:
 
 ```text
 .artifacts/matsuri-f2-22-search/
@@ -126,44 +153,21 @@ The JSON report records:
 - console errors,
 - screenshot inventory.
 
-## GitHub Actions gate
-
-Workflow:
+## Completion decision
 
 ```text
-Verify Matsuri canonical browser Search
+F2-22  canonical browser Pagefind Search verification — completed
+F2-23  crawler-reachability review — next gate
+F2-24 through F2-28 — hold
 ```
 
-The workflow installs Chromium, runs the verification command against the live canonical origin, and uploads the complete evidence directory whether the test passes or fails.
-
-## Completion boundary
-
-F2-22 is complete only after a GitHub-hosted Chromium run succeeds and the workflow run ID is recorded in:
-
-- the deployment topology or release evidence,
-- `docs/project-status.md`,
-- `docs/development-schedule.md`,
-- a dated audit record.
-
-A local run alone is not sufficient completion evidence.
-
-## Failure boundary
-
-If browser verification fails:
-
-- F2-22 remains incomplete,
-- F2-23 through F2-28 remain blocked,
-- preserve the failure screenshots and report,
-- distinguish Pagefind loading failure, query failure, filter failure, result rendering failure, and destination navigation failure,
-- repair only the verified cause before rerunning.
-
-## Excluded scope
+## Remaining boundary
 
 This gate does not:
 
+- establish crawler access policy correctness,
 - submit the sitemap,
 - establish search-engine indexation,
 - enable Cloudflare Web Analytics,
 - prove production traffic,
-- complete F2-23 through F2-28,
-- change Search UI or public data unless a verified defect requires a separate repair.
+- complete F2-23 through F2-28.
