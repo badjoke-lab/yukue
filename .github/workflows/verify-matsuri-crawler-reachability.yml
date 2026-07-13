@@ -13,13 +13,26 @@ on:
       - "scripts/check-matsuri-consistency.mjs"
       - "package.json"
       - "docs/f2-23-crawler-reachability.md"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-crawler-reachability.yml"
+      - "config/yukue-deployment-topology.json"
+      - "scripts/check-matsuri-readiness-gate.mjs"
+      - "scripts/freeze-matsuri-release-candidate.mjs"
+      - "docs/f2-23-crawler-reachability.md"
+      - "docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md"
+      - "docs/project-status.md"
+      - "docs/development-schedule.md"
+      - "docs/roadmap.md"
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: verify-matsuri-crawler-reachability
+  group: verify-matsuri-crawler-reachability-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
