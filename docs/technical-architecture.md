@@ -1,6 +1,6 @@
 # Technical Architecture
 
-**Status:** Current direction / Matsuri canonical deployment verified through F2-21
+**Status:** Current direction / Matsuri canonical deployment and browser Search verified through F2-22
 
 ## Stack
 
@@ -14,6 +14,7 @@ Pagefind
 Cloudflare Workers Builds
 Cloudflare Workers Static Assets
 GitHub Actions
+Playwright Chromium
 ```
 
 ## Monorepo
@@ -65,7 +66,7 @@ apps/matsuri  → Worker matsuri-yukue  → matsuri-yukue.badjoke-lab.com — ve
 
 Future Jinja, Jiin, and Tomurai applications use separate Workers only after their own project gates.
 
-The portal is the series entrance, not a runtime parent. Specialist sites are not served from `/matsuri/`, `/jinja/`, `/jiin/`, or `/tomurai/` paths below the portal.
+The portal is the series entrance, not a runtime parent. Specialist sites are not served from paths below the portal.
 
 Topology contract:
 
@@ -106,21 +107,9 @@ runtime bindings             absent
 
 ## Canonical production build
 
-`scripts/build-matsuri-workers.mjs` loads:
+`scripts/build-matsuri-workers.mjs` loads the canonical origin from the verified topology and passes it as `MATSURI_PUBLIC_ORIGIN` to the static build child process.
 
-```text
-https://matsuri-yukue.badjoke-lab.com
-```
-
-from the verified deployment topology and passes it as:
-
-```text
-MATSURI_PUBLIC_ORIGIN
-```
-
-to the static build child process.
-
-The origin is public configuration rather than a secret or a duplicate dashboard variable.
+The origin is public configuration rather than a secret or duplicate dashboard variable.
 
 ## Dual artifact model
 
@@ -130,6 +119,7 @@ The origin is public configuration rather than a secret or a duplicate dashboard
 manifest.site_origin present
 canonical absolute sitemap locations
 Custom Domain deployment
+live Pagefind Search
 ```
 
 ### Repository release candidate
@@ -138,31 +128,55 @@ Custom Domain deployment
 origin-neutral copied artifact
 per-file and aggregate hashes
 verified canonical origin recorded in release metadata
-external workflow evidence recorded separately
+canonical HTTP and browser Search evidence recorded separately
 ```
 
-This preserves reproducibility without denying the active canonical deployment.
+This preserves reproducibility without denying the active deployment.
 
-## External verification
+## External verification layers
+
+### Canonical HTTP
 
 ```text
-Canonical origin       https://matsuri-yukue.badjoke-lab.com
-Workflow               Verify Matsuri canonical origin gate
-Run                    29191904624 — success
-Attempt                1 of 18
+Origin     https://matsuri-yukue.badjoke-lab.com
+Workflow   Verify Matsuri canonical origin gate
+Run        29191904624 — success
 ```
 
-The verifier confirmed HTTPS, required routes, Pagefind asset reachability, public JSON, exact manifest origin, and canonical sitemap locations.
+This confirms HTTPS, required routes, Pagefind asset reachability, public JSON, exact manifest origin, and canonical sitemap locations.
+
+### Canonical browser Search
+
+```text
+Workflow   Verify Matsuri canonical browser Search
+Run        29227617530 — success
+Browser    Chromium
+```
+
+The browser verifier:
+
+1. opens the live `/search/` route,
+2. submits the exact query `脚折雨乞`,
+3. confirms one rendered result,
+4. follows the generated result link,
+5. confirms the destination H1,
+6. submits `雨乞` with the `埼玉県` filter,
+7. confirms one filtered result,
+8. confirms the public zero-result state,
+9. records JSON and full-page screenshots,
+10. fails on page, console, or application request errors.
+
+Navigation-cancelled `POST /cdn-cgi/rum` requests with `net::ERR_ABORTED` are recorded separately as Cloudflare telemetry rather than hidden as application failures.
 
 ## Current gate boundary
 
 ```text
-F2-16 through F2-21  completed
-F2-22                 browser Pagefind Search verification next
-F2-23 through F2-28  hold
+F2-16 through F2-22  completed
+F2-23                 crawler-reachability review next
+F2-24 through F2-28  hold
 ```
 
-F2-22 must use a real browser to submit queries and follow result links. Static HTTP reachability is not sufficient.
+F2-23 reviews the live crawler-facing surface before search-engine submission.
 
 ## Future operational layer
 
