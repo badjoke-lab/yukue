@@ -1,6 +1,6 @@
 # F2-22 Matsuri Canonical Search Browser Verification
 
-**Status:** Verification implementation prepared / external browser evidence pending
+**Status:** Completed and externally verified
 
 ## Objective
 
@@ -10,7 +10,7 @@ Verify that Pagefind Search works interactively on the active Matsuri canonical 
 https://matsuri-yukue.badjoke-lab.com
 ```
 
-F2-20 and F2-21 proved that `/search/` and Pagefind assets are reachable over HTTPS. F2-22 is a separate browser gate because static HTTP access does not prove that client-side module loading, query submission, result rendering, history updates, and result navigation work together.
+F2-20 and F2-21 proved that `/search/` and Pagefind assets are reachable over HTTPS. F2-22 separately verifies client-side module loading, query submission, result rendering, history updates, zero-result handling, and result navigation.
 
 ## Verification command
 
@@ -26,106 +26,99 @@ playwright.canonical.config.mjs
 tests/canonical/matsuri-search.spec.mjs
 ```
 
-It does not start a local preview server. All page and asset requests go to the canonical production origin.
+No local preview server is used. All requests go to the canonical production origin.
 
-## Browser matrix
+## Successful evidence
 
 ```text
-Browser   Chromium
-Viewport  1440 × 1000
-Workers   1
-Retries   2 in CI
+Workflow
+Verify Matsuri canonical Search
+
+Run ID
+29227591583
+
+Conclusion
+success
+
+Browser
+Chromium
+
+Artifact ID
+8270324780
+
+Artifact digest
+sha256:d7ffcdff20e361dd6e4ecef7aec06ae1002545dc67c3915c4a23007d1cbac2d1
 ```
 
-The gate is intentionally focused on production Search behavior rather than repeating the full local responsive and accessibility audit.
+Detailed audit:
 
-## Required scenarios
+```text
+docs/audits/matsuri-f2-22-browser-search-2026-07-13.md
+```
 
-### 1. Exact record Search and navigation
+## Verified scenarios
+
+### Exact record Search and navigation
 
 ```text
 Query  脚折雨乞
 ```
 
-The test must confirm:
+Verified:
 
-- the Search page loads from the exact canonical origin,
-- the query is submitted without a full page navigation,
-- the URL query parameter is updated,
-- Pagefind finishes and clears `aria-busy`,
-- the status reports one or more results,
-- a visible result contains `脚折雨乞`,
-- following the result remains on the canonical origin,
-- the destination H1 contains `脚折雨乞`.
+- exact canonical Search origin,
+- URL query parameter update,
+- Pagefind completion and `aria-busy` clearing,
+- visible exact-name result,
+- canonical result navigation,
+- destination H1 containing `脚折雨乞`.
 
-### 2. Second exact query
+### Second exact query
 
 ```text
 Query  相馬野馬追
 ```
 
-The test must confirm that a visible result contains the exact record name.
+A visible exact-name result was rendered.
 
-### 3. Zero-result state
+### Zero-result state
 
 ```text
 Query  qxjv9072416358zmkp
 ```
 
-The test uses a collision-resistant ASCII identifier rather than meaningful Japanese words. A natural-language phrase containing terms such as `記録` can legitimately match indexed descriptions and is therefore unsuitable as a guaranteed zero-result probe.
+The collision-resistant probe produced the documented zero-result message and zero rows.
 
-The test must confirm:
+A previous natural-language probe contained `記録`, which legitimately matched an indexed description. That result was a test-data collision, not a production defect.
 
-- the documented zero-result message is displayed,
-- no result rows remain,
-- no page-level or console errors were recorded.
+## Browser error result
+
+```text
+page errors     0
+console errors  0
+```
 
 ## Evidence artifacts
 
-The workflow retains for 30 days:
+The 30-day workflow artifact contains:
 
 ```text
 test-results/canonical/
 playwright-report/canonical/
 ```
 
-The tests attach full-page screenshots for:
+It includes full-page screenshots for the 脚折雨乞 result list, the destination page, and the zero-result state.
 
-- the 脚折雨乞 result list,
-- the destination record page,
-- the zero-result state.
-
-Failure artifacts may also contain Playwright traces, screenshots, and video.
-
-## GitHub Actions workflow
+## Gate result
 
 ```text
-Verify Matsuri canonical Search
+F2-22  browser Pagefind Search verification — completed
+F2-23  crawler-reachability review — next
 ```
-
-Workflow file:
-
-```text
-.github/workflows/verify-matsuri-canonical-search.yml
-```
-
-The workflow installs Chromium and executes the canonical Search command from an independent GitHub-hosted runner.
-
-## Completion condition
-
-F2-22 is complete only when:
-
-- the dedicated workflow concludes successfully,
-- both exact queries return their expected records,
-- result navigation reaches the correct detail surface,
-- the zero-result state is correct,
-- browser and console error capture remains empty,
-- the workflow run ID and evidence result are recorded in an audit document,
-- project status, schedule, roadmap, release metadata, and repository gate advance to F2-23.
 
 ## Boundary
 
-A successful F2-22 gate does not establish:
+F2-22 does not establish:
 
 - crawler behavior or robots policy,
 - search-engine sitemap submission,
