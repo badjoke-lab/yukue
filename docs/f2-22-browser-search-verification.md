@@ -69,8 +69,10 @@ The test must confirm that a visible result contains the exact record name.
 ### 3. Zero-result state
 
 ```text
-Query  該当記録なし-f2-22-browser-gate
+Query  qxjv9072416358zmkp
 ```
+
+The test uses a collision-resistant ASCII identifier rather than meaningful Japanese words. A natural-language phrase containing terms such as `記録` can legitimately match indexed descriptions and is therefore unsuitable as a guaranteed zero-result probe.
 
 The test must confirm:
 
