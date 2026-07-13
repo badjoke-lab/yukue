@@ -39,6 +39,7 @@ const requiredAssetFiles = [
   "data/occurrences.json",
   "llms.txt",
   "ai.txt",
+  "robots.txt",
   "sitemap.xml",
 ];
 
@@ -286,6 +287,21 @@ if (version.site_id !== "matsuri") {
   );
 }
 
+const robots = fs.readFileSync(path.join(outputRoot, "robots.txt"), "utf8");
+if (!robots.includes("User-agent: *")) {
+  throw new Error("Matsuri robots.txt is missing the wildcard user-agent policy.");
+}
+if (manifest.site_origin) {
+  if (!robots.includes("Allow: /") || robots.includes("Disallow: /")) {
+    throw new Error("Canonical Matsuri robots.txt must allow the public site.");
+  }
+  if (!robots.includes(`Sitemap: ${manifest.site_origin}/sitemap.xml`)) {
+    throw new Error("Canonical Matsuri robots.txt must advertise the canonical sitemap.");
+  }
+} else if (!robots.includes("Disallow: /")) {
+  throw new Error("Origin-neutral Matsuri artifacts must discourage crawling.");
+}
+
 console.log(
-  `Matsuri Pages artifact verified: ${requiredFiles.length} required files, ${publicRoutes.length} public routes, ${sitemapLocations.length} sitemap routes, and all internal links valid.`,
+  `Matsuri Pages artifact verified: ${requiredFiles.length} required files, ${publicRoutes.length} public routes, ${sitemapLocations.length} sitemap routes, robots policy valid, and all internal links valid.`,
 );
