@@ -35,7 +35,7 @@
     "verify:matsuri:workers": "node scripts/verify-matsuri-workers.mjs",
     "verify:release": "node scripts/verify-release.mjs",
     "freeze:matsuri:release": "node scripts/freeze-matsuri-release-candidate.mjs",
-    "gate:matsuri:repository": "pnpm verify:matsuri:workers && pnpm verify:release && pnpm freeze:matsuri:release && node scripts/check-matsuri-readiness-gate.mjs",
+    "gate:matsuri:repository": "pnpm verify:matsuri:workers && pnpm verify:release && pnpm check:matsuri:search-engine-submission-record && pnpm freeze:matsuri:release && node scripts/check-matsuri-readiness-gate.mjs",
     "check": "pnpm -r --if-present check",
     "typecheck": "pnpm -r --if-present typecheck"
   },

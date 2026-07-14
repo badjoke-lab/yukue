@@ -1,22 +1,54 @@
 {
-  "format_version": 1,
+  "format_version": 2,
   "site_id": "matsuri",
   "canonical_origin": "https://matsuri-yukue.badjoke-lab.com",
   "sitemap_url": "https://matsuri-yukue.badjoke-lab.com/sitemap.xml",
   "search_engine": "google-search-console",
-  "status": "pending-owner-action",
-  "property_type": null,
-  "ownership_verified": false,
-  "submitted": false,
+  "status": "submitted-indexability-checked",
+  "property_type": "url-prefix",
+  "ownership_verified": true,
+  "submitted": true,
+  "submitted_on": "2026-07-14",
   "submitted_at": null,
-  "submission_result": null,
-  "submission_evidence_document": null,
-  "representative_url_inspections": [],
+  "submission_observed_at": "2026-07-14T14:13:10Z",
+  "submission_result": "success",
+  "discovered_pages": 20,
+  "submission_evidence_document": "docs/audits/matsuri-f2-24-search-console-2026-07-14.md",
+  "representative_url_inspections": [
+    {
+      "url": "https://matsuri-yukue.badjoke-lab.com/",
+      "checked_at": "2026-07-14T14:13:45Z",
+      "method": "google-search-console-url-inspection",
+      "index_status": "unknown",
+      "live_test_result": "indexable",
+      "public_safe_note": "Google reported that crawling was allowed, page retrieval succeeded, indexing was allowed, and the canonical Matsuri home URL could be indexed."
+    }
+  ],
+  "indexing_requests": [
+    {
+      "url": "https://matsuri-yukue.badjoke-lab.com/",
+      "requested": true,
+      "confirmed_on": "2026-07-14",
+      "public_safe_note": "Owner confirmed that the indexing request was submitted in the Search Console session."
+    },
+    {
+      "url": "https://matsuri-yukue.badjoke-lab.com/festivals/suneori-amagoi/",
+      "requested": true,
+      "confirmed_on": "2026-07-14",
+      "public_safe_note": "Owner confirmed that the indexing request was submitted in the Search Console session."
+    },
+    {
+      "url": "https://matsuri-yukue.badjoke-lab.com/data/",
+      "requested": true,
+      "confirmed_on": "2026-07-14",
+      "public_safe_note": "Owner confirmed that the indexing request was submitted in the Search Console session."
+    }
+  ],
   "claims": {
-    "technical_indexability_verified": false,
-    "sitemap_submission_verified": false,
+    "technical_indexability_verified": true,
+    "sitemap_submission_verified": true,
     "indexation_claimed": false,
-    "f2_24_complete": false
+    "f2_24_complete": true
   },
   "privacy": {
     "exclude_account_email": true,
