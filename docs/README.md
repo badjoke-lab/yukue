@@ -18,27 +18,28 @@ Before implementing a feature, check the relevant document here. When a decision
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, layout language |
 | `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
-| `technical-architecture.md` | F2-23 production baseline | Build, projection, search, multi-Worker deployment, canonical metadata, and crawler verification |
+| `technical-architecture.md` | F2-24 production baseline | Build, projection, search, multi-Worker deployment, canonical metadata, crawler verification, and Search Console evidence |
 | `deployment-topology.md` | Matsuri active | Exact portal and specialist-site hostnames, separate Worker boundary, active Matsuri origin, and migration invariants |
 | `f2-20-custom-domain-activation.md` | Completed | Repository-managed Custom Domain, canonical build, and external verification evidence |
 | `f2-22-canonical-search-verification.md` | Completed | Canonical desktop/mobile Pagefind interaction gate and evidence |
 | `f2-23-crawler-reachability.md` | Completed | robots, canonical HTML, sitemap discovery, representative User-Agent, and public discovery verification |
-| `f2-24-sitemap-submission-indexability.md` | Owner action pending | Technical preflight, Search Console procedure, evidence rules, and completion boundary |
-| `templates/matsuri-f2-24-submission-evidence.md` | Template | Public-safe sitemap submission and URL Inspection evidence format |
-| `cloudflare-pages-launch-runbook.md` | F2-16–F2-23 completed | Workers Builds contract, canonical deployment, browser Search, crawler reachability, and remaining launch sequence |
-| `deployment.md` | F2-23 completed | Verified canonical Workers deployment and F2-24 submission boundary |
+| `f2-24-sitemap-submission-indexability.md` | Completed | Search Console submission, technical preflight, evidence rules, and completion boundary |
+| `templates/matsuri-f2-24-submission-evidence.md` | Template | Public-safe sitemap submission, live-test, and indexing-request evidence format |
+| `cloudflare-pages-launch-runbook.md` | F2-16–F2-24 completed | Workers Builds contract, canonical deployment, browser Search, crawler reachability, Search Console evidence, and remaining launch sequence |
+| `deployment.md` | F2-24 completed | Verified canonical Workers deployment and F2-25 Analytics boundary |
 | `audits/matsuri-f2-20-canonical-activation-2026-07-12.md` | Passed audit | HTTPS, required routes, manifest origin, and canonical sitemap verification run |
 | `audits/matsuri-f2-22-canonical-search-2026-07-12.md` | Passed audit | Desktop/mobile exact-name Search, filters, no-result state, and result navigation |
 | `audits/matsuri-f2-23-crawler-reachability-2026-07-13.md` | Passed audit | robots, sitemap routes, self-canonical links, indexing directives, User-Agent labels, and public discovery files |
+| `audits/matsuri-f2-24-search-console-2026-07-14.md` | Passed audit | Search Console sitemap acceptance, discovered pages, representative live test, indexing requests, and privacy-safe interpretation |
 | `matsuri-data-freshness-audit.md` | F2-M02 completed | Completed fixed-date audit and routine maintenance rules |
 | `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, State, and external-link inventory |
 | `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 Evidence and `held` correction for 相馬野馬追 2026 |
 | `audits/matsuri-f2-m02-relation-inventory-2026-07-12.md` | Baseline completed | Initial Relation coverage inventory |
 | `audits/matsuri-f2-m02-suneori-relation-2026-07-12.md` | Maintenance batch 02 | 脚折雨乞 organization and Relation correction |
 | `audits/matsuri-f2-m02-nunobashi-relation-2026-07-12.md` | Maintenance batch 03 | 富山県［立山博物館］ Relation coverage |
-| `release-verification.md` | F2-23 baseline | Unified release verification, topology, Search and crawler evidence, CI stages, and external limits |
-| `release-candidate.md` | Crawler reachability verified | Origin-neutral artifact, hashes, external evidence, and F2-24 pending state |
-| `repository-launch-readiness.md` | Completed through F2-23 | Required checks, verified canonical/Search/crawler state, and remaining external gates |
+| `release-verification.md` | F2-24 baseline | Unified release verification, topology, Search, crawler, and Search Console evidence, CI stages, and external limits |
+| `release-candidate.md` | Sitemap submission and indexability verified | Origin-neutral artifact, hashes, external evidence, and F2-25 pending state |
+| `repository-launch-readiness.md` | Completed through F2-24 | Required checks, verified canonical/Search/crawler/Search Console state, and remaining external gates |
 | `visual-review-workflow.md` | Implemented repository baseline | Full-page screenshot capture, checks, contact sheets, and review |
 | `audits/matsuri-f2-m01-visual-review-2026-07-11.md` | Passed audit | First exhaustive desktop/mobile visual review |
 | `source-evidence-audit.md` | F2 repository baseline | Source metadata, Evidence targeting, and freshness boundaries |
@@ -75,9 +76,8 @@ Read the root `AGENTS.md` first, then the nearest nested `AGENTS.md` for the pat
 
 ```text
 /AGENTS.md
-/docs/AGENTS.md
-/apps/matsuri/AGENTS.md
-/packages/AGENTS.md
+→ /docs/AGENTS.md
+→ nearest app or package AGENTS.md
 ```
 
 ## Source-of-truth rule
