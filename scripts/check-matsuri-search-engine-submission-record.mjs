@@ -10,6 +10,11 @@ const recordPath = path.join(
 );
 const expectedOrigin = "https://matsuri-yukue.badjoke-lab.com";
 const expectedSitemap = `${expectedOrigin}/sitemap.xml`;
+const requiredIndexingRequestUrls = new Set([
+  `${expectedOrigin}/`,
+  `${expectedOrigin}/festivals/suneori-amagoi/`,
+  `${expectedOrigin}/data/`,
+]);
 const allowedPropertyTypes = new Set(["domain", "url-prefix"]);
 const allowedStatus = new Set([
   "pending-owner-action",
@@ -47,6 +52,14 @@ function validIsoTimestamp(value) {
   );
 }
 
+function validIsoDate(value) {
+  return (
+    typeof value === "string" &&
+    /^\d{4}-\d{2}-\d{2}$/u.test(value) &&
+    !Number.isNaN(Date.parse(`${value}T00:00:00Z`))
+  );
+}
+
 function inspectPrivacy(value, pointer = "$root") {
   if (Array.isArray(value)) {
     value.forEach((item, index) => inspectPrivacy(item, `${pointer}[${index}]`));
@@ -67,10 +80,17 @@ function inspectPrivacy(value, pointer = "$root") {
   }
 }
 
+function assertCanonicalPublicUrl(rawUrl, pointer) {
+  const url = new URL(rawUrl);
+  assert(url.origin === expectedOrigin, `${pointer} uses another origin`);
+  assert(!url.search && !url.hash, `${pointer} must not contain query or fragment`);
+  return url.href;
+}
+
 const record = JSON.parse(fs.readFileSync(recordPath, "utf8"));
 inspectPrivacy(record);
 
-assert(record.format_version === 1, "Unexpected submission record format_version");
+assert(record.format_version === 2, "Unexpected submission record format_version");
 assert(record.site_id === "matsuri", "Unexpected submission record site_id");
 assert(record.canonical_origin === expectedOrigin, "Canonical origin mismatch");
 assert(record.sitemap_url === expectedSitemap, "Canonical sitemap URL mismatch");
@@ -97,8 +117,14 @@ if (record.status === "pending-owner-action") {
   assert(record.property_type === null, "Pending record must not claim a property type");
   assert(record.ownership_verified === false, "Pending record must not claim ownership");
   assert(record.submitted === false, "Pending record must not claim submission");
+  assert(record.submitted_on === null, "Pending record must not contain submitted_on");
   assert(record.submitted_at === null, "Pending record must not contain submitted_at");
+  assert(
+    record.submission_observed_at === null,
+    "Pending record must not contain submission_observed_at",
+  );
   assert(record.submission_result === null, "Pending record must not claim a result");
+  assert(record.discovered_pages === null, "Pending record must not claim discovered pages");
   assert(
     record.submission_evidence_document === null,
     "Pending record must not claim an evidence document",
@@ -107,6 +133,10 @@ if (record.status === "pending-owner-action") {
     Array.isArray(record.representative_url_inspections) &&
       record.representative_url_inspections.length === 0,
     "Pending record must not claim URL Inspection results",
+  );
+  assert(
+    Array.isArray(record.indexing_requests) && record.indexing_requests.length === 0,
+    "Pending record must not claim indexing requests",
   );
   assert(
     record.claims?.technical_indexability_verified === false &&
@@ -128,10 +158,22 @@ assert(
 );
 assert(record.ownership_verified === true, "Completed F2-24 requires verified ownership");
 assert(record.submitted === true, "Completed F2-24 requires sitemap submission");
-assert(validIsoTimestamp(record.submitted_at), "Completed F2-24 requires a UTC submitted_at timestamp");
+assert(validIsoDate(record.submitted_on), "Completed F2-24 requires submitted_on");
+assert(
+  record.submitted_at === null || validIsoTimestamp(record.submitted_at),
+  "submitted_at must be null or a UTC timestamp",
+);
+assert(
+  validIsoTimestamp(record.submission_observed_at),
+  "Completed F2-24 requires a UTC submission_observed_at timestamp",
+);
 assert(
   record.submission_result === "success",
   "Completed F2-24 requires submission_result success",
+);
+assert(
+  Number.isInteger(record.discovered_pages) && record.discovered_pages > 0,
+  "Completed F2-24 requires a positive discovered_pages count",
 );
 assert(
   typeof record.submission_evidence_document === "string" &&
@@ -143,18 +185,16 @@ assert(
 );
 assert(
   Array.isArray(record.representative_url_inspections) &&
-    record.representative_url_inspections.length >= 3,
-  "Completed F2-24 requires at least three representative URL Inspection records",
+    record.representative_url_inspections.length >= 1,
+  "Completed F2-24 requires at least one representative URL Inspection live test",
 );
 
 const inspectedUrls = new Set();
 for (const [index, inspection] of record.representative_url_inspections.entries()) {
   const prefix = `representative_url_inspections[${index}]`;
-  const url = new URL(inspection.url);
-  assert(url.origin === expectedOrigin, `${prefix}.url uses another origin`);
-  assert(!url.search && !url.hash, `${prefix}.url must not contain query or fragment`);
-  assert(!inspectedUrls.has(url.href), `${prefix}.url is duplicated`);
-  inspectedUrls.add(url.href);
+  const href = assertCanonicalPublicUrl(inspection.url, `${prefix}.url`);
+  assert(!inspectedUrls.has(href), `${prefix}.url is duplicated`);
+  inspectedUrls.add(href);
   assert(validIsoTimestamp(inspection.checked_at), `${prefix}.checked_at is invalid`);
   assert(
     inspection.method === "google-search-console-url-inspection",
@@ -170,13 +210,37 @@ for (const [index, inspection] of record.representative_url_inspections.entries(
   );
   assert(
     inspection.live_test_result === "indexable",
-    `${prefix} does not establish technical indexability`,
+    `${prefix} does not establish Google live-test indexability`,
   );
   assert(
     typeof inspection.public_safe_note === "string" &&
       inspection.public_safe_note.trim().length > 0,
     `${prefix}.public_safe_note is required`,
   );
+}
+
+assert(
+  Array.isArray(record.indexing_requests) && record.indexing_requests.length >= 3,
+  "Completed F2-24 requires at least three representative indexing requests",
+);
+
+const requestedUrls = new Set();
+for (const [index, request] of record.indexing_requests.entries()) {
+  const prefix = `indexing_requests[${index}]`;
+  const href = assertCanonicalPublicUrl(request.url, `${prefix}.url`);
+  assert(!requestedUrls.has(href), `${prefix}.url is duplicated`);
+  requestedUrls.add(href);
+  assert(request.requested === true, `${prefix}.requested must be true`);
+  assert(validIsoDate(request.confirmed_on), `${prefix}.confirmed_on is invalid`);
+  assert(
+    typeof request.public_safe_note === "string" &&
+      request.public_safe_note.trim().length > 0,
+    `${prefix}.public_safe_note is required`,
+  );
+}
+
+for (const requiredUrl of requiredIndexingRequestUrls) {
+  assert(requestedUrls.has(requiredUrl), `Missing required indexing request: ${requiredUrl}`);
 }
 
 assert(
@@ -188,5 +252,5 @@ assert(
 );
 
 console.log(
-  `Matsuri F2-24 submission record is complete: ${record.representative_url_inspections.length} representative URL inspections, submission ${record.submitted_at}, no indexation claim.`,
+  `Matsuri F2-24 submission record is complete: ${record.discovered_pages} discovered pages, ${record.representative_url_inspections.length} Google live test, ${record.indexing_requests.length} indexing requests, no indexation claim.`,
 );
