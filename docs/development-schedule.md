@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-23 completed / F2-24 sitemap submission and indexability next
+**Status:** F2-24 completed / F2-25 Web Analytics activation next
 
 This document defines the stable implementation order. It complements `roadmap.md` and `project-status.md`. The project is gate-driven rather than deadline-driven.
 
@@ -9,10 +9,10 @@ This document defines the stable implementation order. It complements `roadmap.m
 ```text
 Foundation through Stage E  completed
 F1 corpus expansion          completed
-F2-01 through F2-23          completed
+F2-01 through F2-24          completed
 F2-M01                       completed
 F2-M02                       completed
-F2-24 through F2-28          operational hold
+F2-25 through F2-28          operational hold
 ```
 
 ## Foundation through Stage E
@@ -95,6 +95,7 @@ F2-20  Custom Domain activation, canonical build, HTTPS verification — complet
 F2-21  canonical manifest and sitemap verification — completed
 F2-22  browser Pagefind Search verification on canonical origin — completed
 F2-23  robots, canonical, sitemap, crawler-reachability review — completed
+F2-24  Search Console sitemap submission and indexability check — completed
 ```
 
 Verified evidence:
@@ -106,6 +107,12 @@ Search verification run   29193201911 — success
 Search artifact           8260207484
 Crawler verification run  29230233384 — success
 Crawler artifact          8271238535
+F2-24 preflight run        29232294960 — success
+F2-24 preflight artifact   8271994696
+Search Console sitemap     success
+Discovered pages           20
+Representative live test  indexable
+Indexing requests          3 submitted
 ```
 
 Evidence records:
@@ -114,34 +121,26 @@ Evidence records:
 docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
 docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md
 docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md
+docs/audits/matsuri-f2-24-search-console-2026-07-14.md
 ```
 
-F2-23 verified robots policy, canonical Sitemap discovery, all sitemap routes, self-canonical links, indexable directives, representative crawler labels, and public discovery files.
+F2-24 combines all-route automated preflight evidence, successful Search Console sitemap acceptance, one representative Google live test, and indexing-request confirmation for the three required representative URLs. It does not claim that any URL is already indexed.
 
 #### Next gate and hold
 
 ```text
-F2-24  search-engine sitemap submission and indexability check — next
-F2-25  Cloudflare Web Analytics activation — hold
+F2-25  Cloudflare Web Analytics activation — next
 F2-26  post-activation deployment — hold
 F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
-F2-24 must distinguish:
+F2-25 must establish the accepted analytics property or site configuration, preserve the documented privacy boundary, and distinguish configuration activation from later production traffic verification.
 
-- sitemap availability,
-- search-console ownership or access,
-- submission acceptance,
-- discovered or indexed state.
+## Work allowed before F2-25 completion
 
-Successful submission must not be described as successful indexation.
-
-## Work allowed before F2-24 completion
-
-- search-engine ownership and submission-path review,
-- sitemap submission when account access exists,
-- indexability evidence collection,
+- Cloudflare Web Analytics activation for the canonical Matsuri production surface,
+- public-safe activation evidence collection,
 - reviewed factual and date-triggered maintenance,
 - Source, Evidence, Relation, security, and dependency maintenance,
 - repairs required to keep repository and production gates green.
