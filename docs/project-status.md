@@ -1,6 +1,6 @@
 # Project Status
 
-**Last updated:** 2026-07-13
+**Last updated:** 2026-07-14
 
 ## Current phase
 
@@ -14,11 +14,12 @@ Execution Stage F — Launch Preparation
 F2-15 — Repository Launch Readiness Gate — completed
 F2-M01 — Full-page screenshot visual-review workflow — completed
 F2-M02 — Matsuri data freshness audit — completed
-F2-16 through F2-23 — completed
-F2-24 through F2-28 — operational hold
+F2-16 through F2-24 — completed
+F2-25 — active next gate
+F2-26 through F2-28 — operational hold
 ```
 
-The Matsuri Custom Domain, canonical output, interactive browser Search, and crawler-facing production surface have passed independent GitHub Actions verification. The active gate is F2-24 sitemap submission and indexability checking.
+The Matsuri Custom Domain, canonical output, interactive browser Search, crawler-facing production surface, sitemap submission, and technical indexability evidence have passed their accepted verification boundaries. The active gate is F2-25 Cloudflare Web Analytics activation.
 
 ## Verified canonical production baseline
 
@@ -54,7 +55,10 @@ Verified external layers:
 - self-canonical links on sitemap routes,
 - indexable robots directives,
 - representative Googlebot, bingbot, and OAI-SearchBot labels,
-- public discovery files.
+- public discovery files,
+- successful Search Console sitemap submission,
+- Google live-test indexability for a representative canonical route,
+- indexing requests for the three required representative routes.
 
 Evidence records:
 
@@ -62,6 +66,7 @@ Evidence records:
 docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
 docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md
 docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md
+docs/audits/matsuri-f2-24-search-console-2026-07-14.md
 ```
 
 The permanent Workers origin remains non-canonical:
@@ -92,7 +97,7 @@ F1 batches 01 through 10 — completed
 F2-01 through F2-15 — completed
 F2-M01 — completed
 F2-M02 — completed
-F2-16 through F2-23 — completed
+F2-16 through F2-24 — completed
 ```
 
 F2-M02 completion result:
@@ -118,49 +123,41 @@ F2-20  Custom Domain activation, canonical build, HTTPS verification — complet
 F2-21  canonical manifest and sitemap verification — completed
 F2-22  browser Pagefind Search verification — completed
 F2-23  robots, canonical, sitemap, crawler-reachability review — completed
+F2-24  Search Console sitemap submission and indexability check — completed
 ```
 
-## F2-24 preparation state
+## F2-24 accepted evidence
 
 ```text
-Technical indexability preflight        implemented
-Search-engine submission record         pending-owner-action
-Google Search Console ownership          not claimed
-Canonical sitemap submitted              not claimed
-F2-24 completion                         not claimed
+Search engine                       Google Search Console
+Property type                       URL-prefix
+Canonical sitemap submitted         success
+Submitted date                      2026-07-14
+Last read date                      2026-07-14
+Discovered pages                    20
+Technical preflight run             29232294960 — success
+Technical preflight artifact        8271994696
+Representative Google live test     indexable
+Representative indexing requests    3 submitted
+Indexation claimed                  false
 ```
 
-Implemented preparation:
-
-```text
-scripts/check-matsuri-indexability-preflight.mjs
-scripts/check-matsuri-search-engine-submission-record.mjs
-config/matsuri-search-engine-submission.json
-docs/f2-24-sitemap-submission-indexability.md
-docs/templates/matsuri-f2-24-submission-evidence.md
-.github/workflows/verify-matsuri-indexability-preflight.yml
-```
-
-The automated preflight verifies public technical indexability but cannot use a private search-engine owner account. The submission record remains mechanically incomplete until public-safe owner-account evidence is added.
+F2-24 combines all-route automated preflight evidence with Search Console submission evidence and representative Google-specific evidence. It does not claim that Google has already indexed any URL.
 
 ## Remaining launch sequence
 
 ```text
-F2-24  search-engine sitemap submission and indexability check — owner action pending
-F2-25  Cloudflare Web Analytics activation — hold
+F2-25  Cloudflare Web Analytics activation — next
 F2-26  post-activation deployment — hold
 F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
-F2-24 must record the actual search-engine ownership and submission result and distinguish successful submission from indexation. F2-23 did not submit the sitemap and the F2-24 preflight does not claim that any search engine has indexed the site.
-
 Do not:
 
-- mark F2-24 complete from a technical preflight alone,
-- claim indexation without search-engine evidence,
+- claim indexation without later search-engine evidence,
 - expose owner email, account identifier, or verification token,
-- enable Web Analytics before F2-25,
+- claim Analytics activation before F2-25 evidence exists,
 - begin portal deployment or a future specialist-site implementation during this sequence.
 
 ## Routine maintenance after F2-M02
@@ -176,14 +173,14 @@ Do not:
 pnpm gate:matsuri:repository
 ```
 
-The repository gate preserves completed external work through F2-23 and the F2-24 through F2-28 boundary. The dedicated F2-24 workflow separately validates the pending submission record and live indexability preflight.
+The repository gate preserves completed external work through F2-24 and the F2-25 through F2-28 boundary. The dedicated F2-24 workflow validates the completed Search Console record and live indexability preflight.
 
 ## Current release status
 
 ```text
-repository-verified-crawler-reachability-verified-sitemap-submission-pending
+repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-pending
 ```
 
 ## Immediate next action
 
-Run the F2-24 preflight, then use a verified Google Search Console property to submit the exact canonical sitemap and record sanitized submission plus representative URL Inspection evidence. Until that owner action occurs, F2-24 remains incomplete.
+Run F2-25: activate Cloudflare Web Analytics for the canonical Matsuri production surface, preserve the accepted privacy boundary, and record the exact activation configuration without claiming traffic verification before F2-27.
