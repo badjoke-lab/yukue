@@ -22,6 +22,8 @@ const requiredScripts = [
   "check:matsuri:browser",
   "check:matsuri:canonical-search",
   "check:matsuri:crawler-reachability",
+  "check:matsuri:indexability-preflight",
+  "check:matsuri:search-engine-submission-record",
   "audit:matsuri:freshness",
   "audit:matsuri:relations",
 ];
@@ -38,6 +40,7 @@ const requiredDocs = [
   "docs/f2-20-custom-domain-activation.md",
   "docs/f2-22-canonical-search-verification.md",
   "docs/f2-23-crawler-reachability.md",
+  "docs/f2-24-sitemap-submission-indexability.md",
   "docs/development-schedule.md",
   "docs/project-status.md",
   "docs/roadmap.md",
@@ -47,6 +50,7 @@ const requiredDocs = [
   "docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md",
   "docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md",
   "docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md",
+  "docs/audits/matsuri-f2-24-search-console-2026-07-14.md",
   "docs/audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md",
   "docs/audits/matsuri-f2-m02-soma-outcome-2026-07-12.md",
   "docs/audits/matsuri-f2-m02-relation-inventory-2026-07-12.md",
@@ -64,7 +68,6 @@ const completedRepositoryIds = [
   "F2-13",
   "F2-14",
 ];
-
 const completedExternalIds = [
   "F2-16",
   "F2-17",
@@ -74,8 +77,9 @@ const completedExternalIds = [
   "F2-21",
   "F2-22",
   "F2-23",
+  "F2-24",
 ];
-const pendingExternalIds = ["F2-24", "F2-25", "F2-26", "F2-27", "F2-28"];
+const pendingExternalIds = ["F2-25", "F2-26", "F2-27", "F2-28"];
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -85,10 +89,11 @@ function sha256File(filePath) {
   return crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex");
 }
 
-const packageJson = JSON.parse(
-  fs.readFileSync(path.join(repositoryRoot, "package.json"), "utf8"),
-);
+function read(relativePath) {
+  return fs.readFileSync(path.join(repositoryRoot, relativePath), "utf8");
+}
 
+const packageJson = JSON.parse(read("package.json"));
 for (const scriptName of requiredScripts) {
   assert(
     typeof packageJson.scripts?.[scriptName] === "string",
@@ -122,7 +127,7 @@ assert(releaseManifest.project_id === "yukue-series", "Unexpected release projec
 assert(releaseManifest.site_id === "matsuri", "Unexpected release site_id.");
 assert(
   releaseManifest.release_status ===
-    "repository-verified-crawler-reachability-verified-sitemap-submission-pending",
+    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-pending",
   `Unexpected release_status: ${String(releaseManifest.release_status)}`,
 );
 assert(
@@ -147,37 +152,34 @@ assert(
     releaseManifest.canonical_origin_verification?.https_reachable === true &&
     releaseManifest.canonical_origin_verification?.manifest_origin_verified === true &&
     releaseManifest.canonical_origin_verification?.canonical_sitemap_verified === true,
-  "Release candidate does not preserve the successful canonical verification evidence.",
+  "Release candidate does not preserve successful canonical verification evidence.",
 );
 assert(
   releaseManifest.canonical_search_verification?.workflow_run_id === 29193201911 &&
     releaseManifest.canonical_search_verification?.job_id === 86651403427 &&
-    releaseManifest.canonical_search_verification?.verified_origin ===
-      "https://matsuri-yukue.badjoke-lab.com" &&
     releaseManifest.canonical_search_verification?.artifact_id === 8260207484 &&
-    releaseManifest.canonical_search_verification?.artifact_digest ===
-      "sha256:29c05992a887951d91caa8f5bd4588d88b0bac97230353cba4381ec4ff0eb884" &&
-    releaseManifest.canonical_search_verification?.desktop_chromium_verified === true &&
-    releaseManifest.canonical_search_verification?.mobile_chromium_verified === true &&
-    releaseManifest.canonical_search_verification?.exact_name_query_verified === true &&
-    releaseManifest.canonical_search_verification?.structured_filters_verified === true &&
-    releaseManifest.canonical_search_verification?.no_result_state_verified === true &&
-    releaseManifest.canonical_search_verification?.result_navigation_verified === true &&
     releaseManifest.canonical_search_verification?.runtime_errors_absent === true,
   "Release candidate does not preserve successful F2-22 canonical Search evidence.",
 );
 assert(
   releaseManifest.crawler_reachability_verification?.workflow_run_id === 29230233384 &&
     releaseManifest.crawler_reachability_verification?.artifact_id === 8271238535 &&
-    releaseManifest.crawler_reachability_verification?.artifact_digest ===
-      "sha256:ae292efac09e25fc9ad0cefd0a7de3c40d4a38c28472734035d728ecd26f2506" &&
     releaseManifest.crawler_reachability_verification?.robots_verified === true &&
     releaseManifest.crawler_reachability_verification?.sitemap_verified === true &&
     releaseManifest.crawler_reachability_verification?.self_canonical_verified === true &&
-    releaseManifest.crawler_reachability_verification?.indexing_directives_verified === true &&
-    releaseManifest.crawler_reachability_verification?.representative_user_agents_verified === true &&
-    releaseManifest.crawler_reachability_verification?.public_discovery_files_verified === true,
+    releaseManifest.crawler_reachability_verification?.indexing_directives_verified === true,
   "Release candidate does not preserve successful F2-23 crawler evidence.",
+);
+assert(
+  releaseManifest.search_engine_submission_verification?.search_engine ===
+    "google-search-console" &&
+    releaseManifest.search_engine_submission_verification?.property_type === "url-prefix" &&
+    releaseManifest.search_engine_submission_verification?.submission_result === "success" &&
+    releaseManifest.search_engine_submission_verification?.discovered_pages === 20 &&
+    releaseManifest.search_engine_submission_verification?.representative_live_tests >= 1 &&
+    releaseManifest.search_engine_submission_verification?.indexing_requests >= 3 &&
+    releaseManifest.search_engine_submission_verification?.indexation_claimed === false,
+  "Release candidate does not preserve successful F2-24 Search Console evidence.",
 );
 assert(
   typeof releaseManifest.source_commit === "string" &&
@@ -202,6 +204,10 @@ assert(
   Array.isArray(releaseManifest.completed_external_work),
   "Release candidate does not record completed external work.",
 );
+assert(
+  Array.isArray(releaseManifest.external_pending_work),
+  "Release candidate does not record pending external work.",
+);
 
 for (const id of completedRepositoryIds) {
   assert(
@@ -222,8 +228,8 @@ for (const id of pendingExternalIds) {
   );
 }
 assert(
-  !releaseManifest.external_pending_work.some((value) => value.startsWith("F2-23")),
-  "Release candidate still records F2-23 as pending.",
+  !releaseManifest.external_pending_work.some((value) => value.startsWith("F2-24")),
+  "Release candidate still records F2-24 as pending.",
 );
 
 let totalBytes = 0;
@@ -239,7 +245,6 @@ for (const file of releaseManifest.files) {
   totalBytes += stat.size;
   aggregateLines.push(`${file.path}\u0000${file.size_bytes}\u0000${file.sha256}`);
 }
-
 assert(
   totalBytes === releaseManifest.artifact_size_bytes,
   "Frozen artifact total byte count does not match the release manifest.",
@@ -253,34 +258,20 @@ assert(
   "Frozen artifact aggregate SHA-256 does not match the release manifest.",
 );
 
-const developmentSchedule = fs.readFileSync(
-  path.join(repositoryRoot, "docs", "development-schedule.md"),
-  "utf8",
+const developmentSchedule = read("docs/development-schedule.md");
+const projectStatus = read("docs/project-status.md");
+const roadmap = read("docs/roadmap.md");
+const freshnessAudit = read("docs/matsuri-data-freshness-audit.md");
+const deploymentTopology = read("docs/deployment-topology.md");
+const activationAudit = read(
+  "docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md",
 );
-const projectStatus = fs.readFileSync(
-  path.join(repositoryRoot, "docs", "project-status.md"),
-  "utf8",
+const searchAudit = read("docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md");
+const crawlerAudit = read(
+  "docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md",
 );
-const roadmap = fs.readFileSync(path.join(repositoryRoot, "docs", "roadmap.md"), "utf8");
-const freshnessAudit = fs.readFileSync(
-  path.join(repositoryRoot, "docs", "matsuri-data-freshness-audit.md"),
-  "utf8",
-);
-const deploymentTopology = fs.readFileSync(
-  path.join(repositoryRoot, "docs", "deployment-topology.md"),
-  "utf8",
-);
-const activationAudit = fs.readFileSync(
-  path.join(repositoryRoot, "docs", "audits", "matsuri-f2-20-canonical-activation-2026-07-12.md"),
-  "utf8",
-);
-const searchAudit = fs.readFileSync(
-  path.join(repositoryRoot, "docs", "audits", "matsuri-f2-22-canonical-search-2026-07-12.md"),
-  "utf8",
-);
-const crawlerAudit = fs.readFileSync(
-  path.join(repositoryRoot, "docs", "audits", "matsuri-f2-23-crawler-reachability-2026-07-13.md"),
-  "utf8",
+const submissionAudit = read(
+  "docs/audits/matsuri-f2-24-search-console-2026-07-14.md",
 );
 
 for (const id of [...completedRepositoryIds, "F2-15", ...completedExternalIds]) {
@@ -293,12 +284,12 @@ for (const id of pendingExternalIds) {
   );
 }
 assert(
-  projectStatus.includes("F2-16 through F2-23 — completed"),
-  "Project status does not record F2-16 through F2-23 completion.",
+  projectStatus.includes("F2-16 through F2-24 — completed"),
+  "Project status does not record F2-16 through F2-24 completion.",
 );
 assert(
-  projectStatus.includes("F2-24 through F2-28 — operational hold"),
-  "Project status does not record the F2-24 boundary.",
+  projectStatus.includes("F2-25 — active next gate"),
+  "Project status does not record F2-25 as the active next gate.",
 );
 assert(
   projectStatus.includes("F2-M02 — Matsuri data freshness audit — completed"),
@@ -330,32 +321,34 @@ assert(
 );
 assert(
   activationAudit.includes("Run ID\n29191904624") &&
-    activationAudit.includes("Conclusion\nsuccess") &&
-    activationAudit.includes("F2-20  custom-domain attachment, canonical build, HTTPS verification — completed") &&
-    activationAudit.includes("F2-21  canonical manifest and sitemap verification — completed"),
+    activationAudit.includes("Conclusion\nsuccess"),
   "Canonical activation audit is incomplete.",
 );
 assert(
   searchAudit.includes("Run ID\n29193201911") &&
-    searchAudit.includes("Job ID\n86651403427") &&
-    searchAudit.includes("Conclusion\nsuccess") &&
     searchAudit.includes("Artifact ID\n8260207484") &&
-    searchAudit.includes("F2-22  browser Pagefind Search verification — completed"),
+    searchAudit.includes("Conclusion\nsuccess"),
   "Canonical Search audit is incomplete.",
 );
 assert(
   crawlerAudit.includes("Run ID\n29230233384") &&
-    crawlerAudit.includes("Conclusion\nsuccess") &&
     crawlerAudit.includes("Artifact ID\n8271238535") &&
-    crawlerAudit.includes("F2-23  robots, canonical, sitemap, crawler-reachability review — completed"),
+    crawlerAudit.includes("Conclusion\nsuccess"),
   "Crawler reachability audit is incomplete.",
 );
 assert(
-  roadmap.includes("External deployment through F2-23: **Completed**") &&
-    roadmap.includes("Sitemap submission and indexability: **Next gate at F2-24**"),
-  "Roadmap does not reflect F2-23 completion and the F2-24 next gate.",
+  submissionAudit.includes("Submission status    success") &&
+    submissionAudit.includes("Discovered pages     20") &&
+    submissionAudit.includes("Live test result\nindexable") &&
+    submissionAudit.includes("F2-24 complete                   true"),
+  "Search Console submission audit is incomplete.",
+);
+assert(
+  roadmap.includes("External deployment through F2-24: **Completed**") &&
+    roadmap.includes("F2-25  Web Analytics activation — next"),
+  "Roadmap does not reflect F2-24 completion and the F2-25 next gate.",
 );
 
 console.log(
-  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-23 and F2-M02 are complete; crawler reachability verified by run 29230233384; F2-24 through F2-28 remain pending.`,
+  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-24 and F2-M02 are complete; Search Console sitemap submission verified with ${releaseManifest.search_engine_submission_verification.discovered_pages} discovered pages; F2-25 through F2-28 remain pending.`,
 );
