@@ -70,24 +70,22 @@ Relations missing Evidence            0
 ### External deployment and production verification
 
 ```text
-F2-16  Cloudflare Workers Builds connection
-F2-17  first Workers Static Assets deployment and reachable URL
-F2-18  deployed-origin smoke verification
-F2-19  exact canonical Matsuri hostname decision
-F2-20  Custom Domain activation, canonical build, HTTPS verification
-F2-21  canonical manifest and sitemap verification
-F2-22  browser Search verification on canonical origin
-F2-23  crawler-reachability review
-F2-24  sitemap submission and indexability check
-F2-25  Web Analytics activation
-F2-26  post-activation deployment
-F2-27  production traffic verification
-F2-28  final F2 Launch Gate
+F2-16  Cloudflare Workers Builds connection — completed
+F2-17  first Workers Static Assets deployment and reachable URL — completed
+F2-18  deployed-origin smoke verification — completed
+F2-19  exact canonical Matsuri hostname decision — completed
+F2-20  Custom Domain activation, canonical build, HTTPS verification — completed
+F2-21  canonical manifest and sitemap verification — completed
+F2-22  browser Search verification on canonical origin — completed
+F2-23  crawler-reachability review — completed
+F2-24  sitemap submission and indexability check — completed
+F2-25  Web Analytics activation — next
+F2-26  post-activation deployment — hold
+F2-27  production traffic verification — hold
+F2-28  final F2 Launch Gate — hold
 ```
 
-External deployment through F2-23: **Completed**
-
-Sitemap submission and indexability: **Next gate at F2-24**
+External deployment through F2-24: **Completed**
 
 Verified production baseline:
 
@@ -99,19 +97,23 @@ Canonical Search run      29193201911 — success
 Canonical Search artifact 8260207484
 Crawler reachability run  29230233384 — success
 Crawler evidence artifact 8271238535
+F2-24 preflight run        29232294960 — success
+F2-24 preflight artifact   8271994696
+Search Console sitemap     success
+Discovered pages           20
+Representative live test  indexable
+Indexing requests          3 submitted
 ```
 
-F2-23 confirmed the public robots policy, canonical Sitemap discovery, self-canonical links on sitemap routes, indexable response directives, representative crawler labels, and public discovery files.
+F2-24 confirmed Search Console access for the canonical URL-prefix property, successful canonical sitemap submission, all-route technical preflight coverage, representative Google live-test indexability, and indexing requests for the three required representative URLs. Submission and registration requests are not treated as proof of indexation.
 
 The portal and Matsuri remain separate applications and Workers. The portal hostname remains planned and is not attached to the Matsuri Worker.
 
 Pending:
 
 ```text
-F2-24 through F2-28
+F2-25 through F2-28
 ```
-
-F2-24 addresses search-engine account ownership, sitemap submission, and indexability evidence. Sitemap availability and successful submission are not treated as proof of indexation.
 
 ## Phase 10 — Stabilization
 
