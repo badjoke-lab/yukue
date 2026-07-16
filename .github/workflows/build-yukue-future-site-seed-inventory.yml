@@ -7,24 +7,30 @@ on:
     paths:
       - ".github/workflows/build-yukue-future-site-seed-inventory.yml"
       - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
+      - "config/yukue-future-site-seed-artifact-contract.json"
       - "data/public/matsuri/**"
+      - "docs/future-site-seed-artifact-contract.md"
       - "docs/future-site-seed-inventory.md"
       - "docs/future-site-seed-provenance-bundle.md"
       - "package.json"
       - "scripts/build-yukue-future-site-seed-inventory.mjs"
       - "scripts/build-yukue-future-site-seed-provenance-bundle.mjs"
+      - "scripts/check-yukue-future-site-seed-artifact-contract.mjs"
   push:
     branches:
       - main
     paths:
       - ".github/workflows/build-yukue-future-site-seed-inventory.yml"
       - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
+      - "config/yukue-future-site-seed-artifact-contract.json"
       - "data/public/matsuri/**"
+      - "docs/future-site-seed-artifact-contract.md"
       - "docs/future-site-seed-inventory.md"
       - "docs/future-site-seed-provenance-bundle.md"
       - "package.json"
       - "scripts/build-yukue-future-site-seed-inventory.mjs"
       - "scripts/build-yukue-future-site-seed-provenance-bundle.mjs"
+      - "scripts/check-yukue-future-site-seed-artifact-contract.mjs"
   workflow_dispatch:
 
 permissions:
@@ -54,7 +60,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Build and validate relation-backed seed inventory and provenance
+      - name: Build and validate seed inventory, provenance, and contract
         run: pnpm audit:yukue:future-site-seeds
 
       - name: Upload seed inventory
@@ -76,4 +82,5 @@ jobs:
           if [ -f ".artifacts/yukue-future-site-seeds/provenance.json" ]; then
             echo "" >> "$GITHUB_STEP_SUMMARY"
             echo "Self-contained provenance bundle: generated" >> "$GITHUB_STEP_SUMMARY"
+            echo "Artifact contract v1: passed" >> "$GITHUB_STEP_SUMMARY"
           fi
