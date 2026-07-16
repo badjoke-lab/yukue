@@ -68,7 +68,7 @@ stale external-link candidates        0
 Relations missing Evidence            0
 ```
 
-The next date-triggered repository task is the post-2026-07-15 review of 博多祇園山笠 2026.
+The post-2026-07-15 review of 博多祇園山笠 2026 was completed from the official 追い山笠 result record. The next dated review point is 郡上おどり 2026 after 2026-09-05.
 
 ### External deployment and production verification
 
@@ -82,7 +82,7 @@ F2-21  canonical manifest and sitemap verification — completed
 F2-22  browser Search verification on canonical origin — completed
 F2-23  crawler-reachability review — completed
 F2-24  sitemap submission and indexability check — completed
-F2-25  Web Analytics activation — owner access pending
+F2-25  Web Analytics activation — next external gate; owner access pending
 F2-26  post-activation deployment — hold
 F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
