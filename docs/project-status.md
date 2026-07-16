@@ -69,6 +69,7 @@ docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
 docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md
 docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md
 docs/audits/matsuri-f2-24-search-console-2026-07-14.md
+docs/audits/matsuri-hakata-outcome-2026-07-16.md
 ```
 
 The permanent Workers origin remains non-canonical:
@@ -101,6 +102,7 @@ F2-M01 — completed
 F2-M02 — completed
 F2-16 through F2-24 — completed
 F2-P01 — completed
+博多祇園山笠 2026 outcome review — completed
 ```
 
 F2-P01 prepared the complete insertion path for the Cloudflare-dependent gates:
@@ -118,6 +120,8 @@ The machine record remains `pending-owner-access` and mechanically rejects false
 
 ## F2-M02 completion result
 
+Fixed-date baseline completed on 2026-07-12:
+
 ```text
 Occurrences total                    24
 Resolved Occurrences                 15
@@ -127,6 +131,22 @@ Stale external-link candidates        0
 Specialist Entities with no Relation  0
 Relations missing Evidence            0
 ```
+
+Current routine-maintenance inventory as of 2026-07-16:
+
+```text
+Occurrences total                    24
+Resolved Occurrences                 16
+Closed-period unresolved              0
+In-progress scheduled                 1
+Future scheduled                      7
+Stale Current State candidates        0
+Stale external-link candidates        0
+Specialist Entities with no Relation  0
+Relations missing Evidence            0
+```
+
+The official 博多祇園山笠振興会 result page records the 2026-07-15 追い山笠 timing results. `occ-hakata-2026-schedule` is corrected to `held`; scale remains `unknown` because the result page is not converted into an unsupported structured scale claim.
 
 ## Completed external deployment and verification
 
@@ -199,7 +219,7 @@ Not activated:
 ## Routine maintenance after F2-M02
 
 ```text
-博多祇園山笠 2026  review due after 2026-07-15 — active next repository task
+博多祇園山笠 2026  outcome reviewed 2026-07-16 — held
 郡上おどり 2026    review after 2026-09-05
 ```
 
@@ -209,7 +229,7 @@ Not activated:
 pnpm gate:matsuri:repository
 ```
 
-The repository gate preserves completed external work through F2-24, validates the completed Search Console record, and now also validates the pending-to-complete Analytics progression record.
+The repository gate preserves completed external work through F2-24, validates the completed Search Console record, validates the pending-to-complete Analytics progression record, and rejects past scheduled Occurrences that have not been reviewed.
 
 ## Current release status
 
@@ -220,6 +240,7 @@ repository-verified-crawler-reachability-verified-sitemap-submission-verified-in
 ## Immediate next actions
 
 ```text
-Repository track  review 博多祇園山笠 2026 and continue bounded maintenance
+Repository track  continue bounded Source, Evidence, Relation, security, and dependency maintenance
+Dated review      郡上おどり 2026 after 2026-09-05
 Owner track       resume F2-25 when Cloudflare access becomes available
 ```
