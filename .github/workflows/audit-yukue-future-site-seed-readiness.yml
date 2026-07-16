@@ -1,0 +1,76 @@
+name: Audit Yukue future-site seed readiness
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/audit-yukue-future-site-seed-readiness.yml"
+      - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
+      - "data/public/matsuri/**"
+      - "docs/future-site-seed-readiness.md"
+      - "package.json"
+      - "scripts/audit-yukue-future-site-seed-readiness.mjs"
+      - "scripts/build-yukue-future-site-seed-inventory.mjs"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/audit-yukue-future-site-seed-readiness.yml"
+      - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
+      - "data/public/matsuri/**"
+      - "docs/future-site-seed-readiness.md"
+      - "package.json"
+      - "scripts/audit-yukue-future-site-seed-readiness.mjs"
+      - "scripts/build-yukue-future-site-seed-inventory.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: yukue-future-site-seed-readiness-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit-readiness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        run: npm install --global pnpm@11.10.0
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Build relation-backed seed inventory
+        run: pnpm audit:yukue:future-site-seeds
+
+      - name: Audit public seed readiness
+        run: pnpm audit:yukue:future-site-seed-readiness
+
+      - name: Upload readiness audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: yukue-future-site-seed-readiness-${{ github.sha }}
+          path: .artifacts/yukue-future-site-seed-readiness/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Write summary
+        shell: bash
+        run: |
+          echo "## Yukue future-site seed readiness" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f ".artifacts/yukue-future-site-seed-readiness/summary.md" ]; then
+            cat ".artifacts/yukue-future-site-seed-readiness/summary.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
