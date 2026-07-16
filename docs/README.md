@@ -13,6 +13,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `project-concept.md` | Current | Series purpose and boundaries |
 | `product-spec.md` | Working | Product capabilities and user needs |
 | `public-data-model.md` | Working | Public record model and projection rules |
+| `future-site-seed-inventory.md` | Repository preparation | Relation-backed public-safe seed extraction without activating future applications |
 | `matsuri-mvp-spec.md` | Working | Matsuri MVP scope |
 | `information-architecture.md` | Accepted direction | Home H1 and Detail C |
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, layout language |
