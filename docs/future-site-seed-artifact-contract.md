@@ -1,6 +1,6 @@
 # Yukue Future-site Seed Artifact Contract
 
-**Status:** F2-P07 repository implementation / hosted verification pending
+**Status:** F2-P07 completed / contract v1 enforced
 
 ## Purpose
 
@@ -17,6 +17,41 @@ config/yukue-future-site-seed-artifact-contract.json
 ```text
 contract_id       yukue-future-site-seed-artifacts
 contract_version  1
+```
+
+## Hosted verification
+
+```text
+Workflow
+Build Yukue future-site seed inventory
+
+Run ID
+29492382041
+
+Conclusion
+success
+
+Artifact ID
+8372948374
+
+Artifact name
+yukue-future-site-seeds-b66d62057ae9a7c82681163c0e516116db16a007
+
+Artifact digest
+sha256:aed91e5ebe2b2e31261756f10b298d764fecad255939918f67f9fbcc6d4fe817
+```
+
+The hosted generation step built `inventory.json`, `provenance.json`, and `summary.md`, then passed contract v1 before uploading the artifact. The readiness workflow run `29492381966` also completed successfully against the contracted inventory.
+
+Verified contract result:
+
+```text
+Contract version       1
+Required files         3
+Inventory seeds        5
+Provenance handoffs    5
+Required site IDs      jinja / jiin / tomurai
+Candidate boundaries   preserved
 ```
 
 ## Validation command
