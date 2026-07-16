@@ -76,6 +76,8 @@ F2-M02 — completed
 F2-16 through F2-24 — completed
 F2-P01 through F2-P08 — completed
 博多祇園山笠 2026 outcome review — completed
+YOSAKOIソーラン 2026 outcome review — completed
+弘前ねぷた 2026 schedule review — completed
 ```
 
 ## Parallel preparation results
@@ -177,16 +179,17 @@ docs/audits/yukue-f2-p05-seed-handoff-provenance-2026-07-16.md
 docs/audits/yukue-f2-p06-seed-provenance-bundle-2026-07-16.md
 docs/audits/yukue-f2-p07-seed-artifact-contract-2026-07-16.md
 docs/audits/yukue-f2-p08-jinja-start-gate-2026-07-16.md
+docs/audits/matsuri-yosakoi-hirosaki-2026-07-16.md
 ```
 
 ## Routine Matsuri maintenance
 
 ```text
-Occurrences total                    24
-Resolved Occurrences                 16
+Occurrences total                    26
+Resolved Occurrences                 17
 Closed-period unresolved              0
 In-progress scheduled                 1
-Future scheduled                      7
+Future scheduled                      8
 Stale Current State candidates        0
 Stale external-link candidates        0
 Specialist Entities with no Relation  0
@@ -194,11 +197,15 @@ Relations missing Evidence            0
 ```
 
 ```text
-博多祇園山笠 2026  outcome reviewed 2026-07-16 — held
-郡上おどり 2026    review after 2026-09-05
+博多祇園山笠 2026       outcome reviewed 2026-07-16 — held
+YOSAKOIソーラン 2026    outcome reviewed 2026-07-16 — held
+弘前ねぷた 2026         schedule reviewed 2026-07-16 — scheduled
+郡上おどり 2026         review after 2026-09-05
 ```
 
-The 博多祇園山笠 scale remains `unknown`; the official timing result proves the outcome but not a structured scale category.
+The 博多祇園山笠 and YOSAKOIソーラン scales remain `unknown`; official outcome Evidence proves that each occurrence was held but does not provide a structured scale category. 弘前ねぷた remains `scheduled` and `unknown` until post-event Evidence is reviewed.
+
+The maintenance also aligned the HTML Public Projection bundle inventory with the canonical loader through maintenance 07 and correction 04.
 
 ## Completed external sequence
 
@@ -271,7 +278,7 @@ repository-verified-crawler-reachability-verified-sitemap-submission-verified-in
 
 ```text
 Repository track  continue bounded Matsuri maintenance, security, dependency, and gate-preservation work
-Dated review      郡上おどり 2026 after 2026-09-05
+Dated review      弘前ねぷた 2026 after 2026-08-07; 郡上おどり 2026 after 2026-09-05
 Owner track       resume F2-25 when Cloudflare access becomes available
 Jinja track       remain blocked until every start-gate prerequisite is complete
 ```
