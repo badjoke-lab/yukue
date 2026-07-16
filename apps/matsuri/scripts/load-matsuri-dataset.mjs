@@ -25,6 +25,7 @@ export const matsuriF2MaintenanceFiles = [
   "maintenance-03.json",
   "maintenance-04.json",
   "maintenance-05.json",
+  "maintenance-06.json",
 ];
 export const matsuriF2CorrectionFiles = [
   "corrections-01.json",

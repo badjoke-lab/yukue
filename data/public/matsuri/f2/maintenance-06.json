@@ -1,0 +1,75 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [
+    {
+      "id": "evd-aso-jinja-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aso-restoration",
+      "target_type": "entity_identity",
+      "target_id": "shr-aso-jinja",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "阿蘇神社公式の復旧記録は、阿蘇神社の名称と平成28年熊本地震で被災した主要社殿の災害復旧経過を説明しており、神社Entityの同一性を直接裏付ける。",
+      "captured_at": "2026-07-16",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-chichibu-jinja-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-chichibu-yomatsuri",
+      "target_type": "entity_identity",
+      "target_id": "shr-chichibu-jinja",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "秩父神社公式ページは、秩父夜祭を同社の年に一度の大祭として案内しており、秩父神社Entityの名称と祭礼主体としての同一性を直接裏付ける。",
+      "captured_at": "2026-07-16",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-kushida-jinja-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hakata-schedule-2026",
+      "target_type": "entity_identity",
+      "target_id": "shr-kushida-jinja",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "博多祇園山笠振興会の公式日程は、櫛田神社神官による神事、櫛田入り、櫛田神社参拝を行事構成として明記しており、櫛田神社Entityの名称と祭礼上の役割を直接裏付ける。",
+      "captured_at": "2026-07-16",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-dainichireiki-jinja-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-dainichido-kazuno",
+      "target_type": "entity_identity",
+      "target_id": "shr-dainichireiki-jinja",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "鹿角市公式ページは、大日堂舞楽が大日霊貴神社の養老礼祭に奉納されることと、同社が大日堂とも呼ばれることを説明しており、神社Entityの名称と同一性を直接裏付ける。",
+      "captured_at": "2026-07-16",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sada-jinja-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sada-jinja",
+      "target_type": "entity_identity",
+      "target_id": "shr-sada-jinja",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "佐太神社公式ホームページは、佐太神社の名称と同社に伝わる佐陀神能を案内しており、神社Entityの同一性を直接裏付ける。",
+      "captured_at": "2026-07-16",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
