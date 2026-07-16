@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-24 completed / F2-25 owner access pending / F2-P01 through F2-P07 completed
+**Status:** F2-24 completed / F2-25 owner access pending / F2-P01 through F2-P08 completed
 
 This document defines the stable implementation order. It complements `roadmap.md` and `project-status.md`. The project is gate-driven rather than deadline-driven.
 
@@ -12,15 +12,10 @@ F1 corpus expansion          completed
 F2-01 through F2-24          completed
 F2-M01                       completed
 F2-M02                       completed
-F2-P01                       completed
-F2-P02                       completed
-F2-P03                       completed
-F2-P04                       completed
-F2-P05                       completed
-F2-P06                       completed
-F2-P07                       completed
+F2-P01 through F2-P08        completed
 F2-25                        owner access pending
 F2-26 through F2-28          operational hold
+Actual Jinja start gate      blocked
 ```
 
 ## Foundation through Stage E
@@ -65,6 +60,7 @@ F2-P04  Direct Entity-identity Evidence for five shrine seeds — completed
 F2-P05  Seed handoff record references and hosted compatibility verification — completed
 F2-P06  Self-contained public provenance bundle and reference closure — completed
 F2-P07  Candidate artifact contract v1 and hosted enforcement — completed
+F2-P08  Jinja start-gate record, validator, workflow, and inactive boundary — completed
 ```
 
 Repository gate:
@@ -73,7 +69,9 @@ Repository gate:
 pnpm gate:matsuri:repository
 ```
 
-### Parallel preparation results
+The repository gate includes the pending Analytics validator and the blocked Jinja start-gate validator.
+
+## Parallel preparation results
 
 ```text
 F2-P02  5 Relation-backed seeds / Jinja 5 / Jiin 0 / Tomurai 0
@@ -84,6 +82,7 @@ F2-P06  self-contained bundle: 5 seed Entities, 5 context Entities, 5 Places,
          6 Sources, 10 Evidence, 5 Relations, 0 State Snapshots
 F2-P07  contract v1: 3 required files, 5 seeds, 5 handoffs,
          exact site IDs and candidate-only boundaries enforced
+F2-P08  actual Jinja start gate remains blocked and early activation is rejected
 ```
 
 Hosted evidence:
@@ -95,9 +94,7 @@ F2-P04 run                    29489701435 — success
 F2-P05 run                    29490466083 — success
 F2-P06 run                    29491507863 — success
 F2-P07 run                    29492382041 — success
-F2-P07 artifact               8372948374
-F2-P07 artifact digest        sha256:aed91e5ebe2b2e31261756f10b298d764fecad255939918f67f9fbcc6d4fe817
-F2-P07 readiness run          29492381966 — success
+F2-P08 run                    29493210854 — success
 ```
 
 Current remaining seed gaps:
@@ -112,7 +109,31 @@ Current remaining seed gaps:
 
 These results do not activate Jinja, assign priority, or claim publication readiness.
 
-### Parallel maintenance
+## F2-P08 Jinja start-gate prerequisites
+
+```text
+Matsuri F2-28 complete                 false
+Matsuri stabilization review          false
+Portal/Jinja implementation order     false
+Jinja State specification approved    false
+Explicit start authorization          false
+```
+
+Before Jinja implementation:
+
+```text
+1. complete F2-28
+2. complete Matsuri stabilization review
+3. decide portal/Jinja implementation order
+4. approve Jinja State specification and vocabulary
+5. record explicit start authorization
+6. pass the actual Jinja start gate
+7. only then create apps/jinja
+```
+
+F2-28 alone is not sufficient to begin Jinja.
+
+## Parallel maintenance
 
 ```text
 F2-M01  full-page screenshot visual-review workflow — completed
@@ -138,9 +159,9 @@ Routine checks:
 
 The 博多 result proves the outcome but not a structured scale, so scale remains `unknown`.
 
-### External deployment and production verification
+## External deployment and production verification
 
-#### Completed
+### Completed
 
 ```text
 F2-16  Cloudflare Workers Builds connection — completed
@@ -168,7 +189,7 @@ Indexing requests          3 submitted
 
 F2-24 does not claim that any URL is already indexed.
 
-#### Cloudflare-dependent hold
+### Cloudflare-dependent hold
 
 ```text
 F2-25  Cloudflare Web Analytics activation — owner access pending
@@ -195,10 +216,9 @@ Do not use a manual beacon, store an Analytics token, publish private metrics, o
 - maintain the pending Analytics record and launch-closure runbooks,
 - complete factual and date-triggered Matsuri maintenance,
 - improve Source, Evidence, Relation, and seed-provenance coverage,
-- maintain seed inventory, provenance, readiness, and artifact contracts,
+- maintain seed inventory, provenance bundle, readiness, artifact contract, and Jinja start-gate guardrail,
 - perform security and dependency maintenance,
-- repair repository or production gates,
-- collect future-site seed data already supported by approved Matsuri Relations without starting another public application.
+- repair repository or production gates.
 
 ## Work not activated
 
@@ -206,6 +226,9 @@ Do not use a manual beacon, store an Analytics token, publish private metrics, o
 F2-25 through F2-28 completion claims
 portal production deployment
 future specialist-site production implementation
+Jinja State specification approval
+apps/jinja
+Jinja Worker or hostname activation
 Stats
 Compare
 dynamic API
