@@ -17,6 +17,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `future-site-seed-readiness.md` | F2-P03 and F2-P04 completed | Public carry-forward context, direct identity Evidence, and explicit target-site research gaps |
 | `future-site-seed-provenance-bundle.md` | F2-P06 completed | Self-contained public Source, Evidence, Place, Relation, State, and Entity context bundle |
 | `future-site-seed-artifact-contract.md` | F2-P07 completed | Contract v1 for candidate inventory, provenance, summary, fields, statuses, and boundaries |
+| `jinja-start-gate.md` | F2-P08 guardrail completed | Machine-enforced prerequisites and inactive boundary before Jinja implementation |
 | `matsuri-mvp-spec.md` | Working | Matsuri MVP scope |
 | `information-architecture.md` | Accepted direction | Home H1 and Detail C |
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, layout language |
@@ -42,6 +43,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `audits/yukue-f2-p05-seed-handoff-provenance-2026-07-16.md` | Passed audit | Portable Place, identity Evidence, Source, and Relation Evidence references |
 | `audits/yukue-f2-p06-seed-provenance-bundle-2026-07-16.md` | Passed audit | Self-contained provenance records and reference-closure verification |
 | `audits/yukue-f2-p07-seed-artifact-contract-2026-07-16.md` | Passed audit | Contract v1 hosted verification and candidate-boundary enforcement |
+| `audits/yukue-f2-p08-jinja-start-gate-2026-07-16.md` | Passed guardrail audit | Hosted blocked-gate verification without future-site activation |
 | `matsuri-data-freshness-audit.md` | F2-M02 completed | Completed fixed-date audit and routine maintenance rules |
 | `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, State, and external-link inventory |
 | `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 Evidence and `held` correction for 相馬野馬追 2026 |
