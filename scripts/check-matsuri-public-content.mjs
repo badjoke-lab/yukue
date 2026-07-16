@@ -115,8 +115,8 @@ for (const marker of [
   "search-artifact-ready",
   "machine-readable-ready",
   "deployment-artifact-ready",
-  "external-deployment-activation",
-  "analytics-activation-required",
+  "public-deployment-verified",
+  "analytics-owner-access-pending",
 ]) {
   assert(
     statusHtml.includes(`data-infrastructure-status="${marker}"`),
@@ -125,17 +125,31 @@ for (const marker of [
 }
 assertContains(
   statusHtml,
-  "Cloudflare Pages接続工程を開始。公開URLと配備内容は初回deploy後に検証します",
+  "Cloudflare Workers Static Assetsで公開中。canonical origin、HTTPS、Search、crawler reachability、sitemapを検証済み",
   "Status page",
 );
 assertContains(
   statusHtml,
-  "未有効。初回deployとcanonical検証後",
+  "所有者による有効化待ち。Automatic setup有効化後に別工程でproduction trafficを確認",
   "Status page",
 );
+for (const staleText of [
+  "Cloudflare Pages接続工程を開始",
+  "公開URLと配備内容は初回deploy後に検証します",
+  "未有効。初回deployとcanonical検証後",
+]) {
+  assert(
+    !statusHtml.includes(staleText),
+    `Status page contains stale launch wording: ${staleText}`,
+  );
+}
 assert(
   !statusHtml.includes('data-infrastructure-status="external-deployment-held"'),
   "Status page must not claim that external deployment remains held after F2-16 activation.",
+);
+assert(
+  !statusHtml.includes('data-infrastructure-status="external-deployment-activation"'),
+  "Status page must not describe the verified production deployment as still activating.",
 );
 assert(
   !statusHtml.includes('data-infrastructure-status="analytics-enabled"'),
@@ -270,5 +284,5 @@ assert(
 );
 
 console.log(
-  `Matsuri public content audit passed: ${manifest.files.length} Data links, ${allHtmlPaths.length} HTML files, ${dataset.images.length} approved images, explicit deployment-activation status, honest empty states, and route-based map treatment.`,
+  `Matsuri public content audit passed: ${manifest.files.length} Data links, ${allHtmlPaths.length} HTML files, ${dataset.images.length} approved images, verified public deployment status, owner-access-pending Analytics, honest empty states, and route-based map treatment.`,
 );
