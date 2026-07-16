@@ -23,6 +23,7 @@ F2-P03 — future-site seed readiness audit — completed
 F2-P04 — shrine direct identity Evidence maintenance — completed
 F2-P05 — future-site seed handoff provenance — completed
 F2-P06 — self-contained seed provenance bundle — completed
+F2-P07 — future-site seed artifact contract v1 — completed
 F2-26 through F2-28 — operational hold
 ```
 
@@ -77,6 +78,7 @@ F2-P03 — completed
 F2-P04 — completed
 F2-P05 — completed
 F2-P06 — completed
+F2-P07 — completed
 博多祇園山笠 2026 outcome review — completed
 ```
 
@@ -95,17 +97,20 @@ docs/templates/matsuri-f2-25-analytics-evidence.md
 
 The machine record remains `pending-owner-access` and rejects false F2-25, F2-26, or F2-27 completion claims.
 
-## F2-P02 relation-backed seeds
+## F2-P02 through F2-P04 seed preparation
 
 ```text
-Baseline run                    29478631183 — success
-Baseline artifact              8367573485
-Baseline digest                sha256:747a9b833adacbc049bf12e7a29312ab8ab676e3f3b2dc73e88c43e79a634524
+F2-P02 run                     29478631183 — success
+F2-P02 artifact                8367573485
 Seeds                          5
-Relation contexts              5
 Jinja                          5
 Jiin                           0
 Tomurai                        0
+F2-P03 readiness run           29479348339 — success
+F2-P04 verification run        29489701435 — success
+Direct identity Evidence       5
+Approved State Snapshots       0
+Official URLs                  4
 ```
 
 Current Jinja seeds:
@@ -116,24 +121,6 @@ Current Jinja seeds:
 佐太神社
 大日霊貴神社
 秩父神社
-```
-
-The zero Jiin and Tomurai counts describe only the strict extraction from current approved Matsuri Relations. They are not completeness or priority claims.
-
-## F2-P03 and F2-P04 readiness
-
-F2-P03 established the baseline. F2-P04 added direct Entity-identity Evidence for all five seeds by reusing already approved Matsuri Sources.
-
-```text
-F2-P03 run                     29479348339 — success
-F2-P03 artifact                8367936520
-F2-P03 digest                  sha256:ddc5dcdc01978671f68de1f827b6a84fd2eebdf2939813797da920f00c7df975
-F2-P04 run                     29489701435 — success
-F2-P04 artifact                8371871954
-F2-P04 digest                  sha256:478c27bd7049c17ac2f7d3623f839b28125c391f356a4bb6d6c87cf431f35445
-Direct identity Evidence       5
-Approved State Snapshots       0
-Official URLs                  4
 ```
 
 Remaining gaps:
@@ -151,29 +138,19 @@ No shrine State is invented before the Jinja specification exists. The public-au
 ## F2-P05 handoff references
 
 ```text
-Workflow                       Build Yukue future-site seed inventory
 Run                            29490466083 — success
 Artifact                       8372200074
-Artifact digest                sha256:427d3c63ae158246a3224e78bfcaaa63fa79268337bb32083550c8fc0c975389
-Seeds                          5
-Relation contexts              5
 Relation Evidence references   5
 Identity Evidence references   5
 Place references               5
 Readiness compatibility run    29490466140 — success
 ```
 
-Each current seed carries one Place reference, one direct Identity Evidence reference, one Identity Source reference, and one Relation Evidence reference. `approved_state_snapshot_ids` remains an explicit empty array for all five.
-
 ## F2-P06 self-contained provenance bundle
 
-F2-P06 adds the referenced public records themselves as `provenance.json` so later review does not require re-scanning the entire Matsuri corpus.
-
 ```text
-Workflow                       Build Yukue future-site seed inventory
 Run                            29491507863 — success
 Artifact                       8372586148
-Artifact digest                sha256:68b75dad78b7eee5bc14fcec05d466c8e515aedcfaab58d3fa7f4de122d4ef3d
 Seed handoffs                  5
 Seed Entities                  5
 Matsuri context Entities       5
@@ -185,7 +162,26 @@ State Snapshots                0
 Readiness compatibility run    29491507883 — success
 ```
 
-Independent artifact inspection confirmed that every seed, Place, Evidence, Relation, and Matsuri context reference resolves inside the bundle. The zero State Snapshot count remains explicit.
+Every carried seed, Place, Evidence, Relation, Source, and Matsuri context reference resolves inside `provenance.json`. The zero State Snapshot count remains explicit.
+
+## F2-P07 artifact contract v1
+
+F2-P07 fixes the candidate artifact shape and boundary values as a machine-readable repository contract.
+
+```text
+Contract ID                    yukue-future-site-seed-artifacts
+Contract version               1
+Hosted run                     29492382041 — success
+Artifact                       8372948374
+Artifact digest                sha256:aed91e5ebe2b2e31261756f10b298d764fecad255939918f67f9fbcc6d4fe817
+Required files                 3
+Inventory seeds                5
+Provenance handoffs            5
+Required site IDs              jinja / jiin / tomurai
+Readiness compatibility run    29492381966 — success
+```
+
+The contract rejects silent field removal, status or boundary reversal, site-ID drift, missing files, duplicate IDs, total mismatches, inventory/provenance identity drift, and removal of the mandatory target-site-review flag.
 
 Evidence records:
 
@@ -193,6 +189,7 @@ Evidence records:
 docs/audits/yukue-f2-p04-shrine-identity-evidence-2026-07-16.md
 docs/audits/yukue-f2-p05-seed-handoff-provenance-2026-07-16.md
 docs/audits/yukue-f2-p06-seed-provenance-bundle-2026-07-16.md
+docs/audits/yukue-f2-p07-seed-artifact-contract-2026-07-16.md
 ```
 
 ## Routine Matsuri maintenance
@@ -252,7 +249,7 @@ When access resumes:
 Allowed:
 
 - factual and date-triggered Matsuri maintenance,
-- Source, Evidence, Relation, and seed-provenance maintenance,
+- Source, Evidence, Relation, seed-provenance, and artifact-contract maintenance,
 - security and dependency maintenance,
 - repairs required to keep gates green,
 - public-safe Analytics and launch-closure preparation,
