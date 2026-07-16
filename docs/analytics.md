@@ -1,12 +1,12 @@
 # Analytics Baseline
 
-**Status:** Initial baseline
+**Status:** Workers Web Analytics baseline / owner activation pending
 
 ## Purpose
 
 The launch analytics baseline for `祭のゆくえ` is intentionally small.
 
-The purpose is to confirm that the public site is being reached and that the production pages are loading successfully. It is not a user-profile system, advertising stack, recommendation system, or behavioral personalization layer.
+The purpose is to confirm that the public site is being reached and that production pages are loading successfully. It is not a user-profile system, advertising stack, recommendation system, or behavioral-personalization layer.
 
 Initial launch questions are limited to:
 
@@ -19,65 +19,116 @@ is Search being reached as an entry or navigation surface?
 
 Do not expand analytics scope merely because the provider makes additional capabilities available.
 
-## Provider and activation model
+## Provider and delivery model
 
-Use Cloudflare Web Analytics through the Cloudflare Pages project.
-
-Activation is a Pages project-level operation:
+Use Cloudflare Web Analytics for the canonical Matsuri hostname delivered through Cloudflare Workers Static Assets.
 
 ```text
-Cloudflare dashboard
-→ Workers & Pages
-→ Matsuri Pages project
-→ Metrics
-→ Web Analytics
-→ Enable
-→ next deployment
+Cloudflare Worker
+matsuri-yukue
+
+Canonical hostname
+matsuri-yukue.badjoke-lab.com
+
+Analytics provider
+Cloudflare Web Analytics
+
+Activation method
+automatic setup
 ```
 
-The Pages project injects the Web Analytics script after activation and a subsequent deployment.
+The current production application is not a legacy Pages project. The earlier Pages-project activation assumption is superseded.
+
+F2-25 is an account-level Cloudflare Web Analytics operation for the canonical proxied hostname. No manual Web Analytics beacon is part of the repository baseline.
 
 Do not commit:
 
 ```text
 analytics tokens
 site-specific beacon credentials
+manual beacon scripts
 private dashboard exports
 visitor-level operational notes
 private traffic analysis
 ```
 
-No manual Web Analytics beacon is part of the repository baseline.
+## Gate separation
 
-## Activation gate
-
-The analytics baseline is complete only after all of the following are true:
+Analytics activation, deployment, and traffic receipt are separate facts.
 
 ```text
-1. the Cloudflare Pages project exists
-2. the production deployment is reachable
-3. Web Analytics is enabled in the Pages project
-4. a deployment occurs after enablement
-5. the analytics dashboard begins receiving production traffic
+F2-25  enable Cloudflare Web Analytics automatic setup
+F2-26  deploy production after activation
+F2-27  verify production traffic in the private dashboard
+F2-28  run the final F2 Launch Gate
 ```
 
-Repository build success alone does not complete this gate.
+F2-25 does not complete F2-26 or F2-27. A pre-activation deployment cannot be reused as F2-26 evidence. An enabled configuration does not prove that traffic has been received.
 
-## Verification
+The machine-readable progression record is:
 
-After Web Analytics activation and redeployment:
+```text
+config/matsuri-analytics-activation.json
+```
+
+Validate it with:
+
+```text
+pnpm check:matsuri:analytics-activation-record
+```
+
+## Owner-access pending state
+
+When Cloudflare account access is unavailable, the valid state is:
+
+```text
+status             pending-owner-access
+analytics_enabled  false
+F2-25              incomplete
+F2-26              incomplete
+F2-27              incomplete
+```
+
+This state does not block reviewed factual maintenance, date-triggered festival updates, Source/Evidence/Relation work, security or dependency repairs, or repository preparation for the remaining launch gates.
+
+## F2-25 verification
+
+After Automatic setup is enabled:
+
+1. record the public canonical hostname,
+2. record that Cloudflare Web Analytics is enabled,
+3. record that Automatic setup is used,
+4. record exact UTC activation and observation times,
+5. create a sanitized public audit,
+6. update the machine record to `analytics-enabled`,
+7. run the Analytics validator and repository gate.
+
+Do not commit private dashboard screenshots. The audit should retain sanitized facts only.
+
+## F2-26 verification
+
+After F2-25:
+
+1. merge the bounded activation-evidence change,
+2. allow the production branch deployment to complete,
+3. record the exact source commit and deployment time,
+4. verify the canonical origin and public gates,
+5. create a sanitized F2-26 audit,
+6. update the machine record to `post-activation-deployed`.
+
+## F2-27 verification
+
+After F2-26:
 
 1. open the canonical production origin in a normal browser,
-2. visit at least the Home, one Browse surface, Search, and one Detail page,
-3. confirm the Pages project remains healthy,
-4. confirm Web Analytics begins receiving production traffic,
-5. record only the gate completion in `docs/project-status.md`.
+2. visit at least Home, one Browse surface, Search, and one Detail page,
+3. confirm Web Analytics receives production traffic,
+4. create a sanitized F2-27 audit,
+5. update the machine record to `traffic-verified`.
 
-Do not commit raw visitor analytics or screenshots of private dashboards to the public repository.
+Do not publish raw page-view counts, visitor counts, geography, referrers, device detail, account identity, or private dashboard screenshots.
 
 ## Relationship to deployment verification
-
-Analytics verification is separate from the deployed-site verifier.
 
 The repository commands:
 
@@ -86,9 +137,7 @@ MATSURI_CHECK_ORIGIN=https://<deployment-host> pnpm check:matsuri:deployed
 MATSURI_CHECK_ORIGIN=https://<canonical-origin> pnpm check:matsuri:canonical
 ```
 
-verify public HTTP surfaces, machine-readable files, Search assets, manifest origin, and sitemap origin rules.
-
-They do not prove that the private Cloudflare Web Analytics dashboard is receiving traffic. That remains an account-level operational verification step.
+verify public HTTP surfaces, machine-readable files, Search assets, manifest origin, and sitemap-origin rules. They do not prove Analytics activation or private dashboard traffic receipt.
 
 ## Privacy and scope boundary
 
@@ -105,22 +154,26 @@ marketing automation
 client-side event taxonomy beyond the provider baseline
 ```
 
-Adding another analytics provider or a custom event pipeline requires an explicit product and privacy decision before implementation.
+Adding another analytics provider, a manual beacon, or a custom event pipeline requires an explicit product and privacy decision before implementation.
 
-## Public Status wording
+## Public status wording
 
-The public Status page should describe analytics architecture without exposing private metrics.
-
-Before project-level activation:
+Before activation:
 
 ```text
-Web Analytics — Pages project-level activation required
+Web Analytics — owner activation pending
 ```
 
-After activation and traffic verification:
+After F2-25 only:
 
 ```text
-Web Analytics — enabled
+Web Analytics — enabled; production verification pending
+```
+
+After F2-27:
+
+```text
+Web Analytics — enabled and production traffic verified
 ```
 
 Do not publish private traffic counts on the Status page as part of the launch baseline.
