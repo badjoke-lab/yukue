@@ -1,6 +1,6 @@
 # Deployment
 
-**Status:** F2-16 through F2-22 completed / F2-23 crawler reachability next
+**Status:** F2-16 through F2-24 completed / F2-25 owner access pending
 
 ## Verified production deployment
 
@@ -40,18 +40,47 @@ Artifact ID
 8260207484
 ```
 
+Crawler-reachability evidence:
+
+```text
+Verification workflow
+Verify Matsuri crawler reachability
+
+Verification run
+29230233384 — success
+
+Artifact ID
+8271238535
+```
+
+Search Console and indexability evidence:
+
+```text
+Search Console sitemap status   success
+Submitted                       2026-07-14
+Last read                       2026-07-14
+Discovered pages                20
+Representative live test        indexable
+Indexing requests               3 submitted
+Technical preflight run         29232294960 — success
+```
+
+This evidence does not claim that any URL is already indexed.
+
 Detailed evidence:
 
 ```text
 docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
 docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md
+docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md
+docs/audits/matsuri-f2-24-search-console-2026-07-14.md
 ```
 
 ## Public topology
 
 ```text
 yukue.badjoke-lab.com          portal — planned
-matsuri-yukue.badjoke-lab.com  Matsuri — canonical origin and Search verified
+matsuri-yukue.badjoke-lab.com  Matsuri — canonical production verified
 ```
 
 ```text
@@ -59,7 +88,7 @@ apps/portal   → Worker yukue-portal
 apps/matsuri  → Worker matsuri-yukue
 ```
 
-Matsuri is not hosted below a portal path.
+Matsuri is not hosted below a portal path. The portal is not yet a production deployment.
 
 ## Static deployment model
 
@@ -122,6 +151,7 @@ Repository release candidate
 - origin-neutral artifact copy
 - separately records canonical-origin evidence
 - separately records canonical browser Search evidence
+- separately records crawler and Search Console evidence
 ```
 
 ## Completed external work
@@ -134,19 +164,17 @@ F2-19  exact canonical hostname decision — completed
 F2-20  Custom Domain activation, canonical build, HTTPS verification — completed
 F2-21  canonical manifest and sitemap verification — completed
 F2-22  browser Pagefind Search verification — completed
+F2-23  crawler reachability review — completed
+F2-24  Search Console sitemap submission and indexability check — completed
 ```
 
 ## Remaining sequence
 
 ```text
-F2-23  crawler-reachability review — next
-F2-24  sitemap submission and indexability check — hold
-F2-25  Web Analytics activation — hold
-F2-26  post-activation deployment — hold
-F2-27  production traffic verification — hold
-F2-28  final F2 Launch Gate — hold
+F2-25  Cloudflare Web Analytics Automatic setup — owner access pending
+F2-26  post-activation deployment — blocked by F2-25
+F2-27  production traffic verification — blocked by F2-26
+F2-28  final F2 Launch Gate — blocked by F2-27
 ```
 
-F2-23 reviews live `robots.txt`, canonical links, sitemap, crawler policy, and relevant crawler-facing reachability. It does not submit the sitemap or claim indexation.
-
-Do not submit the sitemap before F2-24 or enable Analytics before F2-25.
+F2-25 is an account-level owner operation. The repository does not add a manual Analytics beacon or store a site token. F2-26 must use a deployment created after activation, and F2-27 must confirm traffic privately without publishing account identifiers or raw metrics.
