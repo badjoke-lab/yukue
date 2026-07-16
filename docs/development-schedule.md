@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-24 completed / F2-25 owner access pending / F2-P01 through F2-P06 completed
+**Status:** F2-24 completed / F2-25 owner access pending / F2-P01 through F2-P07 completed
 
 This document defines the stable implementation order. It complements `roadmap.md` and `project-status.md`. The project is gate-driven rather than deadline-driven.
 
@@ -18,6 +18,7 @@ F2-P03                       completed
 F2-P04                       completed
 F2-P05                       completed
 F2-P06                       completed
+F2-P07                       completed
 F2-25                        owner access pending
 F2-26 through F2-28          operational hold
 ```
@@ -63,6 +64,7 @@ F2-P03  Future-site seed readiness and explicit gap audit — completed
 F2-P04  Direct Entity-identity Evidence for five shrine seeds — completed
 F2-P05  Seed handoff record references and hosted compatibility verification — completed
 F2-P06  Self-contained public provenance bundle and reference closure — completed
+F2-P07  Candidate artifact contract v1 and hosted enforcement — completed
 ```
 
 Repository gate:
@@ -73,83 +75,30 @@ pnpm gate:matsuri:repository
 
 ### Parallel preparation results
 
-#### F2-P02 — Relation-backed inventory
-
 ```text
-Command                         pnpm audit:yukue:future-site-seeds
-Workflow                        Build Yukue future-site seed inventory
-Run                             29478631183 — success
-Artifact                        8367573485
-Artifact digest                 sha256:747a9b833adacbc049bf12e7a29312ab8ab676e3f3b2dc73e88c43e79a634524
-Total relation-backed seeds     5
-Relation contexts               5
-Jinja seeds                     5
-Jiin seeds                      0
-Tomurai seeds                   0
+F2-P02  5 Relation-backed seeds / Jinja 5 / Jiin 0 / Tomurai 0
+F2-P03  readiness baseline / State 0 / direct identity Evidence 0
+F2-P04  direct identity Evidence 5 / State 0 / official URL 4
+F2-P05  Place 5 / Identity Evidence 5 / Relation Evidence 5
+F2-P06  self-contained bundle: 5 seed Entities, 5 context Entities, 5 Places,
+         6 Sources, 10 Evidence, 5 Relations, 0 State Snapshots
+F2-P07  contract v1: 3 required files, 5 seeds, 5 handoffs,
+         exact site IDs and candidate-only boundaries enforced
 ```
 
-#### F2-P03 — Readiness baseline
+Hosted evidence:
 
 ```text
-Command                           pnpm audit:yukue:future-site-seed-readiness
-Workflow                          Audit Yukue future-site seed readiness
-Run                               29479348339 — success
-Artifact                          8367936520
-Artifact digest                   sha256:ddc5dcdc01978671f68de1f827b6a84fd2eebdf2939813797da920f00c7df975
-Seeds audited                     5
-Context complete                  0
-Context incomplete                5
-Official URL present              4
-Approved State Snapshot present   0
-Direct identity Evidence present  0
+F2-P02 run                    29478631183 — success
+F2-P03 run                    29479348339 — success
+F2-P04 run                    29489701435 — success
+F2-P05 run                    29490466083 — success
+F2-P06 run                    29491507863 — success
+F2-P07 run                    29492382041 — success
+F2-P07 artifact               8372948374
+F2-P07 artifact digest        sha256:aed91e5ebe2b2e31261756f10b298d764fecad255939918f67f9fbcc6d4fe817
+F2-P07 readiness run          29492381966 — success
 ```
-
-#### F2-P04 — Direct identity Evidence
-
-```text
-Verification run                  29489701435 — success
-Artifact                          8371871954
-Artifact digest                   sha256:478c27bd7049c17ac2f7d3623f839b28125c391f356a4bb6d6c87cf431f35445
-Direct identity Evidence present  5
-Direct identity Evidence missing  0
-Approved State Snapshot present   0
-Official URL present              4
-```
-
-#### F2-P05 — Handoff record references
-
-```text
-Workflow                       Build Yukue future-site seed inventory
-Run                            29490466083 — success
-Artifact                       8372200074
-Artifact digest                sha256:427d3c63ae158246a3224e78bfcaaa63fa79268337bb32083550c8fc0c975389
-Seeds                          5
-Relation contexts              5
-Relation Evidence references   5
-Identity Evidence references   5
-Place references               5
-Readiness compatibility run    29490466140 — success
-```
-
-#### F2-P06 — Self-contained provenance bundle
-
-```text
-Workflow                       Build Yukue future-site seed inventory
-Run                            29491507863 — success
-Artifact                       8372586148
-Artifact digest                sha256:68b75dad78b7eee5bc14fcec05d466c8e515aedcfaab58d3fa7f4de122d4ef3d
-Seed handoffs                  5
-Seed Entities                  5
-Matsuri context Entities       5
-Places                         5
-Sources                        6
-Evidence                      10
-Relations                      5
-State Snapshots                0
-Readiness compatibility run    29491507883 — success
-```
-
-The F2-P06 artifact contains `inventory.json`, `provenance.json`, and `summary.md`. Independent inspection confirmed that every carried seed, Place, Evidence, Relation, and Matsuri context reference resolves within the bundle.
 
 Current remaining seed gaps:
 
@@ -170,8 +119,6 @@ F2-M01  full-page screenshot visual-review workflow — completed
 F2-M02  Matsuri data freshness audit — completed
 ```
 
-F2-M02 current inventory:
-
 ```text
 Occurrences total                    24
 Resolved Occurrences                 16
@@ -182,14 +129,14 @@ Specialist Entities with no Relation  0
 Relations missing Evidence            0
 ```
 
-Routine date-triggered checks:
+Routine checks:
 
 ```text
 博多祇園山笠 2026  outcome reviewed 2026-07-16 — held
 郡上おどり 2026    review after 2026-09-05
 ```
 
-The 博多 result proves the outcome but does not support inferring a structured scale, so scale remains `unknown`.
+The 博多 result proves the outcome but not a structured scale, so scale remains `unknown`.
 
 ### External deployment and production verification
 
@@ -207,17 +154,12 @@ F2-23  robots, canonical, sitemap, crawler-reachability review — completed
 F2-24  Search Console sitemap submission and indexability check — completed
 ```
 
-Verified evidence:
-
 ```text
 Canonical origin          https://matsuri-yukue.badjoke-lab.com
 Origin verification run   29191904624 — success
 Search verification run   29193201911 — success
-Search artifact           8260207484
 Crawler verification run  29230233384 — success
-Crawler artifact          8271238535
 F2-24 preflight run        29232294960 — success
-F2-24 preflight artifact   8271994696
 Search Console sitemap     success
 Discovered pages           20
 Representative live test  indexable
@@ -250,10 +192,10 @@ Do not use a manual beacon, store an Analytics token, publish private metrics, o
 
 ## Work allowed before F2-25 completion
 
-- maintain the pending Analytics record and F2-25 through F2-28 runbooks,
+- maintain the pending Analytics record and launch-closure runbooks,
 - complete factual and date-triggered Matsuri maintenance,
 - improve Source, Evidence, Relation, and seed-provenance coverage,
-- refresh seed inventory, provenance bundle, and readiness artifacts when approved records change,
+- maintain seed inventory, provenance, readiness, and artifact contracts,
 - perform security and dependency maintenance,
 - repair repository or production gates,
 - collect future-site seed data already supported by approved Matsuri Relations without starting another public application.
