@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-24 completed / F2-25 owner access pending / F2-P01 through F2-P05 completed
+**Status:** F2-24 completed / F2-25 owner access pending / F2-P01 through F2-P06 completed
 
 This document defines the stable implementation order. It complements `roadmap.md` and `project-status.md`. The project is gate-driven rather than deadline-driven.
 
@@ -17,6 +17,7 @@ F2-P02                       completed
 F2-P03                       completed
 F2-P04                       completed
 F2-P05                       completed
+F2-P06                       completed
 F2-25                        owner access pending
 F2-26 through F2-28          operational hold
 ```
@@ -60,7 +61,8 @@ F2-P01  Analytics record, validator, evidence templates, and F2-26–28 runbook 
 F2-P02  Relation-backed future-site seed inventory and hosted extraction — completed
 F2-P03  Future-site seed readiness and explicit gap audit — completed
 F2-P04  Direct Entity-identity Evidence for five shrine seeds — completed
-F2-P05  Seed handoff provenance and hosted compatibility verification — completed
+F2-P05  Seed handoff record references and hosted compatibility verification — completed
+F2-P06  Self-contained public provenance bundle and reference closure — completed
 ```
 
 Repository gate:
@@ -104,8 +106,6 @@ Direct identity Evidence present  0
 
 #### F2-P04 — Direct identity Evidence
 
-F2-P04 reuses existing approved Matsuri Sources and adds Evidence directly targeting all five shrine Entities.
-
 ```text
 Verification run                  29489701435 — success
 Artifact                          8371871954
@@ -116,9 +116,7 @@ Approved State Snapshot present   0
 Official URL present              4
 ```
 
-#### F2-P05 — Handoff provenance
-
-F2-P05 carries exact Place, identity Evidence, identity Source, State Snapshot, and Relation Evidence references in the generated seed artifact.
+#### F2-P05 — Handoff record references
 
 ```text
 Workflow                       Build Yukue future-site seed inventory
@@ -130,11 +128,28 @@ Relation contexts              5
 Relation Evidence references   5
 Identity Evidence references   5
 Place references               5
-Jinja                          5
-Jiin                           0
-Tomurai                        0
 Readiness compatibility run    29490466140 — success
 ```
+
+#### F2-P06 — Self-contained provenance bundle
+
+```text
+Workflow                       Build Yukue future-site seed inventory
+Run                            29491507863 — success
+Artifact                       8372586148
+Artifact digest                sha256:68b75dad78b7eee5bc14fcec05d466c8e515aedcfaab58d3fa7f4de122d4ef3d
+Seed handoffs                  5
+Seed Entities                  5
+Matsuri context Entities       5
+Places                         5
+Sources                        6
+Evidence                      10
+Relations                      5
+State Snapshots                0
+Readiness compatibility run    29491507883 — success
+```
+
+The F2-P06 artifact contains `inventory.json`, `provenance.json`, and `summary.md`. Independent inspection confirmed that every carried seed, Place, Evidence, Relation, and Matsuri context reference resolves within the bundle.
 
 Current remaining seed gaps:
 
@@ -238,7 +253,7 @@ Do not use a manual beacon, store an Analytics token, publish private metrics, o
 - maintain the pending Analytics record and F2-25 through F2-28 runbooks,
 - complete factual and date-triggered Matsuri maintenance,
 - improve Source, Evidence, Relation, and seed-provenance coverage,
-- refresh seed inventory and readiness artifacts when approved records change,
+- refresh seed inventory, provenance bundle, and readiness artifacts when approved records change,
 - perform security and dependency maintenance,
 - repair repository or production gates,
 - collect future-site seed data already supported by approved Matsuri Relations without starting another public application.
