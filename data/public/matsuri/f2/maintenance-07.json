@@ -1,0 +1,91 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [
+    {
+      "id": "occ-yosakoi-soran-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fpf-yosakoi-soran-performance",
+      "series_id": "ser-yosakoi-soran-annual",
+      "occurrence_type": "performance_cycle",
+      "temporal_extent": {
+        "start": "2026-06-10",
+        "end": "2026-06-14",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-sapporo-yosakoi-soran-area"],
+      "organizer_entity_ids": ["org-yosakoi-soran-committee"],
+      "evidence_ids": ["evd-yosakoi-soran-occ-2026"],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-hirosaki-neputa-2026-schedule",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-hirosaki-neputa",
+      "series_id": "ser-hirosaki-neputa-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-08-01",
+        "end": "2026-08-07",
+        "precision": "range"
+      },
+      "outcome": "scheduled",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-hirosaki-neputa-routes"],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-hirosaki-neputa-occ-2026"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-yosakoi-soran-result-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "第35回YOSAKOIソーラン祭り 開催結果",
+      "publisher": "一般社団法人YOSAKOIソーラン祭り組織委員会",
+      "url": "https://www.yosakoi-soran.jp/news/2026_kaisaikekka.html",
+      "published_at": "2026-06-16",
+      "accessed_at": "2026-07-16",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-yosakoi-soran-occ-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yosakoi-soran-result-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-yosakoi-soran-2026",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "公式開催結果が第35回YOSAKOIソーラン祭りを2026年6月10日から14日までの5日間にわたり開催し、無事終了したと報告している。開催実績は裏付けられるが、構造化された規模分類は示されないためscaleはunknownとする。",
+      "captured_at": "2026-07-16",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hirosaki-neputa-occ-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-current",
+      "target_type": "occurrence",
+      "target_id": "occ-hirosaki-neputa-2026-schedule",
+      "assertion_code": "supports_occurrence_schedule",
+      "summary_ja": "公式観光ページが令和8年度弘前ねぷたまつりについて、2026年8月1日から7日までの運行・関連日程を案内している。開催前のためoutcomeはscheduledとし、規模は推測せずunknownとする。",
+      "captured_at": "2026-07-16",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
