@@ -14,6 +14,7 @@ F2-M01                       completed
 F2-M02                       completed
 F2-P01                       completed
 F2-P02                       completed
+F2-P03                       completed
 F2-25                        owner access pending
 F2-26 through F2-28          operational hold
 ```
@@ -55,6 +56,7 @@ F2-14  release-candidate artifact freeze — completed
 F2-15  Repository Launch Readiness Gate — completed
 F2-P01  Analytics record, validator, evidence templates, and F2-26–28 runbook — completed
 F2-P02  Relation-backed future-site seed inventory and hosted extraction — completed
+F2-P03  Future-site seed readiness and explicit gap audit — completed
 ```
 
 Repository gate:
@@ -80,17 +82,23 @@ Jiin seeds                      0
 Tomurai seeds                   0
 ```
 
-Current extracted Jinja seeds:
+F2-P03 measures the public context that can be carried forward and the work that remains.
 
 ```text
-阿蘇神社
-櫛田神社
-佐太神社
-大日霊貴神社
-秩父神社
+Command                           pnpm audit:yukue:future-site-seed-readiness
+Workflow                          Audit Yukue future-site seed readiness
+Run                               29479348339 — success
+Artifact                          8367936520
+Artifact digest                   sha256:ddc5dcdc01978671f68de1f827b6a84fd2eebdf2939813797da920f00c7df975
+Seeds audited                     5
+Context complete                  0
+Context incomplete                5
+Official URL present              4
+Approved State Snapshot present   0
+Direct identity Evidence present  0
 ```
 
-Jiin and Tomurai remain zero only under the current strict approved-Relation extraction. This is not a corpus-completeness or future-site-priority decision.
+All five seeds have summary, geography, Place, Source, and approved Relation context. All lack a shrine State Snapshot and direct identity Evidence. 大日霊貴神社 also lacks an attached official URL. This result does not activate Jinja or claim publication readiness.
 
 ### Parallel maintenance
 
@@ -203,7 +211,7 @@ Do not use a manual beacon, store an Analytics token, publish private metrics, o
 - maintain the F2-25 through F2-28 runbooks and evidence templates,
 - complete reviewed factual and date-triggered maintenance,
 - improve Source, Evidence, and Relation coverage,
-- refresh the Relation-backed future-site seed inventory when approved Matsuri Relations change,
+- refresh the Relation-backed future-site seed inventory and readiness audit when approved Matsuri records change,
 - perform security and dependency maintenance,
 - repair repository or production gates,
 - collect future-site seed data already supported by approved Matsuri Relations without starting another public application.
