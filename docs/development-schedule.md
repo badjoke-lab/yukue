@@ -13,6 +13,7 @@ F2-01 through F2-24          completed
 F2-M01                       completed
 F2-M02                       completed
 F2-P01                       completed
+F2-P02                       completed
 F2-25                        owner access pending
 F2-26 through F2-28          operational hold
 ```
@@ -53,6 +54,7 @@ F2-13  public content, empty-state, and image-boundary audit — completed
 F2-14  release-candidate artifact freeze — completed
 F2-15  Repository Launch Readiness Gate — completed
 F2-P01  Analytics record, validator, evidence templates, and F2-26–28 runbook — completed
+F2-P02  Relation-backed future-site seed inventory and hosted extraction — completed
 ```
 
 Repository gate:
@@ -60,6 +62,35 @@ Repository gate:
 ```text
 pnpm gate:matsuri:repository
 ```
+
+### Parallel preparation result
+
+F2-P02 provides a reproducible inventory from approved Matsuri Relations without activating a future application.
+
+```text
+Command                         pnpm audit:yukue:future-site-seeds
+Workflow                        Build Yukue future-site seed inventory
+Run                             29478631183 — success
+Artifact                        8367573485
+Artifact digest                 sha256:747a9b833adacbc049bf12e7a29312ab8ab676e3f3b2dc73e88c43e79a634524
+Total relation-backed seeds     5
+Relation contexts               5
+Jinja seeds                     5
+Jiin seeds                      0
+Tomurai seeds                   0
+```
+
+Current extracted Jinja seeds:
+
+```text
+阿蘇神社
+櫛田神社
+佐太神社
+大日霊貴神社
+秩父神社
+```
+
+Jiin and Tomurai remain zero only under the current strict approved-Relation extraction. This is not a corpus-completeness or future-site-priority decision.
 
 ### Parallel maintenance
 
@@ -172,6 +203,7 @@ Do not use a manual beacon, store an Analytics token, publish private metrics, o
 - maintain the F2-25 through F2-28 runbooks and evidence templates,
 - complete reviewed factual and date-triggered maintenance,
 - improve Source, Evidence, and Relation coverage,
+- refresh the Relation-backed future-site seed inventory when approved Matsuri Relations change,
 - perform security and dependency maintenance,
 - repair repository or production gates,
 - collect future-site seed data already supported by approved Matsuri Relations without starting another public application.
