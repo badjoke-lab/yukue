@@ -1,0 +1,35 @@
+{
+  "format_version": 1,
+  "site_id": "jinja",
+  "status": "blocked-by-matsuri-launch-closure",
+  "next_specialist_site": "jinja",
+  "prerequisites": {
+    "matsuri_f2_28_complete": false,
+    "matsuri_stabilization_review_complete": false,
+    "portal_jinja_order_decided": false,
+    "jinja_state_spec_approved": false,
+    "explicit_start_authorization": false
+  },
+  "seed_baseline": {
+    "source_site_id": "matsuri",
+    "observed_on": "2026-07-16",
+    "relation_backed_seeds": 5,
+    "direct_identity_evidence": 5,
+    "place_references": 5,
+    "approved_state_snapshots": 0,
+    "official_urls": 4
+  },
+  "claims": {
+    "jinja_start_gate_passed": false,
+    "jinja_application_creation_authorized": false,
+    "jinja_worker_creation_authorized": false,
+    "jinja_publication_authorized": false
+  },
+  "boundary": {
+    "seed_preparation_does_not_activate_site": true,
+    "all_prerequisites_required": true,
+    "application_directory_must_remain_absent": true,
+    "worker_and_hostname_must_remain_inactive": true,
+    "missing_state_must_not_be_inferred": true
+  }
+}
