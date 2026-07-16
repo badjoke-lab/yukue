@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-24 completed / F2-25 owner access pending / F2-P01 through F2-P05 completed
+**Status:** F2-24 completed / F2-25 owner access pending / F2-P01 through F2-P06 completed
 
 This document defines the stable implementation order. It complements `roadmap.md` and `project-status.md`. The project is gate-driven rather than deadline-driven.
 
@@ -17,8 +17,10 @@ F2-P02                       completed
 F2-P03                       completed
 F2-P04                       completed
 F2-P05                       completed
+F2-P06                       completed as guardrail
 F2-25                        owner access pending
 F2-26 through F2-28          operational hold
+Actual Jinja start gate      blocked
 ```
 
 ## Foundation through Stage E
@@ -61,6 +63,7 @@ F2-P02  Relation-backed future-site seed inventory and hosted extraction — com
 F2-P03  Future-site seed readiness and explicit gap audit — completed
 F2-P04  Direct Entity-identity Evidence for five shrine seeds — completed
 F2-P05  Seed handoff provenance and hosted compatibility verification — completed
+F2-P06  Jinja start-gate record, validator, workflow, and inactive boundary — completed
 ```
 
 Repository gate:
@@ -69,74 +72,36 @@ Repository gate:
 pnpm gate:matsuri:repository
 ```
 
-### Parallel preparation results
+The repository gate includes the pending Analytics validator and the blocked Jinja start-gate validator.
 
-#### F2-P02 — Relation-backed inventory
+## Parallel preparation results
 
-```text
-Command                         pnpm audit:yukue:future-site-seeds
-Workflow                        Build Yukue future-site seed inventory
-Run                             29478631183 — success
-Artifact                        8367573485
-Artifact digest                 sha256:747a9b833adacbc049bf12e7a29312ab8ab676e3f3b2dc73e88c43e79a634524
-Total relation-backed seeds     5
-Relation contexts               5
-Jinja seeds                     5
-Jiin seeds                      0
-Tomurai seeds                   0
-```
-
-#### F2-P03 — Readiness baseline
+### F2-P02 through F2-P05 — seed preparation
 
 ```text
-Command                           pnpm audit:yukue:future-site-seed-readiness
-Workflow                          Audit Yukue future-site seed readiness
-Run                               29479348339 — success
-Artifact                          8367936520
-Artifact digest                   sha256:ddc5dcdc01978671f68de1f827b6a84fd2eebdf2939813797da920f00c7df975
-Seeds audited                     5
-Context complete                  0
-Context incomplete                5
-Official URL present              4
-Approved State Snapshot present   0
-Direct identity Evidence present  0
-```
-
-#### F2-P04 — Direct identity Evidence
-
-F2-P04 reuses existing approved Matsuri Sources and adds Evidence directly targeting all five shrine Entities.
-
-```text
-Verification run                  29489701435 — success
-Artifact                          8371871954
-Artifact digest                   sha256:478c27bd7049c17ac2f7d3623f839b28125c391f356a4bb6d6c87cf431f35445
-Direct identity Evidence present  5
-Direct identity Evidence missing  0
-Approved State Snapshot present   0
-Official URL present              4
-```
-
-#### F2-P05 — Handoff provenance
-
-F2-P05 carries exact Place, identity Evidence, identity Source, State Snapshot, and Relation Evidence references in the generated seed artifact.
-
-```text
-Workflow                       Build Yukue future-site seed inventory
-Run                            29490466083 — success
-Artifact                       8372200074
-Artifact digest                sha256:427d3c63ae158246a3224e78bfcaaa63fa79268337bb32083550c8fc0c975389
-Seeds                          5
+Relation-backed seeds          5
 Relation contexts              5
-Relation Evidence references   5
 Identity Evidence references   5
+Relation Evidence references   5
 Place references               5
+Approved shrine State          0
+Seeds with official URLs       4
 Jinja                          5
 Jiin                           0
 Tomurai                        0
-Readiness compatibility run    29490466140 — success
 ```
 
-Current remaining seed gaps:
+Current Jinja seeds:
+
+```text
+阿蘇神社
+櫛田神社
+佐太神社
+大日霊貴神社
+秩父神社
+```
+
+Current gaps:
 
 ```text
 阿蘇神社        State Snapshotなし
@@ -146,16 +111,40 @@ Current remaining seed gaps:
 秩父神社        State Snapshotなし
 ```
 
-These results do not activate Jinja, assign priority, or claim publication readiness.
+These records are reusable starting points only. They do not activate Jinja, assign priority, or claim publication readiness.
 
-### Parallel maintenance
+### F2-P06 — inactive Jinja start gate
+
+```text
+Workflow                            Verify Jinja start-gate record
+Run                                 29491745147 — success
+Machine status                      blocked-by-matsuri-launch-closure
+Jinja start gate passed             false
+Application creation authorized     false
+Worker creation authorized          false
+Publication authorized              false
+```
+
+Required before Jinja implementation:
+
+```text
+1. F2-28 final Matsuri Launch Gate completion
+2. Matsuri stabilization review completion
+3. explicit portal/Jinja implementation-order decision
+4. approved Jinja State specification and vocabulary
+5. explicit start authorization
+```
+
+The guard rejects an early `apps/jinja`, Worker or hostname configuration, public route, publication claim, or inferred State.
+
+## Parallel maintenance
 
 ```text
 F2-M01  full-page screenshot visual-review workflow — completed
 F2-M02  Matsuri data freshness audit — completed
 ```
 
-F2-M02 current inventory:
+Current inventory:
 
 ```text
 Occurrences total                    24
@@ -176,9 +165,9 @@ Routine date-triggered checks:
 
 The 博多 result proves the outcome but does not support inferring a structured scale, so scale remains `unknown`.
 
-### External deployment and production verification
+## External deployment and production verification
 
-#### Completed
+### Completed
 
 ```text
 F2-16  Cloudflare Workers Builds connection — completed
@@ -211,7 +200,7 @@ Indexing requests          3 submitted
 
 F2-24 does not claim that any URL is already indexed.
 
-#### Cloudflare-dependent hold
+### Cloudflare-dependent hold
 
 ```text
 F2-25  Cloudflare Web Analytics activation — owner access pending
@@ -233,15 +222,28 @@ Exact resumption sequence:
 
 Do not use a manual beacon, store an Analytics token, publish private metrics, or reuse a pre-activation deployment as F2-26 evidence.
 
+## Sequence after F2-28
+
+```text
+1. complete Matsuri stabilization review
+2. decide whether portal implementation precedes or follows Jinja
+3. approve Jinja State specification and vocabulary
+4. record explicit Jinja start authorization
+5. pass the actual Jinja start gate
+6. only then create apps/jinja and implementation work
+```
+
+F2-28 alone is not sufficient to begin Jinja.
+
 ## Work allowed before F2-25 completion
 
-- maintain the pending Analytics record and F2-25 through F2-28 runbooks,
+- maintain the pending Analytics record and launch runbooks,
 - complete factual and date-triggered Matsuri maintenance,
 - improve Source, Evidence, Relation, and seed-provenance coverage,
 - refresh seed inventory and readiness artifacts when approved records change,
+- maintain the blocked Jinja start-gate guardrail,
 - perform security and dependency maintenance,
-- repair repository or production gates,
-- collect future-site seed data already supported by approved Matsuri Relations without starting another public application.
+- repair repository or production gates.
 
 ## Work not activated
 
@@ -249,6 +251,9 @@ Do not use a manual beacon, store an Analytics token, publish private metrics, o
 F2-25 through F2-28 completion claims
 portal production deployment
 future specialist-site production implementation
+Jinja State specification approval
+apps/jinja
+Jinja Worker or hostname activation
 Stats
 Compare
 dynamic API
