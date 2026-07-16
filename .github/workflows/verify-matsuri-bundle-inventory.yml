@@ -1,0 +1,57 @@
+name: Verify Matsuri bundle inventory
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-bundle-inventory.yml"
+      - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
+      - "apps/matsuri/src/data/matsuri-projection.ts"
+      - "data/public/matsuri/f1/**"
+      - "data/public/matsuri/f2/**"
+      - "scripts/check-matsuri-bundle-inventory.mjs"
+      - "package.json"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-bundle-inventory.yml"
+      - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
+      - "apps/matsuri/src/data/matsuri-projection.ts"
+      - "data/public/matsuri/f1/**"
+      - "data/public/matsuri/f2/**"
+      - "scripts/check-matsuri-bundle-inventory.mjs"
+      - "package.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-bundle-inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.10.0
+
+      - name: Verify canonical and HTML bundle inventories
+        run: pnpm check:matsuri:bundle-inventory
+
+      - name: Write verification summary
+        if: always()
+        run: |
+          echo "## Matsuri bundle inventory" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Canonical loader and HTML Public Projection must enumerate the same F1 batches, maintenance batches, and correction bundles" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Missing, extra, duplicate, or nonexistent bundle references fail the check" >> "$GITHUB_STEP_SUMMARY"
