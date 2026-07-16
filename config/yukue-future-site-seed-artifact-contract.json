@@ -1,0 +1,104 @@
+{
+  "contract_id": "yukue-future-site-seed-artifacts",
+  "contract_version": 1,
+  "required_files": [
+    "inventory.json",
+    "provenance.json",
+    "summary.md"
+  ],
+  "inventory": {
+    "format_version": 1,
+    "status": "candidate-seed-inventory-only",
+    "required_top_level_fields": [
+      "format_version",
+      "generated_at",
+      "source_site_id",
+      "status",
+      "eligibility_rule",
+      "totals",
+      "sites",
+      "boundaries"
+    ],
+    "required_seed_fields": [
+      "entity_id",
+      "candidate_site_id",
+      "entity_type",
+      "name_ja",
+      "summary_ja",
+      "record_lifecycle",
+      "prefectures",
+      "municipalities",
+      "primary_place_id",
+      "default_place_ids",
+      "place_ids",
+      "official_urls",
+      "source_ids",
+      "identity_evidence_ids",
+      "identity_source_ids",
+      "approved_state_snapshot_ids",
+      "relation_evidence_ids",
+      "relation_contexts",
+      "seed_status"
+    ],
+    "required_seed_status": "relation-backed-candidate",
+    "required_site_ids": [
+      "jinja",
+      "jiin",
+      "tomurai"
+    ],
+    "required_boundary_values": {
+      "activates_future_site": false,
+      "creates_public_application": false,
+      "establishes_research_priority": false,
+      "includes_private_candidate_queue": false,
+      "uses_only_approved_public_records": true
+    }
+  },
+  "provenance": {
+    "format_version": 1,
+    "status": "candidate-provenance-bundle-only",
+    "required_top_level_fields": [
+      "format_version",
+      "generated_at",
+      "source_inventory_generated_at",
+      "source_site_id",
+      "status",
+      "totals",
+      "seed_handoffs",
+      "records",
+      "boundaries"
+    ],
+    "required_handoff_fields": [
+      "entity_id",
+      "candidate_site_id",
+      "entity_type",
+      "name_ja",
+      "place_ids",
+      "identity_evidence_ids",
+      "identity_source_ids",
+      "approved_state_snapshot_ids",
+      "state_evidence_ids",
+      "relation_ids",
+      "relation_evidence_ids",
+      "matsuri_context_entity_ids",
+      "target_site_review_required"
+    ],
+    "required_record_families": [
+      "seed_entities",
+      "matsuri_context_entities",
+      "places",
+      "sources",
+      "evidence",
+      "relations",
+      "state_snapshots"
+    ],
+    "required_boundary_values": {
+      "publication_ready_claimed": false,
+      "future_site_activated": false,
+      "candidate_priority_assigned": false,
+      "missing_data_inferred": false,
+      "private_notes_included": false,
+      "uses_only_approved_public_records": true
+    }
+  }
+}
