@@ -1,6 +1,6 @@
 # Matsuri Cloudflare Workers Static Assets Launch Runbook
 
-**Status:** F2-16 through F2-22 completed / F2-23 crawler reachability next
+**Status:** F2-16 through F2-24 completed / F2-25 owner access pending
 
 > The file name is retained for compatibility. The accepted platform is Cloudflare Workers Builds with Workers Static Assets, not a legacy Pages project.
 
@@ -35,11 +35,36 @@ Conclusion  success
 Artifact    8260207484
 ```
 
+Crawler-reachability verification:
+
+```text
+Workflow    Verify Matsuri crawler reachability
+Run         29230233384
+Conclusion  success
+Artifact    8271238535
+```
+
+Search Console and indexability evidence:
+
+```text
+Sitemap status             success
+Submitted                  2026-07-14
+Last read                  2026-07-14
+Discovered pages           20
+Representative live test   indexable
+Indexing requests          3 submitted
+Technical preflight run    29232294960 — success
+```
+
+This evidence proves successful submission and technical indexability at the recorded time. It does not prove that any URL is indexed.
+
 Evidence:
 
 ```text
 docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
 docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md
+docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md
+docs/audits/matsuri-f2-24-search-console-2026-07-14.md
 ```
 
 ## Series topology
@@ -95,27 +120,26 @@ F2-19  exact canonical hostname decision — completed
 F2-20  Custom Domain activation, canonical build, HTTPS verification — completed
 F2-21  canonical manifest and sitemap verification — completed
 F2-22  browser Pagefind Search verification — completed
+F2-23  crawler reachability review — completed
+F2-24  Search Console sitemap submission and indexability check — completed
 ```
 
-## Next sequence
+## Owner-access resumption sequence
 
 ```text
-F2-23  crawler-reachability review — next
-F2-24  sitemap submission and indexability check — hold
-F2-25  Web Analytics activation — hold
-F2-26  post-activation deployment — hold
-F2-27  production traffic verification — hold
-F2-28  final F2 Launch Gate — hold
+F2-25  Cloudflare Web Analytics Automatic setup — owner access pending
+F2-26  post-activation deployment — blocked by F2-25
+F2-27  production traffic verification — blocked by F2-26
+F2-28  final F2 Launch Gate — blocked by F2-27
 ```
 
-## F2-23 operating procedure
+When owner access resumes:
 
-1. Fetch the live `robots.txt` and confirm its policy matches the intended public surface.
-2. Inspect representative canonical link elements on the canonical origin.
-3. Fetch `sitemap.xml` and confirm every location remains canonical.
-4. Verify that public discovery files and required public pages are reachable without authentication.
-5. Check the intended search-discovery crawler policy without opening private, paid, or abusive bulk access.
-6. Save the commands, results, workflow run, and audit evidence.
-7. Update release metadata and the repository gate only after the crawler review passes.
+1. enable Cloudflare Web Analytics Automatic setup for the canonical hostname,
+2. record sanitized F2-25 evidence without a token or account identifier,
+3. merge the activation-evidence change,
+4. verify a new post-activation production deployment as F2-26,
+5. verify production traffic privately as F2-27,
+6. run F2-28.
 
-F2-23 does not submit the sitemap. Do not skip directly to Search Console or Analytics.
+A deployment created before Analytics activation cannot be reused as F2-26 evidence. Do not add a manual beacon or claim traffic verification from configuration state alone.

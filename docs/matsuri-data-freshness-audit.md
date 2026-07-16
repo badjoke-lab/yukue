@@ -6,7 +6,7 @@
 
 F2-M02 reviewed and improved the public Matsuri corpus while external launch work proceeded through separate gates.
 
-The audit is independent from custom-domain, canonical-origin, browser Search, crawler, sitemap-submission, and Analytics verification. It began against the verified Workers deployment and remains valid after canonical activation and Search verification.
+The audit is independent from custom-domain, canonical-origin, browser Search, crawler, sitemap-submission, and Analytics verification. It began against the verified Workers deployment and remains valid after canonical activation, Search verification, crawler review, and F2-24 submission evidence.
 
 ## Verified deployment baseline
 
@@ -39,7 +39,7 @@ Canonical Search run
 29193201911 — success
 ```
 
-F2-16 through F2-22 are complete. F2-23 through F2-28 remain the active launch sequence.
+The launch sequence later completed through F2-24. F2-25 remains owner-access pending, while this data-maintenance audit continues independently.
 
 ## Automated inventories
 
