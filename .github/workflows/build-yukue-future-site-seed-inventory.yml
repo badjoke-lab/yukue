@@ -9,8 +9,10 @@ on:
       - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
       - "data/public/matsuri/**"
       - "docs/future-site-seed-inventory.md"
+      - "docs/future-site-seed-provenance-bundle.md"
       - "package.json"
       - "scripts/build-yukue-future-site-seed-inventory.mjs"
+      - "scripts/build-yukue-future-site-seed-provenance-bundle.mjs"
   push:
     branches:
       - main
@@ -19,8 +21,10 @@ on:
       - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
       - "data/public/matsuri/**"
       - "docs/future-site-seed-inventory.md"
+      - "docs/future-site-seed-provenance-bundle.md"
       - "package.json"
       - "scripts/build-yukue-future-site-seed-inventory.mjs"
+      - "scripts/build-yukue-future-site-seed-provenance-bundle.mjs"
   workflow_dispatch:
 
 permissions:
@@ -50,7 +54,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Build and validate relation-backed seed inventory
+      - name: Build and validate relation-backed seed inventory and provenance
         run: pnpm audit:yukue:future-site-seeds
 
       - name: Upload seed inventory
@@ -68,4 +72,8 @@ jobs:
           echo "## Yukue future-site seed inventory" >> "$GITHUB_STEP_SUMMARY"
           if [ -f ".artifacts/yukue-future-site-seeds/summary.md" ]; then
             cat ".artifacts/yukue-future-site-seeds/summary.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -f ".artifacts/yukue-future-site-seeds/provenance.json" ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Self-contained provenance bundle: generated" >> "$GITHUB_STEP_SUMMARY"
           fi
