@@ -1,0 +1,69 @@
+name: Verify Jinja start-gate record
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-jinja-start-gate.yml"
+      - "config/jinja-start-gate.json"
+      - "config/matsuri-analytics-activation.json"
+      - "scripts/check-jinja-start-gate-record.mjs"
+      - "scripts/build-yukue-future-site-seed-inventory.mjs"
+      - "apps/**"
+      - "data/public/matsuri/**"
+      - "docs/jinja-start-gate.md"
+      - "docs/project-status.md"
+      - "docs/development-schedule.md"
+      - "wrangler*.jsonc"
+      - "package.json"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-jinja-start-gate.yml"
+      - "config/jinja-start-gate.json"
+      - "config/matsuri-analytics-activation.json"
+      - "scripts/check-jinja-start-gate-record.mjs"
+      - "scripts/build-yukue-future-site-seed-inventory.mjs"
+      - "apps/**"
+      - "data/public/matsuri/**"
+      - "docs/jinja-start-gate.md"
+      - "docs/project-status.md"
+      - "docs/development-schedule.md"
+      - "wrangler*.jsonc"
+      - "package.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-jinja-start-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.10.0
+
+      - name: Validate Jinja start-gate record
+        run: pnpm check:yukue:jinja-start-gate
+
+      - name: Write verification summary
+        if: always()
+        run: |
+          echo "## Jinja start-gate record" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Status: blocked by Matsuri launch closure" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Seed preparation: five Relation-backed Jinja candidates" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Authorization: no app, Worker, hostname, publication, or State inference" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Required before activation: F2-28, stabilization review, portal/Jinja order decision, Jinja State spec, and explicit authorization" >> "$GITHUB_STEP_SUMMARY"
