@@ -1,0 +1,39 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-hakata-oiyama-times-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "追い山笠（7月15日）櫛田入りタイム（令和八年）",
+      "publisher": "博多祇園山笠振興会",
+      "url": "https://www.hakatayamakasa.com/171153.html",
+      "accessed_at": "2026-07-16",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-hakata-occ-2026-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hakata-oiyama-times-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-hakata-2026-schedule",
+      "assertion_code": "supports_occurrence_outcome",
+      "summary_ja": "博多祇園山笠振興会の公式結果ページが、令和8年7月15日の追い山笠について八番山笠までの櫛田入りタイムと七流の全コースタイムを掲載しており、2026年の博多祇園山笠が予定期間の最終日まで実施されたことを裏付ける。実施規模の構造化分類はこの結果ページだけでは確定しない。",
+      "captured_at": "2026-07-16",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
