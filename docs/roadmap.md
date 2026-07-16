@@ -46,9 +46,10 @@ Status: **Completed through F1 batches 01–10**
 
 ```text
 F2-01 through F2-15 — completed
+F2-P01 Analytics and launch-closure preparation — completed
 ```
 
-The repository candidate is reproducible, content-addressed, and origin-neutral. Active production evidence is recorded separately.
+The repository candidate is reproducible, content-addressed, and origin-neutral. Active production evidence is recorded separately. The Analytics progression now has a machine-readable pending state, validator, workflow, public-safe evidence template, and fixed F2-26 through F2-28 runbook.
 
 ### Repository visual and data maintenance
 
@@ -67,6 +68,8 @@ stale external-link candidates        0
 Relations missing Evidence            0
 ```
 
+The next date-triggered repository task is the post-2026-07-15 review of 博多祇園山笠 2026.
+
 ### External deployment and production verification
 
 ```text
@@ -79,7 +82,7 @@ F2-21  canonical manifest and sitemap verification — completed
 F2-22  browser Search verification on canonical origin — completed
 F2-23  crawler-reachability review — completed
 F2-24  sitemap submission and indexability check — completed
-F2-25  Web Analytics activation — next
+F2-25  Web Analytics activation — owner access pending
 F2-26  post-activation deployment — hold
 F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
@@ -107,12 +110,24 @@ Indexing requests          3 submitted
 
 F2-24 confirmed Search Console access for the canonical URL-prefix property, successful canonical sitemap submission, all-route technical preflight coverage, representative Google live-test indexability, and indexing requests for the three required representative URLs. Submission and registration requests are not treated as proof of indexation.
 
+F2-25 remains the active external gate. Its owner-account action may be inserted later without changing the accepted sequence because the machine record and F2-25 through F2-28 evidence requirements are already prepared.
+
 The portal and Matsuri remain separate applications and Workers. The portal hostname remains planned and is not attached to the Matsuri Worker.
 
 Pending:
 
 ```text
-F2-25 through F2-28
+F2-25 through F2-28 external execution
+```
+
+Allowed parallel work:
+
+```text
+Matsuri factual and date-triggered maintenance
+Source, Evidence, and Relation maintenance
+security and dependency repairs
+repository and production gate maintenance
+future-site seed collection through approved Relations
 ```
 
 ## Phase 10 — Stabilization
@@ -120,6 +135,8 @@ F2-25 through F2-28
 After F2-28, observe indexation, search impressions, Search queries, corrections, public JSON access, referral signs, inquiries, API interest, and maintenance burden.
 
 Status: **Not started — requires F2-28**
+
+Repository maintenance performed during the F2-25 access hold does not count as Phase 10 stabilization evidence.
 
 ## Phase 11 — Portal and next-site gates
 
