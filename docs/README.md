@@ -15,7 +15,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `public-data-model.md` | Working | Public record model and projection rules |
 | `future-site-seed-inventory.md` | F2-P02 and F2-P05 completed | Relation-backed extraction and portable record references without activating future applications |
 | `future-site-seed-readiness.md` | F2-P03 and F2-P04 completed | Public carry-forward context, direct identity Evidence, and explicit target-site research gaps |
-| `future-site-seed-provenance-bundle.md` | F2-P06 verification pending | Self-contained public Source, Evidence, Place, Relation, State, and Entity context bundle |
+| `future-site-seed-provenance-bundle.md` | F2-P06 completed | Self-contained public Source, Evidence, Place, Relation, State, and Entity context bundle |
 | `matsuri-mvp-spec.md` | Working | Matsuri MVP scope |
 | `information-architecture.md` | Accepted direction | Home H1 and Detail C |
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, layout language |
@@ -39,10 +39,11 @@ Before implementing a feature, check the relevant document here. When a decision
 | `audits/matsuri-f2-24-search-console-2026-07-14.md` | Passed audit | Search Console sitemap acceptance, discovered pages, representative live test, indexing requests, and privacy-safe interpretation |
 | `audits/yukue-f2-p04-shrine-identity-evidence-2026-07-16.md` | Passed audit | Direct identity Evidence for the five current shrine seeds |
 | `audits/yukue-f2-p05-seed-handoff-provenance-2026-07-16.md` | Passed audit | Portable Place, identity Evidence, Source, and Relation Evidence references |
+| `audits/yukue-f2-p06-seed-provenance-bundle-2026-07-16.md` | Passed audit | Self-contained provenance records and reference-closure verification |
 | `matsuri-data-freshness-audit.md` | F2-M02 completed | Completed fixed-date audit and routine maintenance rules |
 | `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, State, and external-link inventory |
 | `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 Evidence and `held` correction for 相馬野馬追 2026 |
-| `audits/matsuri-hakata-outcome-2026-07-16.md` | Outcome resolved | Official 追い山笠 result Evidence and `held` correction for 博多祇園山笠 2026 |
+| `audits/matsuri-hakata-outcome-2026-07-16.md` | Outcome resolved | Official 追い山笠 result Evidence and `held` correction for 博多祇園山笠2026 |
 | `audits/matsuri-f2-m02-relation-inventory-2026-07-12.md` | Baseline completed | Initial Relation coverage inventory |
 | `audits/matsuri-f2-m02-suneori-relation-2026-07-12.md` | Maintenance batch 02 | 脚折雨乞 organization and Relation correction |
 | `audits/matsuri-f2-m02-nunobashi-relation-2026-07-12.md` | Maintenance batch 03 | 富山県［立山博物館］ Relation coverage |
