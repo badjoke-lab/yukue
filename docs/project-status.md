@@ -19,6 +19,7 @@ F2-25 — active next gate
 F2-25 owner Cloudflare access — pending
 F2-P01 — Analytics and launch-closure repository preparation — completed
 F2-P02 — relation-backed future-site seed inventory — completed
+F2-P03 — future-site seed readiness audit — completed
 F2-26 through F2-28 — operational hold
 ```
 
@@ -104,6 +105,7 @@ F2-M02 — completed
 F2-16 through F2-24 — completed
 F2-P01 — completed
 F2-P02 — completed
+F2-P03 — completed
 博多祇園山笠 2026 outcome review — completed
 ```
 
@@ -147,6 +149,26 @@ Current Relation-backed Jinja seeds:
 ```
 
 The zero Jiin and Tomurai counts describe only the current strict extraction from approved Matsuri Relations. They do not assert that the future sites lack valid subjects.
+
+## F2-P03 future-site seed readiness
+
+F2-P03 audits the public information that can be carried from Matsuri and the target-site work that remains. It does not claim publication readiness.
+
+```text
+Workflow                           Audit Yukue future-site seed readiness
+Run                                29479348339 — success
+Artifact                           8367936520
+Artifact digest                    sha256:ddc5dcdc01978671f68de1f827b6a84fd2eebdf2939813797da920f00c7df975
+Seeds audited                      5
+Cross-site context complete        0
+Cross-site context incomplete      5
+Official URL present               4
+Official URL missing               1
+Approved State Snapshot present    0
+Direct identity Evidence present   0
+```
+
+All five have a public summary, geography, valid Place, Source coverage, and approved Relation context. All five lack an approved shrine State Snapshot and direct Entity-identity Evidence. 大日霊貴神社 also lacks an attached official URL. These are explicit research gaps, not inferred corrections and not permission to start the Jinja application.
 
 ## F2-M02 completion result
 
@@ -236,7 +258,7 @@ Allowed and active:
 - security and dependency maintenance,
 - repairs required to keep repository and production gates green,
 - public-safe Analytics and launch-closure preparation,
-- refresh of the Relation-backed future-site seed inventory when approved Matsuri Relations change,
+- refresh of the Relation-backed future-site seed inventory and readiness audit when approved Matsuri records change,
 - future-site seed collection already implied by approved Matsuri Relations, without starting another public application.
 
 Not activated:
@@ -260,7 +282,7 @@ Not activated:
 pnpm gate:matsuri:repository
 ```
 
-The repository gate preserves completed external work through F2-24, validates the completed Search Console record, validates the pending-to-complete Analytics progression record, and rejects past scheduled Occurrences that have not been reviewed. The dedicated seed workflow validates F2-P02 whenever relevant canonical data or extraction rules change.
+The repository gate preserves completed external work through F2-24, validates the completed Search Console record, validates the pending-to-complete Analytics progression record, and rejects past scheduled Occurrences that have not been reviewed. Dedicated workflows validate F2-P02 and F2-P03 whenever relevant canonical data or audit rules change.
 
 ## Current release status
 
@@ -271,7 +293,7 @@ repository-verified-crawler-reachability-verified-sitemap-submission-verified-in
 ## Immediate next actions
 
 ```text
-Repository track  continue bounded Source, Evidence, Relation, security, dependency, and seed-inventory maintenance
+Repository track  continue bounded Source, Evidence, Relation, security, dependency, and seed-maintenance work
 Dated review      郡上おどり 2026 after 2026-09-05
 Owner track       resume F2-25 when Cloudflare access becomes available
 ```
