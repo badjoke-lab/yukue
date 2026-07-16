@@ -13,8 +13,9 @@ Before implementing a feature, check the relevant document here. When a decision
 | `project-concept.md` | Current | Series purpose and boundaries |
 | `product-spec.md` | Working | Product capabilities and user needs |
 | `public-data-model.md` | Working | Public record model and projection rules |
-| `future-site-seed-inventory.md` | F2-P02 completed | Relation-backed public-safe seed extraction without activating future applications |
-| `future-site-seed-readiness.md` | F2-P03 completed | Public carry-forward context and explicit target-site research gaps |
+| `future-site-seed-inventory.md` | F2-P02 and F2-P05 completed | Relation-backed seed extraction and exact public provenance handoff without activating future applications |
+| `future-site-seed-readiness.md` | F2-P03 and F2-P04 completed | Public carry-forward context, direct identity Evidence coverage, and explicit target-site research gaps |
+| `jinja-start-gate.md` | F2-P06 guardrail | Machine-enforced inactive boundary and prerequisites before Jinja implementation |
 | `matsuri-mvp-spec.md` | Working | Matsuri MVP scope |
 | `information-architecture.md` | Accepted direction | Home H1 and Detail C |
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, layout language |
