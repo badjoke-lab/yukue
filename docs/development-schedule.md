@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-24 completed / F2-25 owner access pending / parallel repository work active
+**Status:** F2-24 completed / F2-25 owner access pending / F2-P01 through F2-P05 completed
 
 This document defines the stable implementation order. It complements `roadmap.md` and `project-status.md`. The project is gate-driven rather than deadline-driven.
 
@@ -15,6 +15,8 @@ F2-M02                       completed
 F2-P01                       completed
 F2-P02                       completed
 F2-P03                       completed
+F2-P04                       completed
+F2-P05                       completed
 F2-25                        owner access pending
 F2-26 through F2-28          operational hold
 ```
@@ -57,6 +59,8 @@ F2-15  Repository Launch Readiness Gate — completed
 F2-P01  Analytics record, validator, evidence templates, and F2-26–28 runbook — completed
 F2-P02  Relation-backed future-site seed inventory and hosted extraction — completed
 F2-P03  Future-site seed readiness and explicit gap audit — completed
+F2-P04  Direct Entity-identity Evidence for five shrine seeds — completed
+F2-P05  Seed handoff provenance and hosted compatibility verification — completed
 ```
 
 Repository gate:
@@ -65,9 +69,9 @@ Repository gate:
 pnpm gate:matsuri:repository
 ```
 
-### Parallel preparation result
+### Parallel preparation results
 
-F2-P02 provides a reproducible inventory from approved Matsuri Relations without activating a future application.
+#### F2-P02 — Relation-backed inventory
 
 ```text
 Command                         pnpm audit:yukue:future-site-seeds
@@ -82,7 +86,7 @@ Jiin seeds                      0
 Tomurai seeds                   0
 ```
 
-F2-P03 measures the public context that can be carried forward and the work that remains.
+#### F2-P03 — Readiness baseline
 
 ```text
 Command                           pnpm audit:yukue:future-site-seed-readiness
@@ -98,7 +102,51 @@ Approved State Snapshot present   0
 Direct identity Evidence present  0
 ```
 
-All five seeds have summary, geography, Place, Source, and approved Relation context. All lack a shrine State Snapshot and direct identity Evidence. 大日霊貴神社 also lacks an attached official URL. This result does not activate Jinja or claim publication readiness.
+#### F2-P04 — Direct identity Evidence
+
+F2-P04 reuses existing approved Matsuri Sources and adds Evidence directly targeting all five shrine Entities.
+
+```text
+Verification run                  29489701435 — success
+Artifact                          8371871954
+Artifact digest                   sha256:478c27bd7049c17ac2f7d3623f839b28125c391f356a4bb6d6c87cf431f35445
+Direct identity Evidence present  5
+Direct identity Evidence missing  0
+Approved State Snapshot present   0
+Official URL present              4
+```
+
+#### F2-P05 — Handoff provenance
+
+F2-P05 carries exact Place, identity Evidence, identity Source, State Snapshot, and Relation Evidence references in the generated seed artifact.
+
+```text
+Workflow                       Build Yukue future-site seed inventory
+Run                            29490466083 — success
+Artifact                       8372200074
+Artifact digest                sha256:427d3c63ae158246a3224e78bfcaaa63fa79268337bb32083550c8fc0c975389
+Seeds                          5
+Relation contexts              5
+Relation Evidence references   5
+Identity Evidence references   5
+Place references               5
+Jinja                          5
+Jiin                           0
+Tomurai                        0
+Readiness compatibility run    29490466140 — success
+```
+
+Current remaining seed gaps:
+
+```text
+阿蘇神社        State Snapshotなし
+櫛田神社        State Snapshotなし
+佐太神社        State Snapshotなし
+大日霊貴神社    State Snapshotなし / 公式URLなし
+秩父神社        State Snapshotなし
+```
+
+These results do not activate Jinja, assign priority, or claim publication readiness.
 
 ### Parallel maintenance
 
@@ -107,17 +155,7 @@ F2-M01  full-page screenshot visual-review workflow — completed
 F2-M02  Matsuri data freshness audit — completed
 ```
 
-F2-M02 fixed-date completion result:
-
-```text
-closed-period unresolved Occurrences  0
-specialist Entities with no Relation  0
-stale Current State candidates        0
-stale external-link candidates        0
-Relations missing Evidence            0
-```
-
-Current 2026-07-16 routine-maintenance inventory:
+F2-M02 current inventory:
 
 ```text
 Occurrences total                    24
@@ -125,6 +163,8 @@ Resolved Occurrences                 16
 Closed-period unresolved              0
 In-progress scheduled                 1
 Future scheduled                      7
+Specialist Entities with no Relation  0
+Relations missing Evidence            0
 ```
 
 Routine date-triggered checks:
@@ -134,7 +174,7 @@ Routine date-triggered checks:
 郡上おどり 2026    review after 2026-09-05
 ```
 
-The Hakata outcome is supported by the official 博多祇園山笠振興会 page publishing 2026-07-15 追い山笠 timing results. The structured scale remains `unknown` rather than being inferred.
+The 博多 result proves the outcome but does not support inferring a structured scale, so scale remains `unknown`.
 
 ### External deployment and production verification
 
@@ -169,17 +209,7 @@ Representative live test  indexable
 Indexing requests          3 submitted
 ```
 
-Evidence records:
-
-```text
-docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
-docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md
-docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md
-docs/audits/matsuri-f2-24-search-console-2026-07-14.md
-docs/audits/matsuri-hakata-outcome-2026-07-16.md
-```
-
-F2-24 combines all-route automated preflight evidence, successful Search Console sitemap acceptance, one representative Google live test, and indexing-request confirmation for the three required representative URLs. It does not claim that any URL is already indexed.
+F2-24 does not claim that any URL is already indexed.
 
 #### Cloudflare-dependent hold
 
@@ -190,9 +220,7 @@ F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
-F2-25 remains the active next external gate. Its pending state is represented by `config/matsuri-analytics-activation.json` and validated by `pnpm check:matsuri:analytics-activation-record`.
-
-The exact resumption sequence is fixed:
+Exact resumption sequence:
 
 ```text
 1. enable Cloudflare Web Analytics Automatic setup
@@ -207,11 +235,10 @@ Do not use a manual beacon, store an Analytics token, publish private metrics, o
 
 ## Work allowed before F2-25 completion
 
-- prepare and validate the pending Analytics machine record,
-- maintain the F2-25 through F2-28 runbooks and evidence templates,
-- complete reviewed factual and date-triggered maintenance,
-- improve Source, Evidence, and Relation coverage,
-- refresh the Relation-backed future-site seed inventory and readiness audit when approved Matsuri records change,
+- maintain the pending Analytics record and F2-25 through F2-28 runbooks,
+- complete factual and date-triggered Matsuri maintenance,
+- improve Source, Evidence, Relation, and seed-provenance coverage,
+- refresh seed inventory and readiness artifacts when approved records change,
 - perform security and dependency maintenance,
 - repair repository or production gates,
 - collect future-site seed data already supported by approved Matsuri Relations without starting another public application.

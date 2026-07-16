@@ -1,12 +1,14 @@
 # Yukue Future-site Seed Inventory
 
-**Status:** F2-P02 completed / candidate inventory only
+**Status:** F2-P02 and F2-P05 completed / candidate inventory only
 
 ## Purpose
 
 The Matsuri corpus already contains approved Shrine, Temple, and funerary-place Entities when they are needed to explain a festival, performance, ritual, or historical relationship.
 
 This repository task derives a public-safe seed inventory from those existing approved records. It avoids re-researching known cross-site context later while keeping the future Jinja, Jiin, and Tomurai applications inactive.
+
+F2-P05 extends each seed with explicit public handoff provenance. It carries the exact Place, direct Entity-identity Evidence, identity Source, approved State Snapshot, and Relation Evidence references already present in Matsuri. Empty arrays remain explicit gaps rather than being inferred or filled.
 
 ## Command
 
@@ -22,7 +24,7 @@ Output:
   summary.md
 ```
 
-## Verified result
+## F2-P02 verified baseline
 
 The first hosted extraction completed successfully on 2026-07-16.
 
@@ -39,14 +41,11 @@ success
 Artifact ID
 8367573485
 
-Artifact name
-yukue-future-site-seeds-8df9896897ef28213ba897104775a509a5e39600
-
 Artifact digest
 sha256:747a9b833adacbc049bf12e7a29312ab8ab676e3f3b2dc73e88c43e79a634524
 ```
 
-Extracted inventory:
+Baseline inventory:
 
 ```text
 Total relation-backed seeds  5
@@ -55,6 +54,43 @@ Jinja seeds                  5
 Jiin seeds                   0
 Tomurai seeds                0
 ```
+
+## F2-P05 verified result
+
+```text
+Workflow
+Build Yukue future-site seed inventory
+
+Run ID
+29490466083
+
+Conclusion
+success
+
+Artifact ID
+8372200074
+
+Artifact name
+yukue-future-site-seeds-97b26e7aa1e981d299f8cbf3914960e8a12b9716
+
+Artifact digest
+sha256:427d3c63ae158246a3224e78bfcaaa63fa79268337bb32083550c8fc0c975389
+```
+
+Verified handoff totals:
+
+```text
+Total relation-backed seeds   5
+Relation contexts             5
+Relation Evidence references  5
+Identity Evidence references  5
+Place references              5
+Jinja seeds                   5
+Jiin seeds                    0
+Tomurai seeds                 0
+```
+
+Every current seed carries exactly one approved direct Identity Evidence reference, one Identity Source reference, one Relation Evidence reference, and one deduplicated Place reference. Every approved State Snapshot array remains empty because no shrine-specific State has been approved.
 
 Current Jinja seeds:
 
@@ -103,11 +139,30 @@ The generated artifact contains only fields derived from approved public canonic
 - public summary,
 - lifecycle,
 - prefecture and municipality labels,
+- primary, default, and deduplicated Place IDs,
 - official public URLs,
 - public Source IDs,
+- direct Entity-identity Evidence IDs,
+- identity Source IDs,
+- approved State Snapshot IDs,
+- flattened Relation Evidence IDs,
 - approved Relation context,
-- approved Evidence IDs,
 - connected Matsuri specialist identity.
+
+F2-P05 does not change `format_version: 1`; the new fields are additive and the readiness audit remains compatible. The hosted readiness workflow run `29490466140` completed successfully against the extended inventory.
+
+## Handoff validation
+
+The command validates that:
+
+- every carried Place ID exists,
+- every identity Evidence record is approved and targets the exact seed Entity,
+- every identity Evidence Source exists,
+- every Relation Evidence record is approved and targets the exact Relation,
+- every Relation Evidence Source exists,
+- every seed has at least one Place reference,
+- every seed exposes identity Evidence and identity Source arrays even when empty,
+- every seed carries at least one Relation Evidence reference.
 
 ## Boundary
 
@@ -119,11 +174,12 @@ The inventory does not:
 - rank candidates,
 - expose internal confidence or research notes,
 - import a private candidate queue,
-- assert that a seed is complete enough for publication on another site.
+- assert that a seed is complete enough for publication on another site,
+- infer a missing State, Source, Evidence, Place, or official URL.
 
 A seed is only a relation-backed starting point. Before later publication, the target site must apply its own identity, State, Evidence, Source, and maintenance review.
 
-## Validation behavior
+## Failure behavior
 
 The command fails when:
 
@@ -131,9 +187,12 @@ The command fails when:
 - an approved Relation lacks Evidence,
 - a Relation references a missing Entity,
 - Relation Evidence is missing or unapproved,
-- Evidence targets the wrong Relation,
+- Evidence targets the wrong Relation or Entity,
+- an Evidence Source is missing,
+- a carried Place record is missing,
 - one Entity maps to conflicting future sites,
-- duplicate Entity IDs appear in the output.
+- duplicate Entity IDs appear in the output,
+- required handoff arrays are absent.
 
 ## GitHub Actions
 

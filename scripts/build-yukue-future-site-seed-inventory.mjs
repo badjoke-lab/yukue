@@ -49,8 +49,31 @@ function officialUrls(entity) {
 
 const dataset = loadMatsuriDataset();
 const entitiesById = new Map(dataset.entities.map((entity) => [entity.id, entity]));
+const placesById = new Map(dataset.places.map((place) => [place.id, place]));
+const sourcesById = new Map(dataset.sources.map((source) => [source.id, source]));
 const evidenceById = new Map(dataset.evidence.map((evidence) => [evidence.id, evidence]));
+const approvedIdentityEvidenceByEntityId = new Map();
+const approvedSnapshotsByEntityId = new Map();
 const seedsByEntityId = new Map();
+
+for (const evidence of dataset.evidence) {
+  if (
+    evidence.review_status !== "approved" ||
+    evidence.target_type !== "entity_identity"
+  ) {
+    continue;
+  }
+  const records = approvedIdentityEvidenceByEntityId.get(evidence.target_id) ?? [];
+  records.push(evidence);
+  approvedIdentityEvidenceByEntityId.set(evidence.target_id, records);
+}
+
+for (const snapshot of dataset.stateSnapshots) {
+  if (snapshot.review_status !== "approved") continue;
+  const records = approvedSnapshotsByEntityId.get(snapshot.entity_id) ?? [];
+  records.push(snapshot);
+  approvedSnapshotsByEntityId.set(snapshot.entity_id, records);
+}
 
 for (const relation of dataset.relations) {
   if (relation.review_status !== "approved") continue;
@@ -101,8 +124,35 @@ for (const relation of dataset.relations) {
         relation.id,
         `Relation ${relation.id} Evidence ${evidenceId} targets ${evidence.target_id}.`,
       );
+      assert(
+        sourcesById.has(evidence.source_id),
+        `Relation Evidence ${evidence.id} Source ${evidence.source_id} is missing.`,
+      );
       return evidence;
     });
+
+    const identityEvidence = approvedIdentityEvidenceByEntityId.get(candidate.id) ?? [];
+    for (const evidence of identityEvidence) {
+      assert.equal(
+        evidence.target_id,
+        candidate.id,
+        `Identity Evidence ${evidence.id} targets ${evidence.target_id}, not ${candidate.id}.`,
+      );
+      assert(
+        sourcesById.has(evidence.source_id),
+        `Identity Evidence ${evidence.id} Source ${evidence.source_id} is missing.`,
+      );
+    }
+
+    const placeIds = uniqueSorted([
+      candidate.primary_place_id,
+      ...(candidate.default_place_ids ?? []),
+    ]);
+    for (const placeId of placeIds) {
+      assert(placesById.has(placeId), `Seed Entity ${candidate.id} Place ${placeId} is missing.`);
+    }
+
+    const approvedSnapshots = approvedSnapshotsByEntityId.get(candidate.id) ?? [];
 
     const existing = seedsByEntityId.get(candidate.id) ?? {
       entity_id: candidate.id,
@@ -121,8 +171,17 @@ for (const relation of dataset.relations) {
           (area) => area.municipality_name_ja,
         ),
       ),
+      primary_place_id: candidate.primary_place_id ?? null,
+      default_place_ids: uniqueSorted(candidate.default_place_ids ?? []),
+      place_ids: placeIds,
       official_urls: officialUrls(candidate),
       source_ids: [],
+      identity_evidence_ids: uniqueSorted(identityEvidence.map((evidence) => evidence.id)),
+      identity_source_ids: uniqueSorted(identityEvidence.map((evidence) => evidence.source_id)),
+      approved_state_snapshot_ids: uniqueSorted(
+        approvedSnapshots.map((snapshot) => snapshot.id),
+      ),
+      relation_evidence_ids: [],
       relation_contexts: [],
       seed_status: "relation-backed-candidate",
     };
@@ -136,7 +195,12 @@ for (const relation of dataset.relations) {
     existing.source_ids = uniqueSorted([
       ...existing.source_ids,
       ...(candidate.names ?? []).flatMap((name) => name.source_ids ?? []),
+      ...identityEvidence.map((evidence) => evidence.source_id),
       ...relationEvidence.map((evidence) => evidence.source_id),
+    ]);
+    existing.relation_evidence_ids = uniqueSorted([
+      ...existing.relation_evidence_ids,
+      ...relation.evidence_ids,
     ]);
 
     if (!existing.relation_contexts.some((context) => context.relation_id === relation.id)) {
@@ -176,6 +240,25 @@ assert.equal(
   "Future-site seed inventory contains duplicate Entity IDs.",
 );
 
+for (const seed of seeds) {
+  assert(
+    Array.isArray(seed.place_ids) && seed.place_ids.length > 0,
+    `Seed ${seed.entity_id} has no handoff Place reference.`,
+  );
+  assert(
+    Array.isArray(seed.identity_evidence_ids),
+    `Seed ${seed.entity_id} identity_evidence_ids is missing.`,
+  );
+  assert(
+    Array.isArray(seed.identity_source_ids),
+    `Seed ${seed.entity_id} identity_source_ids is missing.`,
+  );
+  assert(
+    Array.isArray(seed.relation_evidence_ids) && seed.relation_evidence_ids.length > 0,
+    `Seed ${seed.entity_id} has no Relation Evidence handoff.`,
+  );
+}
+
 const siteDefinitions = [
   { site_id: "jinja", entity_types: ["shrine"] },
   { site_id: "jiin", entity_types: ["temple"] },
@@ -205,6 +288,15 @@ const report = {
       (total, seed) => total + seed.relation_contexts.length,
       0,
     ),
+    relation_evidence: seeds.reduce(
+      (total, seed) => total + seed.relation_evidence_ids.length,
+      0,
+    ),
+    identity_evidence: seeds.reduce(
+      (total, seed) => total + seed.identity_evidence_ids.length,
+      0,
+    ),
+    place_references: seeds.reduce((total, seed) => total + seed.place_ids.length, 0),
     jinja: sites.find((site) => site.site_id === "jinja").seed_count,
     jiin: sites.find((site) => site.site_id === "jiin").seed_count,
     tomurai: sites.find((site) => site.site_id === "tomurai").seed_count,
@@ -238,6 +330,9 @@ const summaryLines = [
   `- Jiin seeds: ${report.totals.jiin}`,
   `- Tomurai seeds: ${report.totals.tomurai}`,
   `- Relation contexts: ${report.totals.relation_contexts}`,
+  `- Relation Evidence references: ${report.totals.relation_evidence}`,
+  `- Identity Evidence references: ${report.totals.identity_evidence}`,
+  `- Place references: ${report.totals.place_references}`,
   "",
   "## Seeds",
   "",
@@ -245,7 +340,7 @@ const summaryLines = [
 
 for (const seed of seeds) {
   summaryLines.push(
-    `- ${seed.candidate_site_id} / ${seed.name_ja} (\`${seed.entity_id}\`) — ${seed.relation_contexts.length} Relation context(s)`,
+    `- ${seed.candidate_site_id} / ${seed.name_ja} (\`${seed.entity_id}\`) — ${seed.relation_contexts.length} Relation context(s), ${seed.identity_evidence_ids.length} identity Evidence, ${seed.place_ids.length} Place reference(s)`,
   );
 }
 
@@ -253,7 +348,7 @@ summaryLines.push(
   "",
   "## Boundary",
   "",
-  "This artifact does not activate Jinja, Jiin, or Tomurai, create a public application, rank candidates, or expose a private research queue.",
+  "This artifact carries approved public provenance for later review. It does not activate Jinja, Jiin, or Tomurai, create a public application, rank candidates, or expose a private research queue.",
 );
 
 fs.writeFileSync(
@@ -263,5 +358,5 @@ fs.writeFileSync(
 );
 
 console.log(
-  `Yukue future-site seed inventory passed: ${report.totals.seeds} seed(s), ${report.totals.relation_contexts} relation context(s), Jinja ${report.totals.jinja}, Jiin ${report.totals.jiin}, Tomurai ${report.totals.tomurai}.`,
+  `Yukue future-site seed inventory passed: ${report.totals.seeds} seed(s), ${report.totals.relation_contexts} relation context(s), ${report.totals.identity_evidence} identity Evidence reference(s), ${report.totals.place_references} Place reference(s), Jinja ${report.totals.jinja}, Jiin ${report.totals.jiin}, Tomurai ${report.totals.tomurai}.`,
 );
