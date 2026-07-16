@@ -1,6 +1,6 @@
 # Yukue Future-site Seed Inventory
 
-**Status:** F2-P02 completed / F2-P05 handoff provenance implementation pending hosted verification / candidate inventory only
+**Status:** F2-P02 and F2-P05 completed / candidate inventory only
 
 ## Purpose
 
@@ -54,6 +54,43 @@ Jinja seeds                  5
 Jiin seeds                   0
 Tomurai seeds                0
 ```
+
+## F2-P05 verified result
+
+```text
+Workflow
+Build Yukue future-site seed inventory
+
+Run ID
+29490466083
+
+Conclusion
+success
+
+Artifact ID
+8372200074
+
+Artifact name
+yukue-future-site-seeds-97b26e7aa1e981d299f8cbf3914960e8a12b9716
+
+Artifact digest
+sha256:427d3c63ae158246a3224e78bfcaaa63fa79268337bb32083550c8fc0c975389
+```
+
+Verified handoff totals:
+
+```text
+Total relation-backed seeds   5
+Relation contexts             5
+Relation Evidence references  5
+Identity Evidence references  5
+Place references              5
+Jinja seeds                   5
+Jiin seeds                    0
+Tomurai seeds                 0
+```
+
+Every current seed carries exactly one approved direct Identity Evidence reference, one Identity Source reference, one Relation Evidence reference, and one deduplicated Place reference. Every approved State Snapshot array remains empty because no shrine-specific State has been approved.
 
 Current Jinja seeds:
 
@@ -112,7 +149,7 @@ The generated artifact contains only fields derived from approved public canonic
 - approved Relation context,
 - connected Matsuri specialist identity.
 
-F2-P05 does not change `format_version: 1`; the new fields are additive and the readiness audit remains compatible.
+F2-P05 does not change `format_version: 1`; the new fields are additive and the readiness audit remains compatible. The hosted readiness workflow run `29490466140` completed successfully against the extended inventory.
 
 ## Handoff validation
 
