@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-24 completed / F2-25 Web Analytics activation next
+**Status:** F2-24 completed / F2-25 owner access pending / parallel repository work active
 
 This document defines the stable implementation order. It complements `roadmap.md` and `project-status.md`. The project is gate-driven rather than deadline-driven.
 
@@ -12,7 +12,9 @@ F1 corpus expansion          completed
 F2-01 through F2-24          completed
 F2-M01                       completed
 F2-M02                       completed
-F2-25 through F2-28          operational hold
+F2-P01                       completed
+F2-25                        owner access pending
+F2-26 through F2-28          operational hold
 ```
 
 ## Foundation through Stage E
@@ -50,6 +52,7 @@ F2-12  responsive and accessibility browser audit — completed
 F2-13  public content, empty-state, and image-boundary audit — completed
 F2-14  release-candidate artifact freeze — completed
 F2-15  Repository Launch Readiness Gate — completed
+F2-P01  Analytics record, validator, evidence templates, and F2-26–28 runbook — completed
 ```
 
 Repository gate:
@@ -78,7 +81,7 @@ Relations missing Evidence            0
 Routine date-triggered checks:
 
 ```text
-博多祇園山笠 2026  review after 2026-07-15
+博多祇園山笠 2026  review due after 2026-07-15 — active
 郡上おどり 2026    review after 2026-09-05
 ```
 
@@ -126,28 +129,46 @@ docs/audits/matsuri-f2-24-search-console-2026-07-14.md
 
 F2-24 combines all-route automated preflight evidence, successful Search Console sitemap acceptance, one representative Google live test, and indexing-request confirmation for the three required representative URLs. It does not claim that any URL is already indexed.
 
-#### Next gate and hold
+#### Cloudflare-dependent hold
 
 ```text
-F2-25  Cloudflare Web Analytics activation — next
+F2-25  Cloudflare Web Analytics activation — owner access pending
 F2-26  post-activation deployment — hold
 F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
-F2-25 must establish the accepted analytics property or site configuration, preserve the documented privacy boundary, and distinguish configuration activation from later production traffic verification.
+F2-25 remains the active next external gate. Its pending state is represented by `config/matsuri-analytics-activation.json` and validated by `pnpm check:matsuri:analytics-activation-record`.
+
+The exact resumption sequence is fixed:
+
+```text
+1. enable Cloudflare Web Analytics Automatic setup
+2. record and validate F2-25 evidence
+3. merge the F2-25 evidence change
+4. verify the resulting production deployment as F2-26
+5. verify production traffic privately as F2-27
+6. run F2-28
+```
+
+Do not use a manual beacon, store an Analytics token, publish private metrics, or reuse a pre-activation deployment as F2-26 evidence.
 
 ## Work allowed before F2-25 completion
 
-- Cloudflare Web Analytics activation for the canonical Matsuri production surface,
-- public-safe activation evidence collection,
-- reviewed factual and date-triggered maintenance,
-- Source, Evidence, Relation, security, and dependency maintenance,
-- repairs required to keep repository and production gates green.
+- prepare and validate the pending Analytics machine record,
+- maintain the F2-25 through F2-28 runbooks and evidence templates,
+- complete reviewed factual and date-triggered maintenance,
+- improve Source, Evidence, and Relation coverage,
+- perform security and dependency maintenance,
+- repair repository or production gates,
+- collect future-site seed data already supported by approved Matsuri Relations without starting another public application.
 
 ## Work not activated
 
 ```text
+F2-25 through F2-28 completion claims
+portal production deployment
+future specialist-site production implementation
 Stats
 Compare
 dynamic API
