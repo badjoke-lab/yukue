@@ -1,6 +1,6 @@
 # Jinja Start Gate
 
-**Status:** F2-P08 repository guardrail / actual start gate not passed
+**Status:** F2-P08 repository guardrail completed / actual start gate not passed
 
 ## Purpose
 
@@ -21,6 +21,16 @@ The validator also runs inside:
 ```text
 pnpm gate:matsuri:repository
 ```
+
+## Hosted verification
+
+```text
+Head         c4067e1f5b6dad3173ea9ba142f038c03604768e
+Run          29493210854
+Conclusion   success
+```
+
+The initial implementation head also passed repository CI, seed inventory and artifact contract, seed readiness, Analytics pending-state validation, canonical Search, full-page screenshots, and F2-24 indexability preflight.
 
 ## Current state
 
