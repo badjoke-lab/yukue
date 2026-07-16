@@ -68,7 +68,7 @@ F2-M01  full-page screenshot visual-review workflow — completed
 F2-M02  Matsuri data freshness audit — completed
 ```
 
-F2-M02 completion result:
+F2-M02 fixed-date completion result:
 
 ```text
 closed-period unresolved Occurrences  0
@@ -78,12 +78,24 @@ stale external-link candidates        0
 Relations missing Evidence            0
 ```
 
+Current 2026-07-16 routine-maintenance inventory:
+
+```text
+Occurrences total                    24
+Resolved Occurrences                 16
+Closed-period unresolved              0
+In-progress scheduled                 1
+Future scheduled                      7
+```
+
 Routine date-triggered checks:
 
 ```text
-博多祇園山笠 2026  review due after 2026-07-15 — active
+博多祇園山笠 2026  outcome reviewed 2026-07-16 — held
 郡上おどり 2026    review after 2026-09-05
 ```
+
+The Hakata outcome is supported by the official 博多祇園山笠振興会 page publishing 2026-07-15 追い山笠 timing results. The structured scale remains `unknown` rather than being inferred.
 
 ### External deployment and production verification
 
@@ -125,6 +137,7 @@ docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
 docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md
 docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md
 docs/audits/matsuri-f2-24-search-console-2026-07-14.md
+docs/audits/matsuri-hakata-outcome-2026-07-16.md
 ```
 
 F2-24 combines all-route automated preflight evidence, successful Search Console sitemap acceptance, one representative Google live test, and indexing-request confirmation for the three required representative URLs. It does not claim that any URL is already indexed.
