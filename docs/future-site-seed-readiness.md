@@ -1,6 +1,6 @@
 # Yukue Future-site Seed Readiness Audit
 
-**Status:** Repository preparation / hosted result pending
+**Status:** F2-P03 completed / public readiness audit only
 
 ## Purpose
 
@@ -28,6 +28,61 @@ and writes:
   readiness.json
   summary.md
 ```
+
+## Verified result
+
+```text
+Workflow
+Audit Yukue future-site seed readiness
+
+Run ID
+29479348339
+
+Conclusion
+success
+
+Artifact ID
+8367936520
+
+Artifact name
+yukue-future-site-seed-readiness-f6f3de96966fc194c97b965cfec9d6679f369ba3
+
+Artifact digest
+sha256:ddc5dcdc01978671f68de1f827b6a84fd2eebdf2939813797da920f00c7df975
+```
+
+Audit totals:
+
+```text
+Total seeds                         5
+Cross-site context complete         0
+Cross-site context incomplete       5
+With official URL                   4
+Without official URL                1
+With approved State Snapshot        0
+With direct identity Evidence       0
+Without direct identity Evidence    5
+```
+
+Detected gaps:
+
+```text
+missing-approved-state-snapshot     5
+missing-direct-identity-evidence     5
+missing-official-url                 1
+```
+
+Seed findings:
+
+```text
+阿蘇神社        State Snapshotなし / 直接Identity Evidenceなし
+櫛田神社        State Snapshotなし / 直接Identity Evidenceなし
+佐太神社        State Snapshotなし / 直接Identity Evidenceなし
+大日霊貴神社    State Snapshotなし / 公式URLなし / 直接Identity Evidenceなし
+秩父神社        State Snapshotなし / 直接Identity Evidenceなし
+```
+
+All five retain valid summary, geographic scope, Place, Source, and approved Relation context. The result therefore establishes usable Matsuri-derived context while clearly showing that none is ready to become a Jinja record without target-site research.
 
 ## Checks
 
