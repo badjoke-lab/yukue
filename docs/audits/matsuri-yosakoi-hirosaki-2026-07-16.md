@@ -1,7 +1,7 @@
 # Matsuri 2026 YOSAKOI and Hirosaki Maintenance Audit
 
 **Date:** 2026-07-16  
-**Status:** Maintenance batch 07 / hosted verification in progress
+**Status:** Maintenance batch 07 / passed
 
 ## Scope
 
@@ -70,6 +70,21 @@ Future scheduled                    8
 ```
 
 The in-progress record remains 郡上おどり 2026. Its outcome review remains scheduled after 2026-09-05.
+
+## Hosted verification
+
+```text
+Verified head                     52712cf9d2fcba64b49086ddd66691a8b4421115
+CI                                29497967212 — success
+Seed inventory and contract       29497967267 — success
+Seed readiness                    29497967251 — success
+Jinja start-gate                  29497967186 — success
+Canonical origin                  29497967183 — success
+Canonical Search                  29497967386 — success
+Crawler reachability              29497967277 — success
+F2-24 indexability                29497967207 — success
+Full-page screenshots             29497967198 — success
+```
 
 ## Boundaries
 
