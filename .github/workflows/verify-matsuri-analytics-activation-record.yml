@@ -1,0 +1,64 @@
+name: Verify Matsuri Analytics activation record
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-analytics-activation-record.yml"
+      - "config/matsuri-analytics-activation.json"
+      - "scripts/check-matsuri-analytics-activation-record.mjs"
+      - "docs/f2-25-cloudflare-web-analytics.md"
+      - "docs/f2-26-f2-28-launch-closure.md"
+      - "docs/templates/matsuri-f2-25-analytics-evidence.md"
+      - "docs/audits/matsuri-f2-25-*.md"
+      - "docs/audits/matsuri-f2-26-*.md"
+      - "docs/audits/matsuri-f2-27-*.md"
+      - "package.json"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-analytics-activation-record.yml"
+      - "config/matsuri-analytics-activation.json"
+      - "scripts/check-matsuri-analytics-activation-record.mjs"
+      - "docs/f2-25-cloudflare-web-analytics.md"
+      - "docs/f2-26-f2-28-launch-closure.md"
+      - "docs/templates/matsuri-f2-25-analytics-evidence.md"
+      - "docs/audits/matsuri-f2-25-*.md"
+      - "docs/audits/matsuri-f2-26-*.md"
+      - "docs/audits/matsuri-f2-27-*.md"
+      - "package.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-analytics-activation-record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.10.0
+
+      - name: Validate Analytics activation record
+        run: pnpm check:matsuri:analytics-activation-record
+
+      - name: Write verification summary
+        if: always()
+        run: |
+          echo "## Matsuri Analytics activation record" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Canonical hostname: matsuri-yukue.badjoke-lab.com" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Pending state: valid while owner Cloudflare access is unavailable" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Boundary: no manual beacon, token, account identity, raw metrics, or false gate progression" >> "$GITHUB_STEP_SUMMARY"

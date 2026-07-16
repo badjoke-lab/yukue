@@ -1,0 +1,44 @@
+{
+  "format_version": 1,
+  "site_id": "matsuri",
+  "canonical_origin": "https://matsuri-yukue.badjoke-lab.com",
+  "provider": "cloudflare-web-analytics",
+  "status": "pending-owner-access",
+  "activation_method": "automatic-setup",
+  "analytics_enabled": false,
+  "activated_at": null,
+  "activation_observed_at": null,
+  "activation_evidence_document": null,
+  "post_activation_deployment": {
+    "required": true,
+    "completed": false,
+    "commit_sha": null,
+    "deployed_at": null,
+    "evidence_document": null
+  },
+  "traffic_verification": {
+    "required": true,
+    "completed": false,
+    "verified_at": null,
+    "evidence_document": null,
+    "private_counts_published": false
+  },
+  "claims": {
+    "f2_25_complete": false,
+    "f2_26_complete": false,
+    "f2_27_complete": false
+  },
+  "privacy": {
+    "manual_beacon_committed": false,
+    "analytics_token_committed": false,
+    "account_identity_committed": false,
+    "private_dashboard_export_committed": false,
+    "visitor_level_data_committed": false
+  },
+  "boundary": {
+    "owner_account_action_required": true,
+    "activation_does_not_equal_deployment": true,
+    "activation_does_not_equal_traffic_verification": true,
+    "private_metrics_remain_private": true
+  }
+}

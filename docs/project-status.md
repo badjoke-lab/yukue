@@ -1,6 +1,6 @@
 # Project Status
 
-**Last updated:** 2026-07-14
+**Last updated:** 2026-07-16
 
 ## Current phase
 
@@ -16,10 +16,12 @@ F2-M01 — Full-page screenshot visual-review workflow — completed
 F2-M02 — Matsuri data freshness audit — completed
 F2-16 through F2-24 — completed
 F2-25 — active next gate
+F2-25 owner Cloudflare access — pending
+F2-P01 — Analytics and launch-closure repository preparation — completed
 F2-26 through F2-28 — operational hold
 ```
 
-The Matsuri Custom Domain, canonical output, interactive browser Search, crawler-facing production surface, sitemap submission, and technical indexability evidence have passed their accepted verification boundaries. The active gate is F2-25 Cloudflare Web Analytics activation.
+The Matsuri Custom Domain, canonical output, interactive browser Search, crawler-facing production surface, sitemap submission, and technical indexability evidence have passed their accepted verification boundaries. F2-25 remains the active external gate, but its owner-account action is pending. Repository work continues through the bounded parallel track described below.
 
 ## Verified canonical production baseline
 
@@ -67,6 +69,7 @@ docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
 docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md
 docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md
 docs/audits/matsuri-f2-24-search-console-2026-07-14.md
+docs/audits/matsuri-hakata-outcome-2026-07-16.md
 ```
 
 The permanent Workers origin remains non-canonical:
@@ -98,9 +101,26 @@ F2-01 through F2-15 — completed
 F2-M01 — completed
 F2-M02 — completed
 F2-16 through F2-24 — completed
+F2-P01 — completed
+博多祇園山笠 2026 outcome review — completed
 ```
 
-F2-M02 completion result:
+F2-P01 prepared the complete insertion path for the Cloudflare-dependent gates:
+
+```text
+config/matsuri-analytics-activation.json
+scripts/check-matsuri-analytics-activation-record.mjs
+docs/f2-25-cloudflare-web-analytics.md
+docs/f2-26-f2-28-launch-closure.md
+docs/templates/matsuri-f2-25-analytics-evidence.md
+.github/workflows/verify-matsuri-analytics-activation-record.yml
+```
+
+The machine record remains `pending-owner-access` and mechanically rejects false F2-25, F2-26, or F2-27 completion claims.
+
+## F2-M02 completion result
+
+Fixed-date baseline completed on 2026-07-12:
 
 ```text
 Occurrences total                    24
@@ -111,6 +131,22 @@ Stale external-link candidates        0
 Specialist Entities with no Relation  0
 Relations missing Evidence            0
 ```
+
+Current routine-maintenance inventory as of 2026-07-16:
+
+```text
+Occurrences total                    24
+Resolved Occurrences                 16
+Closed-period unresolved              0
+In-progress scheduled                 1
+Future scheduled                      7
+Stale Current State candidates        0
+Stale external-link candidates        0
+Specialist Entities with no Relation  0
+Relations missing Evidence            0
+```
+
+The official 博多祇園山笠振興会 result page records the 2026-07-15 追い山笠 timing results. `occ-hakata-2026-schedule` is corrected to `held`; scale remains `unknown` because the result page is not converted into an unsupported structured scale claim.
 
 ## Completed external deployment and verification
 
@@ -144,26 +180,46 @@ Indexation claimed                  false
 
 F2-24 combines all-route automated preflight evidence with Search Console submission evidence and representative Google-specific evidence. It does not claim that Google has already indexed any URL.
 
-## Remaining launch sequence
+## Cloudflare-dependent launch sequence
 
 ```text
-F2-25  Cloudflare Web Analytics activation — next
-F2-26  post-activation deployment — hold
-F2-27  production traffic verification — hold
-F2-28  final F2 Launch Gate — hold
+F2-25  Cloudflare Web Analytics activation — owner access pending
+F2-26  post-activation deployment — blocked by F2-25
+F2-27  production traffic verification — blocked by F2-26
+F2-28  final F2 Launch Gate — blocked by F2-27
 ```
 
-Do not:
+When owner access resumes, insert the prepared sequence without redesign:
 
-- claim indexation without later search-engine evidence,
-- expose owner email, account identifier, or verification token,
-- claim Analytics activation before F2-25 evidence exists,
-- begin portal deployment or a future specialist-site implementation during this sequence.
+1. enable Automatic setup for `matsuri-yukue.badjoke-lab.com`,
+2. record sanitized F2-25 evidence and update the machine record,
+3. merge the F2-25 evidence PR and verify the resulting production deployment as F2-26,
+4. confirm private-dashboard production traffic as F2-27,
+5. run F2-28.
+
+## Parallel work while Cloudflare access is pending
+
+Allowed and active:
+
+- reviewed factual and date-triggered Matsuri maintenance,
+- Source, Evidence, and Relation maintenance,
+- security and dependency maintenance,
+- repairs required to keep repository and production gates green,
+- public-safe Analytics and launch-closure preparation,
+- future-site seed collection already implied by approved Matsuri Relations, without starting another public application.
+
+Not activated:
+
+- F2-25 through F2-28 completion claims,
+- manual Analytics beacon code,
+- portal production deployment,
+- future specialist-site production implementation,
+- Stats, Compare, dynamic API, MCP, paid API, x402, D1, real-time ingestion, or complex graph visualization.
 
 ## Routine maintenance after F2-M02
 
 ```text
-博多祇園山笠 2026  review after 2026-07-15
+博多祇園山笠 2026  outcome reviewed 2026-07-16 — held
 郡上おどり 2026    review after 2026-09-05
 ```
 
@@ -173,14 +229,18 @@ Do not:
 pnpm gate:matsuri:repository
 ```
 
-The repository gate preserves completed external work through F2-24 and the F2-25 through F2-28 boundary. The dedicated F2-24 workflow validates the completed Search Console record and live indexability preflight.
+The repository gate preserves completed external work through F2-24, validates the completed Search Console record, validates the pending-to-complete Analytics progression record, and rejects past scheduled Occurrences that have not been reviewed.
 
 ## Current release status
 
 ```text
-repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-pending
+repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-owner-access-pending
 ```
 
-## Immediate next action
+## Immediate next actions
 
-Run F2-25: activate Cloudflare Web Analytics for the canonical Matsuri production surface, preserve the accepted privacy boundary, and record the exact activation configuration without claiming traffic verification before F2-27.
+```text
+Repository track  continue bounded Source, Evidence, Relation, security, and dependency maintenance
+Dated review      郡上おどり 2026 after 2026-09-05
+Owner track       resume F2-25 when Cloudflare access becomes available
+```

@@ -25,6 +25,9 @@ Before implementing a feature, check the relevant document here. When a decision
 | `f2-23-crawler-reachability.md` | Completed | robots, canonical HTML, sitemap discovery, representative User-Agent, and public discovery verification |
 | `f2-24-sitemap-submission-indexability.md` | Completed | Search Console submission, technical preflight, evidence rules, and completion boundary |
 | `templates/matsuri-f2-24-submission-evidence.md` | Template | Public-safe sitemap submission, live-test, and indexing-request evidence format |
+| `f2-25-cloudflare-web-analytics.md` | Owner access pending | Workers Web Analytics activation, machine record, evidence, and privacy boundary |
+| `f2-26-f2-28-launch-closure.md` | Repository preparation complete | Post-activation deployment, traffic verification, and final launch-gate sequence |
+| `templates/matsuri-f2-25-analytics-evidence.md` | Template | Public-safe Cloudflare Web Analytics activation evidence format |
 | `cloudflare-pages-launch-runbook.md` | F2-16–F2-24 completed | Workers Builds contract, canonical deployment, browser Search, crawler reachability, Search Console evidence, and remaining launch sequence |
 | `deployment.md` | F2-24 completed | Verified canonical Workers deployment and F2-25 Analytics boundary |
 | `audits/matsuri-f2-20-canonical-activation-2026-07-12.md` | Passed audit | HTTPS, required routes, manifest origin, and canonical sitemap verification run |
@@ -34,6 +37,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `matsuri-data-freshness-audit.md` | F2-M02 completed | Completed fixed-date audit and routine maintenance rules |
 | `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, State, and external-link inventory |
 | `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 Evidence and `held` correction for 相馬野馬追 2026 |
+| `audits/matsuri-hakata-outcome-2026-07-16.md` | Outcome resolved | Official 追い山笠 result Evidence and `held` correction for 博多祇園山笠 2026 |
 | `audits/matsuri-f2-m02-relation-inventory-2026-07-12.md` | Baseline completed | Initial Relation coverage inventory |
 | `audits/matsuri-f2-m02-suneori-relation-2026-07-12.md` | Maintenance batch 02 | 脚折雨乞 organization and Relation correction |
 | `audits/matsuri-f2-m02-nunobashi-relation-2026-07-12.md` | Maintenance batch 03 | 富山県［立山博物館］ Relation coverage |
@@ -45,7 +49,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `source-evidence-audit.md` | F2 repository baseline | Source metadata, Evidence targeting, and freshness boundaries |
 | `browser-accessibility-audit.md` | F2 repository baseline | Chromium viewport matrix, WCAG checks, and keyboard behavior |
 | `public-content-audit.md` | F2 repository baseline | Public content and infrastructure-status boundaries |
-| `analytics.md` | Initial baseline | Analytics purpose, activation, verification, and privacy boundary |
+| `analytics.md` | Workers baseline | Analytics purpose, F2-25–27 progression, verification, and privacy boundary |
 | `roadmap.md` | Current | Long-range phases and gates |
 | `development-schedule.md` | Current | Concrete implementation sequence |
 | `verification-policy.md` | Current | Review and publication rules |
