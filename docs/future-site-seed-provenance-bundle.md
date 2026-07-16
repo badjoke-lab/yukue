@@ -1,6 +1,6 @@
 # Yukue Future-site Seed Provenance Bundle
 
-**Status:** F2-P06 repository implementation / hosted verification pending
+**Status:** F2-P06 completed / candidate provenance bundle only
 
 ## Purpose
 
@@ -22,6 +22,56 @@ Output:
   provenance.json
   summary.md
 ```
+
+## Hosted verification
+
+```text
+Workflow
+Build Yukue future-site seed inventory
+
+Run ID
+29491507863
+
+Conclusion
+success
+
+Artifact ID
+8372586148
+
+Artifact name
+yukue-future-site-seeds-19d6c208254373a3b68de148bfb8abc3af46998c
+
+Artifact digest
+sha256:68b75dad78b7eee5bc14fcec05d466c8e515aedcfaab58d3fa7f4de122d4ef3d
+```
+
+Readiness compatibility:
+
+```text
+Workflow
+Audit Yukue future-site seed readiness
+
+Run ID
+29491507883
+
+Conclusion
+success
+```
+
+## Verified bundle totals
+
+```text
+Seed handoffs              5
+Seed Entities              5
+Matsuri context Entities   5
+Places                     5
+Sources                    6
+Evidence                  10
+Relations                  5
+State Snapshots            0
+```
+
+An independent artifact inspection confirmed that every handoff reference resolves to an included record. The zero State Snapshot count is preserved rather than inferred away.
 
 ## Bundle contents
 
@@ -61,12 +111,12 @@ The builder fails on missing records, unapproved Evidence, wrong Evidence target
 The bundle declares:
 
 ```text
-publication_ready_claimed     false
-future_site_activated         false
-candidate_priority_assigned   false
-missing_data_inferred         false
-private_notes_included        false
-uses_only_approved_public_records true
+publication_ready_claimed          false
+future_site_activated              false
+candidate_priority_assigned        false
+missing_data_inferred              false
+private_notes_included             false
+uses_only_approved_public_records  true
 ```
 
 The bundle must not contain:
@@ -80,7 +130,7 @@ The bundle must not contain:
 
 ## Compatibility
 
-The existing `inventory.json` remains `format_version: 1`. `provenance.json` has its own `format_version: 1` and is additive. The readiness audit continues to consume `inventory.json` and must pass unchanged.
+The existing `inventory.json` remains `format_version: 1`. `provenance.json` has its own `format_version: 1` and is additive. The readiness audit continues to consume `inventory.json` and passed unchanged.
 
 ## Hosted workflow
 
