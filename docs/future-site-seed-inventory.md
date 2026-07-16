@@ -1,6 +1,6 @@
 # Yukue Future-site Seed Inventory
 
-**Status:** Repository preparation / candidate inventory only
+**Status:** F2-P02 completed / candidate inventory only
 
 ## Purpose
 
@@ -22,6 +22,52 @@ Output:
   summary.md
 ```
 
+## Verified result
+
+The first hosted extraction completed successfully on 2026-07-16.
+
+```text
+Workflow
+Build Yukue future-site seed inventory
+
+Run ID
+29478631183
+
+Conclusion
+success
+
+Artifact ID
+8367573485
+
+Artifact name
+yukue-future-site-seeds-8df9896897ef28213ba897104775a509a5e39600
+
+Artifact digest
+sha256:747a9b833adacbc049bf12e7a29312ab8ab676e3f3b2dc73e88c43e79a634524
+```
+
+Extracted inventory:
+
+```text
+Total relation-backed seeds  5
+Relation contexts            5
+Jinja seeds                  5
+Jiin seeds                   0
+Tomurai seeds                0
+```
+
+Current Jinja seeds:
+
+```text
+阿蘇神社
+櫛田神社
+佐太神社
+大日霊貴神社
+秩父神社
+```
+
+The zero counts for Jiin and Tomurai mean only that the current approved Matsuri Relations do not yet connect a Temple or funerary-place Entity to a Matsuri specialist Entity under this strict rule. They are not claims that those future sites have no valid subjects.
+
 ## Eligibility rule
 
 A record becomes a seed candidate only when all of the following are true:
@@ -35,8 +81,8 @@ A record becomes a seed candidate only when all of the following are true:
 Entity-to-site mapping:
 
 ```text
-shrine                                → jinja
-temple                                → jiin
+shrine                                 → jinja
+temple                                 → jiin
 cemetery, columbarium, burial_facility → tomurai
 ```
 
