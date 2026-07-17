@@ -1,6 +1,6 @@
 # Jinja Start Gate
 
-**Status:** F2-P08 repository guardrail completed / actual start gate not passed
+**Status:** F2-P08 repository guardrail completed / F2-P09 seed provenance refreshed / actual start gate not passed
 
 ## Purpose
 
@@ -32,15 +32,17 @@ Conclusion   success
 
 The initial implementation head also passed repository CI, seed inventory and artifact contract, seed readiness, Analytics pending-state validation, canonical Search, full-page screenshots, and F2-24 indexability preflight.
 
+F2-P09 refresh verification is recorded in `docs/audits/yukue-f2-p09-dainichireiki-official-provenance-2026-07-18.md`.
+
 ## Current state
 
 ```text
 Status                               blocked-by-matsuri-launch-closure
 Relation-backed Jinja seeds          5
-Direct identity Evidence             5
+Direct identity Evidence             6
 Place references                     5
 Approved shrine State Snapshots      0
-Seeds with official URLs             4
+Seeds with official URLs             5
 Jinja start gate passed              false
 Application creation authorized      false
 Worker creation authorized           false
@@ -71,7 +73,7 @@ While the record remains blocked:
 - no Jinja public routes may be created,
 - no Jinja publication claim may be made,
 - no Shrine State may be invented,
-- F2-P02 through F2-P07 remain preparation evidence only.
+- F2-P02 through F2-P09 remain preparation evidence only.
 
 The validator fails if the repository contains an early application directory, deployment configuration, activation claim, missing prerequisite, inconsistent seed baseline, private account identifier, token, or email address.
 
@@ -85,10 +87,10 @@ The validator fails if the repository contains an early application directory, d
 秩父神社
 ```
 
-All five have direct identity Evidence and Place provenance. All five still require a future Jinja-specific identity, State, Source, Evidence, and maintenance review before publication. 大日霊貴神社 also retains an explicit missing shrine-official URL gap; its public-authority source is not reclassified as a shrine-official URL.
+All five have direct identity Evidence, Place provenance, and at least one official URL. 大日霊貴神社 now carries both the existing 鹿角市 public-authority Source and the shrine-operated `dainichido.org` Source without conflating their authority classes. All five still require a future Jinja-specific identity, State, Source, Evidence, and maintenance review before publication.
 
 ## Cloudflare boundary
 
-F2-P08 requires no Cloudflare access and does not change F2-25 through F2-28.
+F2-P08 and F2-P09 require no Cloudflare access and do not change F2-25 through F2-28.
 
 When Cloudflare access resumes, F2-25 through F2-28 are inserted first. Passing F2-28 alone still does not pass the Jinja start gate; stabilization, order, State-specification, and explicit-authorization prerequisites must also be completed.
