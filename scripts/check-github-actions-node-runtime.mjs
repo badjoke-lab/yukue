@@ -23,10 +23,66 @@ const violations = [];
 const actionCounts = new Map();
 let remoteActionReferences = 0;
 let localActionReferences = 0;
+let leastPrivilegeWorkflows = 0;
+
+function validateTopLevelPermissions(fileName, lines) {
+  const workflowPath = path.posix.join(".github", "workflows", fileName);
+  const jobsIndex = lines.findIndex((line) => /^jobs:\s*$/u.test(line));
+
+  if (jobsIndex === -1) {
+    violations.push(`${workflowPath}: missing top-level jobs block`);
+    return;
+  }
+
+  const permissionCandidates = lines
+    .map((line, index) => ({ line, index }))
+    .filter(({ line, index }) => index < jobsIndex && /^permissions:/u.test(line));
+
+  if (permissionCandidates.length === 0) {
+    violations.push(
+      `${workflowPath}: missing explicit top-level permissions block; required:\n  permissions:\n    contents: read`,
+    );
+    return;
+  }
+
+  if (permissionCandidates.length > 1) {
+    violations.push(`${workflowPath}: multiple top-level permissions declarations are not allowed`);
+    return;
+  }
+
+  const [{ line: declaration, index: permissionsIndex }] = permissionCandidates;
+  const scalarValue = declaration.match(/^permissions:\s*(\S.*)$/u)?.[1];
+  if (scalarValue) {
+    violations.push(
+      `${workflowPath}:${permissionsIndex + 1}: scalar permissions value '${scalarValue}' is not allowed; use an explicit contents: read block`,
+    );
+    return;
+  }
+
+  const entries = [];
+  for (let index = permissionsIndex + 1; index < jobsIndex; index += 1) {
+    const line = lines[index];
+    if (line.trim().length === 0 || /^\s*#/u.test(line)) continue;
+    if (/^\S/u.test(line)) break;
+    entries.push({ line: line.trim(), index });
+  }
+
+  const normalizedEntries = entries.map(({ line }) => line);
+  if (normalizedEntries.length !== 1 || normalizedEntries[0] !== "contents: read") {
+    violations.push(
+      `${workflowPath}:${permissionsIndex + 1}: top-level permissions must contain only 'contents: read'; found ${JSON.stringify(normalizedEntries)}`,
+    );
+    return;
+  }
+
+  leastPrivilegeWorkflows += 1;
+}
 
 for (const fileName of workflowFiles) {
   const filePath = path.join(workflowsDirectory, fileName);
   const lines = fs.readFileSync(filePath, "utf8").split(/\r?\n/u);
+
+  validateTopLevelPermissions(fileName, lines);
 
   for (const [index, line] of lines.entries()) {
     if (!/^\s*uses:/u.test(line)) continue;
@@ -107,5 +163,5 @@ const actionInventory = [...actionCounts.entries()]
   .join(", ");
 
 console.log(
-  `GitHub Actions supply-chain guard passed: ${workflowFiles.length} workflow files, ${remoteActionReferences} remote references pinned to full SHAs, ${localActionReferences} local references, weekly Dependabot enabled; ${actionInventory}.`,
+  `GitHub Actions supply-chain guard passed: ${workflowFiles.length} workflow files, ${remoteActionReferences} remote references pinned to full SHAs, ${localActionReferences} local references, ${leastPrivilegeWorkflows} workflows restricted to contents: read, weekly Dependabot enabled; ${actionInventory}.`,
 );
