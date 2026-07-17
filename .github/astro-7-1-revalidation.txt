@@ -1,0 +1,2 @@
+Astro 7.1.0 release-age revalidation trigger.
+Eligible after: 2026-07-17T12:17:08Z.
