@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: 24
 
@@ -34,7 +34,7 @@ jobs:
           pnpm gate:matsuri:repository 2>&1 | tee release-verification.log
 
       - name: Upload verified Matsuri release candidate
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: matsuri-release-candidate-${{ github.sha }}
           path: .release-candidate/
@@ -44,7 +44,7 @@ jobs:
 
       - name: Upload failed verification log
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: release-verification-log
           path: release-verification.log
@@ -53,7 +53,7 @@ jobs:
 
       - name: Upload failed browser audit artifacts
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: browser-audit-artifacts
           path: test-results/
