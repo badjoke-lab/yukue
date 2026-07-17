@@ -10,6 +10,7 @@ on:
       - "data/public/matsuri/**"
       - "docs/future-site-seed-readiness.md"
       - "package.json"
+      - "pnpm-lock.yaml"
       - "scripts/audit-yukue-future-site-seed-readiness.mjs"
       - "scripts/build-yukue-future-site-seed-inventory.mjs"
   push:
@@ -21,6 +22,7 @@ on:
       - "data/public/matsuri/**"
       - "docs/future-site-seed-readiness.md"
       - "package.json"
+      - "pnpm-lock.yaml"
       - "scripts/audit-yukue-future-site-seed-readiness.mjs"
       - "scripts/build-yukue-future-site-seed-inventory.mjs"
   workflow_dispatch:
@@ -49,8 +51,8 @@ jobs:
       - name: Install pnpm
         run: npm install --global pnpm@11.10.0
 
-      - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build relation-backed seed inventory
         run: pnpm audit:yukue:future-site-seeds
