@@ -1,6 +1,6 @@
 # Yukue Future-site Seed Inventory
 
-**Status:** F2-P02 and F2-P05 completed / candidate inventory only
+**Status:** F2-P02 and F2-P05 completed / F2-P09 provenance refreshed / candidate inventory only
 
 ## Purpose
 
@@ -8,7 +8,7 @@ The Matsuri corpus already contains approved Shrine, Temple, and funerary-place 
 
 This repository task derives a public-safe seed inventory from those existing approved records. It avoids re-researching known cross-site context later while keeping the future Jinja, Jiin, and Tomurai applications inactive.
 
-F2-P05 extends each seed with explicit public handoff provenance. It carries the exact Place, direct Entity-identity Evidence, identity Source, approved State Snapshot, and Relation Evidence references already present in Matsuri. Empty arrays remain explicit gaps rather than being inferred or filled.
+F2-P05 extends each seed with explicit public handoff provenance. It carries the exact Place, direct Entity-identity Evidence, identity Source, approved State Snapshot, and Relation Evidence references already present in Matsuri. Empty arrays remain explicit gaps rather than being inferred or filled. F2-P09 refreshes the inventory after adding shrine-operated official provenance for 大日霊貴神社.
 
 ## Command
 
@@ -21,6 +21,7 @@ Output:
 ```text
 .artifacts/yukue-future-site-seeds/
   inventory.json
+  provenance.json
   summary.md
 ```
 
@@ -29,23 +30,12 @@ Output:
 The first hosted extraction completed successfully on 2026-07-16.
 
 ```text
-Workflow
-Build Yukue future-site seed inventory
-
-Run ID
-29478631183
-
-Conclusion
-success
-
-Artifact ID
-8367573485
-
-Artifact digest
-sha256:747a9b833adacbc049bf12e7a29312ab8ab676e3f3b2dc73e88c43e79a634524
+Workflow         Build Yukue future-site seed inventory
+Run ID           29478631183
+Conclusion       success
+Artifact ID      8367573485
+Artifact digest  sha256:747a9b833adacbc049bf12e7a29312ab8ab676e3f3b2dc73e88c43e79a634524
 ```
-
-Baseline inventory:
 
 ```text
 Total relation-backed seeds  5
@@ -58,39 +48,31 @@ Tomurai seeds                0
 ## F2-P05 verified result
 
 ```text
-Workflow
-Build Yukue future-site seed inventory
-
-Run ID
-29490466083
-
-Conclusion
-success
-
-Artifact ID
-8372200074
-
-Artifact name
-yukue-future-site-seeds-97b26e7aa1e981d299f8cbf3914960e8a12b9716
-
-Artifact digest
-sha256:427d3c63ae158246a3224e78bfcaaa63fa79268337bb32083550c8fc0c975389
+Workflow         Build Yukue future-site seed inventory
+Run ID           29490466083
+Conclusion       success
+Artifact ID      8372200074
+Artifact name    yukue-future-site-seeds-97b26e7aa1e981d299f8cbf3914960e8a12b9716
+Artifact digest  sha256:427d3c63ae158246a3224e78bfcaaa63fa79268337bb32083550c8fc0c975389
 ```
 
-Verified handoff totals:
+F2-P05 established one direct identity Evidence reference per seed and a self-contained handoff structure.
+
+## F2-P09 current inventory
 
 ```text
 Total relation-backed seeds   5
 Relation contexts             5
 Relation Evidence references  5
-Identity Evidence references  5
+Identity Evidence references  6
 Place references              5
+Seeds with official URLs      5
 Jinja seeds                   5
 Jiin seeds                    0
 Tomurai seeds                 0
 ```
 
-Every current seed carries exactly one approved direct Identity Evidence reference, one Identity Source reference, one Relation Evidence reference, and one deduplicated Place reference. Every approved State Snapshot array remains empty because no shrine-specific State has been approved.
+Four seeds carry one direct identity Evidence reference. 大日霊貴神社 carries two approved identity Evidence references: one municipal Source and one shrine-operated Source. Every seed carries at least one identity Source reference, one Relation Evidence reference, one deduplicated Place reference, and at least one official URL. Every approved State Snapshot array remains empty because no shrine-specific State has been approved.
 
 Current Jinja seeds:
 
@@ -149,7 +131,7 @@ The generated artifact contains only fields derived from approved public canonic
 - approved Relation context,
 - connected Matsuri specialist identity.
 
-F2-P05 does not change `format_version: 1`; the new fields are additive and the readiness audit remains compatible. The hosted readiness workflow run `29490466140` completed successfully against the extended inventory.
+The artifact remains `format_version: 1`. F2-P09 adds records and references without changing the inventory structure.
 
 ## Handoff validation
 
