@@ -168,11 +168,13 @@ At minimum, run the repository checks relevant to the change.
 Baseline commands:
 
 ```bash
-pnpm install --no-frozen-lockfile
+pnpm install --frozen-lockfile
 pnpm build
 pnpm check
 pnpm typecheck
 ```
+
+The committed `pnpm-lock.yaml` is required. Do not use `--no-frozen-lockfile` to bypass manifest or lockfile drift; update and review the lockfile in the same bounded dependency change instead.
 
 Some workspaces may not yet implement every script. Do not fake success; report exactly which commands exist and which passed.
 
