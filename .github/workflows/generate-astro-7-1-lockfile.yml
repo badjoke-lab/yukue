@@ -1,9 +1,9 @@
 name: Generate Astro 7.1 lockfile
 
 on:
-  push:
+  pull_request:
     branches:
-      - agent/astro-7-1-compatibility
+      - main
     paths:
       - ".github/workflows/generate-astro-7-1-lockfile.yml"
       - "apps/matsuri/package.json"
@@ -16,13 +16,16 @@ permissions:
 
 jobs:
   generate-lockfile:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      HEAD_BRANCH: ${{ github.head_ref }}
     steps:
-      - name: Checkout compatibility branch
+      - name: Checkout pull-request branch
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
-          ref: agent/astro-7-1-compatibility
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Setup Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -41,6 +44,7 @@ jobs:
         run: node scripts/check-node-dependency-specifiers.mjs --require-lockfile
 
       - name: Commit regenerated lockfile
+        if: github.event_name == 'pull_request'
         shell: bash
         run: |
           set -euo pipefail
@@ -52,4 +56,4 @@ jobs:
             exit 0
           fi
           git commit -m "Regenerate Astro 7.1 lockfile with pnpm 11.10.0"
-          git push origin HEAD:agent/astro-7-1-compatibility
+          git push origin "HEAD:${HEAD_BRANCH}"
