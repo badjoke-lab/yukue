@@ -27,12 +27,14 @@ export const matsuriF2MaintenanceFiles = [
   "maintenance-05.json",
   "maintenance-06.json",
   "maintenance-07.json",
+  "maintenance-08.json",
 ];
 export const matsuriF2CorrectionFiles = [
   "corrections-01.json",
   "corrections-02.json",
   "corrections-03.json",
   "corrections-04.json",
+  "corrections-05.json",
 ];
 
 function readJson(directory, fileName) {
@@ -82,6 +84,11 @@ export function loadMatsuriDataset() {
   const correctionRecords = (key) =>
     corrections.flatMap((correction) => correction[key] ?? []);
 
+  const entities = [
+    ...readJson(d1Directory, "entities.json"),
+    ...batchRecords("entities"),
+    ...maintenanceRecords("entities"),
+  ];
   const occurrences = [
     ...records.occurrences,
     ...batchRecords("occurrences"),
@@ -94,11 +101,11 @@ export function loadMatsuriDataset() {
   ];
 
   return {
-    entities: [
-      ...readJson(d1Directory, "entities.json"),
-      ...batchRecords("entities"),
-      ...maintenanceRecords("entities"),
-    ],
+    entities: applyRecordOverrides(
+      entities,
+      correctionRecords("entities"),
+      "Entity",
+    ),
     places: [
       ...readJson(d1Directory, "places.json"),
       ...batchRecords("places"),
