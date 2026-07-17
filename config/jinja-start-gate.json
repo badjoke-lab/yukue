@@ -12,12 +12,12 @@
   },
   "seed_baseline": {
     "source_site_id": "matsuri",
-    "observed_on": "2026-07-16",
+    "observed_on": "2026-07-17",
     "relation_backed_seeds": 5,
-    "direct_identity_evidence": 5,
+    "direct_identity_evidence": 6,
     "place_references": 5,
     "approved_state_snapshots": 0,
-    "official_urls": 4
+    "official_urls": 5
   },
   "claims": {
     "jinja_start_gate_passed": false,

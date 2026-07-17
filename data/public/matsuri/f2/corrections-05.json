@@ -1,0 +1,84 @@
+{
+  "entities": [
+    {
+      "id": "shr-dainichireiki-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-17T00:00:00Z",
+      "slug": "dainichireiki-jinja",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "大日霊貴神社",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-dainichido-kazuno"]
+        },
+        {
+          "value": "大日靈貴神社",
+          "lang": "ja",
+          "kind": "official",
+          "is_preferred": false,
+          "source_ids": ["src-dainichireiki-jinja-official"]
+        },
+        {
+          "value": "大日堂",
+          "lang": "ja",
+          "kind": "common",
+          "is_preferred": false,
+          "source_ids": [
+            "src-dainichido-kazuno",
+            "src-dainichireiki-jinja-official"
+          ]
+        }
+      ],
+      "summary_ja": "大日堂舞楽が毎年1月2日に奉納される鹿角市八幡平の神社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "05",
+            "prefecture_name_ja": "秋田県",
+            "municipality_name_ja": "鹿角市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-dainichireiki-jinja",
+      "default_place_ids": ["plc-dainichireiki-jinja"],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://dainichido.org/",
+          "is_primary": true,
+          "officiality": "official",
+          "last_checked_at": "2026-07-17"
+        },
+        {
+          "kind": "municipal_cultural_property_page",
+          "platform": "web",
+          "url": "https://www.city.kazuno.lg.jp/soshiki/shogaigakushu/bunkazai/gyomu/1/2/mukeiminzokubunkazai0512/dainitidoubugaku/10557.html",
+          "is_primary": false,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active"
+    }
+  ],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}

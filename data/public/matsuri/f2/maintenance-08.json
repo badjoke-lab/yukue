@@ -1,0 +1,39 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-dainichireiki-jinja-official",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "大日靈貴神社（大日堂）について",
+      "publisher": "大日靈貴神社（大日堂）",
+      "url": "https://dainichido.org/about.html",
+      "accessed_at": "2026-07-17",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-dainichireiki-jinja-official-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-dainichireiki-jinja-official",
+      "target_type": "entity_identity",
+      "target_id": "shr-dainichireiki-jinja",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "神社公式サイトは、大日靈貴神社（大日堂）の名称、鹿角市八幡平堂の上16の所在地、由緒、祭神、社殿、祭典を同社自身の案内として掲載しており、神社Entityの同一性と公式ウェブサイトを直接裏付ける。",
+      "captured_at": "2026-07-17",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}

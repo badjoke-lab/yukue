@@ -23,10 +23,12 @@ import maintenance04 from "../../../../data/public/matsuri/f2/maintenance-04.jso
 import maintenance05 from "../../../../data/public/matsuri/f2/maintenance-05.json";
 import maintenance06 from "../../../../data/public/matsuri/f2/maintenance-06.json";
 import maintenance07 from "../../../../data/public/matsuri/f2/maintenance-07.json";
+import maintenance08 from "../../../../data/public/matsuri/f2/maintenance-08.json";
 import corrections01 from "../../../../data/public/matsuri/f2/corrections-01.json";
 import corrections02 from "../../../../data/public/matsuri/f2/corrections-02.json";
 import corrections03 from "../../../../data/public/matsuri/f2/corrections-03.json";
 import corrections04 from "../../../../data/public/matsuri/f2/corrections-04.json";
+import corrections05 from "../../../../data/public/matsuri/f2/corrections-05.json";
 
 type CanonicalRecord = {
   id: string;
@@ -53,6 +55,7 @@ const additiveBundles = [
   maintenance05,
   maintenance06,
   maintenance07,
+  maintenance08,
 ];
 
 const correctionBundles = [
@@ -60,6 +63,7 @@ const correctionBundles = [
   corrections02,
   corrections03,
   corrections04,
+  corrections05,
 ];
 
 const bundleRecords = (
@@ -103,6 +107,10 @@ function applyRecordOverrides(
   return baseRecords.map((record) => recordsById.get(record.id) ?? record);
 }
 
+const entityRecords = [
+  ...(entities as CanonicalRecord[]),
+  ...additiveRecords("entities"),
+];
 const occurrenceRecords = [
   ...(records.occurrences as CanonicalRecord[]),
   ...additiveRecords("occurrences"),
@@ -113,7 +121,7 @@ const evidenceRecords = [
 ];
 
 const canonicalBundle = {
-  entities: [...entities, ...additiveRecords("entities")],
+  entities: applyRecordOverrides(entityRecords, correctionRecords("entities")),
   places: [...places, ...additiveRecords("places")],
   stateSnapshots: [...stateSnapshots, ...additiveRecords("stateSnapshots")],
   changeEvents: [...records.changeEvents, ...additiveRecords("changeEvents")],
