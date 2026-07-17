@@ -9,6 +9,7 @@ on:
       - "playwright.canonical-search.config.mjs"
       - "tests/canonical/matsuri-search.spec.mjs"
       - "package.json"
+      - "pnpm-lock.yaml"
       - "docs/f2-22-canonical-search-verification.md"
       - "docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md"
       - "docs/project-status.md"
@@ -44,8 +45,8 @@ jobs:
         with:
           version: 11.10.0
 
-      - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Install Chromium
         run: pnpm exec playwright install --with-deps chromium

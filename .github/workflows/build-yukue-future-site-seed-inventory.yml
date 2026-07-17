@@ -13,6 +13,7 @@ on:
       - "docs/future-site-seed-inventory.md"
       - "docs/future-site-seed-provenance-bundle.md"
       - "package.json"
+      - "pnpm-lock.yaml"
       - "scripts/build-yukue-future-site-seed-inventory.mjs"
       - "scripts/build-yukue-future-site-seed-provenance-bundle.mjs"
       - "scripts/check-yukue-future-site-seed-artifact-contract.mjs"
@@ -28,6 +29,7 @@ on:
       - "docs/future-site-seed-inventory.md"
       - "docs/future-site-seed-provenance-bundle.md"
       - "package.json"
+      - "pnpm-lock.yaml"
       - "scripts/build-yukue-future-site-seed-inventory.mjs"
       - "scripts/build-yukue-future-site-seed-provenance-bundle.mjs"
       - "scripts/check-yukue-future-site-seed-artifact-contract.mjs"
@@ -57,8 +59,8 @@ jobs:
       - name: Install pnpm
         run: npm install --global pnpm@11.10.0
 
-      - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build and validate seed inventory, provenance, and contract
         run: pnpm audit:yukue:future-site-seeds
