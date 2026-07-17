@@ -1,6 +1,6 @@
 # Project Status
 
-**Last updated:** 2026-07-16
+**Last updated:** 2026-07-17
 
 ## Current phase
 
@@ -17,19 +17,12 @@ F2-M02 — Matsuri data freshness audit — completed
 F2-16 through F2-24 — completed
 F2-25 — active next gate
 F2-25 owner Cloudflare access — pending
-F2-P01 — Analytics and launch-closure repository preparation — completed
-F2-P02 — relation-backed future-site seed inventory — completed
-F2-P03 — future-site seed readiness audit — completed
-F2-P04 — shrine direct identity Evidence maintenance — completed
-F2-P05 — future-site seed handoff provenance — completed
-F2-P06 — self-contained seed provenance bundle — completed
-F2-P07 — future-site seed artifact contract v1 — completed
-F2-P08 — Jinja start-gate repository guardrail — completed
+F2-P01 through F2-P09 — completed
 F2-26 through F2-28 — operational hold
 Actual Jinja start gate — blocked
 ```
 
-F2-25 remains the next external gate, but owner Cloudflare access is pending. F2-P08 completes only the guardrail that prevents premature Jinja work; it does not pass the actual Jinja start gate.
+F2-25 remains the next external gate, but owner Cloudflare access is pending. F2-P09 improves public seed provenance only; it does not pass the actual Jinja start gate or authorize a future application.
 
 ## Verified Matsuri production baseline
 
@@ -71,10 +64,9 @@ The portal and Matsuri remain separate deployments. Matsuri is not nested under 
 Foundation through Stage E — completed
 F1 batches 01 through 10 — completed
 F2-01 through F2-15 — completed
-F2-M01 — completed
-F2-M02 — completed
+F2-M01 and F2-M02 — completed
 F2-16 through F2-24 — completed
-F2-P01 through F2-P08 — completed
+F2-P01 through F2-P09 — completed
 博多祇園山笠 2026 outcome review — completed
 YOSAKOIソーラン 2026 outcome review — completed
 弘前ねぷた 2026 schedule review — completed
@@ -86,19 +78,19 @@ YOSAKOIソーラン 2026 outcome review — completed
 
 The owner-access resumption path is implemented. `config/matsuri-analytics-activation.json` remains `pending-owner-access` and rejects false F2-25, F2-26, or F2-27 completion claims.
 
-### F2-P02 through F2-P04 seed preparation
+### F2-P02 through F2-P09 seed preparation
+
+Current public seed baseline:
 
 ```text
-F2-P02 run                     29478631183 — success
-Seeds                          5
-Jinja                          5
-Jiin                           0
-Tomurai                        0
-F2-P03 readiness run           29479348339 — success
-F2-P04 verification run        29489701435 — success
-Direct identity Evidence       5
-Approved State Snapshots       0
-Official URLs                  4
+Relation-backed seeds           5
+Jinja seeds                     5
+Jiin seeds                      0
+Tomurai seeds                   0
+Direct identity Evidence        6
+Place references                5
+Approved State Snapshots        0
+Seeds with official URLs        5
 ```
 
 Current Jinja seeds:
@@ -117,41 +109,32 @@ Remaining gaps:
 阿蘇神社        State Snapshotなし
 櫛田神社        State Snapshotなし
 佐太神社        State Snapshotなし
-大日霊貴神社    State Snapshotなし / 公式URLなし
+大日霊貴神社    State Snapshotなし
 秩父神社        State Snapshotなし
 ```
 
-No shrine State is invented before the Jinja specification exists. The public-authority page for 大日霊貴神社 is not mislabeled as a shrine-official URL.
+No shrine State is invented before the Jinja specification exists. 大日霊貴神社 now carries both the existing 鹿角市 public-authority Source and the shrine-operated `dainichido.org` Source without conflating their authority classes.
 
-### F2-P05 through F2-P07 portable artifacts
+Current portable artifact totals:
 
 ```text
-F2-P05 run                    29490466083 — success
-Relation Evidence refs        5
-Identity Evidence refs        5
-Place refs                    5
-F2-P06 bundle run             29491507863 — success
 Seed Entities                5
 Matsuri context Entities      5
 Places                        5
-Sources                       6
-Evidence                     10
+Sources                       7
+Evidence                     11
 Relations                     5
 State Snapshots               0
-F2-P07 contract run           29492382041 — success
 Artifact contract version     1
 Required files                3
-Inventory seeds               5
 Provenance handoffs           5
 ```
 
-F2-P06 closes public-reference handoff dependencies inside `provenance.json`. F2-P07 rejects silent field removal, boundary reversal, site-ID drift, missing files, duplicate IDs, total mismatches, and removal of mandatory target-site review.
+The artifact contract rejects silent field removal, boundary reversal, site-ID drift, missing files, duplicate IDs, total mismatches, and removal of mandatory target-site review.
 
-### F2-P08 Jinja start-gate guardrail
+### Jinja start-gate guardrail
 
 ```text
-Workflow                            Verify Jinja start-gate record
-Run                                 29493210854 — success
 Machine status                      blocked-by-matsuri-launch-closure
 Jinja start gate passed             false
 Application creation authorized     false
@@ -179,6 +162,7 @@ docs/audits/yukue-f2-p05-seed-handoff-provenance-2026-07-16.md
 docs/audits/yukue-f2-p06-seed-provenance-bundle-2026-07-16.md
 docs/audits/yukue-f2-p07-seed-artifact-contract-2026-07-16.md
 docs/audits/yukue-f2-p08-jinja-start-gate-2026-07-16.md
+docs/audits/yukue-f2-p09-dainichireiki-official-provenance-2026-07-17.md
 docs/audits/matsuri-yosakoi-hirosaki-2026-07-16.md
 ```
 
@@ -205,7 +189,7 @@ YOSAKOIソーラン 2026    outcome reviewed 2026-07-16 — held
 
 The 博多祇園山笠 and YOSAKOIソーラン scales remain `unknown`; official outcome Evidence proves that each occurrence was held but does not provide a structured scale category. 弘前ねぷた remains `scheduled` and `unknown` until post-event Evidence is reviewed.
 
-The maintenance also aligned the HTML Public Projection bundle inventory with the canonical loader through maintenance 07 and correction 04.
+The canonical loader and HTML Public Projection now share the complete inventory through maintenance 08 and correction 05. Entity, Occurrence, and Evidence corrections require a higher `record_version` and an existing stable ID.
 
 ## Completed external sequence
 
@@ -266,7 +250,7 @@ Not activated:
 pnpm gate:matsuri:repository
 ```
 
-The gate includes Analytics-state validation and the Jinja start-gate guardrail.
+The gate includes dependency and workflow supply-chain checks, bundle alignment, static and browser verification, public-data semantics, Analytics-state validation, and the Jinja start-gate guardrail.
 
 ## Current release status
 
