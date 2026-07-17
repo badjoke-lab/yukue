@@ -1,12 +1,12 @@
 # Yukue Future-site Seed Readiness Audit
 
-**Status:** F2-P03 completed / F2-P04 identity-evidence maintenance completed / public readiness audit only
+**Status:** F2-P03 completed / F2-P04 identity Evidence completed / F2-P09 official provenance completed / public readiness audit only
 
 ## Purpose
 
-F2-P02 identifies only future-site Entities already connected to approved Matsuri specialist records. F2-P03 measures how much public canonical context can be carried forward and what still requires target-site research. F2-P04 resolves missing direct Entity-identity Evidence when an already approved Matsuri Source directly supports the shrine identity.
+F2-P02 identifies future-site Entities already connected to approved Matsuri specialist records. F2-P03 measures how much approved public context can be carried forward and what still requires target-site research. F2-P04 adds direct Entity-identity Evidence for the five shrine seeds. F2-P09 adds shrine-operated official provenance for 大日霊貴神社 without reclassifying its municipal Source.
 
-This is an audit of existing approved public data. It is not a publication gate, candidate ranking, implementation priority, or future-site activation.
+This is an audit of approved public data. It is not a publication gate, candidate ranking, implementation priority, or future-site activation.
 
 ## Commands
 
@@ -32,23 +32,12 @@ and writes:
 ## F2-P03 baseline
 
 ```text
-Workflow
-Audit Yukue future-site seed readiness
-
-Run ID
-29479348339
-
-Conclusion
-success
-
-Artifact ID
-8367936520
-
-Artifact digest
-sha256:ddc5dcdc01978671f68de1f827b6a84fd2eebdf2939813797da920f00c7df975
+Workflow         Audit Yukue future-site seed readiness
+Run ID           29479348339
+Conclusion       success
+Artifact ID      8367936520
+Artifact digest  sha256:ddc5dcdc01978671f68de1f827b6a84fd2eebdf2939813797da920f00c7df975
 ```
-
-Baseline totals:
 
 ```text
 Total seeds                         5
@@ -63,27 +52,20 @@ Without direct identity Evidence    5
 
 ## F2-P04 verified result
 
-F2-P04 added five approved `entity_identity` Evidence records in `data/public/matsuri/f2/maintenance-06.json`. Every record reuses an already approved Matsuri Source and targets the exact shrine Entity.
+F2-P04 added five approved `entity_identity` Evidence records in `data/public/matsuri/f2/maintenance-06.json`. Every record reuses an approved Matsuri Source and targets the exact shrine Entity.
 
 ```text
-Workflow
-Audit Yukue future-site seed readiness
-
-Run ID
-29489701435
-
-Conclusion
-success
-
-Artifact ID
-8371871954
-
-Artifact name
-yukue-future-site-seed-readiness-0a325403b479030229617fb2e295bf10455eb299
-
-Artifact digest
-sha256:478c27bd7049c17ac2f7d3623f839b28125c391f356a4bb6d6c87cf431f35445
+Workflow         Audit Yukue future-site seed readiness
+Run ID           29489701435
+Conclusion       success
+Artifact ID      8371871954
+Artifact name    yukue-future-site-seed-readiness-0a325403b479030229617fb2e295bf10455eb299
+Artifact digest  sha256:478c27bd7049c17ac2f7d3623f839b28125c391f356a4bb6d6c87cf431f35445
 ```
+
+## F2-P09 current result
+
+F2-P09 records `https://dainichido.org/` as a shrine-operated official URL, adds the official name variant `大日靈貴神社`, and adds a second approved identity Evidence record for the same stable Entity. The existing 鹿角市 page remains separately classified as `public_authority`.
 
 Current totals:
 
@@ -91,11 +73,12 @@ Current totals:
 Total seeds                         5
 Cross-site context complete         0
 Cross-site context incomplete       5
-With official URL                   4
-Without official URL                1
+With official URL                   5
+Without official URL                0
 With approved State Snapshot        0
 With direct identity Evidence       5
 Without direct identity Evidence    0
+Direct identity Evidence records    6
 ```
 
 Current detected gaps:
@@ -103,7 +86,7 @@ Current detected gaps:
 ```text
 missing-approved-state-snapshot     5
 missing-direct-identity-evidence     0
-missing-official-url                 1
+missing-official-url                 0
 ```
 
 Current seed findings:
@@ -112,13 +95,13 @@ Current seed findings:
 阿蘇神社        State Snapshotなし
 櫛田神社        State Snapshotなし
 佐太神社        State Snapshotなし
-大日霊貴神社    State Snapshotなし / 公式URLなし
+大日霊貴神社    State Snapshotなし
 秩父神社        State Snapshotなし
 ```
 
-All five retain valid summary, geographic scope, Place, Source, approved Relation context, and now direct Entity-identity Evidence. None is claimed ready to become a Jinja record because the shrine-specific State model and review have not been activated. The public-authority page attached to 大日霊貴神社 is not relabeled as a shrine official URL.
+All five retain valid summary, geographic scope, Place, Source, approved Relation context, direct Entity-identity Evidence, and at least one official URL. None is claimed ready to become a Jinja record because the shrine-specific State model and review have not been activated.
 
-## F2-P04 Evidence targets
+## Identity Evidence targets
 
 ```text
 shr-aso-jinja
@@ -128,15 +111,18 @@ shr-dainichireiki-jinja
 shr-sada-jinja
 ```
 
-Source reuse:
+Current Source mapping:
 
 ```text
 阿蘇神社        src-aso-restoration
 秩父神社        src-chichibu-yomatsuri
 櫛田神社        src-hakata-schedule-2026
-大日霊貴神社    src-dainichido-kazuno
 佐太神社        src-sada-jinja
+大日霊貴神社    src-dainichido-kazuno
+大日霊貴神社    src-dainichireiki-jinja-official
 ```
+
+The second 大日霊貴神社 record is intentional: one municipal Source and one shrine-operated Source support the same Entity identity from distinct authority classes.
 
 ## Checks
 
@@ -160,7 +146,7 @@ context-incomplete
 
 `context-complete` means the existing Matsuri records provide summary, geography, Place, State, Source, and Relation context without broken references.
 
-It does not mean the record is ready for publication on Jinja, Jiin, or Tomurai. Official URL and direct identity Evidence remain explicit research signals, and every seed remains subject to a new-site review.
+It does not mean the record is ready for publication on Jinja, Jiin, or Tomurai. Every seed remains subject to target-site identity, State, Evidence, Source, and maintenance review.
 
 ## Gap severities
 
@@ -194,4 +180,4 @@ The audit does not:
 Audit Yukue future-site seed readiness
 ```
 
-The workflow rebuilds the F2-P02 inventory, runs the readiness audit, and uploads public-safe JSON and Markdown artifacts. It requires no Cloudflare access and deploys nothing.
+The workflow rebuilds the seed inventory, runs the readiness audit, and uploads public-safe JSON and Markdown artifacts. It requires no Cloudflare access and deploys nothing.
