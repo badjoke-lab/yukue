@@ -12,6 +12,7 @@
     "build:matsuri:pages": "pnpm --filter @badjoke-lab/yukue-matsuri... build",
     "build:matsuri:workers": "node scripts/build-matsuri-workers.mjs",
     "check:github-actions:node-runtime": "node scripts/check-github-actions-node-runtime.mjs",
+    "check:github-actions:supply-chain": "node scripts/check-github-actions-node-runtime.mjs",
     "check:yukue:deployment-topology": "node scripts/check-yukue-deployment-topology.mjs",
     "check:yukue:jinja-start-gate": "node scripts/check-jinja-start-gate-record.mjs",
     "audit:yukue:future-site-seeds": "node scripts/build-yukue-future-site-seed-inventory.mjs && node scripts/build-yukue-future-site-seed-provenance-bundle.mjs && node scripts/check-yukue-future-site-seed-artifact-contract.mjs",
@@ -42,7 +43,7 @@
     "verify:matsuri:workers": "node scripts/verify-matsuri-workers.mjs",
     "verify:release": "node scripts/verify-release.mjs",
     "freeze:matsuri:release": "node scripts/freeze-matsuri-release-candidate.mjs",
-    "gate:matsuri:repository": "pnpm check:github-actions:node-runtime && pnpm check:matsuri:bundle-inventory && pnpm verify:matsuri:workers && pnpm verify:release && pnpm check:matsuri:search-engine-submission-record && pnpm check:matsuri:analytics-activation-record && pnpm check:yukue:jinja-start-gate && pnpm freeze:matsuri:release && node scripts/check-matsuri-readiness-gate.mjs",
+    "gate:matsuri:repository": "pnpm check:github-actions:supply-chain && pnpm check:matsuri:bundle-inventory && pnpm verify:matsuri:workers && pnpm verify:release && pnpm check:matsuri:search-engine-submission-record && pnpm check:matsuri:analytics-activation-record && pnpm check:yukue:jinja-start-gate && pnpm freeze:matsuri:release && node scripts/check-matsuri-readiness-gate.mjs",
     "check": "pnpm -r --if-present check",
     "typecheck": "pnpm -r --if-present typecheck"
   },
