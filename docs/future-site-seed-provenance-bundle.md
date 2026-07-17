@@ -1,12 +1,12 @@
 # Yukue Future-site Seed Provenance Bundle
 
-**Status:** F2-P06 completed / candidate provenance bundle only
+**Status:** F2-P06 completed / F2-P09 provenance refreshed / candidate provenance bundle only
 
 ## Purpose
 
 The F2-P05 inventory carries exact record IDs for later review. F2-P06 adds a self-contained public-safe `provenance.json` file containing the referenced records themselves.
 
-This reduces later rework while preserving the candidate-only boundary. It does not make a seed publication-ready and does not activate another application.
+This reduces later rework while preserving the candidate-only boundary. It does not make a seed publication-ready and does not activate another application. F2-P09 refreshes the generated bundle after adding shrine-operated official provenance for 大日霊貴神社.
 
 ## Command
 
@@ -23,42 +23,26 @@ Output:
   summary.md
 ```
 
-## Hosted verification
+## F2-P06 hosted verification
 
 ```text
-Workflow
-Build Yukue future-site seed inventory
-
-Run ID
-29491507863
-
-Conclusion
-success
-
-Artifact ID
-8372586148
-
-Artifact name
-yukue-future-site-seeds-19d6c208254373a3b68de148bfb8abc3af46998c
-
-Artifact digest
-sha256:68b75dad78b7eee5bc14fcec05d466c8e515aedcfaab58d3fa7f4de122d4ef3d
+Workflow         Build Yukue future-site seed inventory
+Run ID           29491507863
+Conclusion       success
+Artifact ID      8372586148
+Artifact name    yukue-future-site-seeds-19d6c208254373a3b68de148bfb8abc3af46998c
+Artifact digest  sha256:68b75dad78b7eee5bc14fcec05d466c8e515aedcfaab58d3fa7f4de122d4ef3d
 ```
 
 Readiness compatibility:
 
 ```text
-Workflow
-Audit Yukue future-site seed readiness
-
-Run ID
-29491507883
-
-Conclusion
-success
+Workflow    Audit Yukue future-site seed readiness
+Run ID      29491507883
+Conclusion  success
 ```
 
-## Verified bundle totals
+F2-P06 bundle totals were:
 
 ```text
 Seed handoffs              5
@@ -71,7 +55,20 @@ Relations                  5
 State Snapshots            0
 ```
 
-An independent artifact inspection confirmed that every handoff reference resolves to an included record. The zero State Snapshot count is preserved rather than inferred away.
+## F2-P09 current bundle totals
+
+```text
+Seed handoffs              5
+Seed Entities              5
+Matsuri context Entities   5
+Places                     5
+Sources                    7
+Evidence                  11
+Relations                  5
+State Snapshots            0
+```
+
+The additional Source and Evidence are the shrine-operated 大日靈貴神社（大日堂） Source and its approved Entity-identity Evidence. The existing 鹿角市 Source remains separately included. An artifact inspection confirmed that every handoff reference resolves to an included record. The zero State Snapshot count is preserved rather than inferred away.
 
 ## Bundle contents
 
@@ -130,7 +127,7 @@ The bundle must not contain:
 
 ## Compatibility
 
-The existing `inventory.json` remains `format_version: 1`. `provenance.json` has its own `format_version: 1` and is additive. The readiness audit continues to consume `inventory.json` and passed unchanged.
+`inventory.json` remains `format_version: 1`. `provenance.json` remains `format_version: 1`. F2-P09 adds records and references without changing either structure, and the readiness audit continues to consume `inventory.json` unchanged.
 
 ## Hosted workflow
 
