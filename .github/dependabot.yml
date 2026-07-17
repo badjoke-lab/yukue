@@ -15,6 +15,10 @@ updates:
       interval: "weekly"
     versioning-strategy: "increase"
     open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: "typescript"
+        update-types:
+          - "version-update:semver-major"
     groups:
       node-dependencies:
         patterns:
