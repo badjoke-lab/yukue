@@ -1,0 +1,55 @@
+name: Generate Astro 7.1 lockfile
+
+on:
+  push:
+    branches:
+      - agent/astro-7-1-compatibility
+    paths:
+      - ".github/workflows/generate-astro-7-1-lockfile.yml"
+      - "apps/matsuri/package.json"
+      - "apps/portal/package.json"
+      - "pnpm-lock.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-lockfile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout compatibility branch
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: agent/astro-7-1-compatibility
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+        with:
+          version: 11.10.0
+
+      - name: Regenerate lockfile with repository pnpm
+        run: pnpm install --lockfile-only
+
+      - name: Verify dependency policy
+        run: node scripts/check-node-dependency-specifiers.mjs --require-lockfile
+
+      - name: Commit regenerated lockfile
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pnpm-lock.yaml
+          if git diff --cached --quiet; then
+            echo "pnpm-lock.yaml is already current."
+            exit 0
+          fi
+          git commit -m "Regenerate Astro 7.1 lockfile with pnpm 11.10.0"
+          git push origin HEAD:agent/astro-7-1-compatibility
