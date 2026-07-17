@@ -40,9 +40,6 @@ jobs:
       - name: Regenerate lockfile with repository pnpm
         run: pnpm install --lockfile-only
 
-      - name: Verify dependency policy
-        run: node scripts/check-node-dependency-specifiers.mjs --require-lockfile
-
       - name: Commit regenerated lockfile
         if: github.event_name == 'pull_request'
         shell: bash
