@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-24 completed / F2-25 owner access pending / F2-P01 through F2-P08 completed
+**Status:** F2-24 completed / F2-25 owner access pending / F2-P01 through F2-P09 completed
 
 This document defines the stable implementation order. It complements `roadmap.md` and `project-status.md`. The project is gate-driven rather than deadline-driven.
 
@@ -12,7 +12,7 @@ F1 corpus expansion          completed
 F2-01 through F2-24          completed
 F2-M01                       completed
 F2-M02                       completed
-F2-P01 through F2-P08        completed
+F2-P01 through F2-P09        completed
 F2-25                        owner access pending
 F2-26 through F2-28          operational hold
 Actual Jinja start gate      blocked
@@ -61,6 +61,7 @@ F2-P05  Seed handoff record references and hosted compatibility verification —
 F2-P06  Self-contained public provenance bundle and reference closure — completed
 F2-P07  Candidate artifact contract v1 and hosted enforcement — completed
 F2-P08  Jinja start-gate record, validator, workflow, and inactive boundary — completed
+F2-P09  大日霊貴神社 official provenance and versioned Entity correction — completed
 ```
 
 Repository gate:
@@ -69,7 +70,7 @@ Repository gate:
 pnpm gate:matsuri:repository
 ```
 
-The repository gate includes the pending Analytics validator and the blocked Jinja start-gate validator.
+The repository gate includes dependency and workflow supply-chain checks, bundle alignment, pending Analytics validation, and the blocked Jinja start-gate validator.
 
 ## Parallel preparation results
 
@@ -83,9 +84,10 @@ F2-P06  self-contained bundle: 5 seed Entities, 5 context Entities, 5 Places,
 F2-P07  contract v1: 3 required files, 5 seeds, 5 handoffs,
          exact site IDs and candidate-only boundaries enforced
 F2-P08  actual Jinja start gate remains blocked and early activation is rejected
+F2-P09  official URL seeds 5 / Identity Evidence 6 / Sources 7 / Evidence 11
 ```
 
-Hosted evidence:
+Historical hosted evidence:
 
 ```text
 F2-P02 run                    29478631183 — success
@@ -103,13 +105,13 @@ Current remaining seed gaps:
 阿蘇神社        State Snapshotなし
 櫛田神社        State Snapshotなし
 佐太神社        State Snapshotなし
-大日霊貴神社    State Snapshotなし / 公式URLなし
+大日霊貴神社    State Snapshotなし
 秩父神社        State Snapshotなし
 ```
 
 These results do not activate Jinja, assign priority, or claim publication readiness.
 
-## F2-P08 Jinja start-gate prerequisites
+## Jinja start-gate prerequisites
 
 ```text
 Matsuri F2-28 complete                 false
@@ -141,11 +143,11 @@ F2-M02  Matsuri data freshness audit — completed
 ```
 
 ```text
-Occurrences total                    24
-Resolved Occurrences                 16
+Occurrences total                    26
+Resolved Occurrences                 17
 Closed-period unresolved              0
 In-progress scheduled                 1
-Future scheduled                      7
+Future scheduled                      8
 Specialist Entities with no Relation  0
 Relations missing Evidence            0
 ```
@@ -153,11 +155,13 @@ Relations missing Evidence            0
 Routine checks:
 
 ```text
-博多祇園山笠 2026  outcome reviewed 2026-07-16 — held
-郡上おどり 2026    review after 2026-09-05
+博多祇園山笠 2026       outcome reviewed 2026-07-16 — held
+YOSAKOIソーラン 2026    outcome reviewed 2026-07-16 — held
+弘前ねぷた 2026         review after 2026-08-07
+郡上おどり 2026         review after 2026-09-05
 ```
 
-The 博多 result proves the outcome but not a structured scale, so scale remains `unknown`.
+The 博多 and YOSAKOI results prove held outcomes but not structured scale values, so scale remains `unknown`. 弘前ねぷた remains `scheduled` until post-event Evidence is reviewed.
 
 ## External deployment and production verification
 
