@@ -29,6 +29,7 @@ import corrections02 from "../../../../data/public/matsuri/f2/corrections-02.jso
 import corrections03 from "../../../../data/public/matsuri/f2/corrections-03.json";
 import corrections04 from "../../../../data/public/matsuri/f2/corrections-04.json";
 import corrections05 from "../../../../data/public/matsuri/f2/corrections-05.json";
+import { applyMatsuriRecordOverrides } from "./matsuri-record-overrides.mjs";
 
 type CanonicalRecord = {
   id: string;
@@ -81,38 +82,11 @@ const additiveRecords = (key: string): CanonicalRecord[] =>
 const correctionRecords = (key: string): CanonicalRecord[] =>
   bundleRecords(correctionBundles as unknown as Array<Record<string, unknown>>, key);
 
-function applyRecordOverrides(
-  baseRecords: CanonicalRecord[],
-  overrides: CanonicalRecord[],
-  familyName: string,
-): CanonicalRecord[] {
-  if (overrides.length === 0) return baseRecords;
-
-  const recordsById = new Map(baseRecords.map((record) => [record.id, record]));
-
-  for (const override of overrides) {
-    const previous = recordsById.get(override.id);
-    if (!previous) {
-      throw new Error(
-        `Matsuri projection ${familyName} correction ${override.id} does not replace an existing record.`,
-      );
-    }
-    if (override.record_version <= previous.record_version) {
-      throw new Error(
-        `Matsuri projection ${familyName} correction ${override.id} must increase record_version above ${previous.record_version}.`,
-      );
-    }
-    recordsById.set(override.id, override);
-  }
-
-  return baseRecords.map((record) => recordsById.get(record.id) ?? record);
-}
-
 const correctedRecords = (
   familyName: string,
   baseRecords: CanonicalRecord[],
 ): CanonicalRecord[] =>
-  applyRecordOverrides(
+  applyMatsuriRecordOverrides(
     [...baseRecords, ...additiveRecords(familyName)],
     correctionRecords(familyName),
     familyName,
