@@ -1,7 +1,7 @@
 # F2-P10 Matsuri Correction Contract Audit
 
 **Date:** 2026-07-18  
-**Status:** Implementation complete / hosted verification pending  
+**Status:** Passed  
 **Scope:** Repository correction infrastructure and gate preservation only
 
 ## Purpose
@@ -89,6 +89,40 @@ pnpm gate:matsuri:repository
 
 The dedicated workflow runs on relevant pull requests, main pushes, and manual dispatch.
 
+## Hosted verification
+
+Implementation head:
+
+```text
+e679800617b70eda2d3734c9cd3bff8ddc8e29c0
+```
+
+Successful GitHub Actions runs:
+
+```text
+CI                                      29624424628
+Correction contract                     29624424672
+Bundle inventory                        29624424631
+Canonical Search                        29624424630
+F2-24 indexability preflight            29624424636
+Full-page screenshots                   29624424660
+Analytics activation record             29624424642
+Future-site seed inventory              29624424673
+Future-site seed readiness              29624424655
+Jinja start-gate                        29624424653
+```
+
+Generated evidence:
+
+```text
+Release candidate artifact        8423354099
+Release candidate digest          sha256:9a46f79c8270e1ac40db4fa0b35699dc46acb67e8fb0aebb05867238cd5a36ba
+Screenshot artifact               8423349387
+Screenshot digest                 sha256:3bc85369c9e8ffffecf7e9a1ef35652e1d76985fd58754bd8e82c63f98d624d0
+```
+
+The dedicated contract passed with all twelve declared record families, five correction bundles, five corrected logical IDs, and six ordered correction records. The integrated repository gate, public projection, Search, screenshot, seed, Analytics-pending, and Jinja-blocked baselines remained green.
+
 ## Boundaries
 
 F2-P10 does not:
@@ -100,7 +134,3 @@ F2-P10 does not:
 - change the blocked Jinja start gate,
 - add a future-site application,
 - add dynamic storage, ingestion, API, MCP, or billing infrastructure.
-
-## Hosted verification
-
-Pending GitHub Actions verification for the implementation branch.
