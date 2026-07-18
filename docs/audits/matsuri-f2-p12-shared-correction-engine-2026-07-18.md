@@ -1,7 +1,7 @@
 # F2-P12 Matsuri Shared Correction Engine Audit
 
 **Date:** 2026-07-18  
-**Status:** Implementation complete / hosted verification pending  
+**Status:** Passed  
 **Scope:** Repository correction-engine consolidation and gate preservation only
 
 ## Purpose
@@ -65,7 +65,7 @@ The contract now verifies:
 - current correction chains still expose their final records,
 - all families still route through correction handling.
 
-## Current baseline
+## Verified baseline
 
 ```text
 Correction consumers          2
@@ -91,7 +91,38 @@ It runs inside:
 pnpm gate:matsuri:repository
 ```
 
-The dedicated Workflow now watches both shared-engine files and identifies the shared-engine rule in its summary.
+The dedicated Workflow watches both shared-engine files and identifies the shared-engine rule in its summary.
+
+## Hosted verification
+
+Implementation head:
+
+```text
+c643560be3c9b08375bd5e9ca9770684e936d2fd
+```
+
+Successful runs:
+
+```text
+Correction contract           29635048023 — success
+Bundle inventory and order    29635048060 — success
+Repository CI                 29635048032 — success
+Full-page screenshots         29635048050 — success
+Future-site seed inventory    29635048056 — success
+Future-site seed readiness    29635048033 — success
+Jinja start-gate              29635048039 — success
+```
+
+The repository CI completed the full launch-readiness gate, including the shared correction contract, exact bundle order, public build, browser verification, pending Analytics boundary, blocked Jinja boundary, and release-candidate freeze.
+
+Artifacts:
+
+```text
+Release artifact      8426823296
+Release digest        sha256:71e24fa155be7cff3e5366592179ddfddaa3e2ef6dbd17a76dbb8d8ee91800cc
+Screenshot artifact   8426817176
+Screenshot digest     sha256:8498f410ae47d0ee0c97e682e8c4248b1a564af6d3cb8d5cd8ff81992a5ad758
+```
 
 ## Boundaries
 
@@ -104,7 +135,3 @@ F2-P12 does not:
 - alter the blocked Jinja start gate,
 - create a future-site application,
 - add dynamic storage, ingestion, API, MCP, or billing infrastructure.
-
-## Hosted verification
-
-Pending GitHub Actions verification for the implementation branch.
