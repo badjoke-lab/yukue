@@ -1,6 +1,10 @@
 import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 
+import { applyMatsuriRecordOverrides } from "../src/data/matsuri-record-overrides.mjs";
+
+export { applyMatsuriRecordOverrides };
+
 const d1Directory = new URL("../../../data/public/matsuri/d1/", import.meta.url);
 const f1Directory = new URL("../../../data/public/matsuri/f1/", import.meta.url);
 const f2Directory = new URL("../../../data/public/matsuri/f2/", import.meta.url);
@@ -70,31 +74,6 @@ const matsuriRecordFamilyLabels = {
 function readJson(directory, fileName) {
   const filePath = fileURLToPath(new URL(fileName, directory));
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
-}
-
-export function applyMatsuriRecordOverrides(records, overrides, familyName) {
-  if (overrides.length === 0) return records;
-
-  const recordsById = new Map(records.map((record) => [record.id, record]));
-
-  for (const override of overrides) {
-    const previous = recordsById.get(override.id);
-    if (!previous) {
-      throw new Error(
-        `Matsuri ${familyName} correction ${override.id} does not replace an existing record.`,
-      );
-    }
-
-    if (override.record_version <= previous.record_version) {
-      throw new Error(
-        `Matsuri ${familyName} correction ${override.id} must increase record_version above ${previous.record_version}.`,
-      );
-    }
-
-    recordsById.set(override.id, override);
-  }
-
-  return records.map((record) => recordsById.get(record.id));
 }
 
 export function loadMatsuriDataset() {
