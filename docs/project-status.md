@@ -1,6 +1,6 @@
 # Project Status
 
-**Last updated:** 2026-07-17
+**Last updated:** 2026-07-18
 
 ## Current phase
 
@@ -17,12 +17,12 @@ F2-M02 — Matsuri data freshness audit — completed
 F2-16 through F2-24 — completed
 F2-25 — active next gate
 F2-25 owner Cloudflare access — pending
-F2-P01 through F2-P09 — completed
+F2-P01 through F2-P10 — completed
 F2-26 through F2-28 — operational hold
 Actual Jinja start gate — blocked
 ```
 
-F2-25 remains the next external gate, but owner Cloudflare access is pending. F2-P09 improves public seed provenance only; it does not pass the actual Jinja start gate or authorize a future application.
+F2-25 remains the next external gate, but owner Cloudflare access is pending. F2-P10 closes the all-family correction-path gap without changing public facts, passing the Jinja start gate, or authorizing a future application.
 
 ## Verified Matsuri production baseline
 
@@ -66,7 +66,7 @@ F1 batches 01 through 10 — completed
 F2-01 through F2-15 — completed
 F2-M01 and F2-M02 — completed
 F2-16 through F2-24 — completed
-F2-P01 through F2-P09 — completed
+F2-P01 through F2-P10 — completed
 博多祇園山笠 2026 outcome review — completed
 YOSAKOIソーラン 2026 outcome review — completed
 弘前ねぷた 2026 schedule review — completed
@@ -132,6 +132,20 @@ Provenance handoffs           5
 
 The artifact contract rejects silent field removal, boundary reversal, site-ID drift, missing files, duplicate IDs, total mismatches, and removal of mandatory target-site review.
 
+### F2-P10 correction contract
+
+```text
+Accepted record families      12
+Correction bundles             5
+Correction records             6
+Corrected logical IDs          5
+Correction contract run        29624424672 — success
+Repository CI run              29624424628 — success
+Full-page screenshot run       29624424660 — success
+```
+
+Every declared family now uses ordered complete-record corrections in both the canonical loader and HTML Public Projection. The gate rejects unsupported families, invalid IDs or versions, non-increasing correction chains, missing base records, final-output drift, and projection coverage gaps.
+
 ### Jinja start-gate guardrail
 
 ```text
@@ -163,6 +177,7 @@ docs/audits/yukue-f2-p06-seed-provenance-bundle-2026-07-16.md
 docs/audits/yukue-f2-p07-seed-artifact-contract-2026-07-16.md
 docs/audits/yukue-f2-p08-jinja-start-gate-2026-07-16.md
 docs/audits/yukue-f2-p09-dainichireiki-official-provenance-2026-07-17.md
+docs/audits/matsuri-f2-p10-correction-contract-2026-07-18.md
 docs/audits/matsuri-yosakoi-hirosaki-2026-07-16.md
 ```
 
@@ -189,7 +204,7 @@ YOSAKOIソーラン 2026    outcome reviewed 2026-07-16 — held
 
 The 博多祇園山笠 and YOSAKOIソーラン scales remain `unknown`; official outcome Evidence proves that each occurrence was held but does not provide a structured scale category. 弘前ねぷた remains `scheduled` and `unknown` until post-event Evidence is reviewed.
 
-The canonical loader and HTML Public Projection now share the complete inventory through maintenance 08 and correction 05. Entity, Occurrence, and Evidence corrections require a higher `record_version` and an existing stable ID.
+The canonical loader and HTML Public Projection share the complete inventory through maintenance 08 and correction 05. All twelve record families now require an existing stable ID and increasing `record_version` for corrections.
 
 ## Completed external sequence
 
@@ -250,7 +265,7 @@ Not activated:
 pnpm gate:matsuri:repository
 ```
 
-The gate includes dependency and workflow supply-chain checks, bundle alignment, static and browser verification, public-data semantics, Analytics-state validation, and the Jinja start-gate guardrail.
+The gate includes dependency and workflow supply-chain checks, bundle alignment, all-family correction-contract validation, static and browser verification, public-data semantics, Analytics-state validation, and the Jinja start-gate guardrail.
 
 ## Current release status
 

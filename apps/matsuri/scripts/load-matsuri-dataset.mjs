@@ -37,12 +37,42 @@ export const matsuriF2CorrectionFiles = [
   "corrections-05.json",
 ];
 
+export const matsuriRecordFamilies = [
+  "entities",
+  "places",
+  "stateSnapshots",
+  "changeEvents",
+  "occurrences",
+  "occurrenceSeries",
+  "recurrencePatterns",
+  "relations",
+  "designations",
+  "sources",
+  "evidence",
+  "images",
+];
+
+const matsuriRecordFamilyLabels = {
+  entities: "Entity",
+  places: "Place",
+  stateSnapshots: "State Snapshot",
+  changeEvents: "Change Event",
+  occurrences: "Occurrence",
+  occurrenceSeries: "Occurrence Series",
+  recurrencePatterns: "Recurrence Pattern",
+  relations: "Relation",
+  designations: "Designation",
+  sources: "Source",
+  evidence: "Evidence",
+  images: "Image",
+};
+
 function readJson(directory, fileName) {
   const filePath = fileURLToPath(new URL(fileName, directory));
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
 }
 
-function applyRecordOverrides(records, overrides, familyName) {
+export function applyMatsuriRecordOverrides(records, overrides, familyName) {
   if (overrides.length === 0) return records;
 
   const recordsById = new Map(records.map((record) => [record.id, record]));
@@ -84,28 +114,12 @@ export function loadMatsuriDataset() {
   const correctionRecords = (key) =>
     corrections.flatMap((correction) => correction[key] ?? []);
 
-  const entities = [
-    ...readJson(d1Directory, "entities.json"),
-    ...batchRecords("entities"),
-    ...maintenanceRecords("entities"),
-  ];
-  const occurrences = [
-    ...records.occurrences,
-    ...batchRecords("occurrences"),
-    ...maintenanceRecords("occurrences"),
-  ];
-  const evidence = [
-    ...readJson(d1Directory, "evidence.json"),
-    ...batchRecords("evidence"),
-    ...maintenanceRecords("evidence"),
-  ];
-
-  return {
-    entities: applyRecordOverrides(
-      entities,
-      correctionRecords("entities"),
-      "Entity",
-    ),
+  const baseDataset = {
+    entities: [
+      ...readJson(d1Directory, "entities.json"),
+      ...batchRecords("entities"),
+      ...maintenanceRecords("entities"),
+    ],
     places: [
       ...readJson(d1Directory, "places.json"),
       ...batchRecords("places"),
@@ -121,11 +135,11 @@ export function loadMatsuriDataset() {
       ...batchRecords("changeEvents"),
       ...maintenanceRecords("changeEvents"),
     ],
-    occurrences: applyRecordOverrides(
-      occurrences,
-      correctionRecords("occurrences"),
-      "Occurrence",
-    ),
+    occurrences: [
+      ...records.occurrences,
+      ...batchRecords("occurrences"),
+      ...maintenanceRecords("occurrences"),
+    ],
     occurrenceSeries: [
       ...records.occurrenceSeries,
       ...batchRecords("occurrenceSeries"),
@@ -151,15 +165,26 @@ export function loadMatsuriDataset() {
       ...batchRecords("sources"),
       ...maintenanceRecords("sources"),
     ],
-    evidence: applyRecordOverrides(
-      evidence,
-      correctionRecords("evidence"),
-      "Evidence",
-    ),
+    evidence: [
+      ...readJson(d1Directory, "evidence.json"),
+      ...batchRecords("evidence"),
+      ...maintenanceRecords("evidence"),
+    ],
     images: [
       ...records.images,
       ...batchRecords("images"),
       ...maintenanceRecords("images"),
     ],
   };
+
+  return Object.fromEntries(
+    matsuriRecordFamilies.map((familyName) => [
+      familyName,
+      applyMatsuriRecordOverrides(
+        baseDataset[familyName],
+        correctionRecords(familyName),
+        matsuriRecordFamilyLabels[familyName],
+      ),
+    ]),
+  );
 }
