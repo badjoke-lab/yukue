@@ -1,18 +1,19 @@
-# Matsuri Correction Contract
+# Matsuri Correction and Canonical Dataset Contract
 
-**Status:** F2-P10 through F2-P12 completed
+**Status:** F2-P10 through F2-P13 completed
 
 ## Purpose
 
 Matsuri public data is append-only at the batch-file level. When an approved record must be corrected, the original D1, F1, or maintenance file remains unchanged and a later correction bundle replaces the complete logical record by stable ID.
 
-F2-P10 makes that behavior uniform for every public record family and adds a machine-enforced contract so that a newly introduced correction cannot be silently ignored by either canonical consumer.
+The contract evolved in four bounded steps:
 
-F2-P11 makes bundle application order part of the same contract. Importing the correct file set is insufficient: the HTML Public Projection must apply F1 batches, maintenance bundles, and correction bundles in the same declared order as the canonical loader.
+- **F2-P10** made ordered complete-record corrections available to all twelve record families.
+- **F2-P11** made exact bundle application order machine-enforced.
+- **F2-P12** replaced two local correction functions with one shared correction engine.
+- **F2-P13** replaced two local twelve-family assembly paths with one shared canonical dataset assembler and extended duplicate-ID validation to families with no corrections.
 
-F2-P12 removes the remaining duplicated correction implementation. The canonical loader and HTML Public Projection import one shared correction engine instead of maintaining equivalent local functions.
-
-## Correctable record families
+## Record families
 
 ```text
 entities
@@ -29,32 +30,66 @@ evidence
 images
 ```
 
-Both canonical consumers must route all twelve families through ordered correction handling:
+The accepted family names and final family order are defined once in:
+
+```text
+apps/matsuri/src/data/matsuri-canonical-dataset.mjs
+```
+
+## Canonical consumers
 
 ```text
 apps/matsuri/scripts/load-matsuri-dataset.mjs
 apps/matsuri/src/data/matsuri-projection.ts
 ```
 
+The Node loader reads canonical JSON through the filesystem. The Astro projection imports the same JSON statically. Both consumers provide their D1 base arrays and ordered bundle arrays to the same `buildMatsuriCanonicalDataset()` function.
+
+Neither consumer may implement its own family loop, bundle extraction helper, correction helper, or final assembly path.
+
+## Shared canonical dataset assembler
+
+Implementation:
+
+```text
+apps/matsuri/src/data/matsuri-canonical-dataset.mjs
+apps/matsuri/src/data/matsuri-canonical-dataset.d.mts
+```
+
+The assembler owns:
+
+1. the twelve family names and family labels,
+2. base-family validation,
+3. additive bundle extraction,
+4. correction bundle extraction,
+5. base + additive accumulation,
+6. ordered correction application,
+7. final family ordering.
+
+The base dataset must be an object containing an array for every accepted family. Additive and correction inputs must be arrays of bundle objects. A present family value in a bundle must be an array.
+
 ## Shared correction engine
 
-The only correction implementation is:
+Implementation:
 
 ```text
 apps/matsuri/src/data/matsuri-record-overrides.mjs
-```
-
-Type information for the Astro and TypeScript consumer is declared in:
-
-```text
 apps/matsuri/src/data/matsuri-record-overrides.d.mts
 ```
 
-The canonical loader imports and re-exports the shared function for existing script consumers. The HTML Public Projection imports the same module directly. Neither consumer may define a local correction function.
+The assembler imports this engine. The canonical consumers do not implement or import an alternative correction function.
 
-This single-engine rule prevents future semantic drift such as one consumer accepting a missing stable ID, allowing a non-increasing version, handling duplicate base IDs differently, or producing a different replacement result.
+For every family, the engine:
 
-## Correction semantics
+1. builds a stable-ID map for the accumulated base and additive records,
+2. rejects duplicate accumulated IDs even when the family has no corrections,
+3. rejects a correction for a missing stable ID,
+4. rejects an unchanged or lower `record_version`,
+5. replaces the complete record object,
+6. preserves accumulated list order,
+7. returns the original accumulated array when no correction exists after validation.
+
+## Complete replacement semantics
 
 A correction is a complete record replacement, not a partial object merge.
 
@@ -63,17 +98,16 @@ For each corrected record:
 1. the stable `id` must already exist in the accumulated D1, F1, maintenance, or earlier-correction dataset,
 2. `record_version` must be a positive integer,
 3. `record_version` must be greater than the previous version of the same logical record,
-4. correction bundles are applied in the exact order declared by `matsuriF2CorrectionFiles`,
-5. the final canonical record must equal the last correction record exactly,
+4. correction bundles are applied in exact declared order,
+5. the final canonical record equals the last correction record exactly,
 6. correction records do not create a second record or change list order,
-7. duplicate stable IDs in the base record list are rejected when a family enters correction handling,
-8. an empty or omitted family array makes no change.
+7. an empty or omitted family array makes no change.
 
 A correction bundle may omit unused family keys. Any present key must name one of the twelve accepted families and contain an array.
 
 ## Bundle application order
 
-The canonical loader declarations are authoritative:
+The canonical loader declarations remain authoritative:
 
 ```text
 matsuriF1BatchFiles
@@ -81,7 +115,7 @@ matsuriF2MaintenanceFiles
 matsuriF2CorrectionFiles
 ```
 
-The HTML Public Projection must preserve these sequences exactly:
+The HTML Public Projection must preserve:
 
 ```text
 additiveBundles
@@ -92,51 +126,76 @@ correctionBundles
   all matsuriF2CorrectionFiles in declared order
 ```
 
-Import declaration order is not treated as application order. The machine check reads the actual array initializers and resolves each imported identifier back to its repository path.
+Import declaration order is not treated as application order. The bundle gate reads the actual array initializers and resolves each imported identifier to its repository path.
 
-The projection arrays may contain imported bundle identifiers only. Reordering, duplication, omission, an extra import, a nonexistent file, or an expression in place of a direct bundle identifier fails the gate.
+## Why these rules are required
 
-## Why the complete replacement, order, and shared-engine rules are required
+Complete replacement keeps each public record auditable as a versioned object. It prevents deleted fields from surviving accidentally and makes the final record reproducible.
 
-Complete replacement keeps each public record auditable as a versioned object. It avoids hidden inheritance from an older record, prevents deleted fields from surviving accidentally, and makes the final canonical state reproducible from the declared bundle order.
+Exact order parity prevents two consumers from applying the same files with different semantics.
 
-Order parity prevents two canonical consumers from applying the same file set with different semantics. This is especially important when one stable ID has more than one approved correction version.
+One correction engine prevents missing-ID, version, duplicate-ID, and replacement behavior from drifting between consumers.
 
-A shared engine prevents the two consumers from gradually implementing different validity checks or replacement behavior while current data still happens to produce the same visible output.
+One canonical dataset assembler prevents family mapping, additive accumulation, and correction routing from drifting while current public output still happens to look correct.
 
 ## Machine checks
 
 ```text
-pnpm check:matsuri:correction-contract
 pnpm check:matsuri:bundle-inventory
+pnpm check:matsuri:canonical-dataset-contract
+pnpm check:matsuri:correction-contract
 ```
 
-The correction check validates:
-
-- correction bundle paths declared by the canonical loader exist,
-- correction bundle keys use only accepted record families,
-- every correction record has a non-empty ID and positive integer `record_version`,
-- repeated corrections for one ID increase versions in bundle order,
-- one shared override helper performs exact full-record replacement for all twelve families,
-- missing stable IDs, non-increasing versions, and duplicate base IDs are rejected,
-- both consumers import the shared helper,
-- neither consumer contains a local correction implementation,
-- the canonical loader returns every family and exposes the final correction,
-- the HTML Public Projection routes every family through `correctedRecords()`.
+### Bundle inventory and order
 
 The bundle check validates:
 
-- canonical loader and HTML Public Projection import the same F1 and F2 bundle inventory,
+- loader and Projection import the same F1 and F2 inventory,
 - every declared bundle path exists,
 - `additiveBundles` preserves F1-then-maintenance order,
 - `correctionBundles` preserves declared correction order,
 - array entries are unique direct imported identifiers.
 
-Both commands run inside the repository launch-readiness gate and in dedicated GitHub Actions workflows:
+### Canonical dataset contract
+
+The dataset check validates:
+
+- the assembler and declaration exist,
+- both consumers call the shared assembler,
+- all twelve families use the shared family order,
+- base order and additive order are preserved,
+- exact correction replacement remains intact,
+- missing base families fail,
+- non-array additive and correction family values fail,
+- duplicate accumulated IDs fail with or without corrections,
+- local bundle extraction or assembly logic is not reintroduced,
+- the actual loader returns exactly the accepted families with unique final IDs.
+
+### Correction contract
+
+The correction check validates:
+
+- correction bundle paths exist,
+- correction bundle keys use accepted families only,
+- every correction record has a non-empty ID and positive integer version,
+- repeated corrections increase versions in bundle order,
+- the shared assembler imports the shared correction engine,
+- complete replacement works for all twelve families,
+- missing IDs, non-increasing versions, and duplicate accumulated IDs fail,
+- the actual loader exposes each final correction record.
+
+All three commands run inside:
 
 ```text
-Verify Matsuri correction contract
+pnpm gate:matsuri:repository
+```
+
+Dedicated workflows:
+
+```text
 Verify Matsuri bundle inventory
+Verify Matsuri canonical dataset contract
+Verify Matsuri correction contract
 ```
 
 ## Hosted verification
@@ -174,38 +233,53 @@ Screenshot artifact       8426817176
 Screenshot digest         sha256:8498f410ae47d0ee0c97e682e8c4248b1a564af6d3cb8d5cd8ff81992a5ad758
 ```
 
-See:
+### F2-P13
+
+```text
+Implementation head       ae83ba4f73e851224d084afe39b21f69c78b1ad5
+Dataset contract run      29640821913 — success
+Correction contract run   29640822064 — success
+Bundle inventory run      29640821894 — success
+Repository CI run         29640821886 — success
+Canonical Search run      29640821879 — success
+Screenshot run            29640821923 — success
+Release artifact          8428563901
+Release digest            sha256:187ed4f919cd5d42ccb8e4e2de037f315a311132c266bd2500c9bc25529f1dd8
+Screenshot artifact       8428556898
+Screenshot digest         sha256:225d8a7c5b31432579ae9bb3e329b75cde2692f04168f99df32f1a5a0840619e
+```
+
+Audit records:
 
 ```text
 docs/audits/matsuri-f2-p10-correction-contract-2026-07-18.md
 docs/audits/matsuri-f2-p11-bundle-order-contract-2026-07-18.md
 docs/audits/matsuri-f2-p12-shared-correction-engine-2026-07-18.md
+docs/audits/matsuri-f2-p13-canonical-dataset-contract-2026-07-18.md
 ```
 
 ## Failure examples
 
 The gate fails when:
 
+- a base dataset omits one accepted family,
+- a present additive or correction family is not an array,
+- accumulated D1, F1, or maintenance records contain a duplicate stable ID,
 - a correction attempts to create a new stable ID,
 - a version is unchanged or lower,
-- corrected base records contain a duplicate stable ID,
-- a bundle contains an unknown family,
-- a present family value is not an array,
-- the final canonical dataset does not equal the last correction record,
-- either consumer stops importing the shared correction engine,
-- either consumer reintroduces a local correction implementation,
-- a Public Projection family bypasses correction handling,
-- the projection has the correct bundle files but applies them in another order,
-- `additiveBundles` places maintenance before F1 or interleaves the sequences,
-- `correctionBundles` differs from `matsuriF2CorrectionFiles` order.
+- a correction bundle contains an unsupported family,
+- the final canonical record differs from the last correction record,
+- either consumer reintroduces local family assembly or correction logic,
+- the correct bundle files are applied in the wrong order,
+- the loader returns a different family inventory or order.
 
 ## Boundaries
 
-F2-P10 through F2-P12 change correction and bundle-verification infrastructure only. They do not:
+F2-P10 through F2-P13 change canonical dataset, correction, and verification infrastructure only. They do not:
 
-- alter any current public fact or classification,
+- alter any current public fact, classification, or record version,
 - infer missing data,
 - activate F2-25 through F2-28,
 - create the Jinja application or define shrine State,
 - change the series topology,
-- add dynamic storage, ingestion, API, or billing infrastructure.
+- add dynamic storage, ingestion, API, MCP, or billing infrastructure.
