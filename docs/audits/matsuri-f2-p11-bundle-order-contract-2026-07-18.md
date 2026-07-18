@@ -1,7 +1,7 @@
 # F2-P11 Matsuri Bundle Order Contract Audit
 
 **Date:** 2026-07-18  
-**Status:** Implementation complete / hosted verification pending  
+**Status:** Passed  
 **Scope:** Repository bundle-order verification and gate preservation only
 
 ## Purpose
@@ -63,14 +63,15 @@ The check rejects:
 - an array entry that is not a direct imported bundle identifier,
 - an identifier that does not resolve to an imported Matsuri F1 or F2 bundle.
 
-## Current baseline
+## Verified baseline
 
 ```text
-F1 batches                 11
-Maintenance bundles         8
-Correction bundles          5
-Additive application slots 19
-Correction application slots 5
+F1 batches                    11
+Maintenance bundles            8
+Correction bundles             5
+Additive application slots    19
+Correction application slots   5
+Public record changes           0
 ```
 
 F2-P11 changes verification infrastructure only. It does not reorder current bundles or alter any public record.
@@ -83,7 +84,7 @@ The strengthened command remains:
 pnpm check:matsuri:bundle-inventory
 ```
 
-It already runs inside:
+It runs inside:
 
 ```text
 pnpm gate:matsuri:repository
@@ -93,6 +94,30 @@ The dedicated workflow remains:
 
 ```text
 Verify Matsuri bundle inventory
+```
+
+## Hosted verification
+
+Implementation head:
+
+```text
+921641cb6ca7bcfc45ca712d8d056c3d1eac2b13
+```
+
+Successful runs:
+
+```text
+Bundle inventory and order   29630494012 — success
+Repository CI                29630494013 — success
+```
+
+The repository CI completed the full launch-readiness gate, including the strengthened bundle check, correction contract, public build, browser verification, pending Analytics boundary, blocked Jinja boundary, and release-candidate freeze.
+
+Release artifact:
+
+```text
+Artifact ID   8425297044
+Digest        sha256:f83b569a5c95dacecfd32ac5bef7f12bd30f4b1bae7614b72dc7296eec78196d
 ```
 
 ## Boundaries
@@ -105,7 +130,3 @@ F2-P11 does not:
 - alter the blocked Jinja start gate,
 - create a future-site application,
 - add dynamic storage, ingestion, API, MCP, or billing infrastructure.
-
-## Hosted verification
-
-Pending GitHub Actions verification for the implementation branch.
