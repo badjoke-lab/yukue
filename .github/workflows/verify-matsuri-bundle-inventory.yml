@@ -46,12 +46,13 @@ jobs:
         with:
           version: 11.10.0
 
-      - name: Verify canonical and HTML bundle inventories
+      - name: Verify canonical and HTML bundle inventory and order
         run: pnpm check:matsuri:bundle-inventory
 
       - name: Write verification summary
         if: always()
         run: |
-          echo "## Matsuri bundle inventory" >> "$GITHUB_STEP_SUMMARY"
+          echo "## Matsuri bundle inventory and order" >> "$GITHUB_STEP_SUMMARY"
           echo "- Canonical loader and HTML Public Projection must enumerate the same F1 batches, maintenance batches, and correction bundles" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Missing, extra, duplicate, or nonexistent bundle references fail the check" >> "$GITHUB_STEP_SUMMARY"
+          echo "- additiveBundles must preserve F1-then-maintenance order and correctionBundles must preserve declared correction order" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Missing, extra, duplicate, nonexistent, reordered, or expression-based bundle references fail the check" >> "$GITHUB_STEP_SUMMARY"

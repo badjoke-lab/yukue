@@ -17,12 +17,12 @@ F2-M02 — Matsuri data freshness audit — completed
 F2-16 through F2-24 — completed
 F2-25 — active next gate
 F2-25 owner Cloudflare access — pending
-F2-P01 through F2-P10 — completed
+F2-P01 through F2-P11 — completed
 F2-26 through F2-28 — operational hold
 Actual Jinja start gate — blocked
 ```
 
-F2-25 remains the next external gate, but owner Cloudflare access is pending. F2-P10 closes the all-family correction-path gap without changing public facts, passing the Jinja start gate, or authorizing a future application.
+F2-25 remains the next external gate, but owner Cloudflare access is pending. F2-P11 closes the loader/projection bundle-order gap without changing public facts, passing the Jinja start gate, or authorizing a future application.
 
 ## Verified Matsuri production baseline
 
@@ -66,7 +66,7 @@ F1 batches 01 through 10 — completed
 F2-01 through F2-15 — completed
 F2-M01 and F2-M02 — completed
 F2-16 through F2-24 — completed
-F2-P01 through F2-P10 — completed
+F2-P01 through F2-P11 — completed
 博多祇園山笠 2026 outcome review — completed
 YOSAKOIソーラン 2026 outcome review — completed
 弘前ねぷた 2026 schedule review — completed
@@ -144,7 +144,23 @@ Repository CI run              29624424628 — success
 Full-page screenshot run       29624424660 — success
 ```
 
-Every declared family now uses ordered complete-record corrections in both the canonical loader and HTML Public Projection. The gate rejects unsupported families, invalid IDs or versions, non-increasing correction chains, missing base records, final-output drift, and projection coverage gaps.
+Every declared family uses ordered complete-record corrections in both the canonical loader and HTML Public Projection. The gate rejects unsupported families, invalid IDs or versions, non-increasing correction chains, missing base records, final-output drift, and projection coverage gaps.
+
+### F2-P11 bundle-order contract
+
+```text
+F1 batches                    11
+Maintenance bundles            8
+Correction bundles             5
+Additive application slots    19
+Correction application slots   5
+Bundle inventory run           29630494012 — success
+Repository CI run              29630494013 — success
+Release artifact               8425297044
+Release digest                 sha256:f83b569a5c95dacecfd32ac5bef7f12bd30f4b1bae7614b72dc7296eec78196d
+```
+
+The bundle gate now resolves the actual `additiveBundles` and `correctionBundles` array identifiers to repository paths and compares them to canonical loader declarations without sorting. The correct file set in the wrong order now fails.
 
 ### Jinja start-gate guardrail
 
@@ -178,6 +194,7 @@ docs/audits/yukue-f2-p07-seed-artifact-contract-2026-07-16.md
 docs/audits/yukue-f2-p08-jinja-start-gate-2026-07-16.md
 docs/audits/yukue-f2-p09-dainichireiki-official-provenance-2026-07-17.md
 docs/audits/matsuri-f2-p10-correction-contract-2026-07-18.md
+docs/audits/matsuri-f2-p11-bundle-order-contract-2026-07-18.md
 docs/audits/matsuri-yosakoi-hirosaki-2026-07-16.md
 ```
 
@@ -204,7 +221,7 @@ YOSAKOIソーラン 2026    outcome reviewed 2026-07-16 — held
 
 The 博多祇園山笠 and YOSAKOIソーラン scales remain `unknown`; official outcome Evidence proves that each occurrence was held but does not provide a structured scale category. 弘前ねぷた remains `scheduled` and `unknown` until post-event Evidence is reviewed.
 
-The canonical loader and HTML Public Projection share the complete inventory through maintenance 08 and correction 05. All twelve record families now require an existing stable ID and increasing `record_version` for corrections.
+The canonical loader and HTML Public Projection share the complete inventory through maintenance 08 and correction 05. All twelve record families require an existing stable ID and increasing `record_version` for corrections, and both consumers must preserve the canonical F1, maintenance, and correction bundle application order.
 
 ## Completed external sequence
 
@@ -265,7 +282,7 @@ Not activated:
 pnpm gate:matsuri:repository
 ```
 
-The gate includes dependency and workflow supply-chain checks, bundle alignment, all-family correction-contract validation, static and browser verification, public-data semantics, Analytics-state validation, and the Jinja start-gate guardrail.
+The gate includes dependency and workflow supply-chain checks, exact bundle inventory and application-order alignment, all-family correction-contract validation, static and browser verification, public-data semantics, Analytics-state validation, and the Jinja start-gate guardrail.
 
 ## Current release status
 
