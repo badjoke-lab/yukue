@@ -1,6 +1,6 @@
 # Matsuri Correction Contract
 
-**Status:** F2-P10 completed / F2-P11 bundle-order verification pending
+**Status:** F2-P10 and F2-P11 completed
 
 ## Purpose
 
@@ -113,7 +113,9 @@ Verify Matsuri correction contract
 Verify Matsuri bundle inventory
 ```
 
-## F2-P10 hosted verification
+## Hosted verification
+
+### F2-P10
 
 ```text
 Implementation head       e679800617b70eda2d3734c9cd3bff8ddc8e29c0
@@ -122,10 +124,21 @@ Repository CI run         29624424628 — success
 Screenshot run            29624424660 — success
 ```
 
+### F2-P11
+
+```text
+Implementation head       921641cb6ca7bcfc45ca712d8d056c3d1eac2b13
+Bundle inventory run      29630494012 — success
+Repository CI run         29630494013 — success
+Release artifact          8425297044
+Release digest            sha256:f83b569a5c95dacecfd32ac5bef7f12bd30f4b1bae7614b72dc7296eec78196d
+```
+
 See:
 
 ```text
 docs/audits/matsuri-f2-p10-correction-contract-2026-07-18.md
+docs/audits/matsuri-f2-p11-bundle-order-contract-2026-07-18.md
 ```
 
 ## Failure examples
