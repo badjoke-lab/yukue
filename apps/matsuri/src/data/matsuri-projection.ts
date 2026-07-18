@@ -84,6 +84,7 @@ const correctionRecords = (key: string): CanonicalRecord[] =>
 function applyRecordOverrides(
   baseRecords: CanonicalRecord[],
   overrides: CanonicalRecord[],
+  familyName: string,
 ): CanonicalRecord[] {
   if (overrides.length === 0) return baseRecords;
 
@@ -93,12 +94,12 @@ function applyRecordOverrides(
     const previous = recordsById.get(override.id);
     if (!previous) {
       throw new Error(
-        `Matsuri projection correction ${override.id} does not replace an existing record.`,
+        `Matsuri projection ${familyName} correction ${override.id} does not replace an existing record.`,
       );
     }
     if (override.record_version <= previous.record_version) {
       throw new Error(
-        `Matsuri projection correction ${override.id} must increase record_version above ${previous.record_version}.`,
+        `Matsuri projection ${familyName} correction ${override.id} must increase record_version above ${previous.record_version}.`,
       );
     }
     recordsById.set(override.id, override);
@@ -107,41 +108,47 @@ function applyRecordOverrides(
   return baseRecords.map((record) => recordsById.get(record.id) ?? record);
 }
 
-const entityRecords = [
-  ...(entities as CanonicalRecord[]),
-  ...additiveRecords("entities"),
-];
-const occurrenceRecords = [
-  ...(records.occurrences as CanonicalRecord[]),
-  ...additiveRecords("occurrences"),
-];
-const evidenceRecords = [
-  ...(evidence as CanonicalRecord[]),
-  ...additiveRecords("evidence"),
-];
+const correctedRecords = (
+  familyName: string,
+  baseRecords: CanonicalRecord[],
+): CanonicalRecord[] =>
+  applyRecordOverrides(
+    [...baseRecords, ...additiveRecords(familyName)],
+    correctionRecords(familyName),
+    familyName,
+  );
 
 const canonicalBundle = {
-  entities: applyRecordOverrides(entityRecords, correctionRecords("entities")),
-  places: [...places, ...additiveRecords("places")],
-  stateSnapshots: [...stateSnapshots, ...additiveRecords("stateSnapshots")],
-  changeEvents: [...records.changeEvents, ...additiveRecords("changeEvents")],
-  occurrences: applyRecordOverrides(
-    occurrenceRecords,
-    correctionRecords("occurrences"),
+  entities: correctedRecords("entities", entities as CanonicalRecord[]),
+  places: correctedRecords("places", places as CanonicalRecord[]),
+  stateSnapshots: correctedRecords(
+    "stateSnapshots",
+    stateSnapshots as CanonicalRecord[],
   ),
-  occurrenceSeries: [
-    ...records.occurrenceSeries,
-    ...additiveRecords("occurrenceSeries"),
-  ],
-  recurrencePatterns: [
-    ...records.recurrencePatterns,
-    ...additiveRecords("recurrencePatterns"),
-  ],
-  relations: [...records.relations, ...additiveRecords("relations")],
-  designations: [...records.designations, ...additiveRecords("designations")],
-  sources: [...records.sources, ...additiveRecords("sources")],
-  evidence: applyRecordOverrides(evidenceRecords, correctionRecords("evidence")),
-  images: [...records.images, ...additiveRecords("images")],
+  changeEvents: correctedRecords(
+    "changeEvents",
+    records.changeEvents as CanonicalRecord[],
+  ),
+  occurrences: correctedRecords(
+    "occurrences",
+    records.occurrences as CanonicalRecord[],
+  ),
+  occurrenceSeries: correctedRecords(
+    "occurrenceSeries",
+    records.occurrenceSeries as CanonicalRecord[],
+  ),
+  recurrencePatterns: correctedRecords(
+    "recurrencePatterns",
+    records.recurrencePatterns as CanonicalRecord[],
+  ),
+  relations: correctedRecords("relations", records.relations as CanonicalRecord[]),
+  designations: correctedRecords(
+    "designations",
+    records.designations as CanonicalRecord[],
+  ),
+  sources: correctedRecords("sources", records.sources as CanonicalRecord[]),
+  evidence: correctedRecords("evidence", evidence as CanonicalRecord[]),
+  images: correctedRecords("images", records.images as CanonicalRecord[]),
 } as unknown as Parameters<typeof buildPublicProjection>[0];
 
 export const matsuriProjection = buildPublicProjection(canonicalBundle);
