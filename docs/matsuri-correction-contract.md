@@ -1,6 +1,6 @@
 # Matsuri Correction Contract
 
-**Status:** F2-P10 and F2-P11 completed / F2-P12 shared-engine verification pending
+**Status:** F2-P10 through F2-P12 completed
 
 ## Purpose
 
@@ -10,7 +10,7 @@ F2-P10 makes that behavior uniform for every public record family and adds a mac
 
 F2-P11 makes bundle application order part of the same contract. Importing the correct file set is insufficient: the HTML Public Projection must apply F1 batches, maintenance bundles, and correction bundles in the same declared order as the canonical loader.
 
-F2-P12 removes the remaining duplicated correction implementation. The canonical loader and HTML Public Projection must import one shared correction engine instead of maintaining equivalent local functions.
+F2-P12 removes the remaining duplicated correction implementation. The canonical loader and HTML Public Projection import one shared correction engine instead of maintaining equivalent local functions.
 
 ## Correctable record families
 
@@ -162,7 +162,17 @@ Release digest            sha256:f83b569a5c95dacecfd32ac5bef7f12bd30f4b1bae7614b
 
 ### F2-P12
 
-Pending hosted verification for the shared-engine implementation branch.
+```text
+Implementation head       c643560be3c9b08375bd5e9ca9770684e936d2fd
+Correction contract run   29635048023 — success
+Bundle inventory run      29635048060 — success
+Repository CI run         29635048032 — success
+Screenshot run            29635048050 — success
+Release artifact          8426823296
+Release digest            sha256:71e24fa155be7cff3e5366592179ddfddaa3e2ef6dbd17a76dbb8d8ee91800cc
+Screenshot artifact       8426817176
+Screenshot digest         sha256:8498f410ae47d0ee0c97e682e8c4248b1a564af6d3cb8d5cd8ff81992a5ad758
+```
 
 See:
 
