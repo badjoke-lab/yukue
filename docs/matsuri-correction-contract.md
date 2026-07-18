@@ -1,6 +1,6 @@
 # Matsuri Correction Contract
 
-**Status:** F2-P10 implementation specification / hosted verification pending
+**Status:** F2-P10 completed
 
 ## Purpose
 
@@ -72,6 +72,21 @@ The command runs inside the repository launch-readiness gate and in the dedicate
 
 ```text
 Verify Matsuri correction contract
+```
+
+## Hosted verification
+
+```text
+Implementation head       e679800617b70eda2d3734c9cd3bff8ddc8e29c0
+Correction contract run   29624424672 — success
+Repository CI run         29624424628 — success
+Screenshot run            29624424660 — success
+```
+
+See:
+
+```text
+docs/audits/matsuri-f2-p10-correction-contract-2026-07-18.md
 ```
 
 ## Failure examples
