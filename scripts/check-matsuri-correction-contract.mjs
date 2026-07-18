@@ -1,0 +1,170 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+import {
+  applyMatsuriRecordOverrides,
+  loadMatsuriDataset,
+  matsuriF2CorrectionFiles,
+  matsuriRecordFamilies,
+} from "../apps/matsuri/scripts/load-matsuri-dataset.mjs";
+
+const repositoryRoot = fileURLToPath(new URL("../", import.meta.url));
+const correctionDirectory = path.join(
+  repositoryRoot,
+  "data",
+  "public",
+  "matsuri",
+  "f2",
+);
+const loaderPath = path.join(
+  repositoryRoot,
+  "apps",
+  "matsuri",
+  "scripts",
+  "load-matsuri-dataset.mjs",
+);
+const projectionPath = path.join(
+  repositoryRoot,
+  "apps",
+  "matsuri",
+  "src",
+  "data",
+  "matsuri-projection.ts",
+);
+
+const allowedFamilies = new Set(matsuriRecordFamilies);
+const correctionChains = new Map();
+let correctionRecordCount = 0;
+
+function chainKey(familyName, recordId) {
+  return `${familyName}:${recordId}`;
+}
+
+for (const fileName of matsuriF2CorrectionFiles) {
+  const absolutePath = path.join(correctionDirectory, fileName);
+  assert(fs.existsSync(absolutePath), `Correction bundle is missing: ${fileName}`);
+
+  const bundle = JSON.parse(fs.readFileSync(absolutePath, "utf8"));
+  assert(
+    bundle && typeof bundle === "object" && !Array.isArray(bundle),
+    `Correction bundle ${fileName} must contain an object.`,
+  );
+
+  for (const [familyName, records] of Object.entries(bundle)) {
+    assert(
+      allowedFamilies.has(familyName),
+      `Correction bundle ${fileName} contains unsupported family ${familyName}.`,
+    );
+    assert(
+      Array.isArray(records),
+      `Correction bundle ${fileName} family ${familyName} must be an array.`,
+    );
+
+    for (const record of records) {
+      assert(
+        record && typeof record === "object" && !Array.isArray(record),
+        `Correction bundle ${fileName} family ${familyName} contains a non-object record.`,
+      );
+      assert(
+        typeof record.id === "string" && record.id.length > 0,
+        `Correction bundle ${fileName} family ${familyName} contains a record without an ID.`,
+      );
+      assert(
+        Number.isInteger(record.record_version) && record.record_version > 0,
+        `Correction ${familyName}:${record.id} in ${fileName} has an invalid record_version.`,
+      );
+
+      const key = chainKey(familyName, record.id);
+      const chain = correctionChains.get(key) ?? [];
+      const previous = chain.at(-1);
+      if (previous) {
+        assert(
+          record.record_version > previous.record.record_version,
+          `Correction chain ${key} does not increase record_version: ${previous.record.record_version} -> ${record.record_version}.`,
+        );
+      }
+
+      chain.push({ fileName, record });
+      correctionChains.set(key, chain);
+      correctionRecordCount += 1;
+    }
+  }
+}
+
+for (const familyName of matsuriRecordFamilies) {
+  const syntheticBase = [
+    {
+      id: `contract-${familyName}`,
+      schema_version: "contract.v1",
+      record_version: 1,
+      marker: "base",
+    },
+  ];
+  const syntheticOverride = {
+    ...syntheticBase[0],
+    record_version: 2,
+    marker: "corrected",
+  };
+  const syntheticResult = applyMatsuriRecordOverrides(
+    syntheticBase,
+    [syntheticOverride],
+    familyName,
+  );
+  assert.deepEqual(
+    syntheticResult,
+    [syntheticOverride],
+    `Correction helper does not replace ${familyName} records exactly.`,
+  );
+}
+
+const loaderSource = fs.readFileSync(loaderPath, "utf8");
+assert(
+  /matsuriRecordFamilies\.map\(\(familyName\)\s*=>\s*\[[\s\S]*correctionRecords\(familyName\)/u.test(
+    loaderSource,
+  ),
+  "Canonical loader does not route every declared record family through corrections.",
+);
+
+const projectionSource = fs.readFileSync(projectionPath, "utf8");
+for (const familyName of matsuriRecordFamilies) {
+  const coveragePattern = new RegExp(
+    `\\b${familyName}\\s*:\\s*correctedRecords\\(\\s*["']${familyName}["']`,
+    "u",
+  );
+  assert(
+    coveragePattern.test(projectionSource),
+    `HTML Public Projection does not route ${familyName} through correctedRecords().`,
+  );
+}
+
+const dataset = loadMatsuriDataset();
+for (const familyName of matsuriRecordFamilies) {
+  assert(
+    Array.isArray(dataset[familyName]),
+    `Canonical loader did not return record family ${familyName}.`,
+  );
+}
+
+for (const [key, chain] of correctionChains.entries()) {
+  const separatorIndex = key.indexOf(":");
+  const familyName = key.slice(0, separatorIndex);
+  const recordId = key.slice(separatorIndex + 1);
+  const finalCorrection = chain.at(-1);
+  const finalRecord = dataset[familyName].find((record) => record.id === recordId);
+
+  assert(
+    finalRecord,
+    `Final corrected record ${familyName}:${recordId} is missing from the canonical dataset.`,
+  );
+  assert.deepEqual(
+    finalRecord,
+    finalCorrection.record,
+    `Canonical dataset does not expose the final correction from ${finalCorrection.fileName} for ${familyName}:${recordId}.`,
+  );
+}
+
+console.log(
+  `Matsuri correction contract passed: ${matsuriRecordFamilies.length} record families, ${matsuriF2CorrectionFiles.length} correction bundles, ${correctionChains.size} corrected IDs, and ${correctionRecordCount} correction records.`,
+);
