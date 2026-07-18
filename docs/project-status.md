@@ -17,12 +17,12 @@ F2-M02 — Matsuri data freshness audit — completed
 F2-16 through F2-24 — completed
 F2-25 — active next gate
 F2-25 owner Cloudflare access — pending
-F2-P01 through F2-P11 — completed
+F2-P01 through F2-P12 — completed
 F2-26 through F2-28 — operational hold
 Actual Jinja start gate — blocked
 ```
 
-F2-25 remains the next external gate, but owner Cloudflare access is pending. F2-P11 closes the loader/projection bundle-order gap without changing public facts, passing the Jinja start gate, or authorizing a future application.
+F2-25 remains the next external gate, but owner Cloudflare access is pending. F2-P12 removes the duplicated correction implementation without changing public facts, passing the Jinja start gate, or authorizing a future application.
 
 ## Verified Matsuri production baseline
 
@@ -66,7 +66,7 @@ F1 batches 01 through 10 — completed
 F2-01 through F2-15 — completed
 F2-M01 and F2-M02 — completed
 F2-16 through F2-24 — completed
-F2-P01 through F2-P11 — completed
+F2-P01 through F2-P12 — completed
 博多祇園山笠 2026 outcome review — completed
 YOSAKOIソーラン 2026 outcome review — completed
 弘前ねぷた 2026 schedule review — completed
@@ -160,7 +160,25 @@ Release artifact               8425297044
 Release digest                 sha256:f83b569a5c95dacecfd32ac5bef7f12bd30f4b1bae7614b72dc7296eec78196d
 ```
 
-The bundle gate now resolves the actual `additiveBundles` and `correctionBundles` array identifiers to repository paths and compares them to canonical loader declarations without sorting. The correct file set in the wrong order now fails.
+The bundle gate resolves the actual `additiveBundles` and `correctionBundles` array identifiers to repository paths and compares them to canonical loader declarations without sorting. The correct file set in the wrong order fails.
+
+### F2-P12 shared correction engine
+
+```text
+Correction consumers           2
+Shared correction engines      1
+Record families               12
+Correction contract run        29635048023 — success
+Bundle inventory run           29635048060 — success
+Repository CI run              29635048032 — success
+Full-page screenshot run       29635048050 — success
+Release artifact               8426823296
+Release digest                 sha256:71e24fa155be7cff3e5366592179ddfddaa3e2ef6dbd17a76dbb8d8ee91800cc
+Screenshot artifact            8426817176
+Screenshot digest              sha256:8498f410ae47d0ee0c97e682e8c4248b1a564af6d3cb8d5cd8ff81992a5ad758
+```
+
+The canonical loader and HTML Public Projection now import the same `matsuri-record-overrides.mjs` implementation. The contract rejects reintroduced local implementations, duplicate corrected base IDs, missing stable IDs, non-increasing versions, and exact-replacement drift across all twelve families.
 
 ### Jinja start-gate guardrail
 
@@ -195,6 +213,7 @@ docs/audits/yukue-f2-p08-jinja-start-gate-2026-07-16.md
 docs/audits/yukue-f2-p09-dainichireiki-official-provenance-2026-07-17.md
 docs/audits/matsuri-f2-p10-correction-contract-2026-07-18.md
 docs/audits/matsuri-f2-p11-bundle-order-contract-2026-07-18.md
+docs/audits/matsuri-f2-p12-shared-correction-engine-2026-07-18.md
 docs/audits/matsuri-yosakoi-hirosaki-2026-07-16.md
 ```
 
@@ -221,7 +240,7 @@ YOSAKOIソーラン 2026    outcome reviewed 2026-07-16 — held
 
 The 博多祇園山笠 and YOSAKOIソーラン scales remain `unknown`; official outcome Evidence proves that each occurrence was held but does not provide a structured scale category. 弘前ねぷた remains `scheduled` and `unknown` until post-event Evidence is reviewed.
 
-The canonical loader and HTML Public Projection share the complete inventory through maintenance 08 and correction 05. All twelve record families require an existing stable ID and increasing `record_version` for corrections, and both consumers must preserve the canonical F1, maintenance, and correction bundle application order.
+The canonical loader and HTML Public Projection share the complete inventory through maintenance 08 and correction 05. All twelve record families use one shared correction engine, require an existing stable ID and increasing `record_version`, and preserve canonical F1, maintenance, and correction bundle application order.
 
 ## Completed external sequence
 
@@ -282,7 +301,7 @@ Not activated:
 pnpm gate:matsuri:repository
 ```
 
-The gate includes dependency and workflow supply-chain checks, exact bundle inventory and application-order alignment, all-family correction-contract validation, static and browser verification, public-data semantics, Analytics-state validation, and the Jinja start-gate guardrail.
+The gate includes dependency and workflow supply-chain checks, exact bundle inventory and application-order alignment, a single shared all-family correction engine, static and browser verification, public-data semantics, Analytics-state validation, and the Jinja start-gate guardrail.
 
 ## Current release status
 

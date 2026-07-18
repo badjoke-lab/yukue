@@ -8,6 +8,8 @@ on:
       - ".github/workflows/verify-matsuri-correction-contract.yml"
       - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
       - "apps/matsuri/src/data/matsuri-projection.ts"
+      - "apps/matsuri/src/data/matsuri-record-overrides.mjs"
+      - "apps/matsuri/src/data/matsuri-record-overrides.d.mts"
       - "data/public/matsuri/f1/**"
       - "data/public/matsuri/f2/**"
       - "scripts/check-matsuri-correction-contract.mjs"
@@ -19,6 +21,8 @@ on:
       - ".github/workflows/verify-matsuri-correction-contract.yml"
       - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
       - "apps/matsuri/src/data/matsuri-projection.ts"
+      - "apps/matsuri/src/data/matsuri-record-overrides.mjs"
+      - "apps/matsuri/src/data/matsuri-record-overrides.d.mts"
       - "data/public/matsuri/f1/**"
       - "data/public/matsuri/f2/**"
       - "scripts/check-matsuri-correction-contract.mjs"
@@ -52,7 +56,7 @@ jobs:
       - name: Write verification summary
         if: always()
         run: |
-          echo "## Matsuri correction contract" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Every declared record family must support ordered full-record corrections" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Missing IDs, non-increasing record versions, unsupported families, and final-output drift fail the check" >> "$GITHUB_STEP_SUMMARY"
-          echo "- The HTML Public Projection must route all record families through the correction path" >> "$GITHUB_STEP_SUMMARY"
+          echo "## Matsuri shared correction contract" >> "$GITHUB_STEP_SUMMARY"
+          echo "- The canonical loader and HTML Public Projection must import one shared correction engine" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Local duplicate implementations, missing IDs, duplicate base IDs, and non-increasing versions fail the check" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Every declared record family must route through ordered full-record correction handling" >> "$GITHUB_STEP_SUMMARY"

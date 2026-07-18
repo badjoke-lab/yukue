@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-24 completed / F2-25 owner access pending / F2-P01 through F2-P11 completed
+**Status:** F2-24 completed / F2-25 owner access pending / F2-P01 through F2-P12 completed
 
 This document defines the stable implementation order. It complements `roadmap.md` and `project-status.md`. The project is gate-driven rather than deadline-driven.
 
@@ -12,7 +12,7 @@ F1 corpus expansion          completed
 F2-01 through F2-24          completed
 F2-M01                       completed
 F2-M02                       completed
-F2-P01 through F2-P11        completed
+F2-P01 through F2-P12        completed
 F2-25                        owner access pending
 F2-26 through F2-28          operational hold
 Actual Jinja start gate      blocked
@@ -64,6 +64,7 @@ F2-P08  Jinja start-gate record, validator, workflow, and inactive boundary — 
 F2-P09  大日霊貴神社 official provenance and versioned Entity correction — completed
 F2-P10  all-family ordered correction contract and dedicated gate — completed
 F2-P11  exact loader/projection bundle application-order contract — completed
+F2-P12  one shared correction engine across the loader and HTML Projection — completed
 ```
 
 Repository gate:
@@ -72,7 +73,7 @@ Repository gate:
 pnpm gate:matsuri:repository
 ```
 
-The repository gate includes dependency and workflow supply-chain checks, exact bundle inventory and order alignment, all-family correction-contract validation, pending Analytics validation, and the blocked Jinja start-gate validator.
+The repository gate includes dependency and workflow supply-chain checks, exact bundle inventory and order alignment, a single shared all-family correction engine, pending Analytics validation, and the blocked Jinja start-gate validator.
 
 ## Parallel preparation results
 
@@ -89,6 +90,7 @@ F2-P08  actual Jinja start gate remains blocked and early activation is rejected
 F2-P09  official URL seeds 5 / Identity Evidence 6 / Sources 7 / Evidence 11
 F2-P10  12 correction-capable families / 5 bundles / 5 corrected IDs / 6 records
 F2-P11  19 additive slots / 5 correction slots / exact canonical order enforced
+F2-P12  2 correction consumers / 1 shared engine / local duplicate implementations rejected
 ```
 
 Hosted evidence:
@@ -107,6 +109,11 @@ F2-P10 screenshots            29624424660 — success
 F2-P11 bundle-order run       29630494012 — success
 F2-P11 repository CI          29630494013 — success
 F2-P11 release artifact       8425297044
+F2-P12 correction run         29635048023 — success
+F2-P12 bundle-order run       29635048060 — success
+F2-P12 repository CI          29635048032 — success
+F2-P12 screenshots            29635048050 — success
+F2-P12 release artifact       8426823296
 ```
 
 Current remaining seed gaps:
@@ -230,7 +237,7 @@ Do not use a manual beacon, store an Analytics token, publish private metrics, o
 - maintain the pending Analytics record and launch-closure runbooks,
 - complete factual and date-triggered Matsuri maintenance,
 - improve Source, Evidence, Relation, and seed-provenance coverage,
-- maintain seed inventory, provenance bundle, readiness, artifact contract, correction contract, bundle-order contract, and Jinja start-gate guardrail,
+- maintain seed inventory, provenance bundle, readiness, artifact contract, correction contract, bundle-order contract, shared correction engine, and Jinja start-gate guardrail,
 - perform security and dependency maintenance,
 - repair repository or production gates.
 
