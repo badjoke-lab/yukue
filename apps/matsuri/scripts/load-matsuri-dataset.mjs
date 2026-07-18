@@ -1,9 +1,17 @@
 import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 
+import {
+  buildMatsuriCanonicalDataset,
+  matsuriRecordFamilies,
+} from "../src/data/matsuri-canonical-dataset.mjs";
 import { applyMatsuriRecordOverrides } from "../src/data/matsuri-record-overrides.mjs";
 
-export { applyMatsuriRecordOverrides };
+export {
+  applyMatsuriRecordOverrides,
+  buildMatsuriCanonicalDataset,
+  matsuriRecordFamilies,
+};
 
 const d1Directory = new URL("../../../data/public/matsuri/d1/", import.meta.url);
 const f1Directory = new URL("../../../data/public/matsuri/f1/", import.meta.url);
@@ -41,36 +49,6 @@ export const matsuriF2CorrectionFiles = [
   "corrections-05.json",
 ];
 
-export const matsuriRecordFamilies = [
-  "entities",
-  "places",
-  "stateSnapshots",
-  "changeEvents",
-  "occurrences",
-  "occurrenceSeries",
-  "recurrencePatterns",
-  "relations",
-  "designations",
-  "sources",
-  "evidence",
-  "images",
-];
-
-const matsuriRecordFamilyLabels = {
-  entities: "Entity",
-  places: "Place",
-  stateSnapshots: "State Snapshot",
-  changeEvents: "Change Event",
-  occurrences: "Occurrence",
-  occurrenceSeries: "Occurrence Series",
-  recurrencePatterns: "Recurrence Pattern",
-  relations: "Relation",
-  designations: "Designation",
-  sources: "Source",
-  evidence: "Evidence",
-  images: "Image",
-};
-
 function readJson(directory, fileName) {
   const filePath = fileURLToPath(new URL(fileName, directory));
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -87,83 +65,25 @@ export function loadMatsuriDataset() {
   const corrections = matsuriF2CorrectionFiles.map((fileName) =>
     readJson(f2Directory, fileName),
   );
-  const batchRecords = (key) => batches.flatMap((batch) => batch[key] ?? []);
-  const maintenanceRecords = (key) =>
-    maintenance.flatMap((batch) => batch[key] ?? []);
-  const correctionRecords = (key) =>
-    corrections.flatMap((correction) => correction[key] ?? []);
 
   const baseDataset = {
-    entities: [
-      ...readJson(d1Directory, "entities.json"),
-      ...batchRecords("entities"),
-      ...maintenanceRecords("entities"),
-    ],
-    places: [
-      ...readJson(d1Directory, "places.json"),
-      ...batchRecords("places"),
-      ...maintenanceRecords("places"),
-    ],
-    stateSnapshots: [
-      ...readJson(d1Directory, "state-snapshots.json"),
-      ...batchRecords("stateSnapshots"),
-      ...maintenanceRecords("stateSnapshots"),
-    ],
-    changeEvents: [
-      ...records.changeEvents,
-      ...batchRecords("changeEvents"),
-      ...maintenanceRecords("changeEvents"),
-    ],
-    occurrences: [
-      ...records.occurrences,
-      ...batchRecords("occurrences"),
-      ...maintenanceRecords("occurrences"),
-    ],
-    occurrenceSeries: [
-      ...records.occurrenceSeries,
-      ...batchRecords("occurrenceSeries"),
-      ...maintenanceRecords("occurrenceSeries"),
-    ],
-    recurrencePatterns: [
-      ...records.recurrencePatterns,
-      ...batchRecords("recurrencePatterns"),
-      ...maintenanceRecords("recurrencePatterns"),
-    ],
-    relations: [
-      ...records.relations,
-      ...batchRecords("relations"),
-      ...maintenanceRecords("relations"),
-    ],
-    designations: [
-      ...records.designations,
-      ...batchRecords("designations"),
-      ...maintenanceRecords("designations"),
-    ],
-    sources: [
-      ...records.sources,
-      ...batchRecords("sources"),
-      ...maintenanceRecords("sources"),
-    ],
-    evidence: [
-      ...readJson(d1Directory, "evidence.json"),
-      ...batchRecords("evidence"),
-      ...maintenanceRecords("evidence"),
-    ],
-    images: [
-      ...records.images,
-      ...batchRecords("images"),
-      ...maintenanceRecords("images"),
-    ],
+    entities: readJson(d1Directory, "entities.json"),
+    places: readJson(d1Directory, "places.json"),
+    stateSnapshots: readJson(d1Directory, "state-snapshots.json"),
+    changeEvents: records.changeEvents,
+    occurrences: records.occurrences,
+    occurrenceSeries: records.occurrenceSeries,
+    recurrencePatterns: records.recurrencePatterns,
+    relations: records.relations,
+    designations: records.designations,
+    sources: records.sources,
+    evidence: readJson(d1Directory, "evidence.json"),
+    images: records.images,
   };
 
-  return Object.fromEntries(
-    matsuriRecordFamilies.map((familyName) => [
-      familyName,
-      applyMatsuriRecordOverrides(
-        baseDataset[familyName],
-        correctionRecords(familyName),
-        matsuriRecordFamilyLabels[familyName],
-      ),
-    ]),
+  return buildMatsuriCanonicalDataset(
+    baseDataset,
+    [...batches, ...maintenance],
+    corrections,
   );
 }

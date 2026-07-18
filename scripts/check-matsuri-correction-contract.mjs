@@ -41,6 +41,14 @@ const sharedHelperPath = path.join(
   "data",
   "matsuri-record-overrides.mjs",
 );
+const sharedDatasetPath = path.join(
+  repositoryRoot,
+  "apps",
+  "matsuri",
+  "src",
+  "data",
+  "matsuri-canonical-dataset.mjs",
+);
 
 const allowedFamilies = new Set(matsuriRecordFamilies);
 const correctionChains = new Map();
@@ -50,10 +58,8 @@ function chainKey(familyName, recordId) {
   return `${familyName}:${recordId}`;
 }
 
-assert(
-  fs.existsSync(sharedHelperPath),
-  "Shared Matsuri correction engine is missing.",
-);
+assert(fs.existsSync(sharedHelperPath), "Shared Matsuri correction engine is missing.");
+assert(fs.existsSync(sharedDatasetPath), "Shared Matsuri dataset assembler is missing.");
 
 for (const fileName of matsuriF2CorrectionFiles) {
   const absolutePath = path.join(correctionDirectory, fileName);
@@ -120,17 +126,12 @@ for (const familyName of matsuriRecordFamilies) {
     record_version: 2,
     marker: "corrected",
   };
-  const syntheticResult = applyMatsuriRecordOverrides(
-    syntheticBase,
-    [syntheticOverride],
-    familyName,
-  );
+
   assert.deepEqual(
-    syntheticResult,
+    applyMatsuriRecordOverrides(syntheticBase, [syntheticOverride], familyName),
     [syntheticOverride],
     `Shared correction engine does not replace ${familyName} records exactly.`,
   );
-
   assert.throws(
     () =>
       applyMatsuriRecordOverrides(
@@ -141,7 +142,6 @@ for (const familyName of matsuriRecordFamilies) {
     /does not replace an existing record/u,
     `Shared correction engine accepts a missing ${familyName} stable ID.`,
   );
-
   assert.throws(
     () =>
       applyMatsuriRecordOverrides(
@@ -152,7 +152,6 @@ for (const familyName of matsuriRecordFamilies) {
     /must increase record_version/u,
     `Shared correction engine accepts a non-increasing ${familyName} version.`,
   );
-
   assert.throws(
     () =>
       applyMatsuriRecordOverrides(
@@ -161,47 +160,49 @@ for (const familyName of matsuriRecordFamilies) {
         familyName,
       ),
     /base records contain duplicate ID/u,
-    `Shared correction engine accepts duplicate ${familyName} base IDs.`,
+    `Shared correction engine accepts duplicate ${familyName} base IDs with corrections.`,
+  );
+  assert.throws(
+    () =>
+      applyMatsuriRecordOverrides(
+        [...syntheticBase, { ...syntheticBase[0] }],
+        [],
+        familyName,
+      ),
+    /base records contain duplicate ID/u,
+    `Shared correction engine accepts duplicate ${familyName} base IDs without corrections.`,
   );
 }
 
 const loaderSource = fs.readFileSync(loaderPath, "utf8");
-assert(
-  /import\s*\{\s*applyMatsuriRecordOverrides\s*\}\s*from\s*["']\.\.\/src\/data\/matsuri-record-overrides\.mjs["']/u.test(
-    loaderSource,
-  ),
-  "Canonical loader does not import the shared correction engine.",
-);
-assert(
-  !/function\s+applyMatsuriRecordOverrides\s*\(/u.test(loaderSource),
-  "Canonical loader reintroduces a local correction-engine implementation.",
-);
-assert(
-  /matsuriRecordFamilies\.map\(\(familyName\)\s*=>\s*\[[\s\S]*correctionRecords\(familyName\)/u.test(
-    loaderSource,
-  ),
-  "Canonical loader does not route every declared record family through corrections.",
-);
-
 const projectionSource = fs.readFileSync(projectionPath, "utf8");
+const sharedDatasetSource = fs.readFileSync(sharedDatasetPath, "utf8");
+
 assert(
   /import\s*\{\s*applyMatsuriRecordOverrides\s*\}\s*from\s*["']\.\/matsuri-record-overrides\.mjs["']/u.test(
-    projectionSource,
+    sharedDatasetSource,
   ),
-  "HTML Public Projection does not import the shared correction engine.",
+  "Shared dataset assembler does not import the shared correction engine.",
 );
 assert(
-  !/function\s+apply(?:Matsuri)?RecordOverrides\s*\(/u.test(projectionSource),
-  "HTML Public Projection reintroduces a local correction-engine implementation.",
+  /import\s*\{[\s\S]*buildMatsuriCanonicalDataset[\s\S]*\}\s*from\s*["']\.\.\/src\/data\/matsuri-canonical-dataset\.mjs["']/u.test(
+    loaderSource,
+  ),
+  "Canonical loader does not import the shared dataset assembler.",
 );
-for (const familyName of matsuriRecordFamilies) {
-  const coveragePattern = new RegExp(
-    `\\b${familyName}\\s*:\\s*correctedRecords\\(\\s*["']${familyName}["']`,
-    "u",
-  );
+assert(
+  /import\s*\{\s*buildMatsuriCanonicalDataset\s*\}\s*from\s*["']\.\/matsuri-canonical-dataset\.mjs["']/u.test(
+    projectionSource,
+  ),
+  "HTML Public Projection does not import the shared dataset assembler.",
+);
+for (const [consumerName, consumerSource] of [
+  ["Canonical loader", loaderSource],
+  ["HTML Public Projection", projectionSource],
+]) {
   assert(
-    coveragePattern.test(projectionSource),
-    `HTML Public Projection does not route ${familyName} through correctedRecords().`,
+    !/function\s+apply(?:Matsuri)?RecordOverrides\s*\(/u.test(consumerSource),
+    `${consumerName} reintroduces a local correction-engine implementation.`,
   );
 }
 

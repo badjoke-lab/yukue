@@ -29,13 +29,7 @@ import corrections02 from "../../../../data/public/matsuri/f2/corrections-02.jso
 import corrections03 from "../../../../data/public/matsuri/f2/corrections-03.json";
 import corrections04 from "../../../../data/public/matsuri/f2/corrections-04.json";
 import corrections05 from "../../../../data/public/matsuri/f2/corrections-05.json";
-import { applyMatsuriRecordOverrides } from "./matsuri-record-overrides.mjs";
-
-type CanonicalRecord = {
-  id: string;
-  record_version: number;
-  [key: string]: unknown;
-};
+import { buildMatsuriCanonicalDataset } from "./matsuri-canonical-dataset.mjs";
 
 const additiveBundles = [
   batch01,
@@ -67,63 +61,26 @@ const correctionBundles = [
   corrections05,
 ];
 
-const bundleRecords = (
-  bundles: ReadonlyArray<Record<string, unknown>>,
-  key: string,
-): CanonicalRecord[] =>
-  bundles.flatMap((bundle) => {
-    const recordsForKey = bundle[key];
-    return Array.isArray(recordsForKey) ? (recordsForKey as CanonicalRecord[]) : [];
-  });
+const baseDataset = {
+  entities,
+  places,
+  stateSnapshots,
+  changeEvents: records.changeEvents,
+  occurrences: records.occurrences,
+  occurrenceSeries: records.occurrenceSeries,
+  recurrencePatterns: records.recurrencePatterns,
+  relations: records.relations,
+  designations: records.designations,
+  sources: records.sources,
+  evidence,
+  images: records.images,
+};
 
-const additiveRecords = (key: string): CanonicalRecord[] =>
-  bundleRecords(additiveBundles as unknown as Array<Record<string, unknown>>, key);
-
-const correctionRecords = (key: string): CanonicalRecord[] =>
-  bundleRecords(correctionBundles as unknown as Array<Record<string, unknown>>, key);
-
-const correctedRecords = (
-  familyName: string,
-  baseRecords: CanonicalRecord[],
-): CanonicalRecord[] =>
-  applyMatsuriRecordOverrides(
-    [...baseRecords, ...additiveRecords(familyName)],
-    correctionRecords(familyName),
-    familyName,
-  );
-
-const canonicalBundle = {
-  entities: correctedRecords("entities", entities as CanonicalRecord[]),
-  places: correctedRecords("places", places as CanonicalRecord[]),
-  stateSnapshots: correctedRecords(
-    "stateSnapshots",
-    stateSnapshots as CanonicalRecord[],
-  ),
-  changeEvents: correctedRecords(
-    "changeEvents",
-    records.changeEvents as CanonicalRecord[],
-  ),
-  occurrences: correctedRecords(
-    "occurrences",
-    records.occurrences as CanonicalRecord[],
-  ),
-  occurrenceSeries: correctedRecords(
-    "occurrenceSeries",
-    records.occurrenceSeries as CanonicalRecord[],
-  ),
-  recurrencePatterns: correctedRecords(
-    "recurrencePatterns",
-    records.recurrencePatterns as CanonicalRecord[],
-  ),
-  relations: correctedRecords("relations", records.relations as CanonicalRecord[]),
-  designations: correctedRecords(
-    "designations",
-    records.designations as CanonicalRecord[],
-  ),
-  sources: correctedRecords("sources", records.sources as CanonicalRecord[]),
-  evidence: correctedRecords("evidence", evidence as CanonicalRecord[]),
-  images: correctedRecords("images", records.images as CanonicalRecord[]),
-} as unknown as Parameters<typeof buildPublicProjection>[0];
+const canonicalBundle = buildMatsuriCanonicalDataset(
+  baseDataset as unknown as Parameters<typeof buildMatsuriCanonicalDataset>[0],
+  additiveBundles as unknown as Parameters<typeof buildMatsuriCanonicalDataset>[1],
+  correctionBundles as unknown as Parameters<typeof buildMatsuriCanonicalDataset>[2],
+) as unknown as Parameters<typeof buildPublicProjection>[0];
 
 export const matsuriProjection = buildPublicProjection(canonicalBundle);
 

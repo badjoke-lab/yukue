@@ -1,6 +1,4 @@
 export function applyMatsuriRecordOverrides(records, overrides, familyName) {
-  if (overrides.length === 0) return records;
-
   const recordsById = new Map();
   for (const record of records) {
     if (recordsById.has(record.id)) {
@@ -10,6 +8,8 @@ export function applyMatsuriRecordOverrides(records, overrides, familyName) {
     }
     recordsById.set(record.id, record);
   }
+
+  if (overrides.length === 0) return records;
 
   for (const override of overrides) {
     const previous = recordsById.get(override.id);

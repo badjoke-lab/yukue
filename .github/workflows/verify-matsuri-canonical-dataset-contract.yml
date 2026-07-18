@@ -1,35 +1,37 @@
-name: Verify Matsuri correction contract
+name: Verify Matsuri canonical dataset contract
 
 on:
   pull_request:
     branches:
       - main
     paths:
-      - ".github/workflows/verify-matsuri-correction-contract.yml"
+      - ".github/workflows/verify-matsuri-canonical-dataset-contract.yml"
       - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
       - "apps/matsuri/src/data/matsuri-projection.ts"
       - "apps/matsuri/src/data/matsuri-canonical-dataset.mjs"
       - "apps/matsuri/src/data/matsuri-canonical-dataset.d.mts"
       - "apps/matsuri/src/data/matsuri-record-overrides.mjs"
       - "apps/matsuri/src/data/matsuri-record-overrides.d.mts"
+      - "data/public/matsuri/d1/**"
       - "data/public/matsuri/f1/**"
       - "data/public/matsuri/f2/**"
-      - "scripts/check-matsuri-correction-contract.mjs"
+      - "scripts/check-matsuri-canonical-dataset-contract.mjs"
       - "package.json"
   push:
     branches:
       - main
     paths:
-      - ".github/workflows/verify-matsuri-correction-contract.yml"
+      - ".github/workflows/verify-matsuri-canonical-dataset-contract.yml"
       - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
       - "apps/matsuri/src/data/matsuri-projection.ts"
       - "apps/matsuri/src/data/matsuri-canonical-dataset.mjs"
       - "apps/matsuri/src/data/matsuri-canonical-dataset.d.mts"
       - "apps/matsuri/src/data/matsuri-record-overrides.mjs"
       - "apps/matsuri/src/data/matsuri-record-overrides.d.mts"
+      - "data/public/matsuri/d1/**"
       - "data/public/matsuri/f1/**"
       - "data/public/matsuri/f2/**"
-      - "scripts/check-matsuri-correction-contract.mjs"
+      - "scripts/check-matsuri-canonical-dataset-contract.mjs"
       - "package.json"
   workflow_dispatch:
 
@@ -37,7 +39,7 @@ permissions:
   contents: read
 
 jobs:
-  verify-correction-contract:
+  verify-canonical-dataset-contract:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -54,13 +56,13 @@ jobs:
         with:
           version: 11.10.0
 
-      - name: Verify correction contract
-        run: pnpm check:matsuri:correction-contract
+      - name: Verify canonical dataset contract
+        run: pnpm check:matsuri:canonical-dataset-contract
 
       - name: Write verification summary
         if: always()
         run: |
-          echo "## Matsuri shared correction contract" >> "$GITHUB_STEP_SUMMARY"
-          echo "- The shared dataset assembler must use the one shared correction engine" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Missing IDs, duplicate accumulated IDs, and non-increasing versions fail the check with or without corrections" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Every declared record family must expose the final ordered full-record correction" >> "$GITHUB_STEP_SUMMARY"
+          echo "## Matsuri canonical dataset contract" >> "$GITHUB_STEP_SUMMARY"
+          echo "- The canonical loader and HTML Public Projection must use one shared twelve-family assembler" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Missing family arrays, non-array bundle families, local assembly logic, and duplicate accumulated IDs fail the check" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Base order, additive order, and exact correction replacement are validated together" >> "$GITHUB_STEP_SUMMARY"
