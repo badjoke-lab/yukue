@@ -18,7 +18,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `future-site-seed-provenance-bundle.md` | F2-P06 completed / F2-P09 refreshed | Self-contained public Source, Evidence, Place, Relation, State, and Entity context bundle |
 | `future-site-seed-artifact-contract.md` | F2-P07 completed | Contract v1 for candidate inventory, provenance, summary, fields, statuses, and boundaries |
 | `jinja-start-gate.md` | F2-P08 guardrail completed / F2-P09 baseline refreshed | Machine-enforced prerequisites and inactive boundary before Jinja implementation |
-| `matsuri-correction-contract.md` | F2-P10 verification pending | Ordered full-record correction rules and all-family consumer coverage |
+| `matsuri-correction-contract.md` | F2-P10 completed | Ordered full-record correction rules and all-family consumer coverage |
 | `matsuri-mvp-spec.md` | Working | Matsuri MVP scope |
 | `information-architecture.md` | Accepted direction | Home H1 and Detail C |
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, layout language |
@@ -46,7 +46,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `audits/yukue-f2-p07-seed-artifact-contract-2026-07-16.md` | Passed audit | Contract v1 hosted verification and candidate-boundary enforcement |
 | `audits/yukue-f2-p08-jinja-start-gate-2026-07-16.md` | Passed guardrail audit | Hosted blocked-gate verification without future-site activation |
 | `audits/yukue-f2-p09-dainichireiki-official-provenance-2026-07-17.md` | Passed audit | Shrine-operated official Source, versioned Entity correction, and refreshed seed baseline |
-| `audits/matsuri-f2-p10-correction-contract-2026-07-18.md` | Verification pending | All-family correction coverage, ordered version enforcement, and final-output validation |
+| `audits/matsuri-f2-p10-correction-contract-2026-07-18.md` | Passed audit | All-family correction coverage, ordered version enforcement, and final-output validation |
 | `matsuri-data-freshness-audit.md` | F2-M02 completed | Completed fixed-date audit and routine maintenance rules |
 | `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, State, and external-link inventory |
 | `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 Evidence and `held` correction for 相馬野馬追 2026 |
