@@ -1,0 +1,39 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-kushida-jinja-official-page",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "櫛田神社",
+      "publisher": "博多祇園山笠振興会（櫛田神社ページ）",
+      "url": "https://www.hakatayamakasa.com/61866.html",
+      "accessed_at": "2026-07-20",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-kushida-jinja-official-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kushida-jinja-official-page",
+      "target_type": "entity_identity",
+      "target_id": "shr-kushida-jinja",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "博多祇園山笠振興会公式サイト内の櫛田神社専用ページは、博多総鎮守 櫛田神社の名称、祭神、式年遷宮と記念事業を説明し、櫛田神社宮司名義の記載を含むため、神社Entityの同一性を直接裏付ける。",
+      "captured_at": "2026-07-20",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
