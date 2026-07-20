@@ -32,14 +32,14 @@ Conclusion   success
 
 The initial implementation head also passed repository CI, seed inventory and artifact contract, seed readiness, Analytics pending-state validation, canonical Search, full-page screenshots, and F2-24 indexability preflight.
 
-F2-P09 refresh verification is recorded in `docs/audits/yukue-f2-p09-dainichireiki-official-provenance-2026-07-17.md`. The 2026-07-20 maintenance refresh adds a second direct identity Evidence record for 櫛田神社 while preserving every blocked-gate prerequisite and authorization claim.
+F2-P09 refresh verification is recorded in `docs/audits/yukue-f2-p09-dainichireiki-official-provenance-2026-07-17.md`. The 2026-07-20 maintenance refreshes add dedicated shrine-page identity Evidence for 櫛田神社, 阿蘇神社, and 秩父神社 while preserving every blocked-gate prerequisite and authorization claim.
 
 ## Current state
 
 ```text
 Status                               blocked-by-matsuri-launch-closure
 Relation-backed Jinja seeds          5
-Direct identity Evidence             7
+Direct identity Evidence             9
 Place references                     5
 Approved shrine State Snapshots      0
 Seeds with official URLs             5
@@ -87,7 +87,7 @@ The validator fails if the repository contains an early application directory, d
 秩父神社
 ```
 
-All five have direct identity Evidence, Place provenance, and at least one official URL. 櫛田神社 now carries the existing official festival schedule Source and a dedicated shrine page on the same official-organization site. 大日霊貴神社 carries both the existing 鹿角市 public-authority Source and the shrine-operated `dainichido.org` Source without conflating their authority classes. All five still require a future Jinja-specific identity, State, Source, Evidence, and maintenance review before publication.
+All five have direct identity Evidence, Place provenance, and at least one official URL. 阿蘇神社 carries the existing official restoration record plus a dedicated shrine overview. 櫛田神社 carries the existing official festival schedule Source and a dedicated shrine page on the same official-organization site. 佐太神社 retains its official homepage, which already directly identifies the shrine, its祭神,所在地, and 佐陀神能. 大日霊貴神社 carries both the existing 鹿角市 public-authority Source and the shrine-operated `dainichido.org` Source without conflating their authority classes. 秩父神社 carries the existing official night-festival page plus a dedicated祭神・由緒 page. All five still require a future Jinja-specific identity, State, Source, Evidence, and maintenance review before publication.
 
 ## Cloudflare boundary
 
