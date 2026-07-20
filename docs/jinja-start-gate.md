@@ -1,6 +1,6 @@
 # Jinja Start Gate
 
-**Status:** F2-P08 repository guardrail completed / F2-P09 seed provenance refreshed / actual start gate not passed
+**Status:** F2-P08 repository guardrail completed / F2-P09 and 2026-07-20 seed provenance refreshed / actual start gate not passed
 
 ## Purpose
 
@@ -32,14 +32,14 @@ Conclusion   success
 
 The initial implementation head also passed repository CI, seed inventory and artifact contract, seed readiness, Analytics pending-state validation, canonical Search, full-page screenshots, and F2-24 indexability preflight.
 
-F2-P09 refresh verification is recorded in `docs/audits/yukue-f2-p09-dainichireiki-official-provenance-2026-07-17.md`.
+F2-P09 refresh verification is recorded in `docs/audits/yukue-f2-p09-dainichireiki-official-provenance-2026-07-17.md`. The 2026-07-20 maintenance refresh adds a second direct identity Evidence record for 櫛田神社 while preserving every blocked-gate prerequisite and authorization claim.
 
 ## Current state
 
 ```text
 Status                               blocked-by-matsuri-launch-closure
 Relation-backed Jinja seeds          5
-Direct identity Evidence             6
+Direct identity Evidence             7
 Place references                     5
 Approved shrine State Snapshots      0
 Seeds with official URLs             5
@@ -73,7 +73,7 @@ While the record remains blocked:
 - no Jinja public routes may be created,
 - no Jinja publication claim may be made,
 - no Shrine State may be invented,
-- F2-P02 through F2-P09 remain preparation evidence only.
+- F2-P02 through F2-P09 and later provenance maintenance remain preparation evidence only.
 
 The validator fails if the repository contains an early application directory, deployment configuration, activation claim, missing prerequisite, inconsistent seed baseline, private account identifier, token, or email address.
 
@@ -87,10 +87,10 @@ The validator fails if the repository contains an early application directory, d
 秩父神社
 ```
 
-All five have direct identity Evidence, Place provenance, and at least one official URL. 大日霊貴神社 now carries both the existing 鹿角市 public-authority Source and the shrine-operated `dainichido.org` Source without conflating their authority classes. All five still require a future Jinja-specific identity, State, Source, Evidence, and maintenance review before publication.
+All five have direct identity Evidence, Place provenance, and at least one official URL. 櫛田神社 now carries the existing official festival schedule Source and a dedicated shrine page on the same official-organization site. 大日霊貴神社 carries both the existing 鹿角市 public-authority Source and the shrine-operated `dainichido.org` Source without conflating their authority classes. All five still require a future Jinja-specific identity, State, Source, Evidence, and maintenance review before publication.
 
 ## Cloudflare boundary
 
-F2-P08 and F2-P09 require no Cloudflare access and do not change F2-25 through F2-28.
+The repository guardrail and provenance refreshes require no Cloudflare access and do not change F2-25 through F2-28.
 
 When Cloudflare access resumes, F2-25 through F2-28 are inserted first. Passing F2-28 alone still does not pass the Jinja start gate; stabilization, order, State-specification, and explicit-authorization prerequisites must also be completed.
