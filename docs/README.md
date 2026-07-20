@@ -52,6 +52,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `audits/matsuri-f2-p13-canonical-dataset-contract-2026-07-18.md` | Passed audit | One shared twelve-family canonical dataset assembler and duplicate-ID validation with or without corrections |
 | `audits/matsuri-kushida-jinja-identity-evidence-2026-07-20.md` | Passed maintenance audit | Dedicated 櫛田神社 Source, second direct identity Evidence, portable provenance refresh, and blocked Jinja gate verification |
 | `audits/matsuri-aso-chichibu-identity-evidence-2026-07-20.md` | Passed maintenance audit | Dedicated 阿蘇神社 and 秩父神社 Sources, second direct identity Evidence records, portable provenance refresh, and blocked Jinja gate verification |
+| `audits/matsuri-organization-source-evidence-2026-07-20.md` | Passed maintenance audit | Three organization identity Sources and Evidence records, complete-record external-link corrections, and zero remaining public Entities without external links |
 | `matsuri-data-freshness-audit.md` | F2-M02 completed | Completed fixed-date audit and routine maintenance rules |
 | `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, State, and external-link inventory |
 | `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 Evidence and `held` correction for 相馬野馬追 2026 |
@@ -64,7 +65,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `repository-launch-readiness.md` | Completed through F2-24 | Required checks, verified canonical/Search/crawler/Search Console state, and remaining external gates |
 | `visual-review-workflow.md` | Implemented repository baseline | Full-page screenshot capture, checks, contact sheets, and review |
 | `audits/matsuri-f2-m01-visual-review-2026-07-11.md` | Passed audit | First exhaustive desktop/mobile visual review |
-| `source-evidence-audit.md` | F2 repository baseline | Source metadata, Evidence targeting, and freshness boundaries |
+| `source-evidence-audit.md` | F2 baseline / 2026-07-20 organization maintenance verified | Source metadata, Evidence targeting, freshness boundaries, and reviewed external-link coverage |
 | `browser-accessibility-audit.md` | F2 repository baseline | Chromium viewport matrix, WCAG checks, and keyboard behavior |
 | `public-content-audit.md` | F2 repository baseline | Public content and infrastructure-status boundaries |
 | `analytics.md` | Workers baseline | Analytics purpose, F2-25–27 progression, verification, and privacy boundary |
