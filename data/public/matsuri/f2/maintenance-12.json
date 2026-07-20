@@ -1,0 +1,39 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-hakata-yamakasa-shinkokai-official",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "博多祇園山笠振興会",
+      "publisher": "博多祇園山笠振興会",
+      "url": "https://www.hakatayamakasa.com/175270.html",
+      "accessed_at": "2026-07-20",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-hakata-yamakasa-shinkokai-official-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hakata-yamakasa-shinkokai-official",
+      "target_type": "entity_identity",
+      "target_id": "org-hakata-yamakasa-shinkokai",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "博多祇園山笠公式の「博多祇園山笠振興会」ページは、同会の結成経緯、運営組織、役員構成と目的を同会自身の案内として掲載しており、組織Entityの同一性を直接裏付ける。",
+      "captured_at": "2026-07-20",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
