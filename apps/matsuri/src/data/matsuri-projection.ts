@@ -26,11 +26,13 @@ import maintenance07 from "../../../../data/public/matsuri/f2/maintenance-07.jso
 import maintenance08 from "../../../../data/public/matsuri/f2/maintenance-08.json";
 import maintenance09 from "../../../../data/public/matsuri/f2/maintenance-09.json";
 import maintenance10 from "../../../../data/public/matsuri/f2/maintenance-10.json";
+import maintenance11 from "../../../../data/public/matsuri/f2/maintenance-11.json";
 import corrections01 from "../../../../data/public/matsuri/f2/corrections-01.json";
 import corrections02 from "../../../../data/public/matsuri/f2/corrections-02.json";
 import corrections03 from "../../../../data/public/matsuri/f2/corrections-03.json";
 import corrections04 from "../../../../data/public/matsuri/f2/corrections-04.json";
 import corrections05 from "../../../../data/public/matsuri/f2/corrections-05.json";
+import corrections06 from "../../../../data/public/matsuri/f2/corrections-06.json";
 import { buildMatsuriCanonicalDataset } from "./matsuri-canonical-dataset.mjs";
 
 const additiveBundles = [
@@ -55,6 +57,7 @@ const additiveBundles = [
   maintenance08,
   maintenance09,
   maintenance10,
+  maintenance11,
 ];
 
 const correctionBundles = [
@@ -63,6 +66,7 @@ const correctionBundles = [
   corrections03,
   corrections04,
   corrections05,
+  corrections06,
 ];
 
 const baseDataset = {
