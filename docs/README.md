@@ -51,6 +51,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `audits/matsuri-f2-p12-shared-correction-engine-2026-07-18.md` | Passed audit | One shared correction implementation for the canonical loader and HTML Public Projection |
 | `audits/matsuri-f2-p13-canonical-dataset-contract-2026-07-18.md` | Passed audit | One shared twelve-family canonical dataset assembler and duplicate-ID validation with or without corrections |
 | `audits/matsuri-kushida-jinja-identity-evidence-2026-07-20.md` | Passed maintenance audit | Dedicated 櫛田神社 Source, second direct identity Evidence, portable provenance refresh, and blocked Jinja gate verification |
+| `audits/matsuri-aso-chichibu-identity-evidence-2026-07-20.md` | Passed maintenance audit | Dedicated 阿蘇神社 and 秩父神社 Sources, second direct identity Evidence records, portable provenance refresh, and blocked Jinja gate verification |
 | `matsuri-data-freshness-audit.md` | F2-M02 completed | Completed fixed-date audit and routine maintenance rules |
 | `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, State, and external-link inventory |
 | `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 Evidence and `held` correction for 相馬野馬追 2026 |

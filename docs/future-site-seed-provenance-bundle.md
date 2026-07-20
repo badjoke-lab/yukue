@@ -6,7 +6,7 @@
 
 The F2-P05 inventory carries exact record IDs for later review. F2-P06 adds a self-contained public-safe `provenance.json` file containing the referenced records themselves.
 
-This reduces later rework while preserving the candidate-only boundary. It does not make a seed publication-ready and does not activate another application. F2-P09 refreshed the generated bundle after adding shrine-operated official provenance for 大日霊貴神社. The 2026-07-20 maintenance refresh adds a dedicated 櫛田神社 page and its approved Entity-identity Evidence.
+This reduces later rework while preserving the candidate-only boundary. It does not make a seed publication-ready and does not activate another application. F2-P09 refreshed the generated bundle after adding shrine-operated official provenance for 大日霊貴神社. The 2026-07-20 maintenance refreshes add dedicated shrine-page identity Sources and approved Entity-identity Evidence for 櫛田神社, 阿蘇神社, and 秩父神社.
 
 ## Command
 
@@ -62,13 +62,13 @@ Seed handoffs              5
 Seed Entities              5
 Matsuri context Entities   5
 Places                     5
-Sources                    8
-Evidence                  12
+Sources                   10
+Evidence                  14
 Relations                  5
 State Snapshots            0
 ```
 
-The two provenance refreshes add one Source and one direct Entity-identity Evidence record each. 大日霊貴神社 carries its shrine-operated Source in addition to the existing 鹿角市 Source. 櫛田神社 carries a dedicated shrine page in addition to the existing official festival schedule Source. Existing Relation Evidence and Sources remain separately included. The zero State Snapshot count is preserved rather than inferred away.
+The provenance refreshes add four Sources and four direct Entity-identity Evidence records relative to the F2-P06 baseline. 大日霊貴神社 carries its shrine-operated Source in addition to the existing 鹿角市 Source. 櫛田神社 carries a dedicated shrine page in addition to the existing official festival schedule Source. 阿蘇神社 carries a dedicated shrine overview in addition to the official restoration record. 秩父神社 carries a dedicated祭神・由緒 page in addition to the official night-festival page. 佐太神社 retains its official homepage because that page already directly identifies the shrine and its core context. Existing Relation Evidence and Sources remain separately included. The zero State Snapshot count is preserved rather than inferred away.
 
 ## Bundle contents
 
