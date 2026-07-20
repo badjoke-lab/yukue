@@ -1,0 +1,210 @@
+{
+  "entities": [
+    {
+      "id": "shr-aso-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-20T00:00:00Z",
+      "slug": "aso-jinja",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "阿蘇神社",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-aso-restoration",
+            "src-aso-jinja-about"
+          ]
+        }
+      ],
+      "summary_ja": "阿蘇の農耕祭事を伝承する神社。2016年熊本地震で主要社殿が被災し、災害復旧事業が進められた。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "43",
+            "prefecture_name_ja": "熊本県",
+            "municipality_name_ja": "阿蘇市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-aso-jinja",
+      "default_place_ids": [
+        "plc-aso-jinja"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://asojinja.or.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active"
+    },
+    {
+      "id": "shr-kushida-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-20T00:00:00Z",
+      "slug": "kushida-jinja-hakata",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "櫛田神社",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-hakata-schedule-2026",
+            "src-kushida-jinja-official-page"
+          ]
+        }
+      ],
+      "summary_ja": "博多祇園山笠の神事と櫛田入りの中心となる神社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "40",
+            "prefecture_name_ja": "福岡県",
+            "municipality_name_ja": "福岡市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-kushida-jinja",
+      "default_place_ids": [
+        "plc-kushida-jinja"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.hakatayamakasa.com/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active"
+    },
+    {
+      "id": "shr-chichibu-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-20T00:00:00Z",
+      "slug": "chichibu-jinja",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "秩父神社",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-chichibu-yomatsuri",
+            "src-chichibu-jinja-saijin"
+          ]
+        }
+      ],
+      "summary_ja": "埼玉県秩父市に鎮座し、秩父夜祭の例祭主体となる神社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "11",
+            "prefecture_name_ja": "埼玉県",
+            "municipality_name_ja": "秩父市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-chichibu-jinja",
+      "default_place_ids": [
+        "plc-chichibu-jinja"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.chichibu-jinja.or.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active"
+    },
+    {
+      "id": "org-hakata-yamakasa-shinkokai",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-20T00:00:00Z",
+      "slug": "hakata-gion-yamakasa-shinkokai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "博多祇園山笠振興会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-hakata-schedule-2026",
+            "src-hakata-yamakasa-shinkokai-official"
+          ]
+        }
+      ],
+      "summary_ja": "博多祇園山笠の公式サイトを運営し、行事情報を公開する振興組織。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "40",
+            "prefecture_name_ja": "福岡県",
+            "municipality_name_ja": "福岡市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.hakatayamakasa.com/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "association",
+      "official_url": "https://www.hakatayamakasa.com/"
+    }
+  ],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
