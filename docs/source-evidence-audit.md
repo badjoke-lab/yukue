@@ -1,6 +1,6 @@
 # Source and Evidence Audit
 
-**Status:** F2 repository baseline / 2026-07-20 organization maintenance verified
+**Status:** F2 repository baseline / 2026-07-20 organization and canonical-name provenance maintenance verified
 
 ## Purpose
 
@@ -127,6 +127,34 @@ docs/audits/matsuri-organization-source-evidence-2026-07-20.md
 ```
 
 This maintenance strengthens reviewability and user navigation. It does not make live external reachability a repository-gate requirement and does not change State, Relation, Occurrence, lifecycle, Cloudflare gates, or future-site authorization.
+
+## 2026-07-20 canonical-name provenance closure
+
+Dedicated Entity-identity Sources existed for 阿蘇神社, 櫛田神社, and 秩父神社, but their preferred canonical names still referenced only an older restoration, festival schedule, or festival-specific Source. 博多祇園山笠振興会 likewise depended on the annual schedule despite having a dedicated official organization page available.
+
+Reviewed maintenance added one official Source and one approved Entity-identity Evidence record for 博多祇園山笠振興会, then used complete-record corrections to connect all four preferred canonical names to their dedicated identity Sources while retaining their earlier context Sources.
+
+Artifact inspection confirmed:
+
+```text
+Public Entities                         44
+Entities without external links          0
+Target record versions               2 / 2 / 2 / 2
+Canonical names with prior Source         4 / 4
+Canonical names with identity Source      4 / 4
+Maintenance bundles                     12
+Correction bundles                       7
+Correction records                      13
+Corrected logical IDs                   12
+```
+
+The detailed record, Source, Evidence, hosted verification, and artifact evidence are preserved in:
+
+```text
+docs/audits/matsuri-canonical-name-provenance-2026-07-20.md
+```
+
+This correction closes reference provenance without changing the displayed names, summaries, geography, lifecycle, external links, State, Relation, Occurrence, Cloudflare gates, or future-site authorization.
 
 ## External reachability boundary
 
