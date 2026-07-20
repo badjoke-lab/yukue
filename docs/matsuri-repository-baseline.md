@@ -16,15 +16,16 @@ It records only values that must describe the current canonical repository state
 
 ## Verification
 
-Run:
+Run the focused verifier directly:
 
 ```text
-pnpm check:matsuri:repository-baseline
+node scripts/check-matsuri-repository-baseline.mjs
 ```
 
-The check is included in:
+The verifier is also executed by:
 
 ```text
+pnpm check:matsuri:bundle-inventory
 pnpm gate:matsuri:repository
 ```
 
