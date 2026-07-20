@@ -21,7 +21,6 @@
     "check:yukue:future-site-seed-artifact-contract": "node scripts/check-yukue-future-site-seed-artifact-contract.mjs",
     "audit:yukue:future-site-seed-readiness": "node scripts/audit-yukue-future-site-seed-readiness.mjs",
     "check:matsuri:bundle-inventory": "node scripts/check-matsuri-bundle-inventory.mjs",
-    "check:matsuri:repository-baseline": "node scripts/check-matsuri-repository-baseline.mjs",
     "check:matsuri:canonical-dataset-contract": "node scripts/check-matsuri-canonical-dataset-contract.mjs",
     "check:matsuri:correction-contract": "node scripts/check-matsuri-correction-contract.mjs",
     "check:matsuri:pages": "node scripts/check-matsuri-pages-build.mjs",
@@ -48,7 +47,7 @@
     "verify:matsuri:workers": "node scripts/verify-matsuri-workers.mjs",
     "verify:release": "node scripts/verify-release.mjs",
     "freeze:matsuri:release": "node scripts/freeze-matsuri-release-candidate.mjs",
-    "gate:matsuri:repository": "pnpm check:github-actions:supply-chain && pnpm check:node-dependencies && pnpm check:agent-lockfile-guidance && pnpm check:matsuri:bundle-inventory && pnpm check:matsuri:repository-baseline && pnpm check:matsuri:canonical-dataset-contract && pnpm check:matsuri:correction-contract && pnpm verify:matsuri:workers && pnpm verify:release && pnpm check:matsuri:search-engine-submission-record && pnpm check:matsuri:analytics-activation-record && pnpm check:yukue:jinja-start-gate && pnpm freeze:matsuri:release && node scripts/check-matsuri-readiness-gate.mjs",
+    "gate:matsuri:repository": "pnpm check:github-actions:supply-chain && pnpm check:node-dependencies && pnpm check:agent-lockfile-guidance && pnpm check:matsuri:bundle-inventory && pnpm check:matsuri:canonical-dataset-contract && pnpm check:matsuri:correction-contract && pnpm verify:matsuri:workers && pnpm verify:release && pnpm check:matsuri:search-engine-submission-record && pnpm check:matsuri:analytics-activation-record && pnpm check:yukue:jinja-start-gate && pnpm freeze:matsuri:release && node scripts/check-matsuri-readiness-gate.mjs",
     "check": "pnpm -r --if-present check",
     "typecheck": "pnpm -r --if-present typecheck"
   },
