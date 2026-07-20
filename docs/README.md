@@ -17,7 +17,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `future-site-seed-readiness.md` | F2-P03, F2-P04, and F2-P09 completed | Public carry-forward context, identity Evidence, official provenance, and explicit target-site research gaps |
 | `future-site-seed-provenance-bundle.md` | F2-P06 completed / F2-P09 and 2026-07-20 provenance refreshed | Self-contained public Source, Evidence, Place, Relation, State, and Entity context bundle |
 | `future-site-seed-artifact-contract.md` | F2-P07 completed | Contract v1 for candidate inventory, provenance, summary, fields, statuses, and boundaries |
-| `jinja-start-gate.md` | F2-P08 guardrail completed / F2-P09 baseline refreshed | Machine-enforced prerequisites and inactive boundary before Jinja implementation |
+| `jinja-start-gate.md` | F2-P08 guardrail completed / F2-P09 and 2026-07-20 baseline refreshed | Machine-enforced prerequisites and inactive boundary before Jinja implementation |
 | `matsuri-correction-contract.md` | F2-P10 through F2-P13 completed | Ordered full-record corrections, exact bundle order, one shared correction engine, and one shared twelve-family dataset assembler |
 | `matsuri-mvp-spec.md` | Working | Matsuri MVP scope |
 | `information-architecture.md` | Accepted direction | Home H1 and Detail C |
@@ -50,6 +50,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `audits/matsuri-f2-p11-bundle-order-contract-2026-07-18.md` | Passed audit | Exact additive and correction bundle order parity between canonical consumers |
 | `audits/matsuri-f2-p12-shared-correction-engine-2026-07-18.md` | Passed audit | One shared correction implementation for the canonical loader and HTML Public Projection |
 | `audits/matsuri-f2-p13-canonical-dataset-contract-2026-07-18.md` | Passed audit | One shared twelve-family canonical dataset assembler and duplicate-ID validation with or without corrections |
+| `audits/matsuri-kushida-jinja-identity-evidence-2026-07-20.md` | Passed maintenance audit | Dedicated 櫛田神社 Source, second direct identity Evidence, portable provenance refresh, and blocked Jinja gate verification |
 | `matsuri-data-freshness-audit.md` | F2-M02 completed | Completed fixed-date audit and routine maintenance rules |
 | `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, State, and external-link inventory |
 | `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 Evidence and `held` correction for 相馬野馬追 2026 |
