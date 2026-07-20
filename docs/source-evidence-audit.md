@@ -1,6 +1,6 @@
 # Source and Evidence Audit
 
-**Status:** F2 repository baseline
+**Status:** F2 repository baseline / 2026-07-20 organization maintenance verified
 
 ## Purpose
 
@@ -96,6 +96,37 @@ pnpm check:matsuri:evidence
 ```
 
 The threshold is a launch-maintenance tripwire. It does not mean every historical Source must be recent.
+
+## 2026-07-20 organization Source and external-link maintenance
+
+The current public release projection contained 44 Entities. Three organization records had empty `external_links` arrays:
+
+```text
+org-gujo-odori-hozonkai
+org-hirosaki-neputa-participant-council
+org-toyama-tateyama-museum
+```
+
+Reviewed maintenance added one official or public-authority Source, one approved direct Entity-identity Evidence record, and one complete-record external-link correction for each organization.
+
+Artifact inspection confirmed:
+
+```text
+Public Entities                    44
+Entities without external links     0
+Maintenance bundles                11
+Correction bundles                  6
+Correction records                  9
+Corrected logical IDs               8
+```
+
+The detailed record, Source, Evidence, hosted verification, and artifact evidence are preserved in:
+
+```text
+docs/audits/matsuri-organization-source-evidence-2026-07-20.md
+```
+
+This maintenance strengthens reviewability and user navigation. It does not make live external reachability a repository-gate requirement and does not change State, Relation, Occurrence, lifecycle, Cloudflare gates, or future-site authorization.
 
 ## External reachability boundary
 
