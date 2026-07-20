@@ -1,0 +1,62 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-suneori-amagoi-bunka",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "脚折の雨乞行事",
+      "publisher": "文化庁 国指定文化財等データベース",
+      "url": "https://kunishitei.bunka.go.jp/heritage/detail/312/00000802",
+      "accessed_at": "2026-07-20",
+      "language": "ja"
+    },
+    {
+      "id": "src-kawagoe-matsuri-organizer-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_tourism",
+      "title": "川越まつり（2026年）",
+      "publisher": "公益社団法人 小江戸川越観光協会",
+      "url": "https://koedo.or.jp/event/%E5%B7%9D%E8%B6%8A%E3%81%BE%E3%81%A4%E3%82%8A-4/",
+      "accessed_at": "2026-07-20",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-suneori-amagoi-hozonkai-bunka-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-suneori-amagoi-bunka",
+      "target_type": "entity_identity",
+      "target_id": "org-suneori-amagoi-hozonkai",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "文化庁の国指定文化財等データベースは、脚折の雨乞行事の保護団体名として脚折雨乞行事保存会を明示し、保存団体Entityの同一性を直接裏付ける。",
+      "captured_at": "2026-07-20",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-kawagoe-matsuri-kyosankai-current-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kawagoe-matsuri-organizer-2026",
+      "target_type": "entity_identity",
+      "target_id": "org-kawagoe-matsuri-kyosankai",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "小江戸川越観光協会の2026年川越まつり案内は、問い合わせ先を川越まつり協賛会事務局（川越市観光課内）として明示し、現在の協賛会Entityを直接裏付ける。",
+      "captured_at": "2026-07-20",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
