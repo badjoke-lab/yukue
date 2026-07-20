@@ -22,7 +22,7 @@ F2-26 through F2-28 — operational hold
 Actual Jinja start gate — blocked
 ```
 
-F2-25 remains the next external gate, but owner Cloudflare access is pending. Repository maintenance has continued without changing that sequence: Astro is updated to 7.1.1, and Matsuri maintenance 09 strengthens 櫛田神社 identity provenance while preserving the blocked Jinja start gate and every future-application boundary.
+F2-25 remains the next external gate, but owner Cloudflare access is pending. Repository maintenance has continued without changing that sequence: Astro is updated to 7.1.1, Matsuri maintenance 09 strengthens 櫛田神社 identity provenance, and maintenance 10 strengthens 阿蘇神社 and 秩父神社 identity provenance while preserving the blocked Jinja start gate and every future-application boundary.
 
 ## Verified Matsuri production baseline
 
@@ -69,6 +69,7 @@ F2-16 through F2-24 — completed
 F2-P01 through F2-P13 — completed
 Astro 7.1.1 dependency maintenance — completed
 櫛田神社 identity provenance maintenance — completed
+阿蘇神社・秩父神社 identity provenance maintenance — completed
 博多祇園山笠 2026 outcome review — completed
 YOSAKOIソーラン 2026 outcome review — completed
 弘前ねぷた 2026 schedule review — completed
@@ -89,7 +90,7 @@ Relation-backed seeds           5
 Jinja seeds                     5
 Jiin seeds                      0
 Tomurai seeds                   0
-Direct identity Evidence        7
+Direct identity Evidence        9
 Place references                5
 Approved State Snapshots        0
 Seeds with official URLs        5
@@ -115,7 +116,7 @@ Remaining gaps:
 秩父神社        State Snapshotなし
 ```
 
-No shrine State is invented before the Jinja specification exists. 櫛田神社 carries the existing official festival schedule Source plus a dedicated shrine page on the same official-organization site. 大日霊貴神社 carries both the existing 鹿角市 public-authority Source and the shrine-operated `dainichido.org` Source without conflating their authority classes.
+No shrine State is invented before the Jinja specification exists. 阿蘇神社 carries the existing official restoration Source plus a dedicated shrine overview. 櫛田神社 carries the existing official festival schedule Source plus a dedicated shrine page on the same official-organization site. 佐太神社 retains its official homepage because that page already directly identifies the shrine and its core context. 大日霊貴神社 carries both the existing 鹿角市 public-authority Source and the shrine-operated `dainichido.org` Source without conflating their authority classes. 秩父神社 carries the existing official night-festival Source plus a dedicated祭神・由緒 page.
 
 Current portable artifact totals:
 
@@ -123,8 +124,8 @@ Current portable artifact totals:
 Seed Entities                5
 Matsuri context Entities      5
 Places                        5
-Sources                       8
-Evidence                     12
+Sources                      10
+Evidence                     14
 Relations                     5
 State Snapshots               0
 Artifact contract version     1
@@ -207,24 +208,23 @@ The canonical loader and HTML Public Projection now call the same `buildMatsuriC
 
 ### 2026-07-20 dependency and provenance maintenance
 
-Astro 7.1.1 was merged after the frozen-lockfile install and all triggered checks passed. Matsuri maintenance 09 then added one dedicated 櫛田神社 Source and one approved direct identity Evidence record.
+Astro 7.1.1 was merged after the frozen-lockfile install and all triggered checks passed. Matsuri maintenance 09 added one dedicated 櫛田神社 Source and one approved direct identity Evidence record. Maintenance 10 then added dedicated shrine-page Sources and approved direct identity Evidence records for 阿蘇神社 and 秩父神社.
 
 ```text
-Implementation head             7ae79a7f6fee8cd5429893e91c8a4645d957ac43
-Repository CI run               29717762633 — success
-Bundle inventory run            29717762622 — success
-Canonical dataset run           29717762644 — success
-Correction contract run         29717762634 — success
-Seed inventory run              29717762605 — success
-Seed readiness run              29717762702 — success
-Jinja start-gate run            29717762619 — success
-Full-page screenshot run        29717762671 — success
-Seed artifact                   8451197243
-Seed artifact digest            sha256:2961b317de4eac40801ac72c5d72143af9cc55d1cb0d9a5e755842b676775261
-Release artifact                8451219712
-Release digest                  sha256:c7f995fe472ebaa66e6f12dfadf16b1bc6b4c39e77c323281318458b55b34356
-Screenshot artifact             8451210341
-Screenshot digest               sha256:3ef74fb1ae5c194d8cca5815dc309015342e517efabafe6fde607b8a8ddfeb8d
+Maintenance 09 implementation head     7ae79a7f6fee8cd5429893e91c8a4645d957ac43
+Maintenance 09 repository CI run       29717762633 — success
+Maintenance 09 seed artifact           8451197243
+Maintenance 09 seed digest             sha256:2961b317de4eac40801ac72c5d72143af9cc55d1cb0d9a5e755842b676775261
+
+Maintenance 10 implementation head     bc54c06e9fb89223e6b0b8557a70c41dec8cd2bd
+Maintenance 10 bundle inventory run    29731393730 — success
+Maintenance 10 canonical dataset run   29731393741 — success
+Maintenance 10 correction contract run 29731393733 — success
+Maintenance 10 seed inventory run      29731393719 — success
+Maintenance 10 seed readiness run      29731393667 — success
+Maintenance 10 Jinja start-gate run    29731393755 — success
+Maintenance 10 seed artifact           8456415716
+Maintenance 10 seed digest             sha256:83ddd1b4acde08ad739f136c77ec933b61e080c13a513872b916dae497cc0b0d
 ```
 
 ### Jinja start-gate guardrail
@@ -263,6 +263,7 @@ docs/audits/matsuri-f2-p11-bundle-order-contract-2026-07-18.md
 docs/audits/matsuri-f2-p12-shared-correction-engine-2026-07-18.md
 docs/audits/matsuri-f2-p13-canonical-dataset-contract-2026-07-18.md
 docs/audits/matsuri-kushida-jinja-identity-evidence-2026-07-20.md
+docs/audits/matsuri-aso-chichibu-identity-evidence-2026-07-20.md
 docs/audits/matsuri-yosakoi-hirosaki-2026-07-16.md
 ```
 
@@ -289,7 +290,7 @@ YOSAKOIソーラン 2026    outcome reviewed 2026-07-16 — held
 
 The 博多祇園山笠 and YOSAKOIソーラン scales remain `unknown`; official outcome Evidence proves that each occurrence was held but does not provide a structured scale category. 弘前ねぷた remains `scheduled` and `unknown` until post-event Evidence is reviewed.
 
-The canonical loader and HTML Public Projection share the complete inventory through maintenance 09 and correction 05, one twelve-family dataset assembler, and one correction engine. Every family requires unique accumulated IDs, an existing stable ID for correction, increasing `record_version`, and canonical F1, maintenance, and correction bundle order.
+The canonical loader and HTML Public Projection share the complete inventory through maintenance 10 and correction 05, one twelve-family dataset assembler, and one correction engine. Every family requires unique accumulated IDs, an existing stable ID for correction, increasing `record_version`, and canonical F1, maintenance, and correction bundle order.
 
 ## Completed external sequence
 
