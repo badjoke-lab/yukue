@@ -156,6 +156,40 @@ docs/audits/matsuri-canonical-name-provenance-2026-07-20.md
 
 This correction closes reference provenance without changing the displayed names, summaries, geography, lifecycle, external links, State, Relation, Occurrence, Cloudflare gates, or future-site authorization.
 
+## 2026-07-20 remaining canonical-name provenance closure
+
+The remaining review found three preferred names that could be connected to stronger direct identity Sources without replacing their existing context Sources:
+
+```text
+大日霊貴神社
+脚折雨乞行事保存会
+川越まつり協賛会
+```
+
+The existing shrine-operated Source was attached to the preferred 大日霊貴神社 name. New public-authority and official-tourism Sources plus approved Entity-identity Evidence were added for 脚折雨乞行事保存会 and 川越まつり協賛会. The 弘前ねぷた300年祭実行委員会 record was reviewed but required no change because its existing Source already resolves to the dedicated official page.
+
+Artifact inspection confirmed:
+
+```text
+Public Entities                           44
+Entities without external links            0
+Target record versions                 3 / 2 / 2
+Canonical names with prior Source           3 / 3
+Canonical names with direct Source          3 / 3
+Maintenance bundles                       13
+Correction bundles                         8
+Correction records                        16
+Corrected logical IDs                     14
+```
+
+The detailed record, Source, Evidence, hosted verification, and artifact evidence are preserved in:
+
+```text
+docs/audits/matsuri-remaining-name-provenance-2026-07-20.md
+```
+
+This maintenance does not change displayed names, summaries, geography, lifecycle, external links, State, Relation, Occurrence, Cloudflare gates, or future-site authorization.
+
 ## External reachability boundary
 
 The repository audit validates URL structure and metadata. It does not claim that every external Source URL is reachable at build time.
