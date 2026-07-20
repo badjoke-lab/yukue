@@ -1,0 +1,85 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-gujo-odori-activities-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "郡上おどりの活動について",
+      "publisher": "郡上市",
+      "url": "https://www.city.gujo.gifu.jp/admin/info/post-2138.html",
+      "accessed_at": "2026-07-20",
+      "language": "ja"
+    },
+    {
+      "id": "src-hirosaki-neputa-council-official",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "ねぷたフォーラム、ねぷた関係者感謝祭",
+      "publisher": "弘前ねぷた参加団体協議会",
+      "url": "https://neputa.jp/?page_id=532",
+      "accessed_at": "2026-07-20",
+      "language": "ja"
+    },
+    {
+      "id": "src-tateyama-museum-official",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "富山県［立山博物館］",
+      "publisher": "富山県［立山博物館］",
+      "url": "https://tatehaku.jp/",
+      "accessed_at": "2026-07-20",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-gujo-odori-hozonkai-identity-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-gujo-odori-activities-2026",
+      "target_type": "entity_identity",
+      "target_id": "org-gujo-odori-hozonkai",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "郡上市公式の「郡上おどりの活動について」ページは、郡上おどり運営委員会の構成団体として保存会を明示し、踊り期間中のお囃子演奏と後継者育成を保存会が担うことを説明しており、保存会Entityの同一性と現在の役割を直接裏付ける。",
+      "captured_at": "2026-07-20",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hirosaki-neputa-council-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-council-official",
+      "target_type": "entity_identity",
+      "target_id": "org-hirosaki-neputa-participant-council",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "弘前ねぷた参加団体協議会の公式サイト内ページは、同協議会名義でねぷたフォーラムや関係者感謝祭の開催目的、案内、事務局情報を掲載しており、協議会Entityの同一性と活動主体を直接裏付ける。",
+      "captured_at": "2026-07-20",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-tateyama-museum-official-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-tateyama-museum-official",
+      "target_type": "entity_identity",
+      "target_id": "org-toyama-tateyama-museum",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "富山県［立山博物館］公式サイトは、館名、所在地、施設構成、展示・催事、立山信仰を扱う博物館としての役割を掲載しており、博物館Entityの同一性と現在の公的施設としての活動を直接裏付ける。",
+      "captured_at": "2026-07-20",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
