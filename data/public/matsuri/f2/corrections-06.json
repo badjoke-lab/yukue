@@ -1,0 +1,166 @@
+{
+  "entities": [
+    {
+      "id": "org-gujo-odori-hozonkai",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-12T00:00:00Z",
+      "updated_at": "2026-07-20T00:00:00Z",
+      "slug": "gujo-odori-hozonkai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "郡上おどり保存会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-gujo-about",
+            "src-gujo-odori-activities-2026"
+          ]
+        }
+      ],
+      "summary_ja": "郡上おどりの保存団体として、踊り会場で保存会員による審査と免許状公布を行う組織。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "21",
+            "prefecture_name_ja": "岐阜県",
+            "municipality_name_ja": "郡上市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "municipality_page",
+          "platform": "web",
+          "url": "https://www.city.gujo.gifu.jp/admin/info/post-2138.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-07-20"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "preservation_group"
+    },
+    {
+      "id": "org-hirosaki-neputa-participant-council",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-20T00:00:00Z",
+      "slug": "hirosaki-neputa-participant-council",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "弘前ねぷた参加団体協議会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-hirosaki-neputa-300-program",
+            "src-hirosaki-neputa-council-official"
+          ]
+        }
+      ],
+      "summary_ja": "弘前ねぷたの参加団体を束ね、300年祭関連事業への協力や主催活動を行った協議会。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "02",
+            "prefecture_name_ja": "青森県",
+            "municipality_name_ja": "弘前市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "official_activity_page",
+          "platform": "web",
+          "url": "https://neputa.jp/?page_id=532",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-20"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "association"
+    },
+    {
+      "id": "org-toyama-tateyama-museum",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-12T00:00:00Z",
+      "updated_at": "2026-07-20T00:00:00Z",
+      "slug": "toyama-tateyama-museum",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "富山県［立山博物館］",
+          "lang": "ja",
+          "kind": "official",
+          "is_preferred": true,
+          "source_ids": [
+            "src-tateyama-nunobashi",
+            "src-tateyama-museum-official"
+          ]
+        },
+        {
+          "value": "富山県立山博物館",
+          "lang": "ja",
+          "kind": "common",
+          "is_preferred": false,
+          "source_ids": [
+            "src-tateyama-nunobashi",
+            "src-tateyama-museum-official"
+          ]
+        }
+      ],
+      "summary_ja": "布橋灌頂会と立山信仰に関する展示、映像、姥尊像を保存・公開する博物館。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "16",
+            "prefecture_name_ja": "富山県",
+            "municipality_name_ja": "立山町"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://tatehaku.jp/",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-07-20"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "public_agency"
+    }
+  ],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
