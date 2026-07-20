@@ -1,6 +1,6 @@
 # Project Status
 
-**Last updated:** 2026-07-18
+**Last updated:** 2026-07-20
 
 ## Current phase
 
@@ -22,7 +22,7 @@ F2-26 through F2-28 — operational hold
 Actual Jinja start gate — blocked
 ```
 
-F2-25 remains the next external gate, but owner Cloudflare access is pending. F2-P13 removes the duplicated twelve-family dataset assembly path without changing public facts, passing the Jinja start gate, or authorizing a future application.
+F2-25 remains the next external gate, but owner Cloudflare access is pending. Repository maintenance has continued without changing that sequence: Astro is updated to 7.1.1, and Matsuri maintenance 09 strengthens 櫛田神社 identity provenance while preserving the blocked Jinja start gate and every future-application boundary.
 
 ## Verified Matsuri production baseline
 
@@ -67,6 +67,8 @@ F2-01 through F2-15 — completed
 F2-M01 and F2-M02 — completed
 F2-16 through F2-24 — completed
 F2-P01 through F2-P13 — completed
+Astro 7.1.1 dependency maintenance — completed
+櫛田神社 identity provenance maintenance — completed
 博多祇園山笠 2026 outcome review — completed
 YOSAKOIソーラン 2026 outcome review — completed
 弘前ねぷた 2026 schedule review — completed
@@ -78,7 +80,7 @@ YOSAKOIソーラン 2026 outcome review — completed
 
 The owner-access resumption path is implemented. `config/matsuri-analytics-activation.json` remains `pending-owner-access` and rejects false F2-25, F2-26, or F2-27 completion claims.
 
-### F2-P02 through F2-P09 seed preparation
+### F2-P02 through F2-P09 seed preparation and later provenance maintenance
 
 Current public seed baseline:
 
@@ -87,7 +89,7 @@ Relation-backed seeds           5
 Jinja seeds                     5
 Jiin seeds                      0
 Tomurai seeds                   0
-Direct identity Evidence        6
+Direct identity Evidence        7
 Place references                5
 Approved State Snapshots        0
 Seeds with official URLs        5
@@ -113,7 +115,7 @@ Remaining gaps:
 秩父神社        State Snapshotなし
 ```
 
-No shrine State is invented before the Jinja specification exists. 大日霊貴神社 now carries both the existing 鹿角市 public-authority Source and the shrine-operated `dainichido.org` Source without conflating their authority classes.
+No shrine State is invented before the Jinja specification exists. 櫛田神社 carries the existing official festival schedule Source plus a dedicated shrine page on the same official-organization site. 大日霊貴神社 carries both the existing 鹿角市 public-authority Source and the shrine-operated `dainichido.org` Source without conflating their authority classes.
 
 Current portable artifact totals:
 
@@ -121,8 +123,8 @@ Current portable artifact totals:
 Seed Entities                5
 Matsuri context Entities      5
 Places                        5
-Sources                       7
-Evidence                     11
+Sources                       8
+Evidence                     12
 Relations                     5
 State Snapshots               0
 Artifact contract version     1
@@ -203,6 +205,28 @@ Screenshot digest              sha256:225d8a7c5b31432579ae9bb3e329b75cde2692f041
 
 The canonical loader and HTML Public Projection now call the same `buildMatsuriCanonicalDataset()` implementation. The contract rejects missing base-family arrays, non-array bundle families, reintroduced local assembly logic, family-order drift, and duplicate accumulated IDs even when a family has no correction records.
 
+### 2026-07-20 dependency and provenance maintenance
+
+Astro 7.1.1 was merged after the frozen-lockfile install and all triggered checks passed. Matsuri maintenance 09 then added one dedicated 櫛田神社 Source and one approved direct identity Evidence record.
+
+```text
+Implementation head             7ae79a7f6fee8cd5429893e91c8a4645d957ac43
+Repository CI run               29717762633 — success
+Bundle inventory run            29717762622 — success
+Canonical dataset run           29717762644 — success
+Correction contract run         29717762634 — success
+Seed inventory run              29717762605 — success
+Seed readiness run              29717762702 — success
+Jinja start-gate run            29717762619 — success
+Full-page screenshot run        29717762671 — success
+Seed artifact                   8451197243
+Seed artifact digest            sha256:2961b317de4eac40801ac72c5d72143af9cc55d1cb0d9a5e755842b676775261
+Release artifact                8451219712
+Release digest                  sha256:c7f995fe472ebaa66e6f12dfadf16b1bc6b4c39e77c323281318458b55b34356
+Screenshot artifact             8451210341
+Screenshot digest               sha256:3ef74fb1ae5c194d8cca5815dc309015342e517efabafe6fde607b8a8ddfeb8d
+```
+
 ### Jinja start-gate guardrail
 
 ```text
@@ -238,6 +262,7 @@ docs/audits/matsuri-f2-p10-correction-contract-2026-07-18.md
 docs/audits/matsuri-f2-p11-bundle-order-contract-2026-07-18.md
 docs/audits/matsuri-f2-p12-shared-correction-engine-2026-07-18.md
 docs/audits/matsuri-f2-p13-canonical-dataset-contract-2026-07-18.md
+docs/audits/matsuri-kushida-jinja-identity-evidence-2026-07-20.md
 docs/audits/matsuri-yosakoi-hirosaki-2026-07-16.md
 ```
 
@@ -264,7 +289,7 @@ YOSAKOIソーラン 2026    outcome reviewed 2026-07-16 — held
 
 The 博多祇園山笠 and YOSAKOIソーラン scales remain `unknown`; official outcome Evidence proves that each occurrence was held but does not provide a structured scale category. 弘前ねぷた remains `scheduled` and `unknown` until post-event Evidence is reviewed.
 
-The canonical loader and HTML Public Projection share the complete inventory through maintenance 08 and correction 05, one twelve-family dataset assembler, and one correction engine. Every family requires unique accumulated IDs, an existing stable ID for correction, increasing `record_version`, and canonical F1, maintenance, and correction bundle order.
+The canonical loader and HTML Public Projection share the complete inventory through maintenance 09 and correction 05, one twelve-family dataset assembler, and one correction engine. Every family requires unique accumulated IDs, an existing stable ID for correction, increasing `record_version`, and canonical F1, maintenance, and correction bundle order.
 
 ## Completed external sequence
 
