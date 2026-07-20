@@ -19,6 +19,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `future-site-seed-artifact-contract.md` | F2-P07 completed | Contract v1 for candidate inventory, provenance, summary, fields, statuses, and boundaries |
 | `jinja-start-gate.md` | F2-P08 guardrail completed / F2-P09 and 2026-07-20 baseline refreshed | Machine-enforced prerequisites and inactive boundary before Jinja implementation |
 | `matsuri-correction-contract.md` | F2-P10 through F2-P13 completed | Ordered full-record corrections, exact bundle order, one shared correction engine, and one shared twelve-family dataset assembler |
+| `matsuri-repository-baseline.md` | Machine-checked current | Exact current bundle, correction, Entity, Analytics-boundary, and Jinja-boundary counts |
 | `matsuri-mvp-spec.md` | Working | Matsuri MVP scope |
 | `information-architecture.md` | Accepted direction | Home H1 and Detail C |
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, layout language |
