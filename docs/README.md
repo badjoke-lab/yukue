@@ -13,9 +13,9 @@ Before implementing a feature, check the relevant document here. When a decision
 | `project-concept.md` | Current | Series purpose and boundaries |
 | `product-spec.md` | Working | Product capabilities and user needs |
 | `public-data-model.md` | Working | Public record model and projection rules |
-| `future-site-seed-inventory.md` | F2-P02 and F2-P05 completed / F2-P09 refreshed | Relation-backed extraction and portable record references without activating future applications |
+| `future-site-seed-inventory.md` | F2-P02 and F2-P05 completed / F2-P09 and 2026-07-20 provenance refreshed | Relation-backed extraction and portable record references without activating future applications |
 | `future-site-seed-readiness.md` | F2-P03, F2-P04, and F2-P09 completed | Public carry-forward context, identity Evidence, official provenance, and explicit target-site research gaps |
-| `future-site-seed-provenance-bundle.md` | F2-P06 completed / F2-P09 refreshed | Self-contained public Source, Evidence, Place, Relation, State, and Entity context bundle |
+| `future-site-seed-provenance-bundle.md` | F2-P06 completed / F2-P09 and 2026-07-20 provenance refreshed | Self-contained public Source, Evidence, Place, Relation, State, and Entity context bundle |
 | `future-site-seed-artifact-contract.md` | F2-P07 completed | Contract v1 for candidate inventory, provenance, summary, fields, statuses, and boundaries |
 | `jinja-start-gate.md` | F2-P08 guardrail completed / F2-P09 baseline refreshed | Machine-enforced prerequisites and inactive boundary before Jinja implementation |
 | `matsuri-correction-contract.md` | F2-P10 through F2-P13 completed | Ordered full-record corrections, exact bundle order, one shared correction engine, and one shared twelve-family dataset assembler |
