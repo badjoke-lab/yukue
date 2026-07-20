@@ -1,0 +1,62 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-aso-jinja-about",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "shrine_official",
+      "title": "阿蘇神社について",
+      "publisher": "阿蘇神社",
+      "url": "https://asojinja.or.jp/about/",
+      "accessed_at": "2026-07-20",
+      "language": "ja"
+    },
+    {
+      "id": "src-chichibu-jinja-saijin",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "shrine_official",
+      "title": "ご祭神・由緒",
+      "publisher": "秩父神社",
+      "url": "https://www.chichibu-jinja.or.jp/saijin/",
+      "accessed_at": "2026-07-20",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-aso-jinja-about-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aso-jinja-about",
+      "target_type": "entity_identity",
+      "target_id": "shr-aso-jinja",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "阿蘇神社公式の『阿蘇神社について』ページは、阿蘇神社の名称、祭神、歴史、社殿群、所在地を同社自身の案内として掲載しており、神社Entityの同一性を直接裏付ける。",
+      "captured_at": "2026-07-20",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-chichibu-jinja-saijin-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-chichibu-jinja-saijin",
+      "target_type": "entity_identity",
+      "target_id": "shr-chichibu-jinja",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "秩父神社公式の『ご祭神・由緒』ページは、秩父神社の名称、祭神、創建由緒、社殿、所在地を同社自身の案内として掲載しており、神社Entityの同一性を直接裏付ける。",
+      "captured_at": "2026-07-20",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
