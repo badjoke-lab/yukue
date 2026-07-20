@@ -8,7 +8,7 @@ The Matsuri corpus already contains approved Shrine, Temple, and funerary-place 
 
 This repository task derives a public-safe seed inventory from those existing approved records. It avoids re-researching known cross-site context later while keeping the future Jinja, Jiin, and Tomurai applications inactive.
 
-F2-P05 extends each seed with explicit public handoff provenance. It carries the exact Place, direct Entity-identity Evidence, identity Source, approved State Snapshot, and Relation Evidence references already present in Matsuri. Empty arrays remain explicit gaps rather than being inferred or filled. F2-P09 refreshed the inventory after adding shrine-operated official provenance for 大日霊貴神社. The 2026-07-20 maintenance refresh adds a dedicated 櫛田神社 page as a second direct identity Source without changing the Relation-backed eligibility rule.
+F2-P05 extends each seed with explicit public handoff provenance. It carries the exact Place, direct Entity-identity Evidence, identity Source, approved State Snapshot, and Relation Evidence references already present in Matsuri. Empty arrays remain explicit gaps rather than being inferred or filled. F2-P09 refreshed the inventory after adding shrine-operated official provenance for 大日霊貴神社. The 2026-07-20 maintenance refreshes add dedicated shrine-page identity Sources for 櫛田神社, 阿蘇神社, and 秩父神社 without changing the Relation-backed eligibility rule.
 
 ## Command
 
@@ -64,7 +64,7 @@ F2-P05 established one direct identity Evidence reference per seed and a self-co
 Total relation-backed seeds   5
 Relation contexts             5
 Relation Evidence references  5
-Identity Evidence references  7
+Identity Evidence references  9
 Place references              5
 Seeds with official URLs      5
 Jinja seeds                   5
@@ -72,7 +72,7 @@ Jiin seeds                    0
 Tomurai seeds                 0
 ```
 
-Three seeds carry one direct identity Evidence reference. 櫛田神社 and 大日霊貴神社 each carry two approved identity Evidence references. 櫛田神社 now has the existing official festival schedule Source plus a dedicated shrine page on the same official-organization site. 大日霊貴神社 retains one municipal Source and one shrine-operated Source. Every seed carries at least one identity Source reference, one Relation Evidence reference, one deduplicated Place reference, and at least one official URL. Every approved State Snapshot array remains empty because no shrine-specific State has been approved.
+佐太神社 carries one direct identity Evidence reference because its existing official homepage already directly identifies the shrine and its core context. 阿蘇神社, 櫛田神社, 大日霊貴神社, and 秩父神社 each carry two approved identity Evidence references. 阿蘇神社 combines the existing official restoration record with a dedicated shrine overview. 櫛田神社 combines the official festival schedule with a dedicated shrine page. 大日霊貴神社 retains one municipal Source and one shrine-operated Source. 秩父神社 combines the official night-festival page with a dedicated祭神・由緒 page. Every seed carries at least one identity Source reference, one Relation Evidence reference, one deduplicated Place reference, and at least one official URL. Every approved State Snapshot array remains empty because no shrine-specific State has been approved.
 
 Current Jinja seeds:
 
