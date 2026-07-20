@@ -7,6 +7,7 @@ import {
   matsuriF2CorrectionFiles,
   matsuriF2MaintenanceFiles,
 } from "../apps/matsuri/scripts/load-matsuri-dataset.mjs";
+import "./check-matsuri-repository-baseline.mjs";
 
 const repositoryRoot = fileURLToPath(new URL("../", import.meta.url));
 const projectionPath = path.join(
