@@ -1,4 +1,4 @@
-name: Verify Matsuri bundle inventory
+name: Verify Matsuri bundle inventory and repository baseline
 
 on:
   pull_request:
@@ -8,9 +8,15 @@ on:
       - ".github/workflows/verify-matsuri-bundle-inventory.yml"
       - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
       - "apps/matsuri/src/data/matsuri-projection.ts"
+      - "config/jinja-start-gate.json"
+      - "config/matsuri-analytics-activation.json"
+      - "config/matsuri-repository-baseline.json"
       - "data/public/matsuri/f1/**"
       - "data/public/matsuri/f2/**"
+      - "docs/matsuri-repository-baseline.md"
+      - "docs/project-status.md"
       - "scripts/check-matsuri-bundle-inventory.mjs"
+      - "scripts/check-matsuri-repository-baseline.mjs"
       - "package.json"
   push:
     branches:
@@ -19,9 +25,15 @@ on:
       - ".github/workflows/verify-matsuri-bundle-inventory.yml"
       - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
       - "apps/matsuri/src/data/matsuri-projection.ts"
+      - "config/jinja-start-gate.json"
+      - "config/matsuri-analytics-activation.json"
+      - "config/matsuri-repository-baseline.json"
       - "data/public/matsuri/f1/**"
       - "data/public/matsuri/f2/**"
+      - "docs/matsuri-repository-baseline.md"
+      - "docs/project-status.md"
       - "scripts/check-matsuri-bundle-inventory.mjs"
+      - "scripts/check-matsuri-repository-baseline.mjs"
       - "package.json"
   workflow_dispatch:
 
@@ -46,13 +58,15 @@ jobs:
         with:
           version: 11.10.0
 
-      - name: Verify canonical and HTML bundle inventory and order
+      - name: Verify bundle inventory, order, and current repository baseline
         run: pnpm check:matsuri:bundle-inventory
 
       - name: Write verification summary
         if: always()
         run: |
-          echo "## Matsuri bundle inventory and order" >> "$GITHUB_STEP_SUMMARY"
+          echo "## Matsuri bundle inventory and repository baseline" >> "$GITHUB_STEP_SUMMARY"
           echo "- Canonical loader and HTML Public Projection must enumerate the same F1 batches, maintenance batches, and correction bundles" >> "$GITHUB_STEP_SUMMARY"
           echo "- additiveBundles must preserve F1-then-maintenance order and correctionBundles must preserve declared correction order" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Missing, extra, duplicate, nonexistent, reordered, or expression-based bundle references fail the check" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Current counts and blocked Analytics/Jinja boundaries must match the machine baseline" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Project status must reference the machine baseline without duplicating exact current count tables" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Missing, extra, duplicate, nonexistent, reordered, stale, or malformed references fail the check" >> "$GITHUB_STEP_SUMMARY"

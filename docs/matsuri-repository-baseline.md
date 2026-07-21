@@ -14,6 +14,8 @@ config/matsuri-repository-baseline.json
 
 It records only values that must describe the current canonical repository state.
 
+`docs/project-status.md` records the current phase, blockers, boundaries, and next actions. It must reference the machine baseline instead of duplicating exact current count tables.
+
 ## Verification
 
 Run the focused verifier directly:
@@ -29,13 +31,14 @@ pnpm check:matsuri:bundle-inventory
 pnpm gate:matsuri:repository
 ```
 
-The verifier derives current values from:
+The verifier derives or validates current values and status markers from:
 
 ```text
 apps/matsuri/scripts/load-matsuri-dataset.mjs
 data/public/matsuri/f2/corrections-*.json
 config/matsuri-analytics-activation.json
 config/jinja-start-gate.json
+docs/project-status.md
 ```
 
 It rejects:
@@ -46,7 +49,9 @@ It rejects:
 - stale public Entity or external-link-gap totals,
 - false F2-25 through F2-28 boundary state,
 - false Jinja start-gate or Jinja State Snapshot state,
-- missing, extra, negative, or malformed baseline fields.
+- missing, extra, negative, or malformed baseline fields,
+- a project status that omits the machine baseline or current blocked-gate markers,
+- exact current count tables duplicated into `docs/project-status.md`.
 
 ## Current baseline
 
@@ -73,7 +78,9 @@ Approved Jinja State Snapshots     0
 
 When a reviewed maintenance or correction bundle changes a derived value, update `config/matsuri-repository-baseline.json` in the same pull request. The repository gate must fail when the file is not updated.
 
-Historical audit documents keep their original verified counts. `docs/project-status.md` may summarize current position, but the JSON record and verifier are the exact current bundle-count source.
+Historical audit documents keep their original verified counts. `docs/project-status.md` may summarize current position, but the JSON record and verifier remain the exact current count and boundary source.
+
+Do not copy the current baseline table into `docs/project-status.md`. Link to the JSON and this document instead.
 
 ## Boundaries
 

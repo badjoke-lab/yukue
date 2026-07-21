@@ -12,6 +12,7 @@ import {
 
 const repositoryRoot = fileURLToPath(new URL("../", import.meta.url));
 const f2Directory = path.join(repositoryRoot, "data", "public", "matsuri", "f2");
+const projectStatusPath = path.join(repositoryRoot, "docs", "project-status.md");
 
 function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(repositoryRoot, relativePath), "utf8"));
@@ -33,6 +34,7 @@ function assertExactKeys(record, expectedKeys, label) {
 const baseline = readJson("config/matsuri-repository-baseline.json");
 const analytics = readJson("config/matsuri-analytics-activation.json");
 const jinjaGate = readJson("config/jinja-start-gate.json");
+const projectStatus = fs.readFileSync(projectStatusPath, "utf8");
 
 assert(
   baseline.schema_version === "matsuri.repository-baseline.v1",
@@ -46,6 +48,46 @@ assert(
   baseline.status === "repository-maintenance-current",
   "Matsuri repository baseline status must remain repository-maintenance-current.",
 );
+
+const projectStatusUpdatedMatch = /^\*\*Last updated:\*\* (\d{4}-\d{2}-\d{2})$/mu.exec(
+  projectStatus,
+);
+assert(
+  projectStatusUpdatedMatch,
+  "docs/project-status.md must declare a YYYY-MM-DD Last updated date.",
+);
+
+for (const marker of [
+  "config/matsuri-repository-baseline.json",
+  "docs/matsuri-repository-baseline.md",
+  "F2-25 owner Cloudflare access — pending",
+  "Actual Jinja start gate — blocked",
+]) {
+  assert(
+    projectStatus.includes(marker),
+    `docs/project-status.md must reference the current repository boundary marker ${JSON.stringify(marker)}.`,
+  );
+}
+
+const forbiddenProjectStatusCountPatterns = [
+  /\bF1 batches\s+\d+/u,
+  /\bMaintenance bundles\s+\d+/u,
+  /\bCorrection bundles\s+\d+/u,
+  /\bAdditive application slots\s+\d+/u,
+  /\bCorrection application slots\s+\d+/u,
+  /\bCorrection records\s+\d+/u,
+  /\bCorrected logical IDs\s+\d+/u,
+  /\bPublic Entities\s+\d+/u,
+  /\bEntities without external links\s+\d+/u,
+  /complete inventory through maintenance\s+\d+\s+and correction\s+\d+/iu,
+];
+
+for (const pattern of forbiddenProjectStatusCountPatterns) {
+  assert(
+    !pattern.test(projectStatus),
+    `docs/project-status.md must not duplicate machine baseline counts (${pattern}).`,
+  );
+}
 
 const expectedCountKeys = [
   "f1_batches",
@@ -150,5 +192,5 @@ for (const key of expectedBoundaryKeys) {
 }
 
 console.log(
-  `Matsuri repository baseline is current: ${actualCounts.f1_batches} F1 batches, ${actualCounts.maintenance_bundles} maintenance bundles, ${actualCounts.correction_bundles} correction bundles, ${actualCounts.correction_records} correction records across ${actualCounts.corrected_logical_ids} logical IDs, and ${actualCounts.public_entities} public Entities.`,
+  `Matsuri repository baseline is current: ${actualCounts.f1_batches} F1 batches, ${actualCounts.maintenance_bundles} maintenance bundles, ${actualCounts.correction_bundles} correction bundles, ${actualCounts.correction_records} correction records across ${actualCounts.corrected_logical_ids} logical IDs, and ${actualCounts.public_entities} public Entities. Project status references the machine baseline without duplicating exact counts.`,
 );
