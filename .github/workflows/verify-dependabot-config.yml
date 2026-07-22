@@ -1,0 +1,49 @@
+name: Verify Dependabot configuration contract
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/dependabot.yml"
+      - ".github/workflows/verify-dependabot-config.yml"
+      - "scripts/dependabot-config.mjs"
+      - "scripts/check-dependabot-config.mjs"
+      - "package.json"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/dependabot.yml"
+      - ".github/workflows/verify-dependabot-config.yml"
+      - "scripts/dependabot-config.mjs"
+      - "scripts/check-dependabot-config.mjs"
+      - "package.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-dependabot-config:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Verify Dependabot configuration structure
+        run: node scripts/check-dependabot-config.mjs
+
+      - name: Write verification summary
+        if: always()
+        run: |
+          echo "## Dependabot configuration contract" >> "$GITHUB_STEP_SUMMARY"
+          echo "- GitHub Actions and npm must each have one root-scoped weekly update entry" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Schedule, directory, pull-request limit, prefix, and npm versioning strategy are checked inside the correct ecosystem block" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Misplaced settings that passed the former file-wide regex checks must fail" >> "$GITHUB_STEP_SUMMARY"
