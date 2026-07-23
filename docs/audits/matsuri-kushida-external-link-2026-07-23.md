@@ -1,6 +1,6 @@
 # Matsuri 櫛田神社 External-link Maintenance — 2026-07-23
 
-**Status:** Passed source review / hosted verification pending
+**Status:** Passed maintenance audit
 
 ## Scope
 
@@ -73,6 +73,38 @@ Entities without external links   0 -> 0
 ```
 
 `corrected_logical_ids` remains unchanged because `shr-kushida-jinja` was already corrected in an earlier bundle.
+
+## Initial hosted verification
+
+Implementation head:
+
+```text
+07016853c3571185882af75bda66bdd09f0795d2
+```
+
+Successful workflows:
+
+```text
+CI                                      29972143294
+Bundle inventory and repository baseline 29972143346
+Canonical dataset contract              29972143290
+Correction contract                     29972143263
+Future-site seed inventory              29972143281
+Future-site seed readiness              29972143279
+Jinja start-gate record                 29972143270
+Full-page screenshots                   29972143268
+```
+
+Artifacts:
+
+```text
+Release artifact      8550090239
+Release digest        sha256:645e530682c89e4633aed675d67ce385a52ae9c788657cc3475009ed1153887e
+Screenshot artifact   8550080602
+Screenshot digest     sha256:b0fa515b82fa317dda58a89b4c142d94b80b36b732d82aff0fda3f0b9551d3b5
+Seed artifact         8550063394
+Seed digest           sha256:1aff78ef251092c09b443996c1ab462c0b961132daebf866a287c44b1ed50c7e
+```
 
 ## Boundary interpretation
 
