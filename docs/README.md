@@ -52,7 +52,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `audits/matsuri-f2-p12-shared-correction-engine-2026-07-18.md` | Passed audit | One shared correction implementation for the canonical loader and HTML Public Projection |
 | `audits/matsuri-f2-p13-canonical-dataset-contract-2026-07-18.md` | Passed audit | One shared twelve-family canonical dataset assembler and duplicate-ID validation with or without corrections |
 | `audits/matsuri-kushida-jinja-identity-evidence-2026-07-20.md` | Passed maintenance audit | Dedicated 櫛田神社 Source, second direct identity Evidence, portable provenance refresh, and blocked Jinja gate verification |
-| `audits/matsuri-kushida-external-link-2026-07-23.md` | Source review passed / hosted verification pending | Complete-record correction from the festival homepage to the dedicated 櫛田神社 page |
+| `audits/matsuri-kushida-external-link-2026-07-23.md` | Passed maintenance audit | Complete-record correction from the festival homepage to the dedicated 櫛田神社 page |
 | `audits/matsuri-aso-chichibu-identity-evidence-2026-07-20.md` | Passed maintenance audit | Dedicated 阿蘇神社 and 秩父神社 Sources, second direct identity Evidence records, portable provenance refresh, and blocked Jinja gate verification |
 | `audits/matsuri-organization-source-evidence-2026-07-20.md` | Passed maintenance audit | Three organization identity Sources and Evidence records, complete-record external-link corrections, and zero remaining public Entities without external links |
 | `audits/matsuri-canonical-name-provenance-2026-07-20.md` | Passed maintenance audit | Dedicated Source linkage for four canonical Entity names, one new organization identity Source and Evidence record, and preserved launch boundaries |
