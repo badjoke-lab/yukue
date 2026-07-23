@@ -37,6 +37,7 @@ import corrections05 from "../../../../data/public/matsuri/f2/corrections-05.jso
 import corrections06 from "../../../../data/public/matsuri/f2/corrections-06.json";
 import corrections07 from "../../../../data/public/matsuri/f2/corrections-07.json";
 import corrections08 from "../../../../data/public/matsuri/f2/corrections-08.json";
+import corrections09 from "../../../../data/public/matsuri/f2/corrections-09.json";
 import { buildMatsuriCanonicalDataset } from "./matsuri-canonical-dataset.mjs";
 
 const additiveBundles = [
@@ -75,6 +76,7 @@ const correctionBundles = [
   corrections06,
   corrections07,
   corrections08,
+  corrections09,
 ];
 
 const baseDataset = {

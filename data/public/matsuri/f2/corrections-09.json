@@ -1,0 +1,64 @@
+{
+  "entities": [
+    {
+      "id": "shr-kushida-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 3,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-23T00:00:00Z",
+      "slug": "kushida-jinja-hakata",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "櫛田神社",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-hakata-schedule-2026",
+            "src-kushida-jinja-official-page"
+          ]
+        }
+      ],
+      "summary_ja": "博多祇園山笠の神事と櫛田入りの中心となる神社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "40",
+            "prefecture_name_ja": "福岡県",
+            "municipality_name_ja": "福岡市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-kushida-jinja",
+      "default_place_ids": [
+        "plc-kushida-jinja"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.hakatayamakasa.com/61866.html",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-23"
+        }
+      ],
+      "record_lifecycle": "active"
+    }
+  ],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
