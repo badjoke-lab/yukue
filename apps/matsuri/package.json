@@ -12,7 +12,7 @@
     "@badjoke-lab/yukue-observation-core": "workspace:*",
     "@badjoke-lab/yukue-search": "workspace:*",
     "@badjoke-lab/yukue-ui": "workspace:*",
-    "astro": "7.1.1"
+    "astro": "7.1.3"
   },
   "devDependencies": {
     "pagefind": "1.5.2"
