@@ -61,6 +61,7 @@ Before implementing a feature, check the relevant document here. When a decision
 | `matsuri-relation-coverage-contract.md` | Active repository contract | Strict zero-gap Relation coverage check and review boundary |
 | `audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md` | Baseline completed | Initial Occurrence, State, and external-link inventory |
 | `audits/matsuri-f2-m02-soma-outcome-2026-07-12.md` | Outcome resolved | 南相馬市 Evidence and `held` correction for 相馬野馬追 2026 |
+| `audits/matsuri-hakata-outcome-2026-07-16.md` | Outcome resolved | Official 追い山笠 result Evidence and `held` correction for 博多祇園山笠2026 |
 | `audits/matsuri-f2-m02-relation-inventory-2026-07-12.md` | Baseline completed | Initial Relation coverage inventory |
 | `audits/matsuri-f2-m02-suneori-relation-2026-07-12.md` | Maintenance batch 02 | 脚折雨乞 organization and Relation correction |
 | `audits/matsuri-f2-m02-nunobashi-relation-2026-07-12.md` | Maintenance batch 03 | 富山県［立山博物館］ Relation coverage |
