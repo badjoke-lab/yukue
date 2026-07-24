@@ -1,0 +1,54 @@
+name: Verify Matsuri relation coverage
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-relation-coverage.yml"
+      - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
+      - "apps/matsuri/src/data/matsuri-canonical-dataset.mjs"
+      - "apps/matsuri/src/data/matsuri-record-overrides.mjs"
+      - "data/public/matsuri/**"
+      - "scripts/audit-matsuri-relation-coverage.mjs"
+      - "package.json"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-relation-coverage.yml"
+      - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
+      - "apps/matsuri/src/data/matsuri-canonical-dataset.mjs"
+      - "apps/matsuri/src/data/matsuri-record-overrides.mjs"
+      - "data/public/matsuri/**"
+      - "scripts/audit-matsuri-relation-coverage.mjs"
+      - "package.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-relation-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Verify relation coverage contract
+        run: node scripts/audit-matsuri-relation-coverage.mjs --require-clean
+
+      - name: Write verification summary
+        if: always()
+        run: |
+          echo "## Matsuri relation coverage" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Specialist Entities must retain at least one reviewed Relation" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Occurrence organizer references must retain matching organized_by Relations" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Shared specialist/context Places must not lose their explicit reviewed Relation" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Every Relation must retain at least one Evidence reference" >> "$GITHUB_STEP_SUMMARY"
