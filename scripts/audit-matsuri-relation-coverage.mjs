@@ -1,6 +1,7 @@
 import { loadMatsuriDataset } from "../apps/matsuri/scripts/load-matsuri-dataset.mjs";
 
 const jsonOutput = process.argv.includes("--json");
+const requireClean = process.argv.includes("--require-clean");
 const dataset = loadMatsuriDataset();
 
 const specialistTypes = new Set(["festival", "folk_performance", "tradition_unit"]);
@@ -180,4 +181,33 @@ if (jsonOutput) {
       );
     }
   }
+
+  if (relationsMissingEvidence.length > 0) {
+    console.log("\nRelations missing Evidence:");
+    for (const candidate of relationsMissingEvidence) {
+      console.log(
+        `- ${candidate.relation_id} | ${candidate.source_entity_id} -> ${candidate.target_entity_id}`,
+      );
+    }
+  }
+}
+
+const gapCounts = {
+  zero_relation_specialists: summary.zero_relation_specialists,
+  organizer_relation_gaps: summary.organizer_relation_gaps,
+  place_context_relation_gaps: summary.place_context_relation_gaps,
+  relations_missing_evidence: summary.relations_missing_evidence,
+};
+const totalGapCount = Object.values(gapCounts).reduce((total, count) => total + count, 0);
+
+if (requireClean && totalGapCount > 0) {
+  throw new Error(
+    `Matsuri relation coverage contract failed: ${Object.entries(gapCounts)
+      .map(([name, count]) => `${name}=${count}`)
+      .join(", ")}`,
+  );
+}
+
+if (requireClean) {
+  console.log("Matsuri relation coverage contract passed with no reported gaps.");
 }
