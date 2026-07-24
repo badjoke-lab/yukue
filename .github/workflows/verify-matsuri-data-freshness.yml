@@ -1,0 +1,76 @@
+name: Verify Matsuri data freshness
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-data-freshness.yml"
+      - "apps/matsuri/**"
+      - "data/public/matsuri/**"
+      - "packages/**"
+      - "scripts/audit-matsuri-data-freshness.mjs"
+      - "scripts/verify-release.mjs"
+      - "package.json"
+      - "pnpm-lock.yaml"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-data-freshness.yml"
+      - "apps/matsuri/**"
+      - "data/public/matsuri/**"
+      - "packages/**"
+      - "scripts/audit-matsuri-data-freshness.mjs"
+      - "scripts/verify-release.mjs"
+      - "package.json"
+      - "pnpm-lock.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-data-freshness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+        with:
+          version: 11.10.0
+
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Matsuri public projection
+        run: pnpm build:matsuri:pages
+
+      - name: Verify current data freshness contract
+        run: pnpm check:matsuri:freshness
+
+      - name: Verify stale fixture is rejected
+        run: |
+          if pnpm audit:matsuri:freshness -- --as-of 2099-01-01 --require-clean; then
+            echo "Future stale fixture unexpectedly passed."
+            exit 1
+          fi
+          echo "Future stale fixture rejected as expected."
+
+      - name: Write verification summary
+        if: always()
+        run: |
+          echo "## Matsuri data freshness" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Closed unresolved Occurrences must remain at zero as of the audit day" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Current State observations older than 180 days fail the contract" >> "$GITHUB_STEP_SUMMARY"
+          echo "- External-link checks older than 180 days fail the contract" >> "$GITHUB_STEP_SUMMARY"
+          echo "- In-progress and future scheduled Occurrences remain valid and do not fail the contract" >> "$GITHUB_STEP_SUMMARY"
+          echo "- A future-date stale fixture must be rejected" >> "$GITHUB_STEP_SUMMARY"

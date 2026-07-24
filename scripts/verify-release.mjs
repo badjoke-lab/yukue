@@ -23,7 +23,9 @@ const requiredRootScripts = [
   "check:matsuri:content",
   "check:matsuri:browser",
   "audit:matsuri:freshness",
+  "check:matsuri:freshness",
   "audit:matsuri:relations",
+  "check:matsuri:relations",
 ];
 
 const missingRootScripts = requiredRootScripts.filter(
@@ -119,14 +121,14 @@ const stages = [
     args: ["verify:matsuri:pages"],
   },
   {
-    name: "Report Matsuri data freshness candidates",
+    name: "Enforce Matsuri data freshness contract",
     command: packageManagerCommand,
-    args: ["audit:matsuri:freshness"],
+    args: ["check:matsuri:freshness"],
   },
   {
-    name: "Report Matsuri Relation coverage candidates",
+    name: "Enforce Matsuri Relation coverage contract",
     command: packageManagerCommand,
-    args: ["audit:matsuri:relations"],
+    args: ["check:matsuri:relations"],
   },
   {
     name: "Validate the deployed-site verifier syntax",

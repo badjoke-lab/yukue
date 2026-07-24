@@ -62,6 +62,7 @@ const asOf = parseIsoDay(asOfText, "start");
 const stateStaleDays = Number(readOption("--state-stale-days") ?? "180");
 const linkStaleDays = Number(readOption("--link-stale-days") ?? "180");
 const jsonOnly = process.argv.includes("--json");
+const requireClean = process.argv.includes("--require-clean");
 
 if (!Number.isInteger(stateStaleDays) || stateStaleDays < 1) {
   throw new Error("--state-stale-days must be a positive integer.");
@@ -167,8 +168,12 @@ for (const bucket of Object.values(occurrenceBuckets)) {
     left.start.localeCompare(right.start) || left.id.localeCompare(right.id),
   );
 }
-staleStates.sort((left, right) => right.age_days - left.age_days || left.entity_id.localeCompare(right.entity_id));
-staleLinks.sort((left, right) => right.age_days - left.age_days || left.entity_id.localeCompare(right.entity_id));
+staleStates.sort(
+  (left, right) => right.age_days - left.age_days || left.entity_id.localeCompare(right.entity_id),
+);
+staleLinks.sort(
+  (left, right) => right.age_days - left.age_days || left.entity_id.localeCompare(right.entity_id),
+);
 
 const report = {
   format_version: 1,
@@ -220,4 +225,38 @@ if (jsonOnly) {
       `[candidate] ${candidate.id} | ${candidate.subject_name_ja} | ${candidate.start}–${candidate.end} | ${candidate.outcome}`,
     );
   }
+
+  for (const candidate of staleStates) {
+    console.log(
+      `[candidate] ${candidate.entity_id} | ${candidate.entity_name_ja} | State observed ${candidate.observed_at} | age ${candidate.age_days} days`,
+    );
+  }
+
+  for (const candidate of staleLinks) {
+    console.log(
+      `[candidate] ${candidate.entity_id} | ${candidate.entity_name_ja} | link checked ${candidate.last_checked_at} | age ${candidate.age_days} days | ${candidate.url}`,
+    );
+  }
+}
+
+const strictCounts = {
+  occurrence_closed_unresolved: report.counts.occurrence_closed_unresolved,
+  stale_current_states: report.counts.stale_current_states,
+  stale_external_links: report.counts.stale_external_links,
+};
+const strictCandidateCount = Object.values(strictCounts).reduce(
+  (total, count) => total + count,
+  0,
+);
+
+if (requireClean && strictCandidateCount > 0) {
+  throw new Error(
+    `Matsuri data freshness contract failed as of ${asOfText}: ${Object.entries(strictCounts)
+      .map(([name, count]) => `${name}=${count}`)
+      .join(", ")}`,
+  );
+}
+
+if (requireClean) {
+  console.log(`Matsuri data freshness contract passed as of ${asOfText}.`);
 }
