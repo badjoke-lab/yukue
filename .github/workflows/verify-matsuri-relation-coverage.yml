@@ -42,7 +42,7 @@ jobs:
           node-version: 24
 
       - name: Verify relation coverage contract and negative fixtures
-        run: pnpm check:matsuri:relations
+        run: node scripts/audit-matsuri-relation-coverage.mjs --require-clean --verify-fixtures
 
       - name: Write verification summary
         if: always()
