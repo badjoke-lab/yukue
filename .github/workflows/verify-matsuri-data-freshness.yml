@@ -54,16 +54,8 @@ jobs:
       - name: Build Matsuri public projection
         run: pnpm build:matsuri:pages
 
-      - name: Verify current data freshness contract
+      - name: Verify current data freshness contract and negative fixtures
         run: pnpm check:matsuri:freshness
-
-      - name: Verify stale fixture is rejected
-        run: |
-          if pnpm audit:matsuri:freshness -- --as-of 2099-01-01 --require-clean; then
-            echo "Future stale fixture unexpectedly passed."
-            exit 1
-          fi
-          echo "Future stale fixture rejected as expected."
 
       - name: Write verification summary
         if: always()
@@ -73,4 +65,4 @@ jobs:
           echo "- Current State observations older than 180 days fail the contract" >> "$GITHUB_STEP_SUMMARY"
           echo "- External-link checks older than 180 days fail the contract" >> "$GITHUB_STEP_SUMMARY"
           echo "- In-progress and future scheduled Occurrences remain valid and do not fail the contract" >> "$GITHUB_STEP_SUMMARY"
-          echo "- A future-date stale fixture must be rejected" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Three category-specific synthetic fixtures must each be detected and rejected" >> "$GITHUB_STEP_SUMMARY"
