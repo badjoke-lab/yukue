@@ -41,8 +41,8 @@ jobs:
         with:
           node-version: 24
 
-      - name: Verify relation coverage contract
-        run: node scripts/audit-matsuri-relation-coverage.mjs --require-clean
+      - name: Verify relation coverage contract and negative fixtures
+        run: node scripts/audit-matsuri-relation-coverage.mjs --require-clean --verify-fixtures
 
       - name: Write verification summary
         if: always()
@@ -52,3 +52,4 @@ jobs:
           echo "- Occurrence organizer references must retain matching organized_by Relations" >> "$GITHUB_STEP_SUMMARY"
           echo "- Shared specialist/context Places must not lose their explicit reviewed Relation" >> "$GITHUB_STEP_SUMMARY"
           echo "- Every Relation must retain at least one Evidence reference" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Four synthetic negative fixtures must each be detected and rejected" >> "$GITHUB_STEP_SUMMARY"
