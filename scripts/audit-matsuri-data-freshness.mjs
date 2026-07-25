@@ -38,6 +38,10 @@ function formatDay(date) {
   return date.toISOString().slice(0, 10);
 }
 
+function shiftDay(date, amount) {
+  return new Date(date.getTime() + amount * 86_400_000);
+}
+
 function daysBetween(earlier, later) {
   return Math.floor((later.getTime() - earlier.getTime()) / 86_400_000);
 }
@@ -54,15 +58,337 @@ function readFeed(name) {
   return feed;
 }
 
+function buildFreshnessReport({
+  occurrenceFeed,
+  entityFeed,
+  asOfText,
+  stateStaleDays,
+  linkStaleDays,
+}) {
+  const asOf = parseIsoDay(asOfText, "start");
+  const entities = new Map(entityFeed.records.map((record) => [record.id, record]));
+
+  function entityName(entityId) {
+    const entity = entities.get(entityId);
+    const preferred = entity?.names?.find(
+      (name) => name.lang === "ja" && name.kind === "canonical" && name.is_preferred,
+    );
+    return preferred?.value ?? entityId;
+  }
+
+  const unresolvedOutcomes = new Set(["scheduled", "unknown"]);
+  const occurrenceBuckets = {
+    closed_unresolved: [],
+    in_progress: [],
+    future: [],
+    resolved: [],
+  };
+
+  for (const occurrence of occurrenceFeed.records) {
+    const startText = occurrence.temporal_extent?.start;
+    const endText = occurrence.temporal_extent?.end ?? startText;
+    const start = parseIsoDay(startText, "start");
+    const end = parseIsoDay(endText, "end");
+
+    if (end < start) {
+      throw new Error(`Occurrence ${occurrence.id} ends before it starts.`);
+    }
+
+    const item = {
+      id: occurrence.id,
+      subject_entity_id: occurrence.subject_entity_id,
+      subject_name_ja: entityName(occurrence.subject_entity_id),
+      start: startText,
+      end: endText,
+      outcome: occurrence.outcome,
+      scale: occurrence.scale,
+      evidence_ids: occurrence.evidence_ids ?? [],
+    };
+
+    if (!unresolvedOutcomes.has(occurrence.outcome)) {
+      occurrenceBuckets.resolved.push(item);
+    } else if (end < asOf) {
+      occurrenceBuckets.closed_unresolved.push(item);
+    } else if (start <= asOf && asOf <= end) {
+      occurrenceBuckets.in_progress.push(item);
+    } else {
+      occurrenceBuckets.future.push(item);
+    }
+  }
+
+  const staleStates = [];
+  const staleLinks = [];
+  let currentStateCount = 0;
+  let checkedLinkCount = 0;
+
+  for (const entity of entityFeed.records) {
+    if (entity.current_state?.observed_at) {
+      currentStateCount += 1;
+      const observedAt = parseIsoDay(entity.current_state.observed_at, "start");
+      const ageDays = daysBetween(observedAt, asOf);
+      if (ageDays > stateStaleDays) {
+        staleStates.push({
+          entity_id: entity.id,
+          entity_name_ja: entityName(entity.id),
+          state_code: entity.current_state.state_code,
+          observed_at: entity.current_state.observed_at,
+          age_days: ageDays,
+          basis_evidence_ids: entity.current_state.basis_evidence_ids ?? [],
+        });
+      }
+    }
+
+    for (const link of entity.external_links ?? []) {
+      if (!link.last_checked_at) continue;
+      checkedLinkCount += 1;
+      const checkedAt = parseIsoDay(link.last_checked_at, "start");
+      const ageDays = daysBetween(checkedAt, asOf);
+      if (ageDays > linkStaleDays) {
+        staleLinks.push({
+          entity_id: entity.id,
+          entity_name_ja: entityName(entity.id),
+          url: link.url,
+          kind: link.kind,
+          last_checked_at: link.last_checked_at,
+          age_days: ageDays,
+        });
+      }
+    }
+  }
+
+  for (const bucket of Object.values(occurrenceBuckets)) {
+    bucket.sort((left, right) =>
+      left.start.localeCompare(right.start) || left.id.localeCompare(right.id),
+    );
+  }
+  staleStates.sort(
+    (left, right) =>
+      right.age_days - left.age_days || left.entity_id.localeCompare(right.entity_id),
+  );
+  staleLinks.sort(
+    (left, right) =>
+      right.age_days - left.age_days || left.entity_id.localeCompare(right.entity_id),
+  );
+
+  return {
+    format_version: 1,
+    project_id: occurrenceFeed.project_id,
+    site_id: occurrenceFeed.site_id,
+    dataset_version: occurrenceFeed.dataset_version,
+    schema_version: occurrenceFeed.schema_version,
+    as_of: asOfText,
+    thresholds: {
+      state_stale_days: stateStaleDays,
+      link_stale_days: linkStaleDays,
+    },
+    counts: {
+      occurrences_total: occurrenceFeed.records.length,
+      occurrence_closed_unresolved: occurrenceBuckets.closed_unresolved.length,
+      occurrence_in_progress: occurrenceBuckets.in_progress.length,
+      occurrence_future: occurrenceBuckets.future.length,
+      occurrence_resolved: occurrenceBuckets.resolved.length,
+      entities_total: entityFeed.records.length,
+      current_states_checked: currentStateCount,
+      stale_current_states: staleStates.length,
+      external_links_checked: checkedLinkCount,
+      stale_external_links: staleLinks.length,
+    },
+    candidates: {
+      occurrence_closed_unresolved: occurrenceBuckets.closed_unresolved,
+      occurrence_in_progress: occurrenceBuckets.in_progress,
+      occurrence_future: occurrenceBuckets.future,
+      stale_current_states: staleStates,
+      stale_external_links: staleLinks,
+    },
+  };
+}
+
+function printReport(report) {
+  console.log(`Matsuri data freshness audit as of ${report.as_of}`);
+  console.log(`Dataset: ${report.dataset_version}; schema: ${report.schema_version}`);
+  console.log(`Occurrences: ${report.counts.occurrences_total}`);
+  console.log(`- closed unresolved: ${report.counts.occurrence_closed_unresolved}`);
+  console.log(`- in progress: ${report.counts.occurrence_in_progress}`);
+  console.log(`- future unresolved: ${report.counts.occurrence_future}`);
+  console.log(`- resolved: ${report.counts.occurrence_resolved}`);
+  console.log(
+    `Current states checked: ${report.counts.current_states_checked}; stale: ${report.counts.stale_current_states}`,
+  );
+  console.log(
+    `External links checked: ${report.counts.external_links_checked}; stale: ${report.counts.stale_external_links}`,
+  );
+
+  for (const candidate of report.candidates.occurrence_closed_unresolved) {
+    console.log(
+      `[candidate] ${candidate.id} | ${candidate.subject_name_ja} | ${candidate.start}–${candidate.end} | ${candidate.outcome}`,
+    );
+  }
+
+  for (const candidate of report.candidates.stale_current_states) {
+    console.log(
+      `[candidate] ${candidate.entity_id} | ${candidate.entity_name_ja} | State observed ${candidate.observed_at} | age ${candidate.age_days} days`,
+    );
+  }
+
+  for (const candidate of report.candidates.stale_external_links) {
+    console.log(
+      `[candidate] ${candidate.entity_id} | ${candidate.entity_name_ja} | link checked ${candidate.last_checked_at} | age ${candidate.age_days} days | ${candidate.url}`,
+    );
+  }
+}
+
+function strictCounts(report) {
+  return {
+    occurrence_closed_unresolved: report.counts.occurrence_closed_unresolved,
+    stale_current_states: report.counts.stale_current_states,
+    stale_external_links: report.counts.stale_external_links,
+  };
+}
+
+function assertFreshnessClean(report, label = `as of ${report.as_of}`) {
+  const counts = strictCounts(report);
+  const candidateCount = Object.values(counts).reduce((total, count) => total + count, 0);
+
+  if (candidateCount > 0) {
+    throw new Error(
+      `Matsuri data freshness contract failed ${label}: ${Object.entries(counts)
+        .map(([name, count]) => `${name}=${count}`)
+        .join(", ")}`,
+    );
+  }
+}
+
+function assertFixtureRejected({ name, expectedCountKey, baselineReport, fixtureReport }) {
+  if (fixtureReport.counts[expectedCountKey] <= baselineReport.counts[expectedCountKey]) {
+    throw new Error(
+      `Freshness fixture ${name} did not increase ${expectedCountKey}: ` +
+        `${baselineReport.counts[expectedCountKey]} -> ${fixtureReport.counts[expectedCountKey]}`,
+    );
+  }
+
+  let rejected = false;
+  try {
+    assertFreshnessClean(fixtureReport, `for fixture ${name}`);
+  } catch {
+    rejected = true;
+  }
+
+  if (!rejected) {
+    throw new Error(`Freshness fixture ${name} unexpectedly passed the strict contract.`);
+  }
+
+  console.log(
+    `[fixture] ${name} rejected as expected: ${expectedCountKey}=${fixtureReport.counts[expectedCountKey]}`,
+  );
+}
+
+function verifyNegativeFixtures({
+  occurrenceFeed,
+  entityFeed,
+  baselineReport,
+  asOfText,
+  stateStaleDays,
+  linkStaleDays,
+}) {
+  const asOf = parseIsoDay(asOfText, "start");
+
+  const unresolvedOccurrence = occurrenceFeed.records.find((occurrence) =>
+    ["scheduled", "unknown"].includes(occurrence.outcome),
+  );
+  if (!unresolvedOccurrence) {
+    throw new Error(
+      "Cannot construct closed-unresolved fixture: no scheduled or unknown Occurrence exists.",
+    );
+  }
+  const closedOccurrenceFeed = structuredClone(occurrenceFeed);
+  const closedOccurrence = closedOccurrenceFeed.records.find(
+    (occurrence) => occurrence.id === unresolvedOccurrence.id,
+  );
+  const closedDay = formatDay(shiftDay(asOf, -1));
+  closedOccurrence.temporal_extent = {
+    ...closedOccurrence.temporal_extent,
+    start: closedDay,
+    end: closedDay,
+  };
+  const closedOccurrenceReport = buildFreshnessReport({
+    occurrenceFeed: closedOccurrenceFeed,
+    entityFeed,
+    asOfText,
+    stateStaleDays,
+    linkStaleDays,
+  });
+  assertFixtureRejected({
+    name: "closed-unresolved-occurrence",
+    expectedCountKey: "occurrence_closed_unresolved",
+    baselineReport,
+    fixtureReport: closedOccurrenceReport,
+  });
+
+  const stateEntity = entityFeed.records.find((entity) => entity.current_state?.observed_at);
+  if (!stateEntity) {
+    throw new Error("Cannot construct stale-State fixture: no Current State observation exists.");
+  }
+  const staleStateEntityFeed = structuredClone(entityFeed);
+  const staleStateEntity = staleStateEntityFeed.records.find(
+    (entity) => entity.id === stateEntity.id,
+  );
+  staleStateEntity.current_state.observed_at = formatDay(
+    shiftDay(asOf, -(stateStaleDays + 1)),
+  );
+  const staleStateReport = buildFreshnessReport({
+    occurrenceFeed,
+    entityFeed: staleStateEntityFeed,
+    asOfText,
+    stateStaleDays,
+    linkStaleDays,
+  });
+  assertFixtureRejected({
+    name: "stale-current-state",
+    expectedCountKey: "stale_current_states",
+    baselineReport,
+    fixtureReport: staleStateReport,
+  });
+
+  const linkEntity = entityFeed.records.find((entity) =>
+    (entity.external_links ?? []).some((link) => link.last_checked_at),
+  );
+  if (!linkEntity) {
+    throw new Error(
+      "Cannot construct stale-link fixture: no external link with last_checked_at exists.",
+    );
+  }
+  const staleLinkEntityFeed = structuredClone(entityFeed);
+  const staleLinkEntity = staleLinkEntityFeed.records.find(
+    (entity) => entity.id === linkEntity.id,
+  );
+  const staleLink = staleLinkEntity.external_links.find((link) => link.last_checked_at);
+  staleLink.last_checked_at = formatDay(shiftDay(asOf, -(linkStaleDays + 1)));
+  const staleLinkReport = buildFreshnessReport({
+    occurrenceFeed,
+    entityFeed: staleLinkEntityFeed,
+    asOfText,
+    stateStaleDays,
+    linkStaleDays,
+  });
+  assertFixtureRejected({
+    name: "stale-external-link",
+    expectedCountKey: "stale_external_links",
+    baselineReport,
+    fixtureReport: staleLinkReport,
+  });
+
+  console.log("Matsuri data freshness negative fixtures passed: 3 / 3 rejected.");
+}
+
 const asOfText = readOption("--as-of") ?? new Date().toISOString().slice(0, 10);
 if (!/^\d{4}-\d{2}-\d{2}$/u.test(asOfText)) {
   throw new Error("--as-of must use YYYY-MM-DD.");
 }
-const asOf = parseIsoDay(asOfText, "start");
 const stateStaleDays = Number(readOption("--state-stale-days") ?? "180");
 const linkStaleDays = Number(readOption("--link-stale-days") ?? "180");
 const jsonOnly = process.argv.includes("--json");
 const requireClean = process.argv.includes("--require-clean");
+const verifyFixtures = process.argv.includes("--verify-fixtures");
 
 if (!Number.isInteger(stateStaleDays) || stateStaleDays < 1) {
   throw new Error("--state-stale-days must be a positive integer.");
@@ -70,193 +396,41 @@ if (!Number.isInteger(stateStaleDays) || stateStaleDays < 1) {
 if (!Number.isInteger(linkStaleDays) || linkStaleDays < 1) {
   throw new Error("--link-stale-days must be a positive integer.");
 }
+if (jsonOnly && verifyFixtures) {
+  throw new Error("--json and --verify-fixtures cannot be used together.");
+}
+if (verifyFixtures && !requireClean) {
+  throw new Error("--verify-fixtures requires --require-clean.");
+}
 
 const occurrenceFeed = readFeed("occurrences.json");
 const entityFeed = readFeed("entities.json");
-const entities = new Map(entityFeed.records.map((record) => [record.id, record]));
-
-function entityName(entityId) {
-  const entity = entities.get(entityId);
-  const preferred = entity?.names?.find(
-    (name) => name.lang === "ja" && name.kind === "canonical" && name.is_preferred,
-  );
-  return preferred?.value ?? entityId;
-}
-
-const unresolvedOutcomes = new Set(["scheduled", "unknown"]);
-const occurrenceBuckets = {
-  closed_unresolved: [],
-  in_progress: [],
-  future: [],
-  resolved: [],
-};
-
-for (const occurrence of occurrenceFeed.records) {
-  const startText = occurrence.temporal_extent?.start;
-  const endText = occurrence.temporal_extent?.end ?? startText;
-  const start = parseIsoDay(startText, "start");
-  const end = parseIsoDay(endText, "end");
-
-  if (end < start) {
-    throw new Error(`Occurrence ${occurrence.id} ends before it starts.`);
-  }
-
-  const item = {
-    id: occurrence.id,
-    subject_entity_id: occurrence.subject_entity_id,
-    subject_name_ja: entityName(occurrence.subject_entity_id),
-    start: startText,
-    end: endText,
-    outcome: occurrence.outcome,
-    scale: occurrence.scale,
-    evidence_ids: occurrence.evidence_ids ?? [],
-  };
-
-  if (!unresolvedOutcomes.has(occurrence.outcome)) {
-    occurrenceBuckets.resolved.push(item);
-  } else if (end < asOf) {
-    occurrenceBuckets.closed_unresolved.push(item);
-  } else if (start <= asOf && asOf <= end) {
-    occurrenceBuckets.in_progress.push(item);
-  } else {
-    occurrenceBuckets.future.push(item);
-  }
-}
-
-const staleStates = [];
-const staleLinks = [];
-let currentStateCount = 0;
-let checkedLinkCount = 0;
-
-for (const entity of entityFeed.records) {
-  if (entity.current_state?.observed_at) {
-    currentStateCount += 1;
-    const observedAt = parseIsoDay(entity.current_state.observed_at, "start");
-    const ageDays = daysBetween(observedAt, asOf);
-    if (ageDays > stateStaleDays) {
-      staleStates.push({
-        entity_id: entity.id,
-        entity_name_ja: entityName(entity.id),
-        state_code: entity.current_state.state_code,
-        observed_at: entity.current_state.observed_at,
-        age_days: ageDays,
-        basis_evidence_ids: entity.current_state.basis_evidence_ids ?? [],
-      });
-    }
-  }
-
-  for (const link of entity.external_links ?? []) {
-    if (!link.last_checked_at) continue;
-    checkedLinkCount += 1;
-    const checkedAt = parseIsoDay(link.last_checked_at, "start");
-    const ageDays = daysBetween(checkedAt, asOf);
-    if (ageDays > linkStaleDays) {
-      staleLinks.push({
-        entity_id: entity.id,
-        entity_name_ja: entityName(entity.id),
-        url: link.url,
-        kind: link.kind,
-        last_checked_at: link.last_checked_at,
-        age_days: ageDays,
-      });
-    }
-  }
-}
-
-for (const bucket of Object.values(occurrenceBuckets)) {
-  bucket.sort((left, right) =>
-    left.start.localeCompare(right.start) || left.id.localeCompare(right.id),
-  );
-}
-staleStates.sort(
-  (left, right) => right.age_days - left.age_days || left.entity_id.localeCompare(right.entity_id),
-);
-staleLinks.sort(
-  (left, right) => right.age_days - left.age_days || left.entity_id.localeCompare(right.entity_id),
-);
-
-const report = {
-  format_version: 1,
-  project_id: occurrenceFeed.project_id,
-  site_id: occurrenceFeed.site_id,
-  dataset_version: occurrenceFeed.dataset_version,
-  schema_version: occurrenceFeed.schema_version,
-  as_of: asOfText,
-  thresholds: {
-    state_stale_days: stateStaleDays,
-    link_stale_days: linkStaleDays,
-  },
-  counts: {
-    occurrences_total: occurrenceFeed.records.length,
-    occurrence_closed_unresolved: occurrenceBuckets.closed_unresolved.length,
-    occurrence_in_progress: occurrenceBuckets.in_progress.length,
-    occurrence_future: occurrenceBuckets.future.length,
-    occurrence_resolved: occurrenceBuckets.resolved.length,
-    entities_total: entityFeed.records.length,
-    current_states_checked: currentStateCount,
-    stale_current_states: staleStates.length,
-    external_links_checked: checkedLinkCount,
-    stale_external_links: staleLinks.length,
-  },
-  candidates: {
-    occurrence_closed_unresolved: occurrenceBuckets.closed_unresolved,
-    occurrence_in_progress: occurrenceBuckets.in_progress,
-    occurrence_future: occurrenceBuckets.future,
-    stale_current_states: staleStates,
-    stale_external_links: staleLinks,
-  },
-};
+const report = buildFreshnessReport({
+  occurrenceFeed,
+  entityFeed,
+  asOfText,
+  stateStaleDays,
+  linkStaleDays,
+});
 
 if (jsonOnly) {
   process.stdout.write(`${JSON.stringify(report, null, 2)}\n`);
 } else {
-  console.log(`Matsuri data freshness audit as of ${asOfText}`);
-  console.log(`Dataset: ${report.dataset_version}; schema: ${report.schema_version}`);
-  console.log(`Occurrences: ${report.counts.occurrences_total}`);
-  console.log(`- closed unresolved: ${report.counts.occurrence_closed_unresolved}`);
-  console.log(`- in progress: ${report.counts.occurrence_in_progress}`);
-  console.log(`- future unresolved: ${report.counts.occurrence_future}`);
-  console.log(`- resolved: ${report.counts.occurrence_resolved}`);
-  console.log(`Current states checked: ${currentStateCount}; stale: ${staleStates.length}`);
-  console.log(`External links checked: ${checkedLinkCount}; stale: ${staleLinks.length}`);
-
-  for (const candidate of occurrenceBuckets.closed_unresolved) {
-    console.log(
-      `[candidate] ${candidate.id} | ${candidate.subject_name_ja} | ${candidate.start}–${candidate.end} | ${candidate.outcome}`,
-    );
-  }
-
-  for (const candidate of staleStates) {
-    console.log(
-      `[candidate] ${candidate.entity_id} | ${candidate.entity_name_ja} | State observed ${candidate.observed_at} | age ${candidate.age_days} days`,
-    );
-  }
-
-  for (const candidate of staleLinks) {
-    console.log(
-      `[candidate] ${candidate.entity_id} | ${candidate.entity_name_ja} | link checked ${candidate.last_checked_at} | age ${candidate.age_days} days | ${candidate.url}`,
-    );
-  }
-}
-
-const strictCounts = {
-  occurrence_closed_unresolved: report.counts.occurrence_closed_unresolved,
-  stale_current_states: report.counts.stale_current_states,
-  stale_external_links: report.counts.stale_external_links,
-};
-const strictCandidateCount = Object.values(strictCounts).reduce(
-  (total, count) => total + count,
-  0,
-);
-
-if (requireClean && strictCandidateCount > 0) {
-  throw new Error(
-    `Matsuri data freshness contract failed as of ${asOfText}: ${Object.entries(strictCounts)
-      .map(([name, count]) => `${name}=${count}`)
-      .join(", ")}`,
-  );
+  printReport(report);
 }
 
 if (requireClean) {
+  assertFreshnessClean(report);
   console.log(`Matsuri data freshness contract passed as of ${asOfText}.`);
+}
+
+if (verifyFixtures) {
+  verifyNegativeFixtures({
+    occurrenceFeed,
+    entityFeed,
+    baselineReport: report,
+    asOfText,
+    stateStaleDays,
+    linkStaleDays,
+  });
 }
