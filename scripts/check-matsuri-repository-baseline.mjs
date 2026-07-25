@@ -13,6 +13,11 @@ import {
 const repositoryRoot = fileURLToPath(new URL("../", import.meta.url));
 const f2Directory = path.join(repositoryRoot, "data", "public", "matsuri", "f2");
 const projectStatusPath = path.join(repositoryRoot, "docs", "project-status.md");
+const baselineDocumentPath = path.join(
+  repositoryRoot,
+  "docs",
+  "matsuri-repository-baseline.md",
+);
 
 function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(repositoryRoot, relativePath), "utf8"));
@@ -20,6 +25,16 @@ function readJson(relativePath) {
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
+}
+
+function parseIsoDay(value) {
+  if (typeof value !== "string") return null;
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/u.exec(value);
+  if (!match) return null;
+
+  const [, yearText, monthText, dayText] = match;
+  const date = new Date(Date.UTC(Number(yearText), Number(monthText) - 1, Number(dayText)));
+  return date.toISOString().slice(0, 10) === value ? date : null;
 }
 
 function assertExactKeys(record, expectedKeys, label) {
@@ -35,14 +50,15 @@ const baseline = readJson("config/matsuri-repository-baseline.json");
 const analytics = readJson("config/matsuri-analytics-activation.json");
 const jinjaGate = readJson("config/jinja-start-gate.json");
 const projectStatus = fs.readFileSync(projectStatusPath, "utf8");
+const baselineDocument = fs.readFileSync(baselineDocumentPath, "utf8");
 
 assert(
   baseline.schema_version === "matsuri.repository-baseline.v1",
   "Matsuri repository baseline schema_version must be matsuri.repository-baseline.v1.",
 );
 assert(
-  /^\d{4}-\d{2}-\d{2}$/u.test(baseline.observed_on),
-  "Matsuri repository baseline observed_on must use YYYY-MM-DD.",
+  parseIsoDay(baseline.observed_on),
+  "Matsuri repository baseline observed_on must use a valid YYYY-MM-DD calendar day.",
 );
 assert(
   baseline.status === "repository-maintenance-current",
@@ -56,7 +72,10 @@ assert(
   projectStatusUpdatedMatch,
   "docs/project-status.md must declare a YYYY-MM-DD Last updated date.",
 );
-
+assert(
+  parseIsoDay(projectStatusUpdatedMatch?.[1]),
+  "docs/project-status.md Last updated must use a valid YYYY-MM-DD calendar day.",
+);
 for (const marker of [
   "config/matsuri-repository-baseline.json",
   "docs/matsuri-repository-baseline.md",
@@ -69,7 +88,18 @@ for (const marker of [
   );
 }
 
-const forbiddenProjectStatusCountPatterns = [
+for (const marker of [
+  "config/matsuri-repository-baseline.json",
+  "docs/project-status.md",
+  "does not repeat the current count or boundary values",
+]) {
+  assert(
+    baselineDocument.includes(marker),
+    `docs/matsuri-repository-baseline.md must retain marker ${JSON.stringify(marker)}.`,
+  );
+}
+
+const forbiddenNarrativeCountPatterns = [
   /\bF1 batches\s+\d+/u,
   /\bMaintenance bundles\s+\d+/u,
   /\bCorrection bundles\s+\d+/u,
@@ -82,11 +112,16 @@ const forbiddenProjectStatusCountPatterns = [
   /complete inventory through maintenance\s+\d+\s+and correction\s+\d+/iu,
 ];
 
-for (const pattern of forbiddenProjectStatusCountPatterns) {
-  assert(
-    !pattern.test(projectStatus),
-    `docs/project-status.md must not duplicate machine baseline counts (${pattern}).`,
-  );
+for (const [relativePath, document] of [
+  ["docs/project-status.md", projectStatus],
+  ["docs/matsuri-repository-baseline.md", baselineDocument],
+]) {
+  for (const pattern of forbiddenNarrativeCountPatterns) {
+    assert(
+      !pattern.test(document),
+      `${relativePath} must not duplicate machine baseline counts (${pattern}).`,
+    );
+  }
 }
 
 const expectedCountKeys = [
@@ -192,5 +227,5 @@ for (const key of expectedBoundaryKeys) {
 }
 
 console.log(
-  `Matsuri repository baseline is current: ${actualCounts.f1_batches} F1 batches, ${actualCounts.maintenance_bundles} maintenance bundles, ${actualCounts.correction_bundles} correction bundles, ${actualCounts.correction_records} correction records across ${actualCounts.corrected_logical_ids} logical IDs, and ${actualCounts.public_entities} public Entities. Project status references the machine baseline without duplicating exact counts.`,
+  `Matsuri repository baseline is current as of ${baseline.observed_on}: ${actualCounts.f1_batches} F1 batches, ${actualCounts.maintenance_bundles} maintenance bundles, ${actualCounts.correction_bundles} correction bundles, ${actualCounts.correction_records} correction records across ${actualCounts.corrected_logical_ids} logical IDs, and ${actualCounts.public_entities} public Entities. Narrative status documents reference the machine baseline without duplicating exact counts.`,
 );
