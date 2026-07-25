@@ -68,5 +68,6 @@ jobs:
           echo "- Canonical loader and HTML Public Projection must enumerate the same F1 batches, maintenance batches, and correction bundles" >> "$GITHUB_STEP_SUMMARY"
           echo "- additiveBundles must preserve F1-then-maintenance order and correctionBundles must preserve declared correction order" >> "$GITHUB_STEP_SUMMARY"
           echo "- Current counts and blocked Analytics/Jinja boundaries must match the machine baseline" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Project status must reference the machine baseline without duplicating exact current count tables" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Narrative status documents must reference the machine baseline without duplicating exact current count tables" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Baseline observed_on and Project Status Last updated markers must be valid calendar days" >> "$GITHUB_STEP_SUMMARY"
           echo "- Missing, extra, duplicate, nonexistent, reordered, stale, or malformed references fail the check" >> "$GITHUB_STEP_SUMMARY"
