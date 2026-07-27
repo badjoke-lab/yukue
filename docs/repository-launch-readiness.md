@@ -1,14 +1,10 @@
 # Repository Launch Readiness
 
-**Status:** Repository gate completed / external verification completed through F2-24 / Analytics owner access pending
+**Status:** Repository gate completed / external verification completed through F2-26 / F2-27 active
 
 ## Decision
 
-`祭のゆくえ` has completed repository readiness, canonical deployment verification, interactive browser Search verification, crawler-reachability verification, and the recorded Search Console sitemap-submission and technical-indexability gate.
-
-The repository gate covers canonical data, Public Projection, static output, Search artifacts, machine-readable files, semantic and Evidence rules, browser and accessibility checks, release-candidate integrity, deployment topology, Custom Domain configuration, canonical-origin evidence, Search evidence, crawler evidence, and the sanitized F2-24 submission record.
-
-It does not prove search-engine indexation, Web Analytics activation, production traffic verification, or final launch completion.
+`祭のゆくえ` has completed repository readiness, canonical deployment verification, interactive browser Search verification, crawler reachability, Search Console submission and technical-indexability evidence, Cloudflare Web Analytics activation, and the post-activation production deployment.
 
 ## Gate command
 
@@ -23,64 +19,40 @@ Canonical origin             https://matsuri-yukue.badjoke-lab.com
 Worker                       matsuri-yukue
 Canonical origin run         29191904624 — success
 Canonical Search run         29193201911 — success
-Search artifact ID           8260207484
 Crawler reachability run     29230233384 — success
-Crawler artifact ID          8271238535
 F2-24 technical preflight    29232294960 — success
-Search Console sitemap       success
-Discovered pages             20
-Representative live test     indexable
-Representative requests      3 submitted
+F2-25 observation            2026-07-27T09:37:29Z
+F2-26 source commit          108ac4e88407e1263229eb40bc88d76855e90131
+F2-26 Cloudflare build       7026144e-1ce0-4927-9060-64919c3a4002
+F2-26 deployed at            2026-07-27T10:34:17Z
 Indexation claimed           false
 ```
 
-Evidence:
+F2-26 evidence:
 
 ```text
-docs/audits/matsuri-f2-20-canonical-activation-2026-07-12.md
-docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md
-docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md
-docs/audits/matsuri-f2-24-search-console-2026-07-14.md
+docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md
 ```
 
 ## Required passing state
 
-The repository gate requires:
-
-- accepted portal and specialist-site topology,
-- separate Worker and hostname identities,
-- no specialist-site path nesting,
-- verified canonical origin and Custom Domain configuration,
-- canonical and origin-neutral artifact consistency,
-- required routes, local assets, and internal links,
-- sitemap, JSON, Status, State pages, and Pagefind consistency,
-- semantic, Source, Evidence, content, responsive, accessibility, and screenshot baselines,
-- successful desktop and mobile canonical Search evidence,
-- robots, sitemap discovery, self-canonical, indexing-directive, User-Agent, and public-discovery-file evidence,
-- sanitized Search Console sitemap-submission and representative indexability evidence,
-- completed external work through F2-24,
-- a valid Analytics progression record that remains pending while owner access is unavailable,
-- an active guard against premature Jinja implementation.
+The repository gate requires accepted topology, separate Worker identities, verified canonical origin, reproducible origin-neutral and production artifacts, route and asset integrity, Pagefind and machine-readable consistency, semantic and Evidence rules, browser/accessibility checks, Search/crawler/Search Console evidence, completed F2-25 and F2-26 Analytics progression, and an active guard against premature Jinja implementation.
 
 ## Completed external activation and verification
 
 ```text
-F2-16 through F2-24 — completed
+F2-16 through F2-26 — completed
 ```
 
-F2-24 records successful sitemap acceptance, 20 discovered pages, a representative live test that was technically indexable, and three submitted indexing requests. These facts are not represented as proof that any URL is indexed.
+The first deploy API call for F2-26 returned a transient provider-side 503 after successful build and asset upload. Retrying the same source build succeeded. This is not represented as a source-code failure.
 
 ## Remaining external sequence
 
 ```text
-F2-25  Cloudflare Web Analytics activation — owner access pending
-F2-26  post-activation deployment — blocked by F2-25
-F2-27  production traffic verification — blocked by F2-26
+F2-27  production traffic verification — active
 F2-28  final F2 Launch Gate — blocked by F2-27
 ```
 
-F2-25, F2-26, and F2-27 are separate facts. An enabled setting does not prove a post-activation deployment or traffic receipt.
+F2-27 requires private-dashboard confirmation after visiting the representative canonical routes. Public evidence must not publish raw metrics, account identity, geography, referrers, device details, tokens, visitor-level data, or dashboard screenshots.
 
-## Maintenance
-
-Keep reviewed data fresh, preserve passing gates, regenerate the release candidate after public changes, and capture screenshots for non-trivial UI changes. Stats, Compare, dynamic API, MCP, paid API, D1 canonical storage, and real-time ingestion remain outside the MVP unless separately approved.
+F2-28 must not claim search-engine indexation.
