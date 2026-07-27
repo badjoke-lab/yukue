@@ -5,6 +5,7 @@ import { loadMatsuriDataset } from "../apps/matsuri/scripts/load-matsuri-dataset
 
 const repositoryRoot = fileURLToPath(new URL("../", import.meta.url));
 const recordPath = path.join(repositoryRoot, "config", "jinja-start-gate.json");
+const stabilizationPath = path.join(repositoryRoot, "config", "matsuri-stabilization-review.json");
 const projectStatusPath = path.join(repositoryRoot, "docs", "project-status.md");
 const packagePath = path.join(repositoryRoot, "package.json");
 const forbiddenKeys = new Set([
@@ -70,6 +71,7 @@ function deploymentConfigFiles(directory) {
 }
 
 const record = JSON.parse(fs.readFileSync(recordPath, "utf8"));
+const stabilization = JSON.parse(fs.readFileSync(stabilizationPath, "utf8"));
 inspectPrivacy(record);
 assert(record.format_version === 1, "Unexpected Jinja start-gate format_version");
 assert(record.site_id === "jinja", "Unexpected Jinja start-gate site_id");
@@ -78,13 +80,21 @@ assert(
   record.status === "blocked-by-post-launch-prerequisites",
   `Unexpected Jinja start-gate status: ${String(record.status)}`,
 );
+assert(
+  record.matsuri_stabilization_record === "config/matsuri-stabilization-review.json",
+  "Jinja start gate must reference the Matsuri stabilization record",
+);
 
 assert(
   record.prerequisites?.matsuri_f2_28_complete === true,
   "Post-launch Jinja gate requires Matsuri F2-28 completion",
 );
+assert(
+  record.prerequisites?.matsuri_stabilization_review_complete ===
+    stabilization.claims?.jinja_stabilization_prerequisite_complete,
+  "Jinja stabilization prerequisite must match the Matsuri stabilization record",
+);
 for (const key of [
-  "matsuri_stabilization_review_complete",
   "portal_jinja_order_decided",
   "jinja_state_spec_approved",
   "explicit_start_authorization",
@@ -129,6 +139,13 @@ assert(
   "Project status does not record F2-28 completion",
 );
 assert(projectStatus.includes("Phase 10 Stabilization — active"), "Project status does not record stabilization");
+const expectedStabilizationMarker = stabilization.claims?.review_complete
+  ? "Matsuri stabilization review — completed"
+  : "Matsuri stabilization review — observing";
+assert(
+  projectStatus.includes(expectedStabilizationMarker),
+  `Project status is missing ${expectedStabilizationMarker}`,
+);
 assert(projectStatus.includes("Actual Jinja start gate — blocked"), "Project status no longer blocks Jinja");
 assert(
   projectStatus.includes("future specialist-site implementation — not activated"),
@@ -142,8 +159,9 @@ assert(
   "package.json is missing the Jinja start-gate validator script",
 );
 assert(
-  packageJson.scripts?.["gate:matsuri:repository"]?.includes("pnpm check:yukue:jinja-start-gate"),
-  "Repository gate does not enforce the Jinja start-gate record",
+  packageJson.scripts?.["gate:matsuri:repository"]?.includes("pnpm check:matsuri:stabilization-review") &&
+    packageJson.scripts?.["gate:matsuri:repository"]?.includes("pnpm check:yukue:jinja-start-gate"),
+  "Repository gate does not enforce stabilization and Jinja records",
 );
 
 const dataset = loadMatsuriDataset();
@@ -187,6 +205,7 @@ for (const [key, value] of Object.entries(observed)) {
 assert(record.seed_baseline?.source_site_id === "matsuri", "Unexpected seed source site");
 assert(/^\d{4}-\d{2}-\d{2}$/u.test(record.seed_baseline?.observed_on), "Invalid seed observation date");
 
+const remainingPrerequisites = Object.entries(record.prerequisites).filter(([, value]) => value === false).length;
 console.log(
-  `Jinja start gate remains correctly blocked after Matsuri F2-28: ${candidates.length} seed(s), ${identityEvidence.length} identity Evidence, ${placeReferences} Place references, ${approvedStateSnapshots.length} approved shrine State Snapshots, ${candidatesWithOfficialUrl.length} official URLs; four post-launch prerequisites remain incomplete.`,
+  `Jinja start gate remains blocked: stabilization=${stabilization.status}, ${remainingPrerequisites} prerequisite(s) incomplete, ${candidates.length} seed(s), ${identityEvidence.length} identity Evidence, ${placeReferences} Place references, ${approvedStateSnapshots.length} approved shrine State Snapshots, ${candidatesWithOfficialUrl.length} official URLs.`,
 );

@@ -1,30 +1,36 @@
 # Jinja Start Gate
 
-**Status:** Matsuri F2-28 completed / actual Jinja start gate blocked by four post-launch prerequisites
+**Status:** Matsuri F2-28 completed / Matsuri stabilization observing / actual Jinja start gate blocked by four post-launch prerequisites
 
 ## Purpose
 
 The Matsuri corpus provides five approved Relation-backed shrine seeds with direct identity Evidence, Place references, Source provenance, Relation Evidence, a self-contained provenance bundle, and artifact contract v1. None of that authorizes creation or publication of `神社のゆくえ`.
 
-## Machine record and validator
+## Machine records and validators
 
 ```text
 config/jinja-start-gate.json
+config/matsuri-stabilization-review.json
+pnpm check:matsuri:stabilization-review
 pnpm check:yukue:jinja-start-gate
-Verify Jinja start-gate record
 ```
 
-The validator also runs inside:
+Both validators run inside:
 
 ```text
 pnpm gate:matsuri:repository
 ```
+
+The Jinja stabilization prerequisite must equal the claim in `config/matsuri-stabilization-review.json`; it cannot be changed independently.
 
 ## Current state
 
 ```text
 Status                               blocked-by-post-launch-prerequisites
 Matsuri F2-28 complete               true
+Matsuri stabilization review        false
+Stabilization status                 observing
+Earliest stabilization review       2026-08-10
 Relation-backed Jinja seeds          5
 Direct identity Evidence             9
 Place references                     5
@@ -47,6 +53,8 @@ Every remaining prerequisite is mandatory before the start gate can pass:
 3. A Jinja-specific State specification and vocabulary are approved.
 4. Explicit start authorization is recorded.
 
+The stabilization review cannot complete before 2026-08-10 and cannot complete from elapsed time alone. It requires operational evidence, zero unresolved critical corrections, a recorded deployment-failure count, acceptable maintenance burden, and a public-safe audit.
+
 Seed count, provenance closure, artifact-contract compliance, Evidence coverage, available source material, or F2-28 completion cannot substitute for any remaining prerequisite.
 
 ## Enforced inactive boundary
@@ -60,7 +68,7 @@ While the record remains blocked:
 - no Jinja publication claim may be made,
 - no Shrine State may be invented.
 
-The validator fails if the repository contains an early application directory, deployment configuration, activation claim, inconsistent seed baseline, private account identifier, token, or email address.
+The validator fails if the repository contains an early application directory, deployment configuration, activation claim, inconsistent stabilization claim, inconsistent seed baseline, private account identifier, token, or email address.
 
 ## Current seed baseline
 

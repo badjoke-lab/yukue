@@ -59,6 +59,7 @@ const requiredScripts = [
   "check:matsuri:search-engine-submission-record",
   "check:matsuri:analytics-activation-record",
   "check:matsuri:f2-launch-gate",
+  "check:matsuri:stabilization-review",
   "audit:matsuri:freshness",
   "audit:matsuri:relations",
 ];
@@ -70,6 +71,7 @@ const requiredDocs = [
   "docs/deployment-topology.md",
   "docs/f2-25-cloudflare-web-analytics.md",
   "docs/f2-26-f2-28-launch-closure.md",
+  "docs/matsuri-stabilization-review.md",
   "docs/jinja-start-gate.md",
   "docs/development-schedule.md",
   "docs/project-status.md",
@@ -83,10 +85,12 @@ const requiredDocs = [
   "docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md",
   "docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md",
   "docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md",
+  "docs/audits/matsuri-stabilization-start-2026-07-27.md",
 ];
 const requiredConfig = [
   "config/matsuri-analytics-activation.json",
   "config/matsuri-f2-launch-gate.json",
+  "config/matsuri-stabilization-review.json",
   "config/matsuri-repository-baseline.json",
   "config/jinja-start-gate.json",
 ];
@@ -250,11 +254,13 @@ assert(
 );
 
 const launchGate = readJson("config/matsuri-f2-launch-gate.json");
+const stabilization = readJson("config/matsuri-stabilization-review.json");
 const jinja = readJson("config/jinja-start-gate.json");
 const projectStatus = read("docs/project-status.md");
 const developmentSchedule = read("docs/development-schedule.md");
 const roadmap = read("docs/roadmap.md");
 const f228Audit = read("docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md");
+const stabilizationStartAudit = read("docs/audits/matsuri-stabilization-start-2026-07-27.md");
 
 assert(
   launchGate.status === "complete" &&
@@ -264,33 +270,49 @@ assert(
   "Final F2 launch record is incomplete",
 );
 assert(
+  stabilization.status === "observing" &&
+    stabilization.started_on === "2026-07-27" &&
+    stabilization.minimum_observation_days === 14 &&
+    stabilization.earliest_review_on === "2026-08-10" &&
+    stabilization.claims?.review_complete === false &&
+    stabilization.claims?.phase_11_gate_review_authorized === false &&
+    stabilization.claims?.jinja_stabilization_prerequisite_complete === false,
+  "Matsuri stabilization observation record is incomplete",
+);
+assert(
   jinja.status === "blocked-by-post-launch-prerequisites" &&
+    jinja.matsuri_stabilization_record === "config/matsuri-stabilization-review.json" &&
     jinja.prerequisites?.matsuri_f2_28_complete === true &&
-    jinja.prerequisites?.matsuri_stabilization_review_complete === false &&
+    jinja.prerequisites?.matsuri_stabilization_review_complete ===
+      stabilization.claims.jinja_stabilization_prerequisite_complete &&
     jinja.prerequisites?.portal_jinja_order_decided === false &&
     jinja.prerequisites?.jinja_state_spec_approved === false &&
     jinja.prerequisites?.explicit_start_authorization === false &&
     jinja.claims?.jinja_start_gate_passed === false,
-  "Jinja is not correctly blocked after F2-28",
+  "Jinja is not correctly blocked during Matsuri stabilization",
 );
 assert(
   projectStatus.includes("F2-28 — final F2 Launch Gate — completed") &&
     projectStatus.includes("Phase 10 Stabilization — active") &&
+    projectStatus.includes("Matsuri stabilization review — observing") &&
+    projectStatus.includes("Earliest review       2026-08-10") &&
     projectStatus.includes("Actual Jinja start gate — blocked"),
-  "Project status does not reflect launch closure and stabilization",
+  "Project status does not reflect bounded stabilization",
 );
 assert(
   developmentSchedule.includes("F2-01 through F2-28          completed") &&
     developmentSchedule.includes("Phase 10 Stabilization       active") &&
+    developmentSchedule.includes("Stabilization review         observing") &&
     developmentSchedule.includes("Actual Jinja start gate      blocked"),
-  "Development schedule does not reflect final F2 state",
+  "Development schedule does not reflect the stabilization gate",
 );
 assert(
   roadmap.includes("## Phase 9 — Launch Preparation") &&
     roadmap.includes("Status: **Completed**") &&
     roadmap.includes("## Phase 10 — Matsuri Stabilization") &&
-    roadmap.includes("Status: **Active**"),
-  "Roadmap does not reflect Phase 9 completion and Phase 10 activation",
+    roadmap.includes("Status: **Active / observing**") &&
+    roadmap.includes("Earliest review       2026-08-10"),
+  "Roadmap does not reflect bounded Phase 10 stabilization",
 );
 assert(
   f228Audit.includes("**Status:** Passed") &&
@@ -299,7 +321,13 @@ assert(
     f228Audit.includes("Jinja start authorized                   false"),
   "F2-28 audit is incomplete",
 );
+assert(
+  stabilizationStartAudit.includes("**Status:** Observation started") &&
+    stabilizationStartAudit.includes("Earliest review        2026-08-10") &&
+    stabilizationStartAudit.includes("Search-engine indexation is not required and is not claimed"),
+  "Stabilization start audit is incomplete",
+);
 
 console.log(
-  `Matsuri repository readiness gate passed: ${manifest.public_routes.length} routes, ${manifest.artifact_file_count} files, ${manifest.artifact_size_bytes} bytes, SHA-256 ${manifest.artifact_sha256}; F2-16 through F2-28 are complete, Phase 10 stabilization is active, indexation is not claimed, and Jinja remains blocked.`,
+  `Matsuri repository readiness gate passed: ${manifest.public_routes.length} routes, ${manifest.artifact_file_count} files, ${manifest.artifact_size_bytes} bytes, SHA-256 ${manifest.artifact_sha256}; F2-16 through F2-28 are complete, stabilization is observing until at least 2026-08-10, indexation is not required, and Jinja remains blocked.`,
 );

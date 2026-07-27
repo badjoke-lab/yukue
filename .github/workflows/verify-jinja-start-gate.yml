@@ -7,10 +7,13 @@ on:
     paths:
       - ".github/workflows/verify-jinja-start-gate.yml"
       - "config/jinja-start-gate.json"
+      - "config/matsuri-stabilization-review.json"
       - "scripts/check-jinja-start-gate-record.mjs"
+      - "scripts/check-matsuri-stabilization-review.mjs"
       - "apps/**"
       - "data/public/matsuri/**"
       - "docs/jinja-start-gate.md"
+      - "docs/matsuri-stabilization-review.md"
       - "docs/project-status.md"
       - "docs/development-schedule.md"
       - "wrangler*.jsonc"
@@ -21,10 +24,13 @@ on:
     paths:
       - ".github/workflows/verify-jinja-start-gate.yml"
       - "config/jinja-start-gate.json"
+      - "config/matsuri-stabilization-review.json"
       - "scripts/check-jinja-start-gate-record.mjs"
+      - "scripts/check-matsuri-stabilization-review.mjs"
       - "apps/**"
       - "data/public/matsuri/**"
       - "docs/jinja-start-gate.md"
+      - "docs/matsuri-stabilization-review.md"
       - "docs/project-status.md"
       - "docs/development-schedule.md"
       - "wrangler*.jsonc"
@@ -52,6 +58,9 @@ jobs:
         with:
           version: 11.10.0
 
+      - name: Validate Matsuri stabilization record
+        run: pnpm check:matsuri:stabilization-review
+
       - name: Validate Jinja start-gate record
         run: pnpm check:yukue:jinja-start-gate
 
@@ -60,7 +69,7 @@ jobs:
         run: |
           echo "## Jinja start-gate record" >> "$GITHUB_STEP_SUMMARY"
           echo "- Matsuri F2-28: complete" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Matsuri stabilization review: observing" >> "$GITHUB_STEP_SUMMARY"
           echo "- Status: blocked by four post-launch prerequisites" >> "$GITHUB_STEP_SUMMARY"
           echo "- Seed preparation: five Relation-backed Jinja candidates" >> "$GITHUB_STEP_SUMMARY"
           echo "- Authorization: no app, Worker, hostname, publication, or State inference" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Remaining prerequisites: stabilization review, portal/Jinja order, Jinja State spec, explicit authorization" >> "$GITHUB_STEP_SUMMARY"
