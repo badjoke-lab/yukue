@@ -1,12 +1,10 @@
 # Jinja Start Gate
 
-**Status:** F2-P08 repository guardrail completed / F2-P09 and 2026-07-20 seed provenance refreshed / actual start gate not passed
+**Status:** Matsuri F2-28 completed / actual Jinja start gate blocked by four post-launch prerequisites
 
 ## Purpose
 
 The Matsuri corpus provides five approved Relation-backed shrine seeds with direct identity Evidence, Place references, Source provenance, Relation Evidence, a self-contained provenance bundle, and artifact contract v1. None of that authorizes creation or publication of `神社のゆくえ`.
-
-This document defines the machine-enforced boundary between reusable seed preparation and actual Jinja implementation.
 
 ## Machine record and validator
 
@@ -22,22 +20,11 @@ The validator also runs inside:
 pnpm gate:matsuri:repository
 ```
 
-## Hosted verification
-
-```text
-Head         c4067e1f5b6dad3173ea9ba142f038c03604768e
-Run          29493210854
-Conclusion   success
-```
-
-The initial implementation head also passed repository CI, seed inventory and artifact contract, seed readiness, Analytics pending-state validation, canonical Search, full-page screenshots, and F2-24 indexability preflight.
-
-F2-P09 refresh verification is recorded in `docs/audits/yukue-f2-p09-dainichireiki-official-provenance-2026-07-17.md`. The 2026-07-20 maintenance refreshes add dedicated shrine-page identity Evidence for 櫛田神社, 阿蘇神社, and 秩父神社 while preserving every blocked-gate prerequisite and authorization claim.
-
 ## Current state
 
 ```text
-Status                               blocked-by-matsuri-launch-closure
+Status                               blocked-by-post-launch-prerequisites
+Matsuri F2-28 complete               true
 Relation-backed Jinja seeds          5
 Direct identity Evidence             9
 Place references                     5
@@ -49,19 +36,18 @@ Worker creation authorized           false
 Publication authorized               false
 ```
 
-The missing State Snapshot count is explicit. Matsuri defines Shrine records only as cross-site seed Entities and does not define the Jinja State vocabulary. No Shrine State is inferred from `record_lifecycle`, a festival Relation, an official URL, or the continued existence of a source page.
+F2-28 completion satisfies only the first prerequisite. The missing State Snapshot count remains explicit. Matsuri defines Shrine records only as cross-site seed Entities and does not define the Jinja State vocabulary. No Shrine State is inferred from `record_lifecycle`, a festival Relation, an official URL, or the continued existence of a source page.
 
-## Required prerequisites
+## Remaining required prerequisites
 
-Every prerequisite is mandatory before the start gate can pass:
+Every remaining prerequisite is mandatory before the start gate can pass:
 
-1. Matsuri F2-28 final Launch Gate is complete.
-2. A Matsuri stabilization review is complete.
-3. The implementation order between the series portal and Jinja is explicitly decided.
-4. A Jinja-specific State specification and vocabulary are approved.
-5. Explicit start authorization is recorded.
+1. A Matsuri stabilization review is complete.
+2. The implementation order between the series portal and Jinja is explicitly decided.
+3. A Jinja-specific State specification and vocabulary are approved.
+4. Explicit start authorization is recorded.
 
-Seed count, provenance closure, artifact-contract compliance, Evidence coverage, or available source material cannot substitute for any prerequisite.
+Seed count, provenance closure, artifact-contract compliance, Evidence coverage, available source material, or F2-28 completion cannot substitute for any remaining prerequisite.
 
 ## Enforced inactive boundary
 
@@ -69,13 +55,12 @@ While the record remains blocked:
 
 - `apps/jinja` must not exist,
 - no Jinja Worker deployment configuration may exist,
-- no `jinja-yukue` hostname may be activated in deployment configuration,
+- no `jinja-yukue` hostname may be activated,
 - no Jinja public routes may be created,
 - no Jinja publication claim may be made,
-- no Shrine State may be invented,
-- F2-P02 through F2-P09 and later provenance maintenance remain preparation evidence only.
+- no Shrine State may be invented.
 
-The validator fails if the repository contains an early application directory, deployment configuration, activation claim, missing prerequisite, inconsistent seed baseline, private account identifier, token, or email address.
+The validator fails if the repository contains an early application directory, deployment configuration, activation claim, inconsistent seed baseline, private account identifier, token, or email address.
 
 ## Current seed baseline
 
@@ -87,10 +72,8 @@ The validator fails if the repository contains an early application directory, d
 秩父神社
 ```
 
-All five have direct identity Evidence, Place provenance, and at least one official URL. 阿蘇神社 carries the existing official restoration record plus a dedicated shrine overview. 櫛田神社 carries the existing official festival schedule Source and a dedicated shrine page on the same official-organization site. 佐太神社 retains its official homepage, which already directly identifies the shrine, its祭神,所在地, and 佐陀神能. 大日霊貴神社 carries both the existing 鹿角市 public-authority Source and the shrine-operated `dainichido.org` Source without conflating their authority classes. 秩父神社 carries the existing official night-festival page plus a dedicated祭神・由緒 page. All five still require a future Jinja-specific identity, State, Source, Evidence, and maintenance review before publication.
+All five have direct identity Evidence, Place provenance, and at least one official URL. All five still require a future Jinja-specific identity, State, Source, Evidence, and maintenance review before publication.
 
 ## Cloudflare boundary
 
-The repository guardrail and provenance refreshes require no Cloudflare access and do not change F2-25 through F2-28.
-
-When Cloudflare access resumes, F2-25 through F2-28 are inserted first. Passing F2-28 alone still does not pass the Jinja start gate; stabilization, order, State-specification, and explicit-authorization prerequisites must also be completed.
+Matsuri launch closure is complete. No Jinja Cloudflare operation is authorized until the four remaining post-launch prerequisites and the actual Jinja start gate pass.
