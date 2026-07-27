@@ -1,6 +1,6 @@
 # Matsuri Cloudflare Workers Static Assets Launch Runbook
 
-**Status:** F2-16 through F2-26 completed / F2-27 active
+**Status:** F2-16 through F2-27 completed / F2-28 active
 
 > The file name is retained for compatibility. The accepted platform is Cloudflare Workers Builds with Workers Static Assets, not a legacy Pages project.
 
@@ -35,24 +35,24 @@ F2-23  crawler-reachability review — completed
 F2-24  Search Console sitemap submission and indexability check — completed
 F2-25  Cloudflare Web Analytics Automatic setup — completed
 F2-26  post-activation main production deployment — completed
+F2-27  production traffic verification — completed
 ```
 
-F2-26 accepted:
+F2-27 accepted:
 
 ```text
-Source commit       108ac4e88407e1263229eb40bc88d76855e90131
-Cloudflare build    7026144e-1ce0-4927-9060-64919c3a4002
-Deployed at         2026-07-27T10:34:17Z
-Audit               docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md
+Canonical hostname  matsuri-yukue.badjoke-lab.com
+Verified at         2026-07-27T11:26:58Z
+Traffic observed    yes
+Audit               docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md
 ```
 
-The first deploy API call for the same source returned a transient provider-side 503 after build and asset upload. Retrying the same build succeeded.
+The four representative canonical routes were visited before private-dashboard confirmation. Raw metrics and the dashboard screenshot are not public evidence.
 
 ## Remaining sequence
 
 ```text
-F2-27  production traffic verification — active
-F2-28  final F2 Launch Gate — blocked by F2-27
+F2-28  final F2 Launch Gate — active
 ```
 
-For F2-27, visit `/`, `/festivals/`, `/search/`, and `/festivals/suneori-amagoi/`, then confirm traffic privately for the canonical hostname. Do not publish raw metrics, account identity, tokens, or private dashboard screenshots.
+F2-28 is repository- and evidence-driven. No additional Cloudflare account action is required unless a verification gate reports a new failure.
