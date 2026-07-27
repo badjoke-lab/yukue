@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-27 completed / F2-28 active next gate / F2-P01 through F2-P13 completed
+**Status:** F2-28 completed / Phase 10 Matsuri stabilization active / Jinja start gate blocked
 
 This project is gate-driven rather than deadline-driven.
 
@@ -9,32 +9,16 @@ This project is gate-driven rather than deadline-driven.
 ```text
 Foundation through Stage E  completed
 F1 corpus expansion          completed
-F2-01 through F2-27          completed
+F2-01 through F2-28          completed
 F2-M01                       completed
 F2-M02                       completed
 F2-P01 through F2-P13        completed
-F2-28                        active next gate
+Phase 9 Launch Preparation   completed
+Phase 10 Stabilization       active
 Actual Jinja start gate      blocked
 ```
 
-## Repository work
-
-```text
-F2-01 through F2-15    repository launch-readiness work — completed
-F2-P01 through F2-P13  Analytics preparation, seed provenance, correction, and dataset contracts — completed
-```
-
-Repository gate:
-
-```text
-pnpm gate:matsuri:repository
-```
-
-The gate includes dependency and workflow supply-chain checks, bundle inventory and order, the shared canonical dataset and correction engine, public-output verification, strict external-link, Relation, and freshness contracts, F2-27 Analytics progression validation, and the blocked Jinja start gate.
-
-## External deployment and production verification
-
-### Completed
+## Completed F2 launch sequence
 
 ```text
 F2-16  Cloudflare Workers Builds connection — completed
@@ -49,43 +33,33 @@ F2-24  Search Console sitemap submission and indexability check — completed
 F2-25  Cloudflare Web Analytics Automatic setup observed enabled — completed
 F2-26  post-activation main production deployment — completed
 F2-27  production traffic verification — completed
+F2-28  final F2 Launch Gate — completed
 ```
 
-F2-27 evidence:
+F2-28 evidence:
 
 ```text
-Canonical hostname    matsuri-yukue.badjoke-lab.com
-Verified at           2026-07-27T11:26:58Z
-Traffic observed      yes
-Audit                 docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md
+Evaluated at        2026-07-27T11:45:20Z
+F2-27 merge commit  6a0ef91dad62fb7f5d65135d846b1cf6b6301d25
+Audit               docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
+Machine record      config/matsuri-f2-launch-gate.json
 ```
 
-The four representative canonical routes were visited before the private-dashboard confirmation. Raw metrics and private dashboard material remain outside the repository.
+F2-28 does not claim search-engine indexation and does not authorize Jinja.
 
-### Active sequence
+## Phase 10 stabilization
 
-```text
-F2-28  final F2 Launch Gate — active next gate
-```
+Active work may include:
 
-Exact continuation:
+- date-triggered factual Matsuri maintenance,
+- Source, Evidence, Relation, and correction work,
+- indexation and Search Console observation,
+- public Search and machine-readable layer observation,
+- dependency and security maintenance,
+- maintenance-burden review,
+- public corrections and inquiries.
 
-```text
-1. validate the F2-27 public-safe record and machine state
-2. verify the repository, canonical origin, Search, crawler, and F2-24 gates
-3. verify that no private Analytics material was committed
-4. evaluate and record F2-28 separately
-5. keep the Jinja start gate blocked until all of its own prerequisites pass
-```
-
-F2-28 must not claim search-engine indexation.
-
-## Parallel maintenance
-
-```text
-F2-M01  full-page screenshot visual-review workflow — completed
-F2-M02  Matsuri data freshness audit — completed
-```
+Current dated reviews:
 
 ```text
 弘前ねぷた 2026         review after 2026-08-07
@@ -94,17 +68,26 @@ F2-M02  Matsuri data freshness audit — completed
 
 ## Future-site boundary
 
-Current future-site seed work remains candidate-only. The five current shrine seeds still lack approved Jinja State Snapshots.
+F2-28 completion satisfies only the first Jinja prerequisite.
 
 ```text
-Matsuri F2-28 complete                 false
+Matsuri F2-28 complete                 true
 Matsuri stabilization review          false
 Portal/Jinja implementation order     false
 Jinja State specification approved    false
 Explicit start authorization          false
 ```
 
-F2-28 alone is not sufficient to begin Jinja.
+Before Jinja implementation:
+
+```text
+1. complete the Matsuri stabilization review
+2. decide portal/Jinja implementation order
+3. approve Jinja State specification and vocabulary
+4. record explicit start authorization
+5. pass the actual Jinja start gate
+6. only then create apps/jinja
+```
 
 ## Work not activated
 
