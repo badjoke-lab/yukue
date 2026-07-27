@@ -60,5 +60,6 @@ jobs:
         run: |
           echo "## Matsuri Analytics activation record" >> "$GITHUB_STEP_SUMMARY"
           echo "- Canonical hostname: matsuri-yukue.badjoke-lab.com" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Pending state: valid while owner Cloudflare access is unavailable" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Boundary: no manual beacon, token, account identity, raw metrics, or false gate progression" >> "$GITHUB_STEP_SUMMARY"
+          echo "- F2-25: Automatic setup observed enabled at 2026-07-27T09:37:29Z" >> "$GITHUB_STEP_SUMMARY"
+          echo "- F2-26: post-activation main deployment remains pending" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Boundary: no manual beacon, token, account identity, raw metrics, private screenshot, or false gate progression" >> "$GITHUB_STEP_SUMMARY"
