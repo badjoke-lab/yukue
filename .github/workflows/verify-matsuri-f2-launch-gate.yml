@@ -1,0 +1,66 @@
+name: Verify Matsuri F2-28 final launch gate
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-f2-launch-gate.yml"
+      - "config/matsuri-f2-launch-gate.json"
+      - "config/matsuri-analytics-activation.json"
+      - "config/jinja-start-gate.json"
+      - "scripts/check-matsuri-f2-launch-gate.mjs"
+      - "docs/project-status.md"
+      - "docs/development-schedule.md"
+      - "docs/roadmap.md"
+      - "docs/audits/matsuri-f2-28-*.md"
+      - "package.json"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-f2-launch-gate.yml"
+      - "config/matsuri-f2-launch-gate.json"
+      - "config/matsuri-analytics-activation.json"
+      - "config/jinja-start-gate.json"
+      - "scripts/check-matsuri-f2-launch-gate.mjs"
+      - "docs/project-status.md"
+      - "docs/development-schedule.md"
+      - "docs/roadmap.md"
+      - "docs/audits/matsuri-f2-28-*.md"
+      - "package.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-f2-launch-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+        with:
+          version: 11.10.0
+
+      - name: Validate final F2 launch gate
+        run: pnpm check:matsuri:f2-launch-gate
+
+      - name: Write verification summary
+        if: always()
+        run: |
+          echo "## Matsuri F2-28 final launch gate" >> "$GITHUB_STEP_SUMMARY"
+          echo "- F2-16 through F2-27: completed" >> "$GITHUB_STEP_SUMMARY"
+          echo "- F2-28: completed at 2026-07-27T11:45:20Z" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Indexation claimed: false" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Jinja start authorized: false" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Next phase: Matsuri stabilization" >> "$GITHUB_STEP_SUMMARY"

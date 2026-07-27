@@ -13,6 +13,16 @@ const expectedTrafficRoutes = [
   "/search/",
   "/festivals/suneori-amagoi/",
 ];
+const expectedFinalRuns = {
+  repository_gate: 30262887402,
+  analytics_progression: 30262887410,
+  repository_baseline: 30262887530,
+  canonical_origin: 30262887395,
+  canonical_search: 30262887428,
+  crawler_reachability: 30262887462,
+  indexability_preflight: 30262887424,
+  jinja_start_gate: 30262887458,
+};
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -20,6 +30,10 @@ function assert(condition, message) {
 
 function read(relativePath) {
   return fs.readFileSync(path.join(repositoryRoot, relativePath), "utf8");
+}
+
+function readJson(relativePath) {
+  return JSON.parse(read(relativePath));
 }
 
 function sha256File(filePath) {
@@ -30,6 +44,7 @@ const requiredScripts = [
   "verify:release",
   "freeze:matsuri:release",
   "check:yukue:deployment-topology",
+  "check:yukue:jinja-start-gate",
   "check:matsuri:pages",
   "check:matsuri:workers-config",
   "check:matsuri:consistency",
@@ -43,6 +58,7 @@ const requiredScripts = [
   "check:matsuri:indexability-preflight",
   "check:matsuri:search-engine-submission-record",
   "check:matsuri:analytics-activation-record",
+  "check:matsuri:f2-launch-gate",
   "audit:matsuri:freshness",
   "audit:matsuri:relations",
 ];
@@ -54,6 +70,7 @@ const requiredDocs = [
   "docs/deployment-topology.md",
   "docs/f2-25-cloudflare-web-analytics.md",
   "docs/f2-26-f2-28-launch-closure.md",
+  "docs/jinja-start-gate.md",
   "docs/development-schedule.md",
   "docs/project-status.md",
   "docs/roadmap.md",
@@ -65,14 +82,21 @@ const requiredDocs = [
   "docs/audits/matsuri-f2-25-analytics-activation-2026-07-27.md",
   "docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md",
   "docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md",
+  "docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md",
+];
+const requiredConfig = [
+  "config/matsuri-analytics-activation.json",
+  "config/matsuri-f2-launch-gate.json",
+  "config/matsuri-repository-baseline.json",
+  "config/jinja-start-gate.json",
 ];
 
-const packageJson = JSON.parse(read("package.json"));
+const packageJson = readJson("package.json");
 for (const scriptName of requiredScripts) {
   assert(typeof packageJson.scripts?.[scriptName] === "string", `Missing script ${scriptName}`);
 }
-for (const relativePath of requiredDocs) {
-  assert(fs.existsSync(path.join(repositoryRoot, relativePath)), `Missing document ${relativePath}`);
+for (const relativePath of [...requiredDocs, ...requiredConfig]) {
+  assert(fs.existsSync(path.join(repositoryRoot, relativePath)), `Missing required file ${relativePath}`);
 }
 assert(fs.existsSync(path.join(repositoryRoot, "wrangler.jsonc")), "Missing wrangler.jsonc");
 assert(fs.existsSync(releaseManifestPath), "Missing release candidate manifest");
@@ -84,7 +108,7 @@ assert(manifest.project_id === "yukue-series", "Unexpected project_id");
 assert(manifest.site_id === "matsuri", "Unexpected site_id");
 assert(
   manifest.release_status ===
-    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-28-pending",
+    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-launch-complete",
   `Unexpected release_status: ${String(manifest.release_status)}`,
 );
 assert(manifest.artifact_origin_mode === "origin-neutral-repository-candidate", "Wrong artifact mode");
@@ -158,6 +182,24 @@ assert(
       JSON.stringify(expectedTrafficRoutes),
   "F2-27 evidence is incomplete",
 );
+assert(
+  manifest.final_f2_launch_gate_verification?.evaluated_at === "2026-07-27T11:45:20Z" &&
+    manifest.final_f2_launch_gate_verification?.f2_27_merge_commit ===
+      "6a0ef91dad62fb7f5d65135d846b1cf6b6301d25" &&
+    manifest.final_f2_launch_gate_verification?.validation_head_sha ===
+      "f8115c65e0f7a1fbdebd9339ec26a6bb0da18cbc" &&
+    JSON.stringify(manifest.final_f2_launch_gate_verification?.verification_runs) ===
+      JSON.stringify(expectedFinalRuns) &&
+    manifest.final_f2_launch_gate_verification?.release_artifact?.id === 8651652059 &&
+    manifest.final_f2_launch_gate_verification?.release_artifact?.digest ===
+      "sha256:230ee6ab4f354d26e71d22a9c174d7dcc7f782f90bf5c9e0ff1278bbd401b5d8" &&
+    manifest.final_f2_launch_gate_verification?.evidence_document ===
+      "docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md" &&
+    manifest.final_f2_launch_gate_verification?.f2_28_complete === true &&
+    manifest.final_f2_launch_gate_verification?.indexation_claimed === false &&
+    manifest.final_f2_launch_gate_verification?.jinja_start_authorized === false,
+  "F2-28 evidence is incomplete",
+);
 assert(typeof manifest.source_commit === "string" && /^[0-9a-f]{40}$/u.test(manifest.source_commit), "Invalid source_commit");
 assert(Array.isArray(manifest.public_routes) && manifest.public_routes.length > 0, "No public routes");
 assert(Array.isArray(manifest.files) && manifest.files.length === manifest.artifact_file_count, "File inventory mismatch");
@@ -175,6 +217,7 @@ const completedExternalIds = [
   "F2-25",
   "F2-26",
   "F2-27",
+  "F2-28",
 ];
 for (const id of completedExternalIds) {
   assert(
@@ -183,9 +226,8 @@ for (const id of completedExternalIds) {
   );
 }
 assert(
-  manifest.external_pending_work.length === 1 &&
-    manifest.external_pending_work[0].startsWith("F2-28"),
-  "Only F2-28 may remain pending",
+  Array.isArray(manifest.external_pending_work) && manifest.external_pending_work.length === 0,
+  "No F2 launch work may remain pending after F2-28",
 );
 
 let totalBytes = 0;
@@ -207,48 +249,57 @@ assert(
   "Artifact aggregate digest mismatch",
 );
 
+const launchGate = readJson("config/matsuri-f2-launch-gate.json");
+const jinja = readJson("config/jinja-start-gate.json");
 const projectStatus = read("docs/project-status.md");
 const developmentSchedule = read("docs/development-schedule.md");
 const roadmap = read("docs/roadmap.md");
-const f225Audit = read("docs/audits/matsuri-f2-25-analytics-activation-2026-07-27.md");
-const f226Audit = read("docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md");
-const f227Audit = read("docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md");
+const f228Audit = read("docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md");
 
-for (const id of [...completedExternalIds, "F2-15", "F2-M02"]) {
-  assert(developmentSchedule.includes(id), `Development schedule missing ${id}`);
-}
 assert(
-  projectStatus.includes("F2-27 — production traffic verification — completed") &&
-    projectStatus.includes("F2-28 — active next gate"),
-  "Project status does not advance through F2-27",
+  launchGate.status === "complete" &&
+    launchGate.claims?.f2_28_complete === true &&
+    launchGate.claims?.indexation_claimed === false &&
+    launchGate.claims?.jinja_start_authorized === false,
+  "Final F2 launch record is incomplete",
 );
 assert(
-  roadmap.includes("External deployment through F2-27: **Completed**") &&
-    roadmap.includes("F2-28  final F2 Launch Gate — next"),
-  "Roadmap does not advance through F2-27",
+  jinja.status === "blocked-by-post-launch-prerequisites" &&
+    jinja.prerequisites?.matsuri_f2_28_complete === true &&
+    jinja.prerequisites?.matsuri_stabilization_review_complete === false &&
+    jinja.prerequisites?.portal_jinja_order_decided === false &&
+    jinja.prerequisites?.jinja_state_spec_approved === false &&
+    jinja.prerequisites?.explicit_start_authorization === false &&
+    jinja.claims?.jinja_start_gate_passed === false,
+  "Jinja is not correctly blocked after F2-28",
 );
 assert(
-  f225Audit.includes("Automatic setup observed enabled") &&
-    f225Audit.includes("2026-07-27T09:37:29Z") &&
-    f225Audit.includes("F2-25 complete                    true"),
-  "F2-25 audit is incomplete",
+  projectStatus.includes("F2-28 — final F2 Launch Gate — completed") &&
+    projectStatus.includes("Phase 10 Stabilization — active") &&
+    projectStatus.includes("Actual Jinja start gate — blocked"),
+  "Project status does not reflect launch closure and stabilization",
 );
 assert(
-  f226Audit.includes("108ac4e88407e1263229eb40bc88d76855e90131") &&
-    f226Audit.includes("7026144e-1ce0-4927-9060-64919c3a4002") &&
-    f226Audit.includes("2026-07-27T10:34:17Z") &&
-    f226Audit.includes("F2-26 complete                    true"),
-  "F2-26 audit is incomplete",
+  developmentSchedule.includes("F2-01 through F2-28          completed") &&
+    developmentSchedule.includes("Phase 10 Stabilization       active") &&
+    developmentSchedule.includes("Actual Jinja start gate      blocked"),
+  "Development schedule does not reflect final F2 state",
 );
 assert(
-  f227Audit.includes("matsuri-yukue.badjoke-lab.com") &&
-    f227Audit.includes("2026-07-27T11:26:58Z") &&
-    f227Audit.includes("Traffic observed\nyes") &&
-    f227Audit.includes("F2-27 complete  true") &&
-    f227Audit.includes("Private dashboard screenshot stored false"),
-  "F2-27 audit is incomplete",
+  roadmap.includes("## Phase 9 — Launch Preparation") &&
+    roadmap.includes("Status: **Completed**") &&
+    roadmap.includes("## Phase 10 — Matsuri Stabilization") &&
+    roadmap.includes("Status: **Active**"),
+  "Roadmap does not reflect Phase 9 completion and Phase 10 activation",
+);
+assert(
+  f228Audit.includes("**Status:** Passed") &&
+    f228Audit.includes("F2-28 complete  true") &&
+    f228Audit.includes("Search-engine indexation claimed         false") &&
+    f228Audit.includes("Jinja start authorized                   false"),
+  "F2-28 audit is incomplete",
 );
 
 console.log(
-  `Matsuri repository readiness gate passed: ${manifest.public_routes.length} routes, ${manifest.artifact_file_count} files, ${manifest.artifact_size_bytes} bytes, SHA-256 ${manifest.artifact_sha256}; F2-16 through F2-27 are complete and F2-28 is the only remaining launch gate.`,
+  `Matsuri repository readiness gate passed: ${manifest.public_routes.length} routes, ${manifest.artifact_file_count} files, ${manifest.artifact_size_bytes} bytes, SHA-256 ${manifest.artifact_sha256}; F2-16 through F2-28 are complete, Phase 10 stabilization is active, indexation is not claimed, and Jinja remains blocked.`,
 );

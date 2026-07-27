@@ -1,10 +1,10 @@
 {
   "format_version": 1,
   "site_id": "jinja",
-  "status": "blocked-by-matsuri-launch-closure",
+  "status": "blocked-by-post-launch-prerequisites",
   "next_specialist_site": "jinja",
   "prerequisites": {
-    "matsuri_f2_28_complete": false,
+    "matsuri_f2_28_complete": true,
     "matsuri_stabilization_review_complete": false,
     "portal_jinja_order_decided": false,
     "jinja_state_spec_approved": false,

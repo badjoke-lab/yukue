@@ -1,6 +1,6 @@
 # Deployment
 
-**Status:** F2-16 through F2-27 completed / F2-28 final gate pending
+**Status:** F2-16 through F2-28 completed / stabilization active
 
 `祭のゆくえ` is deployed as a fully pre-rendered Astro site through Cloudflare Workers Static Assets.
 
@@ -17,25 +17,21 @@ Deploy command              npx wrangler deploy
 
 The portal remains a separate planned Worker. Matsuri is not hosted below a portal path.
 
-## F2-26 accepted deployment
+## Launch closure
 
 ```text
-Source commit       108ac4e88407e1263229eb40bc88d76855e90131
-Cloudflare build    7026144e-1ce0-4927-9060-64919c3a4002
-Deployed at         2026-07-27T10:34:17Z
-Evidence            docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md
+F2-25 Analytics activation     completed
+F2-26 production deployment    completed
+F2-27 traffic verification     completed
+F2-28 final launch gate        completed
 ```
 
-## F2-27 accepted traffic verification
+Final record:
 
 ```text
-Canonical hostname  matsuri-yukue.badjoke-lab.com
-Verified at         2026-07-27T11:26:58Z
-Traffic observed    yes
-Evidence            docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md
+config/matsuri-f2-launch-gate.json
+docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
 ```
-
-The private dashboard screenshot, raw counts, and other private Analytics details are not stored in the repository.
 
 ## Static deployment model
 
@@ -61,17 +57,4 @@ routes[0].pattern         matsuri-yukue.badjoke-lab.com
 routes[0].custom_domain   true
 ```
 
-## Completed external work
-
-```text
-F2-16 through F2-24  canonical deployment, Search, crawler, and Search Console verification — completed
-F2-25                 Cloudflare Web Analytics Automatic setup — completed
-F2-26                 post-activation main production deployment — completed
-F2-27                 production traffic verification — completed
-```
-
-## Remaining sequence
-
-```text
-F2-28  final F2 Launch Gate — active
-```
+No deployment launch gate remains pending. Phase 10 stabilization and routine maintenance continue.

@@ -10,6 +10,7 @@ on:
       - "apps/matsuri/src/data/matsuri-projection.ts"
       - "config/jinja-start-gate.json"
       - "config/matsuri-analytics-activation.json"
+      - "config/matsuri-f2-launch-gate.json"
       - "config/matsuri-repository-baseline.json"
       - "data/public/matsuri/f1/**"
       - "data/public/matsuri/f2/**"
@@ -27,6 +28,7 @@ on:
       - "apps/matsuri/src/data/matsuri-projection.ts"
       - "config/jinja-start-gate.json"
       - "config/matsuri-analytics-activation.json"
+      - "config/matsuri-f2-launch-gate.json"
       - "config/matsuri-repository-baseline.json"
       - "data/public/matsuri/f1/**"
       - "data/public/matsuri/f2/**"
@@ -59,15 +61,25 @@ jobs:
           version: 11.10.0
 
       - name: Verify bundle inventory, order, and current repository baseline
-        run: pnpm check:matsuri:bundle-inventory
+        shell: bash
+        run: |
+          set -o pipefail
+          pnpm check:matsuri:bundle-inventory 2>&1 | tee matsuri-bundle-baseline-verification.log
+
+      - name: Upload failed baseline verification log
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: matsuri-bundle-baseline-verification-log
+          path: matsuri-bundle-baseline-verification.log
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Write verification summary
         if: always()
         run: |
           echo "## Matsuri bundle inventory and repository baseline" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Canonical loader and HTML Public Projection must enumerate the same F1 batches, maintenance batches, and correction bundles" >> "$GITHUB_STEP_SUMMARY"
-          echo "- additiveBundles must preserve F1-then-maintenance order and correctionBundles must preserve declared correction order" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Current counts and blocked Analytics/Jinja boundaries must match the machine baseline" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Canonical loader and HTML Public Projection must enumerate the same F1, maintenance, and correction bundles" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Current counts and completed F2 / blocked Jinja boundaries must match the machine baseline" >> "$GITHUB_STEP_SUMMARY"
           echo "- Narrative status documents must reference the machine baseline without duplicating exact current count tables" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Baseline observed_on and Project Status Last updated markers must be valid calendar days" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Missing, extra, duplicate, nonexistent, reordered, stale, or malformed references fail the check" >> "$GITHUB_STEP_SUMMARY"
+          echo "- A focused failure log is retained when verification fails" >> "$GITHUB_STEP_SUMMARY"

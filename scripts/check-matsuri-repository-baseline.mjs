@@ -44,6 +44,7 @@ function assertExactKeys(record, expectedKeys, label) {
 
 const baseline = readJson("config/matsuri-repository-baseline.json");
 const analytics = readJson("config/matsuri-analytics-activation.json");
+const launchGate = readJson("config/matsuri-f2-launch-gate.json");
 const jinjaGate = readJson("config/jinja-start-gate.json");
 const projectStatus = read("docs/project-status.md");
 const baselineDocument = read("docs/matsuri-repository-baseline.md");
@@ -58,10 +59,9 @@ assert(parseIsoDay(projectStatusUpdatedMatch[1]), "Project status Last updated m
 
 for (const marker of [
   "config/matsuri-repository-baseline.json",
-  "F2-25 — Cloudflare Web Analytics activation — completed",
-  "F2-26 — post-activation production deployment — completed",
-  "F2-27 — production traffic verification — completed",
-  "F2-28 — active next gate",
+  "F2-16 through F2-27 — completed",
+  "F2-28 — final F2 Launch Gate — completed",
+  "Phase 10 Stabilization — active",
   "Actual Jinja start gate — blocked",
 ]) {
   assert(projectStatus.includes(marker), `Project status is missing ${marker}`);
@@ -148,19 +148,23 @@ for (const key of expectedCountKeys) {
   assert(baseline.counts[key] === actualCounts[key], `Stale count ${key}: recorded=${baseline.counts[key]} actual=${actualCounts[key]}`);
 }
 
+const f2Complete =
+  analytics.status === "traffic-verified" &&
+  analytics.claims?.f2_25_complete === true &&
+  analytics.claims?.f2_26_complete === true &&
+  analytics.claims?.f2_27_complete === true &&
+  launchGate.status === "complete" &&
+  launchGate.claims?.f2_28_complete === true;
+
 const actualBoundaries = {
   f2_25_owner_access:
     analytics.status === "pending-owner-access" && analytics.claims?.f2_25_complete === false
       ? "pending"
       : "not-pending",
-  f2_26_through_f2_28:
-    analytics.status === "pending-owner-access" ||
-    analytics.status === "analytics-enabled" ||
-    analytics.claims?.f2_26_complete === false
-      ? "blocked"
-      : "not-blocked",
+  f2_26_through_f2_28: f2Complete ? "complete" : "blocked",
   jinja_start_gate:
-    jinjaGate.status === "blocked-by-matsuri-launch-closure" &&
+    jinjaGate.status === "blocked-by-post-launch-prerequisites" &&
+    jinjaGate.prerequisites?.matsuri_f2_28_complete === true &&
     jinjaGate.claims?.jinja_start_gate_passed === false
       ? "blocked"
       : "not-blocked",
@@ -174,5 +178,5 @@ for (const key of expectedBoundaryKeys) {
 }
 
 console.log(
-  `Matsuri repository baseline is current as of ${baseline.observed_on}; F2-25 through F2-27 are complete, F2-28 is active, the Jinja start gate remains blocked, and narrative documents do not duplicate machine counts.`,
+  `Matsuri repository baseline is current as of ${baseline.observed_on}; F2-25 through F2-28 are complete, Phase 10 stabilization is active, the Jinja start gate remains blocked, and narrative documents do not duplicate machine counts.`,
 );

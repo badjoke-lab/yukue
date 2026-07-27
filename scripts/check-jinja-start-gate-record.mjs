@@ -75,18 +75,21 @@ assert(record.format_version === 1, "Unexpected Jinja start-gate format_version"
 assert(record.site_id === "jinja", "Unexpected Jinja start-gate site_id");
 assert(record.next_specialist_site === "jinja", "Unexpected next specialist site");
 assert(
-  record.status === "blocked-by-matsuri-launch-closure",
+  record.status === "blocked-by-post-launch-prerequisites",
   `Unexpected Jinja start-gate status: ${String(record.status)}`,
 );
 
+assert(
+  record.prerequisites?.matsuri_f2_28_complete === true,
+  "Post-launch Jinja gate requires Matsuri F2-28 completion",
+);
 for (const key of [
-  "matsuri_f2_28_complete",
   "matsuri_stabilization_review_complete",
   "portal_jinja_order_decided",
   "jinja_state_spec_approved",
   "explicit_start_authorization",
 ]) {
-  assert(record.prerequisites?.[key] === false, `Pending Jinja start gate must keep ${key} false`);
+  assert(record.prerequisites?.[key] === false, `Blocked Jinja start gate must keep ${key} false`);
 }
 
 assert(
@@ -94,7 +97,7 @@ assert(
     record.claims?.jinja_application_creation_authorized === false &&
     record.claims?.jinja_worker_creation_authorized === false &&
     record.claims?.jinja_publication_authorized === false,
-  "Pending Jinja record contains an activation or completion claim",
+  "Blocked Jinja record contains an activation or completion claim",
 );
 assert(
   record.boundary?.seed_preparation_does_not_activate_site === true &&
@@ -121,8 +124,12 @@ for (const configPath of deploymentConfigFiles(repositoryRoot)) {
 }
 
 const projectStatus = fs.readFileSync(projectStatusPath, "utf8");
-assert(projectStatus.includes("F2-27 — production traffic verification — completed"), "Project status does not record F2-27 completion");
-assert(projectStatus.includes("F2-28 — active next gate"), "Project status does not record F2-28 as active");
+assert(
+  projectStatus.includes("F2-28 — final F2 Launch Gate — completed"),
+  "Project status does not record F2-28 completion",
+);
+assert(projectStatus.includes("Phase 10 Stabilization — active"), "Project status does not record stabilization");
+assert(projectStatus.includes("Actual Jinja start gate — blocked"), "Project status no longer blocks Jinja");
 assert(
   projectStatus.includes("future specialist-site implementation — not activated"),
   "Project status does not preserve the inactive future-site boundary",
@@ -181,5 +188,5 @@ assert(record.seed_baseline?.source_site_id === "matsuri", "Unexpected seed sour
 assert(/^\d{4}-\d{2}-\d{2}$/u.test(record.seed_baseline?.observed_on), "Invalid seed observation date");
 
 console.log(
-  `Jinja start gate remains correctly blocked while F2-28 is active: ${candidates.length} seed(s), ${identityEvidence.length} identity Evidence, ${placeReferences} Place references, ${approvedStateSnapshots.length} approved shrine State Snapshots, ${candidatesWithOfficialUrl.length} official URLs.`,
+  `Jinja start gate remains correctly blocked after Matsuri F2-28: ${candidates.length} seed(s), ${identityEvidence.length} identity Evidence, ${placeReferences} Place references, ${approvedStateSnapshots.length} approved shrine State Snapshots, ${candidatesWithOfficialUrl.length} official URLs; four post-launch prerequisites remain incomplete.`,
 );
