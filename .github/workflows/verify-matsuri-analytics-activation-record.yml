@@ -61,5 +61,6 @@ jobs:
           echo "## Matsuri Analytics activation record" >> "$GITHUB_STEP_SUMMARY"
           echo "- Canonical hostname: matsuri-yukue.badjoke-lab.com" >> "$GITHUB_STEP_SUMMARY"
           echo "- F2-25: Automatic setup observed enabled at 2026-07-27T09:37:29Z" >> "$GITHUB_STEP_SUMMARY"
-          echo "- F2-26: post-activation main deployment remains pending" >> "$GITHUB_STEP_SUMMARY"
+          echo "- F2-26: main commit 108ac4e88407e1263229eb40bc88d76855e90131 deployed at 2026-07-27T10:34:17Z" >> "$GITHUB_STEP_SUMMARY"
+          echo "- F2-27: production traffic verification remains pending" >> "$GITHUB_STEP_SUMMARY"
           echo "- Boundary: no manual beacon, token, account identity, raw metrics, private screenshot, or false gate progression" >> "$GITHUB_STEP_SUMMARY"
