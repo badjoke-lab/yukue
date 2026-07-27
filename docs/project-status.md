@@ -5,7 +5,7 @@
 ## Current phase
 
 ```text
-Execution Stage F — Launch Preparation
+Phase 10 — Matsuri Stabilization
 ```
 
 ## Current gate state
@@ -14,38 +14,34 @@ Execution Stage F — Launch Preparation
 F2-15 — Repository Launch Readiness Gate — completed
 F2-M01 — Full-page screenshot visual-review workflow — completed
 F2-M02 — Matsuri data freshness audit — completed
-F2-16 through F2-24 — completed
-F2-25 — Cloudflare Web Analytics activation — completed
-F2-26 — post-activation production deployment — completed
-F2-27 — production traffic verification — completed
-F2-28 — active next gate
+F2-16 through F2-27 — completed
+F2-28 — final F2 Launch Gate — completed
 F2-P01 through F2-P13 — completed
+Phase 9 Launch Preparation — completed
+Phase 10 Stabilization — active
 Actual Jinja start gate — blocked
 future specialist-site implementation — not activated
 ```
 
-F2-27 accepted private-dashboard confirmation that production traffic was received for the canonical Matsuri hostname after the representative routes were opened.
+F2-28 accepted the complete launch chain after F2-27 was merged to `main`.
 
 ```text
-Canonical hostname    matsuri-yukue.badjoke-lab.com
-Verified at           2026-07-27T11:26:58Z
-Traffic observed      yes
-Evidence              docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md
+Evaluated at        2026-07-27T11:45:20Z
+F2-27 merge commit  6a0ef91dad62fb7f5d65135d846b1cf6b6301d25
+Evidence            docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
 ```
 
-The public record does not contain raw traffic counts, account identity, geography, referrers, device detail, tokens, visitor-level data, or the private dashboard screenshot.
+The final gate records successful repository, canonical-origin, Search, crawler, indexability-preflight, Analytics, baseline, privacy, and Jinja-guardrail verification. It does not claim search-engine indexation.
 
 ## Current sources of truth
 
 ```text
 Current repository counts       config/matsuri-repository-baseline.json
 Analytics progression           config/matsuri-analytics-activation.json
-F2-25 evidence                  docs/audits/matsuri-f2-25-analytics-activation-2026-07-27.md
-F2-26 evidence                  docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md
-F2-27 evidence                  docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md
+Final F2 launch gate            config/matsuri-f2-launch-gate.json
+F2-28 evidence                  docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
 Jinja start boundary            config/jinja-start-gate.json
 Production topology             docs/deployment-topology.md
-Launch closure sequence         docs/f2-26-f2-28-launch-closure.md
 ```
 
 Exact current maintenance counts and boundary values are machine-checked in `config/matsuri-repository-baseline.json`; this document does not duplicate those counts.
@@ -58,15 +54,21 @@ Canonical origin          https://matsuri-yukue.badjoke-lab.com/
 Permanent Workers origin  https://matsuri-yukue.badjoke-lab.workers.dev/
 ```
 
-Verified production layers now include canonical deployment, Search, crawler reachability, Search Console submission evidence, Cloudflare Web Analytics Automatic setup, the post-activation production deployment, and production traffic receipt.
+Verified production layers include canonical deployment, Search, crawler reachability, Search Console submission evidence, Cloudflare Web Analytics Automatic setup, post-activation deployment, production traffic receipt, and the final F2 Launch Gate.
 
 No URL is claimed already indexed.
 
-## F2-28 active gate
+## Stabilization scope
 
-F2-28 evaluates the complete launch chain after F2-27. It requires the repository gate, canonical origin, canonical Search, crawler reachability, F2-24 indexability preflight, Analytics progression, privacy boundary, and Jinja guardrail to remain green.
+Phase 10 observes:
 
-F2-28 completion must not be represented as proof of search-engine indexation.
+- indexation and Search Console changes,
+- public Search usage and correction requests,
+- public JSON access and referral signs,
+- maintenance burden and data-freshness work,
+- external interest in the series or machine-readable layer.
+
+Stabilization does not automatically authorize the portal or another specialist site.
 
 ## Routine Matsuri maintenance
 
@@ -86,29 +88,31 @@ Current dated reviews:
 
 ## Jinja start boundary
 
-F2-28 completion alone will not pass the Jinja start gate.
+F2-28 is complete, but four separate prerequisites remain incomplete.
 
 ```text
-Matsuri F2-28 complete                 false
+Matsuri F2-28 complete                 true
 Matsuri stabilization review          false
 Portal/Jinja implementation order     false
 Jinja State specification approved    false
 Explicit start authorization          false
 ```
 
+Actual Jinja start gate — blocked
+
 No Jinja application, Worker, hostname, publication claim, or invented State Snapshot is authorized.
 
 ## Current release status
 
 ```text
-repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-28-pending-jinja-start-blocked
+repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-launch-complete-jinja-start-blocked
 ```
 
 ## Immediate next actions
 
 ```text
-Repository track  run and record F2-28 final launch gate
-Dated review      弘前ねぷた after 2026-08-07; 郡上おどり after 2026-09-05
-Owner track       no further Cloudflare action is required for F2-28
-Jinja track       remain blocked until every start-gate prerequisite is complete
+Stabilization track  observe Matsuri operation and maintenance burden
+Dated review         弘前ねぷた after 2026-08-07; 郡上おどり after 2026-09-05
+Cloudflare track     no launch-gate action pending
+Jinja track          remain blocked until four post-launch prerequisites complete
 ```
