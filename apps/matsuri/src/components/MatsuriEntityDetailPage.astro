@@ -1,0 +1,385 @@
+---
+import ActionLink from "@badjoke-lab/yukue-ui/components/ActionLink.astro";
+import ChangeTimeline from "@badjoke-lab/yukue-ui/components/ChangeTimeline.astro";
+import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
+import DesignationList from "@badjoke-lab/yukue-ui/components/DesignationList.astro";
+import EvidenceList from "@badjoke-lab/yukue-ui/components/EvidenceList.astro";
+import OccurrenceTable from "@badjoke-lab/yukue-ui/components/OccurrenceTable.astro";
+import OverviewGrid from "@badjoke-lab/yukue-ui/components/OverviewGrid.astro";
+import PageShell from "@badjoke-lab/yukue-ui/components/PageShell.astro";
+import PlaceMap from "@badjoke-lab/yukue-ui/components/PlaceMap.astro";
+import RelationList from "@badjoke-lab/yukue-ui/components/RelationList.astro";
+import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
+import SiteFooter from "@badjoke-lab/yukue-ui/components/SiteFooter.astro";
+import SiteHeader from "@badjoke-lab/yukue-ui/components/SiteHeader.astro";
+import type { MatsuriEntityDetailViewModel } from "../data/detail-view-models.js";
+
+interface Props {
+  page: MatsuriEntityDetailViewModel;
+}
+
+const { page } = Astro.props;
+const activeNav =
+  page.entityType === "folk_performance"
+    ? "/performances/"
+    : page.entityType === "organization"
+      ? "/organizations/"
+      : page.entityType === "festival" || page.entityType === "tradition_unit"
+        ? "/festivals/"
+        : undefined;
+
+const navItems = [
+  { label: "祭礼", href: "/festivals/", active: activeNav === "/festivals/" },
+  { label: "民俗芸能", href: "/performances/", active: activeNav === "/performances/" },
+  { label: "地域", href: "/regions/" },
+  { label: "変化", href: "/changes/" },
+  { label: "検索", href: "/search/" },
+  { label: "このサイトについて", href: "/about/" },
+];
+
+const footerGroups = [
+  {
+    heading: "記録",
+    links: [
+      { label: "祭礼", href: "/festivals/" },
+      { label: "民俗芸能", href: "/performances/" },
+      { label: "組織", href: "/organizations/" },
+    ],
+  },
+  {
+    heading: "調べる",
+    links: [
+      { label: "地域", href: "/regions/" },
+      { label: "変化", href: "/changes/" },
+      { label: "状態", href: "/states/" },
+    ],
+  },
+  {
+    heading: "この資料について",
+    links: [
+      { label: "方法論", href: "/methodology/" },
+      { label: "データ", href: "/data/" },
+      { label: "ステータス", href: "/status/" },
+    ],
+  },
+];
+---
+
+<PageShell site="matsuri" title={page.title} description={page.description}>
+  <SiteHeader
+    slot="header"
+    siteName="祭のゆくえ"
+    romanLabel="Matsuri Yukue"
+    navItems={navItems}
+  />
+
+  <article data-detail-page data-entity-id={page.entityId} data-entity-type={page.entityType}>
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <Container size="wide">
+        <ol>
+          <li><a href="/">ホーム</a></li>
+          <li><a href={page.browseHref}>{page.browseLabel}</a></li>
+          {page.region && <li><a href="/regions/">{page.region}</a></li>}
+          <li aria-current="page">{page.name}</li>
+        </ol>
+      </Container>
+    </nav>
+
+    <section class="entity-identity" id="identity">
+      <Container size="wide">
+        <p class="entity-identity__kicker">{page.identityKicker}</p>
+        <h1>{page.name}</h1>
+        {page.reading && <p class="entity-identity__reading">{page.reading}</p>}
+        {page.meta.length > 0 && (
+          <ul class="entity-identity__meta" aria-label="基本分類">
+            {page.meta.map((item) => <li>{item}</li>)}
+          </ul>
+        )}
+        <div class="entity-identity__actions" aria-label="記録への導線">
+          {page.officialHref && <ActionLink href={page.officialHref} label="公式情報を見る" />}
+          <ActionLink href={page.dataHref} label="公開JSONを見る" />
+          <ActionLink href="/about/#corrections" label="この記録の訂正を連絡する" />
+        </div>
+      </Container>
+    </section>
+
+    {page.boundaryNotice && (
+      <Section kicker="Reference Boundary" title="この参照記録の範囲" id="reference-boundary">
+        <p class="boundary-notice">{page.boundaryNotice}</p>
+      </Section>
+    )}
+
+    {page.overview.length > 0 && (
+      <Section
+        kicker="Integrated Overview"
+        title={page.overviewTitle}
+        id="current"
+        actionHref={page.stateEvidenceHref}
+        actionLabel={page.stateEvidenceHref ? "判断根拠を見る" : undefined}
+      >
+        <OverviewGrid items={page.overview} />
+        {page.stateExplanation && (
+          <div class="state-explanation">
+            <h3>確認できていること</h3>
+            <p>{page.stateExplanation}</p>
+          </div>
+        )}
+      </Section>
+    )}
+
+    {page.aboutParagraphs.length > 0 && (
+      <Section kicker="About" title={`${page.name}について`} id="about">
+        <div class="yk-prose detail-prose">
+          {page.aboutParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </Section>
+    )}
+
+    {page.places.length > 0 && (
+      <Section kicker="Places & Map" title="開催場所・上演場所" id="places">
+        <PlaceMap places={page.places} contextDescription={page.placeContext} />
+      </Section>
+    )}
+
+    {page.occurrences.length > 0 && (
+      <Section kicker="Year by Year" title="直近の開催・上演" id="occurrences">
+        <OccurrenceTable
+          rows={page.occurrences}
+          showScale={true}
+          caption={`${page.name}の開催・上演履歴`}
+        />
+      </Section>
+    )}
+
+    {page.changes.length > 0 && (
+      <Section kicker="Change History" title="これまでの変化" id="changes">
+        <ChangeTimeline items={page.changes} />
+      </Section>
+    )}
+
+    {page.relationGroups.length > 0 && (
+      <Section kicker="Connections / Relations" title="関係" id="relations">
+        <div class="relation-groups">
+          {page.relationGroups.map((group) => (
+            <section class="relation-group" data-relation-group={group.key}>
+              <h3>{group.title}</h3>
+              <RelationList items={group.items} />
+            </section>
+          ))}
+        </div>
+      </Section>
+    )}
+
+    {page.designations.length > 0 && (
+      <Section kicker="Designations" title="指定" id="designations">
+        <DesignationList items={page.designations} />
+      </Section>
+    )}
+
+    {page.evidence.length > 0 && (
+      <Section kicker="Evidence & Sources" title="判断根拠と出典" id="evidence">
+        <p class="section-intro">どの判断を、どの資料が、どのように支えているかを対応させています。</p>
+        <EvidenceList items={page.evidence} />
+      </Section>
+    )}
+
+    {page.recordUpdates.length > 0 && (
+      <Section kicker="Record Updates" title="この記録の更新" id="record-updates">
+        <ol class="record-updates">
+          {page.recordUpdates.map((update) => (
+            <li>
+              <time>{update.date}</time>
+              <div>
+                <h3>{update.label}</h3>
+                <p>{update.detail}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </Section>
+    )}
+
+    <Section kicker="Machine-readable Data" title="機械可読データ" id="machine-data" rule="none">
+      <div class="machine-data">
+        <p>この記録に対応する承認済みPublic Projectionを、個別JSONとして取得できます。</p>
+        <ActionLink href={page.dataHref} label="この記録のJSONを開く" />
+        <ActionLink href="/data/" label="公開データ全体について" />
+      </div>
+    </Section>
+  </article>
+
+  <SiteFooter slot="footer" siteName="祭のゆくえ" groups={footerGroups} />
+</PageShell>
+
+<style>
+  .breadcrumb {
+    padding-block: var(--space-4);
+    border-bottom: var(--rule-standard);
+  }
+
+  .breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--color-muted);
+    font-size: var(--font-size-xs);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: "／";
+    margin-left: var(--space-2);
+    color: var(--color-rule-strong);
+  }
+
+  .breadcrumb a {
+    color: inherit;
+  }
+
+  .entity-identity {
+    padding-block: var(--space-14) var(--space-10);
+    border-bottom: var(--rule-standard);
+  }
+
+  .entity-identity__kicker {
+    margin: 0 0 var(--space-3);
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.12em;
+  }
+
+  .entity-identity h1 {
+    margin: 0;
+    font-size: var(--font-size-entity);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+
+  .entity-identity__reading {
+    margin: var(--space-2) 0 0;
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.08em;
+  }
+
+  .entity-identity__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin: var(--space-6) 0 0;
+    padding: 0;
+    list-style: none;
+    color: var(--color-text-soft);
+    font-size: var(--font-size-sm);
+  }
+
+  .entity-identity__meta li + li {
+    padding-left: var(--space-4);
+    border-left: var(--rule-standard);
+  }
+
+  .entity-identity__actions,
+  .machine-data {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5);
+  }
+
+  .entity-identity__actions {
+    margin-top: var(--space-7);
+  }
+
+  .boundary-notice,
+  .section-intro,
+  .state-explanation,
+  .machine-data p {
+    max-width: var(--container-prose);
+    color: var(--color-text-soft);
+  }
+
+  .state-explanation {
+    margin-top: var(--space-7);
+    padding-top: var(--space-6);
+    border-top: var(--rule-standard);
+  }
+
+  .state-explanation h3,
+  .relation-group h3,
+  .record-updates h3 {
+    margin: 0;
+    font-size: var(--font-size-h3);
+    font-weight: 500;
+  }
+
+  .state-explanation p,
+  .record-updates p {
+    margin: var(--space-3) 0 0;
+  }
+
+  .detail-prose {
+    font-size: var(--font-size-base);
+  }
+
+  .relation-groups {
+    display: grid;
+    gap: var(--space-10);
+  }
+
+  .relation-group h3 {
+    margin-bottom: var(--space-4);
+  }
+
+  .record-updates {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    border-top: var(--rule-strong);
+    list-style: none;
+  }
+
+  .record-updates li {
+    display: grid;
+    grid-template-columns: 10rem minmax(0, 1fr);
+    gap: var(--space-7);
+    padding-block: var(--space-6);
+    border-bottom: var(--rule-standard);
+  }
+
+  .record-updates time {
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  .machine-data {
+    align-items: center;
+  }
+
+  .machine-data p {
+    flex-basis: 100%;
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .entity-identity {
+      padding-block: var(--space-10) var(--space-8);
+    }
+
+    .entity-identity__meta {
+      display: grid;
+      gap: var(--space-2);
+    }
+
+    .entity-identity__meta li + li {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .record-updates li {
+      grid-template-columns: 1fr;
+      gap: var(--space-2);
+    }
+  }
+</style>
