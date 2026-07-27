@@ -1,10 +1,10 @@
 # Repository Launch Readiness
 
-**Status:** Repository gate completed / external verification completed through F2-26 / F2-27 active
+**Status:** Repository gate completed / external verification completed through F2-27 / F2-28 active
 
 ## Decision
 
-`祭のゆくえ` has completed repository readiness, canonical deployment verification, interactive browser Search verification, crawler reachability, Search Console submission and technical-indexability evidence, Cloudflare Web Analytics activation, and the post-activation production deployment.
+`祭のゆくえ` has completed repository readiness, canonical deployment verification, interactive browser Search verification, crawler reachability, Search Console submission and technical-indexability evidence, Cloudflare Web Analytics activation, the post-activation production deployment, and production traffic verification.
 
 ## Gate command
 
@@ -25,34 +25,31 @@ F2-25 observation            2026-07-27T09:37:29Z
 F2-26 source commit          108ac4e88407e1263229eb40bc88d76855e90131
 F2-26 Cloudflare build       7026144e-1ce0-4927-9060-64919c3a4002
 F2-26 deployed at            2026-07-27T10:34:17Z
+F2-27 traffic verified at    2026-07-27T11:26:58Z
+F2-27 traffic observed       yes
 Indexation claimed           false
 ```
 
-F2-26 evidence:
+F2-27 evidence:
 
 ```text
-docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md
+docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md
 ```
 
 ## Required passing state
 
-The repository gate requires accepted topology, separate Worker identities, verified canonical origin, reproducible origin-neutral and production artifacts, route and asset integrity, Pagefind and machine-readable consistency, semantic and Evidence rules, browser/accessibility checks, Search/crawler/Search Console evidence, completed F2-25 and F2-26 Analytics progression, and an active guard against premature Jinja implementation.
+The repository gate requires accepted topology, separate Worker identities, verified canonical origin, reproducible origin-neutral and production artifacts, route and asset integrity, Pagefind and machine-readable consistency, semantic and Evidence rules, browser/accessibility checks, Search/crawler/Search Console evidence, completed F2-25 through F2-27 Analytics progression, and an active guard against premature Jinja implementation.
 
 ## Completed external activation and verification
 
 ```text
-F2-16 through F2-26 — completed
+F2-16 through F2-27 — completed
 ```
-
-The first deploy API call for F2-26 returned a transient provider-side 503 after successful build and asset upload. Retrying the same source build succeeded. This is not represented as a source-code failure.
 
 ## Remaining external sequence
 
 ```text
-F2-27  production traffic verification — active
-F2-28  final F2 Launch Gate — blocked by F2-27
+F2-28  final F2 Launch Gate — active
 ```
 
-F2-27 requires private-dashboard confirmation after visiting the representative canonical routes. Public evidence must not publish raw metrics, account identity, geography, referrers, device details, tokens, visitor-level data, or dashboard screenshots.
-
-F2-28 must not claim search-engine indexation.
+F2-28 must verify all recorded gates and privacy boundaries without claiming search-engine indexation. It does not authorize Jinja implementation.
