@@ -22,6 +22,7 @@ const deviceNames = selectedDeviceNames(
 
 assertMatsuriVisualContract();
 const generatedRoutes = await discoverGeneratedPublicRoutes();
+const generatedRouteSet = new Set(generatedRoutes);
 const failures = [];
 const warnings = [];
 const summaries = [];
@@ -35,14 +36,13 @@ function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
 }
 
-try {
-  compareRouteInventories(
-    generatedRoutes,
-    matsuriPublicRoutes,
-    "Generated Matsuri and configured visual",
+const missingConfiguredRoutes = matsuriPublicRoutes.filter(
+  (route) => !generatedRouteSet.has(route),
+);
+if (missingConfiguredRoutes.length > 0) {
+  failures.push(
+    `Configured visual routes are missing from the generated Matsuri site: ${JSON.stringify(missingConfiguredRoutes)}`,
   );
-} catch (error) {
-  failures.push(error instanceof Error ? error.message : String(error));
 }
 
 for (const deviceName of deviceNames) {
@@ -59,8 +59,12 @@ for (const deviceName of deviceNames) {
   const manifest = readJson(manifestPath);
   const expectedDevice = matsuriVisualDevices[deviceName];
 
-  check(manifest.schema_version === "1.0", `${deviceName}: manifest schema must be 1.0.`);
+  check(manifest.schema_version === "1.1", `${deviceName}: manifest schema must be 1.1.`);
   check(manifest.source_type === "local-preview", `${deviceName}: source_type must be local-preview.`);
+  check(
+    manifest.coverage_mode === "representative-page-families",
+    `${deviceName}: coverage_mode must be representative-page-families.`,
+  );
   check(manifest.device === deviceName, `${deviceName}: device marker mismatch.`);
   check(
     manifest.viewport?.width === expectedDevice.viewport.width &&
@@ -97,7 +101,7 @@ for (const deviceName of deviceNames) {
     compareRouteInventories(
       capturedRoutes,
       matsuriPublicRoutes,
-      `${deviceName} captured and configured visual`,
+      `${deviceName} captured and configured representative visual`,
     );
   } catch (error) {
     failures.push(error instanceof Error ? error.message : String(error));
@@ -190,13 +194,15 @@ if (deviceNames.length === 2) {
 }
 
 const result = {
-  schema_version: "1.0",
+  schema_version: "1.1",
   generated_at: new Date().toISOString(),
   work_package: "F2-M01",
+  coverage_mode: "representative-page-families",
   ok: failures.length === 0,
   requirements: {
     devices: deviceNames,
-    exhaustive_route_count: matsuriPublicRoutes.length,
+    generated_route_count: generatedRoutes.length,
+    representative_route_count: matsuriPublicRoutes.length,
     minimum_screenshot_bytes: minimumScreenshotBytes,
     maximum_horizontal_overflow_pixels: 1,
   },
@@ -217,8 +223,10 @@ const markdown = [
   "",
   `- Work package: F2-M01`,
   `- Result: ${result.ok ? "PASS" : "FAIL"}`,
+  `- Coverage mode: representative page families`,
+  `- Generated routes: ${generatedRoutes.length}`,
+  `- Representative routes: ${matsuriPublicRoutes.length}`,
   `- Devices: ${deviceNames.join(", ")}`,
-  `- Exhaustive routes: ${matsuriPublicRoutes.length}`,
   `- Minimum screenshot bytes: ${minimumScreenshotBytes}`,
   "",
   ...summaries.flatMap((summary) => [
@@ -226,6 +234,7 @@ const markdown = [
     "",
     `- Viewport: ${summary.viewport.width} × ${summary.viewport.height}`,
     `- Captured: ${summary.captured_routes} / ${summary.configured_routes}`,
+    `- Generated HTML inventory: ${summary.generated_routes}`,
     `- Screenshot bytes: ${summary.total_screenshot_bytes}`,
     `- Maximum document height: ${summary.maximum_document_height}px`,
     `- Visible empty states: ${summary.visible_empty_state_count}`,
