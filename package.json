@@ -47,6 +47,7 @@
     "check:matsuri:canonical": "node scripts/check-matsuri-deployed.mjs --canonical",
     "capture:matsuri:screenshots": "node scripts/capture-matsuri-screenshots.mjs",
     "audit:matsuri:screenshots": "node scripts/audit-matsuri-screenshots.mjs",
+    "audit:matsuri:corpus": "node scripts/audit-matsuri-corpus-coverage.mjs",
     "audit:matsuri:freshness": "node scripts/audit-matsuri-data-freshness.mjs",
     "audit:matsuri:relations": "node scripts/audit-matsuri-relation-coverage.mjs",
     "contact:matsuri:screenshots": "node scripts/build-matsuri-contact-sheets.mjs",
