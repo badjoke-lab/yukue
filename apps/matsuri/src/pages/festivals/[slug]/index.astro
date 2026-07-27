@@ -1,0 +1,30 @@
+---
+import MatsuriEntityDetailPage from "../../../components/MatsuriEntityDetailPage.astro";
+import { buildMatsuriEntityDetailViewModel } from "../../../data/detail-view-models.js";
+import {
+  findMatsuriEntityDetail,
+  matsuriEntityDetails,
+} from "../../../data/matsuri-projection.js";
+
+export function getStaticPaths() {
+  return matsuriEntityDetails
+    .filter((detail) =>
+      ["festival", "tradition_unit"].includes(detail.entity.entity_type),
+    )
+    .map((detail) => ({
+      params: { slug: detail.entity.slug },
+      props: { entityId: detail.entity.id },
+    }));
+}
+
+interface Props {
+  entityId: string;
+}
+
+const { entityId } = Astro.props;
+const detail = findMatsuriEntityDetail(entityId);
+if (!detail) throw new Error(`Public Projection is missing ${entityId}.`);
+const page = buildMatsuriEntityDetailViewModel(detail);
+---
+
+<MatsuriEntityDetailPage page={page} />
