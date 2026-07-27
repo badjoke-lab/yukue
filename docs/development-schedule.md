@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-26 completed / F2-27 active next gate / F2-P01 through F2-P13 completed
+**Status:** F2-27 completed / F2-28 active next gate / F2-P01 through F2-P13 completed
 
 This project is gate-driven rather than deadline-driven.
 
@@ -9,20 +9,19 @@ This project is gate-driven rather than deadline-driven.
 ```text
 Foundation through Stage E  completed
 F1 corpus expansion          completed
-F2-01 through F2-26          completed
+F2-01 through F2-27          completed
 F2-M01                       completed
 F2-M02                       completed
 F2-P01 through F2-P13        completed
-F2-27                        active next gate
-F2-28                        blocked by F2-27
+F2-28                        active next gate
 Actual Jinja start gate      blocked
 ```
 
 ## Repository work
 
 ```text
-F2-01 through F2-15  repository launch-readiness work — completed
-F2-P01 through F2-P13  Analytics preparation, seed provenance, correction and dataset contracts — completed
+F2-01 through F2-15    repository launch-readiness work — completed
+F2-P01 through F2-P13  Analytics preparation, seed provenance, correction, and dataset contracts — completed
 ```
 
 Repository gate:
@@ -31,7 +30,7 @@ Repository gate:
 pnpm gate:matsuri:repository
 ```
 
-The gate includes dependency and workflow supply-chain checks, bundle inventory and order, the shared canonical dataset and correction engine, public-output verification, strict external-link, Relation, and freshness contracts, F2-26 Analytics progression validation, and the blocked Jinja start gate.
+The gate includes dependency and workflow supply-chain checks, bundle inventory and order, the shared canonical dataset and correction engine, public-output verification, strict external-link, Relation, and freshness contracts, F2-27 Analytics progression validation, and the blocked Jinja start gate.
 
 ## External deployment and production verification
 
@@ -49,35 +48,37 @@ F2-23  crawler-reachability review — completed
 F2-24  Search Console sitemap submission and indexability check — completed
 F2-25  Cloudflare Web Analytics Automatic setup observed enabled — completed
 F2-26  post-activation main production deployment — completed
+F2-27  production traffic verification — completed
 ```
 
-F2-26 evidence:
+F2-27 evidence:
 
 ```text
-Source commit       108ac4e88407e1263229eb40bc88d76855e90131
-Cloudflare build    7026144e-1ce0-4927-9060-64919c3a4002
-Deployed at         2026-07-27T10:34:17Z
-Audit               docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md
+Canonical hostname    matsuri-yukue.badjoke-lab.com
+Verified at           2026-07-27T11:26:58Z
+Traffic observed      yes
+Audit                 docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md
 ```
+
+The four representative canonical routes were visited before the private-dashboard confirmation. Raw metrics and private dashboard material remain outside the repository.
 
 ### Active sequence
 
 ```text
-F2-27  production traffic verification — active next gate
-F2-28  final F2 Launch Gate — hold
+F2-28  final F2 Launch Gate — active next gate
 ```
 
 Exact continuation:
 
 ```text
-1. open /, /festivals/, /search/, and /festivals/suneori-amagoi/
-2. confirm canonical-host traffic in the private Cloudflare dashboard
-3. record only public-safe F2-27 facts
-4. validate and merge the F2-27 machine-state change
-5. run F2-28
+1. validate the F2-27 public-safe record and machine state
+2. verify the repository, canonical origin, Search, crawler, and F2-24 gates
+3. verify that no private Analytics material was committed
+4. evaluate and record F2-28 separately
+5. keep the Jinja start gate blocked until all of its own prerequisites pass
 ```
 
-Do not publish raw metrics, account identity, tokens, geography, referrers, device detail, visitor-level data, or private screenshots.
+F2-28 must not claim search-engine indexation.
 
 ## Parallel maintenance
 
@@ -101,18 +102,6 @@ Matsuri stabilization review          false
 Portal/Jinja implementation order     false
 Jinja State specification approved    false
 Explicit start authorization          false
-```
-
-Before Jinja implementation:
-
-```text
-1. complete F2-28
-2. complete Matsuri stabilization review
-3. decide portal/Jinja implementation order
-4. approve Jinja State specification and vocabulary
-5. record explicit start authorization
-6. pass the actual Jinja start gate
-7. only then create apps/jinja
 ```
 
 F2-28 alone is not sufficient to begin Jinja.
