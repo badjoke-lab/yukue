@@ -3,7 +3,7 @@
   "site_id": "matsuri",
   "canonical_origin": "https://matsuri-yukue.badjoke-lab.com",
   "provider": "cloudflare-web-analytics",
-  "status": "post-activation-deployed",
+  "status": "traffic-verified",
   "activation_method": "automatic-setup",
   "activation_time_basis": "pre-existing-automatic-setup-observed",
   "analytics_enabled": true,
@@ -20,15 +20,15 @@
   },
   "traffic_verification": {
     "required": true,
-    "completed": false,
-    "verified_at": null,
-    "evidence_document": null,
+    "completed": true,
+    "verified_at": "2026-07-27T11:26:58Z",
+    "evidence_document": "docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md",
     "private_counts_published": false
   },
   "claims": {
     "f2_25_complete": true,
     "f2_26_complete": true,
-    "f2_27_complete": false
+    "f2_27_complete": true
   },
   "privacy": {
     "manual_beacon_committed": false,
