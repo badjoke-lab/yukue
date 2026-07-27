@@ -4,21 +4,26 @@ import type { RelationItem } from "../types.js";
 interface Props {
   items: RelationItem[];
   validityLabel?: string;
+  evidenceLabel?: string;
 }
 
 const {
   items,
   validityLabel = "有効期間",
+  evidenceLabel = "関係の根拠",
 } = Astro.props;
 ---
 
 <dl class="yk-reference-list">
   {items.map((item) => (
-    <div class="yk-reference-row">
+    <div class="yk-reference-row" data-relation-row>
       <dt>{item.label}</dt>
-      <dd><a href={item.href}>{item.targetName}</a></dd>
+      <dd>
+        <a href={item.href} data-relation-target>{item.targetName}</a>
+      </dd>
       <dd class="yk-reference-row__meta">
-        {item.validityPeriod ? `${validityLabel}: ${item.validityPeriod}` : ""}
+        {item.validityPeriod && <span>{validityLabel}: {item.validityPeriod}</span>}
+        {item.evidenceHref && <a href={item.evidenceHref}>{evidenceLabel}</a>}
       </dd>
     </div>
   ))}
