@@ -1,6 +1,6 @@
 # Project Roadmap
 
-**Status:** Phase 9 completed / Phase 10 Matsuri stabilization active
+**Status:** Phase 9 completed / Phase 10 Matsuri stabilization observing
 
 ## Phase 0 through Phase 8
 
@@ -29,15 +29,28 @@ F2-28 does not claim that any URL is indexed.
 
 ## Phase 10 — Matsuri Stabilization
 
-Status: **Active**
+Status: **Active / observing**
 
-Observe:
+```text
+Started               2026-07-27
+Minimum duration      14 days
+Earliest review       2026-08-10
+Machine record        config/matsuri-stabilization-review.json
+```
 
-- indexation and Search Console changes,
-- Search usage and correction requests,
-- public JSON access and referral signs,
-- maintenance burden and data-freshness work,
-- external interest in the series and machine-readable layer.
+Observe and record:
+
+- production availability and deployment failures,
+- canonical hostname and HTTPS behavior,
+- Search behavior,
+- crawler and sitemap behavior,
+- Search Console observation without requiring indexation,
+- Analytics traffic receipt without publishing metrics,
+- freshness, Relation, Evidence, and correction work,
+- manual maintenance burden,
+- public Search and machine-readable-layer signals.
+
+Elapsed time alone does not complete Phase 10. Completion requires the machine record, all review categories, zero unresolved critical corrections, a recorded deployment-failure count, acceptable maintenance burden, and a public-safe final audit.
 
 Repository maintenance performed during this phase remains bounded by the public data, privacy, and evidence policies.
 
