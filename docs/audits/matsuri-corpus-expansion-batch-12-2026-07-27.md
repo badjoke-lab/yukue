@@ -1,7 +1,7 @@
 # Matsuri corpus expansion batch 12
 
 **Date:** 2026-07-27  
-**Status:** Implemented; final repository validation pending  
+**Status:** Passed  
 **Track:** Phase 10B — Matsuri corpus expansion
 
 ## Decision
@@ -60,9 +60,27 @@ https://www.nebuta.jp/archive/tokubetsunebuta.html
 https://www.nebuta.jp/archive/nebuta/2021/
 ```
 
-## Expected corpus result
+## Corpus result
 
-Before final machine validation, the expected bounded changes are:
+The machine-generated coverage audit reports:
+
+```text
+Entities                 48
+Places                   35
+State Snapshots          25
+Change Events            29
+Occurrences              38
+Occurrence Series        20
+Recurrence Patterns      20
+Relations                27
+Designations              5
+Sources                   68
+Evidence                 184
+Uncovered prefectures    31
+Sparse primary Entities  13
+```
+
+Bounded movement from batch 11:
 
 ```text
 Entities                    46 -> 48
@@ -70,14 +88,14 @@ F1 batch files              12 -> 13
 F2 maintenance bundles      14 -> 15
 Additive application slots  26 -> 28
 Uncovered prefectures       32 -> 31
-Sparse primary Entities     14 -> 13 or fewer
+Sparse primary Entities     14 -> 13
 ```
 
-The final totals are taken from the machine-generated corpus coverage artifact, not from this expectation block.
+This is not a corpus-completion claim. Thirty-one prefectures still have no primary public record, and thirteen existing primary Entities remain sparse under the published audit rule.
 
 ## Product behavior
 
-The completed Detail C implementation means the new and deepened records must expose:
+The completed Detail C implementation exposes the new and deepened records through:
 
 - Festival and Organization detail pages,
 - Place details and reverse links,
@@ -89,6 +107,50 @@ The completed Detail C implementation means the new and deepened records must ex
 - Search indexing,
 - sitemap inclusion.
 
+Static route validation and real-Chromium navigation both passed on the validated implementation head.
+
+## Validation
+
+Validated implementation head:
+
+```text
+1c5f571ede9bcfbc491de00a7c44ed3cadf6dd53
+```
+
+Successful workflows:
+
+```text
+Complete CI / repository readiness  30289445538
+Detail C navigation                 30289445451
+Corpus coverage audit               30289445506
+Canonical dataset contract          30289445442
+Data freshness                      30289445456
+Relation coverage                   30289445480
+External-link maintenance           30289445444
+Bundle inventory / baseline         30289445439
+Correction contract                 30289445440
+Screenshot capture and audit        30289445468
+Jinja start gate                    30289445445
+Future-site seed inventory          30289445443
+Future-site seed readiness          30289445515
+```
+
+Artifacts:
+
+```text
+Corpus audit
+ID      8662175060
+Digest  sha256:beb1d0f2e687ac1e4d323c11bcc064a1e42ab6477ef799f6474b6bedbb672f44
+
+Release candidate
+ID      8662222706
+Digest  sha256:848bf7779b83ccc77847c45aa854e7fecc583503f709204411c21753c28e8e57
+
+Representative desktop/mobile screenshots
+ID      8662205621
+Digest  sha256:09b52df5973c8f110a095f25a83e3cf54300d349f925f8e69e827e388dbf0a50
+```
+
 ## Boundaries
 
 - The 2026 Okinawa occurrence remains `scheduled`, not `held`.
@@ -97,13 +159,3 @@ The completed Detail C implementation means the new and deepened records must ex
 - No Shrine or Temple Current State is inferred.
 - No Jinja, Jiin, portal, Worker, hostname, or future-site activation is included.
 - Jinja remains blocked.
-
-## Machine evidence
-
-```text
-Corpus audit command    pnpm audit:matsuri:corpus
-Detail C gate           pnpm check:matsuri:detail-navigation
-Repository gate         pnpm gate:matsuri:repository
-PR                      recorded after validation
-Artifacts               recorded after validation
-```
