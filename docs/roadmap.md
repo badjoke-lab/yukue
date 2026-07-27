@@ -46,29 +46,11 @@ Status: **Completed through F1 batches 01–10**
 
 ```text
 F2-01 through F2-15 — completed
-F2-P01 Analytics and launch-closure preparation — completed
+F2-P01 through F2-P13 — completed
+F2-M01 and F2-M02 — completed
 ```
 
-The repository candidate is reproducible, content-addressed, and origin-neutral. Active production evidence is recorded separately. The Analytics progression now has a machine-readable pending state, validator, workflow, public-safe evidence template, and fixed F2-26 through F2-28 runbook.
-
-### Repository visual and data maintenance
-
-```text
-F2-M01  exhaustive desktop/mobile full-page screenshot workflow — completed
-F2-M02  Matsuri data freshness audit — completed
-```
-
-F2-M02 completion result:
-
-```text
-closed-period unresolved Occurrences  0
-specialist Entities with no Relation  0
-stale Current State candidates        0
-stale external-link candidates        0
-Relations missing Evidence            0
-```
-
-The post-2026-07-15 review of 博多祇園山笠 2026 was completed from the official 追い山笠 result record. The next dated review point is 郡上おどり 2026 after 2026-09-05.
+The repository candidate is reproducible, content-addressed, and origin-neutral. Active production evidence is recorded separately. The Analytics progression has a machine-readable state, validator, privacy-safe evidence, and fixed F2-26 through F2-28 sequence.
 
 ### External deployment and production verification
 
@@ -82,42 +64,39 @@ F2-21  canonical manifest and sitemap verification — completed
 F2-22  browser Search verification on canonical origin — completed
 F2-23  crawler-reachability review — completed
 F2-24  sitemap submission and indexability check — completed
-F2-25  Web Analytics activation — next external gate; owner access pending
-F2-26  post-activation deployment — hold
+F2-25  Cloudflare Web Analytics activation — completed
+F2-26  post-activation production deployment — next
 F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
-External deployment through F2-24: **Completed**
+External deployment through F2-25: **Completed**
 
-Verified production baseline:
+F2-25 verified that the existing Cloudflare Web Analytics Automatic setup was enabled for the proxied zone containing the canonical Matsuri hostname. The first repository-verifiable enabled observation is `2026-07-27T09:37:29Z`. The exact older activation instant was unavailable and is not inferred.
+
+F2-26 is the active external gate. It must use the production deployment generated after the F2-25 evidence change is merged to `main`. A pull-request-head deployment and a deployment predating the recorded observation are not accepted.
+
+Verified production baseline remains:
 
 ```text
 Worker                    matsuri-yukue
 Canonical origin          https://matsuri-yukue.badjoke-lab.com
 Canonical origin run      29191904624 — success
 Canonical Search run      29193201911 — success
-Canonical Search artifact 8260207484
 Crawler reachability run  29230233384 — success
-Crawler evidence artifact 8271238535
 F2-24 preflight run        29232294960 — success
-F2-24 preflight artifact   8271994696
 Search Console sitemap     success
-Discovered pages           20
 Representative live test  indexable
-Indexing requests          3 submitted
 ```
 
-F2-24 confirmed Search Console access for the canonical URL-prefix property, successful canonical sitemap submission, all-route technical preflight coverage, representative Google live-test indexability, and indexing requests for the three required representative URLs. Submission and registration requests are not treated as proof of indexation.
-
-F2-25 remains the active external gate. Its owner-account action may be inserted later without changing the accepted sequence because the machine record and F2-25 through F2-28 evidence requirements are already prepared.
+Search Console submission and registration requests are not treated as proof of indexation.
 
 The portal and Matsuri remain separate applications and Workers. The portal hostname remains planned and is not attached to the Matsuri Worker.
 
 Pending:
 
 ```text
-F2-25 through F2-28 external execution
+F2-26 through F2-28 external execution
 ```
 
 Allowed parallel work:
@@ -136,7 +115,7 @@ After F2-28, observe indexation, search impressions, Search queries, corrections
 
 Status: **Not started — requires F2-28**
 
-Repository maintenance performed during the F2-25 access hold does not count as Phase 10 stabilization evidence.
+Repository maintenance performed before F2-28 does not count as Phase 10 stabilization evidence.
 
 ## Phase 11 — Portal and next-site gates
 
