@@ -7,6 +7,12 @@ const repositoryRoot = fileURLToPath(new URL("../", import.meta.url));
 const candidateRoot = path.join(repositoryRoot, ".release-candidate");
 const candidateSiteRoot = path.join(candidateRoot, "matsuri-site");
 const releaseManifestPath = path.join(candidateRoot, "release-candidate.json");
+const expectedTrafficRoutes = [
+  "/",
+  "/festivals/",
+  "/search/",
+  "/festivals/suneori-amagoi/",
+];
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -58,6 +64,7 @@ const requiredDocs = [
   "docs/audits/matsuri-f2-24-search-console-2026-07-14.md",
   "docs/audits/matsuri-f2-25-analytics-activation-2026-07-27.md",
   "docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md",
+  "docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md",
 ];
 
 const packageJson = JSON.parse(read("package.json"));
@@ -77,7 +84,7 @@ assert(manifest.project_id === "yukue-series", "Unexpected project_id");
 assert(manifest.site_id === "matsuri", "Unexpected site_id");
 assert(
   manifest.release_status ===
-    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-deployed-f2-27-pending",
+    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-28-pending",
   `Unexpected release_status: ${String(manifest.release_status)}`,
 );
 assert(manifest.artifact_origin_mode === "origin-neutral-repository-candidate", "Wrong artifact mode");
@@ -140,6 +147,17 @@ assert(
     manifest.post_activation_deployment_verification?.f2_26_complete === true,
   "F2-26 evidence is incomplete",
 );
+assert(
+  manifest.production_traffic_verification?.verified_at === "2026-07-27T11:26:58Z" &&
+    manifest.production_traffic_verification?.evidence_document ===
+      "docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md" &&
+    manifest.production_traffic_verification?.traffic_observed === true &&
+    manifest.production_traffic_verification?.private_counts_published === false &&
+    manifest.production_traffic_verification?.f2_27_complete === true &&
+    JSON.stringify(manifest.production_traffic_verification?.representative_routes) ===
+      JSON.stringify(expectedTrafficRoutes),
+  "F2-27 evidence is incomplete",
+);
 assert(typeof manifest.source_commit === "string" && /^[0-9a-f]{40}$/u.test(manifest.source_commit), "Invalid source_commit");
 assert(Array.isArray(manifest.public_routes) && manifest.public_routes.length > 0, "No public routes");
 assert(Array.isArray(manifest.files) && manifest.files.length === manifest.artifact_file_count, "File inventory mismatch");
@@ -156,6 +174,7 @@ const completedExternalIds = [
   "F2-24",
   "F2-25",
   "F2-26",
+  "F2-27",
 ];
 for (const id of completedExternalIds) {
   assert(
@@ -163,10 +182,11 @@ for (const id of completedExternalIds) {
     `Completed external work missing ${id}`,
   );
 }
-for (const id of ["F2-27", "F2-28"]) {
-  assert(manifest.external_pending_work.some((value) => value.startsWith(id)), `Pending work missing ${id}`);
-}
-assert(!manifest.external_pending_work.some((value) => value.startsWith("F2-26")), "F2-26 still pending");
+assert(
+  manifest.external_pending_work.length === 1 &&
+    manifest.external_pending_work[0].startsWith("F2-28"),
+  "Only F2-28 may remain pending",
+);
 
 let totalBytes = 0;
 const aggregateLines = [];
@@ -192,19 +212,20 @@ const developmentSchedule = read("docs/development-schedule.md");
 const roadmap = read("docs/roadmap.md");
 const f225Audit = read("docs/audits/matsuri-f2-25-analytics-activation-2026-07-27.md");
 const f226Audit = read("docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md");
+const f227Audit = read("docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md");
 
 for (const id of [...completedExternalIds, "F2-15", "F2-M02"]) {
   assert(developmentSchedule.includes(id), `Development schedule missing ${id}`);
 }
 assert(
-  projectStatus.includes("F2-26 — post-activation production deployment — completed") &&
-    projectStatus.includes("F2-27 — active next gate"),
-  "Project status does not advance through F2-26",
+  projectStatus.includes("F2-27 — production traffic verification — completed") &&
+    projectStatus.includes("F2-28 — active next gate"),
+  "Project status does not advance through F2-27",
 );
 assert(
-  roadmap.includes("External deployment through F2-26: **Completed**") &&
-    roadmap.includes("F2-27  production traffic verification — next"),
-  "Roadmap does not advance through F2-26",
+  roadmap.includes("External deployment through F2-27: **Completed**") &&
+    roadmap.includes("F2-28  final F2 Launch Gate — next"),
+  "Roadmap does not advance through F2-27",
 );
 assert(
   f225Audit.includes("Automatic setup observed enabled") &&
@@ -219,7 +240,15 @@ assert(
     f226Audit.includes("F2-26 complete                    true"),
   "F2-26 audit is incomplete",
 );
+assert(
+  f227Audit.includes("matsuri-yukue.badjoke-lab.com") &&
+    f227Audit.includes("2026-07-27T11:26:58Z") &&
+    f227Audit.includes("Traffic observed\nyes") &&
+    f227Audit.includes("F2-27 complete  true") &&
+    f227Audit.includes("Private dashboard screenshot stored false"),
+  "F2-27 audit is incomplete",
+);
 
 console.log(
-  `Matsuri repository readiness gate passed: ${manifest.public_routes.length} routes, ${manifest.artifact_file_count} files, ${manifest.artifact_size_bytes} bytes, SHA-256 ${manifest.artifact_sha256}; F2-16 through F2-26 are complete; F2-27 is next and F2-28 remains blocked.`,
+  `Matsuri repository readiness gate passed: ${manifest.public_routes.length} routes, ${manifest.artifact_file_count} files, ${manifest.artifact_size_bytes} bytes, SHA-256 ${manifest.artifact_sha256}; F2-16 through F2-27 are complete and F2-28 is the only remaining launch gate.`,
 );
