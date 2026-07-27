@@ -6,21 +6,20 @@ This directory contains the public project reference documents for the Yukue Ser
 
 Before implementing a feature, check the relevant document here. When a gate changes, update the governing specification, machine record, current status, active schedule, roadmap, and verification contract in the same bounded pull request.
 
-## Current launch references
+## Current launch and stabilization references
 
 | Document | Status | Purpose |
 |---|---|---|
-| `project-status.md` | Living / F2-28 active | Current phase, completed F2-27 state, blockers, and next gate |
-| `development-schedule.md` | Current / F2-28 active | Concrete gate and implementation sequence |
-| `roadmap.md` | Current | Long-range phases and gates |
-| `matsuri-repository-baseline.md` | Machine-checked current | Exact bundle, Entity, Analytics-boundary, and Jinja-boundary values |
-| `f2-25-cloudflare-web-analytics.md` | Completed | Automatic setup activation and privacy boundary |
-| `audits/matsuri-f2-25-analytics-activation-2026-07-27.md` | Passed audit | Public-safe F2-25 activation evidence |
-| `audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md` | Passed audit | Public-safe F2-26 production deployment evidence |
-| `audits/matsuri-f2-27-production-traffic-2026-07-27.md` | Passed audit | Public-safe F2-27 traffic-receipt evidence |
-| `f2-26-f2-28-launch-closure.md` | F2-28 active | Final launch-gate requirements and boundaries |
+| `project-status.md` | Living / stabilization active | Current phase, completed F2 state, blockers, and next review |
+| `development-schedule.md` | Current / Phase 10 active | Concrete maintenance and post-launch sequence |
+| `roadmap.md` | Phase 9 completed | Long-range phases and gates |
+| `matsuri-repository-baseline.md` | Machine-checked current | Exact bundle, Entity, launch-boundary, and Jinja-boundary values |
+| `f2-25-cloudflare-web-analytics.md` | Completed | Analytics activation and privacy boundary |
+| `audits/matsuri-f2-27-production-traffic-2026-07-27.md` | Passed audit | Public-safe production traffic evidence |
+| `audits/matsuri-f2-28-final-launch-gate-2026-07-27.md` | Passed audit | Final F2 launch evaluation |
+| `f2-26-f2-28-launch-closure.md` | Completed | Closed Analytics and launch-gate sequence |
 | `deployment-topology.md` | Matsuri active | Portal and specialist-site hostname and Worker boundaries |
-| `jinja-start-gate.md` | Blocked guardrail | Prerequisites before Jinja implementation |
+| `jinja-start-gate.md` | Blocked post-launch guardrail | Remaining prerequisites before Jinja implementation |
 
 ## Core specifications
 
