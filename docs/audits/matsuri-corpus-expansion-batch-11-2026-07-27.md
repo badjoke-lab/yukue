@@ -1,7 +1,7 @@
 # Matsuri corpus expansion batch 11
 
 **Date:** 2026-07-27  
-**Status:** Implemented; final repository validation pending  
+**Status:** Passed  
 **Track:** Phase 10B — Matsuri corpus expansion
 
 ## Decision
@@ -45,7 +45,6 @@ Primary official and public-authority Sources:
 
 ```text
 https://www.sendaitanabata.com/about/outline/
-https://www.sendaitanabata.com/about/history/
 https://www.sendaitanabata.com/
 https://www.city.sendai.jp/sesakukoho/shise/gaiyo/profile/ayumi.html
 https://www.sentia-sendai.jp/sentia-news/2816/
@@ -83,7 +82,7 @@ Occurrence Series        19
 Recurrence Patterns      19
 Relations                26
 Designations              5
-Sources                   61
+Sources                   60
 Evidence                 165
 Prefectures with no primary record  32
 Sparse primary Entities  14
@@ -105,6 +104,17 @@ The completed Detail C implementation means the new records automatically receiv
 - Search indexing,
 - sitemap inclusion.
 
+The verified build contains:
+
+```text
+HTML routes                 97
+Primary Entity details      41
+Shrine/Temple references     5
+Place details               32
+Direct-detail Search records 46
+Approved Relations          26
+```
+
 ## Boundaries
 
 - No Jinja, Jiin, portal, Worker, hostname, or future-site activation is included.
@@ -113,11 +123,29 @@ The completed Detail C implementation means the new records automatically receiv
 - Scheduled 2026 Occurrences are not represented as already held.
 - The public corpus remains review-driven rather than volume-driven.
 
+## Validation
+
+The data head `151c201d951d1e4a8eb1130b59e5020e4b8e64c0` passed:
+
+```text
+Complete CI and repository readiness  30286325427
+Detail C navigation                   30286325463
+Canonical Search                      30286325461
+Canonical dataset                     30286325419
+Corpus coverage                       30286325402
+Data freshness                        30286325563
+Relation coverage                     30286325416
+External-link maintenance             30286325348
+Bundle inventory and baseline         30286325632
+```
+
 ## Machine evidence
 
 ```text
-Corpus audit workflow  Audit Matsuri corpus coverage
-Audit command          pnpm audit:matsuri:corpus
-Audit artifact         recorded in PR #129 after final validation
-Canonical validation   recorded in PR #129 after final validation
+Corpus audit artifact   8660941636
+Corpus audit digest     sha256:27de3ccb63a353775143dbdacbadcb17ac972396fa30f73da3d00d6232ef6534
+Release artifact        8661002848
+Release digest          sha256:40708f19e14fbb78c8947206dc785a8928f85c422e87c865db24a9cffc2133ea
+Screenshot artifact     8661004702
+Screenshot digest       sha256:0ac3ea941e5406207cb049ae0c9b5b446b29085bcb2b987cc53a363d2b361705
 ```
