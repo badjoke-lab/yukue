@@ -9,129 +9,14 @@ const sourceRoot = path.join(repositoryRoot, "apps", "matsuri", "dist");
 const candidateRoot = path.join(repositoryRoot, ".release-candidate");
 const candidateSiteRoot = path.join(candidateRoot, "matsuri-site");
 const localOrigin = "https://matsuri.invalid";
-const topology = JSON.parse(
-  fs.readFileSync(
-    path.join(repositoryRoot, "config", "yukue-deployment-topology.json"),
-    "utf8",
-  ),
-);
-const searchEngineSubmission = JSON.parse(
-  fs.readFileSync(
-    path.join(repositoryRoot, "config", "matsuri-search-engine-submission.json"),
-    "utf8",
-  ),
-);
-const analyticsActivation = JSON.parse(
-  fs.readFileSync(
-    path.join(repositoryRoot, "config", "matsuri-analytics-activation.json"),
-    "utf8",
-  ),
-);
-const matsuriTopology = topology.sites.find((site) => site.site_id === "matsuri");
-const canonicalSearchVerification = {
-  provider: "github_actions",
-  workflow_name: "Verify Matsuri canonical Search",
-  workflow_run_id: 29193201911,
-  job_id: 86651403427,
-  verified_origin: "https://matsuri-yukue.badjoke-lab.com",
-  head_sha: "ec1a84bdf4321bee0c7ecbcc702abe3bbba81b9e",
-  pull_request_merge_sha: "290d63e1b930616867e2108e393e2f5a537eeee8",
-  artifact_id: 8260207484,
-  artifact_name:
-    "matsuri-canonical-search-290d63e1b930616867e2108e393e2f5a537eeee8",
-  artifact_digest:
-    "sha256:29c05992a887951d91caa8f5bd4588d88b0bac97230353cba4381ec4ff0eb884",
-  desktop_chromium_verified: true,
-  mobile_chromium_verified: true,
-  exact_name_query_verified: true,
-  structured_filters_verified: true,
-  no_result_state_verified: true,
-  result_navigation_verified: true,
-  runtime_errors_absent: true,
-};
-const crawlerReachabilityVerification =
-  matsuriTopology?.verification?.crawler_reachability;
 
-if (!matsuriTopology) {
-  throw new Error("Accepted deployment topology is missing the Matsuri site.");
-}
-if (matsuriTopology.deployment_status !== "canonical-origin-verified") {
-  throw new Error("Matsuri canonical origin is not recorded as verified.");
-}
-if (
-  matsuriTopology.verification?.workflow_run_id !== 29191904624 ||
-  matsuriTopology.verification?.https_reachable !== true ||
-  matsuriTopology.verification?.manifest_origin_verified !== true ||
-  matsuriTopology.verification?.canonical_sitemap_verified !== true
-) {
-  throw new Error("Matsuri canonical verification evidence is incomplete.");
-}
-if (
-  crawlerReachabilityVerification?.workflow_run_id !== 29230233384 ||
-  crawlerReachabilityVerification?.artifact_id !== 8271238535 ||
-  crawlerReachabilityVerification?.artifact_digest !==
-    "sha256:ae292efac09e25fc9ad0cefd0a7de3c40d4a38c28472734035d728ecd26f2506" ||
-  crawlerReachabilityVerification?.robots_verified !== true ||
-  crawlerReachabilityVerification?.sitemap_verified !== true ||
-  crawlerReachabilityVerification?.self_canonical_verified !== true ||
-  crawlerReachabilityVerification?.indexing_directives_verified !== true ||
-  crawlerReachabilityVerification?.representative_user_agents_verified !== true ||
-  crawlerReachabilityVerification?.public_discovery_files_verified !== true
-) {
-  throw new Error("Matsuri F2-23 crawler verification evidence is incomplete.");
-}
-if (
-  searchEngineSubmission.status !== "submitted-indexability-checked" ||
-  searchEngineSubmission.ownership_verified !== true ||
-  searchEngineSubmission.submitted !== true ||
-  searchEngineSubmission.submission_result !== "success" ||
-  searchEngineSubmission.claims?.technical_indexability_verified !== true ||
-  searchEngineSubmission.claims?.sitemap_submission_verified !== true ||
-  searchEngineSubmission.claims?.indexation_claimed !== false ||
-  searchEngineSubmission.claims?.f2_24_complete !== true
-) {
-  throw new Error("Matsuri F2-24 Search Console evidence is incomplete.");
-}
-if (
-  analyticsActivation.status !== "analytics-enabled" ||
-  analyticsActivation.analytics_enabled !== true ||
-  analyticsActivation.activation_method !== "automatic-setup" ||
-  analyticsActivation.claims?.f2_25_complete !== true ||
-  analyticsActivation.claims?.f2_26_complete !== false ||
-  analyticsActivation.claims?.f2_27_complete !== false
-) {
-  throw new Error("Matsuri F2-25 Analytics activation evidence is incomplete.");
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(repositoryRoot, relativePath), "utf8"));
 }
 
-const completedRepositoryWork = [
-  "F2-07 unified release verification",
-  "F2-08 static route and internal-link integrity",
-  "F2-09 HTML, JSON, Search, and sitemap consistency",
-  "F2-10 public data semantic audit",
-  "F2-11 Source and Evidence audit",
-  "F2-12 responsive and accessibility browser audit",
-  "F2-13 public content, empty-state, and image-boundary audit",
-  "F2-14 release-candidate artifact freeze",
-];
-
-const completedExternalWork = [
-  "F2-16 Cloudflare Workers Builds connection",
-  "F2-17 first Workers Static Assets deployment and reachable URL acquisition",
-  "F2-18 deployed-origin smoke verification",
-  "F2-19 exact canonical Matsuri hostname decision",
-  "F2-20 custom-domain attachment, canonical build, and HTTPS verification",
-  "F2-21 canonical manifest and sitemap verification",
-  "F2-22 browser Pagefind Search verification on canonical production origin",
-  "F2-23 robots, canonical, sitemap, and crawler-reachability review",
-  "F2-24 Search Console sitemap submission and indexability check",
-  "F2-25 Cloudflare Web Analytics Automatic setup observed enabled",
-];
-
-const externalPendingWork = [
-  "F2-26 deploy after Analytics activation",
-  "F2-27 verify production traffic",
-  "F2-28 final F2 Launch Gate",
-];
+function assert(condition, message) {
+  if (!condition) throw new Error(message);
+}
 
 function toPosix(value) {
   return value.split(path.sep).join("/");
@@ -148,46 +33,88 @@ function walkFiles(directory, relativeDirectory = "") {
 }
 
 function sha256File(filePath) {
-  const hash = crypto.createHash("sha256");
-  hash.update(fs.readFileSync(filePath));
-  return hash.digest("hex");
+  return crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex");
 }
 
 function sourceCommit() {
   if (process.env.GITHUB_SHA) return process.env.GITHUB_SHA;
-
   const result = spawnSync("git", ["rev-parse", "HEAD"], {
     cwd: repositoryRoot,
     encoding: "utf8",
   });
-  if (result.status === 0) return result.stdout.trim();
-  return null;
+  return result.status === 0 ? result.stdout.trim() : null;
 }
+
+const topology = readJson("config/yukue-deployment-topology.json");
+const searchEngineSubmission = readJson("config/matsuri-search-engine-submission.json");
+const analytics = readJson("config/matsuri-analytics-activation.json");
+const matsuriTopology = topology.sites.find((site) => site.site_id === "matsuri");
+const crawlerVerification = matsuriTopology?.verification?.crawler_reachability;
+const canonicalSearchVerification = {
+  provider: "github_actions",
+  workflow_name: "Verify Matsuri canonical Search",
+  workflow_run_id: 29193201911,
+  job_id: 86651403427,
+  verified_origin: "https://matsuri-yukue.badjoke-lab.com",
+  head_sha: "ec1a84bdf4321bee0c7ecbcc702abe3bbba81b9e",
+  pull_request_merge_sha: "290d63e1b930616867e2108e393e2f5a537eeee8",
+  artifact_id: 8260207484,
+  artifact_name: "matsuri-canonical-search-290d63e1b930616867e2108e393e2f5a537eeee8",
+  artifact_digest:
+    "sha256:29c05992a887951d91caa8f5bd4588d88b0bac97230353cba4381ec4ff0eb884",
+  desktop_chromium_verified: true,
+  mobile_chromium_verified: true,
+  exact_name_query_verified: true,
+  structured_filters_verified: true,
+  no_result_state_verified: true,
+  result_navigation_verified: true,
+  runtime_errors_absent: true,
+};
+
+assert(matsuriTopology, "Accepted deployment topology is missing Matsuri");
+assert(matsuriTopology.deployment_status === "canonical-origin-verified", "Matsuri origin is not verified");
+assert(
+  matsuriTopology.verification?.workflow_run_id === 29191904624 &&
+    matsuriTopology.verification?.https_reachable === true &&
+    matsuriTopology.verification?.manifest_origin_verified === true &&
+    matsuriTopology.verification?.canonical_sitemap_verified === true,
+  "Canonical verification evidence is incomplete",
+);
+assert(
+  crawlerVerification?.workflow_run_id === 29230233384 &&
+    crawlerVerification?.artifact_id === 8271238535 &&
+    crawlerVerification?.robots_verified === true &&
+    crawlerVerification?.sitemap_verified === true &&
+    crawlerVerification?.self_canonical_verified === true &&
+    crawlerVerification?.indexing_directives_verified === true,
+  "Crawler verification evidence is incomplete",
+);
+assert(
+  searchEngineSubmission.status === "submitted-indexability-checked" &&
+    searchEngineSubmission.submission_result === "success" &&
+    searchEngineSubmission.claims?.f2_24_complete === true &&
+    searchEngineSubmission.claims?.indexation_claimed === false,
+  "F2-24 evidence is incomplete",
+);
+assert(
+  analytics.status === "post-activation-deployed" &&
+    analytics.analytics_enabled === true &&
+    analytics.activation_method === "automatic-setup" &&
+    analytics.claims?.f2_25_complete === true &&
+    analytics.claims?.f2_26_complete === true &&
+    analytics.claims?.f2_27_complete === false &&
+    analytics.post_activation_deployment?.completed === true,
+  "F2-26 Analytics progression evidence is incomplete",
+);
 
 if (process.env.MATSURI_PUBLIC_ORIGIN) {
-  throw new Error(
-    "Repository release-candidate freeze requires an origin-neutral build; unset MATSURI_PUBLIC_ORIGIN before freezing.",
-  );
+  throw new Error("Repository release freeze requires an origin-neutral build");
 }
+assert(fs.existsSync(sourceRoot) && fs.statSync(sourceRoot).isDirectory(), "Matsuri dist is missing");
 
-if (!fs.existsSync(sourceRoot) || !fs.statSync(sourceRoot).isDirectory()) {
-  throw new Error(
-    "Matsuri dist artifact is missing. Run pnpm verify:release successfully before freezing a release candidate.",
-  );
-}
-
-const manifest = JSON.parse(
-  fs.readFileSync(path.join(sourceRoot, "data", "manifest.json"), "utf8"),
-);
-const version = JSON.parse(
-  fs.readFileSync(path.join(sourceRoot, "version.json"), "utf8"),
-);
-
-if (Object.hasOwn(manifest, "site_origin")) {
-  throw new Error(
-    `Origin-neutral repository release candidate must not contain manifest.site_origin: ${String(manifest.site_origin)}`,
-  );
-}
+const manifest = readJson("apps/matsuri/dist/data/manifest.json");
+const version = readJson("apps/matsuri/dist/version.json");
+assert(!Object.hasOwn(manifest, "site_origin"), "Origin-neutral manifest must omit site_origin");
 
 fs.rmSync(candidateRoot, { recursive: true, force: true });
 fs.mkdirSync(candidateRoot, { recursive: true });
@@ -197,38 +124,24 @@ const files = walkFiles(candidateSiteRoot).sort((a, b) => a.localeCompare(b));
 const fileEntries = files.map((relativePath) => {
   const absolutePath = path.join(candidateSiteRoot, relativePath);
   const stat = fs.statSync(absolutePath);
-  return {
-    path: relativePath,
-    size_bytes: stat.size,
-    sha256: sha256File(absolutePath),
-  };
+  return { path: relativePath, size_bytes: stat.size, sha256: sha256File(absolutePath) };
 });
-
 const publicRoutes = files
   .filter((relativePath) => relativePath.endsWith("index.html"))
-  .filter(
-    (relativePath) =>
-      !relativePath.startsWith("pagefind/") &&
-      !relativePath.startsWith("_astro/"),
-  )
+  .filter((relativePath) => !relativePath.startsWith("pagefind/") && !relativePath.startsWith("_astro/"))
   .map((relativePath) =>
-    relativePath === "index.html"
-      ? "/"
-      : `/${relativePath.slice(0, -"index.html".length)}`,
+    relativePath === "index.html" ? "/" : `/${relativePath.slice(0, -"index.html".length)}`,
   )
   .sort((a, b) => a.localeCompare(b));
-
 const sitemap = fs.readFileSync(path.join(candidateSiteRoot, "sitemap.xml"), "utf8");
 const sitemapRoutes = [...sitemap.matchAll(/<loc>([\s\S]*?)<\/loc>/gu)]
   .map((match) => new URL(match[1].trim(), localOrigin).pathname)
   .sort((a, b) => a.localeCompare(b));
-
-if (
-  publicRoutes.length !== sitemapRoutes.length ||
-  publicRoutes.some((route, index) => route !== sitemapRoutes[index])
-) {
-  throw new Error("Frozen public route inventory does not match sitemap.xml.");
-}
+assert(
+  publicRoutes.length === sitemapRoutes.length &&
+    publicRoutes.every((route, index) => route === sitemapRoutes[index]),
+  "Frozen route inventory does not match sitemap",
+);
 
 const aggregateHash = crypto
   .createHash("sha256")
@@ -239,6 +152,20 @@ const aggregateHash = crypto
   )
   .digest("hex");
 
+const completedExternalWork = [
+  "F2-16 Cloudflare Workers Builds connection",
+  "F2-17 first Workers Static Assets deployment and reachable URL acquisition",
+  "F2-18 deployed-origin smoke verification",
+  "F2-19 exact canonical Matsuri hostname decision",
+  "F2-20 custom-domain attachment, canonical build, and HTTPS verification",
+  "F2-21 canonical manifest and sitemap verification",
+  "F2-22 browser Pagefind Search verification on canonical production origin",
+  "F2-23 robots, canonical, sitemap, and crawler-reachability review",
+  "F2-24 Search Console sitemap submission and indexability check",
+  "F2-25 Cloudflare Web Analytics Automatic setup observed enabled",
+  "F2-26 post-activation main production deployment",
+];
+
 const releaseManifest = {
   format_version: 1,
   project_id: version.project_id,
@@ -247,7 +174,7 @@ const releaseManifest = {
   dataset_version: version.dataset_version,
   schema_version: version.schema_version,
   release_status:
-    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-enabled-f2-26-pending",
+    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-deployed-f2-27-pending",
   artifact_origin_mode: "origin-neutral-repository-candidate",
   canonical_hostname_decision: matsuriTopology.canonical_hostname,
   canonical_origin_decision: matsuriTopology.canonical_origin,
@@ -255,7 +182,7 @@ const releaseManifest = {
   canonical_origin: matsuriTopology.canonical_origin,
   canonical_origin_verification: matsuriTopology.verification,
   canonical_search_verification: canonicalSearchVerification,
-  crawler_reachability_verification: crawlerReachabilityVerification,
+  crawler_reachability_verification: crawlerVerification,
   search_engine_submission_verification: {
     search_engine: searchEngineSubmission.search_engine,
     property_type: searchEngineSubmission.property_type,
@@ -264,33 +191,48 @@ const releaseManifest = {
     submission_observed_at: searchEngineSubmission.submission_observed_at,
     submission_result: searchEngineSubmission.submission_result,
     discovered_pages: searchEngineSubmission.discovered_pages,
-    representative_live_tests:
-      searchEngineSubmission.representative_url_inspections.length,
+    representative_live_tests: searchEngineSubmission.representative_url_inspections.length,
     indexing_requests: searchEngineSubmission.indexing_requests.length,
     evidence_document: searchEngineSubmission.submission_evidence_document,
     indexation_claimed: searchEngineSubmission.claims.indexation_claimed,
   },
   analytics_activation_verification: {
-    provider: analyticsActivation.provider,
-    activation_method: analyticsActivation.activation_method,
-    activation_time_basis: analyticsActivation.activation_time_basis,
-    activated_at: analyticsActivation.activated_at,
-    activation_observed_at: analyticsActivation.activation_observed_at,
-    evidence_document: analyticsActivation.activation_evidence_document,
-    f2_25_complete: analyticsActivation.claims.f2_25_complete,
+    provider: analytics.provider,
+    activation_method: analytics.activation_method,
+    activation_time_basis: analytics.activation_time_basis,
+    activated_at: analytics.activated_at,
+    activation_observed_at: analytics.activation_observed_at,
+    evidence_document: analytics.activation_evidence_document,
+    f2_25_complete: analytics.claims.f2_25_complete,
+  },
+  post_activation_deployment_verification: {
+    commit_sha: analytics.post_activation_deployment.commit_sha,
+    cloudflare_build_id: analytics.post_activation_deployment.cloudflare_build_id,
+    deployed_at: analytics.post_activation_deployment.deployed_at,
+    evidence_document: analytics.post_activation_deployment.evidence_document,
+    f2_26_complete: analytics.claims.f2_26_complete,
   },
   verification_command: "pnpm verify:release",
-  completed_repository_work: completedRepositoryWork,
+  completed_repository_work: [
+    "F2-07 unified release verification",
+    "F2-08 static route and internal-link integrity",
+    "F2-09 HTML, JSON, Search, and sitemap consistency",
+    "F2-10 public data semantic audit",
+    "F2-11 Source and Evidence audit",
+    "F2-12 responsive and accessibility browser audit",
+    "F2-13 public content, empty-state, and image-boundary audit",
+    "F2-14 release-candidate artifact freeze",
+  ],
   completed_external_work: completedExternalWork,
-  external_pending_work: externalPendingWork,
+  external_pending_work: [
+    "F2-27 verify production traffic",
+    "F2-28 final F2 Launch Gate",
+  ],
   record_counts: manifest.record_counts,
   machine_readable_files: manifest.files,
   public_routes: publicRoutes,
   artifact_file_count: fileEntries.length,
-  artifact_size_bytes: fileEntries.reduce(
-    (total, entry) => total + entry.size_bytes,
-    0,
-  ),
+  artifact_size_bytes: fileEntries.reduce((total, entry) => total + entry.size_bytes, 0),
   artifact_sha256: aggregateHash,
   files: fileEntries,
 };
@@ -301,30 +243,9 @@ fs.writeFileSync(
   "utf8",
 );
 
-const summary =
-  `# Matsuri Release Candidate\n\n` +
-  `Status: **repository verified; canonical origin, browser Search, crawler reachability, sitemap submission, technical indexability, and Analytics activation verified; F2-26 pending**\n\n` +
-  `- Source commit: \`${releaseManifest.source_commit ?? "unavailable"}\`\n` +
-  `- Dataset version: \`${releaseManifest.dataset_version}\`\n` +
-  `- Schema version: \`${releaseManifest.schema_version}\`\n` +
-  `- Artifact origin mode: \`${releaseManifest.artifact_origin_mode}\`\n` +
-  `- Public routes: ${publicRoutes.length}\n` +
-  `- Artifact files: ${releaseManifest.artifact_file_count}\n` +
-  `- Artifact bytes: ${releaseManifest.artifact_size_bytes}\n` +
-  `- Artifact SHA-256: \`${aggregateHash}\`\n` +
-  `- Verified canonical origin: \`${releaseManifest.canonical_origin}\`\n` +
-  `- Canonical verification workflow run: \`${matsuriTopology.verification.workflow_run_id}\`\n` +
-  `- Canonical Search workflow run: \`${canonicalSearchVerification.workflow_run_id}\`\n` +
-  `- Crawler reachability workflow run: \`${crawlerReachabilityVerification.workflow_run_id}\`\n` +
-  `- Search Console submission result: \`${searchEngineSubmission.submission_result}\`\n` +
-  `- Analytics activation observation: \`${analyticsActivation.activation_observed_at}\`\n` +
-  `- Next external gate: F2-26 post-activation production deployment\n\n` +
-  `The copied site under \`matsuri-site/\` is the origin-neutral static artifact that passed \`pnpm verify:release\`. ` +
-  `The active canonical deployment, browser Search, crawler reachability, sitemap submission, technical indexability, and Analytics activation are recorded separately through verified external evidence. ` +
-  `F2-16 through F2-25 are complete. F2-26 through F2-28 remain external work. No indexation claim is made.\n`;
-
+const summary = `# Matsuri Release Candidate\n\nStatus: **repository verified; canonical origin, browser Search, crawler reachability, sitemap submission, technical indexability, Analytics activation, and post-activation production deployment verified; F2-27 pending**\n\n- Source commit: \`${releaseManifest.source_commit ?? "unavailable"}\`\n- Dataset version: \`${releaseManifest.dataset_version}\`\n- Schema version: \`${releaseManifest.schema_version}\`\n- Artifact origin mode: \`${releaseManifest.artifact_origin_mode}\`\n- Public routes: ${publicRoutes.length}\n- Artifact files: ${releaseManifest.artifact_file_count}\n- Artifact bytes: ${releaseManifest.artifact_size_bytes}\n- Artifact SHA-256: \`${aggregateHash}\`\n- F2-25 observation: \`${analytics.activation_observed_at}\`\n- F2-26 deployment: \`${analytics.post_activation_deployment.deployed_at}\`\n- Next external gate: F2-27 production traffic verification\n\nF2-16 through F2-26 are complete. F2-27 and F2-28 remain external work. No indexation or traffic-receipt claim is made.\n`;
 fs.writeFileSync(path.join(candidateRoot, "README.md"), summary, "utf8");
 
 console.log(
-  `Matsuri release candidate frozen: ${publicRoutes.length} routes, ${fileEntries.length} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${aggregateHash}; F2-25 Analytics activation verified at ${analyticsActivation.activation_observed_at}; F2-26 through F2-28 remain pending.`,
+  `Matsuri release candidate frozen: ${publicRoutes.length} routes, ${fileEntries.length} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${aggregateHash}; F2-26 deployment verified at ${analytics.post_activation_deployment.deployed_at}; F2-27 and F2-28 remain pending.`,
 );
