@@ -1,6 +1,6 @@
 # F2-25 Matsuri Cloudflare Web Analytics
 
-**Status:** Completed / F2-26 and F2-27 subsequently completed / F2-28 active
+**Status:** Completed / F2-26 through F2-28 subsequently completed
 
 ## Objective
 
@@ -25,12 +25,12 @@ F2-25 complete              true
 
 F2-25 proves configuration activation only.
 
-## Subsequent progression
+## Completed subsequent progression
 
 ```text
 F2-26 post-activation deployment  completed at 2026-07-27T10:34:17Z
 F2-27 production traffic          verified at 2026-07-27T11:26:58Z
-F2-28 final F2 Launch Gate        active next gate
+F2-28 final F2 Launch Gate        completed at 2026-07-27T11:45:20Z
 ```
 
 Evidence:
@@ -38,12 +38,14 @@ Evidence:
 ```text
 docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md
 docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md
+docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
 ```
 
-The machine-readable progression record is:
+Machine-readable records:
 
 ```text
 config/matsuri-analytics-activation.json
+config/matsuri-f2-launch-gate.json
 ```
 
 ## Privacy boundary
@@ -60,11 +62,14 @@ Do not commit:
 
 Public-safe evidence may retain only provider name, public canonical hostname, automatic-setup state, UTC timestamps, sanitized gate results, deployment facts, representative public routes, and confirmation that traffic was observed without publishing private counts.
 
+## Claims boundary
+
+F2-28 completion does not prove search-engine indexation and does not authorize the portal or Jinja.
+
 ## Validation
 
 ```text
 pnpm check:matsuri:analytics-activation-record
+pnpm check:matsuri:f2-launch-gate
 pnpm gate:matsuri:repository
 ```
-
-The validator rejects false progression, manual-beacon activation, secret-like fields, email addresses, missing audit documents, unsupported timestamp provenance, and completion claims made before their evidence exists.
