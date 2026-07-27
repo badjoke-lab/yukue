@@ -15,7 +15,7 @@
   },
   "boundaries": {
     "f2_25_owner_access": "not-pending",
-    "f2_26_through_f2_28": "blocked",
+    "f2_26_through_f2_28": "not-blocked",
     "jinja_start_gate": "blocked",
     "jinja_state_snapshots": 0
   }
