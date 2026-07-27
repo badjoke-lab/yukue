@@ -267,17 +267,6 @@
       "language": "ja"
     },
     {
-      "id": "src-sendai-tanabata-history",
-      "schema_version": "common.v1",
-      "record_version": 1,
-      "source_type": "official_organization",
-      "title": "歴史",
-      "publisher": "仙台七夕まつり協賛会",
-      "url": "https://www.sendaitanabata.com/about/history/",
-      "accessed_at": "2026-07-27",
-      "language": "ja"
-    },
-    {
       "id": "src-sendai-tanabata-2026",
       "schema_version": "common.v1",
       "record_version": 1,
