@@ -9,6 +9,12 @@ const sourceRoot = path.join(repositoryRoot, "apps", "matsuri", "dist");
 const candidateRoot = path.join(repositoryRoot, ".release-candidate");
 const candidateSiteRoot = path.join(candidateRoot, "matsuri-site");
 const localOrigin = "https://matsuri.invalid";
+const representativeTrafficRoutes = [
+  "/",
+  "/festivals/",
+  "/search/",
+  "/festivals/suneori-amagoi/",
+];
 
 function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(repositoryRoot, relativePath), "utf8"));
@@ -97,14 +103,19 @@ assert(
   "F2-24 evidence is incomplete",
 );
 assert(
-  analytics.status === "post-activation-deployed" &&
+  analytics.status === "traffic-verified" &&
     analytics.analytics_enabled === true &&
     analytics.activation_method === "automatic-setup" &&
     analytics.claims?.f2_25_complete === true &&
     analytics.claims?.f2_26_complete === true &&
-    analytics.claims?.f2_27_complete === false &&
-    analytics.post_activation_deployment?.completed === true,
-  "F2-26 Analytics progression evidence is incomplete",
+    analytics.claims?.f2_27_complete === true &&
+    analytics.post_activation_deployment?.completed === true &&
+    analytics.traffic_verification?.completed === true &&
+    analytics.traffic_verification?.verified_at === "2026-07-27T11:26:58Z" &&
+    analytics.traffic_verification?.evidence_document ===
+      "docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md" &&
+    analytics.traffic_verification?.private_counts_published === false,
+  "F2-27 Analytics progression evidence is incomplete",
 );
 
 if (process.env.MATSURI_PUBLIC_ORIGIN) {
@@ -164,6 +175,7 @@ const completedExternalWork = [
   "F2-24 Search Console sitemap submission and indexability check",
   "F2-25 Cloudflare Web Analytics Automatic setup observed enabled",
   "F2-26 post-activation main production deployment",
+  "F2-27 production traffic verification",
 ];
 
 const releaseManifest = {
@@ -174,7 +186,7 @@ const releaseManifest = {
   dataset_version: version.dataset_version,
   schema_version: version.schema_version,
   release_status:
-    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-deployed-f2-27-pending",
+    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-28-pending",
   artifact_origin_mode: "origin-neutral-repository-candidate",
   canonical_hostname_decision: matsuriTopology.canonical_hostname,
   canonical_origin_decision: matsuriTopology.canonical_origin,
@@ -212,6 +224,14 @@ const releaseManifest = {
     evidence_document: analytics.post_activation_deployment.evidence_document,
     f2_26_complete: analytics.claims.f2_26_complete,
   },
+  production_traffic_verification: {
+    verified_at: analytics.traffic_verification.verified_at,
+    evidence_document: analytics.traffic_verification.evidence_document,
+    traffic_observed: true,
+    representative_routes: representativeTrafficRoutes,
+    private_counts_published: analytics.traffic_verification.private_counts_published,
+    f2_27_complete: analytics.claims.f2_27_complete,
+  },
   verification_command: "pnpm verify:release",
   completed_repository_work: [
     "F2-07 unified release verification",
@@ -224,10 +244,7 @@ const releaseManifest = {
     "F2-14 release-candidate artifact freeze",
   ],
   completed_external_work: completedExternalWork,
-  external_pending_work: [
-    "F2-27 verify production traffic",
-    "F2-28 final F2 Launch Gate",
-  ],
+  external_pending_work: ["F2-28 final F2 Launch Gate"],
   record_counts: manifest.record_counts,
   machine_readable_files: manifest.files,
   public_routes: publicRoutes,
@@ -243,9 +260,9 @@ fs.writeFileSync(
   "utf8",
 );
 
-const summary = `# Matsuri Release Candidate\n\nStatus: **repository verified; canonical origin, browser Search, crawler reachability, sitemap submission, technical indexability, Analytics activation, and post-activation production deployment verified; F2-27 pending**\n\n- Source commit: \`${releaseManifest.source_commit ?? "unavailable"}\`\n- Dataset version: \`${releaseManifest.dataset_version}\`\n- Schema version: \`${releaseManifest.schema_version}\`\n- Artifact origin mode: \`${releaseManifest.artifact_origin_mode}\`\n- Public routes: ${publicRoutes.length}\n- Artifact files: ${releaseManifest.artifact_file_count}\n- Artifact bytes: ${releaseManifest.artifact_size_bytes}\n- Artifact SHA-256: \`${aggregateHash}\`\n- F2-25 observation: \`${analytics.activation_observed_at}\`\n- F2-26 deployment: \`${analytics.post_activation_deployment.deployed_at}\`\n- Next external gate: F2-27 production traffic verification\n\nF2-16 through F2-26 are complete. F2-27 and F2-28 remain external work. No indexation or traffic-receipt claim is made.\n`;
+const summary = `# Matsuri Release Candidate\n\nStatus: **repository verified; canonical origin, browser Search, crawler reachability, sitemap submission, technical indexability, Analytics activation, post-activation deployment, and production traffic verified; F2-28 pending**\n\n- Source commit: \`${releaseManifest.source_commit ?? "unavailable"}\`\n- Dataset version: \`${releaseManifest.dataset_version}\`\n- Schema version: \`${releaseManifest.schema_version}\`\n- Artifact origin mode: \`${releaseManifest.artifact_origin_mode}\`\n- Public routes: ${publicRoutes.length}\n- Artifact files: ${releaseManifest.artifact_file_count}\n- Artifact bytes: ${releaseManifest.artifact_size_bytes}\n- Artifact SHA-256: \`${aggregateHash}\`\n- F2-25 observation: \`${analytics.activation_observed_at}\`\n- F2-26 deployment: \`${analytics.post_activation_deployment.deployed_at}\`\n- F2-27 traffic verification: \`${analytics.traffic_verification.verified_at}\`\n- Next external gate: F2-28 final F2 Launch Gate\n\nF2-16 through F2-27 are complete. F2-28 remains separate. No indexation claim or private Analytics metric is included.\n`;
 fs.writeFileSync(path.join(candidateRoot, "README.md"), summary, "utf8");
 
 console.log(
-  `Matsuri release candidate frozen: ${publicRoutes.length} routes, ${fileEntries.length} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${aggregateHash}; F2-26 deployment verified at ${analytics.post_activation_deployment.deployed_at}; F2-27 and F2-28 remain pending.`,
+  `Matsuri release candidate frozen: ${publicRoutes.length} routes, ${fileEntries.length} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${aggregateHash}; F2-27 traffic verified at ${analytics.traffic_verification.verified_at}; F2-28 remains pending.`,
 );

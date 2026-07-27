@@ -121,11 +121,8 @@ for (const configPath of deploymentConfigFiles(repositoryRoot)) {
 }
 
 const projectStatus = fs.readFileSync(projectStatusPath, "utf8");
-assert(projectStatus.includes("F2-27 — active next gate"), "Project status does not record F2-27 as active");
-assert(
-  projectStatus.includes("F2-28  final F2 Launch Gate — blocked by F2-27"),
-  "Project status no longer records F2-28 as blocked",
-);
+assert(projectStatus.includes("F2-27 — production traffic verification — completed"), "Project status does not record F2-27 completion");
+assert(projectStatus.includes("F2-28 — active next gate"), "Project status does not record F2-28 as active");
 assert(
   projectStatus.includes("future specialist-site implementation — not activated"),
   "Project status does not preserve the inactive future-site boundary",
@@ -184,5 +181,5 @@ assert(record.seed_baseline?.source_site_id === "matsuri", "Unexpected seed sour
 assert(/^\d{4}-\d{2}-\d{2}$/u.test(record.seed_baseline?.observed_on), "Invalid seed observation date");
 
 console.log(
-  `Jinja start gate remains correctly blocked while F2-27 is active: ${candidates.length} seed(s), ${identityEvidence.length} identity Evidence, ${placeReferences} Place references, ${approvedStateSnapshots.length} approved shrine State Snapshots, ${candidatesWithOfficialUrl.length} official URLs.`,
+  `Jinja start gate remains correctly blocked while F2-28 is active: ${candidates.length} seed(s), ${identityEvidence.length} identity Evidence, ${placeReferences} Place references, ${approvedStateSnapshots.length} approved shrine State Snapshots, ${candidatesWithOfficialUrl.length} official URLs.`,
 );

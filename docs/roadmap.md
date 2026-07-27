@@ -32,15 +32,15 @@ F2-23  crawler-reachability review — completed
 F2-24  sitemap submission and indexability check — completed
 F2-25  Cloudflare Web Analytics activation — completed
 F2-26  post-activation production deployment — completed
-F2-27  production traffic verification — next
-F2-28  final F2 Launch Gate — hold
+F2-27  production traffic verification — completed
+F2-28  final F2 Launch Gate — next
 ```
 
-External deployment through F2-26: **Completed**
+External deployment through F2-27: **Completed**
 
-F2-26 accepted the successful production deployment of `main` commit `108ac4e88407e1263229eb40bc88d76855e90131` through Cloudflare Workers Build `7026144e-1ce0-4927-9060-64919c3a4002` at `2026-07-27T10:34:17Z`. The first attempt for the same source reached the deployment API but received a transient provider-side 503; retrying the same build succeeded.
+F2-27 accepted private-dashboard confirmation that the representative canonical-route visits produced traffic for `matsuri-yukue.badjoke-lab.com` at `2026-07-27T11:26:58Z`. Public evidence contains no raw traffic counts or private dashboard material.
 
-F2-27 is the active external gate. It requires representative canonical route visits and private-dashboard confirmation that production traffic was received. Public evidence must omit raw metrics and private dashboard material.
+F2-28 is the active external gate. It must verify the complete launch chain and privacy boundary without treating Search Console submission or technical indexability as proof of actual indexation.
 
 Verified production baseline:
 
@@ -49,15 +49,13 @@ Worker                    matsuri-yukue
 Canonical origin          https://matsuri-yukue.badjoke-lab.com
 F2-26 source commit       108ac4e88407e1263229eb40bc88d76855e90131
 F2-26 Cloudflare build    7026144e-1ce0-4927-9060-64919c3a4002
-F2-26 deployed at         2026-07-27T10:34:17Z
+F2-27 verified at         2026-07-27T11:26:58Z
+F2-27 traffic observed    yes
 ```
-
-Search Console submission and registration requests are not treated as proof of indexation.
 
 Pending:
 
 ```text
-F2-27 production traffic verification
 F2-28 final F2 Launch Gate
 ```
 
