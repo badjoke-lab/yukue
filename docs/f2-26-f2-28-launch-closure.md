@@ -1,21 +1,39 @@
 # Matsuri F2-26 through F2-28 Launch Closure
 
-**Status:** Repository preparation complete / external execution pending F2-25
+**Status:** F2-25 completed / F2-26 active next gate
 
 ## Purpose
 
-Define the exact remaining launch sequence so the Cloudflare-dependent work can be inserted without reopening scope or inventing evidence.
+Define the exact remaining launch sequence after the public-safe F2-25 Cloudflare Web Analytics activation record passed.
+
+## F2-25 completed baseline
+
+```text
+Provider
+Cloudflare Web Analytics
+
+Activation method
+automatic setup
+
+First verified enabled observation
+2026-07-27T09:37:29Z
+
+Evidence
+docs/audits/matsuri-f2-25-analytics-activation-2026-07-27.md
+```
+
+The exact historical activation instant was unavailable. The recorded timestamp proves that the pre-existing Automatic setup was active at or before the first verified observation and does not invent an older exact time.
 
 ## F2-26 — Post-activation deployment
 
-F2-26 begins only after the F2-25 Analytics activation record passes validation.
+F2-26 begins after the F2-25 Analytics activation record passes validation and the bounded F2-25 PR is merged.
 
 Required facts:
 
 ```text
 Web Analytics enabled first
-production deployment occurred after activation
-source commit recorded
+production deployment occurred after the recorded F2-25 observation
+source commit is the F2-25 merge commit or a later main commit
 canonical Worker deployment successful
 canonical origin reachable
 repository and canonical gates green
@@ -23,14 +41,14 @@ repository and canonical gates green
 
 Accepted sequence:
 
-1. enable Automatic setup in Cloudflare Web Analytics,
-2. merge the bounded F2-25 evidence PR,
-3. allow the production branch deployment for that commit to complete,
+1. merge the bounded F2-25 evidence PR,
+2. allow the existing Cloudflare Git integration to deploy that resulting `main` commit,
+3. verify the exact source commit and successful deployment,
 4. verify the canonical origin and required public surfaces,
 5. create a sanitized F2-26 audit,
 6. update the machine record to `post-activation-deployed`.
 
-Do not treat an older deployment as post-activation evidence.
+Do not treat an older deployment or a pull-request-head deployment as post-activation evidence.
 
 ## F2-27 — Production traffic verification
 
@@ -65,8 +83,7 @@ F2-28 remains a separate evaluation after F2-27. It requires all of the followin
 F2-15 repository readiness
 F2-M01 visual review
 F2-M02 data freshness baseline
-F2-16 through F2-24 external verification
-F2-25 Analytics activation
+F2-16 through F2-25 external verification
 F2-26 post-activation deployment
 F2-27 production traffic verification
 canonical origin gate green
@@ -79,23 +96,23 @@ no private evidence committed
 
 F2-28 must not claim Google indexation. Search Console submission and technical indexability remain separate from actual indexed state.
 
-## Work allowed while Cloudflare access is unavailable
+## Work allowed while F2-26 is pending
 
-- maintain the pending Analytics machine record and validator,
+- verify and merge the bounded F2-25 evidence change,
+- maintain the Analytics machine record and validator,
 - keep the repository and canonical verification gates green,
 - complete date-triggered festival maintenance,
 - improve Source, Evidence, and Relation coverage,
-- prepare public-safe evidence templates and runbooks,
+- prepare public-safe F2-26 and F2-27 evidence,
 - fix security and dependency issues,
 - perform bounded data and documentation maintenance.
 
 ## Work that remains blocked
 
 ```text
-F2-25 completion
-F2-26 execution and completion
-F2-27 execution and completion
-F2-28 final gate completion
+F2-26 completion until the post-merge main deployment succeeds
+F2-27 execution and completion until F2-26 passes
+F2-28 final gate completion until F2-27 passes
 portal production deployment
 future specialist-site production implementation
 ```
