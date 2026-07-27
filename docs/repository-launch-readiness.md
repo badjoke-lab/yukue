@@ -1,15 +1,16 @@
 # Repository Launch Readiness
 
-**Status:** Repository gate completed / external verification completed through F2-27 / F2-28 active
+**Status:** Repository gate completed / F2-16 through F2-28 completed / stabilization active
 
 ## Decision
 
-`祭のゆくえ` has completed repository readiness, canonical deployment verification, interactive browser Search verification, crawler reachability, Search Console submission and technical-indexability evidence, Cloudflare Web Analytics activation, the post-activation production deployment, and production traffic verification.
+`祭のゆくえ` has completed repository readiness and the defined external launch-verification sequence through F2-28.
 
-## Gate command
+## Gate commands
 
 ```text
 pnpm gate:matsuri:repository
+pnpm check:matsuri:f2-launch-gate
 ```
 
 ## Verified production state
@@ -17,39 +18,28 @@ pnpm gate:matsuri:repository
 ```text
 Canonical origin             https://matsuri-yukue.badjoke-lab.com
 Worker                       matsuri-yukue
-Canonical origin run         29191904624 — success
-Canonical Search run         29193201911 — success
-Crawler reachability run     29230233384 — success
-F2-24 technical preflight    29232294960 — success
-F2-25 observation            2026-07-27T09:37:29Z
-F2-26 source commit          108ac4e88407e1263229eb40bc88d76855e90131
-F2-26 Cloudflare build       7026144e-1ce0-4927-9060-64919c3a4002
-F2-26 deployed at            2026-07-27T10:34:17Z
 F2-27 traffic verified at    2026-07-27T11:26:58Z
-F2-27 traffic observed       yes
+F2-28 evaluated at           2026-07-27T11:45:20Z
 Indexation claimed           false
 ```
 
-F2-27 evidence:
+Final evidence:
 
 ```text
-docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md
+config/matsuri-f2-launch-gate.json
+docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
 ```
 
 ## Required passing state
 
-The repository gate requires accepted topology, separate Worker identities, verified canonical origin, reproducible origin-neutral and production artifacts, route and asset integrity, Pagefind and machine-readable consistency, semantic and Evidence rules, browser/accessibility checks, Search/crawler/Search Console evidence, completed F2-25 through F2-27 Analytics progression, and an active guard against premature Jinja implementation.
+The repository gate requires accepted topology, verified canonical origin, reproducible artifacts, route and asset integrity, Pagefind and machine-readable consistency, semantic and Evidence rules, browser/accessibility checks, Search/crawler/Search Console evidence, completed Analytics progression, final F2 launch validation, and an active guard against premature Jinja implementation.
 
-## Completed external activation and verification
-
-```text
-F2-16 through F2-27 — completed
-```
-
-## Remaining external sequence
+## Completion boundary
 
 ```text
-F2-28  final F2 Launch Gate — active
+F2-16 through F2-28 — completed
+Phase 10 Stabilization — active
+Jinja start gate — blocked
 ```
 
-F2-28 must verify all recorded gates and privacy boundaries without claiming search-engine indexation. It does not authorize Jinja implementation.
+F2-28 does not claim search-engine indexation or authorize another site.
