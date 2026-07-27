@@ -1,0 +1,28 @@
+name: Inspect Matsuri detail source
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/inspect-matsuri-detail-source.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: List Matsuri source and locate detail labels
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "=== FILES ==="
+          find apps/matsuri/src -type f -print | sort
+          echo "=== DETAIL LABEL MATCHES ==="
+          grep -RInE '関係する場所・組織|根拠と出典|機械可読データ|Year by Year|Connections|findMatsuriEntityDetail' apps/matsuri/src packages scripts || true
