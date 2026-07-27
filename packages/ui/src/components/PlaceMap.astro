@@ -7,6 +7,7 @@ interface Props {
   embedUrl?: string;
   embedTitle?: string;
   openMapLabel?: string;
+  detailLabel?: string;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   embedUrl,
   embedTitle = "関連地点の地図",
   openMapLabel = "地図で開く",
+  detailLabel = "場所の記録を見る",
 } = Astro.props;
 ---
 
@@ -22,11 +24,16 @@ const {
 <div class="yk-place-map" data-has-map={embedUrl ? "true" : "false"}>
   <div class="yk-place-list">
     {places.map((place) => (
-      <article class="yk-place-item">
+      <article class="yk-place-item" data-place-item>
         {place.contextLabel && <p class="yk-place-item__context">{place.contextLabel}</p>}
-        <h3 class="yk-place-item__name">{place.name}</h3>
+        <h3 class="yk-place-item__name">
+          {place.detailHref ? <a href={place.detailHref} data-place-link>{place.name}</a> : place.name}
+        </h3>
         {place.address && <p class="yk-place-item__address">{place.address}</p>}
-        {place.mapHref && <a href={place.mapHref}>{openMapLabel}</a>}
+        <div class="yk-place-item__actions">
+          {place.detailHref && <a href={place.detailHref}>{detailLabel}</a>}
+          {place.mapHref && <a href={place.mapHref}>{openMapLabel}</a>}
+        </div>
       </article>
     ))}
   </div>

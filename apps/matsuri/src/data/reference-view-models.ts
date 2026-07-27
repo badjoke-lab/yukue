@@ -1,5 +1,6 @@
 import type { PublicProjection } from "@badjoke-lab/yukue-observation-core";
 import type { BrowseEntityItem } from "./browse-view-models.js";
+import { entityPublicHref, entityTypeLabel } from "./public-routes.js";
 
 const stateOrder = [
   "active",
@@ -47,42 +48,9 @@ function regionLabel(entity: ProjectedEntity): string {
   return [...new Set(labels)].join("・");
 }
 
-function entityTypeLabel(entityType: string): string {
-  switch (entityType) {
-    case "festival":
-      return "祭礼";
-    case "tradition_unit":
-      return "祭礼構成要素";
-    case "folk_performance":
-      return "民俗芸能";
-    case "organization":
-      return "組織";
-    case "shrine":
-      return "神社";
-    case "temple":
-      return "寺院";
-    default:
-      return entityType;
-  }
-}
-
-function entityHashHref(entity: ProjectedEntity): string | undefined {
-  switch (entity.entity_type) {
-    case "organization":
-      return `/organizations/#${entity.id}`;
-    case "folk_performance":
-      return `/performances/#${entity.id}`;
-    case "festival":
-    case "tradition_unit":
-      return `/festivals/#${entity.id}`;
-    default:
-      return undefined;
-  }
-}
-
 function toBrowseItem(entity: ProjectedEntity): BrowseEntityItem {
   const stateCode = entity.current_state?.state_code;
-  const href = entityHashHref(entity);
+  const href = entityPublicHref(entity);
   return {
     id: entity.id,
     name: preferredName(entity),

@@ -1,4 +1,5 @@
 import type { PublicProjection } from "@badjoke-lab/yukue-observation-core";
+import { entityPublicHref } from "./public-routes.js";
 
 const stateLabels: Record<string, string> = {
   active: "継続中",
@@ -31,8 +32,6 @@ const eventLabels: Record<string, string> = {
   discontinued: "終了",
   other: "その他",
 };
-
-const publishedDetailIds = new Set(["fst-suneori-amagoi"]);
 
 type ProjectedEntity = PublicProjection["json"]["entities"][number];
 
@@ -81,12 +80,7 @@ function regionLabel(entity: ProjectedEntity): string {
 }
 
 function detailHref(entity: ProjectedEntity): string | undefined {
-  if (!publishedDetailIds.has(entity.id)) return undefined;
-  if (!entity.slug) return undefined;
-  if (entity.entity_type === "festival") {
-    return `/festivals/${entity.slug}/`;
-  }
-  return undefined;
+  return entityPublicHref(entity);
 }
 
 function formatDate(value: string | undefined): string {
@@ -124,6 +118,7 @@ function toBrowseEntity(
   typeLabel: string,
 ): BrowseEntityItem {
   const stateCode = entity.current_state?.state_code;
+  const href = detailHref(entity);
   return {
     id: entity.id,
     name: preferredName(entity),
@@ -136,7 +131,7 @@ function toBrowseEntity(
         }
       : {}),
     ...(entity.summary_ja ? { summary: entity.summary_ja } : {}),
-    ...(detailHref(entity) ? { href: detailHref(entity) } : {}),
+    ...(href ? { href } : {}),
   };
 }
 
@@ -225,6 +220,7 @@ export function buildChangeBrowseItems(
         .map((id) => entitiesById.get(id))
         .find((candidate) => candidate !== undefined);
       if (!entity) return [];
+      const href = detailHref(entity);
       return [
         {
           id: change.id,
@@ -232,7 +228,7 @@ export function buildChangeBrowseItems(
           typeLabel: eventLabels[change.event_type] ?? "変化",
           entityName: preferredName(entity),
           summary: change.summary_ja,
-          ...(detailHref(entity) ? { href: detailHref(entity) } : {}),
+          ...(href ? { href } : {}),
         },
       ];
     });

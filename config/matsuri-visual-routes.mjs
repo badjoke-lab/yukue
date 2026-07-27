@@ -3,8 +3,18 @@ export const matsuriPublicRoutes = Object.freeze([
   "/about/",
   "/festivals/",
   "/festivals/suneori-amagoi/",
+  "/festivals/soma-nomaoi/",
+  "/festivals/nunokawa-hana-matsuri/",
+  "/festivals/gion-takayama/",
   "/performances/",
+  "/performances/hayachine-kagura/",
+  "/performances/dainichido-bugaku/",
   "/organizations/",
+  "/organizations/suneori-amagoi-hozonkai/",
+  "/organizations/aomori-nebuta-committee/",
+  "/references/shrines/aso-jinja/",
+  "/places/suneori-shirahige/",
+  "/places/gion-yamahoko-route/",
   "/regions/",
   "/changes/",
   "/states/",
@@ -41,14 +51,30 @@ export const matsuriTabletBrowserDevice = Object.freeze({
 });
 
 export function assertMatsuriVisualContract() {
-  if (matsuriPublicRoutes.length !== 20) {
+  if (matsuriPublicRoutes.length !== 30) {
     throw new Error(
-      `F2-M01 requires 20 exhaustive Matsuri public routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
+      `The representative Matsuri visual contract requires 30 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
     );
   }
 
   if (new Set(matsuriPublicRoutes).size !== matsuriPublicRoutes.length) {
     throw new Error("Matsuri visual route contract contains duplicate routes.");
+  }
+
+  const requiredFamilies = [
+    "/",
+    "/festivals/",
+    "/performances/",
+    "/organizations/",
+    "/references/shrines/",
+    "/places/",
+    "/states/",
+    "/search/",
+  ];
+  for (const family of requiredFamilies) {
+    if (!matsuriPublicRoutes.some((route) => route.startsWith(family))) {
+      throw new Error(`Matsuri visual contract is missing page-family coverage for ${family}`);
+    }
   }
 
   for (const route of matsuriPublicRoutes) {

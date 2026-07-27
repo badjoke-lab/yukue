@@ -43,6 +43,8 @@ export interface RelationItem {
   label: string;
   targetName: string;
   href: string;
+  hrefLabel?: string;
+  evidenceHref?: string;
   validityPeriod?: string;
 }
 
@@ -55,6 +57,7 @@ export interface DesignationItem {
 }
 
 export interface EvidenceItem {
+  id?: string;
   targetLabel: string;
   sourceTitle: string;
   supportSummary?: string;
@@ -66,6 +69,7 @@ export interface PlaceItem {
   name: string;
   address?: string;
   contextLabel?: string;
+  detailHref?: string;
   mapHref?: string;
 }
 

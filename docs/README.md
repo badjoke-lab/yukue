@@ -31,7 +31,8 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | `product-spec.md` | Working | Product capabilities and user needs |
 | `public-data-model.md` | Working | Public record model and projection rules |
 | `matsuri-mvp-spec.md` | Working | Matsuri MVP scope |
-| `information-architecture.md` | Accepted direction | Home H1 and Detail C |
+| `information-architecture.md` | Accepted / implemented | Home H1 and Detail C order |
+| `matsuri-detail-c-implementation.md` | Required implementation contract | Concrete Japanese detail composition, real routes, Relations, Evidence, Places, seed boundaries, individual JSON, and build failures |
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, and layout language |
 | `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |

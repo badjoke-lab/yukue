@@ -101,9 +101,12 @@ const canonicalBundle = buildMatsuriCanonicalDataset(
 ) as unknown as Parameters<typeof buildPublicProjection>[0];
 
 export const matsuriProjection = buildPublicProjection(canonicalBundle);
+export const matsuriEntityDetails = matsuriProjection.html.entity_details;
 
 export function findMatsuriEntityDetail(entityId: string) {
-  return matsuriProjection.html.entity_details.find(
-    (detail) => detail.entity.id === entityId,
-  );
+  return matsuriEntityDetails.find((detail) => detail.entity.id === entityId);
+}
+
+export function findMatsuriEntityDetailBySlug(slug: string) {
+  return matsuriEntityDetails.find((detail) => detail.entity.slug === slug);
 }

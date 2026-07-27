@@ -16,7 +16,7 @@ const {
 
 <div class="yk-evidence-list">
   {items.map((item) => (
-    <article class="yk-evidence-row">
+    <article class="yk-evidence-row" id={item.id} data-evidence-row>
       <div class="yk-evidence-row__target">{item.targetLabel}</div>
       <div>{item.sourceTitle}</div>
       <div class="yk-evidence-row__summary">{item.supportSummary ?? ""}</div>

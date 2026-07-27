@@ -13,22 +13,10 @@ const searchVerificationPath = path.join(
 );
 
 const feedSpecs = {
-  entities: {
-    path: "data/entities.json",
-    recordType: "entity",
-  },
-  events: {
-    path: "data/events.json",
-    recordType: "change_event",
-  },
-  relations: {
-    path: "data/relations.json",
-    recordType: "relation",
-  },
-  occurrences: {
-    path: "data/occurrences.json",
-    recordType: "occurrence",
-  },
+  entities: { path: "data/entities.json", recordType: "entity" },
+  events: { path: "data/events.json", recordType: "change_event" },
+  relations: { path: "data/relations.json", recordType: "relation" },
+  occurrences: { path: "data/occurrences.json", recordType: "occurrence" },
 };
 
 const expectedManifestFiles = [
@@ -58,6 +46,9 @@ const searchableEntityTypes = new Set([
   "festival",
   "tradition_unit",
   "folk_performance",
+  "organization",
+  "shrine",
+  "temple",
 ]);
 
 function readJson(relativePath) {
@@ -77,7 +68,6 @@ function assertEqual(actual, expected, message) {
 function assertArrayEqual(actual, expected, message) {
   const actualSorted = sorted(actual);
   const expectedSorted = sorted(expected);
-
   if (
     actualSorted.length !== expectedSorted.length ||
     actualSorted.some((value, index) => value !== expectedSorted[index])
@@ -91,22 +81,14 @@ function assertArrayEqual(actual, expected, message) {
 function parseStatusCounts(html) {
   const counts = new Map();
   const pattern = /<dd\b[^>]*data-record-count="([^"]+)"[^>]*>\s*(\d+)\s*<\/dd>/giu;
-
-  for (const match of html.matchAll(pattern)) {
-    counts.set(match[1], Number(match[2]));
-  }
-
+  for (const match of html.matchAll(pattern)) counts.set(match[1], Number(match[2]));
   return counts;
 }
 
 function parseStateRows(html) {
   const rows = [];
   const pattern = /<article\b[^>]*data-entity-id="([^"]+)"[^>]*data-current-state="([^"]+)"[^>]*>/giu;
-
-  for (const match of html.matchAll(pattern)) {
-    rows.push({ id: match[1], stateCode: match[2] });
-  }
-
+  for (const match of html.matchAll(pattern)) rows.push({ id: match[1], stateCode: match[2] });
   return rows;
 }
 
@@ -123,15 +105,22 @@ function parseSitemapLocations(xml) {
 }
 
 function expectedSearchUrl(entity) {
-  if (entity.id === "fst-suneori-amagoi") {
-    return "/festivals/suneori-amagoi/";
+  if (!entity.slug) throw new Error(`Search Entity ${entity.id} has no slug`);
+  switch (entity.entity_type) {
+    case "festival":
+    case "tradition_unit":
+      return `/festivals/${entity.slug}/`;
+    case "folk_performance":
+      return `/performances/${entity.slug}/`;
+    case "organization":
+      return `/organizations/${entity.slug}/`;
+    case "shrine":
+      return `/references/shrines/${entity.slug}/`;
+    case "temple":
+      return `/references/temples/${entity.slug}/`;
+    default:
+      throw new Error(`Unsupported searchable Entity type ${entity.entity_type}`);
   }
-
-  if (entity.entity_type === "folk_performance") {
-    return `/performances/#${entity.id}`;
-  }
-
-  return `/festivals/#${entity.id}`;
 }
 
 const version = readJson("version.json");
@@ -140,14 +129,8 @@ const feeds = Object.fromEntries(
   Object.entries(feedSpecs).map(([key, spec]) => [key, readJson(spec.path)]),
 );
 
-for (const key of [
-  "project_id",
-  "site_id",
-  "dataset_version",
-  "schema_version",
-]) {
+for (const key of ["project_id", "site_id", "dataset_version", "schema_version"]) {
   assertEqual(manifest[key], version[key], `manifest/version ${key} mismatch`);
-
   for (const [feedKey, feed] of Object.entries(feeds)) {
     assertEqual(feed[key], version[key], `${feedKey}/version ${key} mismatch`);
   }
@@ -156,11 +139,7 @@ for (const key of [
 assertEqual(version.site_id, "matsuri", "unexpected version site_id");
 assertEqual(manifest.site_id, "matsuri", "unexpected manifest site_id");
 assertArrayEqual(manifest.files, expectedManifestFiles, "manifest file inventory mismatch");
-assertEqual(
-  manifest.data_safety?.canonical_only,
-  true,
-  "manifest canonical_only must be true",
-);
+assertEqual(manifest.data_safety?.canonical_only, true, "manifest canonical_only must be true");
 assertEqual(
   manifest.data_safety?.approved_projection_only,
   true,
@@ -170,23 +149,14 @@ assertEqual(
 for (const [feedKey, spec] of Object.entries(feedSpecs)) {
   const feed = feeds[feedKey];
   assertEqual(feed.record_type, spec.recordType, `${feedKey} record_type mismatch`);
-  assertEqual(
-    feed.record_count,
-    feed.records.length,
-    `${feedKey} record_count does not match records length`,
-  );
+  assertEqual(feed.record_count, feed.records.length, `${feedKey} record_count mismatch`);
   assertEqual(
     manifest.record_counts[feedKey],
     feed.records.length,
     `manifest ${feedKey} count mismatch`,
   );
-
   const ids = feed.records.map((record) => record.id);
-  assertEqual(
-    new Set(ids).size,
-    ids.length,
-    `${feedKey} feed contains duplicate record IDs`,
-  );
+  assertEqual(new Set(ids).size, ids.length, `${feedKey} feed contains duplicate record IDs`);
 }
 
 const entityRecords = feeds.entities.records;
@@ -200,11 +170,8 @@ const expectedStatusCounts = {
   events: feeds.events.records.length,
   relations: feeds.relations.records.length,
 };
-
 for (const [key, expectedCount] of Object.entries(expectedStatusCounts)) {
-  if (!statusCounts.has(key)) {
-    throw new Error(`Status HTML is missing data-record-count=${key}`);
-  }
+  if (!statusCounts.has(key)) throw new Error(`Status HTML is missing data-record-count=${key}`);
   assertEqual(statusCounts.get(key), expectedCount, `Status HTML ${key} count mismatch`);
 }
 
@@ -217,7 +184,6 @@ for (const stateCode of stateCodes) {
     "utf8",
   );
   const rows = parseStateRows(stateHtml);
-
   for (const row of rows) {
     assertEqual(
       row.stateCode,
@@ -225,7 +191,6 @@ for (const stateCode of stateCodes) {
       `State page ${stateCode} contains entity ${row.id} with another state`,
     );
   }
-
   assertArrayEqual(
     rows.map((row) => row.id),
     expectedIds,
@@ -238,10 +203,7 @@ if (!fs.existsSync(searchVerificationPath)) {
     `Pagefind verification sidecar is missing: ${path.relative(repositoryRoot, searchVerificationPath)}`,
   );
 }
-
-const searchVerification = JSON.parse(
-  fs.readFileSync(searchVerificationPath, "utf8"),
-);
+const searchVerification = JSON.parse(fs.readFileSync(searchVerificationPath, "utf8"));
 assertEqual(searchVerification.site_id, "matsuri", "search sidecar site_id mismatch");
 assertEqual(
   searchVerification.source,
@@ -266,25 +228,18 @@ assertArrayEqual(
 const entitiesById = new Map(entityRecords.map((entity) => [entity.id, entity]));
 for (const record of searchVerification.records) {
   const entity = entitiesById.get(record.id);
-  if (!entity) {
-    throw new Error(`Pagefind sidecar contains unknown entity ${record.id}`);
-  }
-
-  assertEqual(
-    record.entity_type,
-    entity.entity_type,
-    `Pagefind entity_type mismatch for ${record.id}`,
-  );
+  if (!entity) throw new Error(`Pagefind sidecar contains unknown entity ${record.id}`);
+  assertEqual(record.entity_type, entity.entity_type, `Pagefind entity_type mismatch for ${record.id}`);
   assertEqual(
     record.current_state,
     entity.current_state?.state_code ?? null,
     `Pagefind current_state mismatch for ${record.id}`,
   );
-  assertEqual(
-    record.url,
-    expectedSearchUrl(entity),
-    `Pagefind URL mismatch for ${record.id}`,
-  );
+  assertEqual(record.url, expectedSearchUrl(entity), `Pagefind URL mismatch for ${record.id}`);
+  const outputPath = path.join(outputRoot, record.url.replace(/^\//u, ""), "index.html");
+  if (!fs.existsSync(outputPath)) {
+    throw new Error(`Pagefind URL has no generated detail page for ${record.id}: ${record.url}`);
+  }
 }
 
 const sitemapLocations = parseSitemapLocations(
@@ -292,16 +247,9 @@ const sitemapLocations = parseSitemapLocations(
 );
 const robots = fs.readFileSync(path.join(outputRoot, "robots.txt"), "utf8");
 const configuredOrigin = process.env.MATSURI_PUBLIC_ORIGIN?.replace(/\/$/u, "");
-
-if (!/^User-agent:\s*\*\s*$/imu.test(robots)) {
-  throw new Error("robots.txt is missing User-agent: *");
-}
-if (!/^Allow:\s*\/\s*$/imu.test(robots)) {
-  throw new Error("robots.txt is missing Allow: /");
-}
-if (/^Disallow:\s*\/\s*$/imu.test(robots)) {
-  throw new Error("robots.txt blocks the complete public site");
-}
+if (!/^User-agent:\s*\*\s*$/imu.test(robots)) throw new Error("robots.txt is missing User-agent: *");
+if (!/^Allow:\s*\/\s*$/imu.test(robots)) throw new Error("robots.txt is missing Allow: /");
+if (/^Disallow:\s*\/\s*$/imu.test(robots)) throw new Error("robots.txt blocks the complete public site");
 
 if (configuredOrigin) {
   assertEqual(
@@ -309,7 +257,6 @@ if (configuredOrigin) {
     configuredOrigin,
     "manifest site_origin does not match MATSURI_PUBLIC_ORIGIN",
   );
-
   const configuredUrl = new URL(configuredOrigin);
   if (
     configuredUrl.hostname === "localhost" ||
@@ -318,14 +265,10 @@ if (configuredOrigin) {
   ) {
     throw new Error(`Placeholder or local MATSURI_PUBLIC_ORIGIN is not allowed: ${configuredOrigin}`);
   }
-
   const expectedSitemapDirective = `Sitemap: ${configuredOrigin}/sitemap.xml`;
   if (!robots.split(/\r?\n/u).some((line) => line.trim() === expectedSitemapDirective)) {
-    throw new Error(
-      `robots.txt is missing exact canonical directive: ${expectedSitemapDirective}`,
-    );
+    throw new Error(`robots.txt is missing exact canonical directive: ${expectedSitemapDirective}`);
   }
-
   for (const location of sitemapLocations) {
     if (!location.startsWith(`${configuredOrigin}/`) && location !== configuredOrigin) {
       throw new Error(`Sitemap location does not use configured origin: ${location}`);
@@ -337,13 +280,9 @@ if (configuredOrigin) {
       `manifest.site_origin must be absent when MATSURI_PUBLIC_ORIGIN is unset: ${manifest.site_origin}`,
     );
   }
-
   if (/^Sitemap:/imu.test(robots)) {
-    throw new Error(
-      "Origin-neutral robots.txt must omit the absolute Sitemap directive",
-    );
+    throw new Error("Origin-neutral robots.txt must omit the absolute Sitemap directive");
   }
-
   for (const location of sitemapLocations) {
     if (!location.startsWith("/") || /^[a-z][a-z\d+.-]*:/iu.test(location)) {
       throw new Error(
@@ -354,5 +293,5 @@ if (configuredOrigin) {
 }
 
 console.log(
-  `Matsuri public outputs are consistent: ${entityRecords.length} entities, ${currentStateRecords.length} current states, ${searchVerification.records.length} Pagefind records, ${sitemapLocations.length} sitemap locations, and a valid robots policy.`,
+  `Matsuri public outputs are consistent: ${entityRecords.length} entities, ${currentStateRecords.length} current states, ${searchVerification.records.length} direct-detail Pagefind records, ${sitemapLocations.length} sitemap locations, and a valid robots policy.`,
 );

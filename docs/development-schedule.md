@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-28 completed / Phase 10 Matsuri stabilization observing / Jinja start gate blocked
+**Status:** F2-28 completed / Detail C completed / Matsuri corpus expansion active / stabilization observing / Jinja blocked
 
 This project is gate-driven rather than deadline-driven.
 
@@ -15,6 +15,8 @@ F2-M02                       completed
 F2-P01 through F2-P13        completed
 Phase 9 Launch Preparation   completed
 Phase 10 Stabilization       active
+Phase 10A Detail C repair    completed
+Phase 10B Corpus expansion   active
 Stabilization review         observing
 Actual Jinja start gate      blocked
 ```
@@ -37,18 +39,57 @@ F2-27  production traffic verification — completed
 F2-28  final F2 Launch Gate — completed
 ```
 
-F2-28 evidence:
-
-```text
-Evaluated at        2026-07-27T11:45:20Z
-F2-27 merge commit  6a0ef91dad62fb7f5d65135d846b1cf6b6301d25
-Audit               docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
-Machine record      config/matsuri-f2-launch-gate.json
-```
-
 F2-28 does not claim search-engine indexation and does not authorize Jinja.
 
-## Phase 10 stabilization review
+## Phase 10A — Detail C repair
+
+Status: **Completed**
+
+The post-launch review found that the accepted Detail C information architecture existed in specification but the public implementation exposed only one full Festival detail page. Most other public names were plain text or list-anchor destinations.
+
+The repair requires and verifies:
+
+```text
+all Festival and Tradition Unit detail pages
+all Folk Performance detail pages
+all Organization detail pages
+State-free Shrine and Temple seed-reference pages
+Place pages with reverse links
+grouped and bidirectional Relations
+claim-linked Evidence and Sources
+direct individual JSON
+Pagefind results that open real details
+complete sitemap coverage
+static and Chromium navigation checks
+```
+
+Governing contract:
+
+```text
+docs/matsuri-detail-c-implementation.md
+pnpm check:matsuri:detail-navigation
+```
+
+## Phase 10B — Matsuri corpus expansion
+
+Status: **Active**
+
+The next primary work is not passive uptime observation. It is to turn the public corpus into a useful archive by adding and deepening approved records.
+
+Active work includes:
+
+- adding Festivals and Folk Performances across more regions,
+- prioritizing suspension, revival, discontinuation, format change, venue change, organizer change, and other non-trivial histories,
+- adding Year-by-Year Occurrences rather than only identity records,
+- strengthening Current State explanations and verification dates,
+- adding Organizations, Places, Shrines, and Temples only where useful Relations are supported,
+- linking each State, Change, Occurrence, Relation, Designation, identity, and location claim to Evidence and Source context,
+- applying corrections through the canonical correction contract,
+- recording the actual time and difficulty of maintenance work.
+
+Data volume alone is not the gate. Records must provide current position, time history, navigable relationships, and evidence.
+
+## Parallel stabilization review
 
 ```text
 Started               2026-07-27
@@ -59,18 +100,9 @@ Machine record        config/matsuri-stabilization-review.json
 Start audit           docs/audits/matsuri-stabilization-start-2026-07-27.md
 ```
 
-Active work may include:
+Stabilization observes production availability, deployment failures, canonical and HTTPS behavior, Search, crawler and sitemap behavior, Analytics receipt, Search Console, corrections, freshness, Relation integrity, and maintenance burden.
 
-- date-triggered factual Matsuri maintenance,
-- Source, Evidence, Relation, and correction work,
-- production availability and deployment-failure observation,
-- indexation and Search Console observation,
-- public Search and machine-readable layer observation,
-- dependency and security maintenance,
-- maintenance-burden review,
-- public corrections and inquiries.
-
-Completion requires every review category, zero unresolved critical corrections, a recorded production deployment-failure count, acceptable maintenance burden, and a public-safe final audit. Reaching the date alone does not complete the gate. Search-engine indexation is not required.
+Reaching the date alone does not complete the gate. Maintenance burden must be judged from real corpus and correction work, not from leaving a small static site untouched.
 
 Current dated reviews:
 
@@ -94,12 +126,13 @@ Explicit start authorization          false
 Before Jinja implementation:
 
 ```text
-1. complete the Matsuri stabilization review
-2. decide portal/Jinja implementation order
-3. approve Jinja State specification and vocabulary
-4. record explicit start authorization
-5. pass the actual Jinja start gate
-6. only then create apps/jinja
+1. expand and deepen the Matsuri corpus while operating the completed Detail C surface
+2. complete the Matsuri stabilization review with real maintenance evidence
+3. decide portal/Jinja implementation order
+4. approve Jinja State specification and vocabulary
+5. record explicit start authorization
+6. pass the actual Jinja start gate
+7. only then create apps/jinja
 ```
 
 ## Work not activated

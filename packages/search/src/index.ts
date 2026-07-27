@@ -4,12 +4,18 @@ const browsableEntityTypes = new Set([
   "festival",
   "tradition_unit",
   "folk_performance",
+  "organization",
+  "shrine",
+  "temple",
 ]);
 
 const entityTypeLabels: Record<string, string> = {
   festival: "祭礼",
   tradition_unit: "祭礼構成要素",
   folk_performance: "民俗芸能",
+  organization: "組織",
+  shrine: "神社参照記録",
+  temple: "寺院参照記録",
 };
 
 const stateLabels: Record<string, string> = {

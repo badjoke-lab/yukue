@@ -8,7 +8,6 @@ import {
 } from "../config/matsuri-visual-routes.mjs";
 import {
   argValue,
-  compareRouteInventories,
   discoverGeneratedPublicRoutes,
   matsuriScreenshotRoot,
   repositoryRoot,
@@ -29,11 +28,15 @@ const deviceNames = selectedDeviceNames(
 
 assertMatsuriVisualContract();
 const generatedRoutes = await discoverGeneratedPublicRoutes();
-compareRouteInventories(
-  generatedRoutes,
-  matsuriPublicRoutes,
-  "Generated Matsuri and configured visual",
+const generatedRouteSet = new Set(generatedRoutes);
+const missingConfiguredRoutes = matsuriPublicRoutes.filter(
+  (route) => !generatedRouteSet.has(route),
 );
+if (missingConfiguredRoutes.length > 0) {
+  throw new Error(
+    `Configured visual routes are missing from the generated Matsuri site: ${JSON.stringify(missingConfiguredRoutes)}`,
+  );
+}
 
 fs.mkdirSync(matsuriScreenshotRoot, { recursive: true });
 
@@ -201,9 +204,10 @@ try {
     await context.close();
 
     const manifest = {
-      schema_version: "1.0",
+      schema_version: "1.1",
       generated_at: new Date().toISOString(),
       source_type: "local-preview",
+      coverage_mode: "representative-page-families",
       base_url: baseUrl,
       device: deviceName,
       viewport: device.viewport,
@@ -226,7 +230,7 @@ try {
     totalFailures += failures.length;
 
     console.log(
-      `[${deviceName}] ${records.length}/${matsuriPublicRoutes.length} routes captured; ${failures.length} failed.`,
+      `[${deviceName}] ${records.length}/${matsuriPublicRoutes.length} representative routes captured from ${generatedRoutes.length} generated HTML routes; ${failures.length} failed.`,
     );
   }
 } finally {

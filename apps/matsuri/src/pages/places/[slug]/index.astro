@@ -1,0 +1,24 @@
+---
+import MatsuriPlaceDetailPage from "../../../components/MatsuriPlaceDetailPage.astro";
+import {
+  findMatsuriPlaceDetail,
+  matsuriPlaceDetails,
+} from "../../../data/place-view-models.js";
+
+export function getStaticPaths() {
+  return matsuriPlaceDetails.map((detail) => ({
+    params: { slug: detail.slug },
+    props: { slug: detail.slug },
+  }));
+}
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const page = findMatsuriPlaceDetail(slug);
+if (!page) throw new Error(`Public Place projection is missing ${slug}.`);
+---
+
+<MatsuriPlaceDetailPage page={page} />

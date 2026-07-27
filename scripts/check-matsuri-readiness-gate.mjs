@@ -46,6 +46,7 @@ const requiredScripts = [
   "check:yukue:deployment-topology",
   "check:yukue:jinja-start-gate",
   "check:matsuri:pages",
+  "check:matsuri:detail-navigation",
   "check:matsuri:workers-config",
   "check:matsuri:consistency",
   "check:matsuri:canonical-metadata",
@@ -71,8 +72,9 @@ const requiredDocs = [
   "docs/deployment-topology.md",
   "docs/f2-25-cloudflare-web-analytics.md",
   "docs/f2-26-f2-28-launch-closure.md",
-  "docs/matsuri-stabilization-review.md",
   "docs/jinja-start-gate.md",
+  "docs/matsuri-detail-c-implementation.md",
+  "docs/matsuri-stabilization-review.md",
   "docs/development-schedule.md",
   "docs/project-status.md",
   "docs/roadmap.md",
@@ -112,7 +114,7 @@ assert(manifest.project_id === "yukue-series", "Unexpected project_id");
 assert(manifest.site_id === "matsuri", "Unexpected site_id");
 assert(
   manifest.release_status ===
-    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-launch-complete",
+    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-launch-complete-stabilization-observing",
   `Unexpected release_status: ${String(manifest.release_status)}`,
 );
 assert(manifest.artifact_origin_mode === "origin-neutral-repository-candidate", "Wrong artifact mode");
@@ -204,6 +206,16 @@ assert(
     manifest.final_f2_launch_gate_verification?.jinja_start_authorized === false,
   "F2-28 evidence is incomplete",
 );
+assert(
+  manifest.stabilization_review?.status === "observing" &&
+    manifest.stabilization_review?.started_on === "2026-07-27" &&
+    manifest.stabilization_review?.earliest_review_on === "2026-08-10" &&
+    manifest.stabilization_review?.review_complete === false &&
+    manifest.stabilization_review?.phase_11_gate_review_authorized === false &&
+    manifest.stabilization_review?.jinja_stabilization_prerequisite_complete === false &&
+    manifest.stabilization_review?.indexation_required === false,
+  "Stabilization evidence is incomplete",
+);
 assert(typeof manifest.source_commit === "string" && /^[0-9a-f]{40}$/u.test(manifest.source_commit), "Invalid source_commit");
 assert(Array.isArray(manifest.public_routes) && manifest.public_routes.length > 0, "No public routes");
 assert(Array.isArray(manifest.files) && manifest.files.length === manifest.artifact_file_count, "File inventory mismatch");
@@ -259,6 +271,7 @@ const jinja = readJson("config/jinja-start-gate.json");
 const projectStatus = read("docs/project-status.md");
 const developmentSchedule = read("docs/development-schedule.md");
 const roadmap = read("docs/roadmap.md");
+const detailContract = read("docs/matsuri-detail-c-implementation.md");
 const f228Audit = read("docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md");
 const stabilizationStartAudit = read("docs/audits/matsuri-stabilization-start-2026-07-27.md");
 
@@ -274,9 +287,13 @@ assert(
     stabilization.started_on === "2026-07-27" &&
     stabilization.minimum_observation_days === 14 &&
     stabilization.earliest_review_on === "2026-08-10" &&
+    stabilization.reviewed_on === null &&
+    stabilization.review_evidence_document === null &&
     stabilization.claims?.review_complete === false &&
     stabilization.claims?.phase_11_gate_review_authorized === false &&
-    stabilization.claims?.jinja_stabilization_prerequisite_complete === false,
+    stabilization.claims?.jinja_stabilization_prerequisite_complete === false &&
+    stabilization.boundary?.elapsed_time_alone_does_not_complete_review === true &&
+    stabilization.boundary?.search_engine_indexation_not_required === true,
   "Matsuri stabilization observation record is incomplete",
 );
 assert(
@@ -294,25 +311,37 @@ assert(
 assert(
   projectStatus.includes("F2-28 — final F2 Launch Gate — completed") &&
     projectStatus.includes("Phase 10 Stabilization — active") &&
+    projectStatus.includes("Matsuri Detail C implementation — completed") &&
+    projectStatus.includes("Matsuri corpus expansion — active") &&
     projectStatus.includes("Matsuri stabilization review — observing") &&
     projectStatus.includes("Earliest review       2026-08-10") &&
     projectStatus.includes("Actual Jinja start gate — blocked"),
-  "Project status does not reflect bounded stabilization",
+  "Project status does not reflect Detail C, corpus expansion, and bounded stabilization",
 );
 assert(
   developmentSchedule.includes("F2-01 through F2-28          completed") &&
-    developmentSchedule.includes("Phase 10 Stabilization       active") &&
+    developmentSchedule.includes("Phase 10A Detail C repair    completed") &&
+    developmentSchedule.includes("Phase 10B Corpus expansion   active") &&
     developmentSchedule.includes("Stabilization review         observing") &&
     developmentSchedule.includes("Actual Jinja start gate      blocked"),
-  "Development schedule does not reflect the stabilization gate",
+  "Development schedule does not reflect the active post-launch product track",
 );
 assert(
   roadmap.includes("## Phase 9 — Launch Preparation") &&
     roadmap.includes("Status: **Completed**") &&
-    roadmap.includes("## Phase 10 — Matsuri Stabilization") &&
-    roadmap.includes("Status: **Active / observing**") &&
+    roadmap.includes("## Phase 10 — Matsuri Content Expansion and Stabilization") &&
+    roadmap.includes("### Phase 10A — Detail C product completion") &&
+    roadmap.includes("### Phase 10B — Corpus expansion") &&
+    roadmap.includes("Status: **Active**") &&
     roadmap.includes("Earliest review       2026-08-10"),
-  "Roadmap does not reflect bounded Phase 10 stabilization",
+  "Roadmap does not reflect Detail C completion, corpus expansion, and bounded stabilization",
+);
+assert(
+  detailContract.includes("**Status:** Required implementation contract") &&
+    detailContract.includes("a primary public Entity lacks a detail route") &&
+    detailContract.includes("an approved Relation is absent from either available endpoint page") &&
+    detailContract.includes("a Shrine or Temple reference page contains a Current State claim"),
+  "Detail C implementation contract is incomplete",
 );
 assert(
   f228Audit.includes("**Status:** Passed") &&
@@ -329,5 +358,5 @@ assert(
 );
 
 console.log(
-  `Matsuri repository readiness gate passed: ${manifest.public_routes.length} routes, ${manifest.artifact_file_count} files, ${manifest.artifact_size_bytes} bytes, SHA-256 ${manifest.artifact_sha256}; F2-16 through F2-28 are complete, stabilization is observing until at least 2026-08-10, indexation is not required, and Jinja remains blocked.`,
+  `Matsuri repository readiness gate passed: ${manifest.public_routes.length} routes, ${manifest.artifact_file_count} files, ${manifest.artifact_size_bytes} bytes, SHA-256 ${manifest.artifact_sha256}; Detail C is complete, corpus expansion is active, stabilization is observing until at least 2026-08-10, indexation is not required, and Jinja remains blocked.`,
 );

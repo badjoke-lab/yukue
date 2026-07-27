@@ -1,6 +1,6 @@
 # Information Architecture
 
-**Status:** Accepted direction for mockup and UI review
+**Status:** Accepted and implemented direction
 
 ## Decision
 
@@ -11,7 +11,7 @@ Accepted page-structure direction:
 - Home: **H1 — Search First Hybrid**
 - Entity detail: **C — Integrated Overview**
 
-These choices define information order, not final visual design.
+These choices define information order. The concrete Japanese presentation, route, Relation, Evidence, Place, and direct-JSON contract is defined in `matsuri-detail-c-implementation.md`.
 
 ## Header
 
@@ -40,7 +40,7 @@ Yukue Series
 
 ## Home — H1 Search First Hybrid
 
-Recommended order:
+Required order:
 
 ```text
 Hero + Search
@@ -65,7 +65,7 @@ Search answers direct intent. Snapshot explains what the dataset knows now. Chan
 
 ## Detail — C Integrated Overview
 
-Recommended order:
+Required order:
 
 ```text
 Identity
@@ -98,8 +98,23 @@ Designations
 
 Evidence & Sources
 
+Record Updates [when public record metadata exists]
+
 Machine-readable Data
 ```
+
+The detail implementation must let a visitor move from the current record to related Organizations, Shrines or Temples, Festival or Folk Performance records, Places, specific Evidence, and the current record's individual JSON. A title-only or list-anchor destination is not a completed Detail C implementation.
+
+## Primary detail surfaces
+
+```text
+festival
+tradition_unit
+folk_performance
+organization
+```
+
+Shrine and Temple records may use minimal Matsuri seed-reference pages only. Those pages must not infer a Shrine or Temple Current State and do not activate a future specialist site.
 
 ## No-image behavior
 
@@ -107,15 +122,19 @@ Image-zero records must look intentional. Do not render placeholder images, empt
 
 ## Map behavior
 
-- single site: map + address
-- multiple sites: representative map + place list
-- route based: route context and related places; avoid a misleading single pin
-- distributed: area explanation, optionally area-level map
+- single site: map + address,
+- multiple sites: representative map + place list,
+- route based: route context and related places; avoid a misleading single pin,
+- distributed: area explanation, optionally area-level map.
 
 ## Stats and Compare
 
 Neither is required for MVP. The current data model should remain compatible with both.
 
-## Remaining visual questions
+## Governing implementation contract
 
-Typography, density, color and accent system, desktop grid, card/table balance, map treatment, timeline treatment, state presentation, evidence presentation, and image gallery/lightbox style will be decided through visual mockup review.
+The complete implementation and build-failure rules are defined in:
+
+```text
+docs/matsuri-detail-c-implementation.md
+```
