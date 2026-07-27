@@ -10,14 +10,15 @@ Before implementing a feature, check the relevant document here. When a gate cha
 
 | Document | Status | Purpose |
 |---|---|---|
-| `project-status.md` | Living / F2-27 active | Current phase, completed F2-26 state, blockers, and next gate |
-| `development-schedule.md` | Current / F2-27 active | Concrete gate and implementation sequence |
+| `project-status.md` | Living / F2-28 active | Current phase, completed F2-27 state, blockers, and next gate |
+| `development-schedule.md` | Current / F2-28 active | Concrete gate and implementation sequence |
 | `roadmap.md` | Current | Long-range phases and gates |
 | `matsuri-repository-baseline.md` | Machine-checked current | Exact bundle, Entity, Analytics-boundary, and Jinja-boundary values |
 | `f2-25-cloudflare-web-analytics.md` | Completed | Automatic setup activation and privacy boundary |
 | `audits/matsuri-f2-25-analytics-activation-2026-07-27.md` | Passed audit | Public-safe F2-25 activation evidence |
 | `audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md` | Passed audit | Public-safe F2-26 production deployment evidence |
-| `f2-26-f2-28-launch-closure.md` | F2-27 active | Traffic verification and final launch-gate sequence |
+| `audits/matsuri-f2-27-production-traffic-2026-07-27.md` | Passed audit | Public-safe F2-27 traffic-receipt evidence |
+| `f2-26-f2-28-launch-closure.md` | F2-28 active | Final launch-gate requirements and boundaries |
 | `deployment-topology.md` | Matsuri active | Portal and specialist-site hostname and Worker boundaries |
 | `jinja-start-gate.md` | Blocked guardrail | Prerequisites before Jinja implementation |
 
