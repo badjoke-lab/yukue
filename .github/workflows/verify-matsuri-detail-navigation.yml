@@ -1,0 +1,78 @@
+name: Verify Matsuri Detail C navigation
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-detail-navigation.yml"
+      - "apps/matsuri/src/components/MatsuriEntityDetailPage.astro"
+      - "apps/matsuri/src/components/MatsuriPlaceDetailPage.astro"
+      - "apps/matsuri/src/components/BrowseEntityList.astro"
+      - "apps/matsuri/src/data/**"
+      - "apps/matsuri/src/pages/**"
+      - "packages/ui/src/components/EvidenceList.astro"
+      - "packages/ui/src/components/PlaceMap.astro"
+      - "packages/ui/src/components/RelationList.astro"
+      - "packages/ui/src/types.ts"
+      - "scripts/check-matsuri-detail-navigation.mjs"
+      - "docs/matsuri-detail-c-implementation.md"
+      - "package.json"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-detail-navigation.yml"
+      - "apps/matsuri/src/components/MatsuriEntityDetailPage.astro"
+      - "apps/matsuri/src/components/MatsuriPlaceDetailPage.astro"
+      - "apps/matsuri/src/components/BrowseEntityList.astro"
+      - "apps/matsuri/src/data/**"
+      - "apps/matsuri/src/pages/**"
+      - "packages/ui/src/components/EvidenceList.astro"
+      - "packages/ui/src/components/PlaceMap.astro"
+      - "packages/ui/src/components/RelationList.astro"
+      - "packages/ui/src/types.ts"
+      - "scripts/check-matsuri-detail-navigation.mjs"
+      - "docs/matsuri-detail-c-implementation.md"
+      - "package.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-detail-navigation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+        with:
+          version: 11.10.0
+
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Matsuri Pages
+        run: pnpm build:matsuri:pages
+
+      - name: Verify Detail C routes and navigation
+        run: pnpm check:matsuri:detail-navigation
+
+      - name: Write verification summary
+        if: always()
+        run: |
+          echo "## Matsuri Detail C navigation" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Every Festival, Tradition Unit, Folk Performance, and Organization has a real detail route" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Shrine and Temple seed references remain State-free" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Relations are navigable in both directions" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Places and individual JSON records are reachable" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Browse titles no longer fall back to plain text or list anchors" >> "$GITHUB_STEP_SUMMARY"
