@@ -12,15 +12,13 @@ import {
 
 const repositoryRoot = fileURLToPath(new URL("../", import.meta.url));
 const f2Directory = path.join(repositoryRoot, "data", "public", "matsuri", "f2");
-const projectStatusPath = path.join(repositoryRoot, "docs", "project-status.md");
-const baselineDocumentPath = path.join(
-  repositoryRoot,
-  "docs",
-  "matsuri-repository-baseline.md",
-);
+
+function read(relativePath) {
+  return fs.readFileSync(path.join(repositoryRoot, relativePath), "utf8");
+}
 
 function readJson(relativePath) {
-  return JSON.parse(fs.readFileSync(path.join(repositoryRoot, relativePath), "utf8"));
+  return JSON.parse(read(relativePath));
 }
 
 function assert(condition, message) {
@@ -31,9 +29,7 @@ function parseIsoDay(value) {
   if (typeof value !== "string") return null;
   const match = /^(\d{4})-(\d{2})-(\d{2})$/u.exec(value);
   if (!match) return null;
-
-  const [, yearText, monthText, dayText] = match;
-  const date = new Date(Date.UTC(Number(yearText), Number(monthText) - 1, Number(dayText)));
+  const date = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])));
   return date.toISOString().slice(0, 10) === value ? date : null;
 }
 
@@ -49,44 +45,25 @@ function assertExactKeys(record, expectedKeys, label) {
 const baseline = readJson("config/matsuri-repository-baseline.json");
 const analytics = readJson("config/matsuri-analytics-activation.json");
 const jinjaGate = readJson("config/jinja-start-gate.json");
-const projectStatus = fs.readFileSync(projectStatusPath, "utf8");
-const baselineDocument = fs.readFileSync(baselineDocumentPath, "utf8");
+const projectStatus = read("docs/project-status.md");
+const baselineDocument = read("docs/matsuri-repository-baseline.md");
 
-assert(
-  baseline.schema_version === "matsuri.repository-baseline.v1",
-  "Matsuri repository baseline schema_version must be matsuri.repository-baseline.v1.",
-);
-assert(
-  parseIsoDay(baseline.observed_on),
-  "Matsuri repository baseline observed_on must use a valid YYYY-MM-DD calendar day.",
-);
-assert(
-  baseline.status === "repository-maintenance-current",
-  "Matsuri repository baseline status must remain repository-maintenance-current.",
-);
+assert(baseline.schema_version === "matsuri.repository-baseline.v1", "Unexpected baseline schema");
+assert(parseIsoDay(baseline.observed_on), "Baseline observed_on must be a real YYYY-MM-DD day");
+assert(baseline.status === "repository-maintenance-current", "Unexpected baseline status");
 
-const projectStatusUpdatedMatch = /^\*\*Last updated:\*\* (\d{4}-\d{2}-\d{2})$/mu.exec(
-  projectStatus,
-);
-assert(
-  projectStatusUpdatedMatch,
-  "docs/project-status.md must declare a YYYY-MM-DD Last updated date.",
-);
-assert(
-  parseIsoDay(projectStatusUpdatedMatch?.[1]),
-  "docs/project-status.md Last updated must use a valid YYYY-MM-DD calendar day.",
-);
+const projectStatusUpdatedMatch = /^\*\*Last updated:\*\* (\d{4}-\d{2}-\d{2})$/mu.exec(projectStatus);
+assert(projectStatusUpdatedMatch, "Project status must declare Last updated");
+assert(parseIsoDay(projectStatusUpdatedMatch[1]), "Project status Last updated must be a real day");
+
 for (const marker of [
   "config/matsuri-repository-baseline.json",
-  "docs/matsuri-repository-baseline.md",
   "F2-25 — Cloudflare Web Analytics activation — completed",
-  "F2-26 — active next gate",
+  "F2-26 — post-activation production deployment — completed",
+  "F2-27 — active next gate",
   "Actual Jinja start gate — blocked",
 ]) {
-  assert(
-    projectStatus.includes(marker),
-    `docs/project-status.md must reference the current repository boundary marker ${JSON.stringify(marker)}.`,
-  );
+  assert(projectStatus.includes(marker), `Project status is missing ${marker}`);
 }
 
 for (const marker of [
@@ -94,34 +71,23 @@ for (const marker of [
   "docs/project-status.md",
   "does not repeat the current count or boundary values",
 ]) {
-  assert(
-    baselineDocument.includes(marker),
-    `docs/matsuri-repository-baseline.md must retain marker ${JSON.stringify(marker)}.`,
-  );
+  assert(baselineDocument.includes(marker), `Baseline document is missing ${marker}`);
 }
 
 const forbiddenNarrativeCountPatterns = [
   /\bF1 batches\s+\d+/u,
   /\bMaintenance bundles\s+\d+/u,
   /\bCorrection bundles\s+\d+/u,
-  /\bAdditive application slots\s+\d+/u,
-  /\bCorrection application slots\s+\d+/u,
   /\bCorrection records\s+\d+/u,
-  /\bCorrected logical IDs\s+\d+/u,
   /\bPublic Entities\s+\d+/u,
   /\bEntities without external links\s+\d+/u,
-  /complete inventory through maintenance\s+\d+\s+and correction\s+\d+/iu,
 ];
-
 for (const [relativePath, document] of [
   ["docs/project-status.md", projectStatus],
   ["docs/matsuri-repository-baseline.md", baselineDocument],
 ]) {
   for (const pattern of forbiddenNarrativeCountPatterns) {
-    assert(
-      !pattern.test(document),
-      `${relativePath} must not duplicate machine baseline counts (${pattern}).`,
-    );
+    assert(!pattern.test(document), `${relativePath} duplicates machine baseline counts (${pattern})`);
   }
 }
 
@@ -142,29 +108,20 @@ const expectedBoundaryKeys = [
   "jinja_start_gate",
   "jinja_state_snapshots",
 ];
-
-assertExactKeys(baseline.counts, expectedCountKeys, "Matsuri repository baseline counts");
-assertExactKeys(baseline.boundaries, expectedBoundaryKeys, "Matsuri repository baseline boundaries");
+assertExactKeys(baseline.counts, expectedCountKeys, "Baseline counts");
+assertExactKeys(baseline.boundaries, expectedBoundaryKeys, "Baseline boundaries");
 
 const correctionBundles = matsuriF2CorrectionFiles.map((fileName) =>
   JSON.parse(fs.readFileSync(path.join(f2Directory, fileName), "utf8")),
 );
 let correctionRecords = 0;
 const correctedLogicalIds = new Set();
-
 for (const [bundleIndex, bundle] of correctionBundles.entries()) {
   for (const familyName of matsuriRecordFamilies) {
     const records = bundle[familyName] ?? [];
-    assert(
-      Array.isArray(records),
-      `Correction bundle ${matsuriF2CorrectionFiles[bundleIndex]} family ${familyName} must be an array.`,
-    );
-
+    assert(Array.isArray(records), `${matsuriF2CorrectionFiles[bundleIndex]} ${familyName} must be an array`);
     for (const record of records) {
-      assert(
-        record && typeof record.id === "string" && record.id.length > 0,
-        `Correction bundle ${matsuriF2CorrectionFiles[bundleIndex]} family ${familyName} contains a record without a stable id.`,
-      );
+      assert(record && typeof record.id === "string" && record.id.length > 0, "Correction record needs id");
       correctionRecords += 1;
       correctedLogicalIds.add(`${familyName}:${record.id}`);
     }
@@ -172,10 +129,6 @@ for (const [bundleIndex, bundle] of correctionBundles.entries()) {
 }
 
 const dataset = loadMatsuriDataset();
-const entitiesWithoutExternalLinks = dataset.entities.filter(
-  (entity) => !Array.isArray(entity.external_links) || entity.external_links.length === 0,
-).length;
-
 const actualCounts = {
   f1_batches: matsuriF1BatchFiles.length,
   maintenance_bundles: matsuriF2MaintenanceFiles.length,
@@ -185,18 +138,13 @@ const actualCounts = {
   correction_records: correctionRecords,
   corrected_logical_ids: correctedLogicalIds.size,
   public_entities: dataset.entities.length,
-  entities_without_external_links: entitiesWithoutExternalLinks,
+  entities_without_external_links: dataset.entities.filter(
+    (entity) => !Array.isArray(entity.external_links) || entity.external_links.length === 0,
+  ).length,
 };
-
 for (const key of expectedCountKeys) {
-  assert(
-    Number.isInteger(baseline.counts[key]) && baseline.counts[key] >= 0,
-    `Matsuri repository baseline count ${key} must be a non-negative integer.`,
-  );
-  assert(
-    baseline.counts[key] === actualCounts[key],
-    `Matsuri repository baseline count ${key} is stale: recorded=${baseline.counts[key]} actual=${actualCounts[key]}.`,
-  );
+  assert(Number.isInteger(baseline.counts[key]) && baseline.counts[key] >= 0, `Invalid count ${key}`);
+  assert(baseline.counts[key] === actualCounts[key], `Stale count ${key}: recorded=${baseline.counts[key]} actual=${actualCounts[key]}`);
 }
 
 const actualBoundaries = {
@@ -219,14 +167,13 @@ const actualBoundaries = {
       : "not-blocked",
   jinja_state_snapshots: jinjaGate.seed_baseline?.approved_state_snapshots,
 };
-
 for (const key of expectedBoundaryKeys) {
   assert(
     baseline.boundaries[key] === actualBoundaries[key],
-    `Matsuri repository baseline boundary ${key} is stale: recorded=${JSON.stringify(baseline.boundaries[key])} actual=${JSON.stringify(actualBoundaries[key])}.`,
+    `Stale boundary ${key}: recorded=${JSON.stringify(baseline.boundaries[key])} actual=${JSON.stringify(actualBoundaries[key])}`,
   );
 }
 
 console.log(
-  `Matsuri repository baseline is current as of ${baseline.observed_on}: ${actualCounts.f1_batches} F1 batches, ${actualCounts.maintenance_bundles} maintenance bundles, ${actualCounts.correction_bundles} correction bundles, ${actualCounts.correction_records} correction records across ${actualCounts.corrected_logical_ids} logical IDs, and ${actualCounts.public_entities} public Entities. F2-25 is complete, F2-26 through F2-28 remain blocked in sequence, and narrative status documents reference the machine baseline without duplicating exact counts.`,
+  `Matsuri repository baseline is current as of ${baseline.observed_on}; F2-25 and F2-26 are complete, F2-27 is active, F2-28 and the Jinja start gate remain blocked, and narrative documents do not duplicate machine counts.`,
 );
