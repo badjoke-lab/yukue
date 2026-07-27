@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-28 completed / Phase 10 Matsuri stabilization active / Jinja start gate blocked
+**Status:** F2-28 completed / Phase 10 Matsuri stabilization observing / Jinja start gate blocked
 
 This project is gate-driven rather than deadline-driven.
 
@@ -15,6 +15,7 @@ F2-M02                       completed
 F2-P01 through F2-P13        completed
 Phase 9 Launch Preparation   completed
 Phase 10 Stabilization       active
+Stabilization review         observing
 Actual Jinja start gate      blocked
 ```
 
@@ -47,17 +48,29 @@ Machine record      config/matsuri-f2-launch-gate.json
 
 F2-28 does not claim search-engine indexation and does not authorize Jinja.
 
-## Phase 10 stabilization
+## Phase 10 stabilization review
+
+```text
+Started               2026-07-27
+Minimum duration      14 days
+Earliest review       2026-08-10
+Status                observing
+Machine record        config/matsuri-stabilization-review.json
+Start audit           docs/audits/matsuri-stabilization-start-2026-07-27.md
+```
 
 Active work may include:
 
 - date-triggered factual Matsuri maintenance,
 - Source, Evidence, Relation, and correction work,
+- production availability and deployment-failure observation,
 - indexation and Search Console observation,
 - public Search and machine-readable layer observation,
 - dependency and security maintenance,
 - maintenance-burden review,
 - public corrections and inquiries.
+
+Completion requires every review category, zero unresolved critical corrections, a recorded production deployment-failure count, acceptable maintenance burden, and a public-safe final audit. Reaching the date alone does not complete the gate. Search-engine indexation is not required.
 
 Current dated reviews:
 
