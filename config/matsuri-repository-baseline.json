@@ -1,6 +1,6 @@
 {
   "schema_version": "matsuri.repository-baseline.v1",
-  "observed_on": "2026-07-25",
+  "observed_on": "2026-07-27",
   "status": "repository-maintenance-current",
   "counts": {
     "f1_batches": 11,
@@ -14,7 +14,7 @@
     "entities_without_external_links": 0
   },
   "boundaries": {
-    "f2_25_owner_access": "pending",
+    "f2_25_owner_access": "not-pending",
     "f2_26_through_f2_28": "blocked",
     "jinja_start_gate": "blocked",
     "jinja_state_snapshots": 0
