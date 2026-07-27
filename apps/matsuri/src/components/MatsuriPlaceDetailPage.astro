@@ -1,0 +1,214 @@
+---
+import ActionLink from "@badjoke-lab/yukue-ui/components/ActionLink.astro";
+import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
+import EvidenceList from "@badjoke-lab/yukue-ui/components/EvidenceList.astro";
+import PageShell from "@badjoke-lab/yukue-ui/components/PageShell.astro";
+import RelationList from "@badjoke-lab/yukue-ui/components/RelationList.astro";
+import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
+import SiteFooter from "@badjoke-lab/yukue-ui/components/SiteFooter.astro";
+import SiteHeader from "@badjoke-lab/yukue-ui/components/SiteHeader.astro";
+import type { MatsuriPlaceDetailViewModel } from "../data/place-view-models.js";
+
+interface Props {
+  page: MatsuriPlaceDetailViewModel;
+}
+
+const { page } = Astro.props;
+const navItems = [
+  { label: "祭礼", href: "/festivals/" },
+  { label: "民俗芸能", href: "/performances/" },
+  { label: "地域", href: "/regions/" },
+  { label: "変化", href: "/changes/" },
+  { label: "検索", href: "/search/" },
+  { label: "このサイトについて", href: "/about/" },
+];
+const footerGroups = [
+  {
+    heading: "記録",
+    links: [
+      { label: "祭礼", href: "/festivals/" },
+      { label: "民俗芸能", href: "/performances/" },
+      { label: "組織", href: "/organizations/" },
+    ],
+  },
+  {
+    heading: "調べる",
+    links: [
+      { label: "地域", href: "/regions/" },
+      { label: "変化", href: "/changes/" },
+      { label: "状態", href: "/states/" },
+    ],
+  },
+  {
+    heading: "この資料について",
+    links: [
+      { label: "方法論", href: "/methodology/" },
+      { label: "データ", href: "/data/" },
+      { label: "ステータス", href: "/status/" },
+    ],
+  },
+];
+---
+
+<PageShell site="matsuri" title={page.title} description={page.description}>
+  <SiteHeader
+    slot="header"
+    siteName="祭のゆくえ"
+    romanLabel="Matsuri Yukue"
+    navItems={navItems}
+  />
+
+  <article data-place-detail-page data-place-id={page.placeId}>
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <Container size="wide">
+        <ol>
+          <li><a href="/">ホーム</a></li>
+          <li><a href="/regions/">場所</a></li>
+          {page.region && <li><a href="/regions/">{page.region}</a></li>}
+          <li aria-current="page">{page.name}</li>
+        </ol>
+      </Container>
+    </nav>
+
+    <section class="place-identity">
+      <Container size="wide">
+        <p class="place-identity__kicker">場所記録</p>
+        <h1>{page.name}</h1>
+        <ul class="place-identity__meta" aria-label="場所の基本情報">
+          <li>{page.kindLabel}</li>
+          {page.region && <li>{page.region}</li>}
+          {page.address && <li>{page.address}</li>}
+        </ul>
+        <div class="place-identity__actions">
+          <ActionLink href={page.dataHref} label="公開JSONを見る" />
+          <ActionLink href="/about/#corrections" label="この記録の訂正を連絡する" />
+        </div>
+      </Container>
+    </section>
+
+    <Section kicker="Place Context" title="この場所について" id="place-context">
+      <div class="yk-prose">
+        <p>祭のゆくえで、開催地・上演地・奉納先などとして確認できた場所です。</p>
+        {page.address && <p>所在地：{page.address}</p>}
+      </div>
+    </Section>
+
+    {page.relatedRecords.length > 0 && (
+      <Section kicker="Related Records" title="この場所に関係する記録" id="related-records">
+        <RelationList items={page.relatedRecords} />
+      </Section>
+    )}
+
+    {page.evidence.length > 0 && (
+      <Section kicker="Evidence & Sources" title="場所と所在地の根拠" id="evidence">
+        <EvidenceList items={page.evidence} />
+      </Section>
+    )}
+
+    <Section kicker="Machine-readable Data" title="機械可読データ" id="machine-data" rule="none">
+      <div class="machine-data">
+        <p>この場所記録に対応する承認済みPublic Projectionを個別JSONで取得できます。</p>
+        <ActionLink href={page.dataHref} label="この場所のJSONを開く" />
+      </div>
+    </Section>
+  </article>
+
+  <SiteFooter slot="footer" siteName="祭のゆくえ" groups={footerGroups} />
+</PageShell>
+
+<style>
+  .breadcrumb {
+    padding-block: var(--space-4);
+    border-bottom: var(--rule-standard);
+  }
+
+  .breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--color-muted);
+    font-size: var(--font-size-xs);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: "／";
+    margin-left: var(--space-2);
+    color: var(--color-rule-strong);
+  }
+
+  .breadcrumb a {
+    color: inherit;
+  }
+
+  .place-identity {
+    padding-block: var(--space-14) var(--space-10);
+    border-bottom: var(--rule-standard);
+  }
+
+  .place-identity__kicker {
+    margin: 0 0 var(--space-3);
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.12em;
+  }
+
+  .place-identity h1 {
+    margin: 0;
+    font-size: var(--font-size-entity);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+
+  .place-identity__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin: var(--space-6) 0 0;
+    padding: 0;
+    list-style: none;
+    color: var(--color-text-soft);
+    font-size: var(--font-size-sm);
+  }
+
+  .place-identity__meta li + li {
+    padding-left: var(--space-4);
+    border-left: var(--rule-standard);
+  }
+
+  .place-identity__actions,
+  .machine-data {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5);
+  }
+
+  .place-identity__actions {
+    margin-top: var(--space-7);
+  }
+
+  .machine-data p {
+    flex-basis: 100%;
+    max-width: var(--container-prose);
+    margin: 0;
+    color: var(--color-text-soft);
+  }
+
+  @media (max-width: 640px) {
+    .place-identity {
+      padding-block: var(--space-10) var(--space-8);
+    }
+
+    .place-identity__meta {
+      display: grid;
+      gap: var(--space-2);
+    }
+
+    .place-identity__meta li + li {
+      padding-left: 0;
+      border-left: 0;
+    }
+  }
+</style>
