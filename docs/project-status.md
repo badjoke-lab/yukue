@@ -18,9 +18,10 @@ F2-16 through F2-24 — completed
 F2-25 — Cloudflare Web Analytics activation — completed
 F2-26 — post-activation production deployment — completed
 F2-27 — active next gate
-F2-28 — blocked by F2-27
+F2-28  final F2 Launch Gate — blocked by F2-27
 F2-P01 through F2-P13 — completed
 Actual Jinja start gate — blocked
+future specialist-site implementation — not activated
 ```
 
 F2-26 accepted the successful Cloudflare Workers deployment of the F2-25 merge commit on `main`.
