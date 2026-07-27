@@ -59,9 +59,7 @@ assert(parseIsoDay(projectStatusUpdatedMatch[1]), "Project status Last updated m
 
 for (const marker of [
   "config/matsuri-repository-baseline.json",
-  "F2-25 — Cloudflare Web Analytics activation — completed",
-  "F2-26 — post-activation production deployment — completed",
-  "F2-27 — production traffic verification — completed",
+  "F2-16 through F2-27 — completed",
   "F2-28 — final F2 Launch Gate — completed",
   "Phase 10 Stabilization — active",
   "Actual Jinja start gate — blocked",
