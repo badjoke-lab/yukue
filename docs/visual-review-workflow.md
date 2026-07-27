@@ -1,6 +1,6 @@
 # Matsuri Visual Review Workflow
 
-**Status:** Implemented repository baseline / F2-M01 completed
+**Status:** Implemented repository baseline / representative page-family review active
 
 ## Purpose
 
@@ -8,11 +8,12 @@ The Matsuri visual-review workflow preserves successful full-page renders for hu
 
 It complements, but does not replace:
 
+- the exhaustive Detail C route and navigation gate,
 - the automated browser and accessibility audit,
 - the repository launch-readiness gate,
-- later production-origin verification.
+- production-origin verification.
 
-The workflow is intended to make page-scale problems visible, including excessive whitespace, weak hierarchy, unstable density, overly long lists, awkward mobile transformations, and visual drift that structural checks cannot judge.
+The workflow makes page-scale problems visible, including excessive whitespace, weak hierarchy, unstable density, overly long lists, awkward mobile transformations, and visual drift that structural checks cannot judge.
 
 ## Deployment boundary
 
@@ -21,8 +22,10 @@ Cloudflare is not required for the repository visual-review baseline.
 The workflow must:
 
 1. build the current Matsuri static site,
-2. start the built site on a GitHub Actions local HTTP server,
-3. capture that local preview with Playwright.
+2. discover the complete generated HTML route inventory,
+3. verify that every configured representative route exists,
+4. start the built site on a GitHub Actions local HTTP server,
+5. capture the representative page families with Playwright.
 
 The default capture origin is:
 
@@ -30,31 +33,44 @@ The default capture origin is:
 http://127.0.0.1:4321
 ```
 
-A future production-origin capture mode may be added only after the external deployment hold is removed. Local-preview capture remains the reproducible repository baseline.
+Local-preview capture remains the reproducible repository baseline.
 
-## Route contract
+## Coverage model
 
-While Matsuri has 20 public HTML routes, visual review is exhaustive rather than sampled.
+The initial 20-route site used exhaustive screenshot coverage. Detail C completion expanded the public HTML surface to more than ninety routes, including dozens of Entity details, Place details, and seed-reference pages.
 
-The shared visual-route configuration is the source for:
+The coverage model is now split deliberately:
 
-- browser audit route coverage,
-- screenshot capture route coverage,
-- screenshot completeness auditing.
+```text
+static Detail C navigation gate
+  exhaustive across every generated Entity, Relation, Place, browse link, search URL, and individual JSON route
 
-The configured routes must match every generated public `index.html` route in `apps/matsuri/dist`.
+Chromium Detail C navigation test
+  exhaustive across every Entity detail and seed-reference page
 
-Adding or removing a public HTML route requires updating the shared route configuration in the same change.
+visual screenshot workflow
+  representative page-family coverage across desktop and mobile
+```
 
-Representative sampling is not permitted while the public route count remains small enough for exhaustive review.
+The shared visual-route configuration currently contains 30 representative routes.
 
-If route growth later makes exhaustive capture unreasonable, a separate governing-document update must define:
+It must include:
 
-- required unique routes,
-- page-family sampling,
-- samples per family,
-- State, image, length, and geographic-scope coverage,
-- the threshold for switching away from exhaustive capture.
+- Home,
+- About,
+- Festival, Folk Performance, and Organization browse pages,
+- Region, Change, State, Search, Methodology, Data, and Status pages,
+- every State browse variant,
+- multiple Festival details including active, suspended, multi-place, and Tradition Unit cases,
+- multiple Folk Performance details,
+- multiple Organization details,
+- at least one Shrine or Temple seed-reference page,
+- at least one point-like Place page,
+- at least one route or distributed Place page.
+
+A configured representative route missing from the generated site is a failure. Generated routes outside the screenshot set are not failures because exhaustive structural and navigational coverage is enforced separately.
+
+Changing the representative count or removing a required page family requires updating this document and `config/matsuri-visual-routes.mjs` in the same pull request.
 
 ## Device contract
 
@@ -65,7 +81,7 @@ desktop  1440 × 900
 mobile    390 × 844
 ```
 
-Tablet remains in the automated browser audit but is not part of the initial visual-review artifact set.
+Tablet remains in the automated browser audit but is not part of the visual-review artifact set.
 
 Both devices use:
 
@@ -100,18 +116,22 @@ screenshots-desktop.zip
 screenshots-mobile.zip
 ```
 
-With the current 20-route contract, an `all` capture must produce:
+With the current 30-route representative contract, an `all` capture produces:
 
 ```text
-20 desktop full-page PNGs
-20 mobile full-page PNGs
-40 full-page PNGs total
+30 desktop full-page PNGs
+30 mobile full-page PNGs
+60 full-page PNGs total
 ```
 
 ## Capture manifest
 
 Each device manifest records:
 
+- schema version,
+- representative coverage mode,
+- generated HTML route count,
+- configured representative route count,
 - route,
 - resolved URL,
 - output file,
@@ -131,28 +151,28 @@ The manifest is evidence of what was rendered. It is not a substitute for review
 
 ## Automated screenshot audit
 
-The screenshot audit must fail when:
+The screenshot audit fails when:
 
-- a configured route is missing from the generated site,
-- a generated public route is missing from the visual-route configuration,
-- a selected route was not captured,
+- a configured representative route is missing from the generated site,
+- a selected representative route was not captured,
 - a capture returned an unsuccessful HTTP response,
 - a PNG is missing or unexpectedly small,
 - a page does not contain exactly one H1,
 - a page does not contain exactly one main landmark,
 - document-level horizontal overflow exceeds the accepted tolerance,
 - a rendered image is broken,
-- desktop and mobile route inventories differ.
+- a page or console error occurs,
+- desktop and mobile captured route inventories differ.
 
-The audit produces machine-readable JSON and a human-readable Markdown summary.
+The audit records both the complete generated HTML count and the representative screenshot count.
 
 ## Contact sheets
 
 The workflow generates one contact sheet per device.
 
-Contact sheets are navigation aids for visual review. They must show:
+Contact sheets show:
 
-- every captured route,
+- every captured representative route,
 - the route label,
 - the full-page silhouette in a bounded thumbnail,
 - the recorded document height.
@@ -166,9 +186,9 @@ The dedicated screenshot workflow supports:
 - manual `workflow_dispatch`,
 - automatic pull-request runs for UI, layout, style, visual-route, screenshot-script, Playwright, and workflow changes.
 
-The workflow is intentionally separate from the normal repository gate so that data-only and non-visual maintenance do not always generate forty PNGs.
+The workflow is intentionally separate from the normal repository gate so that data-only and non-visual maintenance do not always generate sixty PNGs.
 
-A data change that materially alters page length, density, images, or empty states should trigger a manual screenshot run or include the relevant visual workflow path change when necessary.
+A data change that materially alters page length, density, images, or empty states should trigger a manual screenshot run or include the relevant visual workflow path change.
 
 ## Artifact retention
 
@@ -195,9 +215,15 @@ post-fix recapture result
 
 Human review should inspect:
 
-- the desktop and mobile contact sheets,
+- desktop and mobile contact sheets,
 - the top, middle, and bottom of each affected full-page PNG,
-- at least Home, the relevant Browse page, the representative Festival detail, Search, and one Reference page for shared-shell changes.
+- Home,
+- relevant browse pages,
+- representative Festival and Folk Performance details,
+- an Organization detail,
+- a Shrine or Temple seed-reference page,
+- a Place page,
+- Search and one reference page for shared-shell changes.
 
 Review questions include:
 
@@ -213,26 +239,27 @@ Review questions include:
 ## Relationship to other gates
 
 ```text
+Detail C navigation gate
+= exhaustive route, Relation, Place, search, and individual-JSON integrity
+
 browser/accessibility audit
 = measurable rendering, structure, keyboard, target size, and WCAG checks
 
 visual-review workflow
-= retained successful renders plus human page-scale review
+= retained representative renders plus human page-scale review
 
 repository launch-readiness gate
 = deterministic release and data integrity contract
 
 production verification
-= later deployed-origin checks after the external hold is removed
+= deployed-origin checks
 ```
 
-The visual-review workflow may expose a defect even when the repository gate is green. Such a defect must be handled as a bounded UI maintenance change and re-captured before visual closure is claimed.
+The visual-review workflow may expose a defect even when the repository gate is green. Such a defect must be handled as bounded UI maintenance and re-captured before visual closure is claimed.
 
-## First baseline result
+## Baseline history
 
-The first exhaustive implementation and review completed on 2026-07-11.
-
-Final evidence:
+The first exhaustive 20-route review completed on 2026-07-11.
 
 ```text
 Workflow run: 29152930338
@@ -245,16 +272,6 @@ Automated failures: 0
 Automated warnings: 0
 ```
 
-The first review found and corrected:
+The first review corrected nested `main` landmarks, raw internal Change Event labels, and a mobile Home headline orphan.
 
-- nested `main` landmarks on Browse and Reference surfaces,
-- raw internal Change Event codes in public labels,
-- an orphaned final character in the mobile Home headline.
-
-The detailed review record is:
-
-```text
-docs/audits/matsuri-f2-m01-visual-review-2026-07-11.md
-```
-
-F2-M01 is complete. The workflow remains an ongoing UI-maintenance requirement.
+Detail C completion introduced the representative 30-route model while exhaustive route and interaction coverage moved to the dedicated Detail C gate.
