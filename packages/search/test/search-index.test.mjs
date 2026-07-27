@@ -35,14 +35,30 @@ function loadProjection() {
   return buildPublicProjection(bundle);
 }
 
-test("search records cover browsable Matsuri entities with structured filters", () => {
+const searchableTypes = new Set([
+  "festival",
+  "tradition_unit",
+  "folk_performance",
+  "organization",
+  "shrine",
+  "temple",
+]);
+
+test("search records cover every navigable Matsuri entity with structured filters", () => {
   const projection = loadProjection();
   const records = buildSearchIndexRecords(projection);
+  const expected = projection.json.entities.filter((entity) =>
+    searchableTypes.has(entity.entity_type),
+  );
 
-  assert.equal(records.length, 10);
+  assert.equal(records.length, expected.length);
+  assert.deepEqual(
+    records.map((record) => record.id).sort(),
+    expected.map((entity) => entity.id).sort(),
+  );
   assert.equal(
     records.some((record) => record.filters.entity_type[0] === "organization"),
-    false,
+    true,
   );
 
   const suneori = records.find((record) => record.id === "fst-suneori-amagoi");
@@ -51,7 +67,7 @@ test("search records cover browsable Matsuri entities with structured filters", 
   assert.deepEqual(suneori.filters.entity_type, ["festival"]);
   assert.deepEqual(suneori.filters.prefecture, ["11"]);
   assert.deepEqual(suneori.filters.current_state, ["active"]);
-  assert.match(suneori.content, /鶴ヶ島市/);
+  assert.match(suneori.content, /鶴ヶ島市/u);
 
   const nunokawa = records.find(
     (record) => record.id === "fst-nunokawa-hana-matsuri",
@@ -62,13 +78,19 @@ test("search records cover browsable Matsuri entities with structured filters", 
   assert.deepEqual(takayama?.filters.current_state, []);
 });
 
-test("search filter options expose public Japanese labels", () => {
+test("search filter options expose public Japanese labels for linked record types", () => {
   const projection = loadProjection();
   const options = buildSearchFilterOptions(projection);
 
   assert.equal(
     options.entityTypes.some(
       (option) => option.value === "folk_performance" && option.label === "民俗芸能",
+    ),
+    true,
+  );
+  assert.equal(
+    options.entityTypes.some(
+      (option) => option.value === "organization" && option.label === "組織",
     ),
     true,
   );
