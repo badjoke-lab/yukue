@@ -24,6 +24,7 @@ const requiredScripts = [
   "check:matsuri:crawler-reachability",
   "check:matsuri:indexability-preflight",
   "check:matsuri:search-engine-submission-record",
+  "check:matsuri:analytics-activation-record",
   "audit:matsuri:freshness",
   "audit:matsuri:relations",
 ];
@@ -41,6 +42,8 @@ const requiredDocs = [
   "docs/f2-22-canonical-search-verification.md",
   "docs/f2-23-crawler-reachability.md",
   "docs/f2-24-sitemap-submission-indexability.md",
+  "docs/f2-25-cloudflare-web-analytics.md",
+  "docs/f2-26-f2-28-launch-closure.md",
   "docs/development-schedule.md",
   "docs/project-status.md",
   "docs/roadmap.md",
@@ -51,6 +54,7 @@ const requiredDocs = [
   "docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md",
   "docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md",
   "docs/audits/matsuri-f2-24-search-console-2026-07-14.md",
+  "docs/audits/matsuri-f2-25-analytics-activation-2026-07-27.md",
   "docs/audits/matsuri-f2-m02-candidate-inventory-2026-07-12.md",
   "docs/audits/matsuri-f2-m02-soma-outcome-2026-07-12.md",
   "docs/audits/matsuri-f2-m02-relation-inventory-2026-07-12.md",
@@ -78,8 +82,9 @@ const completedExternalIds = [
   "F2-22",
   "F2-23",
   "F2-24",
+  "F2-25",
 ];
-const pendingExternalIds = ["F2-25", "F2-26", "F2-27", "F2-28"];
+const pendingExternalIds = ["F2-26", "F2-27", "F2-28"];
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -127,7 +132,7 @@ assert(releaseManifest.project_id === "yukue-series", "Unexpected release projec
 assert(releaseManifest.site_id === "matsuri", "Unexpected release site_id.");
 assert(
   releaseManifest.release_status ===
-    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-pending",
+    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-enabled-f2-26-pending",
   `Unexpected release_status: ${String(releaseManifest.release_status)}`,
 );
 assert(
@@ -182,6 +187,19 @@ assert(
   "Release candidate does not preserve successful F2-24 Search Console evidence.",
 );
 assert(
+  releaseManifest.analytics_activation_verification?.provider ===
+    "cloudflare-web-analytics" &&
+    releaseManifest.analytics_activation_verification?.activation_method === "automatic-setup" &&
+    releaseManifest.analytics_activation_verification?.activation_time_basis ===
+      "pre-existing-automatic-setup-observed" &&
+    releaseManifest.analytics_activation_verification?.activation_observed_at ===
+      "2026-07-27T09:37:29Z" &&
+    releaseManifest.analytics_activation_verification?.evidence_document ===
+      "docs/audits/matsuri-f2-25-analytics-activation-2026-07-27.md" &&
+    releaseManifest.analytics_activation_verification?.f2_25_complete === true,
+  "Release candidate does not preserve successful F2-25 Analytics activation evidence.",
+);
+assert(
   typeof releaseManifest.source_commit === "string" &&
     /^[0-9a-f]{40}$/u.test(releaseManifest.source_commit),
   `Release candidate source_commit is unavailable or invalid: ${String(releaseManifest.source_commit)}`,
@@ -228,8 +246,8 @@ for (const id of pendingExternalIds) {
   );
 }
 assert(
-  !releaseManifest.external_pending_work.some((value) => value.startsWith("F2-24")),
-  "Release candidate still records F2-24 as pending.",
+  !releaseManifest.external_pending_work.some((value) => value.startsWith("F2-25")),
+  "Release candidate still records F2-25 as pending.",
 );
 
 let totalBytes = 0;
@@ -273,6 +291,9 @@ const crawlerAudit = read(
 const submissionAudit = read(
   "docs/audits/matsuri-f2-24-search-console-2026-07-14.md",
 );
+const analyticsAudit = read(
+  "docs/audits/matsuri-f2-25-analytics-activation-2026-07-27.md",
+);
 
 for (const id of [...completedRepositoryIds, "F2-15", ...completedExternalIds]) {
   assert(developmentSchedule.includes(id), `Development schedule is missing ${id}.`);
@@ -288,8 +309,9 @@ assert(
   "Project status does not record F2-16 through F2-24 completion.",
 );
 assert(
-  projectStatus.includes("F2-25 — active next gate"),
-  "Project status does not record F2-25 as the active next gate.",
+  projectStatus.includes("F2-25 — Cloudflare Web Analytics activation — completed") &&
+    projectStatus.includes("F2-26 — active next gate"),
+  "Project status does not record F2-25 completion and F2-26 as the active next gate.",
 );
 assert(
   projectStatus.includes("F2-M02 — Matsuri data freshness audit — completed"),
@@ -300,7 +322,7 @@ assert(
   "Development schedule does not record F2-M02 completion.",
 );
 assert(
-  roadmap.includes("F2-M02  Matsuri data freshness audit — completed"),
+  roadmap.includes("F2-M02") && roadmap.includes("completed"),
   "Roadmap does not record F2-M02 completion.",
 );
 assert(
@@ -344,11 +366,17 @@ assert(
   "Search Console submission audit is incomplete.",
 );
 assert(
-  roadmap.includes("External deployment through F2-24: **Completed**") &&
-    roadmap.includes("F2-25  Web Analytics activation — next"),
-  "Roadmap does not reflect F2-24 completion and the F2-25 next gate.",
+  analyticsAudit.includes("Automatic setup observed enabled") &&
+    analyticsAudit.includes("2026-07-27T09:37:29Z") &&
+    analyticsAudit.includes("F2-25 complete                    true"),
+  "F2-25 Analytics activation audit is incomplete.",
+);
+assert(
+  roadmap.includes("External deployment through F2-25: **Completed**") &&
+    roadmap.includes("F2-26  post-activation production deployment — next"),
+  "Roadmap does not reflect F2-25 completion and the F2-26 next gate.",
 );
 
 console.log(
-  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-24 and F2-M02 are complete; Search Console sitemap submission verified with ${releaseManifest.search_engine_submission_verification.discovered_pages} discovered pages; F2-25 through F2-28 remain pending.`,
+  `Matsuri repository readiness gate passed: ${releaseManifest.public_routes.length} routes, ${releaseManifest.artifact_file_count} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${releaseManifest.artifact_sha256}; F2-16 through F2-25 and F2-M02 are complete; F2-26 through F2-28 remain pending in sequence.`,
 );

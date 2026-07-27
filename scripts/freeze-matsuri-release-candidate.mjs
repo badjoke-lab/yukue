@@ -21,6 +21,12 @@ const searchEngineSubmission = JSON.parse(
     "utf8",
   ),
 );
+const analyticsActivation = JSON.parse(
+  fs.readFileSync(
+    path.join(repositoryRoot, "config", "matsuri-analytics-activation.json"),
+    "utf8",
+  ),
+);
 const matsuriTopology = topology.sites.find((site) => site.site_id === "matsuri");
 const canonicalSearchVerification = {
   provider: "github_actions",
@@ -86,6 +92,16 @@ if (
 ) {
   throw new Error("Matsuri F2-24 Search Console evidence is incomplete.");
 }
+if (
+  analyticsActivation.status !== "analytics-enabled" ||
+  analyticsActivation.analytics_enabled !== true ||
+  analyticsActivation.activation_method !== "automatic-setup" ||
+  analyticsActivation.claims?.f2_25_complete !== true ||
+  analyticsActivation.claims?.f2_26_complete !== false ||
+  analyticsActivation.claims?.f2_27_complete !== false
+) {
+  throw new Error("Matsuri F2-25 Analytics activation evidence is incomplete.");
+}
 
 const completedRepositoryWork = [
   "F2-07 unified release verification",
@@ -108,10 +124,10 @@ const completedExternalWork = [
   "F2-22 browser Pagefind Search verification on canonical production origin",
   "F2-23 robots, canonical, sitemap, and crawler-reachability review",
   "F2-24 Search Console sitemap submission and indexability check",
+  "F2-25 Cloudflare Web Analytics Automatic setup observed enabled",
 ];
 
 const externalPendingWork = [
-  "F2-25 enable Cloudflare Web Analytics",
   "F2-26 deploy after Analytics activation",
   "F2-27 verify production traffic",
   "F2-28 final F2 Launch Gate",
@@ -231,7 +247,7 @@ const releaseManifest = {
   dataset_version: version.dataset_version,
   schema_version: version.schema_version,
   release_status:
-    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-pending",
+    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-enabled-f2-26-pending",
   artifact_origin_mode: "origin-neutral-repository-candidate",
   canonical_hostname_decision: matsuriTopology.canonical_hostname,
   canonical_origin_decision: matsuriTopology.canonical_origin,
@@ -253,6 +269,15 @@ const releaseManifest = {
     indexing_requests: searchEngineSubmission.indexing_requests.length,
     evidence_document: searchEngineSubmission.submission_evidence_document,
     indexation_claimed: searchEngineSubmission.claims.indexation_claimed,
+  },
+  analytics_activation_verification: {
+    provider: analyticsActivation.provider,
+    activation_method: analyticsActivation.activation_method,
+    activation_time_basis: analyticsActivation.activation_time_basis,
+    activated_at: analyticsActivation.activated_at,
+    activation_observed_at: analyticsActivation.activation_observed_at,
+    evidence_document: analyticsActivation.activation_evidence_document,
+    f2_25_complete: analyticsActivation.claims.f2_25_complete,
   },
   verification_command: "pnpm verify:release",
   completed_repository_work: completedRepositoryWork,
@@ -278,7 +303,7 @@ fs.writeFileSync(
 
 const summary =
   `# Matsuri Release Candidate\n\n` +
-  `Status: **repository verified; canonical origin, browser Search, crawler reachability, sitemap submission, and technical indexability verified; Analytics pending**\n\n` +
+  `Status: **repository verified; canonical origin, browser Search, crawler reachability, sitemap submission, technical indexability, and Analytics activation verified; F2-26 pending**\n\n` +
   `- Source commit: \`${releaseManifest.source_commit ?? "unavailable"}\`\n` +
   `- Dataset version: \`${releaseManifest.dataset_version}\`\n` +
   `- Schema version: \`${releaseManifest.schema_version}\`\n` +
@@ -292,14 +317,14 @@ const summary =
   `- Canonical Search workflow run: \`${canonicalSearchVerification.workflow_run_id}\`\n` +
   `- Crawler reachability workflow run: \`${crawlerReachabilityVerification.workflow_run_id}\`\n` +
   `- Search Console submission result: \`${searchEngineSubmission.submission_result}\`\n` +
-  `- Search Console discovered pages: ${searchEngineSubmission.discovered_pages}\n` +
-  `- Next external gate: F2-25 Cloudflare Web Analytics activation\n\n` +
+  `- Analytics activation observation: \`${analyticsActivation.activation_observed_at}\`\n` +
+  `- Next external gate: F2-26 post-activation production deployment\n\n` +
   `The copied site under \`matsuri-site/\` is the origin-neutral static artifact that passed \`pnpm verify:release\`. ` +
-  `The active canonical deployment, browser Search, crawler reachability, sitemap submission, and technical indexability are recorded separately through verified external evidence. ` +
-  `F2-16 through F2-24 are complete. F2-25 through F2-28 remain external work. No indexation claim is made.\n`;
+  `The active canonical deployment, browser Search, crawler reachability, sitemap submission, technical indexability, and Analytics activation are recorded separately through verified external evidence. ` +
+  `F2-16 through F2-25 are complete. F2-26 through F2-28 remain external work. No indexation claim is made.\n`;
 
 fs.writeFileSync(path.join(candidateRoot, "README.md"), summary, "utf8");
 
 console.log(
-  `Matsuri release candidate frozen: ${publicRoutes.length} routes, ${fileEntries.length} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${aggregateHash}; crawler reachability verified by run ${crawlerReachabilityVerification.workflow_run_id}; F2-24 sitemap submission and technical indexability verified; F2-25 Analytics activation pending.`,
+  `Matsuri release candidate frozen: ${publicRoutes.length} routes, ${fileEntries.length} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${aggregateHash}; F2-25 Analytics activation verified at ${analyticsActivation.activation_observed_at}; F2-26 through F2-28 remain pending.`,
 );

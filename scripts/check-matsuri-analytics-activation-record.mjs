@@ -11,6 +11,10 @@ const allowedStatuses = new Set([
   "post-activation-deployed",
   "traffic-verified",
 ]);
+const allowedActivationTimeBases = new Set([
+  "exact-owner-action",
+  "pre-existing-automatic-setup-observed",
+]);
 const forbiddenKeys = new Set([
   "account_email",
   "account_id",
@@ -78,8 +82,7 @@ assert(
   "Analytics privacy boundary is incomplete",
 );
 assert(
-  record.boundary?.owner_account_action_required === true &&
-    record.boundary?.activation_does_not_equal_deployment === true &&
+  record.boundary?.activation_does_not_equal_deployment === true &&
     record.boundary?.activation_does_not_equal_traffic_verification === true &&
     record.boundary?.private_metrics_remain_private === true,
   "Analytics progression boundary is incomplete",
@@ -93,6 +96,8 @@ assert(traffic?.required === true, "Production traffic verification must remain 
 assert(traffic?.private_counts_published === false, "Private traffic counts must not be published");
 
 if (record.status === "pending-owner-access") {
+  assert(record.boundary?.owner_account_action_required === true, "Pending record must require owner action");
+  assert(record.activation_time_basis === undefined, "Pending record must not claim an activation time basis");
   assert(record.analytics_enabled === false, "Pending record must not claim Analytics enablement");
   assert(record.activated_at === null, "Pending record must not contain activated_at");
   assert(record.activation_observed_at === null, "Pending record must not contain activation_observed_at");
@@ -109,11 +114,25 @@ if (record.status === "pending-owner-access") {
   process.exit(0);
 }
 
+assert(record.boundary?.owner_account_action_required === false, "Activated records must clear owner action");
+assert(
+  allowedActivationTimeBases.has(record.activation_time_basis),
+  `Unsupported activation_time_basis: ${String(record.activation_time_basis)}`,
+);
 assert(record.analytics_enabled === true, "Activated records require analytics_enabled true");
 assert(validIsoTimestamp(record.activated_at), "Activated records require activated_at UTC timestamp");
 assert(
   validIsoTimestamp(record.activation_observed_at),
   "Activated records require activation_observed_at UTC timestamp",
+);
+assert(
+  Date.parse(record.activated_at) <= Date.parse(record.activation_observed_at),
+  "activated_at must not be later than activation_observed_at",
+);
+assert(
+  record.activation_time_basis !== "pre-existing-automatic-setup-observed" ||
+    record.activated_at === record.activation_observed_at,
+  "Pre-existing observed activation must use the first verified observation for both timestamps",
 );
 assert(
   validEvidencePath(record.activation_evidence_document, "f2-25"),
