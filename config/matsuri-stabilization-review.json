@@ -1,0 +1,41 @@
+{
+  "format_version": 1,
+  "site_id": "matsuri",
+  "status": "observing",
+  "started_on": "2026-07-27",
+  "minimum_observation_days": 14,
+  "earliest_review_on": "2026-08-10",
+  "reviewed_on": null,
+  "review_evidence_document": null,
+  "prerequisites": {
+    "f2_launch_complete": true,
+    "minimum_observation_period_complete": false,
+    "production_availability_reviewed": false,
+    "canonical_and_https_reviewed": false,
+    "canonical_search_reviewed": false,
+    "crawler_and_sitemap_reviewed": false,
+    "analytics_traffic_reviewed": false,
+    "freshness_reviewed": false,
+    "relation_coverage_reviewed": false,
+    "evidence_and_corrections_reviewed": false,
+    "maintenance_burden_recorded": false,
+    "search_console_observation_recorded": false
+  },
+  "observations": {
+    "unresolved_critical_corrections": null,
+    "production_deployment_failures": null,
+    "manual_maintenance_burden": "unrecorded",
+    "search_console_observation": "unrecorded"
+  },
+  "claims": {
+    "review_complete": false,
+    "phase_11_gate_review_authorized": false,
+    "jinja_stabilization_prerequisite_complete": false
+  },
+  "boundary": {
+    "elapsed_time_alone_does_not_complete_review": true,
+    "search_engine_indexation_not_required": true,
+    "no_automatic_future_site_activation": true,
+    "private_analytics_metrics_must_not_be_committed": true
+  }
+}
