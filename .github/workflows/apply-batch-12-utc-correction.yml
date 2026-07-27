@@ -1,0 +1,63 @@
+name: Apply batch 12 UTC correction
+
+on:
+  push:
+    branches:
+      - agent/matsuri-corpus-expansion-batch-12
+    paths:
+      - ".github/workflows/apply-batch-12-utc-correction.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  correct:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: agent/matsuri-corpus-expansion-batch-12
+          fetch-depth: 0
+
+      - name: Apply bounded UTC correction
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          paths = [
+              Path("data/public/matsuri/f1/batch-12.json"),
+              Path("data/public/matsuri/f2/maintenance-15.json"),
+              Path("config/matsuri-repository-baseline.json"),
+              Path("docs/audits/matsuri-corpus-expansion-batch-12-2026-07-28.md"),
+              Path("docs/README.md"),
+          ]
+
+          for path in paths:
+              text = path.read_text(encoding="utf-8")
+              corrected = text.replace("2026-07-28", "2026-07-27")
+              if corrected == text:
+                  raise SystemExit(f"Expected UTC correction token not found in {path}")
+              path.write_text(corrected, encoding="utf-8")
+
+          old_audit = Path("docs/audits/matsuri-corpus-expansion-batch-12-2026-07-28.md")
+          new_audit = Path("docs/audits/matsuri-corpus-expansion-batch-12-2026-07-27.md")
+          old_audit.rename(new_audit)
+          PY
+
+      - name: Commit corrected files and remove one-time workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/apply-batch-12-utc-correction.yml
+          git add \
+            data/public/matsuri/f1/batch-12.json \
+            data/public/matsuri/f2/maintenance-15.json \
+            config/matsuri-repository-baseline.json \
+            docs/README.md \
+            docs/audits/matsuri-corpus-expansion-batch-12-2026-07-27.md \
+            docs/audits/matsuri-corpus-expansion-batch-12-2026-07-28.md
+          git commit -m "Align batch 12 audit dates to UTC"
+          git push origin HEAD:agent/matsuri-corpus-expansion-batch-12
