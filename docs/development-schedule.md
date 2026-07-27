@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-24 completed / F2-25 owner access pending / F2-P01 through F2-P13 completed
+**Status:** F2-25 completed / F2-26 active next gate / F2-P01 through F2-P13 completed
 
 This document defines the stable implementation order. It complements `roadmap.md` and `project-status.md`. The project is gate-driven rather than deadline-driven.
 
@@ -9,12 +9,12 @@ This document defines the stable implementation order. It complements `roadmap.m
 ```text
 Foundation through Stage E  completed
 F1 corpus expansion          completed
-F2-01 through F2-24          completed
+F2-01 through F2-25          completed
 F2-M01                       completed
 F2-M02                       completed
 F2-P01 through F2-P13        completed
-F2-25                        owner access pending
-F2-26 through F2-28          operational hold
+F2-26                        active next gate
+F2-27 through F2-28          operational hold
 Actual Jinja start gate      blocked
 ```
 
@@ -74,56 +74,11 @@ Repository gate:
 pnpm gate:matsuri:repository
 ```
 
-The repository gate includes dependency and workflow supply-chain checks, exact bundle inventory and order alignment, one shared twelve-family canonical dataset assembler, one shared all-family correction engine, pending Analytics validation, and the blocked Jinja start-gate validator.
+The repository gate includes dependency and workflow supply-chain checks, exact bundle inventory and order alignment, one shared twelve-family canonical dataset assembler, one shared all-family correction engine, F2-25 Analytics validation, and the blocked Jinja start-gate validator.
 
-## Parallel preparation results
+## Parallel preparation boundary
 
-```text
-F2-P02  5 Relation-backed seeds / Jinja 5 / Jiin 0 / Tomurai 0
-F2-P03  readiness baseline / State 0 / direct identity Evidence 0
-F2-P04  direct identity Evidence 5 / State 0 / official URL 4
-F2-P05  Place 5 / Identity Evidence 5 / Relation Evidence 5
-F2-P06  self-contained bundle: 5 seed Entities, 5 context Entities, 5 Places,
-         6 Sources, 10 Evidence, 5 Relations, 0 State Snapshots
-F2-P07  contract v1: 3 required files, 5 seeds, 5 handoffs,
-         exact site IDs and candidate-only boundaries enforced
-F2-P08  actual Jinja start gate remains blocked and early activation is rejected
-F2-P09  official URL seeds 5 / Identity Evidence 6 / Sources 7 / Evidence 11
-F2-P10  12 correction-capable families / 5 bundles / 5 corrected IDs / 6 records
-F2-P11  19 additive slots / 5 correction slots / exact canonical order enforced
-F2-P12  2 correction consumers / 1 shared engine / local duplicate implementations rejected
-F2-P13  2 dataset consumers / 1 shared assembler / duplicate IDs rejected with or without corrections
-```
-
-Hosted evidence:
-
-```text
-F2-P02 run                    29478631183 — success
-F2-P03 run                    29479348339 — success
-F2-P04 run                    29489701435 — success
-F2-P05 run                    29490466083 — success
-F2-P06 run                    29491507863 — success
-F2-P07 run                    29492382041 — success
-F2-P08 run                    29493210854 — success
-F2-P10 correction run         29624424672 — success
-F2-P10 repository CI          29624424628 — success
-F2-P10 screenshots            29624424660 — success
-F2-P11 bundle-order run       29630494012 — success
-F2-P11 repository CI          29630494013 — success
-F2-P11 release artifact       8425297044
-F2-P12 correction run         29635048023 — success
-F2-P12 bundle-order run       29635048060 — success
-F2-P12 repository CI          29635048032 — success
-F2-P12 screenshots            29635048050 — success
-F2-P12 release artifact       8426823296
-F2-P13 dataset contract       29640821913 — success
-F2-P13 correction contract    29640822064 — success
-F2-P13 bundle-order run       29640821894 — success
-F2-P13 repository CI          29640821886 — success
-F2-P13 canonical Search       29640821879 — success
-F2-P13 screenshots            29640821923 — success
-F2-P13 release artifact       8428563901
-```
+Future-site seed work remains candidate-only. No Jinja State Snapshot, application, Worker, hostname, or publication is authorized.
 
 Current remaining seed gaps:
 
@@ -134,8 +89,6 @@ Current remaining seed gaps:
 大日霊貴神社    State Snapshotなし
 秩父神社        State Snapshotなし
 ```
-
-These results do not activate Jinja, assign priority, or claim publication readiness.
 
 ## Jinja start-gate prerequisites
 
@@ -168,16 +121,6 @@ F2-M01  full-page screenshot visual-review workflow — completed
 F2-M02  Matsuri data freshness audit — completed
 ```
 
-```text
-Occurrences total                    26
-Resolved Occurrences                 17
-Closed-period unresolved              0
-In-progress scheduled                 1
-Future scheduled                      8
-Specialist Entities with no Relation  0
-Relations missing Evidence            0
-```
-
 Routine checks:
 
 ```text
@@ -186,8 +129,6 @@ YOSAKOIソーラン 2026    outcome reviewed 2026-07-16 — held
 弘前ねぷた 2026         review after 2026-08-07
 郡上おどり 2026         review after 2026-09-05
 ```
-
-The 博多 and YOSAKOI results prove held outcomes but not structured scale values, so scale remains `unknown`. 弘前ねぷた remains `scheduled` until post-event Evidence is reviewed.
 
 ## External deployment and production verification
 
@@ -203,57 +144,52 @@ F2-21  canonical manifest and sitemap verification — completed
 F2-22  browser Pagefind Search verification on canonical origin — completed
 F2-23  robots, canonical, sitemap, crawler-reachability review — completed
 F2-24  Search Console sitemap submission and indexability check — completed
+F2-25  Cloudflare Web Analytics Automatic setup observed enabled — completed
 ```
 
+F2-25 public-safe evidence:
+
 ```text
-Canonical origin          https://matsuri-yukue.badjoke-lab.com
-Origin verification run   29191904624 — success
-Search verification run   29193201911 — success
-Crawler verification run  29230233384 — success
-F2-24 preflight run        29232294960 — success
-Search Console sitemap     success
-Discovered pages           20
-Representative live test  indexable
-Indexing requests          3 submitted
+docs/audits/matsuri-f2-25-analytics-activation-2026-07-27.md
+Observation  2026-07-27T09:37:29Z
 ```
 
-F2-24 does not claim that any URL is already indexed.
+The exact historical activation time was unavailable. The recorded timestamp is the first repository-verifiable enabled observation and does not claim the setting was first enabled at that instant.
 
-### Cloudflare-dependent hold
+### Active sequence
 
 ```text
-F2-25  Cloudflare Web Analytics activation — owner access pending
-F2-26  post-activation deployment — hold
+F2-26  post-activation production deployment — active next gate
 F2-27  production traffic verification — hold
 F2-28  final F2 Launch Gate — hold
 ```
 
-Exact resumption sequence:
+Exact continuation:
 
 ```text
-1. enable Cloudflare Web Analytics Automatic setup
-2. record and validate F2-25 evidence
-3. merge the F2-25 evidence change
-4. verify the resulting production deployment as F2-26
+1. merge the F2-25 evidence change
+2. allow that resulting main commit to deploy
+3. verify that deployment as F2-26
+4. visit representative production routes
 5. verify production traffic privately as F2-27
 6. run F2-28
 ```
 
-Do not use a manual beacon, store an Analytics token, publish private metrics, or reuse a pre-activation deployment as F2-26 evidence.
+Do not use a manual beacon, store an Analytics token, publish private metrics, use a pull-request deployment as F2-26 evidence, or reuse a deployment predating the recorded F2-25 observation.
 
-## Work allowed before F2-25 completion
+## Work allowed before F2-26 completion
 
-- maintain the pending Analytics record and launch-closure runbooks,
-- complete factual and date-triggered Matsuri maintenance,
+- complete and verify the bounded F2-25 evidence PR,
+- perform factual and date-triggered Matsuri maintenance,
 - improve Source, Evidence, Relation, and seed-provenance coverage,
-- maintain seed inventory, provenance bundle, readiness, artifact contract, correction contract, bundle-order contract, shared correction engine, shared canonical dataset assembler, and Jinja start-gate guardrail,
+- maintain repository contracts and the blocked Jinja guardrail,
 - perform security and dependency maintenance,
 - repair repository or production gates.
 
 ## Work not activated
 
 ```text
-F2-25 through F2-28 completion claims
+F2-26 through F2-28 completion claims before evidence exists
 portal production deployment
 future specialist-site production implementation
 Jinja State specification approval
