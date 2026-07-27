@@ -1,6 +1,6 @@
 # Matsuri corpus expansion batch 12
 
-**Date:** 2026-07-28  
+**Date:** 2026-07-27  
 **Status:** Implemented; final repository validation pending  
 **Track:** Phase 10B — Matsuri corpus expansion
 
@@ -22,7 +22,7 @@ The additive bundle records:
 - organizing-body Entity for `沖縄全島エイサーまつり実行委員会`,
 - ordinary venue Places for the 胡屋十字路周辺・ゲート通り route and 沖縄市コザ運動公園陸上競技場,
 - the 2021 planned venue Place `沖縄アリーナ`,
-- active Current State observed on 2026-07-28,
+- active Current State observed on 2026-07-27,
 - annual recurrence after the lunar-obon period,
 - 2020 cancelled Occurrence and suspension-start Change Event,
 - 2021 cancelled reduced-format Occurrence,

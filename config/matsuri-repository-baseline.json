@@ -1,6 +1,6 @@
 {
   "schema_version": "matsuri.repository-baseline.v1",
-  "observed_on": "2026-07-28",
+  "observed_on": "2026-07-27",
   "status": "repository-maintenance-current",
   "counts": {
     "f1_batches": 13,

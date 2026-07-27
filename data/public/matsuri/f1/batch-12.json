@@ -4,8 +4,8 @@
       "id": "fst-okinawa-zento-eisa",
       "schema_version": "matsuri.v1",
       "record_version": 1,
-      "created_at": "2026-07-28T00:00:00Z",
-      "updated_at": "2026-07-28T00:00:00Z",
+      "created_at": "2026-07-27T00:00:00Z",
+      "updated_at": "2026-07-27T00:00:00Z",
       "slug": "okinawa-zento-eisa",
       "entity_type": "festival",
       "home_surface": "matsuri",
@@ -45,7 +45,7 @@
           "url": "https://www.zentoeisa.com/",
           "is_primary": true,
           "officiality": "official_organization",
-          "last_checked_at": "2026-07-28"
+          "last_checked_at": "2026-07-27"
         }
       ],
       "record_lifecycle": "active",
@@ -73,8 +73,8 @@
       "id": "org-okinawa-zento-eisa-committee",
       "schema_version": "matsuri.v1",
       "record_version": 1,
-      "created_at": "2026-07-28T00:00:00Z",
-      "updated_at": "2026-07-28T00:00:00Z",
+      "created_at": "2026-07-27T00:00:00Z",
+      "updated_at": "2026-07-27T00:00:00Z",
       "slug": "okinawa-zento-eisa-committee",
       "entity_type": "organization",
       "home_surface": "matsuri",
@@ -109,7 +109,7 @@
           "url": "https://www.zentoeisa.com/",
           "is_primary": true,
           "officiality": "official_organization",
-          "last_checked_at": "2026-07-28"
+          "last_checked_at": "2026-07-27"
         }
       ],
       "record_lifecycle": "active",
@@ -176,7 +176,7 @@
       "entity_id": "fst-okinawa-zento-eisa",
       "state_schema": "matsuri.festival.v1",
       "state_code": "active",
-      "observed_at": "2026-07-28",
+      "observed_at": "2026-07-27",
       "basis_evidence_ids": [
         "evd-okinawa-zento-eisa-state"
       ],
@@ -387,7 +387,7 @@
       "title": "沖縄全島エイサーまつり実行委員会オフィシャルサイト",
       "publisher": "沖縄全島エイサーまつり実行委員会",
       "url": "https://www.zentoeisa.com/",
-      "accessed_at": "2026-07-28",
+      "accessed_at": "2026-07-27",
       "language": "ja"
     },
     {
@@ -399,7 +399,7 @@
       "publisher": "沖縄全島エイサーまつり実行委員会",
       "url": "https://www.zentoeisa.com/news/n171.html",
       "published_at": "2026-05-29",
-      "accessed_at": "2026-07-28",
+      "accessed_at": "2026-07-27",
       "language": "ja"
     },
     {
@@ -410,7 +410,7 @@
       "title": "沖縄全島エイサーまつり 会場マップ",
       "publisher": "沖縄全島エイサーまつり実行委員会",
       "url": "https://www.zentoeisa.com/area-guide.html",
-      "accessed_at": "2026-07-28",
+      "accessed_at": "2026-07-27",
       "language": "ja"
     },
     {
@@ -422,7 +422,7 @@
       "publisher": "沖縄市観光ポータル Kozaweb",
       "url": "https://www.kozaweb.jp/news/show/186",
       "published_at": "2020-05-19",
-      "accessed_at": "2026-07-28",
+      "accessed_at": "2026-07-27",
       "language": "ja"
     },
     {
@@ -433,7 +433,7 @@
       "title": "第66回沖縄全島エイサーまつり2021（中日・最終日）開催中止",
       "publisher": "沖縄市観光ポータル Kozaweb",
       "url": "https://www.kozaweb.jp/events/show/23148",
-      "accessed_at": "2026-07-28",
+      "accessed_at": "2026-07-27",
       "language": "ja"
     },
     {
@@ -445,7 +445,7 @@
       "publisher": "沖縄市",
       "url": "https://www.city.okinawa.okinawa.jp/k003/shiseijouhou/kouhoukouchou/kouhou/kouhou/2023/kouhou_202310.html",
       "published_at": "2023-10-26",
-      "accessed_at": "2026-07-28",
+      "accessed_at": "2026-07-27",
       "language": "ja"
     }
   ],
@@ -459,7 +459,7 @@
       "target_id": "fst-okinawa-zento-eisa",
       "assertion_code": "supports_entity_identity",
       "summary_ja": "公式サイトは、1956年に始まり、旧盆明けの最初の週末に沖縄市で行われる沖縄全島エイサーまつりの名称と性格を説明している。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -471,7 +471,7 @@
       "target_id": "org-okinawa-zento-eisa-committee",
       "assertion_code": "supports_entity_identity",
       "summary_ja": "公式の協賛募集は、沖縄全島エイサーまつり実行委員会を開催準備と協賛募集の主体として明示している。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -483,7 +483,7 @@
       "target_id": "plc-okinawa-zento-eisa-goya-route",
       "assertion_code": "supports_place",
       "summary_ja": "公式会場マップは、初日の道じゅねー会場を胡屋十字路周辺として示している。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -495,7 +495,7 @@
       "target_id": "plc-okinawa-zento-eisa-koza-stadium",
       "assertion_code": "supports_place",
       "summary_ja": "2026年の公式案内は、中日と最終日の会場を沖縄市コザ運動公園陸上競技場としている。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -507,7 +507,7 @@
       "target_id": "plc-okinawa-arena",
       "assertion_code": "supports_place",
       "summary_ja": "2021年の公式観光案内は、縮小開催計画の会場を沖縄アリーナとし、所在地を沖縄市山内1丁目16-1と記録している。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -519,7 +519,7 @@
       "target_id": "sts-okinawa-zento-eisa-current",
       "assertion_code": "supports_current_state",
       "summary_ja": "公式案内は第71回を2026年9月4日から6日に開催すると公表し、実行委員会が準備を進めていることを示している。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -531,7 +531,7 @@
       "target_id": "rec-okinawa-zento-eisa-annual",
       "assertion_code": "supports_recurrence",
       "summary_ja": "公式サイトは、まつりが毎年旧盆明けの最初の週末に行われると説明している。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -543,7 +543,7 @@
       "target_id": "chg-okinawa-zento-eisa-suspension-2020",
       "assertion_code": "supports_change_event",
       "summary_ja": "沖縄市公式観光ポータルは、2020年9月11日から13日に予定されていた第65回の開催中止を記録している。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -555,7 +555,7 @@
       "target_id": "occ-okinawa-zento-eisa-2020",
       "assertion_code": "supports_occurrence",
       "summary_ja": "沖縄市公式観光ポータルは、第65回の予定日、予定会場、開催中止を明示している。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -567,7 +567,7 @@
       "target_id": "occ-okinawa-zento-eisa-2021",
       "assertion_code": "supports_occurrence",
       "summary_ja": "沖縄市公式観光ポータルは、2021年8月28日・29日に沖縄アリーナで縮小開催を計画した第66回が中止となったことを記録している。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -579,7 +579,7 @@
       "target_id": "chg-okinawa-zento-eisa-suspension-ended-2023",
       "assertion_code": "supports_change_event",
       "summary_ja": "沖縄市の広報は、2023年の第68回を4年ぶりの沖縄全島エイサーまつりとして記録している。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -591,7 +591,7 @@
       "target_id": "occ-okinawa-zento-eisa-2023",
       "assertion_code": "supports_occurrence",
       "summary_ja": "沖縄市の2023年10月広報は、同年9月8日から10日の第68回が4年ぶりに開催されたことを特集している。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -603,7 +603,7 @@
       "target_id": "occ-okinawa-zento-eisa-2026-schedule",
       "assertion_code": "supports_occurrence_schedule",
       "summary_ja": "公式案内は第71回を2026年9月4日、5日、6日の3日間に開催すると公表している。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -615,7 +615,7 @@
       "target_id": "rel-okinawa-zento-eisa-organized-by-committee",
       "assertion_code": "supports_relation",
       "summary_ja": "公式案内は沖縄全島エイサーまつり実行委員会を開催準備と協賛募集の主体としている。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     }
   ],

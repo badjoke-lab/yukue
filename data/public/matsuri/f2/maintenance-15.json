@@ -139,7 +139,7 @@
       "title": "ねぶた師合作による特別ねぶた制作プロジェクト",
       "publisher": "青森ねぶた祭実行委員会",
       "url": "https://www.nebuta.jp/archive/tokubetsunebuta.html",
-      "accessed_at": "2026-07-28",
+      "accessed_at": "2026-07-27",
       "language": "ja"
     },
     {
@@ -150,7 +150,7 @@
       "title": "大型ねぶた紹介 2021年",
       "publisher": "青森ねぶた祭実行委員会",
       "url": "https://www.nebuta.jp/archive/nebuta/2021/",
-      "accessed_at": "2026-07-28",
+      "accessed_at": "2026-07-27",
       "language": "ja"
     }
   ],
@@ -164,7 +164,7 @@
       "target_id": "chg-aomori-nebuta-suspension-2020",
       "assertion_code": "supports_change_event",
       "summary_ja": "公式アーカイブは、2020年の青森ねぶた祭が感染拡大防止のため中止され、2021年も祭り本番の運行が実現しなかった経緯を記録している。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -176,7 +176,7 @@
       "target_id": "occ-aomori-nebuta-2020",
       "assertion_code": "supports_occurrence",
       "summary_ja": "公式アーカイブは、令和2年の青森ねぶた祭が新型コロナウイルス感染拡大防止のため中止となったことを明記している。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -188,7 +188,7 @@
       "target_id": "occ-aomori-nebuta-2021",
       "assertion_code": "supports_occurrence",
       "summary_ja": "公式の2021年大型ねぶたアーカイブは、2021年の青森ねぶた祭が中止となったことを明記している。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -200,7 +200,7 @@
       "target_id": "chg-aomori-nebuta-suspension-ended-2022",
       "assertion_code": "supports_change_event",
       "summary_ja": "公式アーカイブは、2020年に制作された特別ねぶたが2021年の再中止を経て、2022年の祭り本番でようやく運行されたと記録している。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     },
     {
@@ -212,7 +212,7 @@
       "target_id": "occ-aomori-nebuta-2022",
       "assertion_code": "supports_occurrence",
       "summary_ja": "公式アーカイブは、特別ねぶたが令和4年の青森ねぶた祭本番で運行されたことを記録し、2022年の開催実績を裏付ける。",
-      "captured_at": "2026-07-28",
+      "captured_at": "2026-07-27",
       "review_status": "approved"
     }
   ],
