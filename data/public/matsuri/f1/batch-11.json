@@ -1,0 +1,461 @@
+{
+  "entities": [
+    {
+      "id": "fst-sendai-tanabata",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-27T00:00:00Z",
+      "updated_at": "2026-07-27T00:00:00Z",
+      "slug": "sendai-tanabata",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "仙台七夕まつり",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-sendai-tanabata-outline"]
+        }
+      ],
+      "summary_ja": "仙台市中心部と周辺の地域商店街で、毎年8月6日から8日に笹飾りを掲出する七夕行事。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "04",
+            "prefecture_name_ja": "宮城県",
+            "municipality_name_ja": "仙台市"
+          }
+        ],
+        "scope_type": "distributed",
+        "description_ja": "仙台駅前から中央通り、一番町通りのアーケード街と周辺の地域商店街に七夕飾りが掲出される。"
+      },
+      "primary_place_id": "plc-sendai-tanabata-central-area",
+      "default_place_ids": ["plc-sendai-tanabata-central-area"],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.sendaitanabata.com/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-27"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "community_festival",
+      "recurrence_pattern": {
+        "pattern_type": "annual",
+        "rule_text_ja": "毎年8月6日から8月8日",
+        "evidence_ids": ["evd-sendai-tanabata-recurrence"]
+      },
+      "usual_months": [8],
+      "usual_duration_days": 3,
+      "season_tags": ["夏"],
+      "occurrence_series_ids": ["ser-sendai-tanabata-annual"]
+    },
+    {
+      "id": "org-sendai-tanabata-kyosankai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-27T00:00:00Z",
+      "updated_at": "2026-07-27T00:00:00Z",
+      "slug": "sendai-tanabata-kyosankai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "仙台七夕まつり協賛会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-sendai-tanabata-outline"]
+        }
+      ],
+      "summary_ja": "仙台七夕まつりの開催概要と公式情報を公開する協賛会。事務局は仙台商工会議所に置かれている。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "04",
+            "prefecture_name_ja": "宮城県",
+            "municipality_name_ja": "仙台市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.sendaitanabata.com/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-27"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "festival_committee",
+      "official_url": "https://www.sendaitanabata.com/"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-sendai-tanabata-central-area",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "仙台市中心部・地域商店街",
+      "place_kind": "distributed_festival_area",
+      "country_code": "JP",
+      "prefecture_code": "04",
+      "prefecture_name_ja": "宮城県",
+      "municipality_name_ja": "仙台市",
+      "locality_ja": "仙台駅前、中央通り、一番町通りおよび周辺地域商店街",
+      "coordinate_precision": "municipality",
+      "source_ids": ["src-sendai-tanabata-outline"]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-sendai-tanabata-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-sendai-tanabata",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-07-27",
+      "basis_evidence_ids": ["evd-sendai-tanabata-state"],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-sendai-tanabata-suspension-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_started",
+      "subject_entity_ids": ["fst-sendai-tanabata"],
+      "effective_period": {"start": "2020", "end": "2020"},
+      "summary_ja": "新型コロナウイルス感染症の流行により、2020年の仙台七夕まつりは中止された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-sendai-tanabata-suspension-2020"],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-sendai-tanabata-suspension-ended-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_ended",
+      "subject_entity_ids": ["fst-sendai-tanabata"],
+      "effective_period": {"start": "2021", "end": "2021"},
+      "summary_ja": "2021年8月6日から8日に、前年の中止を経て仙台七夕まつりが再開した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": ["rel-sendai-tanabata-organized-by-kyosankai"],
+      "evidence_ids": ["evd-sendai-tanabata-suspension-ended-2021"],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-sendai-tanabata-format-changed-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "format_changed",
+      "subject_entity_ids": ["fst-sendai-tanabata"],
+      "effective_period": {"start": "2021", "end": "2021"},
+      "summary_ja": "2021年は中心部商店街の飾りを大幅に縮小し、おまつり広場等を中止する形式で開催された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": ["rel-sendai-tanabata-organized-by-kyosankai"],
+      "evidence_ids": ["evd-sendai-tanabata-format-changed-2021"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-sendai-tanabata-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-sendai-tanabata",
+      "series_id": "ser-sendai-tanabata-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {"start": "2020", "end": "2020", "precision": "year"},
+      "outcome": "cancelled",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-sendai-tanabata-central-area"],
+      "organizer_entity_ids": ["org-sendai-tanabata-kyosankai"],
+      "evidence_ids": ["evd-sendai-tanabata-occ-2020"],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-sendai-tanabata-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-sendai-tanabata",
+      "series_id": "ser-sendai-tanabata-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {"start": "2021-08-06", "end": "2021-08-08", "precision": "range"},
+      "outcome": "held",
+      "scale": "reduced",
+      "venue_place_ids": ["plc-sendai-tanabata-central-area"],
+      "organizer_entity_ids": ["org-sendai-tanabata-kyosankai"],
+      "evidence_ids": ["evd-sendai-tanabata-occ-2021"],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-sendai-tanabata-2026-schedule",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-sendai-tanabata",
+      "series_id": "ser-sendai-tanabata-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {"start": "2026-08-06", "end": "2026-08-08", "precision": "range"},
+      "outcome": "scheduled",
+      "scale": "normal",
+      "venue_place_ids": ["plc-sendai-tanabata-central-area"],
+      "organizer_entity_ids": ["org-sendai-tanabata-kyosankai"],
+      "evidence_ids": ["evd-sendai-tanabata-occ-2026"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-sendai-tanabata-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-sendai-tanabata",
+      "series_type": "annual_festival_edition",
+      "name_ja": "仙台七夕まつり 年次開催",
+      "recurrence_pattern_id": "rec-sendai-tanabata-annual",
+      "default_venue_place_ids": ["plc-sendai-tanabata-central-area"],
+      "evidence_ids": ["evd-sendai-tanabata-recurrence"]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-sendai-tanabata-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年8月6日から8月8日",
+      "evidence_ids": ["evd-sendai-tanabata-recurrence"]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-sendai-tanabata-organized-by-kyosankai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-sendai-tanabata",
+      "relation_type": "organized_by",
+      "target_entity_id": "org-sendai-tanabata-kyosankai",
+      "evidence_ids": ["evd-rel-sendai-tanabata-kyosankai"],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-sendai-tanabata-outline",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "開催概要",
+      "publisher": "仙台七夕まつり協賛会",
+      "url": "https://www.sendaitanabata.com/about/outline/",
+      "accessed_at": "2026-07-27",
+      "language": "ja"
+    },
+    {
+      "id": "src-sendai-tanabata-history",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "歴史",
+      "publisher": "仙台七夕まつり協賛会",
+      "url": "https://www.sendaitanabata.com/about/history/",
+      "accessed_at": "2026-07-27",
+      "language": "ja"
+    },
+    {
+      "id": "src-sendai-tanabata-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "仙台七夕まつり 2026年公式情報",
+      "publisher": "仙台七夕まつり協賛会",
+      "url": "https://www.sendaitanabata.com/",
+      "accessed_at": "2026-07-27",
+      "language": "ja"
+    },
+    {
+      "id": "src-sendai-tanabata-2020-city",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "仙台市のあゆみ（令和元年～現在）",
+      "publisher": "仙台市",
+      "url": "https://www.city.sendai.jp/sesakukoho/shise/gaiyo/profile/ayumi.html",
+      "accessed_at": "2026-07-27",
+      "language": "ja"
+    },
+    {
+      "id": "src-sendai-tanabata-2021-sentia",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_tourism_body",
+      "title": "今年の『仙台七夕まつり』は飾りの規模を大幅に縮小して開催",
+      "publisher": "公益財団法人仙台観光国際協会",
+      "url": "https://www.sentia-sendai.jp/sentia-news/2816/",
+      "accessed_at": "2026-07-27",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-sendai-tanabata-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sendai-tanabata-outline",
+      "target_type": "entity_identity",
+      "target_id": "fst-sendai-tanabata",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "公式の開催概要は、仙台七夕まつりの名称、開催日、開催場所と笹飾りの範囲を示している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sendai-tanabata-state",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sendai-tanabata-2026",
+      "target_type": "state_snapshot",
+      "target_id": "sts-sendai-tanabata-current",
+      "assertion_code": "supports_current_state",
+      "summary_ja": "公式サイトは2026年の交通規制、ポスター、関連行事などの開催情報を公開しており、年次開催が継続していることを示している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sendai-tanabata-recurrence",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sendai-tanabata-outline",
+      "target_type": "recurrence_pattern",
+      "target_id": "rec-sendai-tanabata-annual",
+      "assertion_code": "supports_recurrence",
+      "summary_ja": "公式の開催概要は、仙台七夕まつりを毎年8月6日から8日に開催すると明記している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sendai-tanabata-place",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sendai-tanabata-outline",
+      "target_type": "place",
+      "target_id": "plc-sendai-tanabata-central-area",
+      "assertion_code": "supports_place",
+      "summary_ja": "公式の開催概要は、仙台市中心部と周辺地域商店街、仙台駅前から中央通り・一番町通りを主な飾りの範囲としている。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sendai-tanabata-organization",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sendai-tanabata-outline",
+      "target_type": "entity_identity",
+      "target_id": "org-sendai-tanabata-kyosankai",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "公式の開催概要は問い合わせ先として仙台七夕まつり協賛会を示し、事務局が仙台商工会議所に置かれていることを明記している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-sendai-tanabata-kyosankai",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sendai-tanabata-outline",
+      "target_type": "relation",
+      "target_id": "rel-sendai-tanabata-organized-by-kyosankai",
+      "assertion_code": "supports_relation",
+      "summary_ja": "公式サイトは仙台七夕まつり協賛会名義で開催概要と問い合わせ窓口を公開している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sendai-tanabata-suspension-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sendai-tanabata-2020-city",
+      "target_type": "change_event",
+      "target_id": "chg-sendai-tanabata-suspension-2020",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "仙台市の年表は、2020年に新型コロナウイルス感染症の流行で仙台七夕まつりなどの大規模イベントが中止されたことを記録している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sendai-tanabata-occ-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sendai-tanabata-2020-city",
+      "target_type": "occurrence",
+      "target_id": "occ-sendai-tanabata-2020",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "仙台市の年表は2020年の仙台七夕まつりが中止されたことを明記している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sendai-tanabata-suspension-ended-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sendai-tanabata-2021-sentia",
+      "target_type": "change_event",
+      "target_id": "chg-sendai-tanabata-suspension-ended-2021",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "仙台観光国際協会は2021年8月6日から8日に仙台七夕まつりを開催すると案内している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sendai-tanabata-format-changed-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sendai-tanabata-2021-sentia",
+      "target_type": "change_event",
+      "target_id": "chg-sendai-tanabata-format-changed-2021",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "仙台観光国際協会は、2021年に中心部商店街の飾りを大幅に縮小し、おまつり広場等を中止する形式で開催すると説明している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sendai-tanabata-occ-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sendai-tanabata-2021-sentia",
+      "target_type": "occurrence",
+      "target_id": "occ-sendai-tanabata-2021",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "仙台観光国際協会は2021年8月6日から8日の開催日程と、大幅に規模を縮小した開催内容を記録している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sendai-tanabata-occ-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sendai-tanabata-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-sendai-tanabata-2026-schedule",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "公式サイトは2026年8月6日から8日に実施する交通規制、飾りコンテスト、関連行事などの開催情報を公開している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
