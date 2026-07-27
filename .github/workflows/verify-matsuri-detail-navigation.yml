@@ -11,11 +11,15 @@ on:
       - "apps/matsuri/src/components/BrowseEntityList.astro"
       - "apps/matsuri/src/data/**"
       - "apps/matsuri/src/pages/**"
+      - "packages/search/**"
       - "packages/ui/src/components/EvidenceList.astro"
       - "packages/ui/src/components/PlaceMap.astro"
       - "packages/ui/src/components/RelationList.astro"
       - "packages/ui/src/types.ts"
       - "scripts/check-matsuri-detail-navigation.mjs"
+      - "scripts/check-matsuri-consistency.mjs"
+      - "tests/browser/matsuri-detail-navigation.spec.mjs"
+      - "docs/information-architecture.md"
       - "docs/matsuri-detail-c-implementation.md"
       - "package.json"
   push:
@@ -28,11 +32,15 @@ on:
       - "apps/matsuri/src/components/BrowseEntityList.astro"
       - "apps/matsuri/src/data/**"
       - "apps/matsuri/src/pages/**"
+      - "packages/search/**"
       - "packages/ui/src/components/EvidenceList.astro"
       - "packages/ui/src/components/PlaceMap.astro"
       - "packages/ui/src/components/RelationList.astro"
       - "packages/ui/src/types.ts"
       - "scripts/check-matsuri-detail-navigation.mjs"
+      - "scripts/check-matsuri-consistency.mjs"
+      - "tests/browser/matsuri-detail-navigation.spec.mjs"
+      - "docs/information-architecture.md"
       - "docs/matsuri-detail-c-implementation.md"
       - "package.json"
   workflow_dispatch:
@@ -43,7 +51,7 @@ permissions:
 jobs:
   verify-detail-navigation:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -61,11 +69,17 @@ jobs:
       - name: Install dependencies from lockfile
         run: pnpm install --frozen-lockfile
 
+      - name: Install Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
       - name: Build Matsuri Pages
         run: pnpm build:matsuri:pages
 
       - name: Verify Detail C routes and navigation
         run: pnpm check:matsuri:detail-navigation
+
+      - name: Verify Detail C in a real browser
+        run: pnpm exec playwright test tests/browser/matsuri-detail-navigation.spec.mjs --config=playwright.config.mjs --project=desktop-chromium
 
       - name: Write verification summary
         if: always()
@@ -75,4 +89,5 @@ jobs:
           echo "- Shrine and Temple seed references remain State-free" >> "$GITHUB_STEP_SUMMARY"
           echo "- Relations are navigable in both directions" >> "$GITHUB_STEP_SUMMARY"
           echo "- Places and individual JSON records are reachable" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Browse titles no longer fall back to plain text or list anchors" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Search and browse titles open real detail pages" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Exhaustive navigation is verified in Chromium" >> "$GITHUB_STEP_SUMMARY"
