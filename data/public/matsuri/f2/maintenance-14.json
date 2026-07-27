@@ -1,0 +1,170 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [
+    {
+      "id": "chg-awa-suspension-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_started",
+      "subject_entity_ids": ["fst-tokushima-awaodori"],
+      "effective_period": {"start": "2020", "end": "2020"},
+      "summary_ja": "新型コロナウイルス感染症の拡大により、安全確保が困難と判断され、2020阿波おどりの全公演が中止された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": ["rel-awa-organized-by-committee"],
+      "evidence_ids": ["evd-awa-suspension-2020"],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-awa-suspension-ended-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_ended",
+      "subject_entity_ids": ["fst-tokushima-awaodori"],
+      "effective_period": {"start": "2021", "end": "2021"},
+      "summary_ja": "戦後初の中止となった2020年を経て、2021年8月12日から15日に阿波おどりが再開された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": ["rel-awa-organized-by-committee"],
+      "evidence_ids": ["evd-awa-suspension-ended-2021"],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-awa-format-changed-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "format_changed",
+      "subject_entity_ids": ["fst-tokushima-awaodori"],
+      "effective_period": {"start": "2021", "end": "2021"},
+      "summary_ja": "2021年は入場者数を管理できる会場を基本とし、従来より規模を縮小した分散型の形式で開催された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": ["rel-awa-organized-by-committee"],
+      "evidence_ids": ["evd-awa-format-changed-2021"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-awa-2020-cancelled",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-tokushima-awaodori",
+      "series_id": "ser-awa-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {"start": "2020", "end": "2020", "precision": "year"},
+      "outcome": "cancelled",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-tokushima-city-center"],
+      "organizer_entity_ids": ["org-awaodori-mirai"],
+      "evidence_ids": ["evd-awa-occ-2020"],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-awa-2021-reduced",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-tokushima-awaodori",
+      "series_id": "ser-awa-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {"start": "2021-08-12", "end": "2021-08-15", "precision": "range"},
+      "outcome": "held",
+      "scale": "reduced",
+      "venue_place_ids": ["plc-tokushima-city-center"],
+      "organizer_entity_ids": ["org-awaodori-mirai"],
+      "evidence_ids": ["evd-awa-occ-2021"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-awa-2020-cancellation-city",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "2020阿波おどりの開催中止について",
+      "publisher": "徳島市",
+      "url": "https://www.city.tokushima.tokushima.jp/smph/kankou/awaodori/kaisai/2020/2020tyuushi.html",
+      "published_at": "2020-04-21",
+      "accessed_at": "2026-07-27",
+      "language": "ja"
+    },
+    {
+      "id": "src-awa-2021-new-normal-city",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "2021阿波おどり～ニューノーマルモデル～について",
+      "publisher": "徳島市",
+      "url": "https://www.city.tokushima.tokushima.jp/kankou/awaodori/2021awa.html",
+      "accessed_at": "2026-07-27",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-awa-suspension-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-awa-2020-cancellation-city",
+      "target_type": "change_event",
+      "target_id": "chg-awa-suspension-2020",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "徳島市は新型コロナウイルス感染症の拡大下で見物客と踊り子の安全確保が困難と判断し、2020阿波おどりの全公演を中止したと説明している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-awa-occ-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-awa-2020-cancellation-city",
+      "target_type": "occurrence",
+      "target_id": "occ-awa-2020-cancelled",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "徳島市は2020阿波おどりの全公演が中止されたことと、予定されていた8月12日から15日の交通規制を行わないことを記録している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-awa-suspension-ended-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-awa-2021-new-normal-city",
+      "target_type": "change_event",
+      "target_id": "chg-awa-suspension-ended-2021",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "徳島市は2020年を戦後初の中止としたうえで、2021年8月12日から15日の阿波おどり開催を案内している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-awa-format-changed-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-awa-2021-new-normal-city",
+      "target_type": "change_event",
+      "target_id": "chg-awa-format-changed-2021",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "徳島市は2021年を、入場者数を管理できる会場を基本とし、従来より規模を縮小した分散型の開催と説明している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-awa-occ-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-awa-2021-new-normal-city",
+      "target_type": "occurrence",
+      "target_id": "occ-awa-2021-reduced",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "徳島市の2021年案内は8月12日から15日の開催日程と、縮小・分散型の開催形式を記録している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}

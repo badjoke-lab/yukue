@@ -15,6 +15,7 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | `roadmap.md` | Phase 10 observing | Long-range phases and gates |
 | `matsuri-stabilization-review.md` | Active contract | Review state machine, minimum duration, evidence, privacy, and completion rules |
 | `audits/matsuri-stabilization-start-2026-07-27.md` | Observation-start audit | Public-safe start record and earliest eligible review date |
+| `audits/matsuri-corpus-expansion-batch-11-2026-07-27.md` | Passed | First measured post-Detail-C breadth-and-depth corpus expansion |
 | `matsuri-repository-baseline.md` | Machine-checked current | Exact bundle, Entity, launch-boundary, and Jinja-boundary values |
 | `f2-25-cloudflare-web-analytics.md` | Completed | Analytics activation and privacy boundary |
 | `audits/matsuri-f2-27-production-traffic-2026-07-27.md` | Passed audit | Public-safe production traffic evidence |
@@ -53,6 +54,7 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | `matsuri-correction-contract.md` | F2-P10 through F2-P13 completed | Ordered corrections and shared canonical assembly |
 | `matsuri-data-freshness-contract.md` | Active | Strict outcome, State-age, and link-age gate |
 | `matsuri-relation-coverage-contract.md` | Active | Strict zero-gap Relation gate |
+| `audits/matsuri-corpus-expansion-batch-11-2026-07-27.md` | Passed corpus evidence | Coverage audit, selected breadth/depth records, and resulting corpus totals |
 
 ## Public/private boundary
 
