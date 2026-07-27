@@ -79,7 +79,8 @@ assert(
 for (const marker of [
   "config/matsuri-repository-baseline.json",
   "docs/matsuri-repository-baseline.md",
-  "F2-25 owner Cloudflare access — pending",
+  "F2-25 — Cloudflare Web Analytics activation — completed",
+  "F2-26 — active next gate",
   "Actual Jinja start gate — blocked",
 ]) {
   assert(
@@ -227,5 +228,5 @@ for (const key of expectedBoundaryKeys) {
 }
 
 console.log(
-  `Matsuri repository baseline is current as of ${baseline.observed_on}: ${actualCounts.f1_batches} F1 batches, ${actualCounts.maintenance_bundles} maintenance bundles, ${actualCounts.correction_bundles} correction bundles, ${actualCounts.correction_records} correction records across ${actualCounts.corrected_logical_ids} logical IDs, and ${actualCounts.public_entities} public Entities. Narrative status documents reference the machine baseline without duplicating exact counts.`,
+  `Matsuri repository baseline is current as of ${baseline.observed_on}: ${actualCounts.f1_batches} F1 batches, ${actualCounts.maintenance_bundles} maintenance bundles, ${actualCounts.correction_bundles} correction bundles, ${actualCounts.correction_records} correction records across ${actualCounts.corrected_logical_ids} logical IDs, and ${actualCounts.public_entities} public Entities. F2-25 is complete, F2-26 through F2-28 remain blocked in sequence, and narrative status documents reference the machine baseline without duplicating exact counts.`,
 );
