@@ -18,15 +18,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
-      - name: List Matsuri source and locate detail labels
+      - name: List detail source and test contracts
         shell: bash
         run: |
           set -euo pipefail
           {
-            echo "=== FILES ==="
+            echo "=== MATSURI SOURCE FILES ==="
             find apps/matsuri/src -type f -print | sort
-            echo "=== DETAIL LABEL MATCHES ==="
-            grep -RInE '関係する場所・組織|根拠と出典|機械可読データ|Year by Year|Connections|findMatsuriEntityDetail' apps/matsuri/src packages scripts || true
+            echo "=== BROWSER TEST FILES ==="
+            find tests/browser -type f -print | sort
+            echo "=== DETAIL SOURCE MATCHES ==="
+            grep -RInE '関係する場所・組織|根拠と出典|機械可読データ|Year by Year|Connections|findMatsuriEntityDetail|suneori-amagoi' apps/matsuri/src tests/browser packages scripts || true
           } | tee matsuri-detail-source-inspection.txt
 
       - name: Upload inspection output
