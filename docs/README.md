@@ -10,9 +10,11 @@ Before implementing a feature, check the relevant document here. When a gate cha
 
 | Document | Status | Purpose |
 |---|---|---|
-| `project-status.md` | Living / stabilization active | Current phase, completed F2 state, blockers, and next review |
-| `development-schedule.md` | Current / Phase 10 active | Concrete maintenance and post-launch sequence |
-| `roadmap.md` | Phase 9 completed | Long-range phases and gates |
+| `project-status.md` | Living / stabilization observing | Current phase, completed F2 state, active review window, blockers, and next review |
+| `development-schedule.md` | Current / Phase 10 active | Concrete maintenance and bounded post-launch review sequence |
+| `roadmap.md` | Phase 10 observing | Long-range phases and gates |
+| `matsuri-stabilization-review.md` | Active contract | Review state machine, minimum duration, evidence, privacy, and completion rules |
+| `audits/matsuri-stabilization-start-2026-07-27.md` | Observation-start audit | Public-safe start record and earliest eligible review date |
 | `matsuri-repository-baseline.md` | Machine-checked current | Exact bundle, Entity, launch-boundary, and Jinja-boundary values |
 | `f2-25-cloudflare-web-analytics.md` | Completed | Analytics activation and privacy boundary |
 | `audits/matsuri-f2-27-production-traffic-2026-07-27.md` | Passed audit | Public-safe production traffic evidence |
