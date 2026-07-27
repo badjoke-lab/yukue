@@ -30,6 +30,7 @@ export const matsuriF1BatchFiles = [
   "batch-09-context.json",
   "batch-10.json",
   "batch-11.json",
+  "batch-12.json",
 ];
 
 export const matsuriF2MaintenanceFiles = [
@@ -47,6 +48,7 @@ export const matsuriF2MaintenanceFiles = [
   "maintenance-12.json",
   "maintenance-13.json",
   "maintenance-14.json",
+  "maintenance-15.json",
 ];
 export const matsuriF2CorrectionFiles = [
   "corrections-01.json",

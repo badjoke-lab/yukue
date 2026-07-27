@@ -1,0 +1,220 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [
+    {
+      "id": "chg-aomori-nebuta-suspension-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_started",
+      "subject_entity_ids": [
+        "fst-aomori-nebuta"
+      ],
+      "effective_period": {
+        "start": "2020",
+        "end": "2021"
+      },
+      "summary_ja": "新型コロナウイルス感染拡大防止のため2020年の青森ねぶた祭が中止され、2021年も通常の祭りは開催されなかった。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": [
+        "evd-aomori-nebuta-suspension-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-aomori-nebuta-suspension-ended-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_ended",
+      "subject_entity_ids": [
+        "fst-aomori-nebuta"
+      ],
+      "effective_period": {
+        "start": "2022",
+        "end": "2022"
+      },
+      "summary_ja": "2020年と2021年の中止を経て、2022年に青森ねぶた祭の本番運行が再開した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-aomori-nebuta-organized-by-committee"
+      ],
+      "evidence_ids": [
+        "evd-aomori-nebuta-suspension-ended-2022"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-aomori-nebuta-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-aomori-nebuta",
+      "series_id": "ser-aomori-nebuta-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2020",
+        "end": "2020",
+        "precision": "year"
+      },
+      "outcome": "cancelled",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-aomori-nebuta-route",
+        "plc-aomori-port"
+      ],
+      "organizer_entity_ids": [
+        "org-aomori-nebuta-committee"
+      ],
+      "evidence_ids": [
+        "evd-aomori-nebuta-occ-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-aomori-nebuta-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-aomori-nebuta",
+      "series_id": "ser-aomori-nebuta-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2021",
+        "end": "2021",
+        "precision": "year"
+      },
+      "outcome": "cancelled",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-aomori-nebuta-route",
+        "plc-aomori-port"
+      ],
+      "organizer_entity_ids": [
+        "org-aomori-nebuta-committee"
+      ],
+      "evidence_ids": [
+        "evd-aomori-nebuta-occ-2021"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-aomori-nebuta-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-aomori-nebuta",
+      "series_id": "ser-aomori-nebuta-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2022",
+        "end": "2022",
+        "precision": "year"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-aomori-nebuta-route",
+        "plc-aomori-port"
+      ],
+      "organizer_entity_ids": [
+        "org-aomori-nebuta-committee"
+      ],
+      "evidence_ids": [
+        "evd-aomori-nebuta-occ-2022"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-aomori-nebuta-cancel-return",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "ねぶた師合作による特別ねぶた制作プロジェクト",
+      "publisher": "青森ねぶた祭実行委員会",
+      "url": "https://www.nebuta.jp/archive/tokubetsunebuta.html",
+      "accessed_at": "2026-07-27",
+      "language": "ja"
+    },
+    {
+      "id": "src-aomori-nebuta-cancel-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "大型ねぶた紹介 2021年",
+      "publisher": "青森ねぶた祭実行委員会",
+      "url": "https://www.nebuta.jp/archive/nebuta/2021/",
+      "accessed_at": "2026-07-27",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-aomori-nebuta-suspension-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aomori-nebuta-cancel-return",
+      "target_type": "change_event",
+      "target_id": "chg-aomori-nebuta-suspension-2020",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "公式アーカイブは、2020年の青森ねぶた祭が感染拡大防止のため中止され、2021年も祭り本番の運行が実現しなかった経緯を記録している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-aomori-nebuta-occ-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aomori-nebuta-cancel-return",
+      "target_type": "occurrence",
+      "target_id": "occ-aomori-nebuta-2020",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "公式アーカイブは、令和2年の青森ねぶた祭が新型コロナウイルス感染拡大防止のため中止となったことを明記している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-aomori-nebuta-occ-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aomori-nebuta-cancel-2021",
+      "target_type": "occurrence",
+      "target_id": "occ-aomori-nebuta-2021",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "公式の2021年大型ねぶたアーカイブは、2021年の青森ねぶた祭が中止となったことを明記している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-aomori-nebuta-suspension-ended-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aomori-nebuta-cancel-return",
+      "target_type": "change_event",
+      "target_id": "chg-aomori-nebuta-suspension-ended-2022",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "公式アーカイブは、2020年に制作された特別ねぶたが2021年の再中止を経て、2022年の祭り本番でようやく運行されたと記録している。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-aomori-nebuta-occ-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aomori-nebuta-cancel-return",
+      "target_type": "occurrence",
+      "target_id": "occ-aomori-nebuta-2022",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "公式アーカイブは、特別ねぶたが令和4年の青森ねぶた祭本番で運行されたことを記録し、2022年の開催実績を裏付ける。",
+      "captured_at": "2026-07-27",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
