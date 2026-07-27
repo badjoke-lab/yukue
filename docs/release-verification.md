@@ -1,6 +1,6 @@
 # Release Verification
 
-**Status:** Repository and external verification completed through F2-26 / F2-27 traffic verification pending
+**Status:** Repository and external verification completed through F2-27 / F2-28 final gate pending
 
 ## Commands
 
@@ -33,15 +33,15 @@ F2-25 observation             2026-07-27T09:37:29Z
 F2-26 source commit           108ac4e88407e1263229eb40bc88d76855e90131
 F2-26 Cloudflare build        7026144e-1ce0-4927-9060-64919c3a4002
 F2-26 deployed at             2026-07-27T10:34:17Z
+F2-27 traffic verified at     2026-07-27T11:26:58Z
+F2-27 traffic observed        yes
 ```
 
-F2-26 evidence:
+F2-27 evidence:
 
 ```text
-docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md
+docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md
 ```
-
-The first deployment call for the same source commit returned a transient provider-side 503 after successful build and asset upload. Retrying the same build succeeded.
 
 ## What the current gate proves
 
@@ -49,13 +49,14 @@ The first deployment call for the same source commit returned a transient provid
 - the production Workers artifact uses the canonical origin,
 - the Custom Domain and required public surfaces have verified canonical, Search, crawler, and indexability evidence,
 - Cloudflare Web Analytics Automatic setup was observed enabled,
-- a production deployment of the F2-25 merge commit completed after that observation,
-- F2-16 through F2-26 are complete.
+- a production deployment completed after that observation,
+- production traffic was observed for the canonical hostname after representative route visits,
+- F2-16 through F2-27 are complete.
 
 ## What it does not prove
 
 - that any URL is indexed,
-- that traffic has appeared in the private Web Analytics dashboard,
-- final launch completion.
+- final F2 Launch Gate completion,
+- authorization to create or publish Jinja.
 
-F2-27 and F2-28 remain separate gates. Public verification must not include private Analytics counts, account identity, tokens, visitor data, or dashboard screenshots.
+F2-28 remains a separate gate. Public verification excludes private Analytics counts, account identity, tokens, visitor data, and dashboard screenshots.
