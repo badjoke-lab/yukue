@@ -59,7 +59,8 @@ jobs:
         if: always()
         run: |
           echo "## Jinja start-gate record" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Status: blocked while Matsuri F2-28 is active" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Matsuri F2-28: complete" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Status: blocked by four post-launch prerequisites" >> "$GITHUB_STEP_SUMMARY"
           echo "- Seed preparation: five Relation-backed Jinja candidates" >> "$GITHUB_STEP_SUMMARY"
           echo "- Authorization: no app, Worker, hostname, publication, or State inference" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Required before activation: F2-28, stabilization review, portal/Jinja order decision, Jinja State spec, and explicit authorization" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Remaining prerequisites: stabilization review, portal/Jinja order, Jinja State spec, explicit authorization" >> "$GITHUB_STEP_SUMMARY"
