@@ -3,6 +3,7 @@
   "site_id": "jinja",
   "status": "blocked-by-post-launch-prerequisites",
   "next_specialist_site": "jinja",
+  "matsuri_stabilization_record": "config/matsuri-stabilization-review.json",
   "prerequisites": {
     "matsuri_f2_28_complete": true,
     "matsuri_stabilization_review_complete": false,
