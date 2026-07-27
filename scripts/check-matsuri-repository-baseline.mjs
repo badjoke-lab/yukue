@@ -60,7 +60,8 @@ for (const marker of [
   "config/matsuri-repository-baseline.json",
   "F2-25 — Cloudflare Web Analytics activation — completed",
   "F2-26 — post-activation production deployment — completed",
-  "F2-27 — active next gate",
+  "F2-27 — production traffic verification — completed",
+  "F2-28 — active next gate",
   "Actual Jinja start gate — blocked",
 ]) {
   assert(projectStatus.includes(marker), `Project status is missing ${marker}`);
@@ -153,11 +154,9 @@ const actualBoundaries = {
       ? "pending"
       : "not-pending",
   f2_26_through_f2_28:
-    analytics.post_activation_deployment?.completed === false &&
-    analytics.traffic_verification?.completed === false &&
-    analytics.claims?.f2_26_complete === false &&
-    analytics.claims?.f2_27_complete === false &&
-    jinjaGate.prerequisites?.matsuri_f2_28_complete === false
+    analytics.status === "pending-owner-access" ||
+    analytics.status === "analytics-enabled" ||
+    analytics.claims?.f2_26_complete === false
       ? "blocked"
       : "not-blocked",
   jinja_start_gate:
@@ -175,5 +174,5 @@ for (const key of expectedBoundaryKeys) {
 }
 
 console.log(
-  `Matsuri repository baseline is current as of ${baseline.observed_on}; F2-25 and F2-26 are complete, F2-27 is active, F2-28 and the Jinja start gate remain blocked, and narrative documents do not duplicate machine counts.`,
+  `Matsuri repository baseline is current as of ${baseline.observed_on}; F2-25 through F2-27 are complete, F2-28 is active, the Jinja start gate remains blocked, and narrative documents do not duplicate machine counts.`,
 );
