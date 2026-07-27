@@ -1,6 +1,6 @@
 # Deployment
 
-**Status:** F2-16 through F2-26 completed / F2-27 traffic verification pending
+**Status:** F2-16 through F2-27 completed / F2-28 final gate pending
 
 `祭のゆくえ` is deployed as a fully pre-rendered Astro site through Cloudflare Workers Static Assets.
 
@@ -26,7 +26,16 @@ Deployed at         2026-07-27T10:34:17Z
 Evidence            docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md
 ```
 
-The source commit was created by merging the F2-25 evidence change after Automatic setup had been observed enabled. The first deployment API call returned a transient provider-side 503 after successful build and asset upload; retrying the same build succeeded.
+## F2-27 accepted traffic verification
+
+```text
+Canonical hostname  matsuri-yukue.badjoke-lab.com
+Verified at         2026-07-27T11:26:58Z
+Traffic observed    yes
+Evidence            docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md
+```
+
+The private dashboard screenshot, raw counts, and other private Analytics details are not stored in the repository.
 
 ## Static deployment model
 
@@ -58,13 +67,11 @@ routes[0].custom_domain   true
 F2-16 through F2-24  canonical deployment, Search, crawler, and Search Console verification — completed
 F2-25                 Cloudflare Web Analytics Automatic setup — completed
 F2-26                 post-activation main production deployment — completed
+F2-27                 production traffic verification — completed
 ```
 
 ## Remaining sequence
 
 ```text
-F2-27  production traffic verification — active
-F2-28  final F2 Launch Gate — blocked by F2-27
+F2-28  final F2 Launch Gate — active
 ```
-
-F2-27 is a private-dashboard confirmation. The repository must not store raw traffic counts, account identity, tokens, visitor data, or dashboard screenshots.
