@@ -1,0 +1,53 @@
+{
+  "format_version": 1,
+  "site_id": "matsuri",
+  "status": "complete",
+  "evaluated_at": "2026-07-27T11:45:20Z",
+  "f2_27_merge_commit": "6a0ef91dad62fb7f5d65135d846b1cf6b6301d25",
+  "validation_head_sha": "f8115c65e0f7a1fbdebd9339ec26a6bb0da18cbc",
+  "prerequisites": {
+    "repository_launch_readiness": true,
+    "visual_review": true,
+    "data_freshness_baseline": true,
+    "external_verification_through_f2_27": true,
+    "canonical_origin_gate": true,
+    "canonical_search_gate": true,
+    "crawler_reachability_gate": true,
+    "indexability_preflight": true,
+    "analytics_progression": true,
+    "privacy_boundary": true,
+    "jinja_guardrail": true
+  },
+  "verification_runs": {
+    "repository_gate": 30262887402,
+    "analytics_progression": 30262887410,
+    "repository_baseline": 30262887530,
+    "canonical_origin": 30262887395,
+    "canonical_search": 30262887428,
+    "crawler_reachability": 30262887462,
+    "indexability_preflight": 30262887424,
+    "jinja_start_gate": 30262887458
+  },
+  "release_artifact": {
+    "id": 8651652059,
+    "digest": "sha256:230ee6ab4f354d26e71d22a9c174d7dcc7f782f90bf5c9e0ff1278bbd401b5d8"
+  },
+  "evidence_documents": [
+    "docs/audits/matsuri-f2-25-analytics-activation-2026-07-27.md",
+    "docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md",
+    "docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md",
+    "docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md"
+  ],
+  "claims": {
+    "f2_28_complete": true,
+    "indexation_claimed": false,
+    "jinja_start_authorized": false
+  },
+  "privacy": {
+    "private_dashboard_screenshot_committed": false,
+    "raw_analytics_metrics_committed": false,
+    "account_identity_committed": false,
+    "analytics_token_committed": false,
+    "visitor_level_data_committed": false
+  }
+}
