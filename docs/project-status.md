@@ -5,7 +5,7 @@
 ## Current phase
 
 ```text
-Phase 10 — Matsuri Stabilization
+Phase 10 — Matsuri Content Expansion and Stabilization
 ```
 
 ## Current gate state
@@ -19,20 +19,23 @@ F2-28 — final F2 Launch Gate — completed
 F2-P01 through F2-P13 — completed
 Phase 9 Launch Preparation — completed
 Phase 10 Stabilization — active
+Matsuri Detail C implementation — completed
+Matsuri corpus expansion — active
 Matsuri stabilization review — observing
 Actual Jinja start gate — blocked
 future specialist-site implementation — not activated
 ```
 
-F2-28 accepted the complete launch chain after F2-27 was merged to `main`.
+F2-28 accepted the complete launch chain after F2-27 was merged to `main`. The post-launch Detail C remediation then replaced the one-record-only detail implementation with real detail, Relation, Place, Evidence, search, and individual-JSON routes for the complete approved public inventory.
 
 ```text
 Evaluated at        2026-07-27T11:45:20Z
 F2-27 merge commit  6a0ef91dad62fb7f5d65135d846b1cf6b6301d25
-Evidence            docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
+F2-28 evidence      docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
+Detail C contract   docs/matsuri-detail-c-implementation.md
 ```
 
-The final gate records successful repository, canonical-origin, Search, crawler, indexability-preflight, Analytics, baseline, privacy, and Jinja-guardrail verification. It does not claim search-engine indexation.
+The final launch gate records successful repository, canonical-origin, Search, crawler, indexability-preflight, Analytics, baseline, privacy, and Jinja-guardrail verification. It does not claim search-engine indexation.
 
 ## Current sources of truth
 
@@ -41,6 +44,7 @@ Current repository counts       config/matsuri-repository-baseline.json
 Analytics progression           config/matsuri-analytics-activation.json
 Final F2 launch gate            config/matsuri-f2-launch-gate.json
 Stabilization review            config/matsuri-stabilization-review.json
+Detail C implementation         docs/matsuri-detail-c-implementation.md
 F2-28 evidence                  docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
 Stabilization start evidence    docs/audits/matsuri-stabilization-start-2026-07-27.md
 Jinja start boundary            config/jinja-start-gate.json
@@ -61,6 +65,23 @@ Verified production layers include canonical deployment, Search, crawler reachab
 
 No URL is claimed already indexed.
 
+## Current product track
+
+The previous public UI exposed only one full Festival detail page and sent most other titles to plain list anchors. That is no longer an acceptable completion definition.
+
+The enforced Detail C surface now requires:
+
+- a real detail page for every approved Festival, Tradition Unit, Folk Performance, and Organization,
+- State-free seed-reference pages for approved Shrine and Temple records,
+- public Place pages with reverse record links,
+- understandable and bidirectional Relation navigation,
+- claim-linked Evidence and Source access,
+- individual JSON for every Entity and Place detail,
+- direct-detail Pagefind results,
+- no empty detail sections or internal-code labels.
+
+The next primary work is corpus expansion and deeper factual records. Stabilization observation continues in parallel but is not a reason to leave the corpus thin.
+
 ## Stabilization review window
 
 ```text
@@ -71,17 +92,9 @@ Current status        observing
 Review complete       false
 ```
 
-Phase 10 observes:
+Phase 10 observes production behavior, Search Console, Analytics receipt, corrections, deployment failures, data freshness, Relation integrity, and maintenance burden. Elapsed time alone does not complete the review. Search-engine indexation is observed but is not required.
 
-- indexation and Search Console changes,
-- public Search usage and correction requests,
-- public JSON access and referral signs,
-- maintenance burden and data-freshness work,
-- external interest in the series or machine-readable layer.
-
-Elapsed time alone does not complete the review. Search-engine indexation is observed but is not required. Completion requires a public-safe final audit, all required review categories, zero unresolved critical corrections, a recorded deployment-failure count, and acceptable maintenance burden.
-
-Stabilization does not automatically authorize the portal or another specialist site.
+The review is a supporting operational gate. Meaningful corpus growth and real maintenance work are required before maintenance burden can be judged.
 
 ## Routine Matsuri maintenance
 
@@ -90,6 +103,7 @@ pnpm audit:matsuri:freshness
 pnpm audit:matsuri:relations
 pnpm check:matsuri:evidence
 pnpm check:matsuri:bundle-inventory
+pnpm check:matsuri:detail-navigation
 pnpm check:matsuri:stabilization-review
 ```
 
@@ -125,9 +139,11 @@ repository-verified-crawler-reachability-verified-sitemap-submission-verified-in
 ## Immediate next actions
 
 ```text
-Stabilization track  record post-launch operation and maintenance burden
-Dated review         弘前ねぷた after 2026-08-07; 郡上おどり after 2026-09-05
-Gate review          not before 2026-08-10
-Cloudflare track     no launch-gate action pending
-Jinja track          remain blocked until four post-launch prerequisites complete
+Product track       expand the Matsuri corpus and deepen State, Occurrence, Change, Relation, and Evidence coverage
+Detail track        keep every public title navigable through the enforced Detail C contract
+Dated review        弘前ねぷた after 2026-08-07; 郡上おどり after 2026-09-05
+Stabilization       record real maintenance burden while expansion work is performed
+Gate review         not before 2026-08-10 and not by elapsed time alone
+Cloudflare track    no launch-gate action pending
+Jinja track         remain blocked until four post-launch prerequisites complete
 ```
