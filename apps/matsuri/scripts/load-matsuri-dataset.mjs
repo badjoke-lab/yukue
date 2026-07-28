@@ -63,6 +63,7 @@ export const matsuriF2CorrectionFiles = [
   "corrections-08.json",
   "corrections-09.json",
   "corrections-10.json",
+  "corrections-11.json",
 ];
 
 function readJson(directory, fileName) {
