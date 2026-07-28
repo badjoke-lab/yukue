@@ -71,6 +71,9 @@ export interface PlaceItem {
   contextLabel?: string;
   detailHref?: string;
   mapHref?: string;
+  embedUrl?: string;
+  mapStatus?: "verified-point" | "unavailable";
+  mapUnavailableReason?: string;
 }
 
 export interface DocumentaryImage {
