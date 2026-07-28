@@ -60,29 +60,14 @@ async function verifyLoadedMap(iframe, route) {
   await expect
     .poll(
       async () =>
-        frame.locator("body").evaluate((body) => ({
-          htmlLength: body.innerHTML.length,
-          elementCount: body.querySelectorAll("*").length,
-        })),
+        frame.locator("body").evaluate(
+          (body) =>
+            body.innerHTML.length >= 500 &&
+            body.querySelectorAll("*").length >= 10,
+        ),
       { timeout: 30_000, message: `${route}: embedded map body must render` },
     )
-    .toEqual(
-      expect.objectContaining({
-        htmlLength: expect.any(Number),
-        elementCount: expect.any(Number),
-      }),
-    );
-
-  const frameMetrics = await frame.locator("body").evaluate((body) => ({
-    htmlLength: body.innerHTML.length,
-    elementCount: body.querySelectorAll("*").length,
-  }));
-  expect(frameMetrics.htmlLength, `${route}: embedded map HTML length`).toBeGreaterThanOrEqual(
-    500,
-  );
-  expect(frameMetrics.elementCount, `${route}: embedded map element count`).toBeGreaterThanOrEqual(
-    10,
-  );
+    .toBe(true);
 }
 
 const detailEntities = entities.filter((entity) => entityRoute(entity));
