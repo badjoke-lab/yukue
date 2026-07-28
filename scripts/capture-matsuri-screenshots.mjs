@@ -26,6 +26,21 @@ const deviceNames = selectedDeviceNames(
   argValue("device", process.env.MATSURI_SCREENSHOT_DEVICE ?? "all"),
 );
 
+function knownThirdPartyMapConsoleError(message) {
+  const text = message.text();
+  const locationUrl = message.location().url ?? "";
+  const googleLocation = /https:\/\/(?:www\.)?google\.com\/maps|https:\/\/maps\.googleapis\.com\//u.test(
+    locationUrl,
+  );
+  const googleCors =
+    text.includes("Access to XMLHttpRequest at 'https://maps.googleapis.com/") &&
+    text.includes("from origin 'https://www.google.com'") &&
+    text.includes("blocked by CORS policy");
+  const googleResourceFailure =
+    text === "Failed to load resource: net::ERR_FAILED" && googleLocation;
+  return googleCors || googleResourceFailure;
+}
+
 async function waitForLoadedMapFrame(iframe, route, index) {
   await iframe.scrollIntoViewIfNeeded();
   const handle = await iframe.elementHandle();
@@ -145,10 +160,20 @@ try {
       const page = await context.newPage();
       const pageErrors = [];
       const consoleErrors = [];
+      const ignoredThirdPartyMapConsoleErrors = [];
 
       page.on("pageerror", (error) => pageErrors.push(error.message));
       page.on("console", (message) => {
-        if (message.type() === "error") consoleErrors.push(message.text());
+        if (message.type() !== "error") return;
+        const row = {
+          text: message.text(),
+          location_url: message.location().url ?? "",
+        };
+        if (knownThirdPartyMapConsoleError(message)) {
+          ignoredThirdPartyMapConsoleErrors.push(row);
+        } else {
+          consoleErrors.push(row.text);
+        }
       });
 
       try {
@@ -245,6 +270,7 @@ try {
             ...mapMetrics,
             pageErrors,
             consoleErrors,
+            ignoredThirdPartyMapConsoleErrors,
           },
         });
         console.log(
@@ -257,6 +283,7 @@ try {
           error: error instanceof Error ? error.message : String(error),
           page_errors: pageErrors,
           console_errors: consoleErrors,
+          ignored_third_party_map_console_errors: ignoredThirdPartyMapConsoleErrors,
         });
         console.error(
           `[${deviceName}] failed ${route}: ${
@@ -271,7 +298,7 @@ try {
     await context.close();
 
     const manifest = {
-      schema_version: "1.2",
+      schema_version: "1.3",
       generated_at: new Date().toISOString(),
       source_type: "local-preview",
       coverage_mode: "representative-page-families",
