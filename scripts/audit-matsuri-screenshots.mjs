@@ -59,7 +59,7 @@ for (const deviceName of deviceNames) {
   const manifest = readJson(manifestPath);
   const expectedDevice = matsuriVisualDevices[deviceName];
 
-  check(manifest.schema_version === "1.2", `${deviceName}: manifest schema must be 1.2.`);
+  check(manifest.schema_version === "1.3", `${deviceName}: manifest schema must be 1.3.`);
   check(manifest.source_type === "local-preview", `${deviceName}: source_type must be local-preview.`);
   check(
     manifest.coverage_mode === "representative-page-families",
@@ -112,6 +112,7 @@ for (const deviceName of deviceNames) {
   let visibleEmptyStateCount = 0;
   let embeddedMapCount = 0;
   let loadedEmbeddedMapCount = 0;
+  let ignoredThirdPartyMapConsoleErrorCount = 0;
 
   for (const record of records) {
     const absoluteFilePath = path.join(repositoryRoot, record.file ?? "");
@@ -149,6 +150,11 @@ for (const deviceName of deviceNames) {
     visibleEmptyStateCount += Number(metrics.visibleEmptyStateCount) || 0;
     embeddedMapCount += Number(metrics.embeddedMapCount) || 0;
     loadedEmbeddedMapCount += Number(metrics.loadedEmbeddedMapCount) || 0;
+    ignoredThirdPartyMapConsoleErrorCount += Array.isArray(
+      metrics.ignoredThirdPartyMapConsoleErrors,
+    )
+      ? metrics.ignoredThirdPartyMapConsoleErrors.length
+      : 0;
 
     check(metrics.h1Count === 1, `${deviceName}: ${record.route} must contain exactly one H1.`);
     check(metrics.mainCount === 1, `${deviceName}: ${record.route} must contain exactly one main landmark.`);
@@ -203,6 +209,7 @@ for (const deviceName of deviceNames) {
     visible_empty_state_count: visibleEmptyStateCount,
     embedded_map_count: embeddedMapCount,
     loaded_embedded_map_count: loadedEmbeddedMapCount,
+    ignored_third_party_map_console_error_count: ignoredThirdPartyMapConsoleErrorCount,
   });
 }
 
@@ -222,7 +229,7 @@ if (deviceNames.length === 2) {
 }
 
 const result = {
-  schema_version: "1.2",
+  schema_version: "1.3",
   generated_at: new Date().toISOString(),
   work_package: "F2-M01",
   coverage_mode: "representative-page-families",
@@ -234,6 +241,8 @@ const result = {
     minimum_screenshot_bytes: minimumScreenshotBytes,
     maximum_horizontal_overflow_pixels: 1,
     embedded_maps_must_load_before_capture: true,
+    first_party_console_errors_must_be_zero: true,
+    known_google_map_iframe_cors_noise_is_recorded_separately: true,
   },
   devices: summaries,
   failures,
@@ -258,6 +267,7 @@ const markdown = [
   `- Devices: ${deviceNames.join(", ")}`,
   `- Minimum screenshot bytes: ${minimumScreenshotBytes}`,
   `- Embedded maps must load before capture: yes`,
+  `- First-party console errors must be zero: yes`,
   "",
   ...summaries.flatMap((summary) => [
     `## ${summary.device}`,
@@ -269,6 +279,7 @@ const markdown = [
     `- Maximum document height: ${summary.maximum_document_height}px`,
     `- Visible empty states: ${summary.visible_empty_state_count}`,
     `- Embedded maps loaded: ${summary.loaded_embedded_map_count} / ${summary.embedded_map_count}`,
+    `- Recorded Google Maps iframe CORS noise: ${summary.ignored_third_party_map_console_error_count}`,
     "",
   ]),
   "## Failures",
