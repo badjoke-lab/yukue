@@ -80,6 +80,8 @@ const seedEntities = detailEntities.filter((entity) =>
   ["shrine", "temple"].includes(entity.entity_type),
 );
 
+void seedEntities;
+
 test("all Matsuri records navigate through real Detail C pages", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop-chromium", "Exhaustive navigation runs once");
   test.setTimeout(600_000);
@@ -108,21 +110,34 @@ test("all Matsuri records navigate through real Detail C pages", async ({ page }
     if (placeCount > 0) {
       const map = page.locator(".yk-place-map");
       await expect(map).toHaveCount(1);
-      await expect(map).toHaveAttribute("data-has-map", "true");
-      await expect(map).toHaveAttribute(
-        "data-map-mode",
-        /^(point|representative|area)$/u,
-      );
-      await expect(map).toHaveAttribute("data-map-provider", "google-maps-query");
+      const eligibleCount = await map.locator('[data-map-eligible="true"]').count();
       const iframe = map.locator("iframe[data-embedded-map]");
-      await expect(iframe).toHaveCount(1);
-      await expect(iframe).toHaveAttribute(
-        "src",
-        /^https:\/\/www\.google\.com\/maps\?[^#]*\boutput=embed\b/u,
-      );
-      await expect(iframe).toHaveAttribute("title", /.+/u);
-      await expect(map.locator("a[data-place-map-link]")).toHaveCount(placeCount);
-      await verifyLoadedMap(iframe, route);
+      const mapLinks = map.locator("a[data-place-map-link]");
+
+      if (eligibleCount > 0) {
+        await expect(map).toHaveAttribute("data-has-map", "true");
+        await expect(map).toHaveAttribute(
+          "data-map-mode",
+          /^(point|primary-anchor)$/u,
+        );
+        await expect(map).toHaveAttribute("data-map-provider", "google-maps-query");
+        await expect(map).toHaveAttribute("data-map-anchor", /.+/u);
+        await expect(iframe).toHaveCount(1);
+        await expect(iframe).toHaveAttribute(
+          "src",
+          /^https:\/\/www\.google\.com\/maps\?[^#]*\boutput=embed\b/u,
+        );
+        await expect(iframe).toHaveAttribute("title", /.+/u);
+        await expect(mapLinks).toHaveCount(eligibleCount);
+        await verifyLoadedMap(iframe, route);
+      } else {
+        await expect(map).toHaveAttribute("data-has-map", "false");
+        await expect(map).toHaveAttribute("data-map-mode", "unavailable");
+        await expect(map).toHaveAttribute("data-map-provider", "none");
+        await expect(iframe).toHaveCount(0);
+        await expect(mapLinks).toHaveCount(0);
+        await expect(map.locator("[data-map-unavailable]")).toBeVisible();
+      }
     }
 
     if (["shrine", "temple"].includes(entity.entity_type)) {
@@ -147,6 +162,16 @@ test("all Matsuri records navigate through real Detail C pages", async ({ page }
       await expect(row.locator(`h2 a[href="${entityRoute(entity)}"]`)).toHaveCount(1);
     }
   }
+
+  await page.goto("/festivals/aso-onda-matsuri/", { waitUntil: "domcontentloaded" });
+  const ondaMap = page.locator("#places .yk-place-map");
+  await expect(ondaMap).toHaveAttribute("data-map-mode", "primary-anchor");
+  await expect(ondaMap).toHaveAttribute("data-map-anchor", "阿蘇神社");
+  const ondaMapSrc = await ondaMap.locator("iframe[data-embedded-map]").getAttribute("src");
+  expect(new URL(ondaMapSrc).searchParams.get("q")).toContain("阿蘇神社");
+  const ondaAreaRow = ondaMap.locator("[data-place-item]", { hasText: "御田祭神幸区域" });
+  await expect(ondaAreaRow).toHaveAttribute("data-map-eligible", "false");
+  await expect(ondaAreaRow.locator("a[data-place-map-link]")).toHaveCount(0);
 
   await page.goto("/festivals/", { waitUntil: "domcontentloaded" });
   const firstDetailLink = page.locator(".browse-entity-row h2 a").first();
