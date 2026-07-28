@@ -175,18 +175,21 @@ function verifyNegativeFixtures() {
 
 assert(fs.existsSync(outputRoot), "Matsuri build output is missing; run pnpm build:matsuri:pages first");
 
-const detailFiles = walkHtml(outputRoot).filter((filePath) =>
-  fs.readFileSync(filePath, "utf8").includes("data-detail-page"),
-);
+const detailFiles = walkHtml(outputRoot).flatMap((filePath) => {
+  const html = fs.readFileSync(filePath, "utf8");
+  if (!html.includes("data-detail-page") && !html.includes("data-place-detail-page")) return [];
+  return [{ filePath, html }];
+});
 const errors = [];
 let mappedDetails = 0;
+let mappedEntityDetails = 0;
+let mappedPlaceDetails = 0;
 let placeRows = 0;
 let pointMaps = 0;
 let representativeMaps = 0;
 let areaMaps = 0;
 
-for (const filePath of detailFiles) {
-  const html = fs.readFileSync(filePath, "utf8");
+for (const { filePath, html } of detailFiles) {
   const currentPlaceRows = countMarker(html, "data-place-item");
   if (currentPlaceRows === 0) continue;
   const route = `/${path.relative(outputRoot, path.dirname(filePath)).split(path.sep).join("/")}/`.replace(/^\/\.\//u, "/");
@@ -195,6 +198,8 @@ for (const filePath of detailFiles) {
   if (mode === "point") pointMaps += 1;
   if (mode === "representative") representativeMaps += 1;
   if (mode === "area") areaMaps += 1;
+  if (html.includes("data-place-detail-page")) mappedPlaceDetails += 1;
+  else mappedEntityDetails += 1;
   mappedDetails += 1;
   placeRows += currentPlaceRows;
   errors.push(...validateMapHtml(html, route));
@@ -206,7 +211,8 @@ if (errors.length > 0) {
   throw new Error(`Matsuri embedded-map coverage failed:\n${errors.map((error) => `- ${error}`).join("\n")}`);
 }
 
-assert(mappedDetails > 0, "No Matsuri detail page with Place records was checked");
+assert(mappedEntityDetails > 0, "No Matsuri Entity detail page with Place records was checked");
+assert(mappedPlaceDetails > 0, "No Matsuri Place detail page was checked");
 console.log(
-  `Matsuri embedded-map coverage verified: ${mappedDetails} detail pages, ${placeRows} Place rows, ${pointMaps} point maps, ${representativeMaps} representative maps, ${areaMaps} area maps, zero API keys, and ${verifyFixtures ? "all negative fixtures rejected" : "fixtures not requested"}.`,
+  `Matsuri embedded-map coverage verified: ${mappedDetails} detail pages (${mappedEntityDetails} Entity details and ${mappedPlaceDetails} Place details), ${placeRows} Place rows, ${pointMaps} point maps, ${representativeMaps} representative maps, ${areaMaps} area maps, zero API keys, and ${verifyFixtures ? "all negative fixtures rejected" : "fixtures not requested"}.`,
 );
