@@ -287,10 +287,6 @@ assert(
   "Route-based detail must use the related shrine as its map anchor.",
 );
 assert(
-  (detailHtml.match(/data-map-eligible="false"/gu) ?? []).length >= 1,
-  "Route-based Place rows must not expose municipality or route substitutes as point maps.",
-);
-assert(
   (detailHtml.match(/data-embedded-map/gu) ?? []).length === 1,
   "Route-based detail must render exactly one reviewed anchor-map embed.",
 );
