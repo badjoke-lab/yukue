@@ -17,6 +17,7 @@ on:
       - "packages/ui/src/components/RelationList.astro"
       - "packages/ui/src/types.ts"
       - "scripts/check-matsuri-detail-navigation.mjs"
+      - "scripts/check-matsuri-map-coverage.mjs"
       - "scripts/check-matsuri-consistency.mjs"
       - "tests/browser/matsuri-detail-navigation.spec.mjs"
       - "docs/information-architecture.md"
@@ -38,6 +39,7 @@ on:
       - "packages/ui/src/components/RelationList.astro"
       - "packages/ui/src/types.ts"
       - "scripts/check-matsuri-detail-navigation.mjs"
+      - "scripts/check-matsuri-map-coverage.mjs"
       - "scripts/check-matsuri-consistency.mjs"
       - "tests/browser/matsuri-detail-navigation.spec.mjs"
       - "docs/information-architecture.md"
@@ -78,6 +80,9 @@ jobs:
       - name: Verify Detail C routes and navigation
         run: pnpm check:matsuri:detail-navigation
 
+      - name: Verify embedded-map coverage and negative fixtures
+        run: pnpm check:matsuri:map-coverage
+
       - name: Verify Detail C in a real browser
         run: pnpm exec playwright test tests/browser/matsuri-detail-navigation.spec.mjs --config=playwright.config.mjs --project=desktop-chromium
 
@@ -89,5 +94,8 @@ jobs:
           echo "- Shrine and Temple seed references remain State-free" >> "$GITHUB_STEP_SUMMARY"
           echo "- Relations are navigable in both directions" >> "$GITHUB_STEP_SUMMARY"
           echo "- Places and individual JSON records are reachable" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Every detail with Place records has an embedded map and one external map action per Place" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Route, distributed, and area records cannot regress to a misleading point-map mode" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Public HTML contains no map API key" >> "$GITHUB_STEP_SUMMARY"
           echo "- Search and browse titles open real detail pages" >> "$GITHUB_STEP_SUMMARY"
           echo "- Exhaustive navigation is verified in Chromium" >> "$GITHUB_STEP_SUMMARY"
