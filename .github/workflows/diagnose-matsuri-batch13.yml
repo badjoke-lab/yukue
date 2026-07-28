@@ -1,0 +1,53 @@
+name: Diagnose Matsuri Batch 13
+
+on:
+  push:
+    branches:
+      - agent/matsuri-corpus-expansion-batch-13
+    paths:
+      - ".github/workflows/diagnose-matsuri-batch13.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+        with:
+          version: 11.10.0
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Capture complete diagnostics
+        run: |
+          set +e
+          mkdir -p artifacts/batch13-diagnostics
+          node scripts/check-matsuri-canonical-dataset-contract.mjs > artifacts/batch13-diagnostics/canonical.log 2>&1
+          echo $? > artifacts/batch13-diagnostics/canonical.exit
+          node scripts/check-matsuri-external-link-maintenance.mjs > artifacts/batch13-diagnostics/external-links.log 2>&1
+          echo $? > artifacts/batch13-diagnostics/external-links.exit
+          node scripts/audit-matsuri-relation-coverage.mjs --json > artifacts/batch13-diagnostics/relation.json 2> artifacts/batch13-diagnostics/relation-error.log
+          echo $? > artifacts/batch13-diagnostics/relation.exit
+          node scripts/audit-matsuri-corpus-coverage.mjs > artifacts/batch13-diagnostics/corpus.log 2>&1
+          echo $? > artifacts/batch13-diagnostics/corpus.exit
+          exit 0
+
+      - name: Upload diagnostics
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: matsuri-batch13-diagnostics-${{ github.run_id }}
+          path: artifacts/batch13-diagnostics/**
+          if-no-files-found: error
+          retention-days: 7
