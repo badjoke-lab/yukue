@@ -1,0 +1,33 @@
+{
+  "entities": [],
+  "places": [
+    {
+      "id": "plc-nunobashi-tateyama-museum",
+      "schema_version": "common.v1",
+      "record_version": 2,
+      "name_ja": "富山県［立山博物館］",
+      "place_kind": "festival_ground",
+      "country_code": "JP",
+      "prefecture_code": "16",
+      "prefecture_name_ja": "富山県",
+      "municipality_name_ja": "立山町",
+      "locality_ja": "芦峅寺",
+      "street_address_ja": "93-1",
+      "coordinate_precision": "venue",
+      "source_ids": [
+        "src-nunobashi-location-2026",
+        "src-tateyama-museum-access"
+      ]
+    }
+  ],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
