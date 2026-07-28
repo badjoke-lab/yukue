@@ -216,7 +216,7 @@ if (dataset.images.length === 0) {
   );
 
   const detailHtml = read("festivals/suneori-amagoi/index.html");
-  for (const forbiddenHeading of ["Primary Image", "Gallery", "ギャラリー", "画像はありません"] ) {
+  for (const forbiddenHeading of ["Primary Image", "Gallery", "ギャラリー", "画像はありません"]) {
     assert(
       !detailHtml.includes(forbiddenHeading),
       `Zero-image Festival detail renders forbidden image UI text: ${forbiddenHeading}`,
@@ -275,14 +275,26 @@ assert(
   "Route-based detail must explain its geographic context in text.",
 );
 assert(
-  (detailHtml.match(/class="yk-place-item"/gu) ?? []).length >= 2,
+  (detailHtml.match(/data-place-item/gu) ?? []).length >= 2,
   "Route-based detail must display multiple Place records.",
 );
 assert(
-  !/<iframe\b/iu.test(detailHtml),
-  "Route-based detail must not present an unreviewed single embedded map as the whole tradition.",
+  detailHtml.includes('data-map-mode="area"'),
+  "Route-based detail must use area map mode instead of a misleading point map.",
+);
+assert(
+  (detailHtml.match(/data-embedded-map/gu) ?? []).length === 1,
+  "Route-based detail must render exactly one reviewed area-map embed.",
+);
+assert(
+  detailHtml.includes("巡行路・分散会場・地域範囲を一点の所在地として扱わず"),
+  "Route-based detail must explain that the area map is not a single-location claim.",
+);
+assert(
+  !/[?&](?:amp;)?key=/iu.test(detailHtml),
+  "Route-based detail must not expose a map API key.",
 );
 
 console.log(
-  `Matsuri public content audit passed: ${manifest.files.length} Data links, ${allHtmlPaths.length} HTML files, ${dataset.images.length} approved images, verified public deployment status, owner-access-pending Analytics, honest empty states, and route-based map treatment.`,
+  `Matsuri public content audit passed: ${manifest.files.length} Data links, ${allHtmlPaths.length} HTML files, ${dataset.images.length} approved images, verified public deployment status, owner-access-pending Analytics, honest empty states, and reviewed route-based area-map treatment.`,
 );
