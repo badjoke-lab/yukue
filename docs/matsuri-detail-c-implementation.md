@@ -52,9 +52,11 @@ About
 Places & Map
   place role
   address or area context
-  embedded map
-  external map action for every Place
+  ritual base or reviewed main-venue anchor
+  point-map action only for concrete Places
+  route, area, and secondary venues as supporting Place records
   public Place detail action
+  explicit location-gap notice when no concrete anchor is approved
 
 Year by Year / Occurrence History
   scheduled and completed outcomes remain distinct
@@ -117,31 +119,44 @@ The Place page shows location context, reverse links to related records, availab
 
 ## Embedded map contract
 
-A detail page with one or more approved Place records must render an actual embedded map. A `Places & Map` heading, a Place list, an unused `embedUrl` prop, or a component that could theoretically render an iframe does not satisfy this contract.
+The embedded map must answer where the ritual, festival, or performance is actually based or primarily held. A city map, municipality map, route-area map, or first-array-item map that does not identify that base is not a completed `Places & Map` implementation.
 
 The rendering mode is explicit:
 
 ```text
 point
-  one point-like Place such as a shrine, temple, park, festival ground, or performance venue
+  one approved concrete Place such as a shrine, temple, festival ground,
+  performance venue, or park
 
-representative
-  multiple point-like Places; the map shows one representative Place and the page explains that the full set is in the Place list
+primary-anchor
+  multiple Place records; the map shows the reviewed ritual base or main venue,
+  while route, area, and secondary venues remain in the Place list
 
-area
-  procession routes, distributed traditions, community areas, city-center events, multiple venues, or other records where a single pin would be misleading
+unavailable
+  no approved concrete ritual base or main venue is present;
+  the page explains the location-data gap and renders no decorative substitute map
 ```
+
+Map-anchor priority:
+
+1. an approved Shrine or Temple Place that is the ritual base, dedication site, or principal venue,
+2. an approved festival ground or principal performance venue,
+3. another approved concrete official main venue such as a park,
+4. route, distributed-area, community-area, and secondary Place records only as supporting context after the anchor.
 
 Map rules:
 
-- every Place row has an external map action,
-- every detail page with Place rows has exactly one lazy-loaded, titled embedded-map iframe,
-- route, distributed, and area records must not use `point` mode,
-- `representative` and `area` modes must explain what the map does and does not represent,
-- the map query is derived only from approved public Place names, addresses, and geographic context,
+- a Shrine festival or Temple event maps the relevant Shrine or Temple when the approved Relation and Place are present,
+- route, distributed-area, community-area, city-center, and municipality-only records never replace an available ritual or main-venue anchor,
+- multiple concrete Places remain listed; the embedded map uses the reviewed anchor instead of the first arbitrary Place,
+- only concrete map-eligible Place rows receive external map actions,
+- route and area rows do not receive a misleading point-map action,
+- when no concrete anchor exists, the page renders an explicit `unavailable` state rather than a municipality substitute,
+- an unavailable state is a corpus gap requiring research and Evidence, not a successful map result,
+- the map query is derived only from approved public concrete Place names and addresses,
 - no API key, credential, account identifier, or private map configuration is committed or rendered,
-- map presentation is a navigation aid and does not replace Place Evidence or Source records,
-- an external provider failure does not change the canonical Place record; the external map action and approved Evidence remain available.
+- map presentation is a navigation aid and does not replace Place, Relation, Evidence, or Source records,
+- an external provider failure does not change the canonical Place record.
 
 The focused map gate is:
 
@@ -149,7 +164,7 @@ The focused map gate is:
 pnpm check:matsuri:map-coverage
 ```
 
-It checks every generated Entity detail with Place records and rejects missing iframes, missing per-Place map actions, empty queries, leaked API keys, and misleading point-mode use for route or distributed records. Negative fixtures prove those failure paths remain active.
+It checks every generated Entity and Place detail with Place records. It rejects municipality-only substitutes, route-over-anchor regressions, arbitrary representative selection, map links on non-point rows, missing explicit no-map states, empty queries, and leaked API keys. Negative fixtures prove those failure paths remain active. Chromium verification additionally confirms that useful embedded anchor maps actually load.
 
 ## Shrine and Temple seed boundary
 
@@ -241,10 +256,11 @@ The build fails when:
 - an approved Relation is absent from either available endpoint page,
 - a Relation row lacks a target link,
 - a Place name links to no Place page,
-- a detail page with Place rows lacks an embedded map,
-- a Place row lacks an external map action,
-- a route, distributed, or area record uses a misleading point-map mode,
-- an embedded map has an empty query or contains an API key,
+- a concrete ritual or main-venue Place exists but no embedded anchor map is rendered,
+- a route, area, or municipality-only Place receives a point-map action,
+- a route or area record replaces an available Shrine, Temple, festival-ground, or main-venue anchor,
+- a Place-bearing page without a concrete anchor omits the explicit location-gap state,
+- an embedded map has an empty query, identifies a different Place than its declared anchor, or contains an API key,
 - a direct JSON action points to no generated JSON file,
 - a Shrine or Temple reference page contains a Current State claim,
 - an internal code or identifier is exposed as a primary UI label,
