@@ -3,49 +3,70 @@
   "records": [
     {
       "entity_id": "fst-akita-kanto",
+      "entity_route": "/festivals/akita-kanto/",
       "place_id": "plc-akita-kanto-main-avenue",
+      "place_route": "/places/akita-kanto-main-avenue/",
+      "place_name_ja": "竿燈大通り周辺",
       "label_ja": "2026年公式会場図を見る",
       "url": "https://www.kantou.gr.jp/guidemap/",
       "source_id": "src-akita-kanto-guidemap-2026"
     },
     {
       "entity_id": "fst-aomori-nebuta",
+      "entity_route": "/festivals/aomori-nebuta/",
       "place_id": "plc-aomori-nebuta-route",
+      "place_route": "/places/aomori-nebuta-route/",
+      "place_name_ja": "青森ねぶた祭運行コース",
       "label_ja": "2026年公式運行マップを見る",
       "url": "https://www.nebuta.jp/info/schedule/map.html",
       "source_id": "src-aomori-nebuta-map-2026"
     },
     {
       "entity_id": "fst-hana-matsuri-toei",
+      "entity_route": "/festivals/hana-matsuri-toei/",
       "place_id": "plc-toei-town",
+      "place_route": "/places/toei-town/",
+      "place_name_ja": "東栄町各地区",
       "label_ja": "公式の地区別開催地を見る",
       "url": "https://www.town.toei.aichi.jp/hana_maturi/",
       "source_id": "src-toei-hana-official-map"
     },
     {
       "entity_id": "fst-hirosaki-neputa",
+      "entity_route": "/festivals/hirosaki-neputa-matsuri/",
       "place_id": "plc-hirosaki-neputa-routes",
+      "place_route": "/places/hirosaki-neputa-routes/",
+      "place_name_ja": "弘前ねぷたまつり運行区域",
       "label_ja": "2026年の運行コース・交通案内を見る",
       "url": "https://www.hirosaki-kanko.or.jp/edit.html?id=cat02_summer_neputa",
       "source_id": "src-hirosaki-neputa-current"
     },
     {
       "entity_id": "fst-hirosaki-neputa-300",
+      "entity_route": "/festivals/hirosaki-neputa-300/",
       "place_id": "plc-hirosaki-neputa-routes",
+      "place_route": "/places/hirosaki-neputa-routes/",
+      "place_name_ja": "弘前ねぷたまつり運行区域",
       "label_ja": "300年祭特別運行マップを見る",
       "url": "https://www.hirosaki-kanko.or.jp/edit.html?id=neputa300",
       "source_id": "src-hirosaki-neputa-300-program"
     },
     {
       "entity_id": "fst-sendai-tanabata",
+      "entity_route": "/festivals/sendai-tanabata/",
       "place_id": "plc-sendai-tanabata-central-area",
+      "place_route": "/places/sendai-tanabata-central-area/",
+      "place_name_ja": "仙台市中心部・地域商店街",
       "label_ja": "公式デジタルマップ・ガイドを見る",
       "url": "https://www.sendaitanabata.com/guide/",
       "source_id": "src-sendai-tanabata-guide-map-2026"
     },
     {
       "entity_id": "fpf-gujo-odori",
+      "entity_route": "/performances/gujo-odori/",
       "place_id": "plc-gujo-hachiman-town",
+      "place_route": "/places/gujo-hachiman-town/",
+      "place_name_ja": "郡上八幡市街地",
       "label_ja": "2026年の日別会場地図を見る",
       "url": "https://www.gujohachiman.com/kanko/odori_schedule.html",
       "source_id": "src-gujo-schedule-2026"
