@@ -52,6 +52,8 @@ About
 Places & Map
   place role
   address or area context
+  embedded map
+  external map action for every Place
   public Place detail action
 
 Year by Year / Occurrence History
@@ -112,6 +114,42 @@ Public Places used by a detail page require:
 ```
 
 The Place page shows location context, reverse links to related records, available location Evidence, and direct Place JSON.
+
+## Embedded map contract
+
+A detail page with one or more approved Place records must render an actual embedded map. A `Places & Map` heading, a Place list, an unused `embedUrl` prop, or a component that could theoretically render an iframe does not satisfy this contract.
+
+The rendering mode is explicit:
+
+```text
+point
+  one point-like Place such as a shrine, temple, park, festival ground, or performance venue
+
+representative
+  multiple point-like Places; the map shows one representative Place and the page explains that the full set is in the Place list
+
+area
+  procession routes, distributed traditions, community areas, city-center events, multiple venues, or other records where a single pin would be misleading
+```
+
+Map rules:
+
+- every Place row has an external map action,
+- every detail page with Place rows has exactly one lazy-loaded, titled embedded-map iframe,
+- route, distributed, and area records must not use `point` mode,
+- `representative` and `area` modes must explain what the map does and does not represent,
+- the map query is derived only from approved public Place names, addresses, and geographic context,
+- no API key, credential, account identifier, or private map configuration is committed or rendered,
+- map presentation is a navigation aid and does not replace Place Evidence or Source records,
+- an external provider failure does not change the canonical Place record; the external map action and approved Evidence remain available.
+
+The focused map gate is:
+
+```text
+pnpm check:matsuri:map-coverage
+```
+
+It checks every generated Entity detail with Place records and rejects missing iframes, missing per-Place map actions, empty queries, leaked API keys, and misleading point-mode use for route or distributed records. Negative fixtures prove those failure paths remain active.
 
 ## Shrine and Temple seed boundary
 
@@ -203,6 +241,10 @@ The build fails when:
 - an approved Relation is absent from either available endpoint page,
 - a Relation row lacks a target link,
 - a Place name links to no Place page,
+- a detail page with Place rows lacks an embedded map,
+- a Place row lacks an external map action,
+- a route, distributed, or area record uses a misleading point-map mode,
+- an embedded map has an empty query or contains an API key,
 - a direct JSON action points to no generated JSON file,
 - a Shrine or Temple reference page contains a Current State claim,
 - an internal code or identifier is exposed as a primary UI label,

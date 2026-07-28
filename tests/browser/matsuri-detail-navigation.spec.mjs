@@ -38,6 +38,38 @@ function entityRoute(entity) {
   return `/${kind}/${entity.slug}/`;
 }
 
+async function verifyLoadedMap(iframe, route) {
+  await iframe.scrollIntoViewIfNeeded();
+  const handle = await iframe.elementHandle();
+  expect(handle, `${route}: embedded map element handle`).not.toBeNull();
+
+  const deadline = Date.now() + 30_000;
+  let frame = null;
+  while (Date.now() < deadline) {
+    frame = await handle.contentFrame();
+    if (frame?.url().startsWith("https://www.google.com/maps")) break;
+    await new Promise((resolve) => setTimeout(resolve, 250));
+  }
+
+  expect(frame, `${route}: embedded map frame`).not.toBeNull();
+  expect(frame.url(), `${route}: embedded map origin`).toMatch(
+    /^https:\/\/www\.google\.com\/maps/u,
+  );
+  await frame.waitForLoadState("domcontentloaded", { timeout: 30_000 });
+  await frame.locator("body").waitFor({ state: "visible", timeout: 30_000 });
+  await expect
+    .poll(
+      async () =>
+        frame.locator("body").evaluate(
+          (body) =>
+            body.innerHTML.length >= 500 &&
+            body.querySelectorAll("*").length >= 10,
+        ),
+      { timeout: 30_000, message: `${route}: embedded map body must render` },
+    )
+    .toBe(true);
+}
+
 const detailEntities = entities.filter((entity) => entityRoute(entity));
 const primaryEntities = detailEntities.filter((entity) =>
   ["festival", "tradition_unit", "folk_performance", "organization"].includes(
@@ -50,7 +82,7 @@ const seedEntities = detailEntities.filter((entity) =>
 
 test("all Matsuri records navigate through real Detail C pages", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop-chromium", "Exhaustive navigation runs once");
-  test.setTimeout(240_000);
+  test.setTimeout(600_000);
 
   expect(primaryEntities.length).toBeGreaterThan(1);
 
@@ -69,6 +101,28 @@ test("all Matsuri records navigate through real Detail C pages", async ({ page }
     const relationRows = page.locator("[data-relation-row]");
     for (let index = 0; index < (await relationRows.count()); index += 1) {
       await expect(relationRows.nth(index).locator("a[data-relation-target]")).toHaveCount(1);
+    }
+
+    const placeRows = page.locator("[data-place-item]");
+    const placeCount = await placeRows.count();
+    if (placeCount > 0) {
+      const map = page.locator(".yk-place-map");
+      await expect(map).toHaveCount(1);
+      await expect(map).toHaveAttribute("data-has-map", "true");
+      await expect(map).toHaveAttribute(
+        "data-map-mode",
+        /^(point|representative|area)$/u,
+      );
+      await expect(map).toHaveAttribute("data-map-provider", "google-maps-query");
+      const iframe = map.locator("iframe[data-embedded-map]");
+      await expect(iframe).toHaveCount(1);
+      await expect(iframe).toHaveAttribute(
+        "src",
+        /^https:\/\/www\.google\.com\/maps\?[^#]*\boutput=embed\b/u,
+      );
+      await expect(iframe).toHaveAttribute("title", /.+/u);
+      await expect(map.locator("a[data-place-map-link]")).toHaveCount(placeCount);
+      await verifyLoadedMap(iframe, route);
     }
 
     if (["shrine", "temple"].includes(entity.entity_type)) {

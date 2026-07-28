@@ -114,7 +114,9 @@ jobs:
               SELECTED=$(node -e "const x=require('./$MANIFEST'); console.log(x.selected_route_count)")
               FAILED=$(node -e "const x=require('./$MANIFEST'); console.log(x.failed_count)")
               BYTES=$(node -e "const x=require('./$MANIFEST'); console.log(x.records.reduce((sum, row) => sum + row.screenshot_bytes, 0))")
-              echo "- $DEVICE: $CAPTURED / $SELECTED captured, $FAILED failed, $BYTES PNG bytes" >> "$GITHUB_STEP_SUMMARY"
+              MAPS=$(node -e "const x=require('./$MANIFEST'); console.log(x.records.reduce((sum, row) => sum + (row.metrics.embeddedMapCount || 0), 0))")
+              LOADED_MAPS=$(node -e "const x=require('./$MANIFEST'); console.log(x.records.reduce((sum, row) => sum + (row.metrics.loadedEmbeddedMapCount || 0), 0))")
+              echo "- $DEVICE: $CAPTURED / $SELECTED captured, $FAILED failed, $BYTES PNG bytes, maps $LOADED_MAPS / $MAPS loaded" >> "$GITHUB_STEP_SUMMARY"
             fi
           done
           AUDIT="artifacts/matsuri-screenshots/visual-audit.json"

@@ -15,6 +15,7 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | `roadmap.md` | Phase 10 observing | Long-range phases and gates |
 | `matsuri-stabilization-review.md` | Active contract | Review state machine, minimum duration, evidence, privacy, and completion rules |
 | `audits/matsuri-stabilization-start-2026-07-27.md` | Observation-start audit | Public-safe start record and earliest eligible review date |
+| `audits/matsuri-detail-c-embedded-map-remediation-2026-07-28.md` | Passed corrective audit | Missing embedded maps, blank-frame finding, final exhaustive coverage, browser checks, and visual proof |
 | `audits/matsuri-corpus-expansion-batch-11-2026-07-27.md` | Passed | First measured post-Detail-C breadth-and-depth corpus expansion |
 | `audits/matsuri-corpus-expansion-batch-12-2026-07-27.md` | Passed | Okinawa breadth addition and Aomori occurrence/change-history depth maintenance |
 | `matsuri-repository-baseline.md` | Machine-checked current | Exact bundle, Entity, launch-boundary, and Jinja-boundary values |
@@ -33,8 +34,8 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | `product-spec.md` | Working | Product capabilities and user needs |
 | `public-data-model.md` | Working | Public record model and projection rules |
 | `matsuri-mvp-spec.md` | Working | Matsuri MVP scope |
-| `information-architecture.md` | Accepted / implemented | Home H1 and Detail C order |
-| `matsuri-detail-c-implementation.md` | Required implementation contract | Concrete Japanese detail composition, real routes, Relations, Evidence, Places, seed boundaries, individual JSON, and build failures |
+| `information-architecture.md` | Accepted / implemented | Home H1 and Detail C order, including required embedded-map behavior |
+| `matsuri-detail-c-implementation.md` | Required implementation contract | Concrete Japanese detail composition, real routes, Relations, Evidence, Places, rendered maps, seed boundaries, individual JSON, and build failures |
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, and layout language |
 | `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |

@@ -26,6 +26,69 @@ const deviceNames = selectedDeviceNames(
   argValue("device", process.env.MATSURI_SCREENSHOT_DEVICE ?? "all"),
 );
 
+async function waitForLoadedMapFrame(iframe, route, index) {
+  await iframe.scrollIntoViewIfNeeded();
+  const handle = await iframe.elementHandle();
+  if (!handle) throw new Error(`${route}: embedded map ${index + 1} has no element handle`);
+
+  const deadline = Date.now() + 30_000;
+  let frame = null;
+  while (Date.now() < deadline) {
+    frame = await handle.contentFrame();
+    if (frame?.url().startsWith("https://www.google.com/maps")) break;
+    await new Promise((resolve) => setTimeout(resolve, 250));
+  }
+
+  if (!frame || !frame.url().startsWith("https://www.google.com/maps")) {
+    throw new Error(
+      `${route}: embedded map ${index + 1} did not navigate to the approved Google Maps origin`,
+    );
+  }
+
+  await frame.waitForLoadState("domcontentloaded", { timeout: 30_000 });
+  await frame.locator("body").waitFor({ state: "visible", timeout: 30_000 });
+  await frame.waitForFunction(
+    () =>
+      document.body !== null &&
+      document.body.innerHTML.length >= 500 &&
+      document.body.querySelectorAll("*").length >= 10,
+    undefined,
+    { timeout: 30_000 },
+  );
+
+  const frameMetrics = await frame.locator("body").evaluate((body) => ({
+    htmlLength: body.innerHTML.length,
+    textLength: body.textContent?.trim().length ?? 0,
+    elementCount: body.querySelectorAll("*").length,
+  }));
+
+  return {
+    url: frame.url(),
+    ...frameMetrics,
+  };
+}
+
+async function loadEmbeddedMaps(page, route) {
+  const maps = page.locator("iframe[data-embedded-map]");
+  const embeddedMapCount = await maps.count();
+  const embeddedMapFrames = [];
+
+  for (let index = 0; index < embeddedMapCount; index += 1) {
+    embeddedMapFrames.push(await waitForLoadedMapFrame(maps.nth(index), route, index));
+  }
+
+  if (embeddedMapCount > 0) {
+    await page.waitForTimeout(2_000);
+  }
+
+  return {
+    embeddedMapCount,
+    loadedEmbeddedMapCount: embeddedMapFrames.length,
+    embeddedMapFrames,
+    mapViewportScrollY: await page.evaluate(() => window.scrollY),
+  };
+}
+
 assertMatsuriVisualContract();
 const generatedRoutes = await discoverGeneratedPublicRoutes();
 const generatedRouteSet = new Set(generatedRoutes);
@@ -113,6 +176,7 @@ try {
           `,
         });
 
+        const mapMetrics = await loadEmbeddedMaps(page, route);
         const metrics = await page.evaluate(() => {
           const visible = (element) => {
             if (!(element instanceof HTMLElement)) return false;
@@ -178,11 +242,14 @@ try {
           screenshot_sha256: screenshotSha256,
           metrics: {
             ...metrics,
+            ...mapMetrics,
             pageErrors,
             consoleErrors,
           },
         });
-        console.log(`[${deviceName}] captured ${route}`);
+        console.log(
+          `[${deviceName}] captured ${route}; embedded maps ${mapMetrics.loadedEmbeddedMapCount}/${mapMetrics.embeddedMapCount}`,
+        );
       } catch (error) {
         failures.push({
           route,
@@ -204,7 +271,7 @@ try {
     await context.close();
 
     const manifest = {
-      schema_version: "1.1",
+      schema_version: "1.2",
       generated_at: new Date().toISOString(),
       source_type: "local-preview",
       coverage_mode: "representative-page-families",
