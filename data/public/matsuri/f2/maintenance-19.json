@@ -1,0 +1,980 @@
+{
+  "entities": [
+    {
+      "id": "fst-shinjo-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-29T00:00:00Z",
+      "updated_at": "2026-07-29T00:00:00Z",
+      "slug": "shinjo-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "新庄まつり",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-shinjo-matsuri-about"
+          ]
+        }
+      ],
+      "summary_ja": "新庄市で毎年8月24日から26日に行われ、天満神社例大祭、神輿渡御行列、山車行列などで構成される祭礼。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "06",
+            "prefecture_name_ja": "山形県",
+            "municipality_name_ja": "新庄市"
+          }
+        ],
+        "scope_type": "route_based",
+        "description_ja": "新庄天満神社と最上公園を祭祀の基点とし、市中心部から新庄駅前ふれあい広場アビエスにかけて神輿・山車行列が行われる。"
+      },
+      "primary_place_id": "plc-shinjo-tenmangu",
+      "default_place_ids": [
+        "plc-shinjo-tenmangu",
+        "plc-shinjo-abies"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://shinjo-matsuri.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-29"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "shrine_festival",
+      "recurrence_pattern": {
+        "pattern_type": "annual",
+        "rule_text_ja": "毎年8月24日・25日・26日",
+        "evidence_ids": [
+          "evd-shinjo-matsuri-recurrence"
+        ]
+      },
+      "usual_months": [
+        8
+      ],
+      "usual_duration_days": 3,
+      "season_tags": [
+        "夏"
+      ],
+      "occurrence_series_ids": [
+        "ser-shinjo-matsuri-annual"
+      ]
+    },
+    {
+      "id": "org-shinjo-matsuri-committee",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-29T00:00:00Z",
+      "updated_at": "2026-07-29T00:00:00Z",
+      "slug": "shinjo-matsuri-committee",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "新庄まつり実行委員会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-shinjo-matsuri-2026"
+          ]
+        }
+      ],
+      "summary_ja": "新庄まつりの公式情報公開、催事調整、観覧案内などを担う実行委員会。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "06",
+            "prefecture_name_ja": "山形県",
+            "municipality_name_ja": "新庄市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://shinjo-matsuri.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-29"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "festival_committee",
+      "official_url": "https://shinjo-matsuri.jp/"
+    },
+    {
+      "id": "shr-shinjo-tenmangu",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-29T00:00:00Z",
+      "updated_at": "2026-07-29T00:00:00Z",
+      "slug": "shinjo-tenmangu",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "新庄天満神社",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-shinjo-tenmangu"
+          ]
+        }
+      ],
+      "summary_ja": "新庄城址本丸跡の南西隅に鎮座し、8月25日の例大祭と神輿渡御行列が新庄まつりの祭祀的な中心となる神社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "06",
+            "prefecture_name_ja": "山形県",
+            "municipality_name_ja": "新庄市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-shinjo-tenmangu",
+      "default_place_ids": [
+        "plc-shinjo-tenmangu"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://shinjo-matsuri.jp/db/tenman",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-29"
+        }
+      ],
+      "record_lifecycle": "active"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-shinjo-tenmangu",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "新庄天満神社",
+      "place_kind": "shrine",
+      "country_code": "JP",
+      "prefecture_code": "06",
+      "prefecture_name_ja": "山形県",
+      "municipality_name_ja": "新庄市",
+      "locality_ja": "新庄城址（最上公園）本丸跡南西隅",
+      "coordinate_precision": "venue",
+      "source_ids": [
+        "src-shinjo-tenmangu"
+      ]
+    },
+    {
+      "id": "plc-shinjo-abies",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "新庄駅前ふれあい広場 アビエス",
+      "place_kind": "festival_ground",
+      "country_code": "JP",
+      "prefecture_code": "06",
+      "prefecture_name_ja": "山形県",
+      "municipality_name_ja": "新庄市",
+      "locality_ja": "新庄駅西口",
+      "coordinate_precision": "venue",
+      "source_ids": [
+        "src-shinjo-matsuri-2026"
+      ]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-shinjo-matsuri-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-shinjo-matsuri",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-07-29",
+      "basis_evidence_ids": [
+        "evd-shinjo-matsuri-state"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-shinjo-matsuri-suspension-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_started",
+      "subject_entity_ids": [
+        "fst-shinjo-matsuri"
+      ],
+      "effective_period": {
+        "start": "2020",
+        "end": "2020"
+      },
+      "summary_ja": "新型コロナウイルス感染症の影響により、2020年の新庄まつりは全日程が中止され、神事のみが行われた。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-shinjo-matsuri-associated-with-tenmangu"
+      ],
+      "evidence_ids": [
+        "evd-shinjo-matsuri-suspension-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-shinjo-matsuri-suspension-ended-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_ended",
+      "subject_entity_ids": [
+        "fst-shinjo-matsuri"
+      ],
+      "effective_period": {
+        "start": "2021",
+        "end": "2021"
+      },
+      "summary_ja": "2021年に新庄まつりが2年ぶりに再開した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-shinjo-matsuri-organized-by-committee"
+      ],
+      "evidence_ids": [
+        "evd-shinjo-matsuri-suspension-ended-2021"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-shinjo-matsuri-format-changed-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "format_changed",
+      "subject_entity_ids": [
+        "fst-shinjo-matsuri"
+      ],
+      "effective_period": {
+        "start": "2021",
+        "end": "2021"
+      },
+      "summary_ja": "2021年は感染症対策のため規模を大幅に縮小し、15台の山車を中心とする形式で開催された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-shinjo-matsuri-organized-by-committee"
+      ],
+      "evidence_ids": [
+        "evd-shinjo-matsuri-format-changed-2021"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-shinjo-matsuri-format-restored-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "format_changed",
+      "subject_entity_ids": [
+        "fst-shinjo-matsuri"
+      ],
+      "effective_period": {
+        "start": "2022",
+        "end": "2022"
+      },
+      "summary_ja": "2022年は感染症対策を講じたうえで通常開催へ戻す方針が決定された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-shinjo-matsuri-organized-by-committee"
+      ],
+      "evidence_ids": [
+        "evd-shinjo-matsuri-format-restored-2022"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-chichibu-yomatsuri-format-changed-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "format_changed",
+      "subject_entity_ids": [
+        "fst-chichibu-yomatsuri"
+      ],
+      "effective_period": {
+        "start": "2020",
+        "end": "2020"
+      },
+      "summary_ja": "2020年は感染防止のため笠鉾・屋台の曳行などを中止し、秩父神社の神事と御神幸行列を中心とする縮小形式となった。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-chichibu-associated-with-shrine"
+      ],
+      "evidence_ids": [
+        "evd-chichibu-yomatsuri-format-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-chichibu-yomatsuri-format-changed-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "format_changed",
+      "subject_entity_ids": [
+        "fst-chichibu-yomatsuri"
+      ],
+      "effective_period": {
+        "start": "2021",
+        "end": "2021"
+      },
+      "summary_ja": "2021年も笠鉾・屋台の曳き廻しと花火大会を中止し、祭典・御神幸祭・諏訪渡りを縮小して行った。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-chichibu-associated-with-shrine"
+      ],
+      "evidence_ids": [
+        "evd-chichibu-yomatsuri-format-2021"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-shinjo-matsuri-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-shinjo-matsuri",
+      "series_id": "ser-shinjo-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2020-08-24",
+        "end": "2020-08-26",
+        "precision": "range"
+      },
+      "outcome": "cancelled",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-shinjo-tenmangu"
+      ],
+      "organizer_entity_ids": [
+        "org-shinjo-matsuri-committee"
+      ],
+      "evidence_ids": [
+        "evd-shinjo-matsuri-occ-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-shinjo-matsuri-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-shinjo-matsuri",
+      "series_id": "ser-shinjo-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2021-08-24",
+        "end": "2021-08-26",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "reduced",
+      "venue_place_ids": [
+        "plc-shinjo-tenmangu",
+        "plc-shinjo-abies"
+      ],
+      "organizer_entity_ids": [
+        "org-shinjo-matsuri-committee"
+      ],
+      "evidence_ids": [
+        "evd-shinjo-matsuri-occ-2021"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-shinjo-matsuri-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-shinjo-matsuri",
+      "series_id": "ser-shinjo-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2022-08-24",
+        "end": "2022-08-26",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "normal",
+      "venue_place_ids": [
+        "plc-shinjo-tenmangu",
+        "plc-shinjo-abies"
+      ],
+      "organizer_entity_ids": [
+        "org-shinjo-matsuri-committee"
+      ],
+      "evidence_ids": [
+        "evd-shinjo-matsuri-occ-2022"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-shinjo-matsuri-2026-schedule",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-shinjo-matsuri",
+      "series_id": "ser-shinjo-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-08-24",
+        "end": "2026-08-26",
+        "precision": "range"
+      },
+      "outcome": "scheduled",
+      "scale": "normal",
+      "venue_place_ids": [
+        "plc-shinjo-tenmangu",
+        "plc-shinjo-abies"
+      ],
+      "organizer_entity_ids": [
+        "org-shinjo-matsuri-committee"
+      ],
+      "evidence_ids": [
+        "evd-shinjo-matsuri-occ-2026"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-chichibu-yomatsuri-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-chichibu-yomatsuri",
+      "series_id": "ser-chichibu-yomatsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2020-12-02",
+        "end": "2020-12-03",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "reduced",
+      "venue_place_ids": [
+        "plc-chichibu-jinja"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-chichibu-yomatsuri-occ-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-chichibu-yomatsuri-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-chichibu-yomatsuri",
+      "series_id": "ser-chichibu-yomatsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2021-12-02",
+        "end": "2021-12-03",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "reduced",
+      "venue_place_ids": [
+        "plc-chichibu-jinja"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-chichibu-yomatsuri-occ-2021"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-chichibu-yomatsuri-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-chichibu-yomatsuri",
+      "series_id": "ser-chichibu-yomatsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2025-12-02",
+        "end": "2025-12-03",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "normal",
+      "venue_place_ids": [
+        "plc-chichibu-jinja"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-chichibu-yomatsuri-occ-2025"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-shinjo-matsuri-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-shinjo-matsuri",
+      "series_type": "annual_festival_edition",
+      "name_ja": "新庄まつり 年次開催",
+      "recurrence_pattern_id": "rec-shinjo-matsuri-annual",
+      "default_venue_place_ids": [
+        "plc-shinjo-tenmangu",
+        "plc-shinjo-abies"
+      ],
+      "evidence_ids": [
+        "evd-shinjo-matsuri-recurrence"
+      ]
+    },
+    {
+      "id": "ser-chichibu-yomatsuri-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-chichibu-yomatsuri",
+      "series_type": "annual_festival_edition",
+      "name_ja": "秩父夜祭 年次開催",
+      "recurrence_pattern_id": "rec-chichibu-yomatsuri-annual",
+      "default_venue_place_ids": [
+        "plc-chichibu-jinja"
+      ],
+      "evidence_ids": [
+        "evd-chichibu-recurrence"
+      ]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-shinjo-matsuri-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年8月24日・25日・26日",
+      "evidence_ids": [
+        "evd-shinjo-matsuri-recurrence"
+      ]
+    },
+    {
+      "id": "rec-chichibu-yomatsuri-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年12月2日・3日",
+      "evidence_ids": [
+        "evd-chichibu-recurrence"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-shinjo-matsuri-organized-by-committee",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-shinjo-matsuri",
+      "relation_type": "organized_by",
+      "target_entity_id": "org-shinjo-matsuri-committee",
+      "evidence_ids": [
+        "evd-rel-shinjo-matsuri-committee"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "rel-shinjo-matsuri-associated-with-tenmangu",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-shinjo-matsuri",
+      "relation_type": "ritually_associated_with",
+      "target_entity_id": "shr-shinjo-tenmangu",
+      "evidence_ids": [
+        "evd-rel-shinjo-matsuri-tenmangu"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-shinjo-matsuri-about",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "新庄まつりとは",
+      "publisher": "新庄まつり実行委員会",
+      "url": "https://shinjo-matsuri.jp/about",
+      "accessed_at": "2026-07-29",
+      "language": "ja"
+    },
+    {
+      "id": "src-shinjo-matsuri-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "令和8年度 新庄まつり催事予定",
+      "publisher": "新庄まつり実行委員会",
+      "url": "https://www.shinjo-matsuri.jp/date24.html",
+      "accessed_at": "2026-07-29",
+      "language": "ja"
+    },
+    {
+      "id": "src-shinjo-tenmangu",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "新庄天満神社",
+      "publisher": "新庄まつり実行委員会",
+      "url": "https://shinjo-matsuri.jp/db/tenman",
+      "accessed_at": "2026-07-29",
+      "language": "ja"
+    },
+    {
+      "id": "src-shinjo-matsuri-cancel-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "新庄まつりが無い 囃子だけでも！",
+      "publisher": "新庄市",
+      "url": "https://www.city.shinjo.yamagata.jp/s001/010/32/20210427103811.html",
+      "accessed_at": "2026-07-29",
+      "language": "ja",
+      "published_at": "2020-09-10"
+    },
+    {
+      "id": "src-shinjo-matsuri-reduced-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "新庄まつり ライブ配信URL",
+      "publisher": "新庄まつり実行委員会",
+      "url": "https://shinjo-matsuri.jp/db/information/15399",
+      "accessed_at": "2026-07-29",
+      "language": "ja",
+      "published_at": "2021-08-23"
+    },
+    {
+      "id": "src-shinjo-matsuri-normal-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "令和4年 新庄まつり開催のお知らせ",
+      "publisher": "新庄まつり実行委員会",
+      "url": "https://shinjo-matsuri.jp/db/information/15468",
+      "accessed_at": "2026-07-29",
+      "language": "ja",
+      "published_at": "2022-05-30"
+    },
+    {
+      "id": "src-chichibu-yomatsuri-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "今年の秩父夜祭はご自宅で！",
+      "publisher": "秩父市（秩父観光なび）",
+      "url": "https://navi.city.chichibu.lg.jp/blog/2020/11/4120/",
+      "accessed_at": "2026-07-29",
+      "language": "ja",
+      "published_at": "2020-11-24"
+    },
+    {
+      "id": "src-chichibu-yomatsuri-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "令和3年の秩父夜祭について",
+      "publisher": "秩父市（秩父観光なび）",
+      "url": "https://navi.city.chichibu.lg.jp/info/2021/10/16279/",
+      "accessed_at": "2026-07-29",
+      "language": "ja",
+      "published_at": "2021-10-20"
+    },
+    {
+      "id": "src-chichibu-yomatsuri-2025",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "令和7年 秩父夜祭について",
+      "publisher": "秩父市（秩父観光なび）",
+      "url": "https://navi.city.chichibu.lg.jp/info/2025/11/28217/",
+      "accessed_at": "2026-07-29",
+      "language": "ja",
+      "published_at": "2025-11-12"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-shinjo-matsuri-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-matsuri-about",
+      "target_type": "entity_identity",
+      "target_id": "fst-shinjo-matsuri",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "公式サイトは新庄まつりの名称、毎年8月24日から26日の開催、山車行列と神輿渡御行列を含む祭礼の構成を説明している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-shinjo-matsuri-committee-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-matsuri-2026",
+      "target_type": "entity_identity",
+      "target_id": "org-shinjo-matsuri-committee",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "2026年公式催事案内は新庄まつり実行委員会を発行・問い合わせ主体として明示している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-shinjo-tenmangu-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-tenmangu",
+      "target_type": "entity_identity",
+      "target_id": "shr-shinjo-tenmangu",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "公式ページは新庄天満神社の名称、鎮座地、祭神、沿革、8月25日の例大祭を説明している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-shinjo-tenmangu-place",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-tenmangu",
+      "target_type": "place",
+      "target_id": "plc-shinjo-tenmangu",
+      "assertion_code": "supports_place",
+      "summary_ja": "公式ページは新庄天満神社が新庄城址本丸跡の南西隅に位置することを示している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-shinjo-abies-place",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-matsuri-2026",
+      "target_type": "place",
+      "target_id": "plc-shinjo-abies",
+      "assertion_code": "supports_place",
+      "summary_ja": "2026年公式催事案内は新庄駅前ふれあい広場アビエスを合同演奏会と山車行列の主要会場としている。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-shinjo-matsuri-state",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-matsuri-2026",
+      "target_type": "state_snapshot",
+      "target_id": "sts-shinjo-matsuri-current",
+      "assertion_code": "supports_current_state",
+      "summary_ja": "公式サイトは2026年8月24日から26日の催事予定を公開し、通常規模の山車行列と例大祭を案内している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-shinjo-matsuri-recurrence",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-matsuri-about",
+      "target_type": "recurrence_pattern",
+      "target_id": "rec-shinjo-matsuri-annual",
+      "assertion_code": "supports_recurrence",
+      "summary_ja": "公式サイトは新庄まつりが毎年8月24日・25日・26日の3日間に固定して行われると説明している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-shinjo-matsuri-committee",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-matsuri-2026",
+      "target_type": "relation",
+      "target_id": "rel-shinjo-matsuri-organized-by-committee",
+      "assertion_code": "supports_relation",
+      "summary_ja": "2026年公式催事案内は新庄まつり実行委員会を催事案内と問い合わせの主体として明示している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-shinjo-matsuri-tenmangu",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-tenmangu",
+      "target_type": "relation",
+      "target_id": "rel-shinjo-matsuri-associated-with-tenmangu",
+      "assertion_code": "supports_relation",
+      "summary_ja": "公式ページは天満宮祭りを新庄まつりの起源とし、現在も8月25日に天満神社例大祭と神輿渡御行列を行うと説明している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-shinjo-matsuri-suspension-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-matsuri-cancel-2020",
+      "target_type": "change_event",
+      "target_id": "chg-shinjo-matsuri-suspension-2020",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "新庄市は2020年の新庄まつりが中止となり、関係者による神事のみが行われたと記録している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-shinjo-matsuri-occ-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-matsuri-cancel-2020",
+      "target_type": "occurrence",
+      "target_id": "occ-shinjo-matsuri-2020",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "新庄市の記録は2020年8月24日から26日の新庄まつりが中止されたことを裏付ける。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-shinjo-matsuri-suspension-ended-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-matsuri-reduced-2021",
+      "target_type": "change_event",
+      "target_id": "chg-shinjo-matsuri-suspension-ended-2021",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "公式案内は2021年の新庄まつりを2年ぶりの開催と記録している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-shinjo-matsuri-format-changed-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-matsuri-reduced-2021",
+      "target_type": "change_event",
+      "target_id": "chg-shinjo-matsuri-format-changed-2021",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "公式案内は2021年を感染症の影響により規模縮小で行い、15台の山車を配信すると説明している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-shinjo-matsuri-occ-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-matsuri-reduced-2021",
+      "target_type": "occurrence",
+      "target_id": "occ-shinjo-matsuri-2021",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "公式案内は2021年の新庄まつりを2年ぶりに規模縮小で開催したことを裏付ける。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-shinjo-matsuri-format-restored-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-matsuri-normal-2022",
+      "target_type": "change_event",
+      "target_id": "chg-shinjo-matsuri-format-restored-2022",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "実行委員会は2022年を感染症対策のうえで通常開催とする方針を決定した。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-shinjo-matsuri-occ-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-matsuri-normal-2022",
+      "target_type": "occurrence",
+      "target_id": "occ-shinjo-matsuri-2022",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "公式発表は2022年の新庄まつりを通常開催すると記録している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-shinjo-matsuri-occ-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-matsuri-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-shinjo-matsuri-2026-schedule",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "公式催事予定は2026年8月24日から26日の例大祭、神輿渡御、山車行列と各会場を掲載している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-chichibu-yomatsuri-format-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-chichibu-yomatsuri-2020",
+      "target_type": "change_event",
+      "target_id": "chg-chichibu-yomatsuri-format-changed-2020",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "秩父市公式観光ブログは2020年に山車の曳行などを中止し、秩父神社の神事と御神幸行列を実施したと記録している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-chichibu-yomatsuri-occ-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-chichibu-yomatsuri-2020",
+      "target_type": "occurrence",
+      "target_id": "occ-chichibu-yomatsuri-2020",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "秩父市公式観光ブログは2020年12月3日に御神幸行列と奉納花火を実施したことを案内している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-chichibu-yomatsuri-format-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-chichibu-yomatsuri-2021",
+      "target_type": "change_event",
+      "target_id": "chg-chichibu-yomatsuri-format-changed-2021",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "秩父市は2021年に笠鉾・屋台曳行と花火大会を中止し、祭典と御神幸祭を縮小して実施すると公表した。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-chichibu-yomatsuri-occ-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-chichibu-yomatsuri-2021",
+      "target_type": "occurrence",
+      "target_id": "occ-chichibu-yomatsuri-2021",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "秩父市の案内は2021年12月2日・3日に縮小した神事と御神幸祭を行ったことを裏付ける。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-chichibu-yomatsuri-occ-2025",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-chichibu-yomatsuri-2025",
+      "target_type": "occurrence",
+      "target_id": "occ-chichibu-yomatsuri-2025",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "秩父市の2025年案内は12月2日・3日の開催日程、笠鉾・屋台巡行、花火大会、屋台芝居を掲載し、通常開催を裏付ける。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
