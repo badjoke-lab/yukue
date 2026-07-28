@@ -1,0 +1,75 @@
+{
+  "entities": [
+    {
+      "id": "fst-nunokawa-hana-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-28T00:00:00Z",
+      "slug": "nunokawa-hana-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "component",
+      "names": [
+        {
+          "value": "布川地区花祭",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-toei-hana",
+            "src-toei-nunokawa-place"
+          ]
+        }
+      ],
+      "summary_ja": "東栄町布川地区に伝承される花祭。町公式資料では現在「休止中」とされる。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "23",
+            "prefecture_name_ja": "愛知県",
+            "municipality_name_ja": "東栄町"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "primary_place_id": "plc-toei-nunokawa-shukaijo",
+      "default_place_ids": [
+        "plc-toei-nunokawa-shukaijo",
+        "plc-toei-nunokawa"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.town.toei.aichi.jp/5414.htm",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-07-28"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "ritual_festival",
+      "usual_months": [
+        11,
+        12,
+        1
+      ],
+      "season_tags": [
+        "秋",
+        "冬"
+      ]
+    }
+  ],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}

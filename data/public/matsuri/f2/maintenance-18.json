@@ -1,0 +1,187 @@
+{
+  "entities": [],
+  "places": [
+    {
+      "id": "plc-toei-nunokawa-shukaijo",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "布川集会所",
+      "place_kind": "festival_ground",
+      "country_code": "JP",
+      "prefecture_code": "23",
+      "prefecture_name_ja": "愛知県",
+      "municipality_name_ja": "東栄町",
+      "locality_ja": "大字中設楽字平",
+      "coordinate_precision": "venue",
+      "source_ids": [
+        "src-toei-nunokawa-place"
+      ]
+    }
+  ],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-akita-kanto-guidemap-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "2026年会場周辺図",
+      "publisher": "秋田市竿燈まつり実行委員会",
+      "url": "https://www.kantou.gr.jp/guidemap/",
+      "published_at": "2026-01-01",
+      "accessed_at": "2026-07-28",
+      "language": "ja"
+    },
+    {
+      "id": "src-aomori-nebuta-map-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "青森ねぶた祭運行マップ（2026年）",
+      "publisher": "青森ねぶた祭実行委員会",
+      "url": "https://www.nebuta.jp/info/schedule/map.html",
+      "published_at": "2026-06-23",
+      "accessed_at": "2026-07-28",
+      "language": "ja"
+    },
+    {
+      "id": "src-toei-hana-official-map",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "花祭り公式サイト 各地の花祭",
+      "publisher": "東栄町",
+      "url": "https://www.town.toei.aichi.jp/hana_maturi/",
+      "accessed_at": "2026-07-28",
+      "language": "ja"
+    },
+    {
+      "id": "src-sendai-tanabata-guide-map-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "仙台七夕まつり デジタルマップ・2026年公式リーフレット",
+      "publisher": "仙台七夕まつり協賛会",
+      "url": "https://www.sendaitanabata.com/guide/",
+      "published_at": "2026-01-01",
+      "accessed_at": "2026-07-28",
+      "language": "ja"
+    },
+    {
+      "id": "src-toei-nunokawa-place",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "布川地区 花祭 開催情報",
+      "publisher": "東栄町",
+      "url": "https://www.town.toei.aichi.jp/5414.htm",
+      "accessed_at": "2026-07-28",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-akita-kanto-official-map",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-akita-kanto-guidemap-2026",
+      "target_type": "place",
+      "target_id": "plc-akita-kanto-main-avenue",
+      "assertion_code": "supports_place",
+      "summary_ja": "公式会場案内は2026年の竿燈大通り会場周辺図を公開し、観覧区域と会場構成を示している。",
+      "captured_at": "2026-07-28",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-aomori-nebuta-official-map",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aomori-nebuta-map-2026",
+      "target_type": "place",
+      "target_id": "plc-aomori-nebuta-route",
+      "assertion_code": "supports_place",
+      "summary_ja": "公式運行マップは2026年の青森ねぶた祭運行コースを示している。",
+      "captured_at": "2026-07-28",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-toei-hana-official-map",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-toei-hana-official-map",
+      "target_type": "place",
+      "target_id": "plc-toei-town",
+      "assertion_code": "supports_place",
+      "summary_ja": "東栄町の花祭り公式サイトは、町内各地区の花祭と個別開催地への導線をまとめている。",
+      "captured_at": "2026-07-28",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hirosaki-neputa-official-map",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-current",
+      "target_type": "place",
+      "target_id": "plc-hirosaki-neputa-routes",
+      "assertion_code": "supports_place",
+      "summary_ja": "弘前ねぷたまつり公式案内は、2026年の土手町・駅前・土手町午前コースと交通案内を掲載している。",
+      "captured_at": "2026-07-28",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hirosaki-neputa-300-official-map",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hirosaki-neputa-300-program",
+      "target_type": "place",
+      "target_id": "plc-hirosaki-neputa-routes",
+      "assertion_code": "supports_place",
+      "summary_ja": "弘前ねぷた300年祭公式記録は、2022年特別運行の会場を弘前市駅前地区として運行マップとともに掲載している。",
+      "captured_at": "2026-07-28",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sendai-tanabata-official-map",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sendai-tanabata-guide-map-2026",
+      "target_type": "place",
+      "target_id": "plc-sendai-tanabata-central-area",
+      "assertion_code": "supports_place",
+      "summary_ja": "仙台七夕まつり公式ガイドは、中心商店街と案内所を確認できるデジタルマップおよび2026年公式リーフレットを公開している。",
+      "captured_at": "2026-07-28",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-gujo-odori-official-map",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-gujo-schedule-2026",
+      "target_type": "place",
+      "target_id": "plc-gujo-hachiman-town",
+      "assertion_code": "supports_place",
+      "summary_ja": "2026年公式日程は各開催日の町名・神社・寺院・公園と、それぞれの会場地図への導線を掲載している。",
+      "captured_at": "2026-07-28",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-nunokawa-shukaijo-place",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-toei-nunokawa-place",
+      "target_type": "place",
+      "target_id": "plc-toei-nunokawa-shukaijo",
+      "assertion_code": "supports_place",
+      "summary_ja": "東栄町公式の布川地区花祭ページは、開催場所を布川集会所、所在地を大字中設楽字平と明記している。",
+      "captured_at": "2026-07-28",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}

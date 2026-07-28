@@ -1,5 +1,6 @@
 ---
-import type { PlaceItem } from "../types.js";
+import officialMapRegistry from "../../../../config/matsuri-official-map-links.json";
+import type { OfficialMapLink, PlaceItem } from "../types.js";
 
 interface Props {
   places: PlaceItem[];
@@ -10,23 +11,45 @@ interface Props {
   detailLabel?: string;
 }
 
-type MapMode = "point" | "representative" | "area";
+type MapMode = "point" | "primary-anchor" | "official-map" | "unavailable";
+
+type OfficialMapRecord = {
+  entity_route: string;
+  place_route: string;
+  place_name_ja: string;
+  label_ja: string;
+  url: string;
+  source_id: string;
+};
 
 const areaContextLabels = new Set(["巡行路", "伝承地域", "地区"]);
-const areaContextPattern =
-  /巡行|運行|区域|市街地|周辺|複数地点|複数会場|複数地域|各地区|会場群|街路|コース|道じゅねー/u;
+const pointContextPriority = new Map([
+  ["神社", 0],
+  ["寺院", 0],
+  ["祭場", 1],
+  ["上演場所", 1],
+  ["公園", 2],
+]);
+const nonPointNamePattern =
+  /巡行|運行|区域|市街地|周辺|複数地点|複数会場|複数地域|各地区|会場群|街路|コース|道じゅねー|市内$|町内$|村内$/u;
 
 function normalized(value: string | undefined): string {
   return value?.trim().replace(/\s+/gu, " ") ?? "";
 }
 
-function municipalityQuery(address: string): string {
-  const match = address.match(/^(.+?[都道府県])(.+?(?:市|区|町|村))/u);
-  return match ? `${match[1]}${match[2]}` : address;
+function isConcretePoint(place: PlaceItem): boolean {
+  const label = normalized(place.contextLabel);
+  const name = normalized(place.name);
+  if (!name || areaContextLabels.has(label) || nonPointNamePattern.test(name)) return false;
+  return pointContextPriority.has(label);
+}
+
+function pointPriority(place: PlaceItem): number {
+  return pointContextPriority.get(normalized(place.contextLabel)) ?? 99;
 }
 
 function placeQuery(place: PlaceItem): string {
-  return [normalized(place.address), normalized(place.name)].filter(Boolean).join(" ");
+  return [normalized(place.name), normalized(place.address)].filter(Boolean).join(" ");
 }
 
 function externalMapHref(place: PlaceItem): string {
@@ -42,56 +65,72 @@ const {
   openMapLabel = "地図で開く",
   detailLabel = "場所の記録を見る",
 } = Astro.props;
+const currentPath = Astro.url.pathname.endsWith("/") ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const registryRecords = officialMapRegistry.records as OfficialMapRecord[];
 
-const hasAreaPlace = places.some((place) =>
-  areaContextLabels.has(normalized(place.contextLabel)),
-);
-const hasAreaContext = areaContextPattern.test(normalized(contextDescription));
-const mapMode: MapMode =
-  hasAreaPlace || hasAreaContext
-    ? "area"
-    : places.length > 1
-      ? "representative"
-      : "point";
-const representativePlace = places[0];
-const representativeAddress = normalized(representativePlace?.address);
-const mapQuery = representativePlace
-  ? mapMode === "area" && representativeAddress
-    ? municipalityQuery(representativeAddress)
-    : placeQuery(representativePlace)
-  : "";
+function officialLinksFor(place: PlaceItem): OfficialMapLink[] {
+  const configured = registryRecords
+    .filter(
+      (record) =>
+        (record.entity_route === currentPath || record.place_route === currentPath) &&
+        record.place_name_ja === place.name,
+    )
+    .map((record) => ({
+      href: record.url,
+      label: record.label_ja,
+      sourceId: record.source_id,
+    }));
+  return [...(place.officialMapLinks ?? []), ...configured].filter(
+    (link, index, rows) => rows.findIndex((candidate) => candidate.href === link.href) === index,
+  );
+}
+
+const officialLinksByPlace = new Map(places.map((place) => [place.name, officialLinksFor(place)]));
+const allOfficialMapLinks = [...officialLinksByPlace.values()].flat();
+const concretePlaces = places
+  .map((place, index) => ({ place, index }))
+  .filter(({ place }) => isConcretePoint(place))
+  .sort((a, b) => pointPriority(a.place) - pointPriority(b.place) || a.index - b.index)
+  .map(({ place }) => place);
+const anchorPlace = concretePlaces[0];
 const resolvedEmbedUrl =
   embedUrl ??
-  (mapQuery
-    ? `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`
+  anchorPlace?.embedUrl ??
+  (anchorPlace
+    ? `https://www.google.com/maps?q=${encodeURIComponent(placeQuery(anchorPlace))}&output=embed`
     : undefined);
-const resolvedEmbedTitle =
-  embedTitle ??
-  (mapMode === "area"
-    ? "開催・上演地域の周辺地図"
-    : mapMode === "representative"
-      ? `${representativePlace?.name ?? "代表地点"}の周辺地図`
-      : `${representativePlace?.name ?? "関連地点"}の地図`);
-const mapNotice =
-  mapMode === "area"
-    ? "巡行路・分散会場・地域範囲を一点の所在地として扱わず、関係地域の周辺地図を表示しています。具体的な範囲は場所一覧と根拠資料で確認してください。"
-    : mapMode === "representative"
-      ? "複数地点のうち、場所一覧の先頭にある代表地点の周辺地図を表示しています。"
-      : undefined;
+const mapMode: MapMode = resolvedEmbedUrl
+  ? places.length > 1
+    ? "primary-anchor"
+    : "point"
+  : allOfficialMapLinks.length > 0
+    ? "official-map"
+    : "unavailable";
+const resolvedEmbedTitle = embedTitle ?? `${anchorPlace?.name ?? "開催・上演拠点"}の地図`;
+const mapNotice = resolvedEmbedUrl
+  ? places.length > 1
+    ? `祭礼・芸能の地理的な基点として「${anchorPlace?.name}」を表示しています。巡行路やその他の会場は場所一覧と公式会場図で確認してください。`
+    : undefined
+  : allOfficialMapLinks.length > 0
+    ? "単一地点のGoogle地図では実際の開催範囲を示せないため、主催者・自治体が公開する公式会場図または日別会場地図へ案内しています。"
+    : "開催・上演の中心地点を特定できる神社・寺院・祭場・主会場、または公式会場図が未登録のため、地図を表示していません。市区町村名だけの地図は会場案内として扱いません。";
 ---
 
 {contextDescription && <p class="yk-map-context">{contextDescription}</p>}
 <div
   class="yk-place-map"
-  data-has-map={resolvedEmbedUrl ? "true" : "false"}
+  data-has-map={mapMode === "unavailable" ? "false" : "true"}
   data-map-mode={mapMode}
-  data-map-provider="google-maps-query"
+  data-map-provider={resolvedEmbedUrl ? "google-maps-query" : allOfficialMapLinks.length > 0 ? "official-source" : "none"}
+  data-map-anchor={anchorPlace?.name}
 >
   <div class="yk-place-list">
     {places.map((place) => {
-      const resolvedMapHref = place.mapHref ?? externalMapHref(place);
+      const concrete = isConcretePoint(place);
+      const resolvedMapHref = concrete ? place.mapHref ?? externalMapHref(place) : undefined;
+      const officialLinks = officialLinksByPlace.get(place.name) ?? [];
       return (
-        <article class="yk-place-item" data-place-item>
+        <article class="yk-place-item" data-place-item data-map-eligible={concrete ? "true" : "false"}>
           {place.contextLabel && <p class="yk-place-item__context">{place.contextLabel}</p>}
           <h3 class="yk-place-item__name">
             {place.detailHref ? <a href={place.detailHref} data-place-link>{place.name}</a> : place.name}
@@ -99,14 +138,27 @@ const mapNotice =
           {place.address && <p class="yk-place-item__address">{place.address}</p>}
           <div class="yk-place-item__actions">
             {place.detailHref && <a href={place.detailHref}>{detailLabel}</a>}
-            <a href={resolvedMapHref} data-place-map-link rel="noopener noreferrer">{openMapLabel}</a>
+            {resolvedMapHref && (
+              <a href={resolvedMapHref} data-place-map-link rel="noopener noreferrer">{openMapLabel}</a>
+            )}
+            {officialLinks.map((link) => (
+              <a href={link.href} data-official-map-link data-source-id={link.sourceId} rel="noopener noreferrer">
+                {link.label}
+              </a>
+            ))}
           </div>
+          {!concrete && officialLinks.length === 0 && (
+            <p class="yk-place-item__map-status">
+              {place.mapUnavailableReason ??
+                "この記録は経路・地域・複数会場を示しており、単一地点の地図としては表示しません。"}
+            </p>
+          )}
         </article>
       );
     })}
   </div>
 
-  {resolvedEmbedUrl && (
+  {resolvedEmbedUrl ? (
     <figure class="yk-map-figure">
       <div class="yk-map-frame">
         <iframe
@@ -120,6 +172,19 @@ const mapNotice =
       </div>
       {mapNotice && <figcaption class="yk-map-note">{mapNotice}</figcaption>}
     </figure>
+  ) : allOfficialMapLinks.length > 0 ? (
+    <div class="yk-official-map" data-official-map-panel>
+      <p>{mapNotice}</p>
+      <ul>
+        {allOfficialMapLinks.map((link) => (
+          <li><a href={link.href} data-official-map-link data-source-id={link.sourceId} rel="noopener noreferrer">{link.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  ) : (
+    <div class="yk-map-unavailable" data-map-unavailable>
+      <p>{mapNotice}</p>
+    </div>
   )}
 </div>
 
@@ -129,6 +194,36 @@ const mapNotice =
     flex-wrap: wrap;
     gap: var(--space-3) var(--space-5);
     font-size: var(--font-size-sm);
+  }
+
+  .yk-place-item__map-status,
+  .yk-map-unavailable,
+  .yk-official-map {
+    color: var(--color-muted);
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-body);
+  }
+
+  .yk-place-item__map-status {
+    margin: var(--space-3) 0 0;
+  }
+
+  .yk-map-unavailable,
+  .yk-official-map {
+    padding: var(--space-5);
+    border: var(--rule-standard);
+  }
+
+  .yk-map-unavailable p,
+  .yk-official-map p {
+    margin: 0;
+  }
+
+  .yk-official-map ul {
+    display: grid;
+    gap: var(--space-2);
+    margin: var(--space-4) 0 0;
+    padding-left: var(--space-5);
   }
 
   .yk-map-figure {

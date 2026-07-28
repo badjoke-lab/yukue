@@ -11,13 +11,16 @@ on:
       - "apps/matsuri/src/components/BrowseEntityList.astro"
       - "apps/matsuri/src/data/**"
       - "apps/matsuri/src/pages/**"
+      - "config/matsuri-official-map-links.json"
       - "packages/search/**"
       - "packages/ui/src/components/EvidenceList.astro"
       - "packages/ui/src/components/PlaceMap.astro"
       - "packages/ui/src/components/RelationList.astro"
       - "packages/ui/src/types.ts"
+      - "scripts/audit-matsuri-map-utility.mjs"
       - "scripts/check-matsuri-detail-navigation.mjs"
       - "scripts/check-matsuri-map-coverage.mjs"
+      - "scripts/check-matsuri-map-utility-v2.mjs"
       - "scripts/check-matsuri-consistency.mjs"
       - "tests/browser/matsuri-detail-navigation.spec.mjs"
       - "docs/information-architecture.md"
@@ -33,13 +36,16 @@ on:
       - "apps/matsuri/src/components/BrowseEntityList.astro"
       - "apps/matsuri/src/data/**"
       - "apps/matsuri/src/pages/**"
+      - "config/matsuri-official-map-links.json"
       - "packages/search/**"
       - "packages/ui/src/components/EvidenceList.astro"
       - "packages/ui/src/components/PlaceMap.astro"
       - "packages/ui/src/components/RelationList.astro"
       - "packages/ui/src/types.ts"
+      - "scripts/audit-matsuri-map-utility.mjs"
       - "scripts/check-matsuri-detail-navigation.mjs"
       - "scripts/check-matsuri-map-coverage.mjs"
+      - "scripts/check-matsuri-map-utility-v2.mjs"
       - "scripts/check-matsuri-consistency.mjs"
       - "tests/browser/matsuri-detail-navigation.spec.mjs"
       - "docs/information-architecture.md"
@@ -80,11 +86,23 @@ jobs:
       - name: Verify Detail C routes and navigation
         run: pnpm check:matsuri:detail-navigation
 
-      - name: Verify embedded-map coverage and negative fixtures
+      - name: Verify map utility and negative fixtures
         run: pnpm check:matsuri:map-coverage
+
+      - name: Write complete map utility inventory
+        run: pnpm audit:matsuri:map-utility
 
       - name: Verify Detail C in a real browser
         run: pnpm exec playwright test tests/browser/matsuri-detail-navigation.spec.mjs --config=playwright.config.mjs --project=desktop-chromium
+
+      - name: Upload map utility audit
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: matsuri-map-utility-audit-${{ github.run_id }}
+          path: artifacts/matsuri-map-utility/**
+          if-no-files-found: error
+          retention-days: 30
 
       - name: Write verification summary
         if: always()
@@ -94,8 +112,17 @@ jobs:
           echo "- Shrine and Temple seed references remain State-free" >> "$GITHUB_STEP_SUMMARY"
           echo "- Relations are navigable in both directions" >> "$GITHUB_STEP_SUMMARY"
           echo "- Places and individual JSON records are reachable" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Every detail with Place records has an embedded map and one external map action per Place" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Route, distributed, and area records cannot regress to a misleading point-map mode" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Concrete locations use a reviewed shrine, temple, festival ground, performance venue, park, or other main-place anchor" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Multi-site records without one honest point use an Evidence-backed official venue, route, or day-by-day map" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Municipality-only maps cannot replace either a concrete anchor or an approved official map" >> "$GITHUB_STEP_SUMMARY"
+          echo "- A Festival or Folk Performance without either coverage type fails the gate" >> "$GITHUB_STEP_SUMMARY"
           echo "- Public HTML contains no map API key" >> "$GITHUB_STEP_SUMMARY"
           echo "- Search and browse titles open real detail pages" >> "$GITHUB_STEP_SUMMARY"
           echo "- Exhaustive navigation is verified in Chromium" >> "$GITHUB_STEP_SUMMARY"
+          REPORT="artifacts/matsuri-map-utility/map-utility-audit.json"
+          if [ -f "$REPORT" ]; then
+            CHECKED=$(node -e "const x=require('./$REPORT'); console.log(x.summary.checked_detail_count)")
+            ANCHORED=$(node -e "const x=require('./$REPORT'); console.log(x.summary.anchored_detail_count)")
+            GAPS=$(node -e "const x=require('./$REPORT'); console.log(x.summary.location_gap_count)")
+            echo "- Map utility inventory: $CHECKED checked, $ANCHORED anchored, $GAPS location gaps" >> "$GITHUB_STEP_SUMMARY"
+          fi

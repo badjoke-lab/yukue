@@ -1,0 +1,325 @@
+{
+  "entities": [
+    {
+      "id": "unt-gion-takayama",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-28T00:00:00Z",
+      "slug": "gion-takayama",
+      "entity_type": "tradition_unit",
+      "home_surface": "matsuri",
+      "tradition_scope": "component",
+      "names": [
+        {
+          "value": "鷹山",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-yasaka-gion-map"
+          ]
+        }
+      ],
+      "summary_ja": "祇園祭の山鉾行事を構成する山の一つ。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "26",
+            "prefecture_name_ja": "京都府",
+            "municipality_name_ja": "京都市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [
+        "plc-yasaka-jinja",
+        "plc-gion-yamahoko-route"
+      ],
+      "external_links": [
+        {
+          "kind": "preservation_group_website",
+          "platform": "web",
+          "url": "https://takayama.or.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active",
+      "unit_kind": "float_tradition",
+      "parent_festival_ids": [
+        "fst-gion-matsuri"
+      ],
+      "primary_place_id": "plc-yasaka-jinja"
+    },
+    {
+      "id": "fst-kawagoe-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-28T00:00:00Z",
+      "slug": "kawagoe-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "川越まつり",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-kawagoe-home"
+          ]
+        }
+      ],
+      "summary_ja": "川越氷川神社の例大祭を根源とし、神幸祭と山車行事から成る祭礼。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "11",
+            "prefecture_name_ja": "埼玉県",
+            "municipality_name_ja": "川越市"
+          }
+        ],
+        "scope_type": "route_based",
+        "description_ja": "川越氷川神社と川越市中心部の山車行事区域を含む。"
+      },
+      "primary_place_id": "plc-kawagoe-hikawa-jinja",
+      "default_place_ids": [
+        "plc-kawagoe-hikawa-jinja",
+        "plc-kawagoe-matsuri-area"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.kawagoematsuri.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "shrine_festival",
+      "recurrence_pattern": {
+        "pattern_type": "annual",
+        "rule_text_ja": "毎年10月第3日曜日とその前日",
+        "evidence_ids": [
+          "evd-kawagoe-recurrence"
+        ]
+      },
+      "usual_months": [
+        10
+      ],
+      "usual_duration_days": 2,
+      "season_tags": [
+        "秋"
+      ]
+    },
+    {
+      "id": "fst-nunobashi-kanjoe",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-28T00:00:00Z",
+      "slug": "nunobashi-kanjoe",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "布橋灌頂会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-tateyama-nunobashi"
+          ]
+        }
+      ],
+      "summary_ja": "立山信仰に基づき、女性の極楽往生を願う儀式。約130年間の中断を経て1996年に復活した。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "16",
+            "prefecture_name_ja": "富山県",
+            "municipality_name_ja": "立山町"
+          }
+        ],
+        "scope_type": "single_area",
+        "description_ja": "立山町芦峅寺の閻魔堂、布橋、遥望館周辺で行われる。"
+      },
+      "primary_place_id": "plc-nunobashi-tateyama-museum",
+      "default_place_ids": [
+        "plc-nunobashi-tateyama-museum",
+        "plc-ashikuraji-nunobashi-area"
+      ],
+      "external_links": [
+        {
+          "kind": "municipality_page",
+          "platform": "web",
+          "url": "https://www.town.tateyama.toyama.jp/soshikikarasagasu/shokokankoka/kankokoryugakari/1/6/10784.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "ritual_festival",
+      "recurrence_pattern": {
+        "pattern_type": "triennial",
+        "rule_text_ja": "3年に1回開催",
+        "evidence_ids": [
+          "evd-nunobashi-recurrence"
+        ]
+      }
+    },
+    {
+      "id": "fpf-yosakoi-soran-performance",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-28T00:00:00Z",
+      "slug": "yosakoi-soran-performance",
+      "entity_type": "folk_performance",
+      "home_surface": "matsuri",
+      "tradition_scope": "collective",
+      "names": [
+        {
+          "value": "YOSAKOIソーラン演舞",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-yosakoi-soran-about",
+            "src-yosakoi-soran-knowledge"
+          ]
+        }
+      ],
+      "summary_ja": "鳴子を手に持ち、ソーラン節のフレーズを含む楽曲で、各チームが独自の踊りを披露する集合的な演舞文化。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "01",
+            "prefecture_name_ja": "北海道",
+            "municipality_name_ja": "札幌市"
+          }
+        ],
+        "scope_type": "distributed",
+        "description_ja": "大通公園を中心に札幌市内の複数会場で演舞が行われる。"
+      },
+      "primary_place_id": "plc-yosakoi-odori-west8",
+      "default_place_ids": [
+        "plc-yosakoi-odori-west8",
+        "plc-sapporo-yosakoi-soran-area"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.yosakoi-soran.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active",
+      "performance_kind": "dance",
+      "forms": [
+        "パレード形式",
+        "ステージ形式"
+      ],
+      "recurrence_pattern": {
+        "pattern_type": "annual",
+        "rule_text_ja": "毎年6月に開催されるYOSAKOIソーラン祭りの期間中に披露される",
+        "evidence_ids": [
+          "evd-yosakoi-soran-recurrence"
+        ]
+      },
+      "usual_months": [
+        6
+      ],
+      "occurrence_series_ids": [
+        "ser-yosakoi-soran-annual"
+      ]
+    },
+    {
+      "id": "fst-tokushima-awaodori",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-07-28T00:00:00Z",
+      "slug": "tokushima-city-awaodori",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "徳島市阿波おどり",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-awa-home"
+          ]
+        }
+      ],
+      "summary_ja": "徳島市で毎年8月に行われる阿波おどりの大規模な祭典。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "36",
+            "prefecture_name_ja": "徳島県",
+            "municipality_name_ja": "徳島市"
+          }
+        ],
+        "scope_type": "multi_site",
+        "description_ja": "徳島市内の複数の舞台・演舞場・街路空間で構成される。"
+      },
+      "primary_place_id": "plc-tokushima-aibahama-enbujo",
+      "default_place_ids": [
+        "plc-tokushima-aibahama-enbujo",
+        "plc-tokushima-city-center"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.awaodorimirai.com/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "dance_festival",
+      "recurrence_pattern": {
+        "pattern_type": "annual",
+        "rule_text_ja": "毎年8月11日から15日までの5日間",
+        "evidence_ids": [
+          "evd-awa-recurrence"
+        ]
+      },
+      "usual_months": [
+        8
+      ],
+      "usual_duration_days": 5,
+      "season_tags": [
+        "夏"
+      ]
+    }
+  ],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}

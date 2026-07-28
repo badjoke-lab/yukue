@@ -41,8 +41,22 @@ jobs:
         with:
           node-version: 24
 
+      - name: Write complete relation coverage report
+        run: |
+          mkdir -p artifacts/matsuri-relation-coverage
+          node scripts/audit-matsuri-relation-coverage.mjs --json > artifacts/matsuri-relation-coverage/report.json
+
       - name: Verify relation coverage contract and negative fixtures
         run: node scripts/audit-matsuri-relation-coverage.mjs --require-clean --verify-fixtures
+
+      - name: Upload relation coverage report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: matsuri-relation-coverage-${{ github.run_id }}
+          path: artifacts/matsuri-relation-coverage/report.json
+          if-no-files-found: error
+          retention-days: 30
 
       - name: Write verification summary
         if: always()
@@ -53,3 +67,11 @@ jobs:
           echo "- Shared specialist/context Places must not lose their explicit reviewed Relation" >> "$GITHUB_STEP_SUMMARY"
           echo "- Every Relation must retain at least one Evidence reference" >> "$GITHUB_STEP_SUMMARY"
           echo "- Four synthetic negative fixtures must each be detected and rejected" >> "$GITHUB_STEP_SUMMARY"
+          REPORT="artifacts/matsuri-relation-coverage/report.json"
+          if [ -f "$REPORT" ]; then
+            ZERO=$(node -e "const x=require('./$REPORT'); console.log(x.summary.zero_relation_specialists)")
+            ORG=$(node -e "const x=require('./$REPORT'); console.log(x.summary.organizer_relation_gaps)")
+            PLACE=$(node -e "const x=require('./$REPORT'); console.log(x.summary.place_context_relation_gaps)")
+            EVIDENCE=$(node -e "const x=require('./$REPORT'); console.log(x.summary.relations_missing_evidence)")
+            echo "- Current gaps: zero-relation=$ZERO, organizer=$ORG, place-context=$PLACE, missing-evidence=$EVIDENCE" >> "$GITHUB_STEP_SUMMARY"
+          fi

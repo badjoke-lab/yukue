@@ -122,14 +122,24 @@ Image-zero records must look intentional. Do not render placeholder images, empt
 
 ## Map behavior
 
-A detail page with approved Place records must render an embedded map and an external map action for every Place. A Place list without an iframe is not a completed `Places & Map` section.
+The map exists to answer **where the ritual, festival, or performance is actually based or primarily held**. A municipality map, city-center map, or route-area map that does not identify that base is not a completed `Places & Map` implementation.
 
-- single site: embedded point map + address,
-- multiple point-like sites: embedded representative map + complete Place list + representative-map notice,
-- route based: embedded area map + route context + related Places; a misleading single pin is prohibited,
-- distributed: embedded area map + area explanation + complete Place list.
+Map-anchor priority:
 
-The map is a navigation aid. Approved Place, Evidence, and Source records remain the factual basis for location claims.
+1. an Evidence-backed Shrine or Temple that is the ritual base, dedication site, or principal venue,
+2. an Evidence-backed festival ground or principal performance venue,
+3. another concrete official main venue such as a park,
+4. only after the anchor is shown, supporting Places such as procession routes, distributed areas, secondary venues, and community areas.
+
+Rules:
+
+- a Shrine festival or Temple event must map the relevant Shrine or Temple when that relation and Place are approved,
+- route and distributed Place records never replace an available ritual or main-venue anchor,
+- multiple concrete venues remain listed; the embedded map uses the reviewed primary anchor instead of the first arbitrary Place,
+- route, community-area, and municipality-only rows do not receive point-map actions,
+- when no concrete ritual or main-venue anchor is present, the page must state that the location data is incomplete rather than display a decorative city map,
+- an unavailable map is a corpus gap to research and resolve, not a completed location result,
+- the map is a navigation aid; approved Place, Relation, Evidence, and Source records remain the factual basis for location claims.
 
 ## Stats and Compare
 

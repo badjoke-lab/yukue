@@ -1,0 +1,40 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [
+    {
+      "id": "rel-gion-matsuri-associated-with-yasaka",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-gion-matsuri",
+      "relation_type": "ritually_associated_with",
+      "target_entity_id": "shr-yasaka-jinja",
+      "evidence_ids": [
+        "evd-rel-gion-matsuri-yasaka"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [],
+  "evidence": [
+    {
+      "id": "evd-rel-gion-matsuri-yasaka",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yasaka-gion",
+      "target_type": "relation",
+      "target_id": "rel-gion-matsuri-associated-with-yasaka",
+      "assertion_code": "supports_relation",
+      "summary_ja": "八坂神社公式の祇園祭案内は、祇園祭が八坂神社の祭礼として7月の神事・行事から構成されることを示している。",
+      "captured_at": "2026-07-28",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}

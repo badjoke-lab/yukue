@@ -65,12 +65,22 @@ export interface EvidenceItem {
   archiveHref?: string;
 }
 
+export interface OfficialMapLink {
+  href: string;
+  label: string;
+  sourceId?: string;
+}
+
 export interface PlaceItem {
   name: string;
   address?: string;
   contextLabel?: string;
   detailHref?: string;
   mapHref?: string;
+  embedUrl?: string;
+  officialMapLinks?: OfficialMapLink[];
+  mapStatus?: "verified-point" | "official-map" | "unavailable";
+  mapUnavailableReason?: string;
 }
 
 export interface DocumentaryImage {
