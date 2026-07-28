@@ -71,6 +71,27 @@ test("all Matsuri records navigate through real Detail C pages", async ({ page }
       await expect(relationRows.nth(index).locator("a[data-relation-target]")).toHaveCount(1);
     }
 
+    const placeRows = page.locator("[data-place-item]");
+    const placeCount = await placeRows.count();
+    if (placeCount > 0) {
+      const map = page.locator(".yk-place-map");
+      await expect(map).toHaveCount(1);
+      await expect(map).toHaveAttribute("data-has-map", "true");
+      await expect(map).toHaveAttribute(
+        "data-map-mode",
+        /^(point|representative|area)$/u,
+      );
+      await expect(map).toHaveAttribute("data-map-provider", "google-maps-query");
+      const iframe = map.locator("iframe[data-embedded-map]");
+      await expect(iframe).toHaveCount(1);
+      await expect(iframe).toHaveAttribute(
+        "src",
+        /^https:\/\/www\.google\.com\/maps\?[^#]*\boutput=embed\b/u,
+      );
+      await expect(iframe).toHaveAttribute("title", /.+/u);
+      await expect(map.locator("a[data-place-map-link]")).toHaveCount(placeCount);
+    }
+
     if (["shrine", "temple"].includes(entity.entity_type)) {
       await expect(page.locator("#reference-boundary")).toHaveCount(1);
       await expect(
