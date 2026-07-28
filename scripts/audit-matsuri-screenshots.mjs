@@ -59,7 +59,7 @@ for (const deviceName of deviceNames) {
   const manifest = readJson(manifestPath);
   const expectedDevice = matsuriVisualDevices[deviceName];
 
-  check(manifest.schema_version === "1.1", `${deviceName}: manifest schema must be 1.1.`);
+  check(manifest.schema_version === "1.2", `${deviceName}: manifest schema must be 1.2.`);
   check(manifest.source_type === "local-preview", `${deviceName}: source_type must be local-preview.`);
   check(
     manifest.coverage_mode === "representative-page-families",
@@ -110,6 +110,8 @@ for (const deviceName of deviceNames) {
   let totalScreenshotBytes = 0;
   let maximumDocumentHeight = 0;
   let visibleEmptyStateCount = 0;
+  let embeddedMapCount = 0;
+  let loadedEmbeddedMapCount = 0;
 
   for (const record of records) {
     const absoluteFilePath = path.join(repositoryRoot, record.file ?? "");
@@ -145,6 +147,8 @@ for (const deviceName of deviceNames) {
       Number(metrics.documentHeight) || 0,
     );
     visibleEmptyStateCount += Number(metrics.visibleEmptyStateCount) || 0;
+    embeddedMapCount += Number(metrics.embeddedMapCount) || 0;
+    loadedEmbeddedMapCount += Number(metrics.loadedEmbeddedMapCount) || 0;
 
     check(metrics.h1Count === 1, `${deviceName}: ${record.route} must contain exactly one H1.`);
     check(metrics.mainCount === 1, `${deviceName}: ${record.route} must contain exactly one main landmark.`);
@@ -164,6 +168,28 @@ for (const deviceName of deviceNames) {
       Array.isArray(metrics.consoleErrors) && metrics.consoleErrors.length === 0,
       `${deviceName}: console errors on ${record.route}: ${JSON.stringify(metrics.consoleErrors ?? [])}`,
     );
+    check(
+      Number(metrics.loadedEmbeddedMapCount) === Number(metrics.embeddedMapCount),
+      `${deviceName}: ${record.route} loaded ${String(metrics.loadedEmbeddedMapCount)}/${String(metrics.embeddedMapCount)} embedded maps.`,
+    );
+
+    const mapFrames = Array.isArray(metrics.embeddedMapFrames)
+      ? metrics.embeddedMapFrames
+      : [];
+    check(
+      mapFrames.length === Number(metrics.loadedEmbeddedMapCount),
+      `${deviceName}: ${record.route} embedded-map frame metrics are incomplete.`,
+    );
+    for (const frame of mapFrames) {
+      check(
+        typeof frame.url === "string" && frame.url.startsWith("https://www.google.com/maps"),
+        `${deviceName}: ${record.route} embedded map did not remain on the approved origin.`,
+      );
+      check(
+        Number(frame.htmlLength) >= 500 && Number(frame.elementCount) >= 10,
+        `${deviceName}: ${record.route} embedded map body did not render enough content.`,
+      );
+    }
   }
 
   summaries.push({
@@ -175,6 +201,8 @@ for (const deviceName of deviceNames) {
     total_screenshot_bytes: totalScreenshotBytes,
     maximum_document_height: maximumDocumentHeight,
     visible_empty_state_count: visibleEmptyStateCount,
+    embedded_map_count: embeddedMapCount,
+    loaded_embedded_map_count: loadedEmbeddedMapCount,
   });
 }
 
@@ -194,7 +222,7 @@ if (deviceNames.length === 2) {
 }
 
 const result = {
-  schema_version: "1.1",
+  schema_version: "1.2",
   generated_at: new Date().toISOString(),
   work_package: "F2-M01",
   coverage_mode: "representative-page-families",
@@ -205,6 +233,7 @@ const result = {
     representative_route_count: matsuriPublicRoutes.length,
     minimum_screenshot_bytes: minimumScreenshotBytes,
     maximum_horizontal_overflow_pixels: 1,
+    embedded_maps_must_load_before_capture: true,
   },
   devices: summaries,
   failures,
@@ -228,6 +257,7 @@ const markdown = [
   `- Representative routes: ${matsuriPublicRoutes.length}`,
   `- Devices: ${deviceNames.join(", ")}`,
   `- Minimum screenshot bytes: ${minimumScreenshotBytes}`,
+  `- Embedded maps must load before capture: yes`,
   "",
   ...summaries.flatMap((summary) => [
     `## ${summary.device}`,
@@ -238,6 +268,7 @@ const markdown = [
     `- Screenshot bytes: ${summary.total_screenshot_bytes}`,
     `- Maximum document height: ${summary.maximum_document_height}px`,
     `- Visible empty states: ${summary.visible_empty_state_count}`,
+    `- Embedded maps loaded: ${summary.loaded_embedded_map_count} / ${summary.embedded_map_count}`,
     "",
   ]),
   "## Failures",
