@@ -33,6 +33,7 @@ Batch 13 expands the reviewed Matsuri corpus in two directions:
 - 2021 reduced edition
 - 2025 normal edition
 - Change Events recording the 2020 and 2021 format changes
+- the existing annual Occurrence Series and Recurrence Pattern are reused rather than duplicated
 
 ## Boundaries
 
