@@ -1,0 +1,47 @@
+name: Fix Batch 13 duplicate series once
+
+on:
+  push:
+    branches:
+      - agent/matsuri-corpus-expansion-batch-13
+    paths:
+      - ".github/workflows/fix-batch13-duplicate-series-once.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: agent/matsuri-corpus-expansion-batch-13
+          fetch-depth: 0
+
+      - name: Remove duplicate records and temporary workflows
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path('data/public/matsuri/f2/maintenance-19.json')
+          data = json.loads(path.read_text())
+          data['occurrenceSeries'] = [
+              row for row in data['occurrenceSeries']
+              if row['id'] != 'ser-chichibu-yomatsuri-annual'
+          ]
+          data['recurrencePatterns'] = [
+              row for row in data['recurrencePatterns']
+              if row['id'] != 'rec-chichibu-yomatsuri-annual'
+          ]
+          path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
+          PY
+          rm -f .github/workflows/diagnose-matsuri-batch13.yml
+          rm .github/workflows/fix-batch13-duplicate-series-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/public/matsuri/f2/maintenance-19.json .github/workflows
+          git commit -m "Remove duplicate Chichibu recurrence records"
+          git push origin HEAD:agent/matsuri-corpus-expansion-batch-13
