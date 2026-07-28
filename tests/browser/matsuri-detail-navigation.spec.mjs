@@ -10,6 +10,7 @@ const entityEnvelope = JSON.parse(
   ),
 );
 const entities = entityEnvelope.records ?? [];
+const specialistEntityTypes = new Set(["festival", "tradition_unit", "folk_performance"]);
 
 function routeKind(entityType) {
   switch (entityType) {
@@ -113,6 +114,8 @@ test("all Matsuri records navigate through real Detail C pages", async ({ page }
       const eligibleCount = await map.locator('[data-map-eligible="true"]').count();
       const iframe = map.locator("iframe[data-embedded-map]");
       const mapLinks = map.locator("a[data-place-map-link]");
+      const officialMapLinks = map.locator("a[data-official-map-link]");
+      const officialMapCount = await officialMapLinks.count();
 
       if (eligibleCount > 0) {
         await expect(map).toHaveAttribute("data-has-map", "true");
@@ -130,7 +133,22 @@ test("all Matsuri records navigate through real Detail C pages", async ({ page }
         await expect(iframe).toHaveAttribute("title", /.+/u);
         await expect(mapLinks).toHaveCount(eligibleCount);
         await verifyLoadedMap(iframe, route);
+      } else if (officialMapCount > 0) {
+        await expect(map).toHaveAttribute("data-has-map", "true");
+        await expect(map).toHaveAttribute("data-map-mode", "official-map");
+        await expect(map).toHaveAttribute("data-map-provider", "official-source");
+        await expect(iframe).toHaveCount(0);
+        await expect(mapLinks).toHaveCount(0);
+        await expect(map.locator("[data-official-map-panel]")).toBeVisible();
+        for (let index = 0; index < officialMapCount; index += 1) {
+          await expect(officialMapLinks.nth(index)).toHaveAttribute("href", /^https:\/\//u);
+          await expect(officialMapLinks.nth(index)).toHaveAttribute("data-source-id", /.+/u);
+        }
       } else {
+        expect(
+          specialistEntityTypes.has(entity.entity_type),
+          `${route}: specialist record must have a concrete anchor or approved official map`,
+        ).toBe(false);
         await expect(map).toHaveAttribute("data-has-map", "false");
         await expect(map).toHaveAttribute("data-map-mode", "unavailable");
         await expect(map).toHaveAttribute("data-map-provider", "none");
