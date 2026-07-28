@@ -54,7 +54,7 @@ function stripMarkup(value) {
 }
 
 function hrefs(html) {
-  return [...html.matchAll(/<a\b[^>]*\bhref=(['"])(.*?)\1[^>]*>([\s\S]*?)<\/a>/giu)].map(
+  return [...html.matchAll(/<a\b[^>]*\bhref=(["'])(.*?)\1[^>]*>([\s\S]*?)<\/a>/giu)].map(
     (match) => ({
       href: decodeEntities(match[2].trim()),
       text: stripMarkup(match[3]),
@@ -226,7 +226,7 @@ if (dataset.images.length === 0) {
 
 for (const { relativePath, html } of allHtml) {
   const placeholderImages = [
-    ...html.matchAll(/<(?:img|source)\b[^>]*(?:src|srcset)=(['"])(.*?)\1[^>]*>/giu),
+    ...html.matchAll(/<(?:img|source)\b[^>]*(?:src|srcset)=(["'])(.*?)\1[^>]*>/giu),
   ].filter((match) => /placeholder|example\.com|\.invalid/iu.test(match[2]));
   assert(
     placeholderImages.length === 0,
@@ -244,8 +244,8 @@ for (const { relativePath, html } of allHtml) {
       `${relativePath} exposes a raw external URL instead of a human-readable label: ${link.href}`,
     );
 
-    if (/\btarget=(['"])_blank\1/iu.test(link.openingTag)) {
-      const relMatch = link.openingTag.match(/\brel=(['"])(.*?)\1/iu);
+    if (/\btarget=(["'])_blank\1/iu.test(link.openingTag)) {
+      const relMatch = link.openingTag.match(/\brel=(["'])(.*?)\1/iu);
       const relValues = new Set((relMatch?.[2] ?? "").split(/\s+/u));
       assert(
         relValues.has("noopener") && relValues.has("noreferrer"),
@@ -279,16 +279,24 @@ assert(
   "Route-based detail must display multiple Place records.",
 );
 assert(
-  detailHtml.includes('data-map-mode="area"'),
-  "Route-based detail must use area map mode instead of a misleading point map.",
+  detailHtml.includes('data-map-mode="primary-anchor"'),
+  "Route-based detail must map its concrete ritual or main-venue anchor.",
+);
+assert(
+  detailHtml.includes('data-map-anchor="白鬚神社"'),
+  "Route-based detail must use the related shrine as its map anchor.",
+);
+assert(
+  (detailHtml.match(/data-map-eligible="false"/gu) ?? []).length >= 1,
+  "Route-based Place rows must not expose municipality or route substitutes as point maps.",
 );
 assert(
   (detailHtml.match(/data-embedded-map/gu) ?? []).length === 1,
-  "Route-based detail must render exactly one reviewed area-map embed.",
+  "Route-based detail must render exactly one reviewed anchor-map embed.",
 );
 assert(
-  detailHtml.includes("巡行路・分散会場・地域範囲を一点の所在地として扱わず"),
-  "Route-based detail must explain that the area map is not a single-location claim.",
+  detailHtml.includes("祭礼・芸能の地理的な基点として"),
+  "Route-based detail must explain that the map shows a ritual or main-venue anchor.",
 );
 assert(
   !/[?&](?:amp;)?key=/iu.test(detailHtml),
@@ -296,5 +304,5 @@ assert(
 );
 
 console.log(
-  `Matsuri public content audit passed: ${manifest.files.length} Data links, ${allHtmlPaths.length} HTML files, ${dataset.images.length} approved images, verified public deployment status, owner-access-pending Analytics, honest empty states, and reviewed route-based area-map treatment.`,
+  `Matsuri public content audit passed: ${manifest.files.length} Data links, ${allHtmlPaths.length} HTML files, ${dataset.images.length} approved images, verified public deployment status, owner-access-pending Analytics, honest empty states, and reviewed ritual-anchor map treatment.`,
 );
