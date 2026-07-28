@@ -3,6 +3,7 @@ import ActionLink from "@badjoke-lab/yukue-ui/components/ActionLink.astro";
 import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
 import EvidenceList from "@badjoke-lab/yukue-ui/components/EvidenceList.astro";
 import PageShell from "@badjoke-lab/yukue-ui/components/PageShell.astro";
+import PlaceMap from "@badjoke-lab/yukue-ui/components/PlaceMap.astro";
 import RelationList from "@badjoke-lab/yukue-ui/components/RelationList.astro";
 import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
 import SiteFooter from "@badjoke-lab/yukue-ui/components/SiteFooter.astro";
@@ -14,6 +15,14 @@ interface Props {
 }
 
 const { page } = Astro.props;
+const mapPlaces = [
+  {
+    name: page.name,
+    ...(page.address ? { address: page.address } : {}),
+    contextLabel: page.kindLabel,
+  },
+];
+const mapContext = [page.region, page.address].filter(Boolean).join("・");
 const navItems = [
   { label: "祭礼", href: "/festivals/" },
   { label: "民俗芸能", href: "/performances/" },
@@ -91,6 +100,10 @@ const footerGroups = [
         <p>祭のゆくえで、開催地・上演地・奉納先などとして確認できた場所です。</p>
         {page.address && <p>所在地：{page.address}</p>}
       </div>
+    </Section>
+
+    <Section kicker="Place Map" title="所在地・範囲の地図" id="place-map">
+      <PlaceMap places={mapPlaces} contextDescription={mapContext || undefined} />
     </Section>
 
     {page.relatedRecords.length > 0 && (
