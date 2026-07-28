@@ -4,8 +4,8 @@
       "id": "fst-shinjo-matsuri",
       "schema_version": "matsuri.v1",
       "record_version": 1,
-      "created_at": "2026-07-29T00:00:00Z",
-      "updated_at": "2026-07-29T00:00:00Z",
+      "created_at": "2026-07-28T00:00:00Z",
+      "updated_at": "2026-07-28T00:00:00Z",
       "slug": "shinjo-matsuri",
       "entity_type": "festival",
       "home_surface": "matsuri",
@@ -45,7 +45,7 @@
           "url": "https://shinjo-matsuri.jp/",
           "is_primary": true,
           "officiality": "official_organization",
-          "last_checked_at": "2026-07-29"
+          "last_checked_at": "2026-07-28"
         }
       ],
       "record_lifecycle": "active",
@@ -72,8 +72,8 @@
       "id": "org-shinjo-matsuri-committee",
       "schema_version": "matsuri.v1",
       "record_version": 1,
-      "created_at": "2026-07-29T00:00:00Z",
-      "updated_at": "2026-07-29T00:00:00Z",
+      "created_at": "2026-07-28T00:00:00Z",
+      "updated_at": "2026-07-28T00:00:00Z",
       "slug": "shinjo-matsuri-committee",
       "entity_type": "organization",
       "home_surface": "matsuri",
@@ -108,7 +108,7 @@
           "url": "https://shinjo-matsuri.jp/",
           "is_primary": true,
           "officiality": "official_organization",
-          "last_checked_at": "2026-07-29"
+          "last_checked_at": "2026-07-28"
         }
       ],
       "record_lifecycle": "active",
@@ -119,8 +119,8 @@
       "id": "shr-shinjo-tenmangu",
       "schema_version": "matsuri.v1",
       "record_version": 1,
-      "created_at": "2026-07-29T00:00:00Z",
-      "updated_at": "2026-07-29T00:00:00Z",
+      "created_at": "2026-07-28T00:00:00Z",
+      "updated_at": "2026-07-28T00:00:00Z",
       "slug": "shinjo-tenmangu",
       "entity_type": "shrine",
       "home_surface": "matsuri",
@@ -158,7 +158,7 @@
           "url": "https://shinjo-matsuri.jp/db/tenman",
           "is_primary": true,
           "officiality": "official_organization",
-          "last_checked_at": "2026-07-29"
+          "last_checked_at": "2026-07-28"
         }
       ],
       "record_lifecycle": "active"
@@ -206,7 +206,7 @@
       "entity_id": "fst-shinjo-matsuri",
       "state_schema": "matsuri.festival.v1",
       "state_code": "active",
-      "observed_at": "2026-07-29",
+      "observed_at": "2026-07-28",
       "basis_evidence_ids": [
         "evd-shinjo-matsuri-state"
       ],
@@ -612,7 +612,7 @@
       "title": "新庄まつりとは",
       "publisher": "新庄まつり実行委員会",
       "url": "https://shinjo-matsuri.jp/about",
-      "accessed_at": "2026-07-29",
+      "accessed_at": "2026-07-28",
       "language": "ja"
     },
     {
@@ -623,7 +623,7 @@
       "title": "令和8年度 新庄まつり催事予定",
       "publisher": "新庄まつり実行委員会",
       "url": "https://www.shinjo-matsuri.jp/date24.html",
-      "accessed_at": "2026-07-29",
+      "accessed_at": "2026-07-28",
       "language": "ja"
     },
     {
@@ -634,7 +634,7 @@
       "title": "新庄天満神社",
       "publisher": "新庄まつり実行委員会",
       "url": "https://shinjo-matsuri.jp/db/tenman",
-      "accessed_at": "2026-07-29",
+      "accessed_at": "2026-07-28",
       "language": "ja"
     },
     {
@@ -645,7 +645,7 @@
       "title": "新庄まつりが無い 囃子だけでも！",
       "publisher": "新庄市",
       "url": "https://www.city.shinjo.yamagata.jp/s001/010/32/20210427103811.html",
-      "accessed_at": "2026-07-29",
+      "accessed_at": "2026-07-28",
       "language": "ja",
       "published_at": "2020-09-10"
     },
@@ -657,7 +657,7 @@
       "title": "新庄まつり ライブ配信URL",
       "publisher": "新庄まつり実行委員会",
       "url": "https://shinjo-matsuri.jp/db/information/15399",
-      "accessed_at": "2026-07-29",
+      "accessed_at": "2026-07-28",
       "language": "ja",
       "published_at": "2021-08-23"
     },
@@ -669,7 +669,7 @@
       "title": "令和4年 新庄まつり開催のお知らせ",
       "publisher": "新庄まつり実行委員会",
       "url": "https://shinjo-matsuri.jp/db/information/15468",
-      "accessed_at": "2026-07-29",
+      "accessed_at": "2026-07-28",
       "language": "ja",
       "published_at": "2022-05-30"
     },
@@ -681,7 +681,7 @@
       "title": "今年の秩父夜祭はご自宅で！",
       "publisher": "秩父市（秩父観光なび）",
       "url": "https://navi.city.chichibu.lg.jp/blog/2020/11/4120/",
-      "accessed_at": "2026-07-29",
+      "accessed_at": "2026-07-28",
       "language": "ja",
       "published_at": "2020-11-24"
     },
@@ -693,7 +693,7 @@
       "title": "令和3年の秩父夜祭について",
       "publisher": "秩父市（秩父観光なび）",
       "url": "https://navi.city.chichibu.lg.jp/info/2021/10/16279/",
-      "accessed_at": "2026-07-29",
+      "accessed_at": "2026-07-28",
       "language": "ja",
       "published_at": "2021-10-20"
     },
@@ -705,7 +705,7 @@
       "title": "令和7年 秩父夜祭について",
       "publisher": "秩父市（秩父観光なび）",
       "url": "https://navi.city.chichibu.lg.jp/info/2025/11/28217/",
-      "accessed_at": "2026-07-29",
+      "accessed_at": "2026-07-28",
       "language": "ja",
       "published_at": "2025-11-12"
     }
@@ -720,7 +720,7 @@
       "target_id": "fst-shinjo-matsuri",
       "assertion_code": "supports_entity_identity",
       "summary_ja": "公式サイトは新庄まつりの名称、毎年8月24日から26日の開催、山車行列と神輿渡御行列を含む祭礼の構成を説明している。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -732,7 +732,7 @@
       "target_id": "org-shinjo-matsuri-committee",
       "assertion_code": "supports_entity_identity",
       "summary_ja": "2026年公式催事案内は新庄まつり実行委員会を発行・問い合わせ主体として明示している。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -744,7 +744,7 @@
       "target_id": "shr-shinjo-tenmangu",
       "assertion_code": "supports_entity_identity",
       "summary_ja": "公式ページは新庄天満神社の名称、鎮座地、祭神、沿革、8月25日の例大祭を説明している。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -756,7 +756,7 @@
       "target_id": "plc-shinjo-tenmangu",
       "assertion_code": "supports_place",
       "summary_ja": "公式ページは新庄天満神社が新庄城址本丸跡の南西隅に位置することを示している。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -768,7 +768,7 @@
       "target_id": "plc-shinjo-abies",
       "assertion_code": "supports_place",
       "summary_ja": "2026年公式催事案内は新庄駅前ふれあい広場アビエスを合同演奏会と山車行列の主要会場としている。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -780,7 +780,7 @@
       "target_id": "sts-shinjo-matsuri-current",
       "assertion_code": "supports_current_state",
       "summary_ja": "公式サイトは2026年8月24日から26日の催事予定を公開し、通常規模の山車行列と例大祭を案内している。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -792,7 +792,7 @@
       "target_id": "rec-shinjo-matsuri-annual",
       "assertion_code": "supports_recurrence",
       "summary_ja": "公式サイトは新庄まつりが毎年8月24日・25日・26日の3日間に固定して行われると説明している。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -804,7 +804,7 @@
       "target_id": "rel-shinjo-matsuri-organized-by-committee",
       "assertion_code": "supports_relation",
       "summary_ja": "2026年公式催事案内は新庄まつり実行委員会を催事案内と問い合わせの主体として明示している。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -816,7 +816,7 @@
       "target_id": "rel-shinjo-matsuri-associated-with-tenmangu",
       "assertion_code": "supports_relation",
       "summary_ja": "公式ページは天満宮祭りを新庄まつりの起源とし、現在も8月25日に天満神社例大祭と神輿渡御行列を行うと説明している。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -828,7 +828,7 @@
       "target_id": "chg-shinjo-matsuri-suspension-2020",
       "assertion_code": "supports_change_event",
       "summary_ja": "新庄市は2020年の新庄まつりが中止となり、関係者による神事のみが行われたと記録している。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -840,7 +840,7 @@
       "target_id": "occ-shinjo-matsuri-2020",
       "assertion_code": "supports_occurrence",
       "summary_ja": "新庄市の記録は2020年8月24日から26日の新庄まつりが中止されたことを裏付ける。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -852,7 +852,7 @@
       "target_id": "chg-shinjo-matsuri-suspension-ended-2021",
       "assertion_code": "supports_change_event",
       "summary_ja": "公式案内は2021年の新庄まつりを2年ぶりの開催と記録している。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -864,7 +864,7 @@
       "target_id": "chg-shinjo-matsuri-format-changed-2021",
       "assertion_code": "supports_change_event",
       "summary_ja": "公式案内は2021年を感染症の影響により規模縮小で行い、15台の山車を配信すると説明している。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -876,7 +876,7 @@
       "target_id": "occ-shinjo-matsuri-2021",
       "assertion_code": "supports_occurrence",
       "summary_ja": "公式案内は2021年の新庄まつりを2年ぶりに規模縮小で開催したことを裏付ける。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -888,7 +888,7 @@
       "target_id": "chg-shinjo-matsuri-format-restored-2022",
       "assertion_code": "supports_change_event",
       "summary_ja": "実行委員会は2022年を感染症対策のうえで通常開催とする方針を決定した。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -900,7 +900,7 @@
       "target_id": "occ-shinjo-matsuri-2022",
       "assertion_code": "supports_occurrence",
       "summary_ja": "公式発表は2022年の新庄まつりを通常開催すると記録している。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -912,7 +912,7 @@
       "target_id": "occ-shinjo-matsuri-2026-schedule",
       "assertion_code": "supports_occurrence",
       "summary_ja": "公式催事予定は2026年8月24日から26日の例大祭、神輿渡御、山車行列と各会場を掲載している。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -924,7 +924,7 @@
       "target_id": "chg-chichibu-yomatsuri-format-changed-2020",
       "assertion_code": "supports_change_event",
       "summary_ja": "秩父市公式観光ブログは2020年に山車の曳行などを中止し、秩父神社の神事と御神幸行列を実施したと記録している。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -936,7 +936,7 @@
       "target_id": "occ-chichibu-yomatsuri-2020",
       "assertion_code": "supports_occurrence",
       "summary_ja": "秩父市公式観光ブログは2020年12月3日に御神幸行列と奉納花火を実施したことを案内している。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -948,7 +948,7 @@
       "target_id": "chg-chichibu-yomatsuri-format-changed-2021",
       "assertion_code": "supports_change_event",
       "summary_ja": "秩父市は2021年に笠鉾・屋台曳行と花火大会を中止し、祭典と御神幸祭を縮小して実施すると公表した。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -960,7 +960,7 @@
       "target_id": "occ-chichibu-yomatsuri-2021",
       "assertion_code": "supports_occurrence",
       "summary_ja": "秩父市の案内は2021年12月2日・3日に縮小した神事と御神幸祭を行ったことを裏付ける。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     },
     {
@@ -972,7 +972,7 @@
       "target_id": "occ-chichibu-yomatsuri-2025",
       "assertion_code": "supports_occurrence",
       "summary_ja": "秩父市の2025年案内は12月2日・3日の開催日程、笠鉾・屋台巡行、花火大会、屋台芝居を掲載し、通常開催を裏付ける。",
-      "captured_at": "2026-07-29",
+      "captured_at": "2026-07-28",
       "review_status": "approved"
     }
   ],

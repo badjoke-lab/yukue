@@ -13,7 +13,7 @@
   },
   "seed_baseline": {
     "source_site_id": "matsuri",
-    "observed_on": "2026-07-29",
+    "observed_on": "2026-07-28",
     "relation_backed_seeds": 8,
     "direct_identity_evidence": 12,
     "place_references": 8,
