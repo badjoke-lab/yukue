@@ -65,6 +65,12 @@ export interface EvidenceItem {
   archiveHref?: string;
 }
 
+export interface OfficialMapLink {
+  href: string;
+  label: string;
+  sourceId?: string;
+}
+
 export interface PlaceItem {
   name: string;
   address?: string;
@@ -72,7 +78,8 @@ export interface PlaceItem {
   detailHref?: string;
   mapHref?: string;
   embedUrl?: string;
-  mapStatus?: "verified-point" | "unavailable";
+  officialMapLinks?: OfficialMapLink[];
+  mapStatus?: "verified-point" | "official-map" | "unavailable";
   mapUnavailableReason?: string;
 }
 
