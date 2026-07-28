@@ -78,14 +78,14 @@ async function loadEmbeddedMaps(page, route) {
   }
 
   if (embeddedMapCount > 0) {
-    await page.evaluate(() => window.scrollTo(0, 0));
-    await page.waitForTimeout(750);
+    await page.waitForTimeout(2_000);
   }
 
   return {
     embeddedMapCount,
     loadedEmbeddedMapCount: embeddedMapFrames.length,
     embeddedMapFrames,
+    mapViewportScrollY: await page.evaluate(() => window.scrollY),
   };
 }
 
