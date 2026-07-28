@@ -11,7 +11,7 @@ Accepted page-structure direction:
 - Home: **H1 — Search First Hybrid**
 - Entity detail: **C — Integrated Overview**
 
-These choices define information order. The concrete Japanese presentation, route, Relation, Evidence, Place, and direct-JSON contract is defined in `matsuri-detail-c-implementation.md`.
+These choices define information order. The concrete Japanese presentation, route, Relation, Evidence, Place, embedded-map, and direct-JSON contract is defined in `matsuri-detail-c-implementation.md`.
 
 ## Header
 
@@ -122,10 +122,14 @@ Image-zero records must look intentional. Do not render placeholder images, empt
 
 ## Map behavior
 
-- single site: map + address,
-- multiple sites: representative map + place list,
-- route based: route context and related places; avoid a misleading single pin,
-- distributed: area explanation, optionally area-level map.
+A detail page with approved Place records must render an embedded map and an external map action for every Place. A Place list without an iframe is not a completed `Places & Map` section.
+
+- single site: embedded point map + address,
+- multiple point-like sites: embedded representative map + complete Place list + representative-map notice,
+- route based: embedded area map + route context + related Places; a misleading single pin is prohibited,
+- distributed: embedded area map + area explanation + complete Place list.
+
+The map is a navigation aid. Approved Place, Evidence, and Source records remain the factual basis for location claims.
 
 ## Stats and Compare
 
