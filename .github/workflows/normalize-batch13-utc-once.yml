@@ -1,0 +1,38 @@
+name: Normalize Batch 13 UTC once
+
+on:
+  push:
+    branches:
+      - agent/matsuri-corpus-expansion-batch-13
+    paths:
+      - ".github/workflows/normalize-batch13-utc-once.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: agent/matsuri-corpus-expansion-batch-13
+          fetch-depth: 0
+
+      - name: Normalize repository UTC dates and remove this workflow
+        run: |
+          set -euo pipefail
+          sed -i 's/2026-07-29/2026-07-28/g' \
+            data/public/matsuri/f2/maintenance-19.json \
+            config/matsuri-repository-baseline.json \
+            config/jinja-start-gate.json
+          rm .github/workflows/normalize-batch13-utc-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/public/matsuri/f2/maintenance-19.json \
+            config/matsuri-repository-baseline.json \
+            config/jinja-start-gate.json \
+            .github/workflows/normalize-batch13-utc-once.yml
+          git commit -m "Normalize Batch 13 records to repository UTC"
+          git push origin HEAD:agent/matsuri-corpus-expansion-batch-13
