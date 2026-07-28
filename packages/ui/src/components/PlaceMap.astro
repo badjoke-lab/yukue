@@ -10,42 +10,135 @@ interface Props {
   detailLabel?: string;
 }
 
+type MapMode = "point" | "representative" | "area";
+
+const areaContextLabels = new Set(["巡行路", "伝承地域", "地区"]);
+const areaContextPattern =
+  /巡行|運行|区域|市街地|周辺|複数地点|複数会場|複数地域|各地区|会場群|街路|コース|道じゅねー/u;
+
+function normalized(value: string | undefined): string {
+  return value?.trim().replace(/\s+/gu, " ") ?? "";
+}
+
+function municipalityQuery(address: string): string {
+  const match = address.match(/^(.+?[都道府県])(.+?(?:市|区|町|村))/u);
+  return match ? `${match[1]}${match[2]}` : address;
+}
+
+function placeQuery(place: PlaceItem): string {
+  return [normalized(place.address), normalized(place.name)].filter(Boolean).join(" ");
+}
+
+function externalMapHref(place: PlaceItem): string {
+  const query = placeQuery(place);
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
 const {
   places,
   contextDescription,
   embedUrl,
-  embedTitle = "関連地点の地図",
+  embedTitle,
   openMapLabel = "地図で開く",
   detailLabel = "場所の記録を見る",
 } = Astro.props;
+
+const hasAreaPlace = places.some((place) =>
+  areaContextLabels.has(normalized(place.contextLabel)),
+);
+const hasAreaContext = areaContextPattern.test(normalized(contextDescription));
+const mapMode: MapMode =
+  hasAreaPlace || hasAreaContext
+    ? "area"
+    : places.length > 1
+      ? "representative"
+      : "point";
+const representativePlace = places[0];
+const representativeAddress = normalized(representativePlace?.address);
+const mapQuery = representativePlace
+  ? mapMode === "area" && representativeAddress
+    ? municipalityQuery(representativeAddress)
+    : placeQuery(representativePlace)
+  : "";
+const resolvedEmbedUrl =
+  embedUrl ??
+  (mapQuery
+    ? `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`
+    : undefined);
+const resolvedEmbedTitle =
+  embedTitle ??
+  (mapMode === "area"
+    ? "開催・上演地域の周辺地図"
+    : mapMode === "representative"
+      ? `${representativePlace?.name ?? "代表地点"}の周辺地図`
+      : `${representativePlace?.name ?? "関連地点"}の地図`);
+const mapNotice =
+  mapMode === "area"
+    ? "巡行路・分散会場・地域範囲を一点の所在地として扱わず、関係地域の周辺地図を表示しています。具体的な範囲は場所一覧と根拠資料で確認してください。"
+    : mapMode === "representative"
+      ? "複数地点のうち、場所一覧の先頭にある代表地点の周辺地図を表示しています。"
+      : undefined;
 ---
 
 {contextDescription && <p class="yk-map-context">{contextDescription}</p>}
-<div class="yk-place-map" data-has-map={embedUrl ? "true" : "false"}>
+<div
+  class="yk-place-map"
+  data-has-map={resolvedEmbedUrl ? "true" : "false"}
+  data-map-mode={mapMode}
+  data-map-provider="google-maps-query"
+>
   <div class="yk-place-list">
-    {places.map((place) => (
-      <article class="yk-place-item" data-place-item>
-        {place.contextLabel && <p class="yk-place-item__context">{place.contextLabel}</p>}
-        <h3 class="yk-place-item__name">
-          {place.detailHref ? <a href={place.detailHref} data-place-link>{place.name}</a> : place.name}
-        </h3>
-        {place.address && <p class="yk-place-item__address">{place.address}</p>}
-        <div class="yk-place-item__actions">
-          {place.detailHref && <a href={place.detailHref}>{detailLabel}</a>}
-          {place.mapHref && <a href={place.mapHref}>{openMapLabel}</a>}
-        </div>
-      </article>
-    ))}
+    {places.map((place) => {
+      const resolvedMapHref = place.mapHref ?? externalMapHref(place);
+      return (
+        <article class="yk-place-item" data-place-item>
+          {place.contextLabel && <p class="yk-place-item__context">{place.contextLabel}</p>}
+          <h3 class="yk-place-item__name">
+            {place.detailHref ? <a href={place.detailHref} data-place-link>{place.name}</a> : place.name}
+          </h3>
+          {place.address && <p class="yk-place-item__address">{place.address}</p>}
+          <div class="yk-place-item__actions">
+            {place.detailHref && <a href={place.detailHref}>{detailLabel}</a>}
+            <a href={resolvedMapHref} data-place-map-link rel="noopener noreferrer">{openMapLabel}</a>
+          </div>
+        </article>
+      );
+    })}
   </div>
 
-  {embedUrl && (
-    <div class="yk-map-frame">
-      <iframe
-        src={embedUrl}
-        title={embedTitle}
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
-    </div>
+  {resolvedEmbedUrl && (
+    <figure class="yk-map-figure">
+      <div class="yk-map-frame">
+        <iframe
+          src={resolvedEmbedUrl}
+          title={resolvedEmbedTitle}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+          data-embedded-map
+        ></iframe>
+      </div>
+      {mapNotice && <figcaption class="yk-map-note">{mapNotice}</figcaption>}
+    </figure>
   )}
 </div>
+
+<style>
+  .yk-place-item__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-5);
+    font-size: var(--font-size-sm);
+  }
+
+  .yk-map-figure {
+    margin: 0;
+  }
+
+  .yk-map-note {
+    margin-top: var(--space-3);
+    color: var(--color-muted);
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-body);
+  }
+</style>
