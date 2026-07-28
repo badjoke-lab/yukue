@@ -537,21 +537,6 @@
       "evidence_ids": [
         "evd-shinjo-matsuri-recurrence"
       ]
-    },
-    {
-      "id": "ser-chichibu-yomatsuri-annual",
-      "schema_version": "matsuri.v1",
-      "record_version": 1,
-      "subject_entity_id": "fst-chichibu-yomatsuri",
-      "series_type": "annual_festival_edition",
-      "name_ja": "秩父夜祭 年次開催",
-      "recurrence_pattern_id": "rec-chichibu-yomatsuri-annual",
-      "default_venue_place_ids": [
-        "plc-chichibu-jinja"
-      ],
-      "evidence_ids": [
-        "evd-chichibu-recurrence"
-      ]
     }
   ],
   "recurrencePatterns": [
@@ -563,16 +548,6 @@
       "rule_text_ja": "毎年8月24日・25日・26日",
       "evidence_ids": [
         "evd-shinjo-matsuri-recurrence"
-      ]
-    },
-    {
-      "id": "rec-chichibu-yomatsuri-annual",
-      "schema_version": "common.v1",
-      "record_version": 1,
-      "pattern_type": "annual",
-      "rule_text_ja": "毎年12月2日・3日",
-      "evidence_ids": [
-        "evd-chichibu-recurrence"
       ]
     }
   ],
