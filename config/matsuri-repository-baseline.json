@@ -5,11 +5,11 @@
   "counts": {
     "f1_batches": 13,
     "maintenance_bundles": 20,
-    "correction_bundles": 12,
+    "correction_bundles": 13,
     "additive_application_slots": 33,
-    "correction_application_slots": 12,
-    "correction_records": 24,
-    "corrected_logical_ids": 21,
+    "correction_application_slots": 13,
+    "correction_records": 25,
+    "corrected_logical_ids": 22,
     "public_entities": 55,
     "entities_without_external_links": 0
   },
