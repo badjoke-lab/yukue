@@ -13,6 +13,8 @@ export const matsuriPublicRoutes = Object.freeze([
   "/festivals/sanja-matsuri/",
   "/festivals/nagasaki-kunchi/",
   "/festivals/kochi-yosakoi-matsuri/",
+  "/festivals/sawara-grand-festival/",
+  "/festivals/yamaga-toro-matsuri/",
   "/performances/",
   "/performances/hayachine-kagura/",
   "/performances/dainichido-bugaku/",
@@ -24,6 +26,8 @@ export const matsuriPublicRoutes = Object.freeze([
   "/references/shrines/shinjo-tenmangu/",
   "/references/shrines/asakusa-jinja/",
   "/references/shrines/nagasaki-suwa-jinja/",
+  "/references/shrines/sawara-yasaka-jinja/",
+  "/references/shrines/sawara-suwa-jinja/",
   "/places/suneori-shirahige/",
   "/places/gion-yamahoko-route/",
   "/places/yosakoi-chuo-koen/",
@@ -63,9 +67,9 @@ export const matsuriTabletBrowserDevice = Object.freeze({
 });
 
 export function assertMatsuriVisualContract() {
-  if (matsuriPublicRoutes.length !== 42) {
+  if (matsuriPublicRoutes.length !== 46) {
     throw new Error(
-      `The representative Matsuri visual contract requires 42 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
+      `The representative Matsuri visual contract requires 46 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
     );
   }
 
@@ -124,6 +128,18 @@ export function assertMatsuriVisualContract() {
   }
   if (!matsuriPublicRoutes.includes("/places/yosakoi-chuo-koen/")) {
     throw new Error("Matsuri visual contract must retain the よさこい中央公園 Place route.");
+  }
+  if (!matsuriPublicRoutes.includes("/festivals/sawara-grand-festival/")) {
+    throw new Error("Matsuri visual contract must retain the new 佐原の大祭 Detail C route.");
+  }
+  if (!matsuriPublicRoutes.includes("/references/shrines/sawara-yasaka-jinja/")) {
+    throw new Error("Matsuri visual contract must retain the State-free 佐原八坂神社 seed route.");
+  }
+  if (!matsuriPublicRoutes.includes("/references/shrines/sawara-suwa-jinja/")) {
+    throw new Error("Matsuri visual contract must retain the State-free 佐原諏訪神社 seed route.");
+  }
+  if (!matsuriPublicRoutes.includes("/festivals/yamaga-toro-matsuri/")) {
+    throw new Error("Matsuri visual contract must retain the deepened 山鹿灯籠まつり Detail C route.");
   }
 
   for (const route of matsuriPublicRoutes) {
