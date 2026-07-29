@@ -6,9 +6,11 @@ export const matsuriPublicRoutes = Object.freeze([
   "/festivals/aso-onda-matsuri/",
   "/festivals/soma-nomaoi/",
   "/festivals/nunokawa-hana-matsuri/",
+  "/festivals/gion-matsuri-kyoto/",
   "/festivals/gion-takayama/",
   "/festivals/shinjo-matsuri/",
   "/festivals/sanja-matsuri/",
+  "/festivals/nagasaki-kunchi/",
   "/performances/",
   "/performances/hayachine-kagura/",
   "/performances/dainichido-bugaku/",
@@ -18,6 +20,7 @@ export const matsuriPublicRoutes = Object.freeze([
   "/references/shrines/aso-jinja/",
   "/references/shrines/shinjo-tenmangu/",
   "/references/shrines/asakusa-jinja/",
+  "/references/shrines/nagasaki-suwa-jinja/",
   "/places/suneori-shirahige/",
   "/places/gion-yamahoko-route/",
   "/regions/",
@@ -56,9 +59,9 @@ export const matsuriTabletBrowserDevice = Object.freeze({
 });
 
 export function assertMatsuriVisualContract() {
-  if (matsuriPublicRoutes.length !== 35) {
+  if (matsuriPublicRoutes.length !== 38) {
     throw new Error(
-      `The representative Matsuri visual contract requires 35 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
+      `The representative Matsuri visual contract requires 38 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
     );
   }
 
@@ -96,6 +99,15 @@ export function assertMatsuriVisualContract() {
   }
   if (!matsuriPublicRoutes.includes("/references/shrines/asakusa-jinja/")) {
     throw new Error("Matsuri visual contract must retain the State-free 浅草神社 seed route.");
+  }
+  if (!matsuriPublicRoutes.includes("/festivals/gion-matsuri-kyoto/")) {
+    throw new Error("Matsuri visual contract must retain the deepened 祇園祭 Detail C route.");
+  }
+  if (!matsuriPublicRoutes.includes("/festivals/nagasaki-kunchi/")) {
+    throw new Error("Matsuri visual contract must retain the new 長崎くんち Detail C route.");
+  }
+  if (!matsuriPublicRoutes.includes("/references/shrines/nagasaki-suwa-jinja/")) {
+    throw new Error("Matsuri visual contract must retain the State-free 長崎諏訪神社 seed route.");
   }
 
   for (const route of matsuriPublicRoutes) {
