@@ -1,6 +1,6 @@
 # Project Status
 
-**Last updated:** 2026-07-27
+**Last updated:** 2026-07-29
 
 ## Current phase
 
@@ -47,6 +47,7 @@ Stabilization review            config/matsuri-stabilization-review.json
 Detail C implementation         docs/matsuri-detail-c-implementation.md
 F2-28 evidence                  docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
 Stabilization start evidence    docs/audits/matsuri-stabilization-start-2026-07-27.md
+Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-15-2026-07-29.md
 Jinja start boundary            config/jinja-start-gate.json
 Production topology             docs/deployment-topology.md
 ```
@@ -81,6 +82,8 @@ The enforced Detail C surface now requires:
 - no empty detail sections or internal-code labels.
 
 The next primary work is corpus expansion and deeper factual records. Stabilization observation continues in parallel but is not a reason to leave the corpus thin.
+
+Corpus expansion batches 11 through 15 are complete. Batch 15 added 長崎くんち with a State-free 鎮西大社 諏訪神社 seed and deepened 祇園祭 with reviewed 2020, 2021, 2022, and 2026 Occurrence records. The next batch must continue the same uncovered-prefecture breadth plus sparse-record depth rule.
 
 ## Stabilization review window
 
@@ -139,11 +142,12 @@ repository-verified-crawler-reachability-verified-sitemap-submission-verified-in
 ## Immediate next actions
 
 ```text
-Product track       expand the Matsuri corpus and deepen State, Occurrence, Change, Relation, and Evidence coverage
+Product track       start the next bounded Matsuri breadth-and-depth corpus batch
 Detail track        keep every public title navigable through the enforced Detail C contract
+Production check    confirm Batch 15 routes after the main deployment reaches the canonical origin
 Dated review        弘前ねぷた after 2026-08-07; 郡上おどり after 2026-09-05
 Stabilization       record real maintenance burden while expansion work is performed
 Gate review         not before 2026-08-10 and not by elapsed time alone
-Cloudflare track    no launch-gate action pending
+Cloudflare track    verify the post-Batch-15 deployment; no new launch-gate action
 Jinja track         remain blocked until four post-launch prerequisites complete
 ```
