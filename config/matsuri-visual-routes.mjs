@@ -5,24 +5,28 @@ export const matsuriPublicRoutes = Object.freeze([
   "/festivals/suneori-amagoi/",
   "/festivals/aso-onda-matsuri/",
   "/festivals/soma-nomaoi/",
+  "/festivals/hana-matsuri-toei/",
   "/festivals/nunokawa-hana-matsuri/",
   "/festivals/gion-matsuri-kyoto/",
   "/festivals/gion-takayama/",
   "/festivals/shinjo-matsuri/",
   "/festivals/sanja-matsuri/",
   "/festivals/nagasaki-kunchi/",
+  "/festivals/kochi-yosakoi-matsuri/",
   "/performances/",
   "/performances/hayachine-kagura/",
   "/performances/dainichido-bugaku/",
   "/organizations/",
   "/organizations/suneori-amagoi-hozonkai/",
   "/organizations/aomori-nebuta-committee/",
+  "/organizations/yosakoi-shinkokai/",
   "/references/shrines/aso-jinja/",
   "/references/shrines/shinjo-tenmangu/",
   "/references/shrines/asakusa-jinja/",
   "/references/shrines/nagasaki-suwa-jinja/",
   "/places/suneori-shirahige/",
   "/places/gion-yamahoko-route/",
+  "/places/yosakoi-chuo-koen/",
   "/regions/",
   "/changes/",
   "/states/",
@@ -59,9 +63,9 @@ export const matsuriTabletBrowserDevice = Object.freeze({
 });
 
 export function assertMatsuriVisualContract() {
-  if (matsuriPublicRoutes.length !== 38) {
+  if (matsuriPublicRoutes.length !== 42) {
     throw new Error(
-      `The representative Matsuri visual contract requires 38 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
+      `The representative Matsuri visual contract requires 42 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
     );
   }
 
@@ -108,6 +112,18 @@ export function assertMatsuriVisualContract() {
   }
   if (!matsuriPublicRoutes.includes("/references/shrines/nagasaki-suwa-jinja/")) {
     throw new Error("Matsuri visual contract must retain the State-free 長崎諏訪神社 seed route.");
+  }
+  if (!matsuriPublicRoutes.includes("/festivals/kochi-yosakoi-matsuri/")) {
+    throw new Error("Matsuri visual contract must retain the new よさこい祭り Detail C route.");
+  }
+  if (!matsuriPublicRoutes.includes("/festivals/hana-matsuri-toei/")) {
+    throw new Error("Matsuri visual contract must retain the deepened 東栄町花祭 Detail C route.");
+  }
+  if (!matsuriPublicRoutes.includes("/organizations/yosakoi-shinkokai/")) {
+    throw new Error("Matsuri visual contract must retain the よさこい祭振興会 organization route.");
+  }
+  if (!matsuriPublicRoutes.includes("/places/yosakoi-chuo-koen/")) {
+    throw new Error("Matsuri visual contract must retain the よさこい中央公園 Place route.");
   }
 
   for (const route of matsuriPublicRoutes) {
