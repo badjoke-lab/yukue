@@ -34,7 +34,19 @@
   "recurrencePatterns": [],
   "relations": [],
   "designations": [],
-  "sources": [],
+  "sources": [
+    {
+      "id": "src-sanja-matsuri-schedule-2026",
+      "schema_version": "common.v1",
+      "record_version": 2,
+      "source_type": "official_organization",
+      "title": "令和8年浅草神社例大祭『三社祭』行事日程",
+      "publisher": "浅草神社",
+      "url": "https://asakusajinja.jp/sanjamatsuri/schedule/",
+      "accessed_at": "2026-07-29",
+      "language": "ja"
+    }
+  ],
   "evidence": [],
   "images": []
 }
