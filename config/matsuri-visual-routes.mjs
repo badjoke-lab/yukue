@@ -15,8 +15,11 @@ export const matsuriPublicRoutes = Object.freeze([
   "/festivals/kochi-yosakoi-matsuri/",
   "/festivals/sawara-grand-festival/",
   "/festivals/yamaga-toro-matsuri/",
+  "/festivals/hita-gion/",
   "/performances/",
   "/performances/hayachine-kagura/",
+  "/performances/take-kagura/",
+  "/performances/ootsugunai-kagura/",
   "/performances/dainichido-bugaku/",
   "/organizations/",
   "/organizations/suneori-amagoi-hozonkai/",
@@ -31,6 +34,7 @@ export const matsuriPublicRoutes = Object.freeze([
   "/places/suneori-shirahige/",
   "/places/gion-yamahoko-route/",
   "/places/yosakoi-chuo-koen/",
+  "/places/hita-station-front/",
   "/regions/",
   "/changes/",
   "/states/",
@@ -67,9 +71,9 @@ export const matsuriTabletBrowserDevice = Object.freeze({
 });
 
 export function assertMatsuriVisualContract() {
-  if (matsuriPublicRoutes.length !== 46) {
+  if (matsuriPublicRoutes.length !== 50) {
     throw new Error(
-      `The representative Matsuri visual contract requires 46 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
+      `The representative Matsuri visual contract requires 50 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
     );
   }
 
@@ -140,6 +144,18 @@ export function assertMatsuriVisualContract() {
   }
   if (!matsuriPublicRoutes.includes("/festivals/yamaga-toro-matsuri/")) {
     throw new Error("Matsuri visual contract must retain the deepened 山鹿灯籠まつり Detail C route.");
+  }
+  if (!matsuriPublicRoutes.includes("/festivals/hita-gion/")) {
+    throw new Error("Matsuri visual contract must retain the new 日田祇園 Detail C route.");
+  }
+  if (!matsuriPublicRoutes.includes("/performances/take-kagura/")) {
+    throw new Error("Matsuri visual contract must retain the deepened 岳神楽 Detail C route.");
+  }
+  if (!matsuriPublicRoutes.includes("/performances/ootsugunai-kagura/")) {
+    throw new Error("Matsuri visual contract must retain the deepened 大償神楽 Detail C route.");
+  }
+  if (!matsuriPublicRoutes.includes("/places/hita-station-front/")) {
+    throw new Error("Matsuri visual contract must retain the 日田駅前集団顔見世 Place route.");
   }
 
   for (const route of matsuriPublicRoutes) {
