@@ -10,14 +10,13 @@
   "designations": [],
   "sources": [
     {
-      "id": "src-aso-onda-mayor-schedule-2026",
+      "id": "src-aso-onda-realtime-2026",
       "schema_version": "common.v1",
       "record_version": 1,
-      "source_type": "public_authority",
-      "title": "市長の日程 令和8年7月27日から8月2日まで",
-      "publisher": "阿蘇市",
-      "url": "https://www.city.aso.kumamoto.jp/2026/07/24/%E5%B8%82%E9%95%B7%E3%81%AE%E6%97%A5%E7%A8%8B%E3%80%80%E4%BB%A4%E5%92%8C8%E5%B9%B47%E6%9C%8827%E6%97%A5%E3%81%8B%E3%82%898%E6%97%A5%E3%81%BE%E3%81%A7/",
-      "published_at": "2026-07-24",
+      "source_type": "social_media_aggregation",
+      "title": "阿蘇神社の当日投稿を含むリアルタイム検索結果",
+      "publisher": "Yahoo! JAPAN",
+      "url": "https://search.yahoo.co.jp/search?ei=UTF-8&fr=mashup_krank&p=%E9%98%BF%E8%98%87%E7%A5%9E%E7%A4%BE&rkf=1&sks=bzw&t.rltm.w2s=true&vd=h",
       "accessed_at": "2026-07-29",
       "language": "ja"
     }
@@ -27,11 +26,11 @@
       "id": "evd-aso-onda-occ-2026-held",
       "schema_version": "common.v1",
       "record_version": 1,
-      "source_id": "src-aso-onda-mayor-schedule-2026",
+      "source_id": "src-aso-onda-realtime-2026",
       "target_type": "occurrence",
       "target_id": "occ-aso-onda-2026-schedule",
       "assertion_code": "supports_occurrence",
-      "summary_ja": "阿蘇市は2026年7月28日の市長日程に『阿蘇神社 御田祭』を掲載しており、同日の祭礼実施を公的記録として確認できる。",
+      "summary_ja": "2026年7月28日の検索記録には、地元メディアによる当日朝の開催案内に加え、同日後刻に御田祭の終盤へ言及する投稿が収録されている。これにより祭礼が実施段階に入ったことは確認できるが、予定した全行程の完遂と規模は未確認である。",
       "captured_at": "2026-07-29",
       "review_status": "approved"
     }
