@@ -1,0 +1,39 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-aso-onda-realtime-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "social_media_aggregation",
+      "title": "阿蘇神社の当日投稿を含むリアルタイム検索結果",
+      "publisher": "Yahoo! JAPAN",
+      "url": "https://search.yahoo.co.jp/search?ei=UTF-8&fr=mashup_krank&p=%E9%98%BF%E8%98%87%E7%A5%9E%E7%A4%BE&rkf=1&sks=bzw&t.rltm.w2s=true&vd=h",
+      "accessed_at": "2026-07-29",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-aso-onda-occ-2026-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aso-onda-realtime-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-aso-onda-2026-schedule",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "2026年7月28日の検索記録には、地元メディアによる当日朝の開催案内に加え、同日後刻に御田祭の終盤へ言及する投稿が収録されている。これにより祭礼が実施段階に入ったことは確認できるが、予定した全行程の完遂と規模は未確認である。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}

@@ -1,0 +1,65 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [
+    {
+      "id": "occ-aso-onda-2026-schedule",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "subject_entity_id": "fst-aso-onda-matsuri",
+      "series_id": "ser-aso-onda-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-07-28",
+        "end": "2026-07-28",
+        "precision": "day"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-aso-jinja",
+        "plc-aso-onda-route"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-aso-onda-occ-2026",
+        "evd-aso-onda-occ-2026-held"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-sanja-matsuri-schedule-2026",
+      "schema_version": "common.v1",
+      "record_version": 2,
+      "source_type": "official_organization",
+      "title": "令和8年浅草神社例大祭『三社祭』行事日程",
+      "publisher": "浅草神社",
+      "url": "https://asakusajinja.jp/sanjamatsuri/schedule/",
+      "accessed_at": "2026-07-29",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-sanja-matsuri-state",
+      "schema_version": "common.v1",
+      "record_version": 2,
+      "source_id": "src-sanja-matsuri-schedule-2026",
+      "target_type": "state_snapshot",
+      "target_id": "sts-sanja-matsuri-current",
+      "assertion_code": "supports_current_state",
+      "summary_ja": "浅草神社公式は令和8年三社祭の例大祭式典、町内神輿連合渡御、本社神輿各町渡御などの行事日程を公開している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}

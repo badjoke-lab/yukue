@@ -8,6 +8,7 @@ export const matsuriPublicRoutes = Object.freeze([
   "/festivals/nunokawa-hana-matsuri/",
   "/festivals/gion-takayama/",
   "/festivals/shinjo-matsuri/",
+  "/festivals/sanja-matsuri/",
   "/performances/",
   "/performances/hayachine-kagura/",
   "/performances/dainichido-bugaku/",
@@ -16,6 +17,7 @@ export const matsuriPublicRoutes = Object.freeze([
   "/organizations/aomori-nebuta-committee/",
   "/references/shrines/aso-jinja/",
   "/references/shrines/shinjo-tenmangu/",
+  "/references/shrines/asakusa-jinja/",
   "/places/suneori-shirahige/",
   "/places/gion-yamahoko-route/",
   "/regions/",
@@ -54,9 +56,9 @@ export const matsuriTabletBrowserDevice = Object.freeze({
 });
 
 export function assertMatsuriVisualContract() {
-  if (matsuriPublicRoutes.length !== 33) {
+  if (matsuriPublicRoutes.length !== 35) {
     throw new Error(
-      `The representative Matsuri visual contract requires 33 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
+      `The representative Matsuri visual contract requires 35 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
     );
   }
 
@@ -88,6 +90,12 @@ export function assertMatsuriVisualContract() {
   }
   if (!matsuriPublicRoutes.includes("/references/shrines/shinjo-tenmangu/")) {
     throw new Error("Matsuri visual contract must retain the State-free 新庄天満神社 seed route.");
+  }
+  if (!matsuriPublicRoutes.includes("/festivals/sanja-matsuri/")) {
+    throw new Error("Matsuri visual contract must retain the new 三社祭 Detail C route.");
+  }
+  if (!matsuriPublicRoutes.includes("/references/shrines/asakusa-jinja/")) {
+    throw new Error("Matsuri visual contract must retain the State-free 浅草神社 seed route.");
   }
 
   for (const route of matsuriPublicRoutes) {
