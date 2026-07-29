@@ -16,7 +16,7 @@
         "end": "2026-07-28",
         "precision": "day"
       },
-      "outcome": "unknown",
+      "outcome": "held",
       "scale": "unknown",
       "venue_place_ids": [
         "plc-aso-jinja",
@@ -24,7 +24,7 @@
       ],
       "organizer_entity_ids": [],
       "evidence_ids": [
-        "evd-aso-onda-occ-2026"
+        "evd-aso-onda-occ-2026-held"
       ],
       "review_status": "approved"
     }
