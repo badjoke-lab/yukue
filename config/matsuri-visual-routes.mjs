@@ -1,3 +1,4 @@
+// Representative routes retain every bounded corpus addition that establishes a new page-family or ritual-anchor regression case.
 export const matsuriPublicRoutes = Object.freeze([
   "/",
   "/about/",
