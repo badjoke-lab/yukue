@@ -47,6 +47,19 @@
       "language": "ja"
     }
   ],
-  "evidence": [],
+  "evidence": [
+    {
+      "id": "evd-sanja-matsuri-state",
+      "schema_version": "common.v1",
+      "record_version": 2,
+      "source_id": "src-sanja-matsuri-schedule-2026",
+      "target_type": "state_snapshot",
+      "target_id": "sts-sanja-matsuri-current",
+      "assertion_code": "supports_current_state",
+      "summary_ja": "浅草神社公式は令和8年三社祭の例大祭式典、町内神輿連合渡御、本社神輿各町渡御などの行事日程を公開している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    }
+  ],
   "images": []
 }
