@@ -1,0 +1,96 @@
+{
+  "entities": [
+    {
+      "id": "org-hita-gion-yamahoko-shinkokai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-29T00:00:00Z",
+      "updated_at": "2026-07-29T00:00:00Z",
+      "slug": "hita-gion-yamahoko-shinkokai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "日田祇園山鉾振興会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-hita-gion-designation"]
+        }
+      ],
+      "summary_ja": "国指定重要無形民俗文化財「日田祇園の曳山行事」の保護団体として、山鉾行事の保存と継承を担う団体。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "44",
+            "prefecture_name_ja": "大分県",
+            "municipality_name_ja": "日田市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "official_directory",
+          "platform": "web",
+          "url": "https://www.city.hita.oita.jp/soshiki/29/1344.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-07-29"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "preservation_group",
+      "official_url": "https://www.city.hita.oita.jp/soshiki/29/1344.html"
+    }
+  ],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [
+    {
+      "id": "rel-hita-gion-maintained-by-yamahoko-shinkokai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-hita-gion",
+      "relation_type": "maintained_by",
+      "target_entity_id": "org-hita-gion-yamahoko-shinkokai",
+      "evidence_ids": ["evd-rel-hita-gion-yamahoko-shinkokai"],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [],
+  "evidence": [
+    {
+      "id": "evd-hita-gion-yamahoko-shinkokai-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hita-gion-designation",
+      "target_type": "entity_identity",
+      "target_id": "org-hita-gion-yamahoko-shinkokai",
+      "assertion_code": "supports_identity",
+      "summary_ja": "日田市の文化財情報は、国指定重要無形民俗文化財「日田祇園の曳山行事」の保護団体を日田祇園山鉾振興会と明記している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-hita-gion-yamahoko-shinkokai",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hita-gion-designation",
+      "target_type": "relation",
+      "target_id": "rel-hita-gion-maintained-by-yamahoko-shinkokai",
+      "assertion_code": "supports_relation",
+      "summary_ja": "日田市が日田祇園の曳山行事の保護団体として日田祇園山鉾振興会を記録しているため、祭礼の保存・継承を担う関係を裏付ける。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
