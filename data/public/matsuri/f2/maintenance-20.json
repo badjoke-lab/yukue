@@ -1,0 +1,633 @@
+{
+  "entities": [
+    {
+      "id": "fst-sanja-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-29T00:00:00Z",
+      "updated_at": "2026-07-29T00:00:00Z",
+      "slug": "sanja-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "三社祭",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-sanja-matsuri-about"
+          ]
+        }
+      ],
+      "summary_ja": "浅草神社の例大祭として、浅草氏子四十四ヶ町を中心に町内神輿・本社神輿の渡御などを行う祭礼。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "13",
+            "prefecture_name_ja": "東京都",
+            "municipality_name_ja": "台東区"
+          }
+        ],
+        "scope_type": "route_based",
+        "description_ja": "浅草神社を祭祀の基点とし、浅草氏子四十四ヶ町で町内神輿と本社神輿の渡御が行われる。"
+      },
+      "primary_place_id": "plc-asakusa-jinja",
+      "default_place_ids": [
+        "plc-asakusa-jinja"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://asakusajinja.jp/sanjamatsuri/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-29"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "shrine_festival",
+      "recurrence_pattern": {
+        "pattern_type": "annual",
+        "rule_text_ja": "5月第3土曜日を基点とする金・土・日曜日",
+        "evidence_ids": [
+          "evd-sanja-matsuri-recurrence"
+        ]
+      },
+      "usual_months": [
+        5
+      ],
+      "usual_duration_days": 3,
+      "season_tags": [
+        "春"
+      ],
+      "occurrence_series_ids": [
+        "ser-sanja-matsuri-annual"
+      ]
+    },
+    {
+      "id": "shr-asakusa-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-29T00:00:00Z",
+      "updated_at": "2026-07-29T00:00:00Z",
+      "slug": "asakusa-jinja",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "浅草神社",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-sanja-matsuri-about"
+          ]
+        }
+      ],
+      "summary_ja": "東京都台東区浅草に鎮座し、三社祭の例大祭式典、本社神輿の宮出し・宮入りなどの祭祀的な基点となる神社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "13",
+            "prefecture_name_ja": "東京都",
+            "municipality_name_ja": "台東区"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-asakusa-jinja",
+      "default_place_ids": [
+        "plc-asakusa-jinja"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://asakusajinja.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-29"
+        }
+      ],
+      "record_lifecycle": "active"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-asakusa-jinja",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "浅草神社",
+      "place_kind": "shrine",
+      "country_code": "JP",
+      "prefecture_code": "13",
+      "prefecture_name_ja": "東京都",
+      "municipality_name_ja": "台東区",
+      "locality_ja": "浅草2-3-1",
+      "postal_code": "111-0032",
+      "coordinate_precision": "venue",
+      "source_ids": [
+        "src-sanja-matsuri-about"
+      ]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-sanja-matsuri-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-sanja-matsuri",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-07-29",
+      "basis_evidence_ids": [
+        "evd-sanja-matsuri-state"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-akita-kanto-suspension-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_started",
+      "subject_entity_ids": [
+        "fst-akita-kanto"
+      ],
+      "effective_period": {
+        "start": "2020",
+        "end": "2021"
+      },
+      "summary_ja": "新型コロナウイルス感染症の影響により、秋田竿燈まつりは2020年と2021年の2年連続で中止された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-akita-kanto-organized-by-committee"
+      ],
+      "evidence_ids": [
+        "evd-akita-kanto-suspension-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-akita-kanto-suspension-ended-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_ended",
+      "subject_entity_ids": [
+        "fst-akita-kanto"
+      ],
+      "effective_period": {
+        "start": "2022",
+        "end": "2022"
+      },
+      "summary_ja": "2年連続の中止を経て、2022年8月3日から6日に竿燈大通りで秋田竿燈まつりが再開した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-akita-kanto-organized-by-committee"
+      ],
+      "evidence_ids": [
+        "evd-akita-kanto-suspension-ended-2022"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-akita-kanto-format-restored-2023",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "format_changed",
+      "subject_entity_ids": [
+        "fst-akita-kanto"
+      ],
+      "effective_period": {
+        "start": "2023",
+        "end": "2023"
+      },
+      "summary_ja": "2023年は掛け声とふれあい竿燈が復活し、4年ぶりの通常形式で開催された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-akita-kanto-organized-by-committee"
+      ],
+      "evidence_ids": [
+        "evd-akita-kanto-format-restored-2023"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-sanja-matsuri-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-sanja-matsuri",
+      "series_id": "ser-sanja-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2025-05-16",
+        "end": "2025-05-18",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "normal",
+      "venue_place_ids": [
+        "plc-asakusa-jinja"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-sanja-matsuri-occ-2025"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-akita-kanto-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-akita-kanto",
+      "series_id": "ser-akita-kanto-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2020",
+        "end": "2020",
+        "precision": "year"
+      },
+      "outcome": "cancelled",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-akita-kanto-main-avenue"
+      ],
+      "organizer_entity_ids": [
+        "org-akita-kanto-committee"
+      ],
+      "evidence_ids": [
+        "evd-akita-kanto-occ-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-akita-kanto-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-akita-kanto",
+      "series_id": "ser-akita-kanto-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2021",
+        "end": "2021",
+        "precision": "year"
+      },
+      "outcome": "cancelled",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-akita-kanto-main-avenue"
+      ],
+      "organizer_entity_ids": [
+        "org-akita-kanto-committee"
+      ],
+      "evidence_ids": [
+        "evd-akita-kanto-occ-2021"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-akita-kanto-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-akita-kanto",
+      "series_id": "ser-akita-kanto-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2022-08-03",
+        "end": "2022-08-06",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-akita-kanto-main-avenue"
+      ],
+      "organizer_entity_ids": [
+        "org-akita-kanto-committee"
+      ],
+      "evidence_ids": [
+        "evd-akita-kanto-occ-2022"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-akita-kanto-2023",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-akita-kanto",
+      "series_id": "ser-akita-kanto-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2023-08-03",
+        "end": "2023-08-06",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "normal",
+      "venue_place_ids": [
+        "plc-akita-kanto-main-avenue"
+      ],
+      "organizer_entity_ids": [
+        "org-akita-kanto-committee"
+      ],
+      "evidence_ids": [
+        "evd-akita-kanto-occ-2023"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-sanja-matsuri-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-sanja-matsuri",
+      "series_type": "annual_festival_edition",
+      "name_ja": "三社祭 年次開催",
+      "recurrence_pattern_id": "rec-sanja-matsuri-annual",
+      "default_venue_place_ids": [
+        "plc-asakusa-jinja"
+      ],
+      "evidence_ids": [
+        "evd-sanja-matsuri-recurrence"
+      ]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-sanja-matsuri-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "5月第3土曜日を基点とする金・土・日曜日",
+      "evidence_ids": [
+        "evd-sanja-matsuri-recurrence"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-sanja-matsuri-associated-with-asakusa",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-sanja-matsuri",
+      "relation_type": "ritually_associated_with",
+      "target_entity_id": "shr-asakusa-jinja",
+      "evidence_ids": [
+        "evd-rel-sanja-matsuri-asakusa"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-sanja-matsuri-about",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "三社祭とは",
+      "publisher": "浅草神社",
+      "url": "https://asakusajinja.jp/sanjamatsuri/about/",
+      "accessed_at": "2026-07-29",
+      "language": "ja"
+    },
+    {
+      "id": "src-sanja-matsuri-schedule-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "令和8年浅草神社例大祭『三社祭』行事日程",
+      "publisher": "浅草神社",
+      "url": "https://asakusajinja.jp/sanjamatsuri/schedule/",
+      "published_at": "2026-01-01",
+      "accessed_at": "2026-07-29",
+      "language": "ja"
+    },
+    {
+      "id": "src-sanja-matsuri-photo-2025",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "令和7年度 三社祭フォトコンテスト選考結果",
+      "publisher": "浅草神社",
+      "url": "https://asakusajinja.jp/sanjamatsuri/photo2025/",
+      "published_at": "2025-07-02",
+      "accessed_at": "2026-07-29",
+      "language": "ja"
+    },
+    {
+      "id": "src-akita-kanto-cancel-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "令和3年5月31日の記者会見",
+      "publisher": "秋田市",
+      "url": "https://www.city.akita.lg.jp/shicho/kaiken/1028926/1029483.html",
+      "published_at": "2021-06-04",
+      "accessed_at": "2026-07-29",
+      "language": "ja"
+    },
+    {
+      "id": "src-akita-kanto-held-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "竿燈ムービー（令和4年度 秋田竿燈まつり）",
+      "publisher": "秋田市竿燈まつり実行委員会",
+      "url": "https://www.kantou.gr.jp/movie/",
+      "accessed_at": "2026-07-29",
+      "language": "ja"
+    },
+    {
+      "id": "src-akita-kanto-normal-2023",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "令和5年8月10日の記者会見",
+      "publisher": "秋田市",
+      "url": "https://www.city.akita.lg.jp/shicho/kaiken/1038422/1039717.html",
+      "published_at": "2023-08-10",
+      "accessed_at": "2026-07-29",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-sanja-matsuri-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sanja-matsuri-about",
+      "target_type": "entity_identity",
+      "target_id": "fst-sanja-matsuri",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "浅草神社公式の解説は、三社祭を浅草神社の氏子四十四ヶ町を中心に毎年5月に行う祭礼として説明している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-asakusa-jinja-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sanja-matsuri-about",
+      "target_type": "entity_identity",
+      "target_id": "shr-asakusa-jinja",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "浅草神社公式の三社祭解説と所在地表示は、浅草神社の名称と三社祭の祭祀基点としての同一性を裏付ける。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-asakusa-jinja-place",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sanja-matsuri-about",
+      "target_type": "place",
+      "target_id": "plc-asakusa-jinja",
+      "assertion_code": "supports_place",
+      "summary_ja": "浅草神社公式ページは所在地を東京都台東区浅草2-3-1と明記している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sanja-matsuri-state",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sanja-matsuri-schedule-2026",
+      "target_type": "state_snapshot",
+      "target_id": "sts-sanja-matsuri-current",
+      "assertion_code": "supports_state",
+      "summary_ja": "浅草神社公式は令和8年三社祭の例大祭式典、町内神輿連合渡御、本社神輿各町渡御などの行事日程を公開している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sanja-matsuri-recurrence",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sanja-matsuri-about",
+      "target_type": "recurrence_pattern",
+      "target_id": "rec-sanja-matsuri-annual",
+      "assertion_code": "supports_recurrence_pattern",
+      "summary_ja": "浅草神社公式は三社祭を5月第3土曜日を基点とする金・土・日曜日の3日間に行うと説明している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sanja-matsuri-occ-2025",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sanja-matsuri-photo-2025",
+      "target_type": "occurrence",
+      "target_id": "occ-sanja-matsuri-2025",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "浅草神社公式の令和7年度フォトコンテスト選考結果は、神輿渡御や宮入りなど2025年三社祭の開催実績を写真作品とともに公開している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-sanja-matsuri-asakusa",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sanja-matsuri-about",
+      "target_type": "relation",
+      "target_id": "rel-sanja-matsuri-associated-with-asakusa",
+      "assertion_code": "supports_relation",
+      "summary_ja": "浅草神社公式は三社祭を浅草神社の祭礼として説明し、神社境内での神事と本社神輿の宮出し・宮入りを記載している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-akita-kanto-suspension-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-akita-kanto-cancel-2021",
+      "target_type": "change_event",
+      "target_id": "chg-akita-kanto-suspension-2020",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "秋田市は2021年の中止決定を公表し、竿燈まつりが2年連続の中止となったことを明記している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-akita-kanto-occ-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-akita-kanto-cancel-2021",
+      "target_type": "occurrence",
+      "target_id": "occ-akita-kanto-2020",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "秋田市の2021年記者会見は同年の中止を2年連続と説明し、2020年の中止実績を裏付ける。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-akita-kanto-occ-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-akita-kanto-cancel-2021",
+      "target_type": "occurrence",
+      "target_id": "occ-akita-kanto-2021",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "秋田市は安全を最優先として2021年の秋田竿燈まつり中止を決定したと公表している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-akita-kanto-suspension-ended-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-akita-kanto-held-2022",
+      "target_type": "change_event",
+      "target_id": "chg-akita-kanto-suspension-ended-2022",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "秋田竿燈まつり公式の過去映像は令和4年度のまつり本番を掲載し、2年連続中止後の2022年開催再開を裏付ける。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-akita-kanto-occ-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-akita-kanto-held-2022",
+      "target_type": "occurrence",
+      "target_id": "occ-akita-kanto-2022",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "秋田竿燈まつり公式は令和4年度のまつり本番映像を過去映像として公開している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-akita-kanto-format-restored-2023",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-akita-kanto-normal-2023",
+      "target_type": "change_event",
+      "target_id": "chg-akita-kanto-format-restored-2023",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "秋田市は2023年に掛け声とふれあい竿燈が復活し、4年ぶりの通常開催となったと報告している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-akita-kanto-occ-2023",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-akita-kanto-normal-2023",
+      "target_type": "occurrence",
+      "target_id": "occ-akita-kanto-2023",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "秋田市は2023年8月3日から6日までの4日間、秋田竿燈まつりを通常形式で無事開催したと報告している。",
+      "captured_at": "2026-07-29",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
