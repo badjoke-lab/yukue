@@ -1,0 +1,35 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [
+    {
+      "id": "chg-mibu-hanadaue-public-return-confirmed-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "event_type": "suspension_ended",
+      "subject_entity_ids": [
+        "fst-mibu-hanadaue"
+      ],
+      "effective_period": {
+        "start": "2025",
+        "end": "2025"
+      },
+      "summary_ja": "2020年の公開中止後、少なくとも2025年には年次公開の開催が確認された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": [
+        "evd-mibu-hanadaue-return-2025"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
