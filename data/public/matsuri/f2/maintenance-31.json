@@ -1,0 +1,38 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [
+    {
+      "id": "rel-mibu-hanadaue-organized-by-hozonkai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-mibu-hanadaue",
+      "relation_type": "organized_by",
+      "target_entity_id": "org-mibu-hanadaue-hozonkai",
+      "evidence_ids": ["evd-rel-mibu-hanadaue-organizer"],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [],
+  "evidence": [
+    {
+      "id": "evd-rel-mibu-hanadaue-organizer",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-mibu-hanadaue-current-2026",
+      "target_type": "relation",
+      "target_id": "rel-mibu-hanadaue-organized-by-hozonkai",
+      "assertion_code": "supports_relation",
+      "summary_ja": "北広島町の2026年開催案内は、主催をNPO法人壬生の花田植保存会と明記している。既存の保存会Entityとの主催関係を裏付ける。",
+      "captured_at": "2026-07-31",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}

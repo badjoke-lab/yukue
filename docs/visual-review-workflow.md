@@ -57,7 +57,7 @@ visual screenshot workflow
   anchor maps and explicit no-map states
 ```
 
-The shared visual-route configuration currently contains 50 representative routes.
+The shared visual-route configuration currently contains 54 representative routes.
 
 It must include:
 
@@ -70,6 +70,7 @@ It must include:
 - `御田祭` as the permanent ritual-anchor regression page,
 - `新庄まつり` and the State-free `新庄天満神社` seed page as Batch 13 visual baselines,
 - `日田祇園`, `岳神楽`, `大償神楽`, and `JR日田駅前` as Batch 18 breadth, component-history, and Place baselines,
+- `壬生の花田植`, `壬生の花田植保存会`, `壬生の花田植会場`, and `佐陀神能` as Batch 19 breadth, organization, Place, and depth baselines,
 - multiple Folk Performance details,
 - multiple Organization details,
 - at least one Shrine or Temple seed-reference page,
@@ -126,12 +127,12 @@ screenshots-desktop.zip
 screenshots-mobile.zip
 ```
 
-With the current 50-route representative contract, an `all` capture produces:
+With the current 54-route representative contract, an `all` capture produces:
 
 ```text
-50 desktop full-page PNGs
-50 mobile full-page PNGs
-100 full-page PNGs total
+54 desktop full-page PNGs
+54 mobile full-page PNGs
+108 full-page PNGs total
 ```
 
 ## Capture manifest
@@ -219,7 +220,7 @@ The dedicated screenshot workflow supports:
 - manual `workflow_dispatch`,
 - automatic pull-request runs for UI, layout, style, visual-route, screenshot-script, Playwright, and workflow changes.
 
-The workflow is intentionally separate from the normal repository gate so that data-only and non-visual maintenance do not always generate one hundred PNGs.
+The workflow is intentionally separate from the normal repository gate so that data-only and non-visual maintenance do not always generate one hundred eight PNGs.
 
 A data change that materially alters page length, density, images, maps, or empty states should trigger a manual screenshot run or include the relevant visual workflow path change.
 

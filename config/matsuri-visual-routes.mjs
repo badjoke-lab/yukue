@@ -16,15 +16,18 @@ export const matsuriPublicRoutes = Object.freeze([
   "/festivals/sawara-grand-festival/",
   "/festivals/yamaga-toro-matsuri/",
   "/festivals/hita-gion/",
+  "/festivals/mibu-hanadaue/",
   "/performances/",
   "/performances/hayachine-kagura/",
   "/performances/take-kagura/",
   "/performances/ootsugunai-kagura/",
   "/performances/dainichido-bugaku/",
+  "/performances/sada-shin-noh/",
   "/organizations/",
   "/organizations/suneori-amagoi-hozonkai/",
   "/organizations/aomori-nebuta-committee/",
   "/organizations/yosakoi-shinkokai/",
+  "/organizations/mibu-hanadaue-hozonkai/",
   "/references/shrines/aso-jinja/",
   "/references/shrines/shinjo-tenmangu/",
   "/references/shrines/asakusa-jinja/",
@@ -35,6 +38,7 @@ export const matsuriPublicRoutes = Object.freeze([
   "/places/gion-yamahoko-route/",
   "/places/yosakoi-chuo-koen/",
   "/places/hita-station-front/",
+  "/places/mibu-hanadaue-field/",
   "/regions/",
   "/changes/",
   "/states/",
@@ -71,9 +75,9 @@ export const matsuriTabletBrowserDevice = Object.freeze({
 });
 
 export function assertMatsuriVisualContract() {
-  if (matsuriPublicRoutes.length !== 50) {
+  if (matsuriPublicRoutes.length !== 54) {
     throw new Error(
-      `The representative Matsuri visual contract requires 50 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
+      `The representative Matsuri visual contract requires 54 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
     );
   }
 
@@ -156,6 +160,18 @@ export function assertMatsuriVisualContract() {
   }
   if (!matsuriPublicRoutes.includes("/places/hita-station-front/")) {
     throw new Error("Matsuri visual contract must retain the 日田駅前集団顔見世 Place route.");
+  }
+  if (!matsuriPublicRoutes.includes("/festivals/mibu-hanadaue/")) {
+    throw new Error("Matsuri visual contract must retain the new 壬生の花田植 Detail C route.");
+  }
+  if (!matsuriPublicRoutes.includes("/performances/sada-shin-noh/")) {
+    throw new Error("Matsuri visual contract must retain the deepened 佐陀神能 Detail C route.");
+  }
+  if (!matsuriPublicRoutes.includes("/organizations/mibu-hanadaue-hozonkai/")) {
+    throw new Error("Matsuri visual contract must retain the 壬生の花田植保存会 organization route.");
+  }
+  if (!matsuriPublicRoutes.includes("/places/mibu-hanadaue-field/")) {
+    throw new Error("Matsuri visual contract must retain the 壬生の花田植会場 Place route.");
   }
 
   for (const route of matsuriPublicRoutes) {
