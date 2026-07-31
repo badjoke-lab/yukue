@@ -26,6 +26,7 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | `audits/matsuri-corpus-expansion-batch-18-2026-07-29.md` | Passed | Oita breadth addition and Hayachine component occurrence-history depth |
 | `audits/matsuri-corpus-expansion-batch-19-2026-07-31.md` | Passed | Hiroshima breadth addition and Sada Shin Noh recurrence/occurrence depth |
 | `audits/matsuri-corpus-expansion-batch-20-2026-07-31.md` | Passed | Tochigi breadth addition, ritual-anchor correction, and Dainichido Bugaku 2026 occurrence depth |
+| `audits/matsuri-corpus-expansion-batch-21-2026-07-31.md` | Passed | Ishikawa breadth addition and Nunokawa final-occurrence/suspension depth |
 | `matsuri-repository-baseline.md` | Machine-checked current | Exact bundle, Entity, launch-boundary, and Jinja-boundary values |
 | `f2-25-cloudflare-web-analytics.md` | Completed | Analytics activation and privacy boundary |
 | `audits/matsuri-f2-27-production-traffic-2026-07-27.md` | Passed audit | Public-safe production traffic evidence |
@@ -74,6 +75,7 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | `audits/matsuri-corpus-expansion-batch-18-2026-07-29.md` | Passed corpus evidence | Batch 18 Sources, Evidence, final counts, main/related-series pattern, component performance history, visual baselines, validation, and boundaries |
 | `audits/matsuri-corpus-expansion-batch-19-2026-07-31.md` | Passed corpus evidence | Batch 19 Sources, Evidence, final counts, public-performance interruption/return history, Sada recurrence depth, visual baselines, validation, and boundaries |
 | `audits/matsuri-corpus-expansion-batch-20-2026-07-31.md` | Passed corpus evidence | Batch 20 Sources, Evidence, final counts, distributed-performance mapping, Shrine seed correction, Dainichido occurrence depth, visual baselines, validation, and boundaries |
+| `audits/matsuri-corpus-expansion-batch-21-2026-07-31.md` | Passed corpus evidence | Batch 21 Sources, Evidence, final counts, pandemic/earthquake interruption history, Shrine seed mapping, Nunokawa suspension depth, visual baselines, validation, and boundaries |
 
 ## Public/private boundary
 
