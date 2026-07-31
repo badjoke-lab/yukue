@@ -18,6 +18,7 @@ export const matsuriPublicRoutes = Object.freeze([
   "/festivals/hita-gion/",
   "/festivals/mibu-hanadaue/",
   "/festivals/yamaage-matsuri/",
+  "/festivals/seihakusai/",
   "/performances/",
   "/performances/hayachine-kagura/",
   "/performances/take-kagura/",
@@ -36,6 +37,7 @@ export const matsuriPublicRoutes = Object.freeze([
   "/references/shrines/sawara-yasaka-jinja/",
   "/references/shrines/sawara-suwa-jinja/",
   "/references/shrines/karasuyama-yakumo-jinja/",
+  "/references/shrines/nanao-oyama-jinja/",
   "/places/suneori-shirahige/",
   "/places/gion-yamahoko-route/",
   "/places/yosakoi-chuo-koen/",
@@ -43,6 +45,8 @@ export const matsuriPublicRoutes = Object.freeze([
   "/places/mibu-hanadaue-field/",
   "/places/karasuyama-yakumo-jinja/",
   "/places/karasuyama-city-center/",
+  "/places/nanao-oyama-jinja/",
+  "/places/nanao-seihakusai-route/",
   "/regions/",
   "/changes/",
   "/states/",
@@ -79,9 +83,9 @@ export const matsuriTabletBrowserDevice = Object.freeze({
 });
 
 export function assertMatsuriVisualContract() {
-  if (matsuriPublicRoutes.length !== 58) {
+  if (matsuriPublicRoutes.length !== 62) {
     throw new Error(
-      `The representative Matsuri visual contract requires 58 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
+      `The representative Matsuri visual contract requires 62 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
     );
   }
 
@@ -105,93 +109,39 @@ export function assertMatsuriVisualContract() {
     }
   }
 
-  if (!matsuriPublicRoutes.includes("/festivals/aso-onda-matsuri/")) {
-    throw new Error("Matsuri visual contract must retain the 御田祭 ritual-anchor regression route.");
-  }
-  if (!matsuriPublicRoutes.includes("/festivals/shinjo-matsuri/")) {
-    throw new Error("Matsuri visual contract must retain the new 新庄まつり Detail C route.");
-  }
-  if (!matsuriPublicRoutes.includes("/references/shrines/shinjo-tenmangu/")) {
-    throw new Error("Matsuri visual contract must retain the State-free 新庄天満神社 seed route.");
-  }
-  if (!matsuriPublicRoutes.includes("/festivals/sanja-matsuri/")) {
-    throw new Error("Matsuri visual contract must retain the new 三社祭 Detail C route.");
-  }
-  if (!matsuriPublicRoutes.includes("/references/shrines/asakusa-jinja/")) {
-    throw new Error("Matsuri visual contract must retain the State-free 浅草神社 seed route.");
-  }
-  if (!matsuriPublicRoutes.includes("/festivals/gion-matsuri-kyoto/")) {
-    throw new Error("Matsuri visual contract must retain the deepened 祇園祭 Detail C route.");
-  }
-  if (!matsuriPublicRoutes.includes("/festivals/nagasaki-kunchi/")) {
-    throw new Error("Matsuri visual contract must retain the new 長崎くんち Detail C route.");
-  }
-  if (!matsuriPublicRoutes.includes("/references/shrines/nagasaki-suwa-jinja/")) {
-    throw new Error("Matsuri visual contract must retain the State-free 長崎諏訪神社 seed route.");
-  }
-  if (!matsuriPublicRoutes.includes("/festivals/kochi-yosakoi-matsuri/")) {
-    throw new Error("Matsuri visual contract must retain the new よさこい祭り Detail C route.");
-  }
-  if (!matsuriPublicRoutes.includes("/festivals/hana-matsuri-toei/")) {
-    throw new Error("Matsuri visual contract must retain the deepened 東栄町花祭 Detail C route.");
-  }
-  if (!matsuriPublicRoutes.includes("/organizations/yosakoi-shinkokai/")) {
-    throw new Error("Matsuri visual contract must retain the よさこい祭振興会 organization route.");
-  }
-  if (!matsuriPublicRoutes.includes("/places/yosakoi-chuo-koen/")) {
-    throw new Error("Matsuri visual contract must retain the よさこい中央公園 Place route.");
-  }
-  if (!matsuriPublicRoutes.includes("/festivals/sawara-grand-festival/")) {
-    throw new Error("Matsuri visual contract must retain the new 佐原の大祭 Detail C route.");
-  }
-  if (!matsuriPublicRoutes.includes("/references/shrines/sawara-yasaka-jinja/")) {
-    throw new Error("Matsuri visual contract must retain the State-free 佐原八坂神社 seed route.");
-  }
-  if (!matsuriPublicRoutes.includes("/references/shrines/sawara-suwa-jinja/")) {
-    throw new Error("Matsuri visual contract must retain the State-free 佐原諏訪神社 seed route.");
-  }
-  if (!matsuriPublicRoutes.includes("/festivals/yamaga-toro-matsuri/")) {
-    throw new Error("Matsuri visual contract must retain the deepened 山鹿灯籠まつり Detail C route.");
-  }
-  if (!matsuriPublicRoutes.includes("/festivals/hita-gion/")) {
-    throw new Error("Matsuri visual contract must retain the new 日田祇園 Detail C route.");
-  }
-  if (!matsuriPublicRoutes.includes("/performances/take-kagura/")) {
-    throw new Error("Matsuri visual contract must retain the deepened 岳神楽 Detail C route.");
-  }
-  if (!matsuriPublicRoutes.includes("/performances/ootsugunai-kagura/")) {
-    throw new Error("Matsuri visual contract must retain the deepened 大償神楽 Detail C route.");
-  }
-  if (!matsuriPublicRoutes.includes("/places/hita-station-front/")) {
-    throw new Error("Matsuri visual contract must retain the 日田駅前集団顔見世 Place route.");
-  }
-  if (!matsuriPublicRoutes.includes("/festivals/mibu-hanadaue/")) {
-    throw new Error("Matsuri visual contract must retain the new 壬生の花田植 Detail C route.");
-  }
-  if (!matsuriPublicRoutes.includes("/performances/sada-shin-noh/")) {
-    throw new Error("Matsuri visual contract must retain the deepened 佐陀神能 Detail C route.");
-  }
-  if (!matsuriPublicRoutes.includes("/organizations/mibu-hanadaue-hozonkai/")) {
-    throw new Error("Matsuri visual contract must retain the 壬生の花田植保存会 organization route.");
-  }
-  if (!matsuriPublicRoutes.includes("/places/mibu-hanadaue-field/")) {
-    throw new Error("Matsuri visual contract must retain the 壬生の花田植会場 Place route.");
-  }
-  if (!matsuriPublicRoutes.includes("/festivals/yamaage-matsuri/")) {
-    throw new Error("Matsuri visual contract must retain the new 山あげ祭 Detail C route.");
-  }
-  if (!matsuriPublicRoutes.includes("/references/shrines/karasuyama-yakumo-jinja/")) {
-    throw new Error("Matsuri visual contract must retain the State-free 烏山八雲神社 seed route.");
-  }
-  if (!matsuriPublicRoutes.includes("/places/karasuyama-yakumo-jinja/")) {
-    throw new Error("Matsuri visual contract must retain the 烏山八雲神社 Place route.");
-  }
-  if (!matsuriPublicRoutes.includes("/places/karasuyama-city-center/")) {
-    throw new Error("Matsuri visual contract must retain the distributed 山あげ公演区域 Place route.");
-  }
-  if (!matsuriPublicRoutes.includes("/performances/dainichido-bugaku/")) {
-    throw new Error("Matsuri visual contract must retain the deepened 大日堂舞楽 Detail C route.");
-  }
+  if (!matsuriPublicRoutes.includes("/festivals/aso-onda-matsuri/")) throw new Error("Matsuri visual contract must retain the 御田祭 ritual-anchor regression route.");
+  if (!matsuriPublicRoutes.includes("/festivals/shinjo-matsuri/")) throw new Error("Matsuri visual contract must retain the new 新庄まつり Detail C route.");
+  if (!matsuriPublicRoutes.includes("/references/shrines/shinjo-tenmangu/")) throw new Error("Matsuri visual contract must retain the State-free 新庄天満神社 seed route.");
+  if (!matsuriPublicRoutes.includes("/festivals/sanja-matsuri/")) throw new Error("Matsuri visual contract must retain the new 三社祭 Detail C route.");
+  if (!matsuriPublicRoutes.includes("/references/shrines/asakusa-jinja/")) throw new Error("Matsuri visual contract must retain the State-free 浅草神社 seed route.");
+  if (!matsuriPublicRoutes.includes("/festivals/gion-matsuri-kyoto/")) throw new Error("Matsuri visual contract must retain the deepened 祇園祭 Detail C route.");
+  if (!matsuriPublicRoutes.includes("/festivals/nagasaki-kunchi/")) throw new Error("Matsuri visual contract must retain the new 長崎くんち Detail C route.");
+  if (!matsuriPublicRoutes.includes("/references/shrines/nagasaki-suwa-jinja/")) throw new Error("Matsuri visual contract must retain the State-free 長崎諏訪神社 seed route.");
+  if (!matsuriPublicRoutes.includes("/festivals/kochi-yosakoi-matsuri/")) throw new Error("Matsuri visual contract must retain the new よさこい祭り Detail C route.");
+  if (!matsuriPublicRoutes.includes("/festivals/hana-matsuri-toei/")) throw new Error("Matsuri visual contract must retain the deepened 東栄町花祭 Detail C route.");
+  if (!matsuriPublicRoutes.includes("/organizations/yosakoi-shinkokai/")) throw new Error("Matsuri visual contract must retain the よさこい祭振興会 organization route.");
+  if (!matsuriPublicRoutes.includes("/places/yosakoi-chuo-koen/")) throw new Error("Matsuri visual contract must retain the よさこい中央公園 Place route.");
+  if (!matsuriPublicRoutes.includes("/festivals/sawara-grand-festival/")) throw new Error("Matsuri visual contract must retain the new 佐原の大祭 Detail C route.");
+  if (!matsuriPublicRoutes.includes("/references/shrines/sawara-yasaka-jinja/")) throw new Error("Matsuri visual contract must retain the State-free 佐原八坂神社 seed route.");
+  if (!matsuriPublicRoutes.includes("/references/shrines/sawara-suwa-jinja/")) throw new Error("Matsuri visual contract must retain the State-free 佐原諏訪神社 seed route.");
+  if (!matsuriPublicRoutes.includes("/festivals/yamaga-toro-matsuri/")) throw new Error("Matsuri visual contract must retain the deepened 山鹿灯籠まつり Detail C route.");
+  if (!matsuriPublicRoutes.includes("/festivals/hita-gion/")) throw new Error("Matsuri visual contract must retain the new 日田祇園 Detail C route.");
+  if (!matsuriPublicRoutes.includes("/performances/take-kagura/")) throw new Error("Matsuri visual contract must retain the deepened 岳神楽 Detail C route.");
+  if (!matsuriPublicRoutes.includes("/performances/ootsugunai-kagura/")) throw new Error("Matsuri visual contract must retain the deepened 大償神楽 Detail C route.");
+  if (!matsuriPublicRoutes.includes("/places/hita-station-front/")) throw new Error("Matsuri visual contract must retain the 日田駅前集団顔見世 Place route.");
+  if (!matsuriPublicRoutes.includes("/festivals/mibu-hanadaue/")) throw new Error("Matsuri visual contract must retain the new 壬生の花田植 Detail C route.");
+  if (!matsuriPublicRoutes.includes("/performances/sada-shin-noh/")) throw new Error("Matsuri visual contract must retain the deepened 佐陀神能 Detail C route.");
+  if (!matsuriPublicRoutes.includes("/organizations/mibu-hanadaue-hozonkai/")) throw new Error("Matsuri visual contract must retain the 壬生の花田植保存会 organization route.");
+  if (!matsuriPublicRoutes.includes("/places/mibu-hanadaue-field/")) throw new Error("Matsuri visual contract must retain the 壬生の花田植会場 Place route.");
+  if (!matsuriPublicRoutes.includes("/festivals/yamaage-matsuri/")) throw new Error("Matsuri visual contract must retain the new 山あげ祭 Detail C route.");
+  if (!matsuriPublicRoutes.includes("/references/shrines/karasuyama-yakumo-jinja/")) throw new Error("Matsuri visual contract must retain the State-free 烏山八雲神社 seed route.");
+  if (!matsuriPublicRoutes.includes("/places/karasuyama-yakumo-jinja/")) throw new Error("Matsuri visual contract must retain the 烏山八雲神社 Place route.");
+  if (!matsuriPublicRoutes.includes("/places/karasuyama-city-center/")) throw new Error("Matsuri visual contract must retain the distributed 山あげ公演区域 Place route.");
+  if (!matsuriPublicRoutes.includes("/performances/dainichido-bugaku/")) throw new Error("Matsuri visual contract must retain the deepened 大日堂舞楽 Detail C route.");
+  if (!matsuriPublicRoutes.includes("/festivals/seihakusai/")) throw new Error("Matsuri visual contract must retain the new 青柏祭 Detail C route.");
+  if (!matsuriPublicRoutes.includes("/references/shrines/nanao-oyama-jinja/")) throw new Error("Matsuri visual contract must retain the State-free 大地主神社 seed route.");
+  if (!matsuriPublicRoutes.includes("/places/nanao-oyama-jinja/")) throw new Error("Matsuri visual contract must retain the 大地主神社 Place route.");
+  if (!matsuriPublicRoutes.includes("/places/nanao-seihakusai-route/")) throw new Error("Matsuri visual contract must retain the distributed 青柏祭巡行区域 Place route.");
 
   for (const route of matsuriPublicRoutes) {
     if (!route.startsWith("/") || !route.endsWith("/")) {
