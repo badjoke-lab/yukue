@@ -57,7 +57,7 @@ visual screenshot workflow
   anchor maps and explicit no-map states
 ```
 
-The shared visual-route configuration currently contains 58 representative routes.
+The shared visual-route configuration currently contains 62 representative routes.
 
 It must include:
 
@@ -73,6 +73,8 @@ It must include:
 - `壬生の花田植`, `壬生の花田植保存会`, `壬生の花田植会場`, and `佐陀神能` as Batch 19 breadth, organization, Place, and depth baselines,
 - `山あげ祭`, the State-free `烏山八雲神社` seed page, the concrete Shrine Place, and the distributed public-performance area as Batch 20 breadth, ritual-anchor, and map-boundary baselines,
 - `大日堂舞楽` as the Batch 20 occurrence-history depth baseline,
+- `青柏祭`, the State-free `大地主神社` seed page, the concrete Shrine Place, and the distributed city-center route as Batch 21 breadth, ritual-anchor, and map-boundary baselines,
+- `布川地区花祭` as the Batch 21 suspension-history depth baseline,
 - multiple Folk Performance details,
 - multiple Organization details,
 - at least one Shrine or Temple seed-reference page,
@@ -129,12 +131,12 @@ screenshots-desktop.zip
 screenshots-mobile.zip
 ```
 
-With the current 58-route representative contract, an `all` capture produces:
+With the current 62-route representative contract, an `all` capture produces:
 
 ```text
-58 desktop full-page PNGs
-58 mobile full-page PNGs
-116 full-page PNGs total
+62 desktop full-page PNGs
+62 mobile full-page PNGs
+124 full-page PNGs total
 ```
 
 ## Capture manifest
@@ -222,7 +224,7 @@ The dedicated screenshot workflow supports:
 - manual `workflow_dispatch`,
 - automatic pull-request runs for UI, layout, style, visual-route, screenshot-script, Playwright, and workflow changes.
 
-The workflow is intentionally separate from the normal repository gate so that data-only and non-visual maintenance do not always generate one hundred sixteen PNGs.
+The workflow is intentionally separate from the normal repository gate so that data-only and non-visual maintenance do not always generate one hundred twenty-four PNGs.
 
 A data change that materially alters page length, density, images, maps, or empty states should trigger a manual screenshot run or include the relevant visual workflow path change.
 
