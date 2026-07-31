@@ -17,6 +17,7 @@ export const matsuriPublicRoutes = Object.freeze([
   "/festivals/yamaga-toro-matsuri/",
   "/festivals/hita-gion/",
   "/festivals/mibu-hanadaue/",
+  "/festivals/yamaage-matsuri/",
   "/performances/",
   "/performances/hayachine-kagura/",
   "/performances/take-kagura/",
@@ -34,11 +35,14 @@ export const matsuriPublicRoutes = Object.freeze([
   "/references/shrines/nagasaki-suwa-jinja/",
   "/references/shrines/sawara-yasaka-jinja/",
   "/references/shrines/sawara-suwa-jinja/",
+  "/references/shrines/karasuyama-yakumo-jinja/",
   "/places/suneori-shirahige/",
   "/places/gion-yamahoko-route/",
   "/places/yosakoi-chuo-koen/",
   "/places/hita-station-front/",
   "/places/mibu-hanadaue-field/",
+  "/places/karasuyama-yakumo-jinja/",
+  "/places/karasuyama-city-center/",
   "/regions/",
   "/changes/",
   "/states/",
@@ -75,9 +79,9 @@ export const matsuriTabletBrowserDevice = Object.freeze({
 });
 
 export function assertMatsuriVisualContract() {
-  if (matsuriPublicRoutes.length !== 54) {
+  if (matsuriPublicRoutes.length !== 58) {
     throw new Error(
-      `The representative Matsuri visual contract requires 54 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
+      `The representative Matsuri visual contract requires 58 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
     );
   }
 
@@ -172,6 +176,21 @@ export function assertMatsuriVisualContract() {
   }
   if (!matsuriPublicRoutes.includes("/places/mibu-hanadaue-field/")) {
     throw new Error("Matsuri visual contract must retain the 壬生の花田植会場 Place route.");
+  }
+  if (!matsuriPublicRoutes.includes("/festivals/yamaage-matsuri/")) {
+    throw new Error("Matsuri visual contract must retain the new 山あげ祭 Detail C route.");
+  }
+  if (!matsuriPublicRoutes.includes("/references/shrines/karasuyama-yakumo-jinja/")) {
+    throw new Error("Matsuri visual contract must retain the State-free 烏山八雲神社 seed route.");
+  }
+  if (!matsuriPublicRoutes.includes("/places/karasuyama-yakumo-jinja/")) {
+    throw new Error("Matsuri visual contract must retain the 烏山八雲神社 Place route.");
+  }
+  if (!matsuriPublicRoutes.includes("/places/karasuyama-city-center/")) {
+    throw new Error("Matsuri visual contract must retain the distributed 山あげ公演区域 Place route.");
+  }
+  if (!matsuriPublicRoutes.includes("/performances/dainichido-bugaku/")) {
+    throw new Error("Matsuri visual contract must retain the deepened 大日堂舞楽 Detail C route.");
   }
 
   for (const route of matsuriPublicRoutes) {
