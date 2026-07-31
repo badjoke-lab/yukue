@@ -1,0 +1,587 @@
+{
+  "entities": [
+    {
+      "id": "fst-yamaage-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-31T00:00:00Z",
+      "updated_at": "2026-07-31T00:00:00Z",
+      "slug": "yamaage-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "山あげ祭",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-yamaage-overview"]
+        },
+        {
+          "value": "烏山の山あげ行事",
+          "lang": "ja",
+          "kind": "official",
+          "is_preferred": false,
+          "source_ids": ["src-yamaage-overview"]
+        }
+      ],
+      "summary_ja": "那須烏山市の八雲神社例大祭として、市街地に移動式の舞台と大規模な背景を組み立て、歌舞伎舞踊を奉納する祭礼。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "09",
+            "prefecture_name_ja": "栃木県",
+            "municipality_name_ja": "那須烏山市"
+          }
+        ],
+        "scope_type": "route_based",
+        "description_ja": "八雲神社を祭祀の基点とし、烏山市街地の複数地点へ舞台装置を移動して公演する。"
+      },
+      "primary_place_id": "plc-karasuyama-yakumo-jinja",
+      "default_place_ids": [
+        "plc-karasuyama-yakumo-jinja",
+        "plc-karasuyama-city-center"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.city.nasukarasuyama.lg.jp/yamaage-matsuri/",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-07-31"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "shrine_festival",
+      "usual_months": [7],
+      "usual_duration_days": 3,
+      "season_tags": ["夏"],
+      "occurrence_series_ids": ["ser-yamaage-matsuri-annual"]
+    },
+    {
+      "id": "shr-karasuyama-yakumo-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-07-31T00:00:00Z",
+      "updated_at": "2026-07-31T00:00:00Z",
+      "slug": "karasuyama-yakumo-jinja",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "八雲神社",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-yamaage-yakumo"]
+        }
+      ],
+      "summary_ja": "山あげ祭が例大祭として行われ、神輿の出御・渡御・還御と山あげ行事の祭祀基点となる那須烏山市の神社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "09",
+            "prefecture_name_ja": "栃木県",
+            "municipality_name_ja": "那須烏山市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-karasuyama-yakumo-jinja",
+      "default_place_ids": ["plc-karasuyama-yakumo-jinja"],
+      "external_links": [
+        {
+          "kind": "official_information",
+          "platform": "web",
+          "url": "https://www.city.nasukarasuyama.lg.jp/yamaage-matsuri/about-yamaage/page000957.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-07-31"
+        }
+      ],
+      "record_lifecycle": "active"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-karasuyama-yakumo-jinja",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "烏山八雲神社",
+      "place_kind": "shrine_precinct",
+      "country_code": "JP",
+      "prefecture_code": "09",
+      "prefecture_name_ja": "栃木県",
+      "municipality_name_ja": "那須烏山市",
+      "locality_ja": "烏山市街地",
+      "coordinate_precision": "venue",
+      "source_ids": ["src-yamaage-yakumo"]
+    },
+    {
+      "id": "plc-karasuyama-city-center",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "烏山市街地 山あげ公演区域",
+      "place_kind": "distributed_area",
+      "country_code": "JP",
+      "prefecture_code": "09",
+      "prefecture_name_ja": "栃木県",
+      "municipality_name_ja": "那須烏山市",
+      "locality_ja": "烏山市街地",
+      "coordinate_precision": "area",
+      "source_ids": ["src-yamaage-2020-cancel", "src-yamaage-2026-schedule"]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-yamaage-matsuri-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-yamaage-matsuri",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-07-31",
+      "basis_evidence_ids": ["evd-yamaage-state"],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-yamaage-public-suspension-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_started",
+      "subject_entity_ids": ["fst-yamaage-matsuri"],
+      "effective_period": {
+        "start": "2020",
+        "end": "2020"
+      },
+      "summary_ja": "新型コロナウイルス感染拡大を受け、2020年の山あげ祭は中止された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-yamaage-suspension-2020"],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-yamaage-public-return-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_ended",
+      "subject_entity_ids": ["fst-yamaage-matsuri"],
+      "effective_period": {
+        "start": "2022",
+        "end": "2022"
+      },
+      "summary_ja": "市の2022年公式ギャラリーにより、山あげ祭が3年ぶりに公開開催へ戻ったことを確認できる。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-yamaage-return-2022"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-yamaage-matsuri-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-yamaage-matsuri",
+      "series_id": "ser-yamaage-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2020-07-24",
+        "end": "2020-07-26",
+        "precision": "range"
+      },
+      "outcome": "cancelled",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-karasuyama-yakumo-jinja",
+        "plc-karasuyama-city-center"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-yamaage-occ-2020"],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-yamaage-matsuri-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-yamaage-matsuri",
+      "series_id": "ser-yamaage-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2022",
+        "end": "2022",
+        "precision": "year"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-karasuyama-yakumo-jinja",
+        "plc-karasuyama-city-center"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-yamaage-occ-2022"],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-yamaage-matsuri-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-yamaage-matsuri",
+      "series_id": "ser-yamaage-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2025",
+        "end": "2025",
+        "precision": "year"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-karasuyama-yakumo-jinja",
+        "plc-karasuyama-city-center"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-yamaage-occ-2025"],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-dainichido-bugaku-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fpf-dainichido-bugaku",
+      "series_id": "ser-dainichido-annual",
+      "occurrence_type": "performance",
+      "temporal_extent": {
+        "start": "2026-01-02",
+        "end": "2026-01-02",
+        "precision": "day"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-dainichireiki-jinja"],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-dainichido-occ-2026"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-yamaage-matsuri-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-yamaage-matsuri",
+      "series_type": "annual_festival_edition",
+      "name_ja": "山あげ祭 年次祭典",
+      "recurrence_pattern_id": "rec-yamaage-matsuri-annual",
+      "default_venue_place_ids": [
+        "plc-karasuyama-yakumo-jinja",
+        "plc-karasuyama-city-center"
+      ],
+      "evidence_ids": ["evd-yamaage-recurrence"]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-yamaage-matsuri-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年7月第4土曜日を含む金曜日・土曜日・日曜日の3日間",
+      "evidence_ids": ["evd-yamaage-recurrence"]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-yamaage-ritually-associated-with-yakumo",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-yamaage-matsuri",
+      "relation_type": "ritually_associated_with",
+      "target_entity_id": "shr-karasuyama-yakumo-jinja",
+      "evidence_ids": ["evd-rel-yamaage-yakumo"],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [
+    {
+      "id": "des-yamaage-national",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "designation_name_ja": "国指定重要無形民俗文化財「烏山の山あげ行事」",
+      "subject_entity_ids": ["fst-yamaage-matsuri"],
+      "designation_system": "文化財保護法",
+      "designation_level": "国",
+      "valid_period": {
+        "start": "1979-02-03"
+      },
+      "evidence_ids": ["evd-des-yamaage-national"]
+    },
+    {
+      "id": "des-yamaage-unesco",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "designation_name_ja": "ユネスコ無形文化遺産代表一覧表「山・鉾・屋台行事」構成要素「烏山の山あげ行事」",
+      "subject_entity_ids": ["fst-yamaage-matsuri"],
+      "designation_system": "無形文化遺産の保護に関する条約",
+      "designation_level": "国際",
+      "valid_period": {
+        "start": "2016-12-01"
+      },
+      "evidence_ids": ["evd-des-yamaage-unesco"]
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-yamaage-overview",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "山あげ祭とは",
+      "publisher": "那須烏山市",
+      "url": "https://www.city.nasukarasuyama.lg.jp/yamaage-matsuri/about-yamaage/page000956.html",
+      "accessed_at": "2026-07-31",
+      "language": "ja"
+    },
+    {
+      "id": "src-yamaage-yakumo",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "八雲神社と祭礼",
+      "publisher": "那須烏山市",
+      "url": "https://www.city.nasukarasuyama.lg.jp/yamaage-matsuri/about-yamaage/page000957.html",
+      "accessed_at": "2026-07-31",
+      "language": "ja"
+    },
+    {
+      "id": "src-yamaage-recurrence",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "山あげ祭の日程（保存版）",
+      "publisher": "那須烏山市",
+      "url": "https://www.city.nasukarasuyama.lg.jp/yamaage-matsuri/about-yamaage/page000959.html",
+      "accessed_at": "2026-07-31",
+      "language": "ja"
+    },
+    {
+      "id": "src-yamaage-2020-cancel",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "山あげ祭",
+      "publisher": "那須烏山市",
+      "url": "https://www.city.nasukarasuyama.lg.jp/temporary/page000420.html",
+      "accessed_at": "2026-07-31",
+      "language": "ja"
+    },
+    {
+      "id": "src-yamaage-2022-gallery",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "令和4年 山あげ祭フォトコンテスト2022年受賞作品",
+      "publisher": "那須烏山市",
+      "url": "https://www.city.nasukarasuyama.lg.jp/page/page003699.html",
+      "accessed_at": "2026-07-31",
+      "language": "ja"
+    },
+    {
+      "id": "src-yamaage-2025-gallery",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "令和7年 山あげ祭フォトコンテスト2025入賞作品",
+      "publisher": "那須烏山市",
+      "url": "https://www.city.nasukarasuyama.lg.jp/yamaage-matsuri/gallery/page006364.html",
+      "accessed_at": "2026-07-31",
+      "language": "ja"
+    },
+    {
+      "id": "src-yamaage-2026-schedule",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "令和8年度山あげ祭について",
+      "publisher": "那須烏山市",
+      "url": "https://www.city.nasukarasuyama.lg.jp/yamaage-matsuri/news/page005899.html",
+      "accessed_at": "2026-07-31",
+      "language": "ja"
+    },
+    {
+      "id": "src-dainichido-held-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "1300年の伝統を受け継ぐ 大日堂舞楽",
+      "publisher": "鹿角市",
+      "url": "https://www.city.kazuno.lg.jp/shisei_machizukuri/koho/2/reiwa7nen_1/14479.html",
+      "accessed_at": "2026-07-31",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-yamaage-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaage-overview",
+      "target_type": "entity_identity",
+      "target_id": "fst-yamaage-matsuri",
+      "assertion_code": "supports_identity",
+      "summary_ja": "那須烏山市は、国指定重要無形民俗文化財の烏山の山あげ行事と八雲神社の神輿などで構成される祭礼を山あげ祭として説明している。",
+      "captured_at": "2026-07-31",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yamaage-state",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaage-2026-schedule",
+      "target_type": "state_snapshot",
+      "target_id": "sts-yamaage-matsuri-current",
+      "assertion_code": "supports_current_state",
+      "summary_ja": "那須烏山市が2026年の公演日程、観覧席、交通規制、パンフレットを公開しているため、現行の年次祭礼として活動中であることを裏付ける。2026年の開催結果自体は別途確認対象とする。",
+      "captured_at": "2026-07-31",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yamaage-recurrence",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaage-recurrence",
+      "target_type": "recurrence_pattern",
+      "target_id": "rec-yamaage-matsuri-annual",
+      "assertion_code": "supports_recurrence",
+      "summary_ja": "那須烏山市は山あげ祭を毎年7月第4土曜日を含む金・土・日の3日間に行うと記録している。",
+      "captured_at": "2026-07-31",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yakumo-jinja-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaage-yakumo",
+      "target_type": "entity_identity",
+      "target_id": "shr-karasuyama-yakumo-jinja",
+      "assertion_code": "supports_identity",
+      "summary_ja": "那須烏山市は烏山市街地に鎮座する八雲神社と、その例大祭が山あげ祭として行われる関係を説明している。",
+      "captured_at": "2026-07-31",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-yamaage-yakumo",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaage-yakumo",
+      "target_type": "relation",
+      "target_id": "rel-yamaage-ritually-associated-with-yakumo",
+      "assertion_code": "supports_relation",
+      "summary_ja": "那須烏山市は八雲神社の例大祭が特化して山あげ祭として行われると説明しており、祭礼と神社の祭祀関係を裏付ける。",
+      "captured_at": "2026-07-31",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yamaage-occ-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaage-2020-cancel",
+      "target_type": "occurrence",
+      "target_id": "occ-yamaage-matsuri-2020",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "那須烏山市は2020年7月24日から26日に予定していた山あげ祭を、新型コロナウイルス感染拡大を受けて中止したと記録している。",
+      "captured_at": "2026-07-31",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yamaage-suspension-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaage-2020-cancel",
+      "target_type": "change_event",
+      "target_id": "chg-yamaage-public-suspension-2020",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "那須烏山市の中止記録により、2020年の公開祭典の中断を確認できる。",
+      "captured_at": "2026-07-31",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yamaage-occ-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaage-2022-gallery",
+      "target_type": "occurrence",
+      "target_id": "occ-yamaage-matsuri-2022",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "那須烏山市の2022年公式受賞作品ページは山あげ公演の写真を掲載し、作品名に「3年ぶりの大勝負」を含むため、2022年の公開開催を確認できる。規模は断定しない。",
+      "captured_at": "2026-07-31",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yamaage-return-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaage-2022-gallery",
+      "target_type": "change_event",
+      "target_id": "chg-yamaage-public-return-2022",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "市の2022年公式ギャラリーが「3年ぶり」の公開公演を記録しているため、2020年中止後の公開再開を確認できる。",
+      "captured_at": "2026-07-31",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yamaage-occ-2025",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaage-2025-gallery",
+      "target_type": "occurrence",
+      "target_id": "occ-yamaage-matsuri-2025",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "那須烏山市の2025年公式フォトコンテスト入賞作品ページは山あげ公演、舞台移動、神輿など当年祭礼の記録を掲載している。規模は断定しない。",
+      "captured_at": "2026-07-31",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-des-yamaage-national",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaage-2020-cancel",
+      "target_type": "designation",
+      "target_id": "des-yamaage-national",
+      "assertion_code": "supports_designation",
+      "summary_ja": "那須烏山市は烏山の山あげ行事が1979年2月3日に国の重要無形民俗文化財に指定されたと記録している。",
+      "captured_at": "2026-07-31",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-des-yamaage-unesco",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaage-overview",
+      "target_type": "designation",
+      "target_id": "des-yamaage-unesco",
+      "assertion_code": "supports_designation",
+      "summary_ja": "那須烏山市は烏山の山あげ行事を含む山・鉾・屋台行事が2016年にユネスコ無形文化遺産へ登録されたと記録している。",
+      "captured_at": "2026-07-31",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-dainichido-occ-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-dainichido-held-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-dainichido-bugaku-2026",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "鹿角市は2026年1月2日に大日霊貴神社で大日堂舞楽が奉納され、七つの舞が披露されたと報告している。",
+      "captured_at": "2026-07-31",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}

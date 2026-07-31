@@ -1,0 +1,31 @@
+{
+  "entities": [],
+  "places": [
+    {
+      "id": "plc-karasuyama-yakumo-jinja",
+      "schema_version": "common.v1",
+      "record_version": 2,
+      "name_ja": "烏山八雲神社",
+      "place_kind": "shrine",
+      "country_code": "JP",
+      "prefecture_code": "09",
+      "prefecture_name_ja": "栃木県",
+      "municipality_name_ja": "那須烏山市",
+      "locality_ja": "烏山市街地",
+      "coordinate_precision": "venue",
+      "source_ids": [
+        "src-yamaage-yakumo"
+      ]
+    }
+  ],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}

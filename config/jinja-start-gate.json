@@ -13,10 +13,10 @@
   },
   "seed_baseline": {
     "source_site_id": "matsuri",
-    "observed_on": "2026-07-29",
-    "relation_backed_seeds": 12,
-    "direct_identity_evidence": 16,
-    "place_references": 12,
+    "observed_on": "2026-07-31",
+    "relation_backed_seeds": 13,
+    "direct_identity_evidence": 17,
+    "place_references": 13,
     "approved_state_snapshots": 0,
     "official_urls": 10
   },
