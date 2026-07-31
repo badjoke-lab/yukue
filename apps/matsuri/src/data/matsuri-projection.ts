@@ -47,6 +47,8 @@ import maintenance26 from "../../../../data/public/matsuri/f2/maintenance-26.jso
 import maintenance27 from "../../../../data/public/matsuri/f2/maintenance-27.json";
 import maintenance28 from "../../../../data/public/matsuri/f2/maintenance-28.json";
 import maintenance29 from "../../../../data/public/matsuri/f2/maintenance-29.json";
+import maintenance30 from "../../../../data/public/matsuri/f2/maintenance-30.json";
+import maintenance31 from "../../../../data/public/matsuri/f2/maintenance-31.json";
 import corrections01 from "../../../../data/public/matsuri/f2/corrections-01.json";
 import corrections02 from "../../../../data/public/matsuri/f2/corrections-02.json";
 import corrections03 from "../../../../data/public/matsuri/f2/corrections-03.json";
@@ -105,6 +107,8 @@ const additiveBundles = [
   maintenance27,
   maintenance28,
   maintenance29,
+  maintenance30,
+  maintenance31,
 ];
 
 const correctionBundles = [
