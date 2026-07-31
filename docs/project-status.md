@@ -1,6 +1,6 @@
 # Project Status
 
-**Last updated:** 2026-07-29
+**Last updated:** 2026-07-31
 
 ## Current phase
 
@@ -47,7 +47,7 @@ Stabilization review            config/matsuri-stabilization-review.json
 Detail C implementation         docs/matsuri-detail-c-implementation.md
 F2-28 evidence                  docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
 Stabilization start evidence    docs/audits/matsuri-stabilization-start-2026-07-27.md
-Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-18-2026-07-29.md
+Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-19-2026-07-31.md
 Jinja start boundary            config/jinja-start-gate.json
 Production topology             docs/deployment-topology.md
 ```
@@ -83,7 +83,7 @@ The enforced Detail C surface now requires:
 
 The next primary work is corpus expansion and deeper factual records. Stabilization observation continues in parallel but is not a reason to leave the corpus thin.
 
-Corpus expansion batches 11 through 18 are complete. Batch 18 added 日田祇園 with separate main-festival and group-viewing Series, a municipality-backed preservation Organization Relation, and 2020–2026 history. It deepened 岳神楽 and 大償神楽 with component-specific cancellation and 2026 performance Occurrences without duplicating those performances on the collective 早池峰神楽 Entity. The next batch must continue the same uncovered-prefecture breadth plus sparse-record depth rule.
+Corpus expansion batches 11 through 19 are complete. Batch 19 added 壬生の花田植 as the first approved primary Matsuri record for 広島県, including its preservation Organization, public-performance Places, 2020 cancellation, confirmed 2025 return position, held 2026 edition, and national/UNESCO Designations. It deepened 佐陀神能 with an annual September 24–25 Series and a scheduled 2026 Occurrence. The next batch must continue the same uncovered-prefecture breadth plus sparse-record depth rule.
 
 ## Stabilization review window
 
@@ -115,6 +115,7 @@ Current dated reviews:
 ```text
 弘前ねぷた 2026   review after 2026-08-07
 郡上おどり 2026   review after 2026-09-05
+佐陀神能 2026     review after 2026-09-25
 ```
 
 ## Jinja start boundary
@@ -144,10 +145,10 @@ repository-verified-crawler-reachability-verified-sitemap-submission-verified-in
 ```text
 Product track       start the next bounded Matsuri breadth-and-depth corpus batch
 Detail track        keep every public title navigable through the enforced Detail C contract
-Production check    confirm Batch 18 routes after the main deployment reaches the canonical origin
-Dated review        弘前ねぷた after 2026-08-07; 郡上おどり after 2026-09-05
+Production check    confirm Batch 19 routes after the main deployment reaches the canonical origin
+Dated review        弘前ねぷた after 2026-08-07; 郡上おどり after 2026-09-05; 佐陀神能 after 2026-09-25
 Stabilization       record real maintenance burden while expansion work is performed
 Gate review         not before 2026-08-10 and not by elapsed time alone
-Cloudflare track    verify the post-Batch-18 deployment; no new launch-gate action
+Cloudflare track    verify the post-Batch-19 deployment; no new launch-gate action
 Jinja track         remain blocked until four post-launch prerequisites complete
 ```
