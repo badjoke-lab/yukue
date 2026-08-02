@@ -1,0 +1,51 @@
+{
+  "schema_version": "matsuri.production-baseline.v1",
+  "observed_on": "2026-08-02",
+  "release_merge_commit": "708d5781bcd4dc446e9c41641356fa26f21dfbc6",
+  "expected_counts": {
+    "entities": 73,
+    "events": 61,
+    "relations": 44,
+    "occurrences": 115,
+    "sitemap_entries": 152
+  },
+  "required_routes": [
+    "/festivals/yoshida-fire-festival/",
+    "/references/shrines/kitaguchi-hongu-fuji-sengen-jinja/",
+    "/references/shrines/kitaguchi-suwa-jinja/",
+    "/places/kitaguchi-hongu-fuji-sengen/",
+    "/places/yoshida-fire-route/",
+    "/festivals/gion-matsuri-kyoto/"
+  ],
+  "required_entities": [
+    "fst-yoshida-fire-festival",
+    "shr-kitaguchi-hongu-fuji-sengen",
+    "shr-kitaguchi-suwa-jinja"
+  ],
+  "occurrence_assertions": [
+    {
+      "id": "occ-aso-onda-2024",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "unknown"
+    },
+    {
+      "id": "occ-aso-onda-2025",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "unknown"
+    },
+    {
+      "id": "occ-gion-matsuri-2026",
+      "record_version": 2,
+      "outcome": "held",
+      "scale": "unknown"
+    },
+    {
+      "id": "occ-yoshida-fire-2026",
+      "record_version": 1,
+      "outcome": "scheduled",
+      "scale": "unknown"
+    }
+  ]
+}
