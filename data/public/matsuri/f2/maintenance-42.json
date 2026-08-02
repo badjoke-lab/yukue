@@ -1,0 +1,307 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [
+    {
+      "id": "chg-sanja-pandemic-format-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "format_changed",
+      "subject_entity_ids": [
+        "fst-sanja-matsuri"
+      ],
+      "effective_period": {
+        "start": "2020",
+        "end": "2021"
+      },
+      "summary_ja": "2020年は5月から10月へ延期して例大祭式典などを斎行したが、通常の本社神輿渡御は実現しなかった。2021年も例大祭式典と神事を斎行する一方、本社神輿渡御・宮出し・宮入りなどの公開渡御を中止した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-sanja-matsuri-associated-with-asakusa"
+      ],
+      "evidence_ids": [
+        "evd-sanja-matsuri-format-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-sanja-mikoshi-return-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "format_changed",
+      "subject_entity_ids": [
+        "fst-sanja-matsuri"
+      ],
+      "effective_period": {
+        "start": "2022",
+        "end": "2022"
+      },
+      "summary_ja": "2022年、感染対策と限定された担ぎ区間を伴い、本社神輿三基が3年ぶりに氏子町会へ移御した。通常の担ぎ渡御全体への復帰とは扱わない。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-sanja-matsuri-associated-with-asakusa"
+      ],
+      "evidence_ids": [
+        "evd-sanja-matsuri-mikoshi-return-2022"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-sanja-near-normal-restoration-2023",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "format_changed",
+      "subject_entity_ids": [
+        "fst-sanja-matsuri"
+      ],
+      "effective_period": {
+        "start": "2023",
+        "end": "2023"
+      },
+      "summary_ja": "2023年、氏子宮出しを除いてほぼ従前の形式で三社祭が催行された。例外が残るため、完全な通常形式とは断定しない。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-sanja-matsuri-associated-with-asakusa"
+      ],
+      "evidence_ids": [
+        "evd-sanja-matsuri-near-normal-restoration-2023"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-sanja-matsuri-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-sanja-matsuri",
+      "series_id": "ser-sanja-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2020-10-17",
+        "end": "2020-10-18",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-asakusa-jinja"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-sanja-matsuri-occ-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-sanja-matsuri-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-sanja-matsuri",
+      "series_id": "ser-sanja-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2021-05-15",
+        "end": "2021-05-16",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-asakusa-jinja"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-sanja-matsuri-occ-2021"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-sanja-matsuri-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-sanja-matsuri",
+      "series_id": "ser-sanja-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2022-05-20",
+        "end": "2022-05-22",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-asakusa-jinja"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-sanja-matsuri-occ-2022"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-sanja-matsuri-2023",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-sanja-matsuri",
+      "series_id": "ser-sanja-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2023-05-19",
+        "end": "2023-05-21",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-asakusa-jinja"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-sanja-matsuri-occ-2023"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-sanja-matsuri-modified-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "令和二年浅草神社例大祭「三社祭」を10月17日・18日に開催",
+      "publisher": "浅草神社・浅草神社奉賛会",
+      "url": "https://www.sanjasama.jp/press/201016.html",
+      "published_at": "2020-10-16",
+      "accessed_at": "2026-08-02",
+      "language": "ja"
+    },
+    {
+      "id": "src-sanja-matsuri-modified-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_tourism_body",
+      "title": "令和三年（2021年）三社祭",
+      "publisher": "浅草観光連盟",
+      "url": "https://www.asakusa.org/sanja/past/2021sanja",
+      "accessed_at": "2026-08-02",
+      "language": "ja"
+    },
+    {
+      "id": "src-sanja-matsuri-modified-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "令和四年 浅草神社例大祭（三社祭）実施内容",
+      "publisher": "浅草神社・浅草神社奉賛会",
+      "url": "https://sanjasama.jp/press/220416.html",
+      "published_at": "2022-04-15",
+      "accessed_at": "2026-08-02",
+      "language": "ja"
+    },
+    {
+      "id": "src-sanja-matsuri-restoration-2023",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_tourism_body",
+      "title": "令和五年（2023年）三社祭",
+      "publisher": "浅草観光連盟",
+      "url": "https://www.asakusa.org/sanja/past/2023sanja",
+      "published_at": "2023-03-12",
+      "accessed_at": "2026-08-02",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-sanja-matsuri-occ-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sanja-matsuri-modified-2020",
+      "target_type": "occurrence",
+      "target_id": "occ-sanja-matsuri-2020",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "浅草神社と奉賛会は、5月から延期した2020年の三社祭を10月17日・18日に開催し、例大祭式典などを斎行すると発表した。通常の神輿渡御は推定しない。",
+      "captured_at": "2026-08-02",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sanja-matsuri-occ-2021",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sanja-matsuri-modified-2021",
+      "target_type": "occurrence",
+      "target_id": "occ-sanja-matsuri-2021",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "浅草観光連盟は2021年5月15日・16日に例大祭式典や神事を斎行し、本社神輿渡御・宮出し・宮入りなどを中止した日程を記録している。",
+      "captured_at": "2026-08-02",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sanja-matsuri-occ-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sanja-matsuri-modified-2022",
+      "target_type": "occurrence",
+      "target_id": "occ-sanja-matsuri-2022",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "浅草神社と奉賛会は2022年5月20日から22日に三社祭を開催し、感染対策と限定された担ぎ区間を伴って本社神輿三基を氏子町会へ移御すると記録している。",
+      "captured_at": "2026-08-02",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sanja-matsuri-occ-2023",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sanja-matsuri-restoration-2023",
+      "target_type": "occurrence",
+      "target_id": "occ-sanja-matsuri-2023",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "浅草観光連盟は2023年5月19日から21日に三社祭を催行し、氏子宮出しを除いてほぼ従前の形式へ戻ったと記録している。",
+      "captured_at": "2026-08-02",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sanja-matsuri-format-2020",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sanja-matsuri-modified-2020",
+      "target_type": "change_event",
+      "target_id": "chg-sanja-pandemic-format-2020",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "公式発表は2020年の三社祭を延期して神事を斎行し、浅草観光連盟の2021年記録は神事を継続しつつ公開渡御を中止したことを示す。祭礼全体の休止とは扱わない。",
+      "captured_at": "2026-08-02",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sanja-matsuri-mikoshi-return-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sanja-matsuri-modified-2022",
+      "target_type": "change_event",
+      "target_id": "chg-sanja-mikoshi-return-2022",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "公式発表は2022年に本社神輿三基を3年ぶりに氏子町会へ移御した一方、担ぎ区間や参加者を限定したことを記録している。",
+      "captured_at": "2026-08-02",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sanja-matsuri-near-normal-restoration-2023",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sanja-matsuri-restoration-2023",
+      "target_type": "change_event",
+      "target_id": "chg-sanja-near-normal-restoration-2023",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "浅草観光連盟は2023年に氏子宮出しを除いてほぼ従前の形式で催行されたと記録している。残る例外を保持し、完全な通常形式とは断定しない。",
+      "captured_at": "2026-08-02",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
