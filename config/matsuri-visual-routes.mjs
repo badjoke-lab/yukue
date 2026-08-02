@@ -19,6 +19,7 @@ export const matsuriPublicRoutes = Object.freeze([
   "/festivals/mibu-hanadaue/",
   "/festivals/yamaage-matsuri/",
   "/festivals/seihakusai/",
+  "/festivals/yoshida-fire-festival/",
   "/performances/",
   "/performances/hayachine-kagura/",
   "/performances/take-kagura/",
@@ -38,6 +39,8 @@ export const matsuriPublicRoutes = Object.freeze([
   "/references/shrines/sawara-suwa-jinja/",
   "/references/shrines/karasuyama-yakumo-jinja/",
   "/references/shrines/nanao-oyama-jinja/",
+  "/references/shrines/kitaguchi-hongu-fuji-sengen-jinja/",
+  "/references/shrines/kitaguchi-suwa-jinja/",
   "/places/suneori-shirahige/",
   "/places/gion-yamahoko-route/",
   "/places/yosakoi-chuo-koen/",
@@ -47,6 +50,8 @@ export const matsuriPublicRoutes = Object.freeze([
   "/places/karasuyama-city-center/",
   "/places/nanao-oyama-jinja/",
   "/places/nanao-seihakusai-route/",
+  "/places/kitaguchi-hongu-fuji-sengen/",
+  "/places/yoshida-fire-route/",
   "/regions/",
   "/changes/",
   "/states/",
@@ -83,9 +88,9 @@ export const matsuriTabletBrowserDevice = Object.freeze({
 });
 
 export function assertMatsuriVisualContract() {
-  if (matsuriPublicRoutes.length !== 62) {
+  if (matsuriPublicRoutes.length !== 67) {
     throw new Error(
-      `The representative Matsuri visual contract requires 62 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
+      `The representative Matsuri visual contract requires 67 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
     );
   }
 
@@ -142,6 +147,11 @@ export function assertMatsuriVisualContract() {
   if (!matsuriPublicRoutes.includes("/references/shrines/nanao-oyama-jinja/")) throw new Error("Matsuri visual contract must retain the State-free 大地主神社 seed route.");
   if (!matsuriPublicRoutes.includes("/places/nanao-oyama-jinja/")) throw new Error("Matsuri visual contract must retain the 大地主神社 Place route.");
   if (!matsuriPublicRoutes.includes("/places/nanao-seihakusai-route/")) throw new Error("Matsuri visual contract must retain the distributed 青柏祭巡行区域 Place route.");
+  if (!matsuriPublicRoutes.includes("/festivals/yoshida-fire-festival/")) throw new Error("Matsuri visual contract must retain the new 吉田の火祭 Detail C route.");
+  if (!matsuriPublicRoutes.includes("/references/shrines/kitaguchi-hongu-fuji-sengen-jinja/")) throw new Error("Matsuri visual contract must retain the State-free 北口本宮冨士浅間神社 seed route.");
+  if (!matsuriPublicRoutes.includes("/references/shrines/kitaguchi-suwa-jinja/")) throw new Error("Matsuri visual contract must retain the State-free 北口諏訪神社 seed route.");
+  if (!matsuriPublicRoutes.includes("/places/kitaguchi-hongu-fuji-sengen/")) throw new Error("Matsuri visual contract must retain the 北口本宮冨士浅間神社・諏訪神社 Place route.");
+  if (!matsuriPublicRoutes.includes("/places/yoshida-fire-route/")) throw new Error("Matsuri visual contract must retain the route-based 吉田の火祭巡行区域 Place route.");
 
   for (const route of matsuriPublicRoutes) {
     if (!route.startsWith("/") || !route.endsWith("/")) {
