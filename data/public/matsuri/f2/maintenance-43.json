@@ -1,0 +1,340 @@
+{
+  "entities": [
+    {
+      "id": "fst-ishioka-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-02T00:00:00Z",
+      "updated_at": "2026-08-02T00:00:00Z",
+      "slug": "ishioka-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "石岡のおまつり",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-ishioka-matsuri-current-2026"
+          ]
+        },
+        {
+          "value": "常陸國總社宮例大祭",
+          "lang": "ja",
+          "kind": "official",
+          "is_preferred": false,
+          "source_ids": [
+            "src-ishioka-matsuri-current-2026"
+          ]
+        }
+      ],
+      "summary_ja": "常陸國總社宮の例大祭として、例祭、大神輿の神幸・還幸、山車、幌獅子、ささらなどが石岡市中心部で行われる祭礼。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "08",
+            "prefecture_name_ja": "茨城県",
+            "municipality_name_ja": "石岡市"
+          }
+        ],
+        "scope_type": "route_based",
+        "description_ja": "常陸國總社宮を祭祀基点とし、年番町の御仮殿と石岡市中心部を大神輿・山車・幌獅子などが巡行する。"
+      },
+      "primary_place_id": "plc-hitachi-sosogu-jinja",
+      "default_place_ids": [
+        "plc-hitachi-sosogu-jinja",
+        "plc-ishioka-matsuri-route"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.ishioka-kankou.com/events/ishioka-matsuri/",
+          "is_primary": true,
+          "officiality": "official_tourism_body",
+          "last_checked_at": "2026-08-02"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "shrine_festival",
+      "usual_months": [
+        9
+      ],
+      "usual_duration_days": 3,
+      "season_tags": [
+        "秋"
+      ],
+      "occurrence_series_ids": [
+        "ser-ishioka-matsuri-annual"
+      ]
+    },
+    {
+      "id": "shr-hitachi-sosogu-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-02T00:00:00Z",
+      "updated_at": "2026-08-02T00:00:00Z",
+      "slug": "hitachi-sosogu-jinja",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "常陸國總社宮",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-hitachi-sosogu-official"
+          ]
+        }
+      ],
+      "summary_ja": "石岡市総社に鎮座し、石岡のおまつり（常陸國總社宮例大祭）の例祭と大神輿渡御の祭祀基点となる神社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "08",
+            "prefecture_name_ja": "茨城県",
+            "municipality_name_ja": "石岡市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-hitachi-sosogu-jinja",
+      "default_place_ids": [
+        "plc-hitachi-sosogu-jinja"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://sosyagu.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-08-02"
+        }
+      ],
+      "record_lifecycle": "active"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-hitachi-sosogu-jinja",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "常陸國總社宮",
+      "place_kind": "shrine",
+      "country_code": "JP",
+      "prefecture_code": "08",
+      "prefecture_name_ja": "茨城県",
+      "municipality_name_ja": "石岡市",
+      "locality_ja": "総社",
+      "street_address_ja": "2丁目8-1",
+      "postal_code": "315-0016",
+      "coordinate_precision": "venue",
+      "source_ids": [
+        "src-ishioka-matsuri-current-2026"
+      ]
+    },
+    {
+      "id": "plc-ishioka-matsuri-route",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "石岡市中心部 石岡のおまつり巡行区域",
+      "place_kind": "procession_route",
+      "country_code": "JP",
+      "prefecture_code": "08",
+      "prefecture_name_ja": "茨城県",
+      "municipality_name_ja": "石岡市",
+      "locality_ja": "中心市街地",
+      "coordinate_precision": "area",
+      "source_ids": [
+        "src-ishioka-matsuri-current-2026"
+      ]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-ishioka-matsuri-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-ishioka-matsuri",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-08-02",
+      "basis_evidence_ids": [
+        "evd-ishioka-matsuri-state"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-ishioka-public-suspension-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_started",
+      "subject_entity_ids": [
+        "fst-ishioka-matsuri"
+      ],
+      "effective_period": {
+        "start": "2020",
+        "end": "2021"
+      },
+      "summary_ja": "2020年と2021年は例祭の神事を維持しながら、神輿・山車・獅子など市中の神賑行事を延期した。祭礼全体や例祭神事の中止とは扱わない。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-ishioka-matsuri-associated-with-sosogu"
+      ],
+      "evidence_ids": [
+        "evd-ishioka-public-suspension-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-ishioka-public-return-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_ended",
+      "subject_entity_ids": [
+        "fst-ishioka-matsuri"
+      ],
+      "effective_period": {
+        "start": "2022",
+        "end": "2022"
+      },
+      "summary_ja": "2022年、2年間延期されていた神輿渡御、御仮殿設営を含む神賑行事が感染対策を伴って再開した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-ishioka-matsuri-associated-with-sosogu"
+      ],
+      "evidence_ids": [
+        "evd-ishioka-public-return-2022"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-ishioka-matsuri-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-ishioka-matsuri",
+      "series_id": "ser-ishioka-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2020-09-15",
+        "end": "2020-09-15",
+        "precision": "day"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-hitachi-sosogu-jinja"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-ishioka-matsuri-occ-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-ishioka-matsuri-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-ishioka-matsuri",
+      "series_id": "ser-ishioka-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2022-09-15",
+        "end": "2022-09-19",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "normal",
+      "venue_place_ids": [
+        "plc-hitachi-sosogu-jinja",
+        "plc-ishioka-matsuri-route"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-ishioka-matsuri-occ-2022"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-ishioka-matsuri-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-ishioka-matsuri",
+      "series_id": "ser-ishioka-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-09-19",
+        "end": "2026-09-21",
+        "precision": "range"
+      },
+      "outcome": "scheduled",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-hitachi-sosogu-jinja",
+        "plc-ishioka-matsuri-route"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-ishioka-matsuri-occ-2026"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-ishioka-matsuri-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-ishioka-matsuri",
+      "series_type": "annual_festival_edition",
+      "name_ja": "石岡のおまつり 年次開催",
+      "recurrence_pattern_id": "rec-ishioka-matsuri-annual",
+      "default_venue_place_ids": [
+        "plc-hitachi-sosogu-jinja",
+        "plc-ishioka-matsuri-route"
+      ],
+      "evidence_ids": [
+        "evd-ishioka-matsuri-recurrence"
+      ]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-ishioka-matsuri-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "例祭は毎年9月15日。市中の神賑行事は敬老の日を最終日とする3日間を基本とする。",
+      "evidence_ids": [
+        "evd-ishioka-matsuri-recurrence"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-ishioka-matsuri-associated-with-sosogu",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-ishioka-matsuri",
+      "relation_type": "ritually_associated_with",
+      "target_entity_id": "shr-hitachi-sosogu-jinja",
+      "evidence_ids": [
+        "evd-rel-ishioka-matsuri-sosogu"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
