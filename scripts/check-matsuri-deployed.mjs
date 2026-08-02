@@ -20,7 +20,79 @@ if (productionBaseline.schema_version !== "matsuri.production-baseline.v1") {
 }
 
 if (!/^[0-9a-f]{40}$/.test(productionBaseline.release_merge_commit ?? "")) {
-  throw new Error("Production baseline release_merge_commit must be a 40-character commit SHA");
+  throw new Error(
+    "Production baseline release_merge_commit must be a 40-character commit SHA",
+  );
+}
+
+function assertUniqueStringArray(fieldName, values) {
+  if (!Array.isArray(values) || values.length === 0) {
+    throw new Error(`Production baseline ${fieldName} must be a non-empty array`);
+  }
+
+  if (values.some((value) => typeof value !== "string" || value.length === 0)) {
+    throw new Error(
+      `Production baseline ${fieldName} must contain non-empty strings`,
+    );
+  }
+
+  if (new Set(values).size !== values.length) {
+    throw new Error(`Production baseline ${fieldName} contains duplicate values`);
+  }
+}
+
+const expectedCountFields = [
+  "entities",
+  "events",
+  "relations",
+  "occurrences",
+  "sitemap_entries",
+];
+for (const field of expectedCountFields) {
+  const value = productionBaseline.expected_counts?.[field];
+  if (!Number.isInteger(value) || value <= 0) {
+    throw new Error(
+      `Production baseline expected_counts.${field} must be a positive integer`,
+    );
+  }
+}
+
+assertUniqueStringArray("required_routes", productionBaseline.required_routes);
+for (const pathname of productionBaseline.required_routes) {
+  if (!pathname.startsWith("/") || !pathname.endsWith("/")) {
+    throw new Error(
+      `Production baseline route must be root-relative and end with a slash: ${pathname}`,
+    );
+  }
+}
+
+assertUniqueStringArray("required_entities", productionBaseline.required_entities);
+
+if (
+  !Array.isArray(productionBaseline.occurrence_assertions) ||
+  productionBaseline.occurrence_assertions.length === 0
+) {
+  throw new Error(
+    "Production baseline occurrence_assertions must be a non-empty array",
+  );
+}
+
+const occurrenceAssertionIds = productionBaseline.occurrence_assertions.map(
+  (assertion) => assertion?.id,
+);
+assertUniqueStringArray("occurrence_assertions ids", occurrenceAssertionIds);
+for (const assertion of productionBaseline.occurrence_assertions) {
+  if (!Number.isInteger(assertion.record_version) || assertion.record_version <= 0) {
+    throw new Error(
+      `Occurrence assertion ${assertion.id} record_version must be a positive integer`,
+    );
+  }
+  if (typeof assertion.outcome !== "string" || assertion.outcome.length === 0) {
+    throw new Error(`Occurrence assertion ${assertion.id} requires outcome`);
+  }
+  if (typeof assertion.scale !== "string" || assertion.scale.length === 0) {
+    throw new Error(`Occurrence assertion ${assertion.id} requires scale`);
+  }
 }
 
 if (!rawOrigin) {

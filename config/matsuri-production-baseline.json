@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
   "observed_on": "2026-08-02",
-  "release_merge_commit": "0ccf81fa149d7050dc6f88a708563323d27a93f9",
+  "release_merge_commit": "2cf81ad040a729275cedd3967cef84f393b6d929",
   "expected_counts": {
-    "entities": 76,
-    "events": 66,
-    "relations": 46,
-    "occurrences": 121,
-    "sitemap_entries": 157
+    "entities": 78,
+    "events": 69,
+    "relations": 47,
+    "occurrences": 127,
+    "sitemap_entries": 161
   },
   "required_routes": [
     "/festivals/yoshida-fire-festival/",
@@ -21,7 +21,12 @@
     "/organizations/ueno-bunka-bijutsu-hozonkai/",
     "/places/iga-sugawara-jinja/",
     "/places/ueno-tenjin-route/",
-    "/festivals/sanja-matsuri/"
+    "/festivals/sanja-matsuri/",
+    "/festivals/ishioka-matsuri/",
+    "/references/shrines/hitachi-sosogu-jinja/",
+    "/places/hitachi-sosogu-jinja/",
+    "/places/ishioka-matsuri-route/",
+    "/performances/hayachine-kagura/"
   ],
   "required_entities": [
     "fst-yoshida-fire-festival",
@@ -29,7 +34,9 @@
     "shr-kitaguchi-suwa-jinja",
     "fst-ueno-tenjin-matsuri",
     "shr-iga-sugawara-jinja",
-    "org-ueno-bunka-bijutsu-hozonkai"
+    "org-ueno-bunka-bijutsu-hozonkai",
+    "fst-ishioka-matsuri",
+    "shr-hitachi-sosogu-jinja"
   ],
   "occurrence_assertions": [
     {
@@ -91,6 +98,42 @@
       "record_version": 1,
       "outcome": "held",
       "scale": "modified"
+    },
+    {
+      "id": "occ-ishioka-matsuri-2020",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "modified"
+    },
+    {
+      "id": "occ-ishioka-matsuri-2022",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "normal"
+    },
+    {
+      "id": "occ-ishioka-matsuri-2026",
+      "record_version": 1,
+      "outcome": "scheduled",
+      "scale": "unknown"
+    },
+    {
+      "id": "occ-hayachine-kagura-joint-2019",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "unknown"
+    },
+    {
+      "id": "occ-hayachine-kagura-joint-2024",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "unknown"
+    },
+    {
+      "id": "occ-hayachine-kagura-new-year-2026",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "unknown"
     }
   ]
 }
