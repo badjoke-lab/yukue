@@ -1,0 +1,39 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-gion-matsuri-held-2026-kyoto-city",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "市長の動き（令和8年7月）",
+      "publisher": "京都市",
+      "url": "https://www.city.kyoto.lg.jp/sogo/page/0000355823.html",
+      "accessed_at": "2026-08-02",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-gion-matsuri-occ-2026-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-gion-matsuri-held-2026-kyoto-city",
+      "target_type": "occurrence",
+      "target_id": "occ-gion-matsuri-2026",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "京都市は2026年7月17日の前祭山鉾巡行と神幸祭、7月24日の後祭山鉾巡行と還幸祭が実施されたと記録している。月間祭礼の主要行事が実施されたことを確認し、規模は推定しない。",
+      "captured_at": "2026-08-02",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
