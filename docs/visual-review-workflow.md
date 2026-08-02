@@ -57,7 +57,7 @@ visual screenshot workflow
   anchor maps and explicit no-map states
 ```
 
-The shared visual-route configuration currently contains 67 representative routes.
+The shared visual-route configuration currently contains 72 representative routes.
 
 It must include:
 
@@ -76,6 +76,8 @@ It must include:
 - `青柏祭`, the State-free `大地主神社` seed page, the concrete Shrine Place, and the distributed city-center route as Batch 21 breadth, ritual-anchor, and map-boundary baselines,
 - `布川地区花祭` as the Batch 21 suspension-history depth baseline,
 - `吉田の火祭`, the State-free `北口本宮冨士浅間神社` and `諏訪神社` seed pages, the concrete Shrine Place, and the route-based public area as Batch 22 breadth, ritual-anchor, and map-boundary baselines,
+- `上野天神祭`, the State-free `菅原神社` seed page, `上野文化美術保存会`, the concrete Shrine Place, and the route-based city-center area as Batch 23 breadth, organization, ritual-anchor, and map-boundary baselines,
+- `三社祭` as the Batch 23 pandemic-format depth baseline,
 - multiple Folk Performance details,
 - multiple Organization details,
 - at least one Shrine or Temple seed-reference page,
@@ -132,12 +134,12 @@ screenshots-desktop.zip
 screenshots-mobile.zip
 ```
 
-With the current 67-route representative contract, an `all` capture produces:
+With the current 72-route representative contract, an `all` capture produces:
 
 ```text
-67 desktop full-page PNGs
-67 mobile full-page PNGs
-134 full-page PNGs total
+72 desktop full-page PNGs
+72 mobile full-page PNGs
+144 full-page PNGs total
 ```
 
 ## Capture manifest
@@ -225,7 +227,7 @@ The dedicated screenshot workflow supports:
 - manual `workflow_dispatch`,
 - automatic pull-request runs for UI, layout, style, visual-route, screenshot-script, Playwright, and workflow changes.
 
-The workflow is intentionally separate from the normal repository gate so that data-only and non-visual maintenance do not always generate one hundred thirty-four PNGs.
+The workflow is intentionally separate from the normal repository gate so that data-only and non-visual maintenance do not always generate one hundred forty-four PNGs.
 
 A data change that materially alters page length, density, images, maps, or empty states should trigger a manual screenshot run or include the relevant visual workflow path change.
 

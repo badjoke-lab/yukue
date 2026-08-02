@@ -1,0 +1,421 @@
+{
+  "entities": [
+    {
+      "id": "fst-ueno-tenjin-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-02T00:00:00Z",
+      "updated_at": "2026-08-02T00:00:00Z",
+      "slug": "ueno-tenjin-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "上野天神祭",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-ueno-tenjin-history"
+          ]
+        },
+        {
+          "value": "上野天神祭のダンジリ行事",
+          "lang": "ja",
+          "kind": "official",
+          "is_preferred": false,
+          "source_ids": [
+            "src-ueno-tenjin-history"
+          ]
+        }
+      ],
+      "summary_ja": "菅原神社（上野天神宮）の秋祭りとして、2基の神輿に鬼行列と9基の楼車が供奉し、伊賀上野の城下町を巡行する祭礼。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "24",
+            "prefecture_name_ja": "三重県",
+            "municipality_name_ja": "伊賀市"
+          }
+        ],
+        "scope_type": "route_based",
+        "description_ja": "菅原神社を祭祀基点とし、東御旅所から本町通り・二之町通り・三之町通りなど伊賀上野の城下町を巡行する。"
+      },
+      "primary_place_id": "plc-iga-sugawara-jinja",
+      "default_place_ids": [
+        "plc-iga-sugawara-jinja",
+        "plc-ueno-tenjin-route"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://ueno-tenjin-matsuri.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-08-02"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "shrine_festival",
+      "usual_months": [
+        10
+      ],
+      "usual_duration_days": 3,
+      "season_tags": [
+        "秋"
+      ],
+      "occurrence_series_ids": [
+        "ser-ueno-tenjin-annual"
+      ]
+    },
+    {
+      "id": "shr-iga-sugawara-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-02T00:00:00Z",
+      "updated_at": "2026-08-02T00:00:00Z",
+      "slug": "iga-sugawara-jinja",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "菅原神社",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-ueno-tenjin-shrine"
+          ]
+        },
+        {
+          "value": "上野天神宮",
+          "lang": "ja",
+          "kind": "common",
+          "is_preferred": false,
+          "source_ids": [
+            "src-ueno-tenjin-shrine"
+          ]
+        }
+      ],
+      "summary_ja": "伊賀市上野東町に鎮座し、上野天神祭の例大祭と神輿渡御の祭祀基点となる神社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "24",
+            "prefecture_name_ja": "三重県",
+            "municipality_name_ja": "伊賀市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-iga-sugawara-jinja",
+      "default_place_ids": [
+        "plc-iga-sugawara-jinja"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.sugawara25.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-08-02"
+        }
+      ],
+      "record_lifecycle": "active"
+    },
+    {
+      "id": "org-ueno-bunka-bijutsu-hozonkai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-02T00:00:00Z",
+      "updated_at": "2026-08-02T00:00:00Z",
+      "slug": "ueno-bunka-bijutsu-hozonkai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "上野文化美術保存会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-ueno-tenjin-history"
+          ]
+        }
+      ],
+      "summary_ja": "上野天神祭の鬼行列と楼車行列の保存・継承、公式情報の公開を担う保存団体。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "24",
+            "prefecture_name_ja": "三重県",
+            "municipality_name_ja": "伊賀市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://ueno-tenjin-matsuri.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-08-02"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "preservation_group",
+      "official_url": "https://ueno-tenjin-matsuri.jp/"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-iga-sugawara-jinja",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "菅原神社（上野天神宮）",
+      "place_kind": "shrine",
+      "country_code": "JP",
+      "prefecture_code": "24",
+      "prefecture_name_ja": "三重県",
+      "municipality_name_ja": "伊賀市",
+      "locality_ja": "上野東町",
+      "street_address_ja": "2929",
+      "postal_code": "518-0861",
+      "coordinate_precision": "venue",
+      "source_ids": [
+        "src-ueno-tenjin-shrine"
+      ]
+    },
+    {
+      "id": "plc-ueno-tenjin-route",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "伊賀上野城下町 上野天神祭巡行区域",
+      "place_kind": "procession_route",
+      "country_code": "JP",
+      "prefecture_code": "24",
+      "prefecture_name_ja": "三重県",
+      "municipality_name_ja": "伊賀市",
+      "locality_ja": "上野市街地",
+      "coordinate_precision": "area",
+      "source_ids": [
+        "src-ueno-tenjin-history",
+        "src-ueno-tenjin-shrine"
+      ]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-ueno-tenjin-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-ueno-tenjin-matsuri",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-08-02",
+      "basis_evidence_ids": [
+        "evd-ueno-tenjin-state"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-ueno-tenjin-danjiri-suspension-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_started",
+      "subject_entity_ids": [
+        "fst-ueno-tenjin-matsuri"
+      ],
+      "effective_period": {
+        "start": "2020",
+        "end": "2021"
+      },
+      "summary_ja": "新型コロナウイルス感染症の影響により、上野天神祭のダンジリ巡行は2020年と2021年の2年連続で中止された。祭礼全体の消滅や神事の中止は推定しない。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-ueno-tenjin-maintained-by-hozonkai"
+      ],
+      "evidence_ids": [
+        "evd-ueno-tenjin-danjiri-suspension-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-ueno-tenjin-danjiri-return-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_ended",
+      "subject_entity_ids": [
+        "fst-ueno-tenjin-matsuri"
+      ],
+      "effective_period": {
+        "start": "2022",
+        "end": "2022"
+      },
+      "summary_ja": "2022年、宵宮のダンジリ巡行中止、囃子方の人数削減、検査や体温測定などの対策を伴い、3年ぶりにダンジリ巡行が再開した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-ueno-tenjin-maintained-by-hozonkai"
+      ],
+      "evidence_ids": [
+        "evd-ueno-tenjin-danjiri-return-2022"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-ueno-tenjin-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-ueno-tenjin-matsuri",
+      "series_id": "ser-ueno-tenjin-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2022",
+        "end": "2022",
+        "precision": "year"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-iga-sugawara-jinja",
+        "plc-ueno-tenjin-route"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-ueno-tenjin-occ-2022"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-ueno-tenjin-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-ueno-tenjin-matsuri",
+      "series_id": "ser-ueno-tenjin-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-10-23",
+        "end": "2026-10-25",
+        "precision": "range"
+      },
+      "outcome": "scheduled",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-iga-sugawara-jinja",
+        "plc-ueno-tenjin-route"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-ueno-tenjin-occ-2026"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-ueno-tenjin-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-ueno-tenjin-matsuri",
+      "series_type": "annual_festival_edition",
+      "name_ja": "上野天神祭 年次開催",
+      "recurrence_pattern_id": "rec-ueno-tenjin-annual",
+      "default_venue_place_ids": [
+        "plc-iga-sugawara-jinja",
+        "plc-ueno-tenjin-route"
+      ],
+      "evidence_ids": [
+        "evd-ueno-tenjin-recurrence"
+      ]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-ueno-tenjin-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年10月25日までの直近の日曜日と、その前日・前々日の3日間",
+      "evidence_ids": [
+        "evd-ueno-tenjin-recurrence"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-ueno-tenjin-associated-with-sugawara",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-ueno-tenjin-matsuri",
+      "relation_type": "ritually_associated_with",
+      "target_entity_id": "shr-iga-sugawara-jinja",
+      "evidence_ids": [
+        "evd-rel-ueno-tenjin-sugawara"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "rel-ueno-tenjin-maintained-by-hozonkai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-ueno-tenjin-matsuri",
+      "relation_type": "maintained_by",
+      "target_entity_id": "org-ueno-bunka-bijutsu-hozonkai",
+      "evidence_ids": [
+        "evd-rel-ueno-tenjin-hozonkai"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [
+    {
+      "id": "des-ueno-tenjin-national",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "designation_name_ja": "国指定重要無形民俗文化財「上野天神祭のダンジリ行事」",
+      "subject_entity_ids": [
+        "fst-ueno-tenjin-matsuri"
+      ],
+      "designation_system": "文化財保護法",
+      "designation_level": "国",
+      "valid_period": {
+        "start": "2002-02-12"
+      },
+      "evidence_ids": [
+        "evd-des-ueno-tenjin-national"
+      ]
+    },
+    {
+      "id": "des-ueno-tenjin-unesco",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "designation_name_ja": "ユネスコ無形文化遺産代表一覧表「山・鉾・屋台行事」構成行事",
+      "subject_entity_ids": [
+        "fst-ueno-tenjin-matsuri"
+      ],
+      "designation_system": "無形文化遺産の保護に関する条約",
+      "designation_level": "国際",
+      "valid_period": {
+        "start": "2016-11-30"
+      },
+      "evidence_ids": [
+        "evd-des-ueno-tenjin-unesco"
+      ]
+    }
+  ],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
