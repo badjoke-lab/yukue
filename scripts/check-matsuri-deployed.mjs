@@ -13,6 +13,16 @@ const productionBaseline = JSON.parse(
   ),
 );
 
+if (productionBaseline.schema_version !== "matsuri.production-baseline.v1") {
+  throw new Error(
+    `Unexpected production baseline schema: ${String(productionBaseline.schema_version)}`,
+  );
+}
+
+if (!/^[0-9a-f]{40}$/.test(productionBaseline.release_merge_commit ?? "")) {
+  throw new Error("Production baseline release_merge_commit must be a 40-character commit SHA");
+}
+
 if (!rawOrigin) {
   throw new Error(
     "MATSURI_CHECK_ORIGIN is required, for example https://example.pages.dev",

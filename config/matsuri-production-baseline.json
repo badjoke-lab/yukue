@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
   "observed_on": "2026-08-02",
-  "release_merge_commit": "708d5781bcd4dc446e9c41641356fa26f21dfbc6",
+  "release_merge_commit": "0ccf81fa149d7050dc6f88a708563323d27a93f9",
   "expected_counts": {
-    "entities": 73,
-    "events": 61,
-    "relations": 44,
-    "occurrences": 115,
-    "sitemap_entries": 152
+    "entities": 76,
+    "events": 66,
+    "relations": 46,
+    "occurrences": 121,
+    "sitemap_entries": 157
   },
   "required_routes": [
     "/festivals/yoshida-fire-festival/",
@@ -15,12 +15,21 @@
     "/references/shrines/kitaguchi-suwa-jinja/",
     "/places/kitaguchi-hongu-fuji-sengen/",
     "/places/yoshida-fire-route/",
-    "/festivals/gion-matsuri-kyoto/"
+    "/festivals/gion-matsuri-kyoto/",
+    "/festivals/ueno-tenjin-matsuri/",
+    "/references/shrines/iga-sugawara-jinja/",
+    "/organizations/ueno-bunka-bijutsu-hozonkai/",
+    "/places/iga-sugawara-jinja/",
+    "/places/ueno-tenjin-route/",
+    "/festivals/sanja-matsuri/"
   ],
   "required_entities": [
     "fst-yoshida-fire-festival",
     "shr-kitaguchi-hongu-fuji-sengen",
-    "shr-kitaguchi-suwa-jinja"
+    "shr-kitaguchi-suwa-jinja",
+    "fst-ueno-tenjin-matsuri",
+    "shr-iga-sugawara-jinja",
+    "org-ueno-bunka-bijutsu-hozonkai"
   ],
   "occurrence_assertions": [
     {
@@ -46,6 +55,42 @@
       "record_version": 1,
       "outcome": "scheduled",
       "scale": "unknown"
+    },
+    {
+      "id": "occ-ueno-tenjin-2022",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "modified"
+    },
+    {
+      "id": "occ-ueno-tenjin-2026",
+      "record_version": 1,
+      "outcome": "scheduled",
+      "scale": "unknown"
+    },
+    {
+      "id": "occ-sanja-matsuri-2020",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "modified"
+    },
+    {
+      "id": "occ-sanja-matsuri-2021",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "modified"
+    },
+    {
+      "id": "occ-sanja-matsuri-2022",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "modified"
+    },
+    {
+      "id": "occ-sanja-matsuri-2023",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "modified"
     }
   ]
 }
