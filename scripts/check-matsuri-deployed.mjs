@@ -1,6 +1,17 @@
+import fs from "node:fs";
+import { fileURLToPath } from "node:url";
+
 const args = new Set(process.argv.slice(2));
 const canonicalMode = args.has("--canonical");
 const rawOrigin = process.env.MATSURI_CHECK_ORIGIN;
+const productionBaseline = JSON.parse(
+  fs.readFileSync(
+    fileURLToPath(
+      new URL("../config/matsuri-production-baseline.json", import.meta.url),
+    ),
+    "utf8",
+  ),
+);
 
 if (!rawOrigin) {
   throw new Error(
@@ -49,6 +60,9 @@ const checks = [
   ["/llms.txt", "text/plain"],
   ["/ai.txt", "text/plain"],
   ["/sitemap.xml", "xml"],
+  ...(canonicalMode
+    ? productionBaseline.required_routes.map((pathname) => [pathname, "text/html"])
+    : []),
 ];
 
 async function fetchText(pathname, expectedContentType) {
@@ -76,6 +90,24 @@ async function fetchText(pathname, expectedContentType) {
 
   console.log(`ok ${pathname} ${response.status} ${contentType}`);
   return body;
+}
+
+function assertRecordCount(feedName, feed, expectedCount) {
+  if (!Array.isArray(feed.records)) {
+    throw new Error(`${feedName} feed does not contain a records array`);
+  }
+
+  if (feed.record_count !== expectedCount) {
+    throw new Error(
+      `${feedName} record_count mismatch: ${String(feed.record_count)} (expected ${expectedCount})`,
+    );
+  }
+
+  if (feed.records.length !== expectedCount) {
+    throw new Error(
+      `${feedName} records length mismatch: ${feed.records.length} (expected ${expectedCount})`,
+    );
+  }
 }
 
 const bodies = new Map();
@@ -108,6 +140,10 @@ if (!entities.records.some((record) => record.id === "fst-suneori-amagoi")) {
   );
 }
 
+const events = JSON.parse(bodies.get("/data/events.json"));
+const relations = JSON.parse(bodies.get("/data/relations.json"));
+const occurrences = JSON.parse(bodies.get("/data/occurrences.json"));
+
 const searchHtml = bodies.get("/search/");
 if (!searchHtml.toLowerCase().includes("pagefind")) {
   throw new Error("Search page does not reference Pagefind assets");
@@ -125,12 +161,64 @@ if (canonicalMode) {
     );
   }
 
+  const expectedCounts = productionBaseline.expected_counts;
+  assertRecordCount("Entity", entities, expectedCounts.entities);
+  assertRecordCount("Event", events, expectedCounts.events);
+  assertRecordCount("Relation", relations, expectedCounts.relations);
+  assertRecordCount("Occurrence", occurrences, expectedCounts.occurrences);
+
+  for (const [recordType, expectedCount] of [
+    ["entities", expectedCounts.entities],
+    ["events", expectedCounts.events],
+    ["relations", expectedCounts.relations],
+    ["occurrences", expectedCounts.occurrences],
+  ]) {
+    if (manifest.record_counts?.[recordType] !== expectedCount) {
+      throw new Error(
+        `Manifest ${recordType} count mismatch: ${String(manifest.record_counts?.[recordType])} (expected ${expectedCount})`,
+      );
+    }
+  }
+
+  for (const entityId of productionBaseline.required_entities) {
+    if (!entities.records.some((record) => record.id === entityId)) {
+      throw new Error(
+        `Required production Entity ${entityId} is missing from the deployed feed`,
+      );
+    }
+  }
+
+  for (const assertion of productionBaseline.occurrence_assertions) {
+    const occurrence = occurrences.records.find(
+      (record) => record.id === assertion.id,
+    );
+    if (!occurrence) {
+      throw new Error(
+        `Required production Occurrence ${assertion.id} is missing from the deployed feed`,
+      );
+    }
+
+    for (const field of ["record_version", "outcome", "scale"]) {
+      if (occurrence[field] !== assertion[field]) {
+        throw new Error(
+          `Occurrence ${assertion.id} ${field} mismatch: ${String(occurrence[field])} (expected ${String(assertion[field])})`,
+        );
+      }
+    }
+  }
+
   const locations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(
     (match) => match[1],
   );
 
   if (locations.length === 0) {
     throw new Error("Sitemap contains no <loc> entries");
+  }
+
+  if (locations.length !== expectedCounts.sitemap_entries) {
+    throw new Error(
+      `Sitemap entry-count mismatch: ${locations.length} (expected ${expectedCounts.sitemap_entries})`,
+    );
   }
 
   const invalidLocations = locations.filter(
@@ -145,8 +233,20 @@ if (canonicalMode) {
     );
   }
 
+  for (const pathname of productionBaseline.required_routes) {
+    const expectedLocation = `${origin}${pathname}`;
+    if (!locations.includes(expectedLocation)) {
+      throw new Error(
+        `Required production route is missing from the canonical sitemap: ${expectedLocation}`,
+      );
+    }
+  }
+
   console.log(`canonical origin verified: ${origin}`);
   console.log(`canonical sitemap entries verified: ${locations.length}`);
+  console.log(
+    `production baseline verified: ${productionBaseline.release_merge_commit}`,
+  );
 }
 
 console.log(
