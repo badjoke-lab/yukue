@@ -47,7 +47,7 @@ Stabilization review            config/matsuri-stabilization-review.json
 Detail C implementation         docs/matsuri-detail-c-implementation.md
 F2-28 evidence                  docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
 Stabilization start evidence    docs/audits/matsuri-stabilization-start-2026-07-27.md
-Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-22-2026-08-02.md
+Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-23-2026-08-02.md
 Jinja start boundary            config/jinja-start-gate.json
 Production topology             docs/deployment-topology.md
 ```
@@ -83,7 +83,7 @@ The enforced Detail C surface now requires:
 
 The next primary work is corpus expansion and deeper factual records. Stabilization observation continues in parallel but is not a reason to leave the corpus thin.
 
-Corpus expansion batches 11 through 22 are complete. Batch 22 added 吉田の火祭 as the first approved primary Matsuri record for 山梨県, including the State-free 北口本宮冨士浅間神社 and 諏訪神社 seeds, a concrete ritual anchor, the route-based 上吉田本町通り・御旅所 area, 2020 cancellation, modified 2021 return, held 2022 and 2024 editions, normal-format 2023 restoration, and the scheduled 2026 edition. It deepened 阿蘇神社御田祭 with held 2024 and 2025 Occurrences and resolved the due 2026 祇園祭 Occurrence as held with unknown scale from reviewed result Evidence. The next batch must continue the same uncovered-prefecture breadth plus sparse-record depth rule.
+Corpus expansion batches 11 through 23 are complete. Batch 23 added 上野天神祭 as the first approved primary Matsuri record for 三重県, including the State-free 菅原神社 seed, 上野文化美術保存会, a concrete ritual anchor, the route-based 伊賀上野城下町巡行区域, the 2020–2021 public-danjiri interruption, modified 2022 return, scheduled 2026 edition, and national and UNESCO Designations. It deepened 三社祭 with held modified 2020–2023 Occurrences and bounded format-change history while preserving the distinction between continued rites and altered public mikoshi processions. The next batch must continue the same uncovered-prefecture breadth plus sparse-record depth rule.
 
 ## Stabilization review window
 
@@ -118,6 +118,7 @@ Current dated reviews:
 郡上おどり 2026   review after 2026-09-05
 佐陀神能 2026     review after 2026-09-25
 吉田の火祭 2026  review after 2026-08-27
+上野天神祭 2026  review after 2026-10-25
 ```
 
 ## Jinja start boundary
@@ -147,10 +148,10 @@ repository-verified-crawler-reachability-verified-sitemap-submission-verified-in
 ```text
 Product track       start the next bounded Matsuri breadth-and-depth corpus batch
 Detail track        keep every public title navigable through the enforced Detail C contract
-Production check    confirm Batch 22 routes after the main deployment reaches the canonical origin
-Dated review        山あげ祭 when post-event Evidence appears; 弘前ねぷた after 2026-08-07; 郡上おどり after 2026-09-05; 佐陀神能 after 2026-09-25; 吉田の火祭 after 2026-08-27
+Production check    confirm Batch 23 routes after the main deployment reaches the canonical origin
+Dated review        山あげ祭 when post-event Evidence appears; 弘前ねぷた after 2026-08-07; 郡上おどり after 2026-09-05; 佐陀神能 after 2026-09-25; 吉田の火祭 after 2026-08-27; 上野天神祭 after 2026-10-25
 Stabilization       record real maintenance burden while expansion work is performed
 Gate review         not before 2026-08-10 and not by elapsed time alone
-Cloudflare track    verify the post-Batch-22 deployment; no new launch-gate action
+Cloudflare track    verify the post-Batch-23 deployment; no new launch-gate action
 Jinja track         remain blocked until four post-launch prerequisites complete
 ```
