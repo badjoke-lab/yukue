@@ -26,7 +26,7 @@ Actual Jinja start gate — blocked
 future specialist-site implementation — not activated
 ```
 
-F2-28 accepted the complete launch chain after F2-27 was merged to `main`. The post-launch Detail C remediation replaced the one-record-only detail implementation with real detail, Relation, Place, Evidence, search, and individual-JSON routes for the complete approved public inventory.
+F2-28 accepted the complete launch chain after F2-27 was merged to `main`. The post-launch Detail C implementation provides real detail, Relation, Place, Evidence, search, individual-JSON, and map behavior for the complete approved public inventory.
 
 ```text
 Evaluated at        2026-07-27T11:45:20Z
@@ -47,12 +47,12 @@ Stabilization review            config/matsuri-stabilization-review.json
 Detail C implementation         docs/matsuri-detail-c-implementation.md
 F2-28 evidence                  docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
 Stabilization start evidence    docs/audits/matsuri-stabilization-start-2026-07-27.md
-Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-25-2026-08-03.md
+Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-26-2026-08-03.md
 Jinja start boundary            config/jinja-start-gate.json
 Production topology             docs/deployment-topology.md
 ```
 
-Exact current maintenance counts and boundary values are machine-checked in `config/matsuri-repository-baseline.json`; this document does not duplicate those counts.
+Exact current maintenance counts and boundary values are machine-checked in `config/matsuri-repository-baseline.json`.
 
 ## Verified Matsuri production position
 
@@ -70,9 +70,23 @@ No URL is claimed already indexed.
 
 The enforced Detail C surface requires real detail pages for every approved primary record, State-free seed-reference pages for approved Shrine and Temple records, public Place pages, bidirectional Relations, claim-linked Evidence and Sources, individual JSON, direct-detail search results, and no empty detail sections or internal-code labels.
 
-The next primary work is corpus expansion and deeper factual records. Stabilization observation continues in parallel but is not a reason to leave the corpus thin.
+Corpus expansion batches 11 through 26 are complete.
 
-Corpus expansion batches 11 through 25 are complete. Batch 25 added 春日若宮おん祭 as the first approved primary Matsuri record for 奈良県, including the State-free 春日若宮 seed, concrete ritual anchor, 御旅所, route-based 御渡り式 area, 1136 origin, modified 2021 edition, 2022 return toward usual scale with rain cancellation of 御渡り式, and scheduled 2026 edition. It deepened 脚折雨乞 with the cancelled 2020 edition and the 8-year return in 2024. The next batch must continue the same uncovered-prefecture breadth plus sparse-record depth rule.
+Batch 26 added 長浜曳山祭 as the first approved primary Matsuri record for 滋賀県, including:
+
+- the State-free 長濱八幡宮 seed and concrete Shrine Place;
+- the route-based city-center procession area;
+- 公益財団法人長浜曳山文化協会 as a protection and continuity organization;
+- the bounded 2020 public-festival pause;
+- held modified 2022, held normal 2024, and held unknown-scale 2026 Occurrences;
+- national and UNESCO designations;
+- evidence-backed Shrine and preservation Relations.
+
+It deepened 佐陀神能 with held 2022 and 2026 special-public-performance cycles, the 2026 off-site museum-hall format, a new concrete performance venue, and the national designation without replacing the annual 御座替祭 series.
+
+The canonical corpus now contains 83 Entities, covers 30 prefectures, and leaves 17 prefectures uncovered. The remaining sparse primary Entities are 岳神楽, 御田祭, and 大償神楽.
+
+The next batch must continue the same uncovered-prefecture breadth plus sparse-record depth rule.
 
 ## Stabilization review window
 
@@ -105,12 +119,14 @@ Current dated reviews:
 山あげ祭 2026          review when official post-event Evidence is available
 弘前ねぷた 2026        review after 2026-08-07
 郡上おどり 2026        review after 2026-09-05
-佐陀神能 2026          review after 2026-09-25
+佐陀神能 御座替祭 2026 review after 2026-09-25
 吉田の火祭 2026       review after 2026-08-27
 石岡のおまつり 2026   review after 2026-09-21
 上野天神祭 2026       review after 2026-10-25
 春日若宮おん祭 2026   review after 2026-12-18
 ```
+
+The reviewed 2026 長浜曳山祭 and 2026 佐陀神能 special-public-performance records are already closed as held. The separate September 2026 佐陀神能御座替祭 remains scheduled and retains its dated review.
 
 ## Jinja start boundary
 
@@ -126,7 +142,7 @@ Explicit start authorization          false
 
 Actual Jinja start gate — blocked
 
-No Jinja application, Worker, hostname, publication claim, or invented State Snapshot is authorized.
+No Jinja application, Worker, hostname, publication claim, or invented State Snapshot is authorized. The repository retains zero approved Jinja State Snapshots.
 
 ## Current release status
 
@@ -137,12 +153,14 @@ repository-verified-crawler-reachability-verified-sitemap-submission-verified-in
 ## Immediate next actions
 
 ```text
-Product track       start the next bounded Matsuri breadth-and-depth corpus batch
+Product track       start Matsuri corpus expansion Batch 27
+Depth target        deepen one of 岳神楽, 御田祭, or 大償神楽 with claim-specific Evidence
+Breadth target      add one reviewed primary record from the 17 uncovered prefectures
 Detail track        keep every public title navigable through the enforced Detail C contract
-Production check    confirm Batch 25 routes after the main deployment reaches the canonical origin
+Production check    verify Batch 26 routes and exact counts after canonical deployment
 Dated review        follow the dated review inventory above
 Stabilization       record real maintenance burden while expansion work is performed
 Gate review         not before 2026-08-10 and not by elapsed time alone
-Cloudflare track    verify the post-Batch-25 deployment; no new launch-gate action
-Jinja track         remain blocked until four post-launch prerequisites complete
+Cloudflare track    verify the post-Batch-26 deployment; no new launch-gate action
+Jinja track         remain blocked until all four post-launch prerequisites complete
 ```
