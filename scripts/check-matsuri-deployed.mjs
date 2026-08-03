@@ -19,6 +19,12 @@ if (productionBaseline.schema_version !== "matsuri.production-baseline.v1") {
   );
 }
 
+if (!/^\d{4}-\d{2}-\d{2}$/.test(productionBaseline.observed_on ?? "")) {
+  throw new Error(
+    "Production baseline observed_on must use YYYY-MM-DD",
+  );
+}
+
 if (!/^[0-9a-f]{40}$/.test(productionBaseline.release_merge_commit ?? "")) {
   throw new Error(
     "Production baseline release_merge_commit must be a 40-character commit SHA",
@@ -192,9 +198,26 @@ function assertRecordCount(feedName, feed, expectedCount) {
   }
 }
 
+function assertRequiredRouteHtml(pathname, html) {
+  const normalized = html.toLowerCase();
+  for (const marker of ["<html", "<main", "<h1"]) {
+    if (!normalized.includes(marker)) {
+      throw new Error(
+        `Required production route ${pathname} is missing structural marker ${marker}`,
+      );
+    }
+  }
+}
+
 const bodies = new Map();
 for (const [pathname, contentType] of checks) {
   bodies.set(pathname, await fetchText(pathname, contentType));
+}
+
+if (canonicalMode) {
+  for (const pathname of productionBaseline.required_routes) {
+    assertRequiredRouteHtml(pathname, bodies.get(pathname));
+  }
 }
 
 const version = JSON.parse(bodies.get("/version.json"));

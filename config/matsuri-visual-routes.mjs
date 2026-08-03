@@ -71,6 +71,7 @@ export const matsuriPublicRoutes = Object.freeze([
   "/places/kasuga-onmatsuri-owatari-route/",
   "/places/nagahama-hachimangu/",
   "/places/nagahama-hikiyama-route/",
+  "/places/shimane-art-museum-hall/",
   "/regions/",
   "/changes/",
   "/states/",
@@ -107,9 +108,9 @@ export const matsuriTabletBrowserDevice = Object.freeze({
 });
 
 export function assertMatsuriVisualContract() {
-  if (matsuriPublicRoutes.length !== 86) {
+  if (matsuriPublicRoutes.length !== 87) {
     throw new Error(
-      `The representative Matsuri visual contract requires 86 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
+      `The representative Matsuri visual contract requires 87 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
     );
   }
 
@@ -201,6 +202,7 @@ export function assertMatsuriVisualContract() {
     "/places/kasuga-onmatsuri-owatari-route/",
     "/places/nagahama-hachimangu/",
     "/places/nagahama-hikiyama-route/",
+    "/places/shimane-art-museum-hall/",
   ];
   for (const route of requiredRegressionRoutes) {
     if (!matsuriPublicRoutes.includes(route)) {

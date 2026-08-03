@@ -1,0 +1,73 @@
+{
+  "entities": [
+    {
+      "id": "fpf-sada-shin-noh",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-10T00:00:00Z",
+      "updated_at": "2026-08-03T00:00:00Z",
+      "slug": "sada-shin-noh",
+      "entity_type": "folk_performance",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "佐陀神能",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-sada-jinja"
+          ]
+        }
+      ],
+      "summary_ja": "佐太神社に伝承される神事芸能。御座替祭で奉納されるほか、特別公開では松江市内の外部会場で上演される場合がある。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "32",
+            "prefecture_name_ja": "島根県",
+            "municipality_name_ja": "松江市"
+          }
+        ],
+        "scope_type": "multi_site",
+        "description_ja": "佐太神社を伝承・祭祀基点とし、特別公開では松江市内の外部会場を使用する場合がある。"
+      },
+      "primary_place_id": "plc-sada-jinja",
+      "default_place_ids": [
+        "plc-sada-jinja",
+        "plc-shimane-art-museum-hall"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.sadajinjya.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-07-10"
+        }
+      ],
+      "record_lifecycle": "active",
+      "performance_kind": "ritual_performance",
+      "forms": [
+        "神能"
+      ],
+      "usual_months": [
+        9
+      ],
+      "occurrence_series_ids": []
+    }
+  ],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
