@@ -10,6 +10,7 @@ on:
       - "docs/project-status.md"
       - "docs/deployment.md"
       - "docs/cloudflare-pages-launch-runbook.md"
+      - "config/matsuri-production-baseline.json"
       - "config/yukue-deployment-topology.json"
       - "wrangler.jsonc"
       - "scripts/check-matsuri-deployed.mjs"
