@@ -1,0 +1,453 @@
+{
+  "entities": [
+    {
+      "id": "fst-nagahama-hikiyama-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-03T00:00:00Z",
+      "updated_at": "2026-08-03T00:00:00Z",
+      "slug": "nagahama-hikiyama-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "長浜曳山祭",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-nagahama-hikiyama-overview"
+          ]
+        }
+      ],
+      "summary_ja": "長濱八幡宮の春祭として、曳山巡行と曳山上の子ども歌舞伎奉納を中心に、毎年4月9日から17日に長浜市街地で行われる祭礼。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "25",
+            "prefecture_name_ja": "滋賀県",
+            "municipality_name_ja": "長浜市"
+          }
+        ],
+        "scope_type": "route_based",
+        "description_ja": "長濱八幡宮を祭祀基点とし、御旅所、大手門通り、各山組町内を含む長浜市中心部の複数地点と巡行経路を伴う。"
+      },
+      "primary_place_id": "plc-nagahama-hachimangu",
+      "default_place_ids": [
+        "plc-nagahama-hachimangu",
+        "plc-nagahama-hikiyama-route"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://nagahama-hikiyama.or.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-08-03"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "shrine_festival",
+      "usual_months": [
+        4
+      ],
+      "usual_duration_days": 9,
+      "season_tags": [
+        "春"
+      ],
+      "occurrence_series_ids": [
+        "ser-nagahama-hikiyama-annual"
+      ]
+    },
+    {
+      "id": "shr-nagahama-hachimangu",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-03T00:00:00Z",
+      "updated_at": "2026-08-03T00:00:00Z",
+      "slug": "nagahama-hachimangu",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "長濱八幡宮",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-nagahama-hachimangu-directory"
+          ]
+        }
+      ],
+      "summary_ja": "長浜市宮前町に鎮座し、長浜曳山祭の春季大祭、狂言奉納、神輿渡御などの祭祀基点となる神社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "25",
+            "prefecture_name_ja": "滋賀県",
+            "municipality_name_ja": "長浜市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-nagahama-hachimangu",
+      "default_place_ids": [
+        "plc-nagahama-hachimangu"
+      ],
+      "external_links": [
+        {
+          "kind": "official_directory",
+          "platform": "web",
+          "url": "https://www.shiga-jinjacho.jp/ycBBS/Board.cgi/02_jinja_db/db/ycDB_02jinja-pc-detail.html?mode:view=1&view:oid=195",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-08-03"
+        }
+      ],
+      "record_lifecycle": "active"
+    },
+    {
+      "id": "org-nagahama-hikiyama-cultural-association",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-03T00:00:00Z",
+      "updated_at": "2026-08-03T00:00:00Z",
+      "slug": "nagahama-hikiyama-cultural-association",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "公益財団法人長浜曳山文化協会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-nagahama-hikiyama-association"
+          ]
+        }
+      ],
+      "summary_ja": "長浜曳山祭の保護団体として、祭礼文化の保存・継承と長浜市曳山博物館の運営を担う公益財団法人。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "25",
+            "prefecture_name_ja": "滋賀県",
+            "municipality_name_ja": "長浜市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://nagahama-hikiyama.or.jp/association/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-08-03"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "preservation_group",
+      "official_url": "https://nagahama-hikiyama.or.jp/association/"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-nagahama-hachimangu",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "長濱八幡宮",
+      "place_kind": "shrine",
+      "country_code": "JP",
+      "prefecture_code": "25",
+      "prefecture_name_ja": "滋賀県",
+      "municipality_name_ja": "長浜市",
+      "locality_ja": "宮前町",
+      "street_address_ja": "13-55",
+      "postal_code": "526-0053",
+      "coordinate_precision": "venue",
+      "source_ids": [
+        "src-nagahama-hachimangu-directory"
+      ]
+    },
+    {
+      "id": "plc-nagahama-hikiyama-route",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "長浜曳山祭 市街地巡行区域",
+      "place_kind": "procession_route",
+      "country_code": "JP",
+      "prefecture_code": "25",
+      "prefecture_name_ja": "滋賀県",
+      "municipality_name_ja": "長浜市",
+      "locality_ja": "長濱八幡宮・御旅所・大手門通り・各山組町内",
+      "coordinate_precision": "area",
+      "source_ids": [
+        "src-nagahama-hikiyama-events",
+        "src-nagahama-hikiyama-held-2026"
+      ]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-nagahama-hikiyama-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-nagahama-hikiyama-matsuri",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-08-03",
+      "basis_evidence_ids": [
+        "evd-nagahama-hikiyama-state"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-nagahama-hikiyama-pandemic-pause-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_started",
+      "subject_entity_ids": [
+        "fst-nagahama-hikiyama-matsuri"
+      ],
+      "effective_period": {
+        "start": "2020",
+        "end": "2020"
+      },
+      "summary_ja": "2020年は新型コロナウイルス感染拡大により長浜曳山祭が休祭・延期となり、通常の公開祭礼を実施しなかった。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-nagahama-hikiyama-dedicated-at-hachimangu",
+        "rel-nagahama-hikiyama-maintained-by-association"
+      ],
+      "evidence_ids": [
+        "evd-nagahama-hikiyama-pandemic-pause-2020",
+        "evd-nagahama-hikiyama-pandemic-history-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-nagahama-hikiyama-countermeasure-return-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_ended",
+      "subject_entity_ids": [
+        "fst-nagahama-hikiyama-matsuri"
+      ],
+      "effective_period": {
+        "start": "2022",
+        "end": "2022"
+      },
+      "summary_ja": "2022年は感染対策と運営上の工夫を行い、本来の祭礼に近い形で神事・祭事を執行した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-nagahama-hikiyama-dedicated-at-hachimangu",
+        "rel-nagahama-hikiyama-maintained-by-association"
+      ],
+      "evidence_ids": [
+        "evd-nagahama-hikiyama-countermeasure-return-2022"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-nagahama-hikiyama-usual-format-return-2024",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "format_changed",
+      "subject_entity_ids": [
+        "fst-nagahama-hikiyama-matsuri"
+      ],
+      "effective_period": {
+        "start": "2024",
+        "end": "2024"
+      },
+      "summary_ja": "2024年はコロナ禍を経て全ての行事が本来の形へ戻り、裸参り、夕渡り、狂言奉納などを含む祭礼を行った。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-nagahama-hikiyama-dedicated-at-hachimangu",
+        "rel-nagahama-hikiyama-maintained-by-association"
+      ],
+      "evidence_ids": [
+        "evd-nagahama-hikiyama-usual-format-return-2024"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-nagahama-hikiyama-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-nagahama-hikiyama-matsuri",
+      "series_id": "ser-nagahama-hikiyama-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2022-04-09",
+        "end": "2022-04-17",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-nagahama-hachimangu",
+        "plc-nagahama-hikiyama-route"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-nagahama-hikiyama-occ-2022"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-nagahama-hikiyama-2024",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-nagahama-hikiyama-matsuri",
+      "series_id": "ser-nagahama-hikiyama-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2024-04-09",
+        "end": "2024-04-17",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "normal",
+      "venue_place_ids": [
+        "plc-nagahama-hachimangu",
+        "plc-nagahama-hikiyama-route"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-nagahama-hikiyama-occ-2024"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-nagahama-hikiyama-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-nagahama-hikiyama-matsuri",
+      "series_id": "ser-nagahama-hikiyama-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-04-09",
+        "end": "2026-04-17",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-nagahama-hachimangu",
+        "plc-nagahama-hikiyama-route"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-nagahama-hikiyama-occ-2026"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-nagahama-hikiyama-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-nagahama-hikiyama-matsuri",
+      "series_type": "annual_festival_edition",
+      "name_ja": "長浜曳山祭 年次祭礼",
+      "recurrence_pattern_id": "rec-nagahama-hikiyama-annual",
+      "default_venue_place_ids": [
+        "plc-nagahama-hachimangu",
+        "plc-nagahama-hikiyama-route"
+      ],
+      "evidence_ids": [
+        "evd-nagahama-hikiyama-recurrence"
+      ]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-nagahama-hikiyama-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年4月9日から17日",
+      "evidence_ids": [
+        "evd-nagahama-hikiyama-recurrence"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-nagahama-hikiyama-dedicated-at-hachimangu",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-nagahama-hikiyama-matsuri",
+      "relation_type": "dedicated_at",
+      "target_entity_id": "shr-nagahama-hachimangu",
+      "evidence_ids": [
+        "evd-rel-nagahama-hikiyama-hachimangu"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "rel-nagahama-hikiyama-maintained-by-association",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-nagahama-hikiyama-matsuri",
+      "relation_type": "maintained_by",
+      "target_entity_id": "org-nagahama-hikiyama-cultural-association",
+      "evidence_ids": [
+        "evd-rel-nagahama-hikiyama-association"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [
+    {
+      "id": "des-nagahama-hikiyama-national",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "designation_name_ja": "国指定重要無形民俗文化財「長浜曳山祭の曳山行事」",
+      "subject_entity_ids": [
+        "fst-nagahama-hikiyama-matsuri"
+      ],
+      "designation_system": "文化財保護法",
+      "designation_level": "国",
+      "valid_period": {
+        "start": "1979-02-03"
+      },
+      "evidence_ids": [
+        "evd-des-nagahama-hikiyama-national"
+      ]
+    },
+    {
+      "id": "des-nagahama-hikiyama-unesco",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "designation_name_ja": "ユネスコ無形文化遺産代表一覧表「山・鉾・屋台行事」構成行事",
+      "subject_entity_ids": [
+        "fst-nagahama-hikiyama-matsuri"
+      ],
+      "designation_system": "無形文化遺産の保護に関する条約",
+      "designation_level": "国際",
+      "valid_period": {
+        "start": "2016"
+      },
+      "evidence_ids": [
+        "evd-des-nagahama-hikiyama-unesco"
+      ]
+    }
+  ],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
