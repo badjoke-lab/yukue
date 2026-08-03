@@ -1,0 +1,374 @@
+{
+  "entities": [
+    {
+      "id": "fst-sanuki-takamatsu-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-03T00:00:00Z",
+      "updated_at": "2026-08-03T00:00:00Z",
+      "slug": "sanuki-takamatsu-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "さぬき高松まつり",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-takamatsu-festival-2026"
+          ]
+        }
+      ],
+      "summary_ja": "高松市で毎年8月12日から14日に、ステージ行事、花火大会、総おどりを軸として行われる市民祭。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "37",
+            "prefecture_name_ja": "香川県",
+            "municipality_name_ja": "高松市"
+          }
+        ],
+        "scope_type": "multi_site",
+        "description_ja": "中央公園・中央通りを中心としてきたが、2026年は中央公園再整備に伴い、あなぶきアリーナ香川とサンポート高松多目的広場を主会場とする。"
+      },
+      "primary_place_id": "plc-sanport-takamatsu-multipurpose-square",
+      "default_place_ids": [
+        "plc-takamatsu-chuo-koen",
+        "plc-anabuki-arena-kagawa",
+        "plc-sanport-takamatsu-multipurpose-square"
+      ],
+      "external_links": [
+        {
+          "kind": "municipality_page",
+          "platform": "web",
+          "url": "https://www.city.takamatsu.kagawa.jp/kanko/takamatsumatsuri/matsuri.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-03"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "community_festival",
+      "usual_months": [
+        8
+      ],
+      "usual_duration_days": 3,
+      "season_tags": [
+        "夏"
+      ],
+      "occurrence_series_ids": [
+        "ser-sanuki-takamatsu-annual"
+      ]
+    },
+    {
+      "id": "org-takamatsu-matsuri-shinkokai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-03T00:00:00Z",
+      "updated_at": "2026-08-03T00:00:00Z",
+      "slug": "takamatsu-matsuri-shinkokai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "高松まつり振興会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-takamatsu-festival-organizer-2026"
+          ]
+        }
+      ],
+      "summary_ja": "さぬき高松まつりの開催を決定し、運営と安全対策などを担う主催団体。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "37",
+            "prefecture_name_ja": "香川県",
+            "municipality_name_ja": "高松市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "municipality_page",
+          "platform": "web",
+          "url": "https://www.city.takamatsu.kagawa.jp/kanko/takamatsumatsuri/matsuri.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-03"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "festival_committee",
+      "official_url": "https://www.city.takamatsu.kagawa.jp/kanko/takamatsumatsuri/matsuri.html"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-takamatsu-chuo-koen",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "高松市中央公園",
+      "place_kind": "festival_ground",
+      "country_code": "JP",
+      "prefecture_code": "37",
+      "prefecture_name_ja": "香川県",
+      "municipality_name_ja": "高松市",
+      "locality_ja": "番町一丁目11",
+      "coordinate_precision": "venue",
+      "source_ids": [
+        "src-takamatsu-central-park",
+        "src-takamatsu-festival-return-2022"
+      ]
+    },
+    {
+      "id": "plc-anabuki-arena-kagawa",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "あなぶきアリーナ香川",
+      "place_kind": "performance_venue",
+      "country_code": "JP",
+      "prefecture_code": "37",
+      "prefecture_name_ja": "香川県",
+      "municipality_name_ja": "高松市",
+      "locality_ja": "サンポート高松地区",
+      "coordinate_precision": "venue",
+      "source_ids": [
+        "src-takamatsu-festival-2026"
+      ]
+    },
+    {
+      "id": "plc-sanport-takamatsu-multipurpose-square",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "サンポート高松多目的広場 石のステージ",
+      "place_kind": "festival_ground",
+      "country_code": "JP",
+      "prefecture_code": "37",
+      "prefecture_name_ja": "香川県",
+      "municipality_name_ja": "高松市",
+      "locality_ja": "サンポート高松",
+      "coordinate_precision": "venue",
+      "source_ids": [
+        "src-takamatsu-festival-2026"
+      ]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-sanuki-takamatsu-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-sanuki-takamatsu-matsuri",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-08-03",
+      "basis_evidence_ids": [
+        "evd-takamatsu-festival-state"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-sanuki-takamatsu-return-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_ended",
+      "subject_entity_ids": [
+        "fst-sanuki-takamatsu-matsuri"
+      ],
+      "effective_period": {
+        "start": "2022",
+        "end": "2022"
+      },
+      "summary_ja": "2022年、第55回さぬき高松まつりが中央公園を主会場に3年ぶりに開催された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-sanuki-takamatsu-organized-by-shinkokai"
+      ],
+      "evidence_ids": [
+        "evd-takamatsu-festival-return-2022"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-sanuki-takamatsu-format-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "format_changed",
+      "subject_entity_ids": [
+        "fst-sanuki-takamatsu-matsuri"
+      ],
+      "effective_period": {
+        "start": "2025",
+        "end": "2025"
+      },
+      "summary_ja": "2025年は花火大会と総おどりを含む従来に近い3日間の構成を回復しつつ、翌年の会場変更に備えて商店街での踊りを試行した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-sanuki-takamatsu-organized-by-shinkokai"
+      ],
+      "evidence_ids": [
+        "evd-takamatsu-festival-format-2025"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-sanuki-takamatsu-venue-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "venue_changed",
+      "subject_entity_ids": [
+        "fst-sanuki-takamatsu-matsuri"
+      ],
+      "effective_period": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "summary_ja": "中央公園の再整備に伴い、2026年は主会場をあなぶきアリーナ香川とサンポート高松多目的広場へ移し、総おどりも中央通りの一元放送連を行わない構成へ変更した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-sanuki-takamatsu-organized-by-shinkokai"
+      ],
+      "evidence_ids": [
+        "evd-takamatsu-festival-venue-2026"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-sanuki-takamatsu-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-sanuki-takamatsu-matsuri",
+      "series_id": "ser-sanuki-takamatsu-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2022-08-12",
+        "end": "2022-08-14",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-takamatsu-chuo-koen"
+      ],
+      "organizer_entity_ids": [
+        "org-takamatsu-matsuri-shinkokai"
+      ],
+      "evidence_ids": [
+        "evd-takamatsu-festival-occ-2022"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-sanuki-takamatsu-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-sanuki-takamatsu-matsuri",
+      "series_id": "ser-sanuki-takamatsu-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2025-08-12",
+        "end": "2025-08-14",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-takamatsu-chuo-koen"
+      ],
+      "organizer_entity_ids": [
+        "org-takamatsu-matsuri-shinkokai"
+      ],
+      "evidence_ids": [
+        "evd-takamatsu-festival-occ-2025"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-sanuki-takamatsu-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-sanuki-takamatsu-matsuri",
+      "series_id": "ser-sanuki-takamatsu-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-08-12",
+        "end": "2026-08-14",
+        "precision": "range"
+      },
+      "outcome": "scheduled",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-anabuki-arena-kagawa",
+        "plc-sanport-takamatsu-multipurpose-square"
+      ],
+      "organizer_entity_ids": [
+        "org-takamatsu-matsuri-shinkokai"
+      ],
+      "evidence_ids": [
+        "evd-takamatsu-festival-occ-2026"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-sanuki-takamatsu-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-sanuki-takamatsu-matsuri",
+      "series_type": "annual_festival_edition",
+      "name_ja": "さぬき高松まつり 年次開催",
+      "recurrence_pattern_id": "rec-sanuki-takamatsu-annual",
+      "default_venue_place_ids": [
+        "plc-takamatsu-chuo-koen",
+        "plc-anabuki-arena-kagawa",
+        "plc-sanport-takamatsu-multipurpose-square"
+      ],
+      "evidence_ids": [
+        "evd-takamatsu-festival-recurrence"
+      ]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-sanuki-takamatsu-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年8月12日から14日",
+      "evidence_ids": [
+        "evd-takamatsu-festival-recurrence"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-sanuki-takamatsu-organized-by-shinkokai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-sanuki-takamatsu-matsuri",
+      "relation_type": "organized_by",
+      "target_entity_id": "org-takamatsu-matsuri-shinkokai",
+      "evidence_ids": [
+        "evd-rel-takamatsu-festival-organizer"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}

@@ -57,7 +57,7 @@ visual screenshot workflow
   anchor maps and explicit no-map states
 ```
 
-The shared visual-route configuration currently contains 87 representative routes.
+The shared visual-route configuration currently contains 92 representative routes.
 
 It must include:
 
@@ -84,6 +84,8 @@ It must include:
 - `脚折雨乞` as the Batch 25 cancellation-and-return history depth baseline,
 - `長浜曳山祭`, the State-free `長濱八幡宮` seed page, `公益財団法人長浜曳山文化協会`, the concrete Shrine Place, and the route-based 市街地巡行区域 as Batch 26 breadth, organization, ritual-anchor, and map-boundary baselines,
 - `佐陀神能` and `島根県立美術館ホール` as the Batch 26 special-public-performance, off-site venue, Entity-to-Place navigation, and map baselines,
+- `さぬき高松まつり`, `高松まつり振興会`, `高松市中央公園`, `あなぶきアリーナ香川`, and `サンポート高松多目的広場 石のステージ` as the Batch 27 breadth, organizer, historical-main-venue, venue-change, and current multi-site baselines,
+- `岳神楽` and `大償神楽` as the Batch 27 component-designation-history depth baselines,
 - multiple Folk Performance details,
 - multiple Organization details,
 - at least one Shrine or Temple seed-reference page,
@@ -140,12 +142,12 @@ screenshots-desktop.zip
 screenshots-mobile.zip
 ```
 
-With the current 87-route representative contract, an `all` capture produces:
+With the current 92-route representative contract, an `all` capture produces:
 
 ```text
-87 desktop full-page PNGs
-87 mobile full-page PNGs
-174 full-page PNGs total
+92 desktop full-page PNGs
+92 mobile full-page PNGs
+184 full-page PNGs total
 ```
 
 ## Capture manifest
