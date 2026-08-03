@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - agent/matsuri-corpus-expansion-batch-27
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: read
