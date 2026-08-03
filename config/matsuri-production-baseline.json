@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
   "observed_on": "2026-08-03",
-  "release_merge_commit": "066e269aef170d9b32d6ad44808b06fadefcb954",
+  "release_merge_commit": "c0e1ba0b2a7d928f75257084f7261c05bdfacd1f",
   "expected_counts": {
     "entities": 83,
     "events": 78,
     "relations": 50,
     "occurrences": 136,
-    "sitemap_entries": 171
+    "sitemap_entries": 172
   },
   "required_routes": [
     "/festivals/yoshida-fire-festival/",
@@ -38,7 +38,8 @@
     "/organizations/nagahama-hikiyama-cultural-association/",
     "/places/nagahama-hachimangu/",
     "/places/nagahama-hikiyama-route/",
-    "/performances/sada-shin-noh/"
+    "/performances/sada-shin-noh/",
+    "/places/shimane-art-museum-hall/"
   ],
   "required_entities": [
     "fst-yoshida-fire-festival",

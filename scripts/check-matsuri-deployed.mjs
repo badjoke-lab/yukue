@@ -207,6 +207,19 @@ function assertRequiredRouteHtml(pathname, html) {
       );
     }
   }
+
+  const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/iu);
+  if (!titleMatch?.[1]?.trim()) {
+    throw new Error(`Required production route ${pathname} has no usable title`);
+  }
+
+  const robotsNoindex =
+    /<meta\b[^>]*\bname\s*=\s*["']robots["'][^>]*\bcontent\s*=\s*["'][^"']*\bnoindex\b/iu;
+  if (robotsNoindex.test(html)) {
+    throw new Error(
+      `Required production route ${pathname} contains a robots noindex directive`,
+    );
+  }
 }
 
 const bodies = new Map();
