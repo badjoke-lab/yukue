@@ -41,6 +41,7 @@ The final launch gate records successful repository, canonical-origin, Search, c
 
 ```text
 Current repository counts       config/matsuri-repository-baseline.json
+Current production baseline     config/matsuri-production-baseline.json
 Analytics progression           config/matsuri-analytics-activation.json
 Final F2 launch gate            config/matsuri-f2-launch-gate.json
 Stabilization review            config/matsuri-stabilization-review.json
@@ -48,11 +49,12 @@ Detail C implementation         docs/matsuri-detail-c-implementation.md
 F2-28 evidence                  docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
 Stabilization start evidence    docs/audits/matsuri-stabilization-start-2026-07-27.md
 Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-26-2026-08-03.md
+Latest production audit         docs/audits/matsuri-batch-26-production-verification-2026-08-03.md
 Jinja start boundary            config/jinja-start-gate.json
 Production topology             docs/deployment-topology.md
 ```
 
-Exact current maintenance counts and boundary values are machine-checked in `config/matsuri-repository-baseline.json`.
+Exact current maintenance and production values are machine-checked in the two baseline JSON files.
 
 ## Verified Matsuri production position
 
@@ -60,9 +62,21 @@ Exact current maintenance counts and boundary values are machine-checked in `con
 Worker                    matsuri-yukue
 Canonical origin          https://matsuri-yukue.badjoke-lab.com/
 Permanent Workers origin  https://matsuri-yukue.badjoke-lab.workers.dev/
+Verified release          c0e1ba0b2a7d928f75257084f7261c05bdfacd1f
+Verified on               2026-08-03
 ```
 
-Verified production layers include canonical deployment, Search, crawler reachability, Search Console submission evidence, Cloudflare Web Analytics Automatic setup, post-activation deployment, production traffic receipt, and the final F2 Launch Gate.
+Exact canonical-production verification succeeded on its first attempt after the Batch 26 correction.
+
+```text
+Entities          83
+Change Events     78
+Relations         50
+Occurrences       136
+Sitemap entries   172
+```
+
+The corrected `/places/shimane-art-museum-hall/` route returns HTTP 200, contains real HTML structure and a usable title, carries no robots `noindex` directive, and appears in the canonical sitemap. The verified production layers also include Search, crawler reachability, Search Console submission evidence, Cloudflare Web Analytics Automatic setup, post-activation deployment, production traffic receipt, and the final F2 Launch Gate.
 
 No URL is claimed already indexed.
 
@@ -82,9 +96,11 @@ Batch 26 added 長浜曳山祭 as the first approved primary Matsuri record for 
 - national and UNESCO designations;
 - evidence-backed Shrine and preservation Relations.
 
-It deepened 佐陀神能 with held 2022 and 2026 special-public-performance cycles, the 2026 off-site museum-hall format, a new concrete performance venue, and the national designation without replacing the annual 御座替祭 series.
+It deepened 佐陀神能 with held 2022 and 2026 special-public-performance cycles, the 2026 off-site museum-hall format, a concrete performance venue, and the national designation without replacing the annual 御座替祭 series.
 
-The canonical corpus now contains 83 Entities, covers 30 prefectures, and leaves 17 prefectures uncovered. The remaining sparse primary Entities are 岳神楽, 御田祭, and 大償神楽.
+Post-merge exact production verification found that the museum-hall Place existed in the data feed but lacked a generated Place detail because the parent Entity did not reference it through `default_place_ids`. Ordered correction `corrections-17.json` fixed the Entity-to-Place connection, retained 佐太神社 as the primary ritual anchor, generated the missing Place route, and advanced the final public surface to 172 HTML routes and 70 Place details.
+
+The canonical corpus contains 83 Entities, covers 30 prefectures, and leaves 17 prefectures uncovered. The remaining sparse primary Entities are 岳神楽, 御田祭, and 大償神楽.
 
 The next batch must continue the same uncovered-prefecture breadth plus sparse-record depth rule.
 
@@ -100,7 +116,7 @@ Review complete       false
 
 Phase 10 observes production behavior, Search Console, Analytics receipt, corrections, deployment failures, data freshness, Relation integrity, and maintenance burden. Elapsed time alone does not complete the review. Search-engine indexation is observed but is not required.
 
-The review is a supporting operational gate. Meaningful corpus growth and real maintenance work are required before maintenance burden can be judged.
+The Batch 26 museum-hall route issue and its correction are retained as real maintenance-burden evidence for the stabilization review.
 
 ## Routine Matsuri maintenance
 
@@ -126,7 +142,7 @@ Current dated reviews:
 春日若宮おん祭 2026   review after 2026-12-18
 ```
 
-The reviewed 2026 長浜曳山祭 and 2026 佐陀神能 special-public-performance records are already closed as held. The separate September 2026 佐陀神能御座替祭 remains scheduled and retains its dated review.
+The reviewed 2026 長浜曳山祭 and 2026 佐陀神能 special-public-performance records are closed as held. The separate September 2026 佐陀神能御座替祭 remains scheduled and retains its dated review.
 
 ## Jinja start boundary
 
@@ -147,7 +163,7 @@ No Jinja application, Worker, hostname, publication claim, or invented State Sna
 ## Current release status
 
 ```text
-repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-launch-complete-stabilization-observing-jinja-start-blocked
+repository-verified-canonical-production-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-launch-complete-stabilization-observing-jinja-start-blocked
 ```
 
 ## Immediate next actions
@@ -157,10 +173,10 @@ Product track       start Matsuri corpus expansion Batch 27
 Depth target        deepen one of 岳神楽, 御田祭, or 大償神楽 with claim-specific Evidence
 Breadth target      add one reviewed primary record from the 17 uncovered prefectures
 Detail track        keep every public title navigable through the enforced Detail C contract
-Production check    verify Batch 26 routes and exact counts after canonical deployment
+Production check    Batch 26 corrected production verified; maintain exact baseline on subsequent releases
 Dated review        follow the dated review inventory above
 Stabilization       record real maintenance burden while expansion work is performed
 Gate review         not before 2026-08-10 and not by elapsed time alone
-Cloudflare track    verify the post-Batch-26 deployment; no new launch-gate action
+Cloudflare track    no pending Batch 26 deployment action
 Jinja track         remain blocked until all four post-launch prerequisites complete
 ```
