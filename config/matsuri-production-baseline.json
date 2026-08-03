@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
   "observed_on": "2026-08-03",
-  "release_merge_commit": "e458480152130dc0067bf9cfd5f1f87cb665ccb7",
+  "release_merge_commit": "066e269aef170d9b32d6ad44808b06fadefcb954",
   "expected_counts": {
-    "entities": 80,
-    "events": 74,
-    "relations": 48,
-    "occurrences": 131,
-    "sitemap_entries": 166
+    "entities": 83,
+    "events": 78,
+    "relations": 50,
+    "occurrences": 136,
+    "sitemap_entries": 171
   },
   "required_routes": [
     "/festivals/yoshida-fire-festival/",
@@ -32,7 +32,13 @@
     "/places/kasuga-wakamiya/",
     "/places/kasuga-onmatsuri-otabisho/",
     "/places/kasuga-onmatsuri-owatari-route/",
-    "/festivals/suneori-amagoi/"
+    "/festivals/suneori-amagoi/",
+    "/festivals/nagahama-hikiyama-matsuri/",
+    "/references/shrines/nagahama-hachimangu/",
+    "/organizations/nagahama-hikiyama-cultural-association/",
+    "/places/nagahama-hachimangu/",
+    "/places/nagahama-hikiyama-route/",
+    "/performances/sada-shin-noh/"
   ],
   "required_entities": [
     "fst-yoshida-fire-festival",
@@ -44,7 +50,10 @@
     "fst-ishioka-matsuri",
     "shr-hitachi-sosogu-jinja",
     "fst-kasuga-wakamiya-onmatsuri",
-    "shr-kasuga-wakamiya"
+    "shr-kasuga-wakamiya",
+    "fst-nagahama-hikiyama-matsuri",
+    "shr-nagahama-hachimangu",
+    "org-nagahama-hikiyama-cultural-association"
   ],
   "occurrence_assertions": [
     {
@@ -165,6 +174,36 @@
       "id": "occ-suneori-2020",
       "record_version": 1,
       "outcome": "cancelled",
+      "scale": "unknown"
+    },
+    {
+      "id": "occ-nagahama-hikiyama-2022",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "modified"
+    },
+    {
+      "id": "occ-nagahama-hikiyama-2024",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "normal"
+    },
+    {
+      "id": "occ-nagahama-hikiyama-2026",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "unknown"
+    },
+    {
+      "id": "occ-sada-shin-noh-special-2022",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "modified"
+    },
+    {
+      "id": "occ-sada-shin-noh-special-2026",
+      "record_version": 1,
+      "outcome": "held",
       "scale": "unknown"
     }
   ]
