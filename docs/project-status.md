@@ -48,8 +48,8 @@ Stabilization review            config/matsuri-stabilization-review.json
 Detail C implementation         docs/matsuri-detail-c-implementation.md
 F2-28 evidence                  docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
 Stabilization start evidence    docs/audits/matsuri-stabilization-start-2026-07-27.md
-Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-26-2026-08-03.md
-Latest production audit         docs/audits/matsuri-batch-26-production-verification-2026-08-03.md
+Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-27-2026-08-03.md
+Latest production audit         docs/audits/matsuri-batch-27-production-verification-2026-08-03.md
 Jinja start boundary            config/jinja-start-gate.json
 Production topology             docs/deployment-topology.md
 ```
@@ -62,21 +62,21 @@ Exact current maintenance and production values are machine-checked in the two b
 Worker                    matsuri-yukue
 Canonical origin          https://matsuri-yukue.badjoke-lab.com/
 Permanent Workers origin  https://matsuri-yukue.badjoke-lab.workers.dev/
-Verified release          c0e1ba0b2a7d928f75257084f7261c05bdfacd1f
+Verified release          43b8d7a6ee800bb1e9ab7333698ea4be2ccbfd88
 Verified on               2026-08-03
 ```
 
-Exact canonical-production verification succeeded on its first attempt after the Batch 26 correction.
+Exact canonical-production verification succeeded on its first attempt for the Batch 27 release.
 
 ```text
-Entities          83
-Change Events     78
-Relations         50
-Occurrences       136
-Sitemap entries   172
+Entities          85
+Change Events     83
+Relations         51
+Occurrences       139
+Sitemap entries   177
 ```
 
-The corrected `/places/shimane-art-museum-hall/` route returns HTTP 200, contains real HTML structure and a usable title, carries no robots `noindex` directive, and appears in the canonical sitemap. The verified production layers also include Search, crawler reachability, Search Console submission evidence, Cloudflare Web Analytics Automatic setup, post-activation deployment, production traffic receipt, and the final F2 Launch Gate.
+The Batch 27 Takamatsu Festival, organizer, three Place routes, 岳神楽, and 大償神楽 routes return HTTP 200, contain real HTML structure and usable titles, carry no robots `noindex` directive, and appear in the canonical sitemap. The verified production layers also include Search, crawler reachability, Search Console submission evidence, Cloudflare Web Analytics Automatic setup, post-activation deployment, production traffic receipt, and the final F2 Launch Gate.
 
 No URL is claimed already indexed.
 
@@ -84,25 +84,22 @@ No URL is claimed already indexed.
 
 The enforced Detail C surface requires real detail pages for every approved primary record, State-free seed-reference pages for approved Shrine and Temple records, public Place pages, bidirectional Relations, claim-linked Evidence and Sources, individual JSON, direct-detail search results, and no empty detail sections or internal-code labels.
 
-Corpus expansion batches 11 through 26 are complete.
+Corpus expansion batches 11 through 27 are complete.
 
-Batch 26 added 長浜曳山祭 as the first approved primary Matsuri record for 滋賀県, including:
+Batch 27 added さぬき高松まつり as the first approved primary Matsuri record for 香川県, including:
 
-- the State-free 長濱八幡宮 seed and concrete Shrine Place;
-- the route-based city-center procession area;
-- 公益財団法人長浜曳山文化協会 as a protection and continuity organization;
-- the bounded 2020 public-festival pause;
-- held modified 2022, held normal 2024, and held unknown-scale 2026 Occurrences;
-- national and UNESCO designations;
-- evidence-backed Shrine and preservation Relations.
+- 高松まつり振興会 as the evidence-backed organizer;
+- 高松市中央公園 as the reviewed historical main venue;
+- あなぶきアリーナ香川 and サンポート高松多目的広場 石のステージ as the reviewed 2026 main venues;
+- the 2022 three-year public return;
+- the held modified 2025 edition;
+- the scheduled modified 2026 venue-change edition.
 
-It deepened 佐陀神能 with held 2022 and 2026 special-public-performance cycles, the 2026 off-site museum-hall format, a concrete performance venue, and the national designation without replacing the annual 御座替祭 series.
+It deepened 岳神楽 and 大償神楽 through claim-specific 1976 national-designation and 2009 UNESCO-inscription Change Events shared with the parent 早池峰神楽 record. These are bounded designation-history records and do not create new Current State claims.
 
-Post-merge exact production verification found that the museum-hall Place existed in the data feed but lacked a generated Place detail because the parent Entity did not reference it through `default_place_ids`. Ordered correction `corrections-17.json` fixed the Entity-to-Place connection, retained 佐太神社 as the primary ritual anchor, generated the missing Place route, and advanced the final public surface to 172 HTML routes and 70 Place details.
+The canonical corpus contains 85 Entities, covers 31 prefectures, and leaves 16 prefectures uncovered. The only remaining sparse primary Entity is 御田祭.
 
-The canonical corpus contains 83 Entities, covers 30 prefectures, and leaves 17 prefectures uncovered. The remaining sparse primary Entities are 岳神楽, 御田祭, and 大償神楽.
-
-The next batch must continue the same uncovered-prefecture breadth plus sparse-record depth rule.
+Batch 27 implementation, corpus audit, and exact canonical-production verification are complete. The production baseline is pinned to implementation merge commit `43b8d7a6ee800bb1e9ab7333698ea4be2ccbfd88`.
 
 ## Stabilization review window
 
@@ -116,7 +113,7 @@ Review complete       false
 
 Phase 10 observes production behavior, Search Console, Analytics receipt, corrections, deployment failures, data freshness, Relation integrity, and maintenance burden. Elapsed time alone does not complete the review. Search-engine indexation is observed but is not required.
 
-The Batch 26 museum-hall route issue and its correction are retained as real maintenance-burden evidence for the stabilization review.
+The Batch 26 museum-hall route issue and correction remain maintenance-burden evidence. Batch 27 adds a clean breadth-and-depth expansion cycle with no repository, map, or visual regression.
 
 ## Routine Matsuri maintenance
 
@@ -140,6 +137,7 @@ Current dated reviews:
 石岡のおまつり 2026   review after 2026-09-21
 上野天神祭 2026       review after 2026-10-25
 春日若宮おん祭 2026   review after 2026-12-18
+さぬき高松まつり 2026 review after 2026-08-15
 ```
 
 The reviewed 2026 長浜曳山祭 and 2026 佐陀神能 special-public-performance records are closed as held. The separate September 2026 佐陀神能御座替祭 remains scheduled and retains its dated review.
@@ -169,14 +167,14 @@ repository-verified-canonical-production-verified-crawler-reachability-verified-
 ## Immediate next actions
 
 ```text
-Product track       start Matsuri corpus expansion Batch 27
-Depth target        deepen one of 岳神楽, 御田祭, or 大償神楽 with claim-specific Evidence
-Breadth target      add one reviewed primary record from the 17 uncovered prefectures
+Product track       start Matsuri corpus expansion Batch 28
+Depth target        deepen 御田祭 with claim-specific Change Event or Occurrence Evidence
+Breadth target      add one reviewed primary record from the 16 uncovered prefectures
 Detail track        keep every public title navigable through the enforced Detail C contract
-Production check    Batch 26 corrected production verified; maintain exact baseline on subsequent releases
-Dated review        follow the dated review inventory above
+Production check    Batch 27 exact canonical-production baseline verified
+Dated review        follow the dated review inventory above, including Takamatsu after 2026-08-15
 Stabilization       record real maintenance burden while expansion work is performed
 Gate review         not before 2026-08-10 and not by elapsed time alone
-Cloudflare track    no pending Batch 26 deployment action
+Cloudflare track    no pending Batch 27 deployment action
 Jinja track         remain blocked until all four post-launch prerequisites complete
 ```
