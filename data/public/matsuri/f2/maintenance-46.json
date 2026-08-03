@@ -1,0 +1,390 @@
+{
+  "entities": [
+    {
+      "id": "fst-kasuga-wakamiya-onmatsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-02T00:00:00Z",
+      "updated_at": "2026-08-02T00:00:00Z",
+      "slug": "kasuga-wakamiya-onmatsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "春日若宮おん祭",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-kasuga-onmatsuri-overview"
+          ]
+        }
+      ],
+      "summary_ja": "春日大社の摂社・若宮の例祭として、12月15日から18日に遷幸・還幸、御渡り式、御旅所祭と多様な神事芸能を行う祭礼。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "29",
+            "prefecture_name_ja": "奈良県",
+            "municipality_name_ja": "奈良市"
+          }
+        ],
+        "scope_type": "route_based",
+        "description_ja": "春日若宮を祭祀基点とし、一之鳥居内の御旅所と奈良市中心部の御渡り式経路を伴う。"
+      },
+      "primary_place_id": "plc-kasuga-wakamiya",
+      "default_place_ids": [
+        "plc-kasuga-wakamiya",
+        "plc-kasuga-onmatsuri-otabisho",
+        "plc-kasuga-onmatsuri-owatari-route"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://onmatsuri.kasugataisha.or.jp/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-08-02"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "shrine_festival",
+      "usual_months": [
+        12
+      ],
+      "usual_duration_days": 4,
+      "season_tags": [
+        "冬"
+      ],
+      "occurrence_series_ids": [
+        "ser-kasuga-onmatsuri-annual"
+      ]
+    },
+    {
+      "id": "shr-kasuga-wakamiya",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-02T00:00:00Z",
+      "updated_at": "2026-08-02T00:00:00Z",
+      "slug": "kasuga-wakamiya",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "春日若宮",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-kasuga-wakamiya-official"
+          ]
+        }
+      ],
+      "summary_ja": "春日大社境内に鎮座し、春日若宮おん祭の祭祀対象と遷幸・還幸の基点となる摂社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "29",
+            "prefecture_name_ja": "奈良県",
+            "municipality_name_ja": "奈良市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-kasuga-wakamiya",
+      "default_place_ids": [
+        "plc-kasuga-wakamiya"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.kasugataisha.or.jp/guidance/keidai-map2/modal-08/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-08-02"
+        }
+      ],
+      "record_lifecycle": "active"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-kasuga-wakamiya",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "春日若宮",
+      "place_kind": "shrine",
+      "country_code": "JP",
+      "prefecture_code": "29",
+      "prefecture_name_ja": "奈良県",
+      "municipality_name_ja": "奈良市",
+      "locality_ja": "春日野町",
+      "street_address_ja": "160",
+      "postal_code": "630-8212",
+      "coordinate_precision": "venue",
+      "source_ids": [
+        "src-kasuga-wakamiya-official"
+      ]
+    },
+    {
+      "id": "plc-kasuga-onmatsuri-otabisho",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "春日若宮おん祭 御旅所",
+      "place_kind": "festival_ground",
+      "country_code": "JP",
+      "prefecture_code": "29",
+      "prefecture_name_ja": "奈良県",
+      "municipality_name_ja": "奈良市",
+      "locality_ja": "春日野町・春日大社一之鳥居内",
+      "coordinate_precision": "venue",
+      "source_ids": [
+        "src-kasuga-onmatsuri-otabisho"
+      ]
+    },
+    {
+      "id": "plc-kasuga-onmatsuri-owatari-route",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "春日若宮おん祭 御渡り式経路",
+      "place_kind": "procession_route",
+      "country_code": "JP",
+      "prefecture_code": "29",
+      "prefecture_name_ja": "奈良県",
+      "municipality_name_ja": "奈良市",
+      "locality_ja": "奈良県庁前・近鉄奈良駅前・三条通り・御旅所",
+      "coordinate_precision": "area",
+      "source_ids": [
+        "src-kasuga-onmatsuri-owatari"
+      ]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-kasuga-onmatsuri-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-kasuga-wakamiya-onmatsuri",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-08-02",
+      "basis_evidence_ids": [
+        "evd-kasuga-onmatsuri-state"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-kasuga-onmatsuri-origin-1136",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "other",
+      "subject_entity_ids": [
+        "fst-kasuga-wakamiya-onmatsuri"
+      ],
+      "effective_period": {
+        "start": "1136",
+        "end": "1136"
+      },
+      "summary_ja": "保延2年（1136年）、天下泰平・五穀豊穣・万民和楽を願い、若宮を祀る祭礼として始まった。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-kasuga-onmatsuri-associated-with-wakamiya"
+      ],
+      "evidence_ids": [
+        "evd-kasuga-onmatsuri-origin-1136"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-kasuga-onmatsuri-pandemic-format-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "format_changed",
+      "subject_entity_ids": [
+        "fst-kasuga-wakamiya-onmatsuri"
+      ],
+      "effective_period": {
+        "start": "2021",
+        "end": "2021"
+      },
+      "summary_ja": "2021年は感染拡大防止のため関係者のみの非公開執行を基本とし、御渡り式の行列縮小、一部神事・芸能の中止、時刻変更を行った。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-kasuga-onmatsuri-associated-with-wakamiya"
+      ],
+      "evidence_ids": [
+        "evd-kasuga-onmatsuri-pandemic-format-2021"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-kasuga-onmatsuri-usual-scale-return-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "format_changed",
+      "subject_entity_ids": [
+        "fst-kasuga-wakamiya-onmatsuri"
+      ],
+      "effective_period": {
+        "start": "2022",
+        "end": "2022"
+      },
+      "summary_ja": "2022年は感染防止対策を行いながら、原則として縮小・中止をせず3年ぶりに例年通りの規模へ戻した。ただし当日の雨天により御渡り式は中止された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-kasuga-onmatsuri-associated-with-wakamiya"
+      ],
+      "evidence_ids": [
+        "evd-kasuga-onmatsuri-usual-scale-return-2022"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-kasuga-onmatsuri-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-kasuga-wakamiya-onmatsuri",
+      "series_id": "ser-kasuga-onmatsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2021-12-15",
+        "end": "2021-12-18",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-kasuga-wakamiya",
+        "plc-kasuga-onmatsuri-otabisho",
+        "plc-kasuga-onmatsuri-owatari-route"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-kasuga-onmatsuri-occ-2021"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-kasuga-onmatsuri-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-kasuga-wakamiya-onmatsuri",
+      "series_id": "ser-kasuga-onmatsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2022-12-15",
+        "end": "2022-12-18",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-kasuga-wakamiya",
+        "plc-kasuga-onmatsuri-otabisho",
+        "plc-kasuga-onmatsuri-owatari-route"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-kasuga-onmatsuri-occ-2022"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-kasuga-onmatsuri-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-kasuga-wakamiya-onmatsuri",
+      "series_id": "ser-kasuga-onmatsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-12-15",
+        "end": "2026-12-18",
+        "precision": "range"
+      },
+      "outcome": "scheduled",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-kasuga-wakamiya",
+        "plc-kasuga-onmatsuri-otabisho",
+        "plc-kasuga-onmatsuri-owatari-route"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-kasuga-onmatsuri-occ-2026"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-kasuga-onmatsuri-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-kasuga-wakamiya-onmatsuri",
+      "series_type": "annual_festival_edition",
+      "name_ja": "春日若宮おん祭 年次開催",
+      "recurrence_pattern_id": "rec-kasuga-onmatsuri-annual",
+      "default_venue_place_ids": [
+        "plc-kasuga-wakamiya",
+        "plc-kasuga-onmatsuri-otabisho",
+        "plc-kasuga-onmatsuri-owatari-route"
+      ],
+      "evidence_ids": [
+        "evd-kasuga-onmatsuri-recurrence"
+      ]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-kasuga-onmatsuri-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年12月15日から18日",
+      "evidence_ids": [
+        "evd-kasuga-onmatsuri-recurrence"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-kasuga-onmatsuri-associated-with-wakamiya",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-kasuga-wakamiya-onmatsuri",
+      "relation_type": "ritually_associated_with",
+      "target_entity_id": "shr-kasuga-wakamiya",
+      "evidence_ids": [
+        "evd-rel-kasuga-onmatsuri-wakamiya"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [
+    {
+      "id": "des-kasuga-onmatsuri-national",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "designation_name_ja": "国指定重要無形民俗文化財「春日若宮おん祭の神事芸能」",
+      "subject_entity_ids": [
+        "fst-kasuga-wakamiya-onmatsuri"
+      ],
+      "designation_system": "文化財保護法",
+      "designation_level": "国",
+      "evidence_ids": [
+        "evd-des-kasuga-onmatsuri-national"
+      ]
+    }
+  ],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}

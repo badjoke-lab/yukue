@@ -57,7 +57,7 @@ visual screenshot workflow
   anchor maps and explicit no-map states
 ```
 
-The shared visual-route configuration currently contains 76 representative routes.
+The shared visual-route configuration currently contains 81 representative routes.
 
 It must include:
 
@@ -80,6 +80,8 @@ It must include:
 - `三社祭` as the Batch 23 pandemic-format depth baseline,
 - `石岡のおまつり`, the State-free `常陸國總社宮` seed page, the concrete Shrine Place, and the route-based city-center area as Batch 24 breadth, ritual-anchor, and map-boundary baselines,
 - `早池峰神楽` as the Batch 24 parent-record occurrence and joint-performance history baseline,
+- `春日若宮おん祭`, the State-free `春日若宮` seed page, the concrete Shrine Place, the御旅所, and the route-based御渡り式経路 as Batch 25 breadth, ritual-anchor, and map-boundary baselines,
+- `脚折雨乞` as the Batch 25 cancellation-and-return history depth baseline,
 - multiple Folk Performance details,
 - multiple Organization details,
 - at least one Shrine or Temple seed-reference page,
@@ -136,12 +138,12 @@ screenshots-desktop.zip
 screenshots-mobile.zip
 ```
 
-With the current 76-route representative contract, an `all` capture produces:
+With the current 81-route representative contract, an `all` capture produces:
 
 ```text
-76 desktop full-page PNGs
-76 mobile full-page PNGs
-152 full-page PNGs total
+81 desktop full-page PNGs
+81 mobile full-page PNGs
+162 full-page PNGs total
 ```
 
 ## Capture manifest
@@ -229,7 +231,7 @@ The dedicated screenshot workflow supports:
 - manual `workflow_dispatch`,
 - automatic pull-request runs for UI, layout, style, visual-route, screenshot-script, Playwright, and workflow changes.
 
-The workflow is intentionally separate from the normal repository gate so that data-only and non-visual maintenance do not always generate one hundred fifty-two PNGs.
+The workflow is intentionally separate from the normal repository gate so that data-only and non-visual maintenance do not always generate one hundred sixty-two PNGs.
 
 A data change that materially alters page length, density, images, maps, or empty states should trigger a manual screenshot run or include the relevant visual workflow path change.
 
