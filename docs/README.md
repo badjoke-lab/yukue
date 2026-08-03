@@ -43,6 +43,7 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | 24 | `audits/matsuri-corpus-expansion-batch-24-2026-08-02.md` | Ibaraki breadth and Hayachine parent depth |
 | 25 | `audits/matsuri-corpus-expansion-batch-25-2026-08-03.md` | Nara breadth and Suneori cancellation/return depth |
 | 26 | `audits/matsuri-corpus-expansion-batch-26-2026-08-03.md` | Shiga breadth and Sada special-performance depth plus the museum-hall Place-route correction |
+| 27 | `audits/matsuri-corpus-expansion-batch-27-2026-08-03.md` | Kagawa breadth and Hayachine component designation history |
 
 ## Core specifications
 
