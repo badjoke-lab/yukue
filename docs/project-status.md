@@ -1,6 +1,6 @@
 # Project Status
 
-**Last updated:** 2026-08-02
+**Last updated:** 2026-08-03
 
 ## Current phase
 
@@ -26,7 +26,7 @@ Actual Jinja start gate — blocked
 future specialist-site implementation — not activated
 ```
 
-F2-28 accepted the complete launch chain after F2-27 was merged to `main`. The post-launch Detail C remediation then replaced the one-record-only detail implementation with real detail, Relation, Place, Evidence, search, and individual-JSON routes for the complete approved public inventory.
+F2-28 accepted the complete launch chain after F2-27 was merged to `main`. The post-launch Detail C remediation replaced the one-record-only detail implementation with real detail, Relation, Place, Evidence, search, and individual-JSON routes for the complete approved public inventory.
 
 ```text
 Evaluated at        2026-07-27T11:45:20Z
@@ -47,7 +47,7 @@ Stabilization review            config/matsuri-stabilization-review.json
 Detail C implementation         docs/matsuri-detail-c-implementation.md
 F2-28 evidence                  docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
 Stabilization start evidence    docs/audits/matsuri-stabilization-start-2026-07-27.md
-Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-24-2026-08-02.md
+Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-25-2026-08-03.md
 Jinja start boundary            config/jinja-start-gate.json
 Production topology             docs/deployment-topology.md
 ```
@@ -68,22 +68,11 @@ No URL is claimed already indexed.
 
 ## Current product track
 
-The previous public UI exposed only one full Festival detail page and sent most other titles to plain list anchors. That is no longer an acceptable completion definition.
-
-The enforced Detail C surface now requires:
-
-- a real detail page for every approved Festival, Tradition Unit, Folk Performance, and Organization,
-- State-free seed-reference pages for approved Shrine and Temple records,
-- public Place pages with reverse record links,
-- understandable and bidirectional Relation navigation,
-- claim-linked Evidence and Source access,
-- individual JSON for every Entity and Place detail,
-- direct-detail Pagefind results,
-- no empty detail sections or internal-code labels.
+The enforced Detail C surface requires real detail pages for every approved primary record, State-free seed-reference pages for approved Shrine and Temple records, public Place pages, bidirectional Relations, claim-linked Evidence and Sources, individual JSON, direct-detail search results, and no empty detail sections or internal-code labels.
 
 The next primary work is corpus expansion and deeper factual records. Stabilization observation continues in parallel but is not a reason to leave the corpus thin.
 
-Corpus expansion batches 11 through 24 are complete. Batch 24 added 石岡のおまつり as the first approved primary Matsuri record for 茨城県, including the State-free 常陸國總社宮 seed, a concrete ritual anchor, the route-based 石岡市中心部巡行区域, held modified 2020, the bounded 2020–2021 public 神賑行事 interruption, normal 2022 public-event return, and scheduled 2026 edition. It deepened the parent 早池峰神楽 record with reviewed 2019 and 2024 岳神楽・大償神楽 joint performances, the five-year return of that joint-performance format, and held 2026 component New Year performances without inferring suspension or revival of the parent tradition. The next batch must continue the same uncovered-prefecture breadth plus sparse-record depth rule.
+Corpus expansion batches 11 through 25 are complete. Batch 25 added 春日若宮おん祭 as the first approved primary Matsuri record for 奈良県, including the State-free 春日若宮 seed, concrete ritual anchor, 御旅所, route-based 御渡り式 area, 1136 origin, modified 2021 edition, 2022 return toward usual scale with rain cancellation of 御渡り式, and scheduled 2026 edition. It deepened 脚折雨乞 with the cancelled 2020 edition and the 8-year return in 2024. The next batch must continue the same uncovered-prefecture breadth plus sparse-record depth rule.
 
 ## Stabilization review window
 
@@ -113,13 +102,14 @@ pnpm check:matsuri:stabilization-review
 Current dated reviews:
 
 ```text
-山あげ祭 2026       review when official post-event Evidence is available
-弘前ねぷた 2026     review after 2026-08-07
-郡上おどり 2026     review after 2026-09-05
-佐陀神能 2026       review after 2026-09-25
-吉田の火祭 2026    review after 2026-08-27
-石岡のおまつり 2026 review after 2026-09-21
-上野天神祭 2026    review after 2026-10-25
+山あげ祭 2026          review when official post-event Evidence is available
+弘前ねぷた 2026        review after 2026-08-07
+郡上おどり 2026        review after 2026-09-05
+佐陀神能 2026          review after 2026-09-25
+吉田の火祭 2026       review after 2026-08-27
+石岡のおまつり 2026   review after 2026-09-21
+上野天神祭 2026       review after 2026-10-25
+春日若宮おん祭 2026   review after 2026-12-18
 ```
 
 ## Jinja start boundary
@@ -149,10 +139,10 @@ repository-verified-crawler-reachability-verified-sitemap-submission-verified-in
 ```text
 Product track       start the next bounded Matsuri breadth-and-depth corpus batch
 Detail track        keep every public title navigable through the enforced Detail C contract
-Production check    confirm Batch 24 routes after the main deployment reaches the canonical origin
-Dated review        山あげ祭 when post-event Evidence appears; 弘前ねぷた after 2026-08-07; 郡上おどり after 2026-09-05; 佐陀神能 after 2026-09-25; 吉田の火祭 after 2026-08-27; 石岡のおまつり after 2026-09-21; 上野天神祭 after 2026-10-25
+Production check    confirm Batch 25 routes after the main deployment reaches the canonical origin
+Dated review        follow the dated review inventory above
 Stabilization       record real maintenance burden while expansion work is performed
 Gate review         not before 2026-08-10 and not by elapsed time alone
-Cloudflare track    verify the post-Batch-24 deployment; no new launch-gate action
+Cloudflare track    verify the post-Batch-25 deployment; no new launch-gate action
 Jinja track         remain blocked until four post-launch prerequisites complete
 ```
