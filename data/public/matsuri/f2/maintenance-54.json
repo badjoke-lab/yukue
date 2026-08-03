@@ -1,0 +1,90 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [
+    {
+      "id": "chg-hayachine-national-designation-1976",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "designation_added",
+      "subject_entity_ids": [
+        "fpf-hayachine-kagura",
+        "fpf-take-kagura",
+        "fpf-ootsugunai-kagura"
+      ],
+      "effective_period": {
+        "start": "1976-05-04",
+        "end": "1976-05-04"
+      },
+      "summary_ja": "岳神楽と大償神楽から成る早池峰神楽が、1976年5月4日に国の重要無形民俗文化財に指定された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-hayachine-includes-take",
+        "rel-hayachine-includes-ootsugunai"
+      ],
+      "evidence_ids": [
+        "evd-hayachine-national-designation-change"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-hayachine-unesco-inscription-2009",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "designation_added",
+      "subject_entity_ids": [
+        "fpf-hayachine-kagura",
+        "fpf-take-kagura",
+        "fpf-ootsugunai-kagura"
+      ],
+      "effective_period": {
+        "start": "2009-09-30",
+        "end": "2009-09-30"
+      },
+      "summary_ja": "岳神楽と大償神楽から成る早池峰神楽が、2009年9月30日にユネスコ無形文化遺産代表一覧表へ記載された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-hayachine-includes-take",
+        "rel-hayachine-includes-ootsugunai"
+      ],
+      "evidence_ids": [
+        "evd-hayachine-unesco-inscription-change"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [
+    {
+      "id": "evd-hayachine-national-designation-change",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hanamaki-hayachine",
+      "target_type": "change_event",
+      "target_id": "chg-hayachine-national-designation-1976",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "花巻市は、早池峰神楽が岳と大償の二つの神楽座の総称であり、1976年5月4日に国の重要無形民俗文化財に指定されたと記録している。",
+      "captured_at": "2026-08-03",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hayachine-unesco-inscription-change",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-hanamaki-hayachine",
+      "target_type": "change_event",
+      "target_id": "chg-hayachine-unesco-inscription-2009",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "花巻市は、岳神楽と大償神楽から成る早池峰神楽が2009年9月30日にユネスコ無形文化遺産代表一覧表へ記載されたと記録している。",
+      "captured_at": "2026-08-03",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
