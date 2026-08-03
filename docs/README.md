@@ -17,6 +17,7 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | `audits/matsuri-stabilization-start-2026-07-27.md` | Observation-start audit | Public-safe start record and earliest eligible review date |
 | `audits/matsuri-detail-c-embedded-map-remediation-2026-07-28.md` | Passed corrective audit | Embedded-map remediation, exhaustive coverage, browser checks, and visual proof |
 | `matsuri-repository-baseline.md` | Machine-checked current | Exact bundle, Entity, launch-boundary, and Jinja-boundary values |
+| `audits/matsuri-batch-26-production-verification-2026-08-03.md` | Passed production audit | Corrected release, exact counts, museum-hall route, sitemap, title, and indexability verification |
 | `audits/matsuri-f2-27-production-traffic-2026-07-27.md` | Passed audit | Public-safe production traffic evidence |
 | `audits/matsuri-f2-28-final-launch-gate-2026-07-27.md` | Passed audit | Final F2 launch evaluation |
 | `deployment-topology.md` | Matsuri active | Portal and specialist-site hostname and Worker boundaries |
@@ -41,7 +42,7 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | 23 | `audits/matsuri-corpus-expansion-batch-23-2026-08-02.md` | Mie breadth and Sanja format history |
 | 24 | `audits/matsuri-corpus-expansion-batch-24-2026-08-02.md` | Ibaraki breadth and Hayachine parent depth |
 | 25 | `audits/matsuri-corpus-expansion-batch-25-2026-08-03.md` | Nara breadth and Suneori cancellation/return depth |
-| 26 | `audits/matsuri-corpus-expansion-batch-26-2026-08-03.md` | Shiga breadth and Sada special-performance depth |
+| 26 | `audits/matsuri-corpus-expansion-batch-26-2026-08-03.md` | Shiga breadth and Sada special-performance depth plus the museum-hall Place-route correction |
 
 ## Core specifications
 
