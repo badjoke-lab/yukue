@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
-  "observed_on": "2026-08-02",
-  "release_merge_commit": "2cf81ad040a729275cedd3967cef84f393b6d929",
+  "observed_on": "2026-08-03",
+  "release_merge_commit": "e458480152130dc0067bf9cfd5f1f87cb665ccb7",
   "expected_counts": {
-    "entities": 78,
-    "events": 69,
-    "relations": 47,
-    "occurrences": 127,
-    "sitemap_entries": 161
+    "entities": 80,
+    "events": 74,
+    "relations": 48,
+    "occurrences": 131,
+    "sitemap_entries": 166
   },
   "required_routes": [
     "/festivals/yoshida-fire-festival/",
@@ -26,7 +26,13 @@
     "/references/shrines/hitachi-sosogu-jinja/",
     "/places/hitachi-sosogu-jinja/",
     "/places/ishioka-matsuri-route/",
-    "/performances/hayachine-kagura/"
+    "/performances/hayachine-kagura/",
+    "/festivals/kasuga-wakamiya-onmatsuri/",
+    "/references/shrines/kasuga-wakamiya/",
+    "/places/kasuga-wakamiya/",
+    "/places/kasuga-onmatsuri-otabisho/",
+    "/places/kasuga-onmatsuri-owatari-route/",
+    "/festivals/suneori-amagoi/"
   ],
   "required_entities": [
     "fst-yoshida-fire-festival",
@@ -36,7 +42,9 @@
     "shr-iga-sugawara-jinja",
     "org-ueno-bunka-bijutsu-hozonkai",
     "fst-ishioka-matsuri",
-    "shr-hitachi-sosogu-jinja"
+    "shr-hitachi-sosogu-jinja",
+    "fst-kasuga-wakamiya-onmatsuri",
+    "shr-kasuga-wakamiya"
   ],
   "occurrence_assertions": [
     {
@@ -133,6 +141,30 @@
       "id": "occ-hayachine-kagura-new-year-2026",
       "record_version": 1,
       "outcome": "held",
+      "scale": "unknown"
+    },
+    {
+      "id": "occ-kasuga-onmatsuri-2021",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "modified"
+    },
+    {
+      "id": "occ-kasuga-onmatsuri-2022",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "modified"
+    },
+    {
+      "id": "occ-kasuga-onmatsuri-2026",
+      "record_version": 1,
+      "outcome": "scheduled",
+      "scale": "unknown"
+    },
+    {
+      "id": "occ-suneori-2020",
+      "record_version": 1,
+      "outcome": "cancelled",
       "scale": "unknown"
     }
   ]
