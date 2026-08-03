@@ -10,33 +10,38 @@ Before implementing a feature, check the relevant document here. When a gate cha
 
 | Document | Status | Purpose |
 |---|---|---|
-| `project-status.md` | Living / stabilization observing | Current phase, completed F2 state, active review window, blockers, and next review |
+| `project-status.md` | Living / stabilization observing | Current phase, completed F2 state, blockers, and immediate next work |
 | `development-schedule.md` | Current / Phase 10 active | Concrete maintenance and bounded post-launch review sequence |
 | `roadmap.md` | Phase 10 observing | Long-range phases and gates |
 | `matsuri-stabilization-review.md` | Active contract | Review state machine, minimum duration, evidence, privacy, and completion rules |
 | `audits/matsuri-stabilization-start-2026-07-27.md` | Observation-start audit | Public-safe start record and earliest eligible review date |
-| `audits/matsuri-detail-c-embedded-map-remediation-2026-07-28.md` | Passed corrective audit | Missing embedded maps, blank-frame finding, final exhaustive coverage, browser checks, and visual proof |
-| `audits/matsuri-corpus-expansion-batch-11-2026-07-27.md` | Passed | First measured post-Detail-C breadth-and-depth corpus expansion |
-| `audits/matsuri-corpus-expansion-batch-12-2026-07-27.md` | Passed | Okinawa breadth addition and Aomori occurrence/change-history depth maintenance |
-| `audits/matsuri-corpus-expansion-batch-13-2026-07-28.md` | Passed | Yamagata breadth addition and Chichibu occurrence/change-history depth maintenance |
-| `audits/matsuri-corpus-expansion-batch-14-2026-07-29.md` | Passed | Tokyo breadth addition, Akita occurrence/change-history depth, and due Occurrence closure |
-| `audits/matsuri-corpus-expansion-batch-15-2026-07-29.md` | Passed | Nagasaki breadth addition and Gion occurrence-history depth |
-| `audits/matsuri-corpus-expansion-batch-16-2026-07-29.md` | Passed | Kochi breadth addition and Toei Hana district occurrence/change-history depth |
-| `audits/matsuri-corpus-expansion-batch-17-2026-07-29.md` | Passed | Chiba breadth addition and Yamaga Festival occurrence/change-history depth |
-| `audits/matsuri-corpus-expansion-batch-18-2026-07-29.md` | Passed | Oita breadth addition and Hayachine component occurrence-history depth |
-| `audits/matsuri-corpus-expansion-batch-19-2026-07-31.md` | Passed | Hiroshima breadth addition and Sada Shin Noh recurrence/occurrence depth |
-| `audits/matsuri-corpus-expansion-batch-20-2026-07-31.md` | Passed | Tochigi breadth addition, ritual-anchor correction, and Dainichido Bugaku 2026 occurrence depth |
-| `audits/matsuri-corpus-expansion-batch-21-2026-07-31.md` | Passed | Ishikawa breadth addition and Nunokawa final-occurrence/suspension depth |
-| `audits/matsuri-corpus-expansion-batch-22-2026-08-02.md` | Passed | Yamanashi breadth addition, Aso Onda occurrence depth, and due Gion 2026 closure |
-| `audits/matsuri-corpus-expansion-batch-23-2026-08-02.md` | Passed | Mie breadth addition and Sanja public-procession format-history depth |
-| `audits/matsuri-corpus-expansion-batch-24-2026-08-02.md` | Passed | Ibaraki breadth addition and Hayachine parent-record joint-performance depth |
+| `audits/matsuri-detail-c-embedded-map-remediation-2026-07-28.md` | Passed corrective audit | Embedded-map remediation, exhaustive coverage, browser checks, and visual proof |
 | `matsuri-repository-baseline.md` | Machine-checked current | Exact bundle, Entity, launch-boundary, and Jinja-boundary values |
-| `f2-25-cloudflare-web-analytics.md` | Completed | Analytics activation and privacy boundary |
 | `audits/matsuri-f2-27-production-traffic-2026-07-27.md` | Passed audit | Public-safe production traffic evidence |
 | `audits/matsuri-f2-28-final-launch-gate-2026-07-27.md` | Passed audit | Final F2 launch evaluation |
-| `f2-26-f2-28-launch-closure.md` | Completed | Closed Analytics and launch-gate sequence |
 | `deployment-topology.md` | Matsuri active | Portal and specialist-site hostname and Worker boundaries |
 | `jinja-start-gate.md` | Blocked post-launch guardrail | Remaining prerequisites before Jinja implementation |
+
+## Corpus expansion audits
+
+| Batch | Audit | Result |
+|---:|---|---|
+| 11 | `audits/matsuri-corpus-expansion-batch-11-2026-07-27.md` | First measured post-Detail-C breadth-and-depth expansion |
+| 12 | `audits/matsuri-corpus-expansion-batch-12-2026-07-27.md` | Okinawa breadth and Aomori depth |
+| 13 | `audits/matsuri-corpus-expansion-batch-13-2026-07-28.md` | Yamagata breadth and Chichibu depth |
+| 14 | `audits/matsuri-corpus-expansion-batch-14-2026-07-29.md` | Tokyo breadth, Akita depth, due Occurrence closure |
+| 15 | `audits/matsuri-corpus-expansion-batch-15-2026-07-29.md` | Nagasaki breadth and Gion depth |
+| 16 | `audits/matsuri-corpus-expansion-batch-16-2026-07-29.md` | Kochi breadth and Toei Hana depth |
+| 17 | `audits/matsuri-corpus-expansion-batch-17-2026-07-29.md` | Chiba breadth and Yamaga depth |
+| 18 | `audits/matsuri-corpus-expansion-batch-18-2026-07-29.md` | Oita breadth and Hayachine component depth |
+| 19 | `audits/matsuri-corpus-expansion-batch-19-2026-07-31.md` | Hiroshima breadth and Sada Shin Noh depth |
+| 20 | `audits/matsuri-corpus-expansion-batch-20-2026-07-31.md` | Tochigi breadth, ritual-anchor correction, Dainichido depth |
+| 21 | `audits/matsuri-corpus-expansion-batch-21-2026-07-31.md` | Ishikawa breadth and Nunokawa depth |
+| 22 | `audits/matsuri-corpus-expansion-batch-22-2026-08-02.md` | Yamanashi breadth, Aso Onda depth, Gion closure |
+| 23 | `audits/matsuri-corpus-expansion-batch-23-2026-08-02.md` | Mie breadth and Sanja format history |
+| 24 | `audits/matsuri-corpus-expansion-batch-24-2026-08-02.md` | Ibaraki breadth and Hayachine parent depth |
+| 25 | `audits/matsuri-corpus-expansion-batch-25-2026-08-03.md` | Nara breadth and Suneori cancellation/return depth |
+| 26 | `audits/matsuri-corpus-expansion-batch-26-2026-08-03.md` | Shiga breadth and Sada special-performance depth |
 
 ## Core specifications
 
@@ -47,7 +52,7 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | `public-data-model.md` | Working | Public record model and projection rules |
 | `matsuri-mvp-spec.md` | Working | Matsuri MVP scope |
 | `information-architecture.md` | Accepted / implemented | Home H1 and Detail C order, including required embedded-map behavior |
-| `matsuri-detail-c-implementation.md` | Required implementation contract | Concrete Japanese detail composition, real routes, Relations, Evidence, Places, rendered maps, seed boundaries, individual JSON, and build failures |
+| `matsuri-detail-c-implementation.md` | Required implementation contract | Detail composition, routes, Relations, Evidence, Places, maps, seeds, individual JSON, and build failures |
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, and layout language |
 | `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
@@ -64,24 +69,11 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | `future-site-seed-inventory.md` | Candidate-only current | Relation-backed extraction without future-site activation |
 | `future-site-seed-readiness.md` | Candidate-only current | Carry-forward context and explicit gaps |
 | `future-site-seed-provenance-bundle.md` | Candidate-only current | Self-contained public provenance context |
-| `future-site-seed-artifact-contract.md` | F2-P07 completed | Candidate artifact contract |
-| `matsuri-correction-contract.md` | F2-P10 through F2-P13 completed | Ordered corrections and shared canonical assembly |
+| `future-site-seed-artifact-contract.md` | Completed | Candidate artifact contract |
+| `matsuri-correction-contract.md` | Completed / active | Ordered corrections and shared canonical assembly |
 | `matsuri-data-freshness-contract.md` | Active | Strict outcome, State-age, and link-age gate |
 | `matsuri-relation-coverage-contract.md` | Active | Strict zero-gap Relation gate |
-| `audits/matsuri-corpus-expansion-batch-11-2026-07-27.md` | Passed corpus evidence | Coverage audit, selected breadth/depth records, and resulting corpus totals |
-| `audits/matsuri-corpus-expansion-batch-12-2026-07-27.md` | Passed corpus evidence | Batch 12 Sources, Evidence, final counts, validation, product behavior, and boundaries |
-| `audits/matsuri-corpus-expansion-batch-13-2026-07-28.md` | Passed corpus evidence | Batch 13 Sources, Evidence, final counts, visual baselines, validation, and boundaries |
-| `audits/matsuri-corpus-expansion-batch-14-2026-07-29.md` | Passed corpus evidence | Batch 14 Sources, Evidence, final counts, due Occurrence closure, visual baselines, validation, and boundaries |
-| `audits/matsuri-corpus-expansion-batch-15-2026-07-29.md` | Passed corpus evidence | Batch 15 Sources, Evidence, final counts, Gion occurrence history, visual baselines, validation, and boundaries |
-| `audits/matsuri-corpus-expansion-batch-16-2026-07-29.md` | Passed corpus evidence | Batch 16 Sources, Evidence, final counts, civic-festival pattern, district occurrence history, visual baselines, validation, and boundaries |
-| `audits/matsuri-corpus-expansion-batch-17-2026-07-29.md` | Passed corpus evidence | Batch 17 Sources, Evidence, final counts, dual-season umbrella pattern, Yamaga history, visual baselines, validation, and boundaries |
-| `audits/matsuri-corpus-expansion-batch-18-2026-07-29.md` | Passed corpus evidence | Batch 18 Sources, Evidence, final counts, main/related-series pattern, component performance history, visual baselines, validation, and boundaries |
-| `audits/matsuri-corpus-expansion-batch-19-2026-07-31.md` | Passed corpus evidence | Batch 19 Sources, Evidence, final counts, public-performance interruption/return history, Sada recurrence depth, visual baselines, validation, and boundaries |
-| `audits/matsuri-corpus-expansion-batch-20-2026-07-31.md` | Passed corpus evidence | Batch 20 Sources, Evidence, final counts, distributed-performance mapping, Shrine seed correction, Dainichido occurrence depth, visual baselines, validation, and boundaries |
-| `audits/matsuri-corpus-expansion-batch-21-2026-07-31.md` | Passed corpus evidence | Batch 21 Sources, Evidence, final counts, pandemic/earthquake interruption history, Shrine seed mapping, Nunokawa suspension depth, visual baselines, validation, and boundaries |
-| `audits/matsuri-corpus-expansion-batch-22-2026-08-02.md` | Passed corpus evidence | Batch 22 Sources, Evidence, final counts, Shrine seed mapping, Aso Onda depth, Gion closure, visual baselines, validation, and boundaries |
-| `audits/matsuri-corpus-expansion-batch-23-2026-08-02.md` | Passed corpus evidence | Batch 23 Sources, Evidence, final counts, Shrine and preservation relations, Sanja format history, visual baselines, validation, and boundaries |
-| `audits/matsuri-corpus-expansion-batch-24-2026-08-02.md` | Passed corpus evidence | Batch 24 Sources, Evidence, final counts, Shrine and route mapping, Hayachine joint-performance history, visual baselines, validation, and boundaries |
+| `visual-review-workflow.md` | Active | Representative full-page screenshot and embedded-map review contract |
 
 ## Public/private boundary
 
