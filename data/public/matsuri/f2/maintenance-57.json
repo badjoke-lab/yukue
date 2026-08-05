@@ -1,0 +1,90 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [
+    {
+      "id": "chg-aso-onda-national-designation-1982",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "designation_added",
+      "subject_entity_ids": [
+        "fst-aso-onda-matsuri"
+      ],
+      "effective_period": {
+        "start": "1982-01-14",
+        "end": "1982-01-14"
+      },
+      "summary_ja": "御田祭を含む「阿蘇の農耕祭事」が、1982年1月14日に国の重要無形民俗文化財に指定された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": [
+        "evd-aso-onda-national-designation-change"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [
+    {
+      "id": "des-aso-onda-national-farming-festivals",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "designation_name_ja": "国指定重要無形民俗文化財「阿蘇の農耕祭事」",
+      "subject_entity_ids": [
+        "fst-aso-onda-matsuri"
+      ],
+      "designation_system": "文化財保護法",
+      "designation_level": "国",
+      "valid_period": {
+        "start": "1982-01-14"
+      },
+      "evidence_ids": [
+        "evd-des-aso-onda-national"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-aso-farming-festivals-designation",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "阿蘇の農耕祭事",
+      "publisher": "阿蘇市",
+      "url": "https://www.city.aso.kumamoto.jp/education/cultural-property/list_of_cultural_property/farming-festival/",
+      "accessed_at": "2026-08-05",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-aso-onda-national-designation-change",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aso-farming-festivals-designation",
+      "target_type": "change_event",
+      "target_id": "chg-aso-onda-national-designation-1982",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "阿蘇市は、御田祭・御田植神幸式を含む四季の祭事群「阿蘇の農耕祭事」が1982年1月14日に国の重要無形民俗文化財へ指定されたと記録している。",
+      "captured_at": "2026-08-05",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-des-aso-onda-national",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aso-farming-festivals-designation",
+      "target_type": "designation",
+      "target_id": "des-aso-onda-national-farming-festivals",
+      "assertion_code": "supports_designation",
+      "summary_ja": "阿蘇市の文化財ページは、7月の御田祭・御田植神幸式を構成要素として列挙し、「阿蘇の農耕祭事」の国指定区分と指定年月日を示している。御田祭単独の指定とは表現しない。",
+      "captured_at": "2026-08-05",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}

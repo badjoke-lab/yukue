@@ -1,0 +1,373 @@
+{
+  "entities": [
+    {
+      "id": "fst-niihama-taiko-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-05T00:00:00Z",
+      "updated_at": "2026-08-05T00:00:00Z",
+      "slug": "niihama-taiko-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "新居浜太鼓祭り",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-niihama-taiko-current-2025"
+          ]
+        }
+      ],
+      "summary_ja": "新居浜市内の各地区で太鼓台が運行し、かきくらべや統一寄せなどを行う毎年10月の秋祭り。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "38",
+            "prefecture_name_ja": "愛媛県",
+            "municipality_name_ja": "新居浜市"
+          }
+        ],
+        "scope_type": "distributed",
+        "description_ja": "新居浜市内の複数地区を運行区域とし、山根市民グラウンドなどで地区横断の統一寄せを行う。"
+      },
+      "primary_place_id": "plc-yamane-civic-ground",
+      "default_place_ids": [
+        "plc-niihama-taiko-citywide",
+        "plc-yamane-civic-ground"
+      ],
+      "external_links": [
+        {
+          "kind": "municipality_page",
+          "platform": "web",
+          "url": "https://www.city.niihama.lg.jp/soshiki/kankou/taikomatsuri.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-05"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "procession_festival",
+      "usual_months": [
+        10
+      ],
+      "usual_duration_days": 4,
+      "season_tags": [
+        "秋"
+      ],
+      "occurrence_series_ids": [
+        "ser-niihama-taiko-annual"
+      ]
+    },
+    {
+      "id": "org-niihama-taiko-matsuri-promotion-committee",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-05T00:00:00Z",
+      "updated_at": "2026-08-05T00:00:00Z",
+      "slug": "niihama-taiko-matsuri-promotion-committee",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "新居浜市太鼓祭り推進委員会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-niihama-taiko-committee"
+          ]
+        }
+      ],
+      "summary_ja": "関係団体の代表で構成され、事故のない秋祭りの推進と太鼓祭りの観光化に関する事業を行う委員会。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "38",
+            "prefecture_name_ja": "愛媛県",
+            "municipality_name_ja": "新居浜市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "municipality_page",
+          "platform": "web",
+          "url": "https://www.city.niihama.lg.jp/soshiki/kankou/unkoutotousei.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-05"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "festival_committee",
+      "official_url": "https://www.city.niihama.lg.jp/soshiki/kankou/unkoutotousei.html"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-niihama-taiko-citywide",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "新居浜太鼓祭り市内運行区域",
+      "place_kind": "distributed_festival_area",
+      "country_code": "JP",
+      "prefecture_code": "38",
+      "prefecture_name_ja": "愛媛県",
+      "municipality_name_ja": "新居浜市",
+      "coordinate_precision": "municipality",
+      "map_label_ja": "新居浜市内の複数地区にまたがる運行区域",
+      "source_ids": [
+        "src-niihama-taiko-current-2025",
+        "src-niihama-taiko-committee"
+      ]
+    },
+    {
+      "id": "plc-yamane-civic-ground",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "新居浜市山根市民グラウンド",
+      "place_kind": "festival_ground",
+      "country_code": "JP",
+      "prefecture_code": "38",
+      "prefecture_name_ja": "愛媛県",
+      "municipality_name_ja": "新居浜市",
+      "locality_ja": "角野新田町三丁目",
+      "street_address_ja": "2822番地の9",
+      "coordinate_precision": "venue",
+      "map_label_ja": "上部地区山根グラウンド統一寄せ会場",
+      "source_ids": [
+        "src-niihama-taiko-current-2025",
+        "src-yamane-civic-ground-address"
+      ]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-niihama-taiko-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-niihama-taiko-matsuri",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-02-17",
+      "basis_evidence_ids": [
+        "evd-niihama-taiko-state"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-niihama-taiko-pandemic-suspension-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_started",
+      "subject_entity_ids": [
+        "fst-niihama-taiko-matsuri"
+      ],
+      "effective_period": {
+        "start": "2020",
+        "end": "2020"
+      },
+      "summary_ja": "2020年は感染症の影響により新居浜太鼓祭りが中止となり、翌2021年も全52台が運行を自粛した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-niihama-taiko-supported-by-promotion-committee"
+      ],
+      "evidence_ids": [
+        "evd-niihama-taiko-suspension-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-niihama-taiko-return-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_ended",
+      "subject_entity_ids": [
+        "fst-niihama-taiko-matsuri"
+      ],
+      "effective_period": {
+        "start": "2022",
+        "end": "2022"
+      },
+      "summary_ja": "2022年、新居浜太鼓祭りが感染症対策を講じながら3年ぶりに開催された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-niihama-taiko-supported-by-promotion-committee"
+      ],
+      "evidence_ids": [
+        "evd-niihama-taiko-return-2022"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-niihama-taiko-format-change-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "format_changed",
+      "subject_entity_ids": [
+        "fst-niihama-taiko-matsuri"
+      ],
+      "effective_period": {
+        "start": "2025",
+        "end": "2025"
+      },
+      "summary_ja": "2025年は祭り全体を開催する一方、安全上の協議を受けて川西地区の住友化学愛媛工場前かきくらべを中止した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-niihama-taiko-supported-by-promotion-committee"
+      ],
+      "evidence_ids": [
+        "evd-niihama-taiko-format-2025"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-niihama-taiko-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-niihama-taiko-matsuri",
+      "series_id": "ser-niihama-taiko-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2020",
+        "end": "2020",
+        "precision": "year"
+      },
+      "outcome": "cancelled",
+      "scale": "unknown",
+      "venue_place_ids": [],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-niihama-taiko-occ-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-niihama-taiko-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-niihama-taiko-matsuri",
+      "series_id": "ser-niihama-taiko-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2021",
+        "end": "2021",
+        "precision": "year"
+      },
+      "outcome": "not_held",
+      "scale": "unknown",
+      "venue_place_ids": [],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-niihama-taiko-occ-2021"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-niihama-taiko-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-niihama-taiko-matsuri",
+      "series_id": "ser-niihama-taiko-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2022",
+        "end": "2022",
+        "precision": "year"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-niihama-taiko-citywide"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-niihama-taiko-occ-2022"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-niihama-taiko-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-niihama-taiko-matsuri",
+      "series_id": "ser-niihama-taiko-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2025-10-15",
+        "end": "2025-10-18",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-niihama-taiko-citywide",
+        "plc-yamane-civic-ground"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-niihama-taiko-occ-2025-schedule",
+        "evd-niihama-taiko-occ-2025-held"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-niihama-taiko-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-niihama-taiko-matsuri",
+      "series_type": "annual_festival_edition",
+      "name_ja": "新居浜太鼓祭り 年次開催",
+      "recurrence_pattern_id": "rec-niihama-taiko-annual",
+      "default_venue_place_ids": [
+        "plc-niihama-taiko-citywide",
+        "plc-yamane-civic-ground"
+      ],
+      "evidence_ids": [
+        "evd-niihama-taiko-recurrence"
+      ]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-niihama-taiko-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年10月中旬",
+      "evidence_ids": [
+        "evd-niihama-taiko-recurrence"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-niihama-taiko-supported-by-promotion-committee",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-niihama-taiko-matsuri",
+      "relation_type": "supported_by",
+      "target_entity_id": "org-niihama-taiko-matsuri-promotion-committee",
+      "evidence_ids": [
+        "evd-rel-niihama-taiko-promotion-committee"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
