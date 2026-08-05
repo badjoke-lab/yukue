@@ -1,0 +1,363 @@
+{
+  "entities": [
+    {
+      "id": "fst-hamamatsu-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-05T00:00:00Z",
+      "updated_at": "2026-08-05T00:00:00Z",
+      "slug": "hamamatsu-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "浜松まつり",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-hamamatsu-introduction"
+          ]
+        }
+      ],
+      "summary_ja": "初子の誕生と成長を祝い、昼は中田島で凧揚げ、夜は浜松市中心部で御殿屋台引き回しを行う毎年5月の市民祭。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "22",
+            "prefecture_name_ja": "静岡県",
+            "municipality_name_ja": "浜松市"
+          }
+        ],
+        "scope_type": "multi_site",
+        "description_ja": "昼の凧揚げは中田島凧揚げ会場、夜の御殿屋台引き回しは浜松市中心部を主な公開区域とする。"
+      },
+      "primary_place_id": "plc-hamamatsu-nakatajima-kite-ground",
+      "default_place_ids": [
+        "plc-hamamatsu-nakatajima-kite-ground",
+        "plc-hamamatsu-central-city-area"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://hamamatsu-daisuki.net/matsuri/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-08-05"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "civic_festival",
+      "usual_months": [
+        5
+      ],
+      "usual_duration_days": 3,
+      "season_tags": [
+        "春"
+      ],
+      "occurrence_series_ids": [
+        "ser-hamamatsu-matsuri-annual"
+      ]
+    },
+    {
+      "id": "org-hamamatsu-matsuri-committee",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-05T00:00:00Z",
+      "updated_at": "2026-08-05T00:00:00Z",
+      "slug": "hamamatsu-matsuri-committee",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "浜松まつり組織委員会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-hamamatsu-organization"
+          ]
+        }
+      ],
+      "summary_ja": "浜松まつりの年間準備、参加町との調整、安全対策、会場整備と当日運営を担う組織委員会。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "22",
+            "prefecture_name_ja": "静岡県",
+            "municipality_name_ja": "浜松市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://hamamatsu-daisuki.net/matsuri/organization/",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-08-05"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "festival_committee",
+      "official_url": "https://hamamatsu-daisuki.net/matsuri/organization/"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-hamamatsu-nakatajima-kite-ground",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "中田島凧揚げ会場",
+      "place_kind": "festival_ground",
+      "country_code": "JP",
+      "prefecture_code": "22",
+      "prefecture_name_ja": "静岡県",
+      "municipality_name_ja": "浜松市",
+      "locality_ja": "中央区中田島町",
+      "coordinate_precision": "venue",
+      "map_label_ja": "浜松まつり凧揚げ合戦会場",
+      "source_ids": [
+        "src-hamamatsu-introduction",
+        "src-hamamatsu-held-2026"
+      ]
+    },
+    {
+      "id": "plc-hamamatsu-central-city-area",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "浜松まつり中心市街地御殿屋台引き回し区域",
+      "place_kind": "distributed_festival_area",
+      "country_code": "JP",
+      "prefecture_code": "22",
+      "prefecture_name_ja": "静岡県",
+      "municipality_name_ja": "浜松市",
+      "locality_ja": "中心市街地",
+      "coordinate_precision": "municipality",
+      "map_label_ja": "浜松市中心部の御殿屋台引き回し区域",
+      "source_ids": [
+        "src-hamamatsu-introduction"
+      ]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-hamamatsu-matsuri-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-hamamatsu-matsuri",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-05-05",
+      "basis_evidence_ids": [
+        "evd-hamamatsu-state"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-hamamatsu-matsuri-pandemic-suspension-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_started",
+      "subject_entity_ids": [
+        "fst-hamamatsu-matsuri"
+      ],
+      "effective_period": {
+        "start": "2020",
+        "end": "2020"
+      },
+      "summary_ja": "2020年の浜松まつりは新型コロナウイルス感染症の影響により開催中止となった。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-hamamatsu-matsuri-organized-by-committee"
+      ],
+      "evidence_ids": [
+        "evd-hamamatsu-suspension-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-hamamatsu-matsuri-modified-return-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "suspension_ended",
+      "subject_entity_ids": [
+        "fst-hamamatsu-matsuri"
+      ],
+      "effective_period": {
+        "start": "2021",
+        "end": "2021"
+      },
+      "summary_ja": "2021年は観客を受け入れず昼の凧揚げに限定する形式で浜松まつりを再開した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-hamamatsu-matsuri-organized-by-committee"
+      ],
+      "evidence_ids": [
+        "evd-hamamatsu-return-2021-plan",
+        "evd-hamamatsu-return-2021-held"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-hamamatsu-matsuri-2020",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-hamamatsu-matsuri",
+      "series_id": "ser-hamamatsu-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2020",
+        "end": "2020",
+        "precision": "year"
+      },
+      "outcome": "cancelled",
+      "scale": "unknown",
+      "venue_place_ids": [],
+      "organizer_entity_ids": [
+        "org-hamamatsu-matsuri-committee"
+      ],
+      "evidence_ids": [
+        "evd-hamamatsu-occ-2020"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-hamamatsu-matsuri-2021",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-hamamatsu-matsuri",
+      "series_id": "ser-hamamatsu-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2021-05-01",
+        "end": "2021-05-05",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-hamamatsu-nakatajima-kite-ground"
+      ],
+      "organizer_entity_ids": [
+        "org-hamamatsu-matsuri-committee"
+      ],
+      "evidence_ids": [
+        "evd-hamamatsu-occ-2021-plan",
+        "evd-hamamatsu-occ-2021-held"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-hamamatsu-matsuri-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-hamamatsu-matsuri",
+      "series_id": "ser-hamamatsu-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2022-05-03",
+        "end": "2022-05-05",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-hamamatsu-nakatajima-kite-ground"
+      ],
+      "organizer_entity_ids": [
+        "org-hamamatsu-matsuri-committee"
+      ],
+      "evidence_ids": [
+        "evd-hamamatsu-occ-2022-plan",
+        "evd-hamamatsu-occ-2022-held"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-hamamatsu-matsuri-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-hamamatsu-matsuri",
+      "series_id": "ser-hamamatsu-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-05-03",
+        "end": "2026-05-05",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-hamamatsu-nakatajima-kite-ground",
+        "plc-hamamatsu-central-city-area"
+      ],
+      "organizer_entity_ids": [
+        "org-hamamatsu-matsuri-committee"
+      ],
+      "evidence_ids": [
+        "evd-hamamatsu-occ-2026-schedule",
+        "evd-hamamatsu-occ-2026-held"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-hamamatsu-matsuri-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-hamamatsu-matsuri",
+      "series_type": "annual_festival_edition",
+      "name_ja": "浜松まつり 年次開催",
+      "recurrence_pattern_id": "rec-hamamatsu-matsuri-annual",
+      "default_venue_place_ids": [
+        "plc-hamamatsu-nakatajima-kite-ground",
+        "plc-hamamatsu-central-city-area"
+      ],
+      "evidence_ids": [
+        "evd-hamamatsu-recurrence"
+      ]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-hamamatsu-matsuri-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年5月3日から5日",
+      "evidence_ids": [
+        "evd-hamamatsu-recurrence"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-hamamatsu-matsuri-organized-by-committee",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-hamamatsu-matsuri",
+      "relation_type": "organized_by",
+      "target_entity_id": "org-hamamatsu-matsuri-committee",
+      "evidence_ids": [
+        "evd-rel-hamamatsu-committee"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
