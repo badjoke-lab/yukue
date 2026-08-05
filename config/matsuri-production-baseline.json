@@ -1,15 +1,16 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
-  "observed_on": "2026-08-03",
-  "release_merge_commit": "43b8d7a6ee800bb1e9ab7333698ea4be2ccbfd88",
+  "observed_on": "2026-08-05",
+  "release_merge_commit": "a61091fd0d335e5dc77b79835ef40f57dbb3c964",
   "expected_counts": {
-    "entities": 85,
-    "events": 83,
-    "relations": 51,
-    "occurrences": 139,
-    "sitemap_entries": 177
+    "entities": 87,
+    "events": 87,
+    "relations": 52,
+    "occurrences": 143,
+    "sitemap_entries": 181
   },
   "required_routes": [
+    "/festivals/aso-onda-matsuri/",
     "/festivals/yoshida-fire-festival/",
     "/references/shrines/kitaguchi-hongu-fuji-sengen-jinja/",
     "/references/shrines/kitaguchi-suwa-jinja/",
@@ -46,9 +47,14 @@
     "/places/anabuki-arena-kagawa/",
     "/places/sanport-takamatsu-multipurpose-square/",
     "/performances/take-kagura/",
-    "/performances/ootsugunai-kagura/"
+    "/performances/ootsugunai-kagura/",
+    "/festivals/niihama-taiko-matsuri/",
+    "/organizations/niihama-taiko-matsuri-promotion-committee/",
+    "/places/niihama-taiko-citywide/",
+    "/places/yamane-civic-ground/"
   ],
   "required_entities": [
+    "fst-aso-onda-matsuri",
     "fst-yoshida-fire-festival",
     "shr-kitaguchi-hongu-fuji-sengen",
     "shr-kitaguchi-suwa-jinja",
@@ -63,7 +69,9 @@
     "shr-nagahama-hachimangu",
     "org-nagahama-hikiyama-cultural-association",
     "fst-sanuki-takamatsu-matsuri",
-    "org-takamatsu-matsuri-shinkokai"
+    "org-takamatsu-matsuri-shinkokai",
+    "fst-niihama-taiko-matsuri",
+    "org-niihama-taiko-matsuri-promotion-committee"
   ],
   "occurrence_assertions": [
     {
@@ -232,6 +240,30 @@
       "id": "occ-sanuki-takamatsu-2026",
       "record_version": 1,
       "outcome": "scheduled",
+      "scale": "modified"
+    },
+    {
+      "id": "occ-niihama-taiko-2020",
+      "record_version": 1,
+      "outcome": "cancelled",
+      "scale": "unknown"
+    },
+    {
+      "id": "occ-niihama-taiko-2021",
+      "record_version": 1,
+      "outcome": "not_held",
+      "scale": "unknown"
+    },
+    {
+      "id": "occ-niihama-taiko-2022",
+      "record_version": 1,
+      "outcome": "held",
+      "scale": "modified"
+    },
+    {
+      "id": "occ-niihama-taiko-2025",
+      "record_version": 1,
+      "outcome": "held",
       "scale": "modified"
     }
   ]
