@@ -1,0 +1,158 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-saidaiji-eyo-current-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "西大寺会陽（はだか祭り）",
+      "publisher": "岡山市",
+      "url": "https://www.city.okayama.jp/higashiku/0000017681.html",
+      "accessed_at": "2026-08-05",
+      "language": "ja"
+    },
+    {
+      "id": "src-saidaiji-eyo-cultural-property",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "西大寺の会陽",
+      "publisher": "岡山市",
+      "url": "https://www.city.okayama.jp/life/0000041564.html",
+      "published_at": "2016-02-22",
+      "accessed_at": "2026-08-05",
+      "language": "ja"
+    },
+    {
+      "id": "src-saidaiji-eyo-committee",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "西大寺会陽",
+      "publisher": "岡山商工会議所・西大寺会陽奉賛会",
+      "url": "https://okayama-cci.or.jp/activation/saidaijieyo.html",
+      "accessed_at": "2026-08-05",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-saidaiji-eyo-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-saidaiji-eyo-current-2026",
+      "target_type": "entity_identity",
+      "target_id": "fst-saidaiji-eyo",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "岡山市は西大寺会陽を、西大寺観音院で宝木の争奪を行う室町時代から続く伝統行事として案内している。",
+      "captured_at": "2026-08-05",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-saidaiji-eyo-hosankai-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-saidaiji-eyo-committee",
+      "target_type": "entity_identity",
+      "target_id": "org-saidaiji-eyo-hosankai",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "公式開催ページは西大寺会陽奉賛会を主催者として表示し、同会事務局を岡山商工会議所西大寺支所内に置いている。",
+      "captured_at": "2026-08-05",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-saidaiji-eyo-place",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-saidaiji-eyo-current-2026",
+      "target_type": "place",
+      "target_id": "plc-saidaiji-kannonin",
+      "assertion_code": "supports_place",
+      "summary_ja": "岡山市は開催場所を西大寺観音院（岡山市東区西大寺中三丁目8番8号）と記録している。",
+      "captured_at": "2026-08-05",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-saidaiji-eyo-state",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-saidaiji-eyo-current-2026",
+      "target_type": "state_snapshot",
+      "target_id": "sts-saidaiji-eyo-current",
+      "assertion_code": "supports_current_state",
+      "summary_ja": "岡山市の現行案内は2026年2月21日の開催終了を記録し、祭礼が現在も活動中であることを裏付ける。",
+      "captured_at": "2026-08-05",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-saidaiji-eyo-recurrence",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-saidaiji-eyo-committee",
+      "target_type": "recurrence_pattern",
+      "target_id": "rec-saidaiji-eyo-annual",
+      "assertion_code": "supports_recurrence",
+      "summary_ja": "公式開催ページは西大寺会陽を毎年2月の第3土曜日に行うと記録している。",
+      "captured_at": "2026-08-05",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-saidaiji-eyo-hosankai",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-saidaiji-eyo-committee",
+      "target_type": "relation",
+      "target_id": "rel-saidaiji-eyo-organized-by-hosankai",
+      "assertion_code": "supports_relation",
+      "summary_ja": "公式開催ページは西大寺会陽奉賛会を西大寺会陽の主催者として明記している。",
+      "captured_at": "2026-08-05",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-saidaiji-eyo-occ-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-saidaiji-eyo-current-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-saidaiji-eyo-2026",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "岡山市の現行案内は2026年2月21日の西大寺会陽について開催終了と表示している。全構成の通常規模までは確定しない。",
+      "captured_at": "2026-08-05",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-saidaiji-eyo-designation-change",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-saidaiji-eyo-cultural-property",
+      "target_type": "change_event",
+      "target_id": "chg-saidaiji-eyo-national-designation-2016",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "岡山市文化財ページは西大寺の会陽が2016年3月2日に国の重要無形民俗文化財へ指定されたと記録している。",
+      "captured_at": "2026-08-05",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-saidaiji-eyo-designation",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-saidaiji-eyo-cultural-property",
+      "target_type": "designation",
+      "target_id": "des-saidaiji-eyo-national",
+      "assertion_code": "supports_designation",
+      "summary_ja": "岡山市文化財ページは文化財名称を西大寺の会陽、指定主体を国、分類を無形民俗文化財、指定日を2016年3月2日としている。",
+      "captured_at": "2026-08-05",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
