@@ -26,6 +26,8 @@ export const matsuriPublicRoutes = Object.freeze([
   "/festivals/nagahama-hikiyama-matsuri/",
   "/festivals/sanuki-takamatsu-matsuri/",
   "/festivals/niihama-taiko-matsuri/",
+  "/festivals/hamamatsu-matsuri/",
+  "/festivals/nunobashi-kanjoe/",
   "/performances/",
   "/performances/hayachine-kagura/",
   "/performances/take-kagura/",
@@ -41,6 +43,7 @@ export const matsuriPublicRoutes = Object.freeze([
   "/organizations/nagahama-hikiyama-cultural-association/",
   "/organizations/takamatsu-matsuri-shinkokai/",
   "/organizations/niihama-taiko-matsuri-promotion-committee/",
+  "/organizations/hamamatsu-matsuri-committee/",
   "/references/shrines/aso-jinja/",
   "/references/shrines/shinjo-tenmangu/",
   "/references/shrines/asakusa-jinja/",
@@ -81,6 +84,8 @@ export const matsuriPublicRoutes = Object.freeze([
   "/places/sanport-takamatsu-multipurpose-square/",
   "/places/niihama-taiko-citywide/",
   "/places/yamane-civic-ground/",
+  "/places/hamamatsu-nakatajima-kite-ground/",
+  "/places/hamamatsu-central-city-area/",
   "/regions/",
   "/changes/",
   "/states/",
@@ -98,51 +103,19 @@ export const matsuriPublicRoutes = Object.freeze([
 ]);
 
 export const matsuriVisualDevices = Object.freeze({
-  desktop: Object.freeze({
-    viewport: Object.freeze({ width: 1440, height: 900 }),
-    isMobile: false,
-    hasTouch: false,
-  }),
-  mobile: Object.freeze({
-    viewport: Object.freeze({ width: 390, height: 844 }),
-    isMobile: true,
-    hasTouch: true,
-  }),
+  desktop: Object.freeze({ viewport: Object.freeze({ width: 1440, height: 900 }), isMobile: false, hasTouch: false }),
+  mobile: Object.freeze({ viewport: Object.freeze({ width: 390, height: 844 }), isMobile: true, hasTouch: true }),
 });
 
-export const matsuriTabletBrowserDevice = Object.freeze({
-  viewport: Object.freeze({ width: 768, height: 1024 }),
-  isMobile: false,
-  hasTouch: true,
-});
+export const matsuriTabletBrowserDevice = Object.freeze({ viewport: Object.freeze({ width: 768, height: 1024 }), isMobile: false, hasTouch: true });
 
 export function assertMatsuriVisualContract() {
-  if (matsuriPublicRoutes.length !== 96) {
-    throw new Error(
-      `The representative Matsuri visual contract requires 96 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
-    );
+  if (matsuriPublicRoutes.length !== 101) {
+    throw new Error(`The representative Matsuri visual contract requires 101 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`);
   }
-
-  if (new Set(matsuriPublicRoutes).size !== matsuriPublicRoutes.length) {
-    throw new Error("Matsuri visual route contract contains duplicate routes.");
-  }
-
-  const requiredFamilies = [
-    "/",
-    "/festivals/",
-    "/performances/",
-    "/organizations/",
-    "/references/shrines/",
-    "/places/",
-    "/states/",
-    "/search/",
-  ];
-  for (const family of requiredFamilies) {
-    if (!matsuriPublicRoutes.some((route) => route.startsWith(family))) {
-      throw new Error(`Matsuri visual contract is missing page-family coverage for ${family}`);
-    }
-  }
-
+  if (new Set(matsuriPublicRoutes).size !== matsuriPublicRoutes.length) throw new Error("Matsuri visual route contract contains duplicate routes.");
+  const requiredFamilies = ["/", "/festivals/", "/performances/", "/organizations/", "/references/shrines/", "/places/", "/states/", "/search/"];
+  for (const family of requiredFamilies) if (!matsuriPublicRoutes.some((route) => route.startsWith(family))) throw new Error(`Matsuri visual contract is missing page-family coverage for ${family}`);
   const requiredRegressionRoutes = [
     "/festivals/suneori-amagoi/",
     "/festivals/aso-onda-matsuri/",
@@ -168,6 +141,8 @@ export function assertMatsuriVisualContract() {
     "/festivals/nagahama-hikiyama-matsuri/",
     "/festivals/sanuki-takamatsu-matsuri/",
     "/festivals/niihama-taiko-matsuri/",
+    "/festivals/hamamatsu-matsuri/",
+    "/festivals/nunobashi-kanjoe/",
     "/performances/hayachine-kagura/",
     "/performances/take-kagura/",
     "/performances/ootsugunai-kagura/",
@@ -181,6 +156,7 @@ export function assertMatsuriVisualContract() {
     "/organizations/nagahama-hikiyama-cultural-association/",
     "/organizations/takamatsu-matsuri-shinkokai/",
     "/organizations/niihama-taiko-matsuri-promotion-committee/",
+    "/organizations/hamamatsu-matsuri-committee/",
     "/references/shrines/aso-jinja/",
     "/references/shrines/shinjo-tenmangu/",
     "/references/shrines/asakusa-jinja/",
@@ -221,18 +197,10 @@ export function assertMatsuriVisualContract() {
     "/places/sanport-takamatsu-multipurpose-square/",
     "/places/niihama-taiko-citywide/",
     "/places/yamane-civic-ground/",
+    "/places/hamamatsu-nakatajima-kite-ground/",
+    "/places/hamamatsu-central-city-area/",
   ];
-  for (const route of requiredRegressionRoutes) {
-    if (!matsuriPublicRoutes.includes(route)) {
-      throw new Error(`Matsuri visual contract must retain regression route: ${route}`);
-    }
-  }
-
-  for (const route of matsuriPublicRoutes) {
-    if (!route.startsWith("/") || !route.endsWith("/")) {
-      throw new Error(`Matsuri visual route must be root-relative and end with a slash: ${route}`);
-    }
-  }
-
+  for (const route of requiredRegressionRoutes) if (!matsuriPublicRoutes.includes(route)) throw new Error(`Matsuri visual contract must retain regression route: ${route}`);
+  for (const route of matsuriPublicRoutes) if (!route.startsWith("/") || !route.endsWith("/")) throw new Error(`Matsuri visual route must be root-relative and end with a slash: ${route}`);
   return true;
 }
