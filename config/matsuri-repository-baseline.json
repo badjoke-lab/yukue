@@ -4,18 +4,18 @@
   "status": "repository-maintenance-current",
   "counts": {
     "f1_batches": 13,
-    "maintenance_bundles": 60,
+    "maintenance_bundles": 63,
     "correction_bundles": 17,
-    "additive_application_slots": 73,
+    "additive_application_slots": 76,
     "correction_application_slots": 17,
     "correction_records": 31,
     "corrected_logical_ids": 28,
-    "public_entities": 89,
+    "public_entities": 91,
     "entities_without_external_links": 0
   },
   "boundaries": {
     "f2_25_owner_access": "not-pending",
-    "f2_26_through_f2_28": "complete",
+    "f2_26_through_f2_30": "complete",
     "jinja_start_gate": "blocked",
     "jinja_state_snapshots": 0
   }
