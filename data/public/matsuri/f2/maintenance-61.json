@@ -1,0 +1,259 @@
+{
+  "entities": [
+    {
+      "id": "fst-saidaiji-eyo",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-05T00:00:00Z",
+      "updated_at": "2026-08-05T00:00:00Z",
+      "slug": "saidaiji-eyo",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "西大寺会陽",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-saidaiji-eyo-current-2026"
+          ]
+        }
+      ],
+      "summary_ja": "西大寺観音院の修正会結願として、宝木をめぐる裸群の争奪を中心に行われる毎年2月の祭礼。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "33",
+            "prefecture_name_ja": "岡山県",
+            "municipality_name_ja": "岡山市"
+          }
+        ],
+        "scope_type": "single_site",
+        "description_ja": "岡山市東区の西大寺観音院を主会場とする。"
+      },
+      "primary_place_id": "plc-saidaiji-kannonin",
+      "default_place_ids": [
+        "plc-saidaiji-kannonin"
+      ],
+      "external_links": [
+        {
+          "kind": "municipality_page",
+          "platform": "web",
+          "url": "https://www.city.okayama.jp/higashiku/0000017681.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-05"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "ritual_festival",
+      "usual_months": [
+        2
+      ],
+      "usual_duration_days": 1,
+      "season_tags": [
+        "冬"
+      ],
+      "occurrence_series_ids": [
+        "ser-saidaiji-eyo-annual"
+      ]
+    },
+    {
+      "id": "org-saidaiji-eyo-hosankai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-05T00:00:00Z",
+      "updated_at": "2026-08-05T00:00:00Z",
+      "slug": "saidaiji-eyo-hosankai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "西大寺会陽奉賛会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-saidaiji-eyo-committee"
+          ]
+        }
+      ],
+      "summary_ja": "西大寺会陽を主催し、参加・観覧案内と開催情報を公開する奉賛会。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "33",
+            "prefecture_name_ja": "岡山県",
+            "municipality_name_ja": "岡山市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://okayama-cci.or.jp/activation/saidaijieyo.html",
+          "is_primary": true,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-08-05"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "festival_committee",
+      "official_url": "https://okayama-cci.or.jp/activation/saidaijieyo.html"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-saidaiji-kannonin",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "西大寺観音院",
+      "place_kind": "festival_ground",
+      "country_code": "JP",
+      "prefecture_code": "33",
+      "prefecture_name_ja": "岡山県",
+      "municipality_name_ja": "岡山市",
+      "locality_ja": "東区西大寺中三丁目",
+      "street_address_ja": "8番8号",
+      "coordinate_precision": "venue",
+      "map_label_ja": "西大寺会陽の主会場",
+      "source_ids": [
+        "src-saidaiji-eyo-current-2026"
+      ]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-saidaiji-eyo-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-saidaiji-eyo",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-02-21",
+      "basis_evidence_ids": [
+        "evd-saidaiji-eyo-state"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-saidaiji-eyo-national-designation-2016",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "designation_added",
+      "subject_entity_ids": [
+        "fst-saidaiji-eyo"
+      ],
+      "effective_period": {
+        "start": "2016-03-02"
+      },
+      "summary_ja": "西大寺の会陽が国の重要無形民俗文化財に指定された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": [
+        "evd-saidaiji-eyo-designation-change"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-saidaiji-eyo-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-saidaiji-eyo",
+      "series_id": "ser-saidaiji-eyo-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-02-21",
+        "end": "2026-02-21",
+        "precision": "day"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-saidaiji-kannonin"
+      ],
+      "organizer_entity_ids": [
+        "org-saidaiji-eyo-hosankai"
+      ],
+      "evidence_ids": [
+        "evd-saidaiji-eyo-occ-2026"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-saidaiji-eyo-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-saidaiji-eyo",
+      "series_type": "annual_festival_edition",
+      "name_ja": "西大寺会陽 年次開催",
+      "recurrence_pattern_id": "rec-saidaiji-eyo-annual",
+      "default_venue_place_ids": [
+        "plc-saidaiji-kannonin"
+      ],
+      "evidence_ids": [
+        "evd-saidaiji-eyo-recurrence"
+      ]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-saidaiji-eyo-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年2月の第3土曜日",
+      "evidence_ids": [
+        "evd-saidaiji-eyo-recurrence"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-saidaiji-eyo-organized-by-hosankai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-saidaiji-eyo",
+      "relation_type": "organized_by",
+      "target_entity_id": "org-saidaiji-eyo-hosankai",
+      "evidence_ids": [
+        "evd-rel-saidaiji-eyo-hosankai"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [
+    {
+      "id": "des-saidaiji-eyo-national",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "designation_name_ja": "国指定重要無形民俗文化財",
+      "subject_entity_ids": [
+        "fst-saidaiji-eyo"
+      ],
+      "designation_system": "文化財保護法",
+      "designation_level": "国",
+      "valid_period": {
+        "start": "2016-03-02"
+      },
+      "evidence_ids": [
+        "evd-saidaiji-eyo-designation"
+      ]
+    }
+  ],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
