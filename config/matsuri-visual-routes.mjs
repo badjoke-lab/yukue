@@ -28,6 +28,7 @@ export const matsuriPublicRoutes = Object.freeze([
   "/festivals/niihama-taiko-matsuri/",
   "/festivals/hamamatsu-matsuri/",
   "/festivals/nunobashi-kanjoe/",
+  "/festivals/saidaiji-eyo/",
   "/performances/",
   "/performances/hayachine-kagura/",
   "/performances/take-kagura/",
@@ -44,6 +45,7 @@ export const matsuriPublicRoutes = Object.freeze([
   "/organizations/takamatsu-matsuri-shinkokai/",
   "/organizations/niihama-taiko-matsuri-promotion-committee/",
   "/organizations/hamamatsu-matsuri-committee/",
+  "/organizations/saidaiji-eyo-hosankai/",
   "/references/shrines/aso-jinja/",
   "/references/shrines/shinjo-tenmangu/",
   "/references/shrines/asakusa-jinja/",
@@ -86,6 +88,7 @@ export const matsuriPublicRoutes = Object.freeze([
   "/places/yamane-civic-ground/",
   "/places/hamamatsu-nakatajima-kite-ground/",
   "/places/hamamatsu-central-city-area/",
+  "/places/saidaiji-kannonin/",
   "/regions/",
   "/changes/",
   "/states/",
@@ -110,8 +113,8 @@ export const matsuriVisualDevices = Object.freeze({
 export const matsuriTabletBrowserDevice = Object.freeze({ viewport: Object.freeze({ width: 768, height: 1024 }), isMobile: false, hasTouch: true });
 
 export function assertMatsuriVisualContract() {
-  if (matsuriPublicRoutes.length !== 101) {
-    throw new Error(`The representative Matsuri visual contract requires 101 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`);
+  if (matsuriPublicRoutes.length !== 104) {
+    throw new Error(`The representative Matsuri visual contract requires 104 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`);
   }
   if (new Set(matsuriPublicRoutes).size !== matsuriPublicRoutes.length) throw new Error("Matsuri visual route contract contains duplicate routes.");
   const requiredFamilies = ["/", "/festivals/", "/performances/", "/organizations/", "/references/shrines/", "/places/", "/states/", "/search/"];
@@ -143,6 +146,7 @@ export function assertMatsuriVisualContract() {
     "/festivals/niihama-taiko-matsuri/",
     "/festivals/hamamatsu-matsuri/",
     "/festivals/nunobashi-kanjoe/",
+    "/festivals/saidaiji-eyo/",
     "/performances/hayachine-kagura/",
     "/performances/take-kagura/",
     "/performances/ootsugunai-kagura/",
@@ -157,6 +161,7 @@ export function assertMatsuriVisualContract() {
     "/organizations/takamatsu-matsuri-shinkokai/",
     "/organizations/niihama-taiko-matsuri-promotion-committee/",
     "/organizations/hamamatsu-matsuri-committee/",
+    "/organizations/saidaiji-eyo-hosankai/",
     "/references/shrines/aso-jinja/",
     "/references/shrines/shinjo-tenmangu/",
     "/references/shrines/asakusa-jinja/",
@@ -199,6 +204,7 @@ export function assertMatsuriVisualContract() {
     "/places/yamane-civic-ground/",
     "/places/hamamatsu-nakatajima-kite-ground/",
     "/places/hamamatsu-central-city-area/",
+    "/places/saidaiji-kannonin/",
   ];
   for (const route of requiredRegressionRoutes) if (!matsuriPublicRoutes.includes(route)) throw new Error(`Matsuri visual contract must retain regression route: ${route}`);
   for (const route of matsuriPublicRoutes) if (!route.startsWith("/") || !route.endsWith("/")) throw new Error(`Matsuri visual route must be root-relative and end with a slash: ${route}`);
