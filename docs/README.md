@@ -46,6 +46,7 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | 27 | `audits/matsuri-corpus-expansion-batch-27-2026-08-03.md` | Kagawa breadth and Hayachine component designation history |
 | 28 | `audits/matsuri-corpus-expansion-batch-28-2026-08-05.md` | Ehime breadth and Aso Onda group-designation history |
 | 29 | `audits/matsuri-corpus-expansion-batch-29-2026-08-05.md` | Shizuoka breadth and Nunobashi occurrence history |
+| 30 | `audits/matsuri-corpus-expansion-batch-30-2026-08-05.md` | Okayama breadth and Soma Nomaoi 2025 occurrence and participation-rule history |
 
 ## Core specifications
 
