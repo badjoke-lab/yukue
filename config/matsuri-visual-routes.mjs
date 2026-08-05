@@ -25,6 +25,7 @@ export const matsuriPublicRoutes = Object.freeze([
   "/festivals/kasuga-wakamiya-onmatsuri/",
   "/festivals/nagahama-hikiyama-matsuri/",
   "/festivals/sanuki-takamatsu-matsuri/",
+  "/festivals/niihama-taiko-matsuri/",
   "/performances/",
   "/performances/hayachine-kagura/",
   "/performances/take-kagura/",
@@ -39,6 +40,7 @@ export const matsuriPublicRoutes = Object.freeze([
   "/organizations/ueno-bunka-bijutsu-hozonkai/",
   "/organizations/nagahama-hikiyama-cultural-association/",
   "/organizations/takamatsu-matsuri-shinkokai/",
+  "/organizations/niihama-taiko-matsuri-promotion-committee/",
   "/references/shrines/aso-jinja/",
   "/references/shrines/shinjo-tenmangu/",
   "/references/shrines/asakusa-jinja/",
@@ -77,6 +79,8 @@ export const matsuriPublicRoutes = Object.freeze([
   "/places/takamatsu-chuo-koen/",
   "/places/anabuki-arena-kagawa/",
   "/places/sanport-takamatsu-multipurpose-square/",
+  "/places/niihama-taiko-citywide/",
+  "/places/yamane-civic-ground/",
   "/regions/",
   "/changes/",
   "/states/",
@@ -113,9 +117,9 @@ export const matsuriTabletBrowserDevice = Object.freeze({
 });
 
 export function assertMatsuriVisualContract() {
-  if (matsuriPublicRoutes.length !== 92) {
+  if (matsuriPublicRoutes.length !== 96) {
     throw new Error(
-      `The representative Matsuri visual contract requires 92 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
+      `The representative Matsuri visual contract requires 96 routes; found ${matsuriPublicRoutes.length}. Update docs/visual-review-workflow.md before changing the coverage model.`,
     );
   }
 
@@ -163,6 +167,7 @@ export function assertMatsuriVisualContract() {
     "/festivals/kasuga-wakamiya-onmatsuri/",
     "/festivals/nagahama-hikiyama-matsuri/",
     "/festivals/sanuki-takamatsu-matsuri/",
+    "/festivals/niihama-taiko-matsuri/",
     "/performances/hayachine-kagura/",
     "/performances/take-kagura/",
     "/performances/ootsugunai-kagura/",
@@ -175,6 +180,7 @@ export function assertMatsuriVisualContract() {
     "/organizations/ueno-bunka-bijutsu-hozonkai/",
     "/organizations/nagahama-hikiyama-cultural-association/",
     "/organizations/takamatsu-matsuri-shinkokai/",
+    "/organizations/niihama-taiko-matsuri-promotion-committee/",
     "/references/shrines/aso-jinja/",
     "/references/shrines/shinjo-tenmangu/",
     "/references/shrines/asakusa-jinja/",
@@ -213,6 +219,8 @@ export function assertMatsuriVisualContract() {
     "/places/takamatsu-chuo-koen/",
     "/places/anabuki-arena-kagawa/",
     "/places/sanport-takamatsu-multipurpose-square/",
+    "/places/niihama-taiko-citywide/",
+    "/places/yamane-civic-ground/",
   ];
   for (const route of requiredRegressionRoutes) {
     if (!matsuriPublicRoutes.includes(route)) {
