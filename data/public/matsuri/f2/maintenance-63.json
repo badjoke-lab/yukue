@@ -1,0 +1,104 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [
+    {
+      "id": "chg-soma-women-participation-rule-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "format_changed",
+      "subject_entity_ids": [
+        "fst-soma-nomaoi"
+      ],
+      "effective_period": {
+        "start": "2025",
+        "end": "2025"
+      },
+      "summary_ja": "2025年から女性騎馬武者の参加条件であった『20歳未満の未婚』制限が撤廃され、20歳以上の女性騎馬武者が参加した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [
+        "rel-soma-organized-by-association"
+      ],
+      "evidence_ids": [
+        "evd-soma-women-participation-rule-2025"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-soma-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-soma-nomaoi",
+      "series_id": "ser-soma-nomaoi-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2025-05-24",
+        "end": "2025-05-26",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-soma-hibarigahara",
+        "plc-soma-nakamura-jinja",
+        "plc-soma-ota-jinja",
+        "plc-soma-odaka-jinja"
+      ],
+      "organizer_entity_ids": [
+        "org-soma-nomaoi"
+      ],
+      "evidence_ids": [
+        "evd-soma-occ-2025"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-minamisoma-soma-nomaoi-2025-topics",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "〖令和7年5月24,25,26日〗相馬野馬追",
+      "publisher": "南相馬市",
+      "url": "https://www.city.minamisoma.lg.jp/portal/sections/11/1110/11103/1/topics/r7topics/28416.html",
+      "published_at": "2025-06-25",
+      "accessed_at": "2026-08-05",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-soma-occ-2025",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-minamisoma-soma-nomaoi-2025-topics",
+      "target_type": "occurrence",
+      "target_id": "occ-soma-2025",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "南相馬市は2025年5月24日から26日までの3日間に相馬野馬追が開催され、383騎が出場したと記録している。全体規模の通常性は推定しない。",
+      "captured_at": "2026-08-05",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-soma-women-participation-rule-2025",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-minamisoma-soma-nomaoi-2025-topics",
+      "target_type": "change_event",
+      "target_id": "chg-soma-women-participation-rule-2025",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "南相馬市は2025年から女性の出場条件『20歳未満の未婚』が撤廃され、20歳以上の女性騎馬武者8騎を含む383騎が出場したと記録している。",
+      "captured_at": "2026-08-05",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
