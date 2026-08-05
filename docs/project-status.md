@@ -48,8 +48,8 @@ Stabilization review            config/matsuri-stabilization-review.json
 Detail C implementation         docs/matsuri-detail-c-implementation.md
 F2-28 evidence                  docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
 Stabilization start evidence    docs/audits/matsuri-stabilization-start-2026-07-27.md
-Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-29-2026-08-05.md
-Latest production audit         docs/audits/matsuri-batch-29-production-verification-2026-08-05.md
+Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-30-2026-08-05.md
+Latest production audit         docs/audits/matsuri-batch-30-production-verification-2026-08-05.md
 Jinja start boundary            config/jinja-start-gate.json
 Production topology             docs/deployment-topology.md
 ```
@@ -62,21 +62,21 @@ Exact current maintenance and production values are machine-checked in the two b
 Worker                    matsuri-yukue
 Canonical origin          https://matsuri-yukue.badjoke-lab.com/
 Permanent Workers origin  https://matsuri-yukue.badjoke-lab.workers.dev/
-Verified release          19990018ff19f07132c2b5f1fdf86608a00c9384
+Verified release          fa9324fa433b56699c368f31cfd0943cc678bfe5
 Verified on               2026-08-05
 ```
 
-Exact canonical-production verification succeeded on attempt 1 for the Batch 29 release.
+Exact canonical-production verification succeeded on attempt 1 for the Batch 30 release.
 
 ```text
-Entities          89
-Change Events     89
-Relations         53
-Occurrences       149
-Sitemap entries   185
+Entities          91
+Change Events     91
+Relations         54
+Occurrences       151
+Sitemap entries   188
 ```
 
-The Batch 29 浜松まつり Festival, organizer Organization, concrete 中田島 Place, distributed central-city Place, and retained 布橋灌頂会 route return HTTP 200, contain real HTML structure and usable titles, carry no robots `noindex` directive, and appear in the canonical sitemap. The verified production layers also include Search, crawler reachability, Search Console submission evidence, Cloudflare Web Analytics Automatic setup, post-activation deployment, production traffic receipt, and the final F2 Launch Gate.
+The Batch 30 西大寺会陽 Festival, organizer Organization, concrete 西大寺観音院 Place, and retained 相馬野馬追 route return HTTP 200, contain real HTML structure and usable titles, carry no robots `noindex` directive, and appear in the canonical sitemap. The verified production layers also include Search, crawler reachability, Search Console submission evidence, Cloudflare Web Analytics Automatic setup, post-activation deployment, production traffic receipt, and the final F2 Launch Gate.
 
 No URL is claimed already indexed.
 
@@ -84,23 +84,25 @@ No URL is claimed already indexed.
 
 The enforced Detail C surface requires real detail pages for every approved primary record, State-free seed-reference pages for approved Shrine and Temple records, public Place pages, bidirectional Relations, claim-linked Evidence and Sources, individual JSON, direct-detail search results, and no empty detail sections or internal-code labels.
 
-Corpus expansion batches 11 through 29 are complete.
+Corpus expansion batches 11 through 30 are complete.
 
-Batch 29 added 浜松まつり as the first approved primary Matsuri record for 静岡県, including:
+Batch 30 added 西大寺会陽 as the first approved primary Matsuri record for 岡山県, including:
 
-- 浜松まつり組織委員会 as the evidence-backed organizer;
-- 中田島凧揚げ会場 as a concrete mapped Place;
-- the central-city 御殿屋台引き回し area as a separate distributed Place;
-- the cancelled 2020 edition;
-- the held modified no-spectator kite-only return in 2021;
-- the held modified audience-admitting 2022 edition;
-- the held unknown-scale 2026 edition.
+- 西大寺会陽奉賛会 as the evidence-backed organizer;
+- 西大寺観音院 as a concrete mapped ritual and main-venue Place;
+- the held unknown-scale 2026 edition;
+- the 2016 national Important Intangible Folk Cultural Property designation as a Change Event and Designation.
 
-It deepened 布橋灌頂会 with a held modified 2022 Occurrence and a scheduled unknown-scale 2026 Occurrence. The 2026 record remains scheduled until post-window Evidence is reviewed.
+It deepened 相馬野馬追 with:
 
-The canonical corpus contains 89 Entities, covers 33 prefectures, and leaves 14 prefectures uncovered. No sparse primary Entity remains under the current corpus-coverage rule.
+- the held unknown-scale May 24–26, 2025 Occurrence;
+- the bounded 2025 format Change Event recording removal of the former women-rider condition limiting participation to unmarried riders under twenty.
 
-Batch 29 implementation, corpus audit, and exact canonical-production verification are complete. The production baseline is pinned to implementation merge commit `19990018ff19f07132c2b5f1fdf86608a00c9384`.
+The participation-rule record does not generalize beyond the published condition. 山あげ祭2026 remains unresolved because no reviewed official post-event result Evidence was available.
+
+The canonical corpus contains 91 Entities, covers 34 prefectures, and leaves 13 prefectures uncovered. No sparse primary Entity remains under the current corpus-coverage rule.
+
+Batch 30 implementation, corpus audit, and exact canonical-production verification are complete. The production baseline is pinned to implementation merge commit `fa9324fa433b56699c368f31cfd0943cc678bfe5`.
 
 ## Stabilization review window
 
@@ -114,7 +116,7 @@ Review complete       false
 
 Phase 10 observes production behavior, Search Console, Analytics receipt, corrections, deployment failures, data freshness, Relation integrity, and maintenance burden. Elapsed time alone does not complete the review. Search-engine indexation is observed but is not required.
 
-The Batch 26 museum-hall route issue and correction remain maintenance-burden evidence. Batches 27 through 29 add clean breadth-and-depth expansion cycles with no repository, map, visual, deployment, or production-verification regression.
+The Batch 26 museum-hall route issue and correction remain maintenance-burden evidence. Batch 30 additionally records one transient external-map `ERR_CONNECTION_CLOSED` during the first 208-screenshot artifact audit; the same unchanged build passed on the second attempt with zero failures and zero warnings. Batches 27 through 30 otherwise retain clean breadth-and-depth expansion cycles with no repository, data, map, deployment, or production-verification regression.
 
 ## Routine Matsuri maintenance
 
@@ -142,7 +144,7 @@ Current dated reviews:
 布橋灌頂会 2026       review after 2026-09-27
 ```
 
-The reviewed 2026 長浜曳山祭, 2026 佐陀神能 special-public-performance, and 2026 浜松まつり records are closed as held. The September 2026 佐陀神能御座替祭 and 布橋灌頂会 records remain scheduled and retain their dated reviews.
+The reviewed 2026 長浜曳山祭, 2026 佐陀神能 special-public-performance, 2026 浜松まつり, and 2026 西大寺会陽 records are closed as held. The September 2026 佐陀神能御座替祭 and 布橋灌頂会 records remain scheduled and retain their dated reviews.
 
 ## Jinja start boundary
 
@@ -169,14 +171,14 @@ repository-verified-canonical-production-verified-crawler-reachability-verified-
 ## Immediate next actions
 
 ```text
-Product track       start Matsuri corpus expansion Batch 30
+Product track       start Matsuri corpus expansion Batch 31
 Depth target        resolve the next due 2026 Occurrence or deepen a low-density primary record with claim-specific Evidence
-Breadth target      add one reviewed primary record from the 14 uncovered prefectures
+Breadth target      add one reviewed primary record from the 13 uncovered prefectures
 Detail track        keep every public title navigable through the enforced Detail C contract
-Production check    Batch 29 exact canonical-production baseline verified
+Production check    Batch 30 exact canonical-production baseline verified
 Dated review        follow the dated review inventory above, including Hirosaki after 2026-08-07
 Stabilization       record real maintenance burden while expansion work is performed
 Gate review         not before 2026-08-10 and not by elapsed time alone
-Cloudflare track    no pending Batch 29 deployment action
+Cloudflare track    no pending Batch 30 deployment action
 Jinja track         remain blocked until all four post-launch prerequisites complete
 ```
