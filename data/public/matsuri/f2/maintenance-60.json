@@ -1,0 +1,101 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [
+    {
+      "id": "occ-nunobashi-2022",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-nunobashi-kanjoe",
+      "series_id": "ser-nunobashi-triennial",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2022-09-25",
+        "end": "2022-09-25",
+        "precision": "day"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-ashikuraji-nunobashi-area",
+        "plc-nunobashi-tateyama-museum"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-nunobashi-occ-2022"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-nunobashi-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-nunobashi-kanjoe",
+      "series_id": "ser-nunobashi-triennial",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-09-27",
+        "end": "2026-09-27",
+        "precision": "day"
+      },
+      "outcome": "scheduled",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-ashikuraji-nunobashi-area",
+        "plc-nunobashi-tateyama-museum"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-nunobashi-occ-2026"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-nunobashi-held-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "知事の活動記録【令和4年9月】",
+      "publisher": "富山県",
+      "url": "https://www.pref.toyama.jp/1000/kensei/governor/tijikatsudoukiroku/r0409.html",
+      "published_at": "2024-10-28",
+      "accessed_at": "2026-08-05",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-nunobashi-occ-2022",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-nunobashi-held-2022",
+      "target_type": "occurrence",
+      "target_id": "occ-nunobashi-2022",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "富山県は2022年9月25日に布橋灌頂会が5年ぶりに開催され、新型コロナの影響による制約を伴ったと記録している。",
+      "captured_at": "2026-08-05",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-nunobashi-occ-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-nunobashi-location-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-nunobashi-2026",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "立山町は2026年9月27日に芦峅寺地内・立山博物館周辺で布橋灌頂会を開催予定と記録している。開催結果は実施後に確認する。",
+      "captured_at": "2026-08-05",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
