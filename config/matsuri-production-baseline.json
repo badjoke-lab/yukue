@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
   "observed_on": "2026-08-05",
-  "release_merge_commit": "19990018ff19f07132c2b5f1fdf86608a00c9384",
+  "release_merge_commit": "fa9324fa433b56699c368f31cfd0943cc678bfe5",
   "expected_counts": {
-    "entities": 89,
-    "events": 89,
-    "relations": 53,
-    "occurrences": 149,
-    "sitemap_entries": 185
+    "entities": 91,
+    "events": 91,
+    "relations": 54,
+    "occurrences": 151,
+    "sitemap_entries": 188
   },
   "required_routes": [
     "/festivals/aso-onda-matsuri/",
@@ -56,7 +56,11 @@
     "/organizations/hamamatsu-matsuri-committee/",
     "/places/hamamatsu-nakatajima-kite-ground/",
     "/places/hamamatsu-central-city-area/",
-    "/festivals/nunobashi-kanjoe/"
+    "/festivals/nunobashi-kanjoe/",
+    "/festivals/saidaiji-eyo/",
+    "/organizations/saidaiji-eyo-hosankai/",
+    "/places/saidaiji-kannonin/",
+    "/festivals/soma-nomaoi/"
   ],
   "required_entities": [
     "fst-aso-onda-matsuri",
@@ -78,7 +82,10 @@
     "fst-niihama-taiko-matsuri",
     "org-niihama-taiko-matsuri-promotion-committee",
     "fst-hamamatsu-matsuri",
-    "org-hamamatsu-matsuri-committee"
+    "org-hamamatsu-matsuri-committee",
+    "fst-saidaiji-eyo",
+    "org-saidaiji-eyo-hosankai",
+    "fst-soma-nomaoi"
   ],
   "occurrence_assertions": [
     { "id": "occ-aso-onda-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
@@ -118,6 +125,8 @@
     { "id": "occ-hamamatsu-matsuri-2022", "record_version": 1, "outcome": "held", "scale": "modified" },
     { "id": "occ-hamamatsu-matsuri-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
     { "id": "occ-nunobashi-2022", "record_version": 1, "outcome": "held", "scale": "modified" },
-    { "id": "occ-nunobashi-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" }
+    { "id": "occ-nunobashi-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
+    { "id": "occ-saidaiji-eyo-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-soma-2025", "record_version": 1, "outcome": "held", "scale": "unknown" }
   ]
 }
