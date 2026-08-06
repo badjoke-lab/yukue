@@ -48,7 +48,7 @@ visual screenshot workflow
   anchor maps and explicit no-map states
 ```
 
-The shared visual-route configuration currently contains **104 representative routes**.
+The shared visual-route configuration currently contains **109 representative routes**.
 
 It includes:
 
@@ -58,11 +58,9 @@ It includes:
 - Folk Performance and Organization details;
 - Shrine seed-reference pages;
 - concrete point-like Place pages and distributed Place pages with explicit no-map states;
-- the retained Batch 13 through Batch 28 regression pages documented by prior corpus audits;
-- `浜松まつり`, `浜松まつり組織委員会`, `中田島凧揚げ会場`, and `浜松まつり中心市街地御殿屋台引き回し区域` as the Batch 29 breadth, organizer, concrete-venue, and distributed-area baselines;
-- `布橋灌頂会` as the Batch 29 held-2022 and scheduled-2026 occurrence-history depth baseline;
-- `西大寺会陽`, `西大寺会陽奉賛会`, and `西大寺観音院` as the Batch 30 breadth, organizer, ritual-site, current-state, occurrence, and national-designation baselines;
-- `相馬野馬追` as the Batch 30 held-2025 occurrence and women-rider participation-rule change depth baseline.
+- the retained Batch 13 through Batch 30 regression pages documented by prior corpus audits;
+- `三国祭`, `三国祭保存振興会`, `三國神社`, `三國神社` Place, and `三国祭山車巡行区域` as the Batch 31 breadth, relation, concrete-anchor, and distributed-route baselines;
+- `布川地区花祭` as the Batch 31 national-designation depth baseline.
 
 A configured representative route missing from the generated site is a failure. Generated routes outside the screenshot set are not failures because exhaustive structural and navigational coverage is enforced separately.
 
@@ -104,12 +102,12 @@ screenshots-desktop.zip
 screenshots-mobile.zip
 ```
 
-With the current 104-route representative contract, an `all` capture produces:
+With the current 109-route representative contract, an `all` capture produces:
 
 ```text
-104 desktop full-page PNGs
-104 mobile full-page PNGs
-208 full-page PNGs total
+109 desktop full-page PNGs
+109 mobile full-page PNGs
+218 full-page PNGs total
 ```
 
 ## Capture manifest
@@ -147,7 +145,7 @@ The workflow generates one contact sheet per device containing every representat
 
 The dedicated screenshot workflow supports manual `workflow_dispatch` and automatic pull-request runs for UI, layout, style, visual-route, screenshot-script, Playwright, and workflow changes.
 
-The workflow is separate from the normal repository gate so that data-only maintenance does not always generate two hundred eight PNGs. A data change that materially alters page length, density, maps, or empty states should trigger the visual workflow by updating the representative contract.
+The workflow is separate from the normal repository gate so that data-only maintenance does not always generate two hundred eighteen PNGs. A data change that materially alters page length, density, maps, or empty states should trigger the visual workflow by updating the representative contract.
 
 ## Artifact retention
 
