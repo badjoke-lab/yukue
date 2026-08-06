@@ -1,6 +1,6 @@
 # Project Status
 
-**Last updated:** 2026-08-05
+**Last updated:** 2026-08-06
 
 ## Current phase
 
@@ -48,8 +48,8 @@ Stabilization review            config/matsuri-stabilization-review.json
 Detail C implementation         docs/matsuri-detail-c-implementation.md
 F2-28 evidence                  docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md
 Stabilization start evidence    docs/audits/matsuri-stabilization-start-2026-07-27.md
-Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-30-2026-08-05.md
-Latest production audit         docs/audits/matsuri-batch-30-production-verification-2026-08-05.md
+Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-31-2026-08-06.md
+Latest production audit         docs/audits/matsuri-batch-31-production-verification-2026-08-06.md
 Jinja start boundary            config/jinja-start-gate.json
 Production topology             docs/deployment-topology.md
 ```
@@ -62,21 +62,21 @@ Exact current maintenance and production values are machine-checked in the two b
 Worker                    matsuri-yukue
 Canonical origin          https://matsuri-yukue.badjoke-lab.com/
 Permanent Workers origin  https://matsuri-yukue.badjoke-lab.workers.dev/
-Verified release          fa9324fa433b56699c368f31cfd0943cc678bfe5
-Verified on               2026-08-05
+Verified release          db42b01620f7a4d183c22a7a0088e899df7f54d7
+Verified on               2026-08-06
 ```
 
-Exact canonical-production verification succeeded on attempt 1 for the Batch 30 release.
+Exact canonical-production verification succeeded on attempt 1 for the Batch 31 release.
 
 ```text
-Entities          91
-Change Events     91
-Relations         54
-Occurrences       151
-Sitemap entries   188
+Entities          94
+Change Events     93
+Relations         56
+Occurrences       152
+Sitemap entries   193
 ```
 
-The Batch 30 西大寺会陽 Festival, organizer Organization, concrete 西大寺観音院 Place, and retained 相馬野馬追 route return HTTP 200, contain real HTML structure and usable titles, carry no robots `noindex` directive, and appear in the canonical sitemap. The verified production layers also include Search, crawler reachability, Search Console submission evidence, Cloudflare Web Analytics Automatic setup, post-activation deployment, production traffic receipt, and the final F2 Launch Gate.
+The Batch 31 三国祭 Festival, 三国祭保存振興会 Organization, State-free 三國神社 reference, concrete 三國神社 Place, distributed 山車巡行区域 Place, and retained 布川地区花祭 route return HTTP 200, contain real HTML structure and usable titles, carry no robots `noindex` directive, and appear in the canonical sitemap. The verified production layers also include Search, crawler reachability, Search Console submission evidence, Cloudflare Web Analytics Automatic setup, post-activation deployment, production traffic receipt, and the final F2 Launch Gate.
 
 No URL is claimed already indexed.
 
@@ -84,25 +84,24 @@ No URL is claimed already indexed.
 
 The enforced Detail C surface requires real detail pages for every approved primary record, State-free seed-reference pages for approved Shrine and Temple records, public Place pages, bidirectional Relations, claim-linked Evidence and Sources, individual JSON, direct-detail search results, and no empty detail sections or internal-code labels.
 
-Corpus expansion batches 11 through 30 are complete.
+Corpus expansion batches 11 through 31 are complete.
 
-Batch 30 added 西大寺会陽 as the first approved primary Matsuri record for 岡山県, including:
+Batch 31 added 三国祭 as the first approved primary Matsuri record for 福井県, including:
 
-- 西大寺会陽奉賛会 as the evidence-backed organizer;
-- 西大寺観音院 as a concrete mapped ritual and main-venue Place;
-- the held unknown-scale 2026 edition;
-- the 2016 national Important Intangible Folk Cultural Property designation as a Change Event and Designation.
+- 三国祭保存振興会 as the evidence-backed maintenance and preservation body;
+- 三國神社 as a State-free Shrine reference seed and concrete mapped ritual Place;
+- 三国祭山車巡行区域 as a distributed route Place with an explicit no-map boundary;
+- the held unknown-scale May 19–21, 2026 edition;
+- the April 25, 2006 福井県指定無形民俗文化財 designation;
+- `maintained_by` and `ritually_associated_with` Relations.
 
-It deepened 相馬野馬追 with:
+It deepened 布川地区花祭 with the May 4, 1976 national Important Intangible Folk Cultural Property Change Event and Designation. The national record explicitly names 布川花祭保存会 among the protection groups.
 
-- the held unknown-scale May 24–26, 2025 Occurrence;
-- the bounded 2025 format Change Event recording removal of the former women-rider condition limiting participation to unmarried riders under twenty.
+The 2026 三国祭 result does not infer normal completion or normal scale for every component. 山あげ祭2026 remains unresolved because no reviewed official post-event result Evidence was available.
 
-The participation-rule record does not generalize beyond the published condition. 山あげ祭2026 remains unresolved because no reviewed official post-event result Evidence was available.
+The canonical corpus contains 94 Entities, covers 35 prefectures, and leaves 12 prefectures uncovered. No sparse primary Entity remains under the current corpus-coverage rule.
 
-The canonical corpus contains 91 Entities, covers 34 prefectures, and leaves 13 prefectures uncovered. No sparse primary Entity remains under the current corpus-coverage rule.
-
-Batch 30 implementation, corpus audit, and exact canonical-production verification are complete. The production baseline is pinned to implementation merge commit `fa9324fa433b56699c368f31cfd0943cc678bfe5`.
+Batch 31 implementation, corpus audit, and exact canonical-production verification are complete. The production baseline is pinned to implementation merge commit `db42b01620f7a4d183c22a7a0088e899df7f54d7`.
 
 ## Stabilization review window
 
@@ -116,7 +115,7 @@ Review complete       false
 
 Phase 10 observes production behavior, Search Console, Analytics receipt, corrections, deployment failures, data freshness, Relation integrity, and maintenance burden. Elapsed time alone does not complete the review. Search-engine indexation is observed but is not required.
 
-The Batch 26 museum-hall route issue and correction remain maintenance-burden evidence. Batch 30 additionally records one transient external-map `ERR_CONNECTION_CLOSED` during the first 208-screenshot artifact audit; the same unchanged build passed on the second attempt with zero failures and zero warnings. Batches 27 through 30 otherwise retain clean breadth-and-depth expansion cycles with no repository, data, map, deployment, or production-verification regression.
+The Batch 26 museum-hall route issue and correction remain maintenance-burden evidence. Batch 30 records one transient external-map connection failure that passed unchanged on retry. Batch 31 records one Evidence-contract correction from the generic Source title `花祭` to the claim-specific `国指定重要無形民俗文化財「花祭」`. Batch 31 otherwise passed repository, map, visual, deployment, and canonical-production verification without regression.
 
 ## Routine Matsuri maintenance
 
@@ -144,7 +143,7 @@ Current dated reviews:
 布橋灌頂会 2026       review after 2026-09-27
 ```
 
-The reviewed 2026 長浜曳山祭, 2026 佐陀神能 special-public-performance, 2026 浜松まつり, and 2026 西大寺会陽 records are closed as held. The September 2026 佐陀神能御座替祭 and 布橋灌頂会 records remain scheduled and retain their dated reviews.
+The reviewed 2026 長浜曳山祭, 2026 佐陀神能 special-public-performance, 2026 浜松まつり, 2026 西大寺会陽, and 2026 三国祭 records are closed as held. The September 2026 佐陀神能御座替祭 and 布橋灌頂会 records remain scheduled and retain their dated reviews.
 
 ## Jinja start boundary
 
@@ -160,7 +159,7 @@ Explicit start authorization          false
 
 Actual Jinja start gate — blocked
 
-No Jinja application, Worker, hostname, publication claim, or invented State Snapshot is authorized. The repository retains zero approved Jinja State Snapshots.
+The candidate baseline contains 21 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Candidate extraction does not authorize implementation. No Jinja application, Worker, hostname, publication claim, or invented State Snapshot is authorized.
 
 ## Current release status
 
@@ -171,14 +170,14 @@ repository-verified-canonical-production-verified-crawler-reachability-verified-
 ## Immediate next actions
 
 ```text
-Product track       start Matsuri corpus expansion Batch 31
+Product track       start Matsuri corpus expansion Batch 32
 Depth target        resolve the next due 2026 Occurrence or deepen a low-density primary record with claim-specific Evidence
-Breadth target      add one reviewed primary record from the 13 uncovered prefectures
+Breadth target      add one reviewed primary record from the 12 uncovered prefectures
 Detail track        keep every public title navigable through the enforced Detail C contract
-Production check    Batch 30 exact canonical-production baseline verified
+Production check    Batch 31 exact canonical-production baseline verified
 Dated review        follow the dated review inventory above, including Hirosaki after 2026-08-07
 Stabilization       record real maintenance burden while expansion work is performed
 Gate review         not before 2026-08-10 and not by elapsed time alone
-Cloudflare track    no pending Batch 30 deployment action
+Cloudflare track    no pending Batch 31 deployment action
 Jinja track         remain blocked until all four post-launch prerequisites complete
 ```
