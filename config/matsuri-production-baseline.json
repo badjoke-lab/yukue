@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
-  "observed_on": "2026-08-05",
-  "release_merge_commit": "fa9324fa433b56699c368f31cfd0943cc678bfe5",
+  "observed_on": "2026-08-06",
+  "release_merge_commit": "db42b01620f7a4d183c22a7a0088e899df7f54d7",
   "expected_counts": {
-    "entities": 91,
-    "events": 91,
-    "relations": 54,
-    "occurrences": 151,
-    "sitemap_entries": 188
+    "entities": 94,
+    "events": 93,
+    "relations": 56,
+    "occurrences": 152,
+    "sitemap_entries": 193
   },
   "required_routes": [
     "/festivals/aso-onda-matsuri/",
@@ -60,7 +60,13 @@
     "/festivals/saidaiji-eyo/",
     "/organizations/saidaiji-eyo-hosankai/",
     "/places/saidaiji-kannonin/",
-    "/festivals/soma-nomaoi/"
+    "/festivals/soma-nomaoi/",
+    "/festivals/mikuni-matsuri/",
+    "/organizations/mikuni-matsuri-hozon-shinkokai/",
+    "/references/shrines/mikuni-jinja/",
+    "/places/mikuni-jinja/",
+    "/places/mikuni-matsuri-route/",
+    "/festivals/nunokawa-hana-matsuri/"
   ],
   "required_entities": [
     "fst-aso-onda-matsuri",
@@ -85,7 +91,11 @@
     "org-hamamatsu-matsuri-committee",
     "fst-saidaiji-eyo",
     "org-saidaiji-eyo-hosankai",
-    "fst-soma-nomaoi"
+    "fst-soma-nomaoi",
+    "fst-mikuni-matsuri",
+    "org-mikuni-matsuri-hozon-shinkokai",
+    "shr-mikuni-jinja",
+    "fst-nunokawa-hana-matsuri"
   ],
   "occurrence_assertions": [
     { "id": "occ-aso-onda-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
@@ -127,6 +137,7 @@
     { "id": "occ-nunobashi-2022", "record_version": 1, "outcome": "held", "scale": "modified" },
     { "id": "occ-nunobashi-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
     { "id": "occ-saidaiji-eyo-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
-    { "id": "occ-soma-2025", "record_version": 1, "outcome": "held", "scale": "unknown" }
+    { "id": "occ-soma-2025", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-mikuni-matsuri-2026", "record_version": 1, "outcome": "held", "scale": "unknown" }
   ]
 }
