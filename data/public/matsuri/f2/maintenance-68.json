@@ -1,0 +1,39 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-akita-kanto-night-performance-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "秋田竿燈まつり夜本番について",
+      "publisher": "秋田市竿燈まつり実行委員会",
+      "url": "https://www.kantou.gr.jp/",
+      "accessed_at": "2026-08-08",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-akita-kanto-occ-2026-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-akita-kanto-night-performance-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-akita-kanto-2026-schedule",
+      "assertion_code": "supports_occurrence_outcome",
+      "summary_ja": "秋田市竿燈まつり実行委員会の公式サイトは、2026年8月3日付で「秋田竿燈まつり夜本番について」を掲載している。予定期間内に夜本番の運営情報が公式に発信されたことから2026年祭礼が実施段階に入ったことを裏付けるためOccurrenceはheldとするが、8月3日から6日までの全構成が通常どおり完遂されたことや規模はこのEvidenceだけから推定せずscaleはunknownとする。",
+      "captured_at": "2026-08-08",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
