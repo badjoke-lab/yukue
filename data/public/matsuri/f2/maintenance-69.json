@@ -1,0 +1,284 @@
+{
+  "entities": [
+    {
+      "id": "fst-karatsu-kunchi",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-07T00:00:00Z",
+      "updated_at": "2026-08-07T00:00:00Z",
+      "slug": "karatsu-kunchi",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "唐津くんち",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-karatsu-kunchi-overview"]
+        }
+      ],
+      "summary_ja": "唐津神社の秋季例大祭として毎年11月2日から4日に、14台の曳山が唐津市の旧城下町を巡行する祭礼。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "41",
+            "prefecture_name_ja": "佐賀県",
+            "municipality_name_ja": "唐津市"
+          }
+        ],
+        "scope_type": "route_based",
+        "description_ja": "唐津神社周辺と唐津市旧城下町の巡行路を14台の曳山が巡行する。"
+      },
+      "primary_place_id": "plc-karatsu-jinja",
+      "default_place_ids": ["plc-karatsu-jinja", "plc-karatsu-kunchi-route"],
+      "external_links": [
+        {
+          "kind": "official_information",
+          "platform": "web",
+          "url": "https://www.city.karatsu.lg.jp/page/4344.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-07"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "shrine_festival",
+      "usual_months": [11],
+      "usual_duration_days": 3,
+      "season_tags": ["秋"],
+      "occurrence_series_ids": ["ser-karatsu-kunchi-annual"]
+    },
+    {
+      "id": "org-karatsu-hikiyama-torishimarikai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-07T00:00:00Z",
+      "updated_at": "2026-08-07T00:00:00Z",
+      "slug": "karatsu-hikiyama-torishimarikai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "唐津曳山取締会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-karatsu-kunchi-cultural-property"]
+        }
+      ],
+      "summary_ja": "国指定重要無形民俗文化財「唐津くんちの曳山行事」の指定団体として唐津市が記録する団体。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "41",
+            "prefecture_name_ja": "佐賀県",
+            "municipality_name_ja": "唐津市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "official_information",
+          "platform": "web",
+          "url": "https://www.city.karatsu.lg.jp/page/3164.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-07"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "preservation_group"
+    },
+    {
+      "id": "shr-karatsu-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-07T00:00:00Z",
+      "updated_at": "2026-08-07T00:00:00Z",
+      "slug": "karatsu-jinja",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "唐津神社",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-karatsu-kunchi-overview"]
+        }
+      ],
+      "summary_ja": "唐津くんちが秋季例大祭として行われる唐津市南城内の神社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "41",
+            "prefecture_name_ja": "佐賀県",
+            "municipality_name_ja": "唐津市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-karatsu-jinja",
+      "default_place_ids": ["plc-karatsu-jinja"],
+      "external_links": [
+        {
+          "kind": "official_information",
+          "platform": "web",
+          "url": "https://www.city.karatsu.lg.jp/page/26467.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-07"
+        }
+      ],
+      "record_lifecycle": "active"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-karatsu-jinja",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "唐津神社",
+      "place_kind": "shrine",
+      "country_code": "JP",
+      "prefecture_code": "41",
+      "prefecture_name_ja": "佐賀県",
+      "municipality_name_ja": "唐津市",
+      "locality_ja": "南城内",
+      "street_address_ja": "3番13号",
+      "coordinate_precision": "venue",
+      "map_label_ja": "唐津くんちの祭祀基点",
+      "source_ids": ["src-karatsu-kunchi-2025-guide"]
+    },
+    {
+      "id": "plc-karatsu-kunchi-route",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "唐津くんち曳山巡行区域",
+      "place_kind": "procession_route",
+      "country_code": "JP",
+      "prefecture_code": "41",
+      "prefecture_name_ja": "佐賀県",
+      "municipality_name_ja": "唐津市",
+      "locality_ja": "唐津神社周辺・旧城下町",
+      "coordinate_precision": "area",
+      "source_ids": ["src-karatsu-kunchi-2025-guide"]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-karatsu-kunchi-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-karatsu-kunchi",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-08-07",
+      "basis_evidence_ids": ["evd-karatsu-kunchi-state"],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-karatsu-kunchi-national-designation-1980",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "designation_added",
+      "subject_entity_ids": ["fst-karatsu-kunchi"],
+      "effective_period": {"start": "1980-01-28"},
+      "summary_ja": "「唐津くんちの曳山行事」が国の重要無形民俗文化財に指定された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-karatsu-kunchi-designation-change"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-karatsu-kunchi-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-karatsu-kunchi",
+      "series_id": "ser-karatsu-kunchi-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2025-11-02",
+        "end": "2025-11-04",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-karatsu-jinja", "plc-karatsu-kunchi-route"],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-karatsu-kunchi-occ-2025"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-karatsu-kunchi-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-karatsu-kunchi",
+      "series_type": "annual_festival_edition",
+      "name_ja": "唐津くんち 年次祭典",
+      "recurrence_pattern_id": "rec-karatsu-kunchi-annual",
+      "default_venue_place_ids": ["plc-karatsu-jinja", "plc-karatsu-kunchi-route"],
+      "evidence_ids": ["evd-karatsu-kunchi-recurrence"]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-karatsu-kunchi-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年11月2日・3日・4日",
+      "evidence_ids": ["evd-karatsu-kunchi-recurrence"]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-karatsu-kunchi-maintained-by-hikiyama-torishimarikai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-karatsu-kunchi",
+      "relation_type": "maintained_by",
+      "target_entity_id": "org-karatsu-hikiyama-torishimarikai",
+      "evidence_ids": ["evd-rel-karatsu-kunchi-hikiyama-torishimarikai"],
+      "review_status": "approved"
+    },
+    {
+      "id": "rel-karatsu-kunchi-ritually-associated-with-karatsu-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-karatsu-kunchi",
+      "relation_type": "ritually_associated_with",
+      "target_entity_id": "shr-karatsu-jinja",
+      "evidence_ids": ["evd-rel-karatsu-kunchi-karatsu-jinja"],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [
+    {
+      "id": "des-karatsu-kunchi-national",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "designation_name_ja": "国指定重要無形民俗文化財「唐津くんちの曳山行事」",
+      "subject_entity_ids": ["fst-karatsu-kunchi"],
+      "designation_system": "文化財保護法",
+      "designation_level": "国",
+      "valid_period": {"start": "1980-01-28"},
+      "evidence_ids": ["evd-karatsu-kunchi-designation"]
+    }
+  ],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
