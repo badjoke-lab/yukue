@@ -4,12 +4,12 @@
   "status": "repository-maintenance-current",
   "counts": {
     "f1_batches": 13,
-    "maintenance_bundles": 67,
-    "correction_bundles": 18,
-    "additive_application_slots": 80,
-    "correction_application_slots": 18,
-    "correction_records": 32,
-    "corrected_logical_ids": 29,
+    "maintenance_bundles": 68,
+    "correction_bundles": 19,
+    "additive_application_slots": 81,
+    "correction_application_slots": 19,
+    "correction_records": 33,
+    "corrected_logical_ids": 30,
     "public_entities": 94,
     "entities_without_external_links": 0
   },
