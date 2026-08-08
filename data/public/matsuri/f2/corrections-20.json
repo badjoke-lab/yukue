@@ -1,0 +1,42 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [
+    {
+      "id": "occ-aomori-nebuta-2026-schedule",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "subject_entity_id": "fst-aomori-nebuta",
+      "series_id": "ser-aomori-nebuta-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-08-02",
+        "end": "2026-08-07",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-aomori-nebuta-route",
+        "plc-aomori-port"
+      ],
+      "organizer_entity_ids": [
+        "org-aomori-nebuta-committee"
+      ],
+      "evidence_ids": [
+        "evd-aomori-nebuta-occ-2026",
+        "evd-aomori-nebuta-occ-2026-held"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
