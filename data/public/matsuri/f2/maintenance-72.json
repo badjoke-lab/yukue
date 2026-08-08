@@ -1,0 +1,278 @@
+{
+  "entities": [
+    {
+      "id": "fst-chigasaki-kaigan-hamaori-sai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-08T00:00:00Z",
+      "updated_at": "2026-08-08T00:00:00Z",
+      "slug": "chigasaki-kaigan-hamaori-sai",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "茅ヶ崎海岸浜降祭",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-chigasaki-hamaori-2026"]
+        }
+      ],
+      "summary_ja": "毎年7月第3月曜日の早朝、茅ヶ崎市と寒川町の各神社の神輿が茅ヶ崎西浜海岸に集まり、合同祭とみそぎを行う祭礼。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "14",
+            "prefecture_name_ja": "神奈川県",
+            "municipality_name_ja": "茅ヶ崎市"
+          },
+          {
+            "prefecture_code": "14",
+            "prefecture_name_ja": "神奈川県",
+            "municipality_name_ja": "寒川町"
+          }
+        ],
+        "scope_type": "multi_area",
+        "description_ja": "茅ヶ崎市・寒川町の各神社から神輿が茅ヶ崎西浜海岸へ参集する。"
+      },
+      "primary_place_id": "plc-chigasaki-nishihama-kaigan",
+      "default_place_ids": ["plc-chigasaki-nishihama-kaigan"],
+      "external_links": [
+        {
+          "kind": "official_information",
+          "platform": "web",
+          "url": "https://www.city.chigasaki.kanagawa.jp/kankou_list/event/1006906/1006925.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-08"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "shrine_festival",
+      "usual_months": [7],
+      "usual_duration_days": 1,
+      "season_tags": ["夏"],
+      "occurrence_series_ids": ["ser-chigasaki-hamaori-annual"]
+    },
+    {
+      "id": "org-chigasaki-hamaori-jikkoiinkai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-08T00:00:00Z",
+      "updated_at": "2026-08-08T00:00:00Z",
+      "slug": "chigasaki-hamaori-jikkoiinkai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "茅ヶ崎海岸浜降祭実行委員会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-chigasaki-hamaori-2026"]
+        }
+      ],
+      "summary_ja": "茅ヶ崎市が茅ヶ崎海岸浜降祭の主催として記録する実行委員会。寒川神社総務課内に事務局連絡先が置かれている。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "14",
+            "prefecture_name_ja": "神奈川県",
+            "municipality_name_ja": "茅ヶ崎市"
+          },
+          {
+            "prefecture_code": "14",
+            "prefecture_name_ja": "神奈川県",
+            "municipality_name_ja": "寒川町"
+          }
+        ],
+        "scope_type": "multi_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "official_information",
+          "platform": "web",
+          "url": "https://www.city.chigasaki.kanagawa.jp/kankou_list/event/1006906/1006925.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-08"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "festival_committee"
+    },
+    {
+      "id": "shr-samukawa-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-08T00:00:00Z",
+      "updated_at": "2026-08-08T00:00:00Z",
+      "slug": "samukawa-jinja",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "寒川神社",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-chigasaki-hamaori-cultural-property"]
+        }
+      ],
+      "summary_ja": "茅ヶ崎海岸浜降祭で、市内各神社とともに神霊・神輿が西浜海岸へ参集する相模国一之宮の神社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "14",
+            "prefecture_name_ja": "神奈川県",
+            "municipality_name_ja": "寒川町"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://samukawajinjya.jp/",
+          "is_primary": true,
+          "officiality": "official",
+          "last_checked_at": "2026-08-08"
+        }
+      ],
+      "record_lifecycle": "active"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-chigasaki-nishihama-kaigan",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "茅ヶ崎西浜海岸",
+      "place_kind": "festival_ground",
+      "country_code": "JP",
+      "prefecture_code": "14",
+      "prefecture_name_ja": "神奈川県",
+      "municipality_name_ja": "茅ヶ崎市",
+      "locality_ja": "茅ヶ崎漁港西側",
+      "coordinate_precision": "area",
+      "map_label_ja": "茅ヶ崎海岸浜降祭の合同祭会場",
+      "source_ids": ["src-chigasaki-hamaori-2026", "src-chigasaki-hamaori-cultural-property"]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-chigasaki-hamaori-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-chigasaki-kaigan-hamaori-sai",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-08-08",
+      "basis_evidence_ids": ["evd-chigasaki-hamaori-state"],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-chigasaki-hamaori-prefectural-designation-1978",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "designation_added",
+      "subject_entity_ids": ["fst-chigasaki-kaigan-hamaori-sai"],
+      "effective_period": {"start": "1978-06-23"},
+      "summary_ja": "茅ヶ崎海岸浜降祭が神奈川県指定無形民俗文化財に指定された。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-chigasaki-hamaori-designation-change"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-chigasaki-hamaori-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-chigasaki-kaigan-hamaori-sai",
+      "series_id": "ser-chigasaki-hamaori-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2025-07-21",
+        "end": "2025-07-21",
+        "precision": "day"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-chigasaki-nishihama-kaigan"],
+      "organizer_entity_ids": ["org-chigasaki-hamaori-jikkoiinkai"],
+      "evidence_ids": ["evd-chigasaki-hamaori-occ-2025"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-chigasaki-hamaori-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-chigasaki-kaigan-hamaori-sai",
+      "series_type": "annual_festival_edition",
+      "name_ja": "茅ヶ崎海岸浜降祭 年次祭典",
+      "recurrence_pattern_id": "rec-chigasaki-hamaori-annual",
+      "default_venue_place_ids": ["plc-chigasaki-nishihama-kaigan"],
+      "evidence_ids": ["evd-chigasaki-hamaori-recurrence"]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-chigasaki-hamaori-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年7月第3月曜日（海の日）",
+      "evidence_ids": ["evd-chigasaki-hamaori-recurrence"]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-chigasaki-hamaori-organized-by-jikkoiinkai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-chigasaki-kaigan-hamaori-sai",
+      "relation_type": "organized_by",
+      "target_entity_id": "org-chigasaki-hamaori-jikkoiinkai",
+      "evidence_ids": ["evd-rel-chigasaki-hamaori-jikkoiinkai"],
+      "review_status": "approved"
+    },
+    {
+      "id": "rel-chigasaki-hamaori-ritually-associated-with-samukawa-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-chigasaki-kaigan-hamaori-sai",
+      "relation_type": "ritually_associated_with",
+      "target_entity_id": "shr-samukawa-jinja",
+      "evidence_ids": ["evd-rel-chigasaki-hamaori-samukawa-jinja"],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [
+    {
+      "id": "des-chigasaki-hamaori-prefectural",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "designation_name_ja": "神奈川県指定無形民俗文化財「茅ヶ崎海岸浜降祭」",
+      "subject_entity_ids": ["fst-chigasaki-kaigan-hamaori-sai"],
+      "designation_system": "神奈川県指定文化財",
+      "designation_level": "県",
+      "valid_period": {"start": "1978-06-23"},
+      "evidence_ids": ["evd-chigasaki-hamaori-designation"]
+    }
+  ],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
