@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
-  "observed_on": "2026-08-06",
-  "release_merge_commit": "db42b01620f7a4d183c22a7a0088e899df7f54d7",
+  "observed_on": "2026-08-08",
+  "release_merge_commit": "15da1b287724a415042610c64852670cda6a7da8",
   "expected_counts": {
-    "entities": 94,
-    "events": 93,
-    "relations": 56,
-    "occurrences": 152,
-    "sitemap_entries": 193
+    "entities": 97,
+    "events": 94,
+    "relations": 58,
+    "occurrences": 153,
+    "sitemap_entries": 198
   },
   "required_routes": [
     "/festivals/aso-onda-matsuri/",
@@ -66,7 +66,12 @@
     "/references/shrines/mikuni-jinja/",
     "/places/mikuni-jinja/",
     "/places/mikuni-matsuri-route/",
-    "/festivals/nunokawa-hana-matsuri/"
+    "/festivals/nunokawa-hana-matsuri/",
+    "/festivals/karatsu-kunchi/",
+    "/organizations/karatsu-hikiyama-torishimarikai/",
+    "/references/shrines/karatsu-jinja/",
+    "/places/karatsu-jinja/",
+    "/places/karatsu-kunchi-route/"
   ],
   "required_entities": [
     "fst-aso-onda-matsuri",
@@ -95,7 +100,10 @@
     "fst-mikuni-matsuri",
     "org-mikuni-matsuri-hozon-shinkokai",
     "shr-mikuni-jinja",
-    "fst-nunokawa-hana-matsuri"
+    "fst-nunokawa-hana-matsuri",
+    "fst-karatsu-kunchi",
+    "org-karatsu-hikiyama-torishimarikai",
+    "shr-karatsu-jinja"
   ],
   "occurrence_assertions": [
     { "id": "occ-aso-onda-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
@@ -138,6 +146,10 @@
     { "id": "occ-nunobashi-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
     { "id": "occ-saidaiji-eyo-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
     { "id": "occ-soma-2025", "record_version": 1, "outcome": "held", "scale": "unknown" },
-    { "id": "occ-mikuni-matsuri-2026", "record_version": 1, "outcome": "held", "scale": "unknown" }
+    { "id": "occ-mikuni-matsuri-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-hirosaki-neputa-2026-schedule", "record_version": 2, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-akita-kanto-2026-schedule", "record_version": 2, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-karatsu-kunchi-2025", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-aomori-nebuta-2026-schedule", "record_version": 2, "outcome": "held", "scale": "unknown" }
   ]
 }
