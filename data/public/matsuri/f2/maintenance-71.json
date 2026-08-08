@@ -1,0 +1,40 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-aomori-nebuta-final-day-operation-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "青森ねぶた祭協賛第72回青森花火大会",
+      "publisher": "青森花火大会実行委員会",
+      "url": "https://aomorihanabitaikai.jp/",
+      "published_at": "2026-08-07",
+      "accessed_at": "2026-08-08",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-aomori-nebuta-occ-2026-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-aomori-nebuta-final-day-operation-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-aomori-nebuta-2026-schedule",
+      "assertion_code": "supports_occurrence_outcome",
+      "summary_ja": "青森花火大会実行委員会の公式ページは2026年8月7日15時更新で、青森ねぶた祭最終夜と一体で行われる第72回青森花火大会を同日19時15分から予定どおり開催すると決定し、同ページ上で19時開始のオンライン生配信も案内している。既存の青森ねぶた祭公式日程Evidenceと合わせ、2026年版が少なくとも最終日まで実運用されたことを裏付けるためOccurrenceはheldとする。一方、8月2日から7日までの全構成が通常どおり完遂されたことや規模はこのEvidenceだけから推定せずscaleはunknownとする。",
+      "captured_at": "2026-08-08",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
