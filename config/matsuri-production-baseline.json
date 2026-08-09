@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
   "observed_on": "2026-08-09",
-  "release_merge_commit": "239ac16067b9bc279d3a460dcbeae961244a0e88",
+  "release_merge_commit": "7ff68b011aa37e980e8281b30a9fbc1dfc8c6802",
   "expected_counts": {
-    "entities": 100,
-    "events": 95,
-    "relations": 60,
-    "occurrences": 154,
-    "sitemap_entries": 203
+    "entities": 102,
+    "events": 96,
+    "relations": 61,
+    "occurrences": 155,
+    "sitemap_entries": 206
   },
   "required_routes": [
     "/festivals/aso-onda-matsuri/",
@@ -76,7 +76,10 @@
     "/organizations/chigasaki-hamaori-jikkoiinkai/",
     "/references/shrines/samukawa-jinja/",
     "/places/chigasaki-nishihama-kaigan/",
-    "/places/samukawa-jinja/"
+    "/places/samukawa-jinja/",
+    "/festivals/kagoshima-ohara-matsuri/",
+    "/organizations/ohara-matsuri-shinkokai/",
+    "/places/kagoshima-ohara-tenmonkan-route/"
   ],
   "required_entities": [
     "fst-aso-onda-matsuri",
@@ -111,7 +114,9 @@
     "shr-karatsu-jinja",
     "fst-chigasaki-kaigan-hamaori-sai",
     "org-chigasaki-hamaori-jikkoiinkai",
-    "shr-samukawa-jinja"
+    "shr-samukawa-jinja",
+    "fst-kagoshima-ohara-matsuri",
+    "org-ohara-matsuri-shinkokai"
   ],
   "occurrence_assertions": [
     { "id": "occ-aso-onda-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
@@ -160,6 +165,7 @@
     { "id": "occ-karatsu-kunchi-2025", "record_version": 1, "outcome": "held", "scale": "unknown" },
     { "id": "occ-aomori-nebuta-2026-schedule", "record_version": 2, "outcome": "held", "scale": "unknown" },
     { "id": "occ-chigasaki-hamaori-2025", "record_version": 1, "outcome": "held", "scale": "unknown" },
-    { "id": "occ-sendai-tanabata-2026-schedule", "record_version": 2, "outcome": "held", "scale": "unknown" }
+    { "id": "occ-sendai-tanabata-2026-schedule", "record_version": 2, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-kagoshima-ohara-2026-schedule", "record_version": 1, "outcome": "scheduled", "scale": "unknown" }
   ]
 }
