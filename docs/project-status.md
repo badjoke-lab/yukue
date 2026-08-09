@@ -35,13 +35,11 @@ Analytics progression           config/matsuri-analytics-activation.json
 Final F2 launch gate            config/matsuri-f2-launch-gate.json
 Stabilization review            config/matsuri-stabilization-review.json
 Detail C implementation         docs/matsuri-detail-c-implementation.md
-Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-34-2026-08-09.md
-Latest production audit         docs/audits/matsuri-batch-34-production-verification-2026-08-09.md
+Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-35-2026-08-09.md
+Latest production audit         docs/audits/matsuri-batch-35-production-verification-2026-08-09.md
 Jinja start boundary            config/jinja-start-gate.json
 Production topology             docs/deployment-topology.md
 ```
-
-Exact maintenance and production values are machine-checked in the repository and production baseline JSON files.
 
 ## Verified Matsuri production position
 
@@ -49,66 +47,63 @@ Exact maintenance and production values are machine-checked in the repository an
 Worker                    matsuri-yukue
 Canonical origin          https://matsuri-yukue.badjoke-lab.com/
 Permanent Workers origin  https://matsuri-yukue.badjoke-lab.workers.dev/
-Verified release          7ff68b011aa37e980e8281b30a9fbc1dfc8c6802
+Verified release          532861f164e32847a1e6c84ce544430267ad83db
 Verified on               2026-08-09
-Canonical workflow        31303223524 — attempt 1 success
-Production-baseline PR    #208
-Production-baseline merge ad142b77c15f5a4b7d20818102eb4d9843f057ce
+Canonical workflow        31304578652 — attempt 1 success
+Production-baseline PR    #213
+Production-baseline merge d09e45363f607e54b948991574922863741efd71
 ```
 
-Exact canonical-production verification succeeded on attempt 1 for Batch 34.
+Exact canonical-production verification succeeded on attempt 1 for Batch 35.
 
 ```text
-Entities          102
-Change Events      96
-Relations          61
-Occurrences       155
-Sitemap entries   206
+Entities          104
+Change Events      97
+Relations          62
+Occurrences       157
+Sitemap entries   209
 ```
 
-The verifier confirmed HTTP 200 for the new おはら祭 Festival, おはら祭振興会 Organization, and 天文館電車通り会場 Place routes and confirmed the 2026 occurrence as record version 1 `scheduled / unknown`.
+The verifier confirmed HTTP 200 for 岸和田だんじり祭, 岸和田地区年番, and the distributed city-route Place. It also confirmed both future-dated 2026 festival components as record version 1 `scheduled / unknown`.
 
-No URL is claimed already indexed. The November 2026 edition is not claimed held before it occurs.
+No URL is claimed already indexed. Neither 2026 component is claimed held before it occurs.
 
 ## Current product track
 
-The enforced Detail C surface requires real detail pages for every approved primary record, State-free seed-reference pages for approved Shrine and Temple records, public Place pages, bidirectional Relations, claim-linked Evidence and Sources, individual JSON, direct-detail search results, and no empty detail sections or internal-code labels.
+Corpus expansion batches 11 through 35 are complete.
 
-Corpus expansion batches 11 through 34 are complete.
+Batch 35 added 岸和田だんじり祭 as the first approved primary Matsuri record for 大阪府. The record includes:
 
-Batch 34 added おはら祭 as the first approved primary Matsuri record for 鹿児島県. The record includes:
-
-- おはら祭振興会 as organizer;
-- the 天文館電車通り dance-zone Place;
+- 岸和田地区年番 as a bounded district-level operational Relation;
+- a distributed city-route Place backed by the official 岸和田市 Danjiri Map;
 - Current State `active`;
-- annual November 2 / November 3 recurrence;
-- the future-dated 2026 edition as `scheduled / unknown`;
-- a reviewed 1949 year-level start Change Event;
-- five Sources and nine claim-linked Evidence records.
+- separate September and October annual series;
+- September 19–20 and October 10–11, 2026 components as `scheduled / unknown`;
+- a reviewed year-level 1703 origin Change Event;
+- four municipal Sources and ten claim-linked Evidence records.
 
-The first Detail C run rejected the new route Place because municipality-level coordinate precision was not sufficient as a concrete map anchor. The gate was not weakened and no coordinates were invented. The reviewed official 2026 tourism venue-map context was registered through the approved official-map mechanism, after which map utility, Detail C, full-page visual review, repository CI, and exact canonical-production verification all passed.
+The two festival periods are not flattened into one artificial continuous Occurrence, and no route coordinates are invented.
 
 The canonical corpus now contains:
 
 ```text
-Entities          102
-Places             94
-State Snapshots    47
-Change Events      96
-Occurrences       155
-Relations          61
+Entities          104
+Places             95
+State Snapshots    48
+Change Events      97
+Occurrences       157
+Relations          62
 Designations       29
-Sources           264
-Evidence          603
+Sources           268
+Evidence          613
 ```
 
-Primary-record coverage is now 38 / 47 prefectures. Nine prefectures remain uncovered:
+Primary-record coverage is now 39 / 47 prefectures. Eight prefectures remain uncovered:
 
 ```text
 群馬県
 新潟県
 長野県
-大阪府
 兵庫県
 和歌山県
 鳥取県
@@ -128,17 +123,7 @@ Current status        observing
 Review complete       false
 ```
 
-Phase 10 observes production behavior, Search Console, Analytics receipt, corrections, deployment failures, data freshness, Relation integrity, Evidence quality, map-contract maintenance, and maintenance burden. Elapsed time alone does not complete the review. Search-engine indexation is observed but is not required.
-
-Recorded real maintenance evidence now includes:
-
-- the Batch 26 museum-hall route issue and correction;
-- the Batch 30 transient external-map connection failure that passed unchanged on retry;
-- the Batch 31 claim-specific Source-title correction;
-- the Batch 32 scheduled-to-held 弘前 and 秋田 maintenance cycle;
-- the August 8 青森ねぶた stale-schedule detection and correction;
-- the August 9 仙台七夕 stale-schedule detection and correction;
-- the Batch 34 おはら祭 map-contract rejection and official-map remediation without invented coordinates.
+Elapsed time alone does not complete the review. Search-engine indexation is observed but is not required. Recorded maintenance evidence includes the museum-hall route correction, transient map connection failure, Source-title correction, multiple 2026 scheduled-to-held rollovers, the Batch 34 official-map remediation, and Batch 35's split-component / official-map modeling.
 
 ## Routine Matsuri maintenance
 
@@ -154,23 +139,21 @@ pnpm check:matsuri:stabilization-review
 Current dated reviews:
 
 ```text
-山あげ祭 2026          review when official post-event Evidence is available
-さぬき高松まつり 2026 review after 2026-08-15
-吉田の火祭 2026       review after 2026-08-27
-郡上おどり 2026        review after 2026-09-05
-石岡のおまつり 2026   review after 2026-09-21
-佐陀神能 御座替祭 2026 review after 2026-09-25
-布橋灌頂会 2026       review after 2026-09-27
-上野天神祭 2026       review after 2026-10-25
-おはら祭 2026         review after 2026-11-03
-春日若宮おん祭 2026   review after 2026-12-18
+山あげ祭 2026                    review when official post-event Evidence is available
+さぬき高松まつり 2026           review after 2026-08-15
+吉田の火祭 2026                 review after 2026-08-27
+郡上おどり 2026                  review after 2026-09-05
+岸和田だんじり祭 9月祭礼 2026   review after 2026-09-20
+石岡のおまつり 2026             review after 2026-09-21
+佐陀神能 御座替祭 2026          review after 2026-09-25
+布橋灌頂会 2026                 review after 2026-09-27
+岸和田だんじり祭 10月祭礼 2026  review after 2026-10-11
+上野天神祭 2026                 review after 2026-10-25
+おはら祭 2026                   review after 2026-11-03
+春日若宮おん祭 2026             review after 2026-12-18
 ```
 
-Reviewed 2026 Occurrences already closed as held include 長浜曳山祭, 佐陀神能 special-public-performance, 浜松まつり, 西大寺会陽, 三国祭, 弘前ねぷたまつり, 秋田竿燈まつり, 青森ねぶた, and 仙台七夕まつり. Future-dated records retain their review boundaries.
-
 ## Jinja start boundary
-
-F2-28 is complete, but four separate prerequisites remain incomplete.
 
 ```text
 Matsuri F2-28 complete                 true
@@ -182,7 +165,7 @@ Explicit start authorization          false
 
 Actual Jinja start gate — blocked
 
-The candidate baseline contains 23 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Batch 34 adds no Shrine or Temple seed. Candidate extraction does not authorize implementation. No Jinja application, Worker, hostname, publication claim, or invented State Snapshot is authorized.
+The candidate baseline remains 23 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Batch 35 adds no Shrine or Temple seed. Candidate extraction does not authorize implementation.
 
 ## Current release status
 
@@ -193,14 +176,14 @@ repository-verified-canonical-production-verified-crawler-reachability-verified-
 ## Immediate next actions
 
 ```text
-Product track       start Matsuri corpus expansion Batch 35
+Product track       start Matsuri corpus expansion Batch 36
 Depth target        resolve the next due 2026 Occurrence or deepen a low-density primary record with claim-specific Evidence
-Breadth target      add one reviewed primary record from the 9 uncovered prefectures
+Breadth target      add one reviewed primary record from the 8 uncovered prefectures
 Detail track        keep every public title navigable through the enforced Detail C and map contracts
-Production check    Batch 34 exact canonical-production baseline verified
+Production check    Batch 35 exact canonical-production baseline verified
 Dated review        follow the remaining dated review inventory above
 Stabilization       continue recording real maintenance burden while expansion work is performed
 Gate review         not before 2026-08-10 and not by elapsed time alone
-Cloudflare track    no pending Batch 34 deployment action
+Cloudflare track    no pending Batch 35 deployment action
 Jinja track         remain blocked until all four post-launch prerequisites complete
 ```
