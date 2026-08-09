@@ -17,6 +17,9 @@ Phase 9 Launch Preparation   completed
 Phase 10 Stabilization       active
 Phase 10A Detail C repair    completed
 Phase 10B Corpus expansion   active
+Corpus batches 11-34         completed
+Batch 34 production          verified
+Next corpus batch            Batch 35
 Stabilization review         observing
 Actual Jinja start gate      blocked
 ```
@@ -41,13 +44,11 @@ F2-28  final F2 Launch Gate — completed
 
 F2-28 does not claim search-engine indexation and does not authorize Jinja.
 
-## Phase 10A — Detail C repair
+## Phase 10A — Detail C product contract
 
-Status: **Completed**
+Status: **Completed and continuously enforced**
 
-The post-launch review found that the accepted Detail C information architecture existed in specification but the public implementation exposed only one full Festival detail page. Most other public names were plain text or list-anchor destinations.
-
-The repair requires and verifies:
+The public contract requires:
 
 ```text
 all Festival and Tradition Unit detail pages
@@ -60,10 +61,11 @@ claim-linked Evidence and Sources
 direct individual JSON
 Pagefind results that open real details
 complete sitemap coverage
-static and Chromium navigation checks
+concrete map anchors or approved official maps where required
+static, Chromium navigation, and representative screenshot checks
 ```
 
-Governing contract:
+Governing checks include:
 
 ```text
 docs/matsuri-detail-c-implementation.md
@@ -74,20 +76,55 @@ pnpm check:matsuri:detail-navigation
 
 Status: **Active**
 
-The next primary work is not passive uptime observation. It is to turn the public corpus into a useful archive by adding and deepening approved records.
+Batch 34 is complete and exact canonical production is verified.
 
-Active work includes:
+Current checkpoint:
 
-- adding Festivals and Folk Performances across more regions,
-- prioritizing suspension, revival, discontinuation, format change, venue change, organizer change, and other non-trivial histories,
-- adding Year-by-Year Occurrences rather than only identity records,
-- strengthening Current State explanations and verification dates,
-- adding Organizations, Places, Shrines, and Temples only where useful Relations are supported,
-- linking each State, Change, Occurrence, Relation, Designation, identity, and location claim to Evidence and Source context,
-- applying corrections through the canonical correction contract,
-- recording the actual time and difficulty of maintenance work.
+```text
+Primary prefecture coverage  38 / 47
+Public Entities              102
+Places                        94
+State Snapshots               47
+Change Events                 96
+Relations                     61
+Occurrences                  155
+Sitemap entries              206
+Sources                      264
+Evidence                     603
+Sparse primary Entities        0
+```
 
-Data volume alone is not the gate. Records must provide current position, time history, navigable relationships, and evidence.
+Batch 34 added おはら祭 for 鹿児島県 and produced a map-contract maintenance case. The first Detail C run rejected municipality-level precision as an insufficient concrete map anchor. No coordinates were invented; reviewed official 2026 venue-map context was registered through the approved official-map mechanism, and the full verification chain then passed.
+
+### Batch 35 breadth target
+
+Add one reviewed primary record from:
+
+```text
+群馬県
+新潟県
+長野県
+大阪府
+兵庫県
+和歌山県
+鳥取県
+山口県
+宮崎県
+```
+
+The record must satisfy the existing Detail C, map, Evidence, Source, freshness, Relation, and production verification contracts. Geographic breadth alone is not sufficient.
+
+### Batch 35 depth target
+
+In parallel with breadth, do one of the following when evidence supports it:
+
+- close the next due 2026 Occurrence;
+- deepen a low-density primary record with claim-specific Evidence;
+- add a real Change Event or historical Occurrence;
+- strengthen Organization, Place, or Relation context;
+- process a correction or freshness issue discovered by the gates.
+
+Do not manufacture a depth change solely to make the batch symmetrical.
 
 ## Parallel stabilization review
 
@@ -96,19 +133,47 @@ Started               2026-07-27
 Minimum duration      14 days
 Earliest review       2026-08-10
 Status                observing
+Review complete       false
 Machine record        config/matsuri-stabilization-review.json
 Start audit           docs/audits/matsuri-stabilization-start-2026-07-27.md
 ```
 
-Stabilization observes production availability, deployment failures, canonical and HTTPS behavior, Search, crawler and sitemap behavior, Analytics receipt, Search Console, corrections, freshness, Relation integrity, and maintenance burden.
+Stabilization observes production availability, deployment failures, canonical and HTTPS behavior, Search, crawler and sitemap behavior, Analytics receipt, Search Console, corrections, freshness, Relation integrity, Evidence quality, map-contract maintenance, and maintenance burden.
 
-Reaching the date alone does not complete the gate. Maintenance burden must be judged from real corpus and correction work, not from leaving a small static site untouched.
+Reaching 2026-08-10 alone does not complete the gate. Maintenance burden must be judged from real corpus and correction work.
+
+Recorded maintenance examples now include the museum-hall route correction, transient map connection failure, Source-title correction, multiple 2026 scheduled-to-held rollovers, and the Batch 34 official-map remediation.
 
 Current dated reviews:
 
 ```text
-弘前ねぷた 2026         review after 2026-08-07
-郡上おどり 2026         review after 2026-09-05
+山あげ祭 2026          review when official post-event Evidence is available
+さぬき高松まつり 2026 review after 2026-08-15
+吉田の火祭 2026       review after 2026-08-27
+郡上おどり 2026        review after 2026-09-05
+石岡のおまつり 2026   review after 2026-09-21
+佐陀神能 御座替祭 2026 review after 2026-09-25
+布橋灌頂会 2026       review after 2026-09-27
+上野天神祭 2026       review after 2026-10-25
+おはら祭 2026         review after 2026-11-03
+春日若宮おん祭 2026   review after 2026-12-18
+```
+
+## Batch 35 execution order
+
+```text
+1. run freshness / Relation / Evidence / bundle checks on current main
+2. select one evidence-strong breadth target from the 9 uncovered prefectures
+3. add only evidence-supported depth or due maintenance
+4. register canonical bundles in every required loader
+5. run corpus, freshness, Relation, external-link, correction, seed, and Jinja gates
+6. run Detail C and map utility; do not invent coordinates to satisfy the map contract
+7. run full-page desktop/mobile screenshot review
+8. merge implementation only when the complete repository gate passes
+9. record a docs-only corpus audit from the squash-merged release baseline
+10. advance the production baseline to the exact release commit
+11. require canonical-origin verification against the public hostname
+12. record production verification and advance project-status / roadmap / schedule
 ```
 
 ## Future-site boundary
@@ -126,14 +191,16 @@ Explicit start authorization          false
 Before Jinja implementation:
 
 ```text
-1. expand and deepen the Matsuri corpus while operating the completed Detail C surface
-2. complete the Matsuri stabilization review with real maintenance evidence
+1. continue Matsuri corpus expansion and real maintenance observation
+2. complete the Matsuri stabilization review with recorded evidence
 3. decide portal/Jinja implementation order
 4. approve Jinja State specification and vocabulary
 5. record explicit start authorization
 6. pass the actual Jinja start gate
 7. only then create apps/jinja
 ```
+
+Current candidate inventory remains 23 Relation-backed Shrine seeds and zero approved Jinja State Snapshots.
 
 ## Work not activated
 
