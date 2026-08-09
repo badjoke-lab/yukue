@@ -1,0 +1,183 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-kishiwada-danjiri-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "岸和田だんじり祭",
+      "publisher": "岸和田市",
+      "url": "https://www.city.kishiwada.lg.jp/site/danjiri/index.html",
+      "accessed_at": "2026-08-09",
+      "language": "ja"
+    },
+    {
+      "id": "src-kishiwada-danjiri-history",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "だんじり祭の歴史",
+      "publisher": "岸和田市",
+      "url": "https://www.city.kishiwada.lg.jp/site/danjiri/rekishi.html",
+      "published_at": "2009-03-03",
+      "accessed_at": "2026-08-09",
+      "language": "ja"
+    },
+    {
+      "id": "src-kishiwada-danjiri-operation",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "だんじり祭の運営",
+      "publisher": "岸和田市",
+      "url": "https://www.city.kishiwada.lg.jp/site/danjiri/unei.html",
+      "published_at": "2009-03-03",
+      "accessed_at": "2026-08-09",
+      "language": "ja"
+    },
+    {
+      "id": "src-kishiwada-danjiri-map",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "Kishiwada Danjiri Map",
+      "publisher": "岸和田市",
+      "url": "https://www.city.kishiwada.lg.jp/site/danjiri/danjiri-map.html",
+      "published_at": "2023-09-15",
+      "accessed_at": "2026-08-09",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-kishiwada-danjiri-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kishiwada-danjiri-2026",
+      "target_type": "entity_identity",
+      "target_id": "fst-kishiwada-danjiri-matsuri",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "岸和田市の公式特設ページは『岸和田だんじり祭』を現行の祭として掲載し、令和8年度の9月・10月祭礼日程を案内している。",
+      "captured_at": "2026-08-09",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-kishiwada-danjiri-state-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kishiwada-danjiri-2026",
+      "target_type": "state_snapshot",
+      "target_id": "sts-kishiwada-danjiri-current",
+      "assertion_code": "supports_current_state",
+      "summary_ja": "岸和田市は2026年度の9月祭礼・10月祭礼の曳行日程を公表しているため、祭のCurrent Stateをactiveとする。",
+      "captured_at": "2026-08-09",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-kishiwada-danjiri-place",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kishiwada-danjiri-map",
+      "target_type": "place",
+      "target_id": "plc-kishiwada-danjiri-city-routes",
+      "assertion_code": "supports_place",
+      "summary_ja": "岸和田市は岸和田だんじり祭の曳行コースや宮入コースを確認できる公式だんじりMapへの案内を公開している。Placeは単一点ではなく市内各地区の曳行区域として扱う。",
+      "captured_at": "2026-08-09",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-kishiwada-danjiri-nenban-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kishiwada-danjiri-operation",
+      "target_type": "entity_identity",
+      "target_id": "org-kishiwada-danjiri-kishiwada-nenban",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "岸和田市は岸和田地区の年番組織を、各町から選出された年番で構成される祭礼運営組織として説明している。",
+      "captured_at": "2026-08-09",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-kishiwada-danjiri-kishiwada-nenban",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kishiwada-danjiri-operation",
+      "target_type": "relation",
+      "target_id": "rel-kishiwada-danjiri-supported-by-kishiwada-nenban",
+      "assertion_code": "supports_relation",
+      "summary_ja": "岸和田市は、各地区のだんじり祭全体の総括的な運営を毎年各町から選出される年番が担い、岸和田地区年番が曳行時間・コース決定や関係機関との折衝を行うと説明している。このRelationは岸和田地区部分への運営関与を示し、全地区の単独主催者とは扱わない。",
+      "captured_at": "2026-08-09",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-kishiwada-danjiri-origin-1703",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kishiwada-danjiri-history",
+      "target_type": "change_event",
+      "target_id": "chg-kishiwada-danjiri-origin-1703",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "岸和田市は、元禄16年（1703年）に岸和田藩主岡部長泰が五穀豊穣を祈願して行った稲荷祭を岸和田だんじり祭の始まりと伝えている。専用の開始イベント型がないためChange Eventはotherとし、年単位の起源記録に留める。",
+      "captured_at": "2026-08-09",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-kishiwada-danjiri-recurrence-september",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kishiwada-danjiri-operation",
+      "target_type": "recurrence_pattern",
+      "target_id": "rec-kishiwada-danjiri-september-annual",
+      "assertion_code": "supports_recurrence",
+      "summary_ja": "岸和田市は、岸和田地区・春木地区のだんじり祭を9月祭礼として説明している。",
+      "captured_at": "2026-08-09",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-kishiwada-danjiri-recurrence-october",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kishiwada-danjiri-operation",
+      "target_type": "recurrence_pattern",
+      "target_id": "rec-kishiwada-danjiri-october-annual",
+      "assertion_code": "supports_recurrence",
+      "summary_ja": "岸和田市は、東岸和田・南掃守・八木・山直・山直南・山滝の各地区のだんじり祭を10月祭礼として説明している。",
+      "captured_at": "2026-08-09",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-kishiwada-danjiri-occ-2026-september",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kishiwada-danjiri-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-kishiwada-danjiri-2026-september",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "岸和田市は2026年9月祭礼の宵宮を9月19日、本宮を9月20日と公表している。現在は開催前のため、この主要祭礼componentはscheduled、scaleはunknownとする。",
+      "captured_at": "2026-08-09",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-kishiwada-danjiri-occ-2026-october",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kishiwada-danjiri-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-kishiwada-danjiri-2026-october",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "岸和田市は2026年10月祭礼の宵宮を10月10日、本宮を10月11日と公表している。現在は開催前のため、この主要祭礼componentはscheduled、scaleはunknownとする。",
+      "captured_at": "2026-08-09",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
