@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
-  "observed_on": "2026-08-08",
-  "release_merge_commit": "15da1b287724a415042610c64852670cda6a7da8",
+  "observed_on": "2026-08-09",
+  "release_merge_commit": "239ac16067b9bc279d3a460dcbeae961244a0e88",
   "expected_counts": {
-    "entities": 97,
-    "events": 94,
-    "relations": 58,
-    "occurrences": 153,
-    "sitemap_entries": 198
+    "entities": 100,
+    "events": 95,
+    "relations": 60,
+    "occurrences": 154,
+    "sitemap_entries": 203
   },
   "required_routes": [
     "/festivals/aso-onda-matsuri/",
@@ -71,7 +71,12 @@
     "/organizations/karatsu-hikiyama-torishimarikai/",
     "/references/shrines/karatsu-jinja/",
     "/places/karatsu-jinja/",
-    "/places/karatsu-kunchi-route/"
+    "/places/karatsu-kunchi-route/",
+    "/festivals/chigasaki-kaigan-hamaori-sai/",
+    "/organizations/chigasaki-hamaori-jikkoiinkai/",
+    "/references/shrines/samukawa-jinja/",
+    "/places/chigasaki-nishihama-kaigan/",
+    "/places/samukawa-jinja/"
   ],
   "required_entities": [
     "fst-aso-onda-matsuri",
@@ -103,7 +108,10 @@
     "fst-nunokawa-hana-matsuri",
     "fst-karatsu-kunchi",
     "org-karatsu-hikiyama-torishimarikai",
-    "shr-karatsu-jinja"
+    "shr-karatsu-jinja",
+    "fst-chigasaki-kaigan-hamaori-sai",
+    "org-chigasaki-hamaori-jikkoiinkai",
+    "shr-samukawa-jinja"
   ],
   "occurrence_assertions": [
     { "id": "occ-aso-onda-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
@@ -150,6 +158,8 @@
     { "id": "occ-hirosaki-neputa-2026-schedule", "record_version": 2, "outcome": "held", "scale": "unknown" },
     { "id": "occ-akita-kanto-2026-schedule", "record_version": 2, "outcome": "held", "scale": "unknown" },
     { "id": "occ-karatsu-kunchi-2025", "record_version": 1, "outcome": "held", "scale": "unknown" },
-    { "id": "occ-aomori-nebuta-2026-schedule", "record_version": 2, "outcome": "held", "scale": "unknown" }
+    { "id": "occ-aomori-nebuta-2026-schedule", "record_version": 2, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-chigasaki-hamaori-2025", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-sendai-tanabata-2026-schedule", "record_version": 2, "outcome": "held", "scale": "unknown" }
   ]
 }
