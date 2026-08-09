@@ -80,6 +80,16 @@
       "label_ja": "2026年公式会場マップ・案内を見る",
       "url": "https://www.kagoshima-yokanavi.jp/event/10001",
       "source_id": "src-kagoshima-ohara-2026-tourism"
+    },
+    {
+      "entity_id": "fst-kishiwada-danjiri-matsuri",
+      "entity_route": "/festivals/kishiwada-danjiri-matsuri/",
+      "place_id": "plc-kishiwada-danjiri-city-routes",
+      "place_route": "/places/kishiwada-danjiri-city-routes/",
+      "place_name_ja": "岸和田だんじり祭 市内各地区曳行区域",
+      "label_ja": "岸和田市公式だんじりMapを見る",
+      "url": "https://www.city.kishiwada.lg.jp/site/danjiri/danjiri-map.html",
+      "source_id": "src-kishiwada-danjiri-map"
     }
   ]
 }
