@@ -17,7 +17,7 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | `audits/matsuri-stabilization-start-2026-07-27.md` | Observation-start audit | Public-safe start record and earliest eligible review date |
 | `audits/matsuri-detail-c-embedded-map-remediation-2026-07-28.md` | Passed corrective audit | Embedded-map remediation, exhaustive coverage, browser checks, and visual proof |
 | `matsuri-repository-baseline.md` | Machine-checked current | Exact bundle, Entity, launch-boundary, and Jinja-boundary values |
-| `audits/matsuri-batch-34-production-verification-2026-08-09.md` | Passed production audit | Batch 34 release, exact counts, Ohara routes, official-map remediation, sitemap, and canonical verification |
+| `audits/matsuri-batch-35-production-verification-2026-08-09.md` | Passed production audit | Batch 35 release, exact counts, Kishiwada routes, split 2026 components, sitemap, and canonical verification |
 | `audits/matsuri-f2-27-production-traffic-2026-07-27.md` | Passed audit | Public-safe production traffic evidence |
 | `audits/matsuri-f2-28-final-launch-gate-2026-07-27.md` | Passed audit | Final F2 launch evaluation |
 | `deployment-topology.md` | Matsuri active | Portal and specialist-site hostname and Worker boundaries |
