@@ -1,0 +1,210 @@
+{
+  "entities": [
+    {
+      "id": "fst-kagoshima-ohara-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-09T00:00:00Z",
+      "updated_at": "2026-08-09T00:00:00Z",
+      "slug": "kagoshima-ohara-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "おはら祭",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-kagoshima-ohara-2026-city"]
+        }
+      ],
+      "summary_ja": "毎年11月2日の夜まつりと11月3日の本まつりを中心に、鹿児島市の天文館電車通り一帯で総踊りなどを行う市民参加型の祭り。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "46",
+            "prefecture_name_ja": "鹿児島県",
+            "municipality_name_ja": "鹿児島市"
+          }
+        ],
+        "scope_type": "route_based",
+        "description_ja": "高見馬場からいづろ、桟橋通りを結ぶ天文館の電車通りを中心に開催される。"
+      },
+      "primary_place_id": "plc-kagoshima-ohara-tenmonkan-route",
+      "default_place_ids": ["plc-kagoshima-ohara-tenmonkan-route"],
+      "external_links": [
+        {
+          "kind": "municipality_page",
+          "platform": "web",
+          "url": "https://www.city.kagoshima.lg.jp/kanshin/event/2022hinosima.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-09"
+        },
+        {
+          "kind": "official_tourism_page",
+          "platform": "web",
+          "url": "https://www.kagoshima-yokanavi.jp/event/10001",
+          "is_primary": false,
+          "officiality": "official_organization",
+          "last_checked_at": "2026-08-09"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "dance_festival",
+      "usual_months": [11],
+      "usual_duration_days": 2,
+      "season_tags": ["秋"],
+      "occurrence_series_ids": ["ser-kagoshima-ohara-annual"]
+    },
+    {
+      "id": "org-ohara-matsuri-shinkokai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-09T00:00:00Z",
+      "updated_at": "2026-08-09T00:00:00Z",
+      "slug": "ohara-matsuri-shinkokai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "おはら祭振興会",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-kagoshima-ohara-organizer-2024"]
+        }
+      ],
+      "summary_ja": "おはら祭の主催者。鹿児島市観光振興課内に事務局が置かれている。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "46",
+            "prefecture_name_ja": "鹿児島県",
+            "municipality_name_ja": "鹿児島市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "municipality_page",
+          "platform": "web",
+          "url": "https://www.city.kagoshima.lg.jp/faq-bunka-sport/kanshin/q35.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-09"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "festival_committee"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-kagoshima-ohara-tenmonkan-route",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "おはら祭 天文館電車通り会場",
+      "place_kind": "festival_route",
+      "country_code": "JP",
+      "prefecture_code": "46",
+      "prefecture_name_ja": "鹿児島県",
+      "municipality_name_ja": "鹿児島市",
+      "locality_ja": "高見馬場～いづろ～桟橋通りを結ぶ電車通り約1,480m",
+      "coordinate_precision": "municipality",
+      "map_label_ja": "おはら祭 踊りゾーン",
+      "source_ids": ["src-kagoshima-ohara-2026-tourism"]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-kagoshima-ohara-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-kagoshima-ohara-matsuri",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-08-09",
+      "basis_evidence_ids": ["evd-kagoshima-ohara-state-2026"],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-kagoshima-ohara-started-1949",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "other",
+      "subject_entity_ids": ["fst-kagoshima-ohara-matsuri"],
+      "summary_ja": "鹿児島市制施行60周年を記念して、昭和24年（1949年）におはら祭が始まった。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-kagoshima-ohara-start-1949"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-kagoshima-ohara-2026-schedule",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-kagoshima-ohara-matsuri",
+      "series_id": "ser-kagoshima-ohara-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-11-02",
+        "end": "2026-11-03",
+        "precision": "range"
+      },
+      "outcome": "scheduled",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-kagoshima-ohara-tenmonkan-route"],
+      "organizer_entity_ids": ["org-ohara-matsuri-shinkokai"],
+      "evidence_ids": ["evd-kagoshima-ohara-occ-2026"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-kagoshima-ohara-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-kagoshima-ohara-matsuri",
+      "series_type": "annual_festival_edition",
+      "name_ja": "おはら祭 年次開催",
+      "recurrence_pattern_id": "rec-kagoshima-ohara-annual",
+      "default_venue_place_ids": ["plc-kagoshima-ohara-tenmonkan-route"],
+      "evidence_ids": ["evd-kagoshima-ohara-recurrence"]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-kagoshima-ohara-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年11月2日に夜まつり、11月3日に本まつりを開催する。",
+      "evidence_ids": ["evd-kagoshima-ohara-recurrence"]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-kagoshima-ohara-organized-by-shinkokai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-kagoshima-ohara-matsuri",
+      "relation_type": "organized_by",
+      "target_entity_id": "org-ohara-matsuri-shinkokai",
+      "evidence_ids": ["evd-rel-kagoshima-ohara-shinkokai"],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
