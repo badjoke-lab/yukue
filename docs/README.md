@@ -50,6 +50,7 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | 31 | `audits/matsuri-corpus-expansion-batch-31-2026-08-06.md` | Fukui breadth and Nunokawa national-designation history |
 | 32 | `audits/matsuri-corpus-expansion-batch-32-2026-08-07.md` | Due Hirosaki/Akita occurrence closure and Saga breadth through Karatsu Kunchi |
 | 33 | `audits/matsuri-corpus-expansion-batch-33-2026-08-09.md` | Kanagawa breadth through Chigasaki Kaigan Hamaori-sai plus the due Sendai 2026 outcome rollover |
+| 34 | `audits/matsuri-corpus-expansion-batch-34-2026-08-09.md` | Kagoshima breadth through Ohara Festival and official-route map remediation |
 
 ## Core specifications
 
