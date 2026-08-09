@@ -17,9 +17,9 @@ Phase 9 Launch Preparation   completed
 Phase 10 Stabilization       active
 Phase 10A Detail C repair    completed
 Phase 10B Corpus expansion   active
-Corpus batches 11-35         completed
-Batch 35 production          verified
-Next corpus batch            Batch 36
+Corpus batches 11-36         completed
+Batch 36 production          verified
+Next corpus batch            Batch 37
 Stabilization review         observing
 Actual Jinja start gate      blocked
 ```
@@ -65,27 +65,27 @@ static + Chromium + representative screenshot checks
 
 Status: **Active**
 
-Batch 35 is complete and exact canonical production is verified.
+Batch 36 is complete and exact canonical production is verified.
 
 Current checkpoint:
 
 ```text
-Primary prefecture coverage  39 / 47
-Public Entities              104
-Places                        95
-State Snapshots               48
-Change Events                 97
-Relations                     62
-Occurrences                  157
-Sitemap entries              209
-Sources                      268
-Evidence                     613
+Primary prefecture coverage  40 / 47
+Public Entities              106
+Places                        97
+State Snapshots               49
+Change Events                 98
+Relations                     63
+Occurrences                  158
+Sitemap entries              213
+Sources                      273
+Evidence                     623
 Sparse primary Entities        0
 ```
 
-Batch 35 added 岸和田だんじり祭 for 大阪府. September and October are separate annual series and separate future 2026 components. The 岸和田地区年番 Relation remains bounded to the role supported by the municipal Source, and the distributed route Place uses the official 岸和田市 Danjiri Map rather than fabricated coordinates.
+Batch 36 added 鳥取しゃんしゃん祭 for 鳥取県. The Festival is linked to 鳥取しゃんしゃん祭振興会, uses separate concrete and route Places, preserves the annual August 13–15 recurrence, keeps the future 2026 edition `scheduled / unknown`, and records the 1965 start at year precision. The official-map target uses the reviewed 鳥取市 風紋広場 page rather than fabricated coordinates.
 
-### Batch 36 breadth target
+### Batch 37 breadth target
 
 Add one reviewed primary record from:
 
@@ -95,14 +95,13 @@ Add one reviewed primary record from:
 長野県
 兵庫県
 和歌山県
-鳥取県
 山口県
 宮崎県
 ```
 
 Geographic breadth alone is not sufficient. The record must satisfy the existing Detail C, map, Evidence, Source, freshness, Relation, and production contracts.
 
-### Batch 36 depth target
+### Batch 37 depth target
 
 When evidence supports it, also do one of the following:
 
@@ -131,6 +130,7 @@ Current dated reviews:
 
 ```text
 山あげ祭 2026                    review when official post-event Evidence is available
+鳥取しゃんしゃん祭 2026          review after 2026-08-15
 さぬき高松まつり 2026           review after 2026-08-15
 吉田の火祭 2026                 review after 2026-08-27
 郡上おどり 2026                  review after 2026-09-05
@@ -144,11 +144,11 @@ Current dated reviews:
 春日若宮おん祭 2026             review after 2026-12-18
 ```
 
-## Batch 36 execution order
+## Batch 37 execution order
 
 ```text
 1. run freshness / Relation / Evidence / bundle checks on current main
-2. select one evidence-strong breadth target from the 8 uncovered prefectures
+2. select one evidence-strong breadth target from the 7 uncovered prefectures
 3. add only evidence-supported depth or due maintenance
 4. register canonical bundles in every required loader
 5. run corpus, freshness, Relation, external-link, correction, seed, and Jinja gates
