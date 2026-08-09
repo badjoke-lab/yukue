@@ -1,0 +1,39 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-sendai-tanabata-contest-result-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "仙台七夕飾りコンテスト２０２６のグランプリ・準グランプリが決まりました！！！",
+      "publisher": "仙台七夕まつり協賛会",
+      "url": "https://www.sendaitanabata.com/special/3178/",
+      "accessed_at": "2026-08-09",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-sendai-tanabata-occ-2026-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sendai-tanabata-contest-result-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-sendai-tanabata-2026-schedule",
+      "assertion_code": "supports_occurrence_outcome",
+      "summary_ja": "仙台七夕まつり協賛会の公式ページは、2026年の仙台七夕飾りコンテストを開催し、多数の投票を受け、祭期最終日の8月8日に受賞セレモニーを実施したと記録している。既存の公式2026年日程Evidenceと合わせ、2026年版の仙台七夕まつりが少なくとも最終日まで実運用されたことを裏付けるためOccurrenceはheldとする。一方、8月6日から8日までの全構成が通常どおり完遂されたことや規模はこのEvidenceだけから推定せずscaleはunknownとする。",
+      "captured_at": "2026-08-09",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}

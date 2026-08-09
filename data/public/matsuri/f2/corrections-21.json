@@ -1,0 +1,41 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [
+    {
+      "id": "occ-sendai-tanabata-2026-schedule",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "subject_entity_id": "fst-sendai-tanabata",
+      "series_id": "ser-sendai-tanabata-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-08-06",
+        "end": "2026-08-08",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-sendai-tanabata-central-area"
+      ],
+      "organizer_entity_ids": [
+        "org-sendai-tanabata-kyosankai"
+      ],
+      "evidence_ids": [
+        "evd-sendai-tanabata-occ-2026",
+        "evd-sendai-tanabata-occ-2026-held"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
