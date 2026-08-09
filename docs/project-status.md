@@ -14,7 +14,8 @@ Phase 10 — Matsuri Content Expansion and Stabilization
 F2-15 — Repository Launch Readiness Gate — completed
 F2-M01 — Full-page screenshot visual-review workflow — completed
 F2-M02 — Matsuri data freshness audit — completed
-F2-16 through F2-28 — completed
+F2-16 through F2-27 — completed
+F2-28 — final F2 Launch Gate — completed
 F2-P01 through F2-P13 — completed
 Phase 9 Launch Preparation — completed
 Phase 10 Stabilization — active
