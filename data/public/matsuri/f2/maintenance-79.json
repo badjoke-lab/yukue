@@ -1,0 +1,194 @@
+{
+  "entities": [
+    {
+      "id": "fst-tottori-shanshan-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-09T00:00:00Z",
+      "updated_at": "2026-08-09T00:00:00Z",
+      "slug": "tottori-shanshan-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [{
+        "value": "鳥取しゃんしゃん祭",
+        "lang": "ja",
+        "kind": "canonical",
+        "is_preferred": true,
+        "source_ids": ["src-tottori-shanshan-2026-event"]
+      }],
+      "summary_ja": "毎年8月13日から15日に鳥取市で行われる夏祭り。前夜祭のすずっこ踊り、一斉傘踊り、市民納涼花火大会で構成され、中心となる一斉傘踊りは鳥取県東部の因幡の傘踊りをもとにしている。",
+      "geographic_scope": {
+        "areas": [{
+          "prefecture_code": "31",
+          "prefecture_name_ja": "鳥取県",
+          "municipality_name_ja": "鳥取市"
+        }],
+        "scope_type": "route_based",
+        "description_ja": "鳥取駅前風紋広場と、若桜街道・片原通り・智頭街道・太平線通り・駅前通りを含む中心市街地を主要会場とする。"
+      },
+      "primary_place_id": "plc-tottori-fumon-hiroba",
+      "default_place_ids": ["plc-tottori-fumon-hiroba", "plc-tottori-shanshan-central-route"],
+      "external_links": [{
+        "kind": "official_website",
+        "platform": "web",
+        "url": "https://tottori-shanshan.jp/",
+        "is_primary": true,
+        "officiality": "official",
+        "last_checked_at": "2026-08-09"
+      }],
+      "record_lifecycle": "active",
+      "festival_kind": "dance_festival",
+      "usual_months": [8],
+      "usual_duration_days": 3,
+      "season_tags": ["夏"],
+      "occurrence_series_ids": ["ser-tottori-shanshan-annual"]
+    },
+    {
+      "id": "org-tottori-shanshan-shinkokai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-09T00:00:00Z",
+      "updated_at": "2026-08-09T00:00:00Z",
+      "slug": "tottori-shanshan-shinkokai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [{
+        "value": "鳥取しゃんしゃん祭振興会",
+        "lang": "ja",
+        "kind": "canonical",
+        "is_preferred": true,
+        "source_ids": ["src-tottori-shanshan-2026-event"]
+      }],
+      "summary_ja": "鳥取しゃんしゃん祭の開催概要・参加募集・運営情報を公開する振興会。",
+      "geographic_scope": {
+        "areas": [{
+          "prefecture_code": "31",
+          "prefecture_name_ja": "鳥取県",
+          "municipality_name_ja": "鳥取市"
+        }],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [{
+        "kind": "official_website",
+        "platform": "web",
+        "url": "https://tottori-shanshan.jp/",
+        "is_primary": true,
+        "officiality": "official",
+        "last_checked_at": "2026-08-09"
+      }],
+      "record_lifecycle": "active",
+      "organization_kind": "festival_committee"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-tottori-fumon-hiroba",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "JR鳥取駅前 風紋広場",
+      "place_kind": "festival_ground",
+      "country_code": "JP",
+      "prefecture_code": "31",
+      "prefecture_name_ja": "鳥取県",
+      "municipality_name_ja": "鳥取市",
+      "locality_ja": "東品治町・JR鳥取駅北口",
+      "coordinate_precision": "area",
+      "map_label_ja": "鳥取しゃんしゃん祭 前夜祭会場",
+      "source_ids": ["src-tottori-shanshan-2026-event", "src-tottori-fumon-hiroba-city"]
+    },
+    {
+      "id": "plc-tottori-shanshan-central-route",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "鳥取しゃんしゃん祭 一斉傘踊り中心市街地コース",
+      "place_kind": "festival_route",
+      "country_code": "JP",
+      "prefecture_code": "31",
+      "prefecture_name_ja": "鳥取県",
+      "municipality_name_ja": "鳥取市",
+      "locality_ja": "若桜街道～片原通り～智頭街道～太平線通り～駅前通り",
+      "coordinate_precision": "municipality",
+      "map_label_ja": "一斉傘踊り中心市街地コース",
+      "source_ids": ["src-tottori-shanshan-2026-event"]
+    }
+  ],
+  "stateSnapshots": [{
+    "id": "sts-tottori-shanshan-current",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "entity_id": "fst-tottori-shanshan-matsuri",
+    "state_schema": "matsuri.festival.v1",
+    "state_code": "active",
+    "observed_at": "2026-08-09",
+    "basis_evidence_ids": ["evd-tottori-shanshan-state-2026"],
+    "review_status": "approved"
+  }],
+  "changeEvents": [{
+    "id": "chg-tottori-shanshan-started-1965",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "event_type": "other",
+    "subject_entity_ids": ["fst-tottori-shanshan-matsuri"],
+    "effective_period": {"start": "1965"},
+    "summary_ja": "昭和40年（1965年）、従来の鳥取祭を『しゃんしゃん祭』として開催した。",
+    "resulting_state_snapshot_ids": [],
+    "related_relation_ids": [],
+    "evidence_ids": ["evd-tottori-shanshan-start-1965"],
+    "review_status": "approved"
+  }],
+  "occurrences": [{
+    "id": "occ-tottori-shanshan-2026",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "subject_entity_id": "fst-tottori-shanshan-matsuri",
+    "series_id": "ser-tottori-shanshan-annual",
+    "occurrence_type": "festival_edition",
+    "temporal_extent": {
+      "start": "2026-08-13",
+      "end": "2026-08-15",
+      "precision": "range"
+    },
+    "outcome": "scheduled",
+    "scale": "unknown",
+    "venue_place_ids": ["plc-tottori-fumon-hiroba", "plc-tottori-shanshan-central-route"],
+    "organizer_entity_ids": ["org-tottori-shanshan-shinkokai"],
+    "evidence_ids": ["evd-tottori-shanshan-occ-2026"],
+    "review_status": "approved"
+  }],
+  "occurrenceSeries": [{
+    "id": "ser-tottori-shanshan-annual",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "subject_entity_id": "fst-tottori-shanshan-matsuri",
+    "series_type": "annual_festival_edition",
+    "name_ja": "鳥取しゃんしゃん祭 年次開催",
+    "recurrence_pattern_id": "rec-tottori-shanshan-annual",
+    "default_venue_place_ids": ["plc-tottori-fumon-hiroba", "plc-tottori-shanshan-central-route"],
+    "evidence_ids": ["evd-tottori-shanshan-recurrence"]
+  }],
+  "recurrencePatterns": [{
+    "id": "rec-tottori-shanshan-annual",
+    "schema_version": "common.v1",
+    "record_version": 1,
+    "pattern_type": "annual",
+    "rule_text_ja": "毎年8月13日から15日に開催する。",
+    "evidence_ids": ["evd-tottori-shanshan-recurrence"]
+  }],
+  "relations": [{
+    "id": "rel-tottori-shanshan-organized-by-shinkokai",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "source_entity_id": "fst-tottori-shanshan-matsuri",
+    "relation_type": "organized_by",
+    "target_entity_id": "org-tottori-shanshan-shinkokai",
+    "evidence_ids": ["evd-rel-tottori-shanshan-shinkokai"],
+    "review_status": "approved"
+  }],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
