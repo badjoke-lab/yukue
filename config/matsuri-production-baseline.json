@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
   "observed_on": "2026-08-09",
-  "release_merge_commit": "532861f164e32847a1e6c84ce544430267ad83db",
+  "release_merge_commit": "440dddc53072d515cfa5cd0d33296add44dd1af2",
   "expected_counts": {
-    "entities": 104,
-    "events": 97,
-    "relations": 62,
-    "occurrences": 157,
-    "sitemap_entries": 209
+    "entities": 106,
+    "events": 98,
+    "relations": 63,
+    "occurrences": 158,
+    "sitemap_entries": 213
   },
   "required_routes": [
     "/festivals/aso-onda-matsuri/",
@@ -82,7 +82,11 @@
     "/places/kagoshima-ohara-tenmonkan-route/",
     "/festivals/kishiwada-danjiri-matsuri/",
     "/organizations/kishiwada-danjiri-kishiwada-nenban/",
-    "/places/kishiwada-danjiri-city-routes/"
+    "/places/kishiwada-danjiri-city-routes/",
+    "/festivals/tottori-shanshan-matsuri/",
+    "/organizations/tottori-shanshan-shinkokai/",
+    "/places/tottori-fumon-hiroba/",
+    "/places/tottori-shanshan-central-route/"
   ],
   "required_entities": [
     "fst-aso-onda-matsuri",
@@ -121,7 +125,9 @@
     "fst-kagoshima-ohara-matsuri",
     "org-ohara-matsuri-shinkokai",
     "fst-kishiwada-danjiri-matsuri",
-    "org-kishiwada-danjiri-kishiwada-nenban"
+    "org-kishiwada-danjiri-kishiwada-nenban",
+    "fst-tottori-shanshan-matsuri",
+    "org-tottori-shanshan-shinkokai"
   ],
   "occurrence_assertions": [
     { "id": "occ-aso-onda-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
@@ -173,6 +179,7 @@
     { "id": "occ-sendai-tanabata-2026-schedule", "record_version": 2, "outcome": "held", "scale": "unknown" },
     { "id": "occ-kagoshima-ohara-2026-schedule", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
     { "id": "occ-kishiwada-danjiri-2026-september", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
-    { "id": "occ-kishiwada-danjiri-2026-october", "record_version": 1, "outcome": "scheduled", "scale": "unknown" }
+    { "id": "occ-kishiwada-danjiri-2026-october", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
+    { "id": "occ-tottori-shanshan-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" }
   ]
 }
