@@ -39,25 +39,25 @@ docs/matsuri-detail-c-implementation.md
 
 Status: **Active**
 
-Current verified checkpoint after Batch 35:
+Current verified checkpoint after Batch 36:
 
 ```text
-Primary prefecture coverage  39 / 47
-Public Entities              104
-Places                        95
-State Snapshots               48
-Change Events                 97
-Relations                     62
-Occurrences                  157
-Sitemap entries              209
-Sources                      268
-Evidence                     613
+Primary prefecture coverage  40 / 47
+Public Entities              106
+Places                        97
+State Snapshots               49
+Change Events                 98
+Relations                     63
+Occurrences                  158
+Sitemap entries              213
+Sources                      273
+Evidence                     623
 Sparse primary Entities        0
 ```
 
-Batch 35 added the first approved primary record for 大阪府 through 岸和田だんじり祭. The September and October festival periods are modeled separately instead of being flattened into an artificial continuous range. The 岸和田地区年番 Relation is bounded to the district-level role supported by the municipal Source, and the distributed route uses the official 岸和田市 Danjiri Map rather than fabricated point coordinates.
+Batch 36 added the first approved primary record for 鳥取県 through 鳥取しゃんしゃん祭. The festival is linked to 鳥取しゃんしゃん祭振興会, retains the annual August 13–15 recurrence, keeps the 2026 edition `scheduled / unknown` while still future-dated, records the 1965 start at year precision, and separates JR鳥取駅前風紋広場 from the distributed city-center route. The official-map contract uses the reviewed 鳥取市 風紋広場 page instead of invented coordinates.
 
-The next breadth target is one reviewed primary Entity from the remaining eight uncovered prefectures:
+The next breadth target is one reviewed primary Entity from the remaining seven uncovered prefectures:
 
 ```text
 群馬県
@@ -65,7 +65,6 @@ The next breadth target is one reviewed primary Entity from the remaining eight 
 長野県
 兵庫県
 和歌山県
-鳥取県
 山口県
 宮崎県
 ```
@@ -85,7 +84,7 @@ Machine record        config/matsuri-stabilization-review.json
 
 Elapsed time alone does not complete Phase 10. Production availability, deployment behavior, canonical/HTTPS behavior, Search, crawler/sitemap behavior, Analytics, Search Console, freshness, Relations, Evidence, corrections, map-contract maintenance, and real maintenance burden remain under observation.
 
-Batch 35 adds another useful maintenance/modeling example: two separate annual components were preserved and a distributed Place was represented through an approved official map without inventing coordinates.
+Batch 36 adds another maintenance example: a future-dated edition remains scheduled despite being close to the observation date, while a route-based Festival still satisfies map requirements through a concrete official venue anchor without coordinate fabrication.
 
 ## Phase 11 — Portal and next-site gates
 
@@ -98,4 +97,4 @@ Jinja State specification             unapproved
 Explicit start authorization          absent
 ```
 
-The current candidate inventory remains 23 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Batch 35 adds no Shrine or Temple seed. Seed accumulation does not activate the next site.
+The current candidate inventory remains 23 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Batch 36 adds no Shrine or Temple seed. Seed accumulation does not activate the next site.
