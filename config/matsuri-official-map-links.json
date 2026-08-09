@@ -100,6 +100,16 @@
       "label_ja": "鳥取市公式 風紋広場地図を見る",
       "url": "https://www.city.tottori.lg.jp/site/kasenkouen-kouenn/5748.html",
       "source_id": "src-tottori-fumon-hiroba-city"
+    },
+    {
+      "entity_id": "fst-kobe-matsuri",
+      "entity_route": "/festivals/kobe-matsuri/",
+      "place_id": "plc-kobe-higashi-yuenchi",
+      "place_route": "/places/kobe-higashi-yuenchi/",
+      "place_name_ja": "東遊園地",
+      "label_ja": "神戸市公式 東遊園地地図を見る",
+      "url": "https://www.city.kobe.lg.jp/a10019/kurashi/machizukuri/park/08_higashiyuenchi.html",
+      "source_id": "src-kobe-higashi-yuenchi-city"
     }
   ]
 }
