@@ -1,0 +1,194 @@
+{
+  "entities": [
+    {
+      "id": "fst-kobe-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-09T00:00:00Z",
+      "updated_at": "2026-08-09T00:00:00Z",
+      "slug": "kobe-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [{
+        "value": "神戸まつり",
+        "lang": "ja",
+        "kind": "canonical",
+        "is_preferred": true,
+        "source_ids": ["src-kobe-matsuri-history", "src-kobe-matsuri-2026-official"]
+      }],
+      "summary_ja": "1971年に『みなとの祭』と『神戸カーニバル』を発展的に統合して始まった市民参加型の祭り。現在は毎年5月第3日曜日を基本に、パレードやステージなどを神戸市中心部で行う。",
+      "geographic_scope": {
+        "areas": [{
+          "prefecture_code": "28",
+          "prefecture_name_ja": "兵庫県",
+          "municipality_name_ja": "神戸市"
+        }],
+        "scope_type": "distributed",
+        "description_ja": "三宮旧居留地・東遊園地・ウォーターフロント周辺を会場とし、2026年のおまつりパレードは京町筋から三宮中央通りを通る。"
+      },
+      "primary_place_id": "plc-kobe-higashi-yuenchi",
+      "default_place_ids": ["plc-kobe-higashi-yuenchi", "plc-kobe-matsuri-parade-route"],
+      "external_links": [{
+        "kind": "official_website",
+        "platform": "web",
+        "url": "https://kobe-matsuri.com/",
+        "is_primary": true,
+        "officiality": "official",
+        "last_checked_at": "2026-08-09"
+      }],
+      "record_lifecycle": "active",
+      "festival_kind": "community_festival",
+      "usual_months": [5],
+      "usual_duration_days": 1,
+      "season_tags": ["春"],
+      "occurrence_series_ids": ["ser-kobe-matsuri-annual"]
+    },
+    {
+      "id": "org-kobe-shiminsai-kyokai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-09T00:00:00Z",
+      "updated_at": "2026-08-09T00:00:00Z",
+      "slug": "kobe-shiminsai-kyokai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [{
+        "value": "神戸市民祭協会",
+        "lang": "ja",
+        "kind": "canonical",
+        "is_preferred": true,
+        "source_ids": ["src-kobe-matsuri-2026-official"]
+      }],
+      "summary_ja": "神戸まつり公式サイトで主催者として明示される運営組織。",
+      "geographic_scope": {
+        "areas": [{
+          "prefecture_code": "28",
+          "prefecture_name_ja": "兵庫県",
+          "municipality_name_ja": "神戸市"
+        }],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [{
+        "kind": "organizer_website",
+        "platform": "web",
+        "url": "https://kobe-matsuri.com/",
+        "is_primary": true,
+        "officiality": "official_organization",
+        "last_checked_at": "2026-08-09"
+      }],
+      "record_lifecycle": "active",
+      "organization_kind": "association"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-kobe-higashi-yuenchi",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "東遊園地",
+      "place_kind": "festival_ground",
+      "country_code": "JP",
+      "prefecture_code": "28",
+      "prefecture_name_ja": "兵庫県",
+      "municipality_name_ja": "神戸市",
+      "locality_ja": "中央区加納町6丁目4-1、6丁目310及び312",
+      "coordinate_precision": "venue",
+      "map_label_ja": "神戸まつり 東遊園地会場",
+      "source_ids": ["src-kobe-matsuri-2026-city-outline", "src-kobe-higashi-yuenchi-city"]
+    },
+    {
+      "id": "plc-kobe-matsuri-parade-route",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "神戸まつり おまつりパレードコース",
+      "place_kind": "festival_route",
+      "country_code": "JP",
+      "prefecture_code": "28",
+      "prefecture_name_ja": "兵庫県",
+      "municipality_name_ja": "神戸市",
+      "locality_ja": "京町筋～三宮中央通り",
+      "coordinate_precision": "municipality",
+      "map_label_ja": "第53回神戸まつり おまつりパレードコース",
+      "source_ids": ["src-kobe-matsuri-2026-official", "src-kobe-matsuri-2026-city-decision"]
+    }
+  ],
+  "stateSnapshots": [{
+    "id": "sts-kobe-matsuri-current",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "entity_id": "fst-kobe-matsuri",
+    "state_schema": "matsuri.festival.v1",
+    "state_code": "active",
+    "observed_at": "2026-08-09",
+    "basis_evidence_ids": ["evd-kobe-matsuri-state-2026"],
+    "review_status": "approved"
+  }],
+  "changeEvents": [{
+    "id": "chg-kobe-matsuri-started-1971",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "event_type": "other",
+    "subject_entity_ids": ["fst-kobe-matsuri"],
+    "effective_period": {"start": "1971"},
+    "summary_ja": "昭和46年（1971年）、『みなとの祭』と『神戸カーニバル』を発展的に解消して『神戸まつり』として実施する形へ移行した。",
+    "resulting_state_snapshot_ids": [],
+    "related_relation_ids": [],
+    "evidence_ids": ["evd-kobe-matsuri-start-1971"],
+    "review_status": "approved"
+  }],
+  "occurrences": [{
+    "id": "occ-kobe-matsuri-2026",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "subject_entity_id": "fst-kobe-matsuri",
+    "series_id": "ser-kobe-matsuri-annual",
+    "occurrence_type": "festival_edition",
+    "temporal_extent": {
+      "start": "2026-05-17",
+      "end": "2026-05-17",
+      "precision": "day"
+    },
+    "outcome": "held",
+    "scale": "unknown",
+    "venue_place_ids": ["plc-kobe-higashi-yuenchi", "plc-kobe-matsuri-parade-route"],
+    "organizer_entity_ids": ["org-kobe-shiminsai-kyokai"],
+    "evidence_ids": ["evd-kobe-matsuri-occ-2026"],
+    "review_status": "approved"
+  }],
+  "occurrenceSeries": [{
+    "id": "ser-kobe-matsuri-annual",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "subject_entity_id": "fst-kobe-matsuri",
+    "series_type": "annual_festival_edition",
+    "name_ja": "神戸まつり 年次開催",
+    "recurrence_pattern_id": "rec-kobe-matsuri-third-sunday-may",
+    "default_venue_place_ids": ["plc-kobe-higashi-yuenchi", "plc-kobe-matsuri-parade-route"],
+    "evidence_ids": ["evd-kobe-matsuri-recurrence"]
+  }],
+  "recurrencePatterns": [{
+    "id": "rec-kobe-matsuri-third-sunday-may",
+    "schema_version": "common.v1",
+    "record_version": 1,
+    "pattern_type": "annual",
+    "rule_text_ja": "毎年5月の第3日曜日に実施する。",
+    "evidence_ids": ["evd-kobe-matsuri-recurrence"]
+  }],
+  "relations": [{
+    "id": "rel-kobe-matsuri-organized-by-shiminsai-kyokai",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "source_entity_id": "fst-kobe-matsuri",
+    "relation_type": "organized_by",
+    "target_entity_id": "org-kobe-shiminsai-kyokai",
+    "evidence_ids": ["evd-rel-kobe-matsuri-shiminsai-kyokai"],
+    "review_status": "approved"
+  }],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
