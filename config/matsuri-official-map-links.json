@@ -70,6 +70,16 @@
       "label_ja": "2026年の日別会場地図を見る",
       "url": "https://www.gujohachiman.com/kanko/odori_schedule.html",
       "source_id": "src-gujo-schedule-2026"
+    },
+    {
+      "entity_id": "fst-kagoshima-ohara-matsuri",
+      "entity_route": "/festivals/kagoshima-ohara-matsuri/",
+      "place_id": "plc-kagoshima-ohara-tenmonkan-route",
+      "place_route": "/places/kagoshima-ohara-tenmonkan-route/",
+      "place_name_ja": "おはら祭 天文館電車通り会場",
+      "label_ja": "2026年公式会場マップ・案内を見る",
+      "url": "https://www.kagoshima-yokanavi.jp/event/10001",
+      "source_id": "src-kagoshima-ohara-2026-tourism"
     }
   ]
 }
