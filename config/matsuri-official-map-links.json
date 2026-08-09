@@ -90,6 +90,16 @@
       "label_ja": "岸和田市公式だんじりMapを見る",
       "url": "https://www.city.kishiwada.lg.jp/site/danjiri/danjiri-map.html",
       "source_id": "src-kishiwada-danjiri-map"
+    },
+    {
+      "entity_id": "fst-tottori-shanshan-matsuri",
+      "entity_route": "/festivals/tottori-shanshan-matsuri/",
+      "place_id": "plc-tottori-fumon-hiroba",
+      "place_route": "/places/tottori-fumon-hiroba/",
+      "place_name_ja": "JR鳥取駅前 風紋広場",
+      "label_ja": "鳥取市公式 風紋広場地図を見る",
+      "url": "https://www.city.tottori.lg.jp/site/kasenkouen-kouenn/5748.html",
+      "source_id": "src-tottori-fumon-hiroba-city"
     }
   ]
 }
