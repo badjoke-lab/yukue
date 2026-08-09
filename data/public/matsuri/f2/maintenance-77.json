@@ -1,0 +1,242 @@
+{
+  "entities": [
+    {
+      "id": "fst-kishiwada-danjiri-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-09T00:00:00Z",
+      "updated_at": "2026-08-09T00:00:00Z",
+      "slug": "kishiwada-danjiri-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "岸和田だんじり祭",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-kishiwada-danjiri-2026"]
+        }
+      ],
+      "summary_ja": "岸和田市で、9月は岸和田地区・春木地区、10月は東岸和田地区など6地区に分かれて行われるだんじり祭。各町のだんじりが市内の曳行区域を巡る。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "27",
+            "prefecture_name_ja": "大阪府",
+            "municipality_name_ja": "岸和田市"
+          }
+        ],
+        "scope_type": "route_based",
+        "description_ja": "9月祭礼は岸和田地区・春木地区、10月祭礼は東岸和田地区・南掃守地区・八木地区・山直地区・山直南地区・山滝地区で行われる。"
+      },
+      "primary_place_id": "plc-kishiwada-danjiri-city-routes",
+      "default_place_ids": ["plc-kishiwada-danjiri-city-routes"],
+      "external_links": [
+        {
+          "kind": "municipality_page",
+          "platform": "web",
+          "url": "https://www.city.kishiwada.lg.jp/site/danjiri/index.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-09"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "procession_festival",
+      "usual_months": [9, 10],
+      "season_tags": ["秋"],
+      "occurrence_series_ids": [
+        "ser-kishiwada-danjiri-september-annual",
+        "ser-kishiwada-danjiri-october-annual"
+      ]
+    },
+    {
+      "id": "org-kishiwada-danjiri-kishiwada-nenban",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-09T00:00:00Z",
+      "updated_at": "2026-08-09T00:00:00Z",
+      "slug": "kishiwada-danjiri-kishiwada-nenban",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "岸和田地区年番",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-kishiwada-danjiri-operation"]
+        }
+      ],
+      "summary_ja": "岸和田地区の各町から選出される年番で構成され、曳行時間・曳行コースの決定や市・警察等との折衝など、岸和田地区祭礼の総括的な運営を担う。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "27",
+            "prefecture_name_ja": "大阪府",
+            "municipality_name_ja": "岸和田市"
+          }
+        ],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [
+        {
+          "kind": "municipality_page",
+          "platform": "web",
+          "url": "https://www.city.kishiwada.lg.jp/site/danjiri/unei.html",
+          "is_primary": true,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-09"
+        }
+      ],
+      "record_lifecycle": "active",
+      "organization_kind": "local_association"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-kishiwada-danjiri-city-routes",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "岸和田だんじり祭 市内各地区曳行区域",
+      "place_kind": "festival_route",
+      "country_code": "JP",
+      "prefecture_code": "27",
+      "prefecture_name_ja": "大阪府",
+      "municipality_name_ja": "岸和田市",
+      "locality_ja": "岸和田・春木・東岸和田・南掃守・八木・山直・山直南・山滝の各地区",
+      "coordinate_precision": "municipality",
+      "map_label_ja": "岸和田だんじり祭 曳行区域",
+      "source_ids": ["src-kishiwada-danjiri-map"]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-kishiwada-danjiri-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-kishiwada-danjiri-matsuri",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-08-09",
+      "basis_evidence_ids": ["evd-kishiwada-danjiri-state-2026"],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-kishiwada-danjiri-origin-1703",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "other",
+      "subject_entity_ids": ["fst-kishiwada-danjiri-matsuri"],
+      "summary_ja": "元禄16年（1703年）、岸和田藩主岡部長泰が五穀豊穣を祈願して行った稲荷祭が岸和田だんじり祭の始まりと伝えられる。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-kishiwada-danjiri-origin-1703"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-kishiwada-danjiri-2026-september",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-kishiwada-danjiri-matsuri",
+      "series_id": "ser-kishiwada-danjiri-september-annual",
+      "occurrence_type": "festival_component",
+      "temporal_extent": {
+        "start": "2026-09-19",
+        "end": "2026-09-20",
+        "precision": "range"
+      },
+      "outcome": "scheduled",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-kishiwada-danjiri-city-routes"],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-kishiwada-danjiri-occ-2026-september"],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-kishiwada-danjiri-2026-october",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-kishiwada-danjiri-matsuri",
+      "series_id": "ser-kishiwada-danjiri-october-annual",
+      "occurrence_type": "festival_component",
+      "temporal_extent": {
+        "start": "2026-10-10",
+        "end": "2026-10-11",
+        "precision": "range"
+      },
+      "outcome": "scheduled",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-kishiwada-danjiri-city-routes"],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-kishiwada-danjiri-occ-2026-october"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-kishiwada-danjiri-september-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-kishiwada-danjiri-matsuri",
+      "series_type": "annual_festival_edition",
+      "name_ja": "岸和田だんじり祭 9月祭礼",
+      "recurrence_pattern_id": "rec-kishiwada-danjiri-september-annual",
+      "default_venue_place_ids": ["plc-kishiwada-danjiri-city-routes"],
+      "evidence_ids": ["evd-kishiwada-danjiri-recurrence-september"]
+    },
+    {
+      "id": "ser-kishiwada-danjiri-october-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-kishiwada-danjiri-matsuri",
+      "series_type": "annual_festival_edition",
+      "name_ja": "岸和田だんじり祭 10月祭礼",
+      "recurrence_pattern_id": "rec-kishiwada-danjiri-october-annual",
+      "default_venue_place_ids": ["plc-kishiwada-danjiri-city-routes"],
+      "evidence_ids": ["evd-kishiwada-danjiri-recurrence-october"]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-kishiwada-danjiri-september-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年9月、岸和田地区・春木地区で祭礼を行う。",
+      "evidence_ids": ["evd-kishiwada-danjiri-recurrence-september"]
+    },
+    {
+      "id": "rec-kishiwada-danjiri-october-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "毎年10月、東岸和田・南掃守・八木・山直・山直南・山滝の各地区で祭礼を行う。",
+      "evidence_ids": ["evd-kishiwada-danjiri-recurrence-october"]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-kishiwada-danjiri-supported-by-kishiwada-nenban",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-kishiwada-danjiri-matsuri",
+      "relation_type": "supported_by",
+      "target_entity_id": "org-kishiwada-danjiri-kishiwada-nenban",
+      "evidence_ids": ["evd-rel-kishiwada-danjiri-kishiwada-nenban"],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
