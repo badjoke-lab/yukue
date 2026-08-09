@@ -17,9 +17,9 @@ Phase 9 Launch Preparation   completed
 Phase 10 Stabilization       active
 Phase 10A Detail C repair    completed
 Phase 10B Corpus expansion   active
-Corpus batches 11-34         completed
-Batch 34 production          verified
-Next corpus batch            Batch 35
+Corpus batches 11-35         completed
+Batch 35 production          verified
+Next corpus batch            Batch 36
 Stabilization review         observing
 Actual Jinja start gate      blocked
 ```
@@ -48,55 +48,44 @@ F2-28 does not claim search-engine indexation and does not authorize Jinja.
 
 Status: **Completed and continuously enforced**
 
-The public contract requires:
-
 ```text
-all Festival and Tradition Unit detail pages
-all Folk Performance detail pages
-all Organization detail pages
-State-free Shrine and Temple seed-reference pages
+real Festival / Performance / Organization detail pages
+State-free Shrine and Temple seed references
 Place pages with reverse links
-grouped and bidirectional Relations
+bidirectional Relations
 claim-linked Evidence and Sources
-direct individual JSON
-Pagefind results that open real details
+individual public JSON
+Pagefind direct details
 complete sitemap coverage
-concrete map anchors or approved official maps where required
-static, Chromium navigation, and representative screenshot checks
-```
-
-Governing checks include:
-
-```text
-docs/matsuri-detail-c-implementation.md
-pnpm check:matsuri:detail-navigation
+concrete map anchors or approved official maps
+static + Chromium + representative screenshot checks
 ```
 
 ## Phase 10B — Matsuri corpus expansion
 
 Status: **Active**
 
-Batch 34 is complete and exact canonical production is verified.
+Batch 35 is complete and exact canonical production is verified.
 
 Current checkpoint:
 
 ```text
-Primary prefecture coverage  38 / 47
-Public Entities              102
-Places                        94
-State Snapshots               47
-Change Events                 96
-Relations                     61
-Occurrences                  155
-Sitemap entries              206
-Sources                      264
-Evidence                     603
+Primary prefecture coverage  39 / 47
+Public Entities              104
+Places                        95
+State Snapshots               48
+Change Events                 97
+Relations                     62
+Occurrences                  157
+Sitemap entries              209
+Sources                      268
+Evidence                     613
 Sparse primary Entities        0
 ```
 
-Batch 34 added おはら祭 for 鹿児島県 and produced a map-contract maintenance case. The first Detail C run rejected municipality-level precision as an insufficient concrete map anchor. No coordinates were invented; reviewed official 2026 venue-map context was registered through the approved official-map mechanism, and the full verification chain then passed.
+Batch 35 added 岸和田だんじり祭 for 大阪府. September and October are separate annual series and separate future 2026 components. The 岸和田地区年番 Relation remains bounded to the role supported by the municipal Source, and the distributed route Place uses the official 岸和田市 Danjiri Map rather than fabricated coordinates.
 
-### Batch 35 breadth target
+### Batch 36 breadth target
 
 Add one reviewed primary record from:
 
@@ -104,7 +93,6 @@ Add one reviewed primary record from:
 群馬県
 新潟県
 長野県
-大阪府
 兵庫県
 和歌山県
 鳥取県
@@ -112,11 +100,11 @@ Add one reviewed primary record from:
 宮崎県
 ```
 
-The record must satisfy the existing Detail C, map, Evidence, Source, freshness, Relation, and production verification contracts. Geographic breadth alone is not sufficient.
+Geographic breadth alone is not sufficient. The record must satisfy the existing Detail C, map, Evidence, Source, freshness, Relation, and production contracts.
 
-### Batch 35 depth target
+### Batch 36 depth target
 
-In parallel with breadth, do one of the following when evidence supports it:
+When evidence supports it, also do one of the following:
 
 - close the next due 2026 Occurrence;
 - deepen a low-density primary record with claim-specific Evidence;
@@ -124,7 +112,7 @@ In parallel with breadth, do one of the following when evidence supports it:
 - strengthen Organization, Place, or Relation context;
 - process a correction or freshness issue discovered by the gates.
 
-Do not manufacture a depth change solely to make the batch symmetrical.
+Do not manufacture a depth change solely for symmetry.
 
 ## Parallel stabilization review
 
@@ -135,41 +123,38 @@ Earliest review       2026-08-10
 Status                observing
 Review complete       false
 Machine record        config/matsuri-stabilization-review.json
-Start audit           docs/audits/matsuri-stabilization-start-2026-07-27.md
 ```
 
-Stabilization observes production availability, deployment failures, canonical and HTTPS behavior, Search, crawler and sitemap behavior, Analytics receipt, Search Console, corrections, freshness, Relation integrity, Evidence quality, map-contract maintenance, and maintenance burden.
-
 Reaching 2026-08-10 alone does not complete the gate. Maintenance burden must be judged from real corpus and correction work.
-
-Recorded maintenance examples now include the museum-hall route correction, transient map connection failure, Source-title correction, multiple 2026 scheduled-to-held rollovers, and the Batch 34 official-map remediation.
 
 Current dated reviews:
 
 ```text
-山あげ祭 2026          review when official post-event Evidence is available
-さぬき高松まつり 2026 review after 2026-08-15
-吉田の火祭 2026       review after 2026-08-27
-郡上おどり 2026        review after 2026-09-05
-石岡のおまつり 2026   review after 2026-09-21
-佐陀神能 御座替祭 2026 review after 2026-09-25
-布橋灌頂会 2026       review after 2026-09-27
-上野天神祭 2026       review after 2026-10-25
-おはら祭 2026         review after 2026-11-03
-春日若宮おん祭 2026   review after 2026-12-18
+山あげ祭 2026                    review when official post-event Evidence is available
+さぬき高松まつり 2026           review after 2026-08-15
+吉田の火祭 2026                 review after 2026-08-27
+郡上おどり 2026                  review after 2026-09-05
+岸和田だんじり祭 9月祭礼 2026   review after 2026-09-20
+石岡のおまつり 2026             review after 2026-09-21
+佐陀神能 御座替祭 2026          review after 2026-09-25
+布橋灌頂会 2026                 review after 2026-09-27
+岸和田だんじり祭 10月祭礼 2026  review after 2026-10-11
+上野天神祭 2026                 review after 2026-10-25
+おはら祭 2026                   review after 2026-11-03
+春日若宮おん祭 2026             review after 2026-12-18
 ```
 
-## Batch 35 execution order
+## Batch 36 execution order
 
 ```text
 1. run freshness / Relation / Evidence / bundle checks on current main
-2. select one evidence-strong breadth target from the 9 uncovered prefectures
+2. select one evidence-strong breadth target from the 8 uncovered prefectures
 3. add only evidence-supported depth or due maintenance
 4. register canonical bundles in every required loader
 5. run corpus, freshness, Relation, external-link, correction, seed, and Jinja gates
-6. run Detail C and map utility; do not invent coordinates to satisfy the map contract
+6. run Detail C and map utility; do not invent coordinates
 7. run full-page desktop/mobile screenshot review
-8. merge implementation only when the complete repository gate passes
+8. merge implementation only when complete repository CI passes
 9. record a docs-only corpus audit from the squash-merged release baseline
 10. advance the production baseline to the exact release commit
 11. require canonical-origin verification against the public hostname
@@ -178,26 +163,12 @@ Current dated reviews:
 
 ## Future-site boundary
 
-F2-28 completion satisfies only the first Jinja prerequisite.
-
 ```text
 Matsuri F2-28 complete                 true
 Matsuri stabilization review          false
 Portal/Jinja implementation order     false
 Jinja State specification approved    false
 Explicit start authorization          false
-```
-
-Before Jinja implementation:
-
-```text
-1. continue Matsuri corpus expansion and real maintenance observation
-2. complete the Matsuri stabilization review with recorded evidence
-3. decide portal/Jinja implementation order
-4. approve Jinja State specification and vocabulary
-5. record explicit start authorization
-6. pass the actual Jinja start gate
-7. only then create apps/jinja
 ```
 
 Current candidate inventory remains 23 Relation-backed Shrine seeds and zero approved Jinja State Snapshots.
