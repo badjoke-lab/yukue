@@ -130,6 +130,16 @@
       "label_ja": "長野びんずる公式 連進行・施設配置図を見る",
       "url": "https://binzuru.info/renmap/",
       "source_id": "src-nagano-binzuru-route-official"
+    },
+    {
+      "entity_id": "fst-niigata-matsuri",
+      "entity_route": "/festivals/niigata-matsuri/",
+      "place_id": "plc-niigata-matsuri-central-area",
+      "place_route": "/places/niigata-matsuri-central-area/",
+      "place_name_ja": "新潟まつり 中心市街地会場",
+      "label_ja": "新潟まつり公式 交通規制・会場案内を見る",
+      "url": "https://niigata-matsuri.com/",
+      "source_id": "src-niigata-matsuri-2026-home-map"
     }
   ]
 }
