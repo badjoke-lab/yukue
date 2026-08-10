@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
   "observed_on": "2026-08-10",
-  "release_merge_commit": "76ab0b37294870e3fb372405672867053a7b7936",
+  "release_merge_commit": "3e483cbb05f1416398ccefc56576116af4e9b126",
   "expected_counts": {
-    "entities": 112,
-    "events": 102,
-    "relations": 66,
-    "occurrences": 161,
-    "sitemap_entries": 223
+    "entities": 114,
+    "events": 103,
+    "relations": 67,
+    "occurrences": 162,
+    "sitemap_entries": 226
   },
   "required_routes": [
     "/festivals/aso-onda-matsuri/",
@@ -96,7 +96,10 @@
     "/places/kiryu-yagibushi-center-route/",
     "/festivals/nagano-binzuru/",
     "/organizations/nagano-binzuru-jikkoiinkai/",
-    "/places/nagano-binzuru-central-route/"
+    "/places/nagano-binzuru-central-route/",
+    "/festivals/niigata-matsuri/",
+    "/organizations/niigata-matsuri-jikkoiinkai/",
+    "/places/niigata-matsuri-central-area/"
   ],
   "required_entities": [
     "fst-aso-onda-matsuri",
@@ -143,7 +146,9 @@
     "fst-kiryu-yagibushi-matsuri",
     "org-kiryu-yagibushi-matsuri-kyosankai",
     "fst-nagano-binzuru",
-    "org-nagano-binzuru-jikkoiinkai"
+    "org-nagano-binzuru-jikkoiinkai",
+    "fst-niigata-matsuri",
+    "org-niigata-matsuri-jikkoiinkai"
   ],
   "occurrence_assertions": [
     { "id": "occ-aso-onda-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
@@ -199,6 +204,7 @@
     { "id": "occ-tottori-shanshan-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
     { "id": "occ-kobe-matsuri-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
     { "id": "occ-kiryu-yagibushi-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
-    { "id": "occ-nagano-binzuru-2025", "record_version": 1, "outcome": "held", "scale": "unknown" }
+    { "id": "occ-nagano-binzuru-2025", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-niigata-matsuri-2025", "record_version": 1, "outcome": "held", "scale": "modified" }
   ]
 }
