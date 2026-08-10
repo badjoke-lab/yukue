@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
   "observed_on": "2026-08-10",
-  "release_merge_commit": "a0f1dfc3a241479c419e745cf8f04fbe33be9aae",
+  "release_merge_commit": "03a6bcb8b58d3bc37e200c2eb4f7d6e41c7923d7",
   "expected_counts": {
-    "entities": 108,
-    "events": 99,
-    "relations": 64,
-    "occurrences": 159,
-    "sitemap_entries": 217
+    "entities": 110,
+    "events": 101,
+    "relations": 65,
+    "occurrences": 160,
+    "sitemap_entries": 220
   },
   "required_routes": [
     "/festivals/aso-onda-matsuri/",
@@ -90,7 +90,10 @@
     "/festivals/kobe-matsuri/",
     "/organizations/kobe-shiminsai-kyokai/",
     "/places/kobe-higashi-yuenchi/",
-    "/places/kobe-matsuri-parade-route/"
+    "/places/kobe-matsuri-parade-route/",
+    "/festivals/kiryu-yagibushi-matsuri/",
+    "/organizations/kiryu-yagibushi-matsuri-kyosankai/",
+    "/places/kiryu-yagibushi-center-route/"
   ],
   "required_entities": [
     "fst-aso-onda-matsuri",
@@ -133,7 +136,9 @@
     "fst-tottori-shanshan-matsuri",
     "org-tottori-shanshan-shinkokai",
     "fst-kobe-matsuri",
-    "org-kobe-shiminsai-kyokai"
+    "org-kobe-shiminsai-kyokai",
+    "fst-kiryu-yagibushi-matsuri",
+    "org-kiryu-yagibushi-matsuri-kyosankai"
   ],
   "occurrence_assertions": [
     { "id": "occ-aso-onda-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
@@ -187,6 +192,7 @@
     { "id": "occ-kishiwada-danjiri-2026-september", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
     { "id": "occ-kishiwada-danjiri-2026-october", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
     { "id": "occ-tottori-shanshan-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
-    { "id": "occ-kobe-matsuri-2026", "record_version": 1, "outcome": "held", "scale": "unknown" }
+    { "id": "occ-kobe-matsuri-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-kiryu-yagibushi-2024", "record_version": 1, "outcome": "held", "scale": "unknown" }
   ]
 }
