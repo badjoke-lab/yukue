@@ -17,7 +17,7 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | `audits/matsuri-stabilization-start-2026-07-27.md` | Observation-start audit | Public-safe start record and earliest eligible review date |
 | `audits/matsuri-detail-c-embedded-map-remediation-2026-07-28.md` | Passed corrective audit | Embedded-map remediation, exhaustive coverage, browser checks, and visual proof |
 | `matsuri-repository-baseline.md` | Machine-checked current | Exact bundle, Entity, launch-boundary, and Jinja-boundary values |
-| `audits/matsuri-batch-38-production-verification-2026-08-10.md` | Passed production audit | Batch 38 release, exact counts, Kiryu routes, 2024 held assertion, sitemap, and canonical verification |
+| `audits/matsuri-batch-39-production-verification-2026-08-10.md` | Passed production audit | Batch 39 release, exact counts, Nagano routes, 2025 held assertion, sitemap, and canonical verification |
 | `audits/matsuri-f2-27-production-traffic-2026-07-27.md` | Passed audit | Public-safe production traffic evidence |
 | `audits/matsuri-f2-28-final-launch-gate-2026-07-27.md` | Passed audit | Final F2 launch evaluation |
 | `deployment-topology.md` | Matsuri active | Portal and specialist-site hostname and Worker boundaries |
@@ -55,6 +55,7 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | 36 | `audits/matsuri-corpus-expansion-batch-36-2026-08-09.md` | Tottori breadth through Tottori Shanshan Festival with annual recurrence and official-map anchor |
 | 37 | `audits/matsuri-corpus-expansion-batch-37-2026-08-09.md` | Hyogo breadth through Kobe Festival with the held 2026 occurrence and official-map anchor |
 | 38 | `audits/matsuri-corpus-expansion-batch-38-2026-08-10.md` | Gunma breadth through Kiryu Yagibushi Festival with 1964/1988 history and a verified 2024 held edition |
+| 39 | `audits/matsuri-corpus-expansion-batch-39-2026-08-10.md` | Nagano breadth through Nagano Binzuru with a 1971 start and verified 2025 held edition |
 
 ## Core specifications
 
