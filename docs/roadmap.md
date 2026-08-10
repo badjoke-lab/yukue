@@ -39,34 +39,33 @@ docs/matsuri-detail-c-implementation.md
 
 Status: **Active**
 
-Current verified checkpoint after Batch 37:
+Current verified checkpoint after Batch 38:
 
 ```text
-Primary prefecture coverage  41 / 47
-Public Entities              108
-Places                        99
-State Snapshots               50
-Change Events                 99
-Relations                     64
-Occurrences                  159
-Sitemap entries              217
-Sources                      278
-Evidence                     633
+Primary prefecture coverage  42 / 47
+Public Entities              110
+Places                       100
+State Snapshots               51
+Change Events                101
+Relations                     65
+Occurrences                  160
+Sitemap entries              220
+Sources                      285
+Evidence                     645
 Sparse primary Entities        0
 ```
 
-Batch 37 added the first approved primary record for 兵庫県 through 神戸まつり. The festival is linked to 神戸市民祭協会, retains the annual May-third-Sunday recurrence, records the May 17, 2026 edition as `held / unknown`, records the 1971 start at year precision, and separates the concrete 東遊園地 venue from the distributed parade route. The official-map contract uses the reviewed 神戸市 東遊園地 page instead of invented route coordinates.
+Batch 38 added the first approved primary record for 群馬県 through 桐生八木節まつり. The Festival is linked to 桐生八木節まつり協賛会, records the reviewed first-week-of-August three-day recurrence, preserves the center-city area as a distributed route Place, records the 2024 edition as `held / unknown`, and adds year-level 1964 start and 1988 rename Change Events. The official-map contract uses the reviewed 桐生市 第63回公式チラシ rather than invented coordinates. The 2026 schedule is not promoted to a held Occurrence without post-event Evidence.
 
 Exact canonical-production verification passed for release:
 
 ```text
-a0f1dfc3a241479c419e745cf8f04fbe33be9aae
+03a6bcb8b58d3bc37e200c2eb4f7d6e41c7923d7
 ```
 
-The next breadth target is one reviewed primary Entity from the remaining six uncovered prefectures:
+The next breadth target is one reviewed primary Entity from the remaining five uncovered prefectures:
 
 ```text
-群馬県
 新潟県
 長野県
 和歌山県
@@ -91,7 +90,7 @@ Machine record        config/matsuri-stabilization-review.json
 
 Elapsed time alone does not complete Phase 10. The formal review must record production availability, deployment behavior, canonical/HTTPS behavior, Search, crawler/sitemap behavior, Analytics traffic receipt, freshness, Relations, Evidence/corrections, map-contract maintenance, manual maintenance burden, and Search Console observation.
 
-Batch 37 adds another real maintenance/modeling example: an already-held 2026 edition is represented only at the evidence-supported `held / unknown` level, while the distributed parade route remains coordinate-free and the concrete official venue anchor satisfies the map contract.
+Batch 38 adds another real maintenance/modeling example: a recently elapsed 2026 schedule is not converted to `held` without explicit post-event Evidence, while a distributed route satisfies map requirements through an official city map without coordinate fabrication.
 
 The review may now be performed, but it cannot be marked complete from the calendar alone or by inferring private Analytics/Search Console observations.
 
@@ -106,4 +105,4 @@ Jinja State specification             unapproved
 Explicit start authorization          absent
 ```
 
-The current candidate inventory remains 23 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Batch 37 adds no Shrine or Temple seed. Seed accumulation does not activate the next site.
+The current candidate inventory remains 23 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Batch 38 adds no Shrine or Temple seed. Seed accumulation does not activate the next site.
