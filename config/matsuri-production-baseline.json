@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
   "observed_on": "2026-08-10",
-  "release_merge_commit": "03a6bcb8b58d3bc37e200c2eb4f7d6e41c7923d7",
+  "release_merge_commit": "76ab0b37294870e3fb372405672867053a7b7936",
   "expected_counts": {
-    "entities": 110,
-    "events": 101,
-    "relations": 65,
-    "occurrences": 160,
-    "sitemap_entries": 220
+    "entities": 112,
+    "events": 102,
+    "relations": 66,
+    "occurrences": 161,
+    "sitemap_entries": 223
   },
   "required_routes": [
     "/festivals/aso-onda-matsuri/",
@@ -93,7 +93,10 @@
     "/places/kobe-matsuri-parade-route/",
     "/festivals/kiryu-yagibushi-matsuri/",
     "/organizations/kiryu-yagibushi-matsuri-kyosankai/",
-    "/places/kiryu-yagibushi-center-route/"
+    "/places/kiryu-yagibushi-center-route/",
+    "/festivals/nagano-binzuru/",
+    "/organizations/nagano-binzuru-jikkoiinkai/",
+    "/places/nagano-binzuru-central-route/"
   ],
   "required_entities": [
     "fst-aso-onda-matsuri",
@@ -138,7 +141,9 @@
     "fst-kobe-matsuri",
     "org-kobe-shiminsai-kyokai",
     "fst-kiryu-yagibushi-matsuri",
-    "org-kiryu-yagibushi-matsuri-kyosankai"
+    "org-kiryu-yagibushi-matsuri-kyosankai",
+    "fst-nagano-binzuru",
+    "org-nagano-binzuru-jikkoiinkai"
   ],
   "occurrence_assertions": [
     { "id": "occ-aso-onda-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
@@ -193,6 +198,7 @@
     { "id": "occ-kishiwada-danjiri-2026-october", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
     { "id": "occ-tottori-shanshan-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
     { "id": "occ-kobe-matsuri-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
-    { "id": "occ-kiryu-yagibushi-2024", "record_version": 1, "outcome": "held", "scale": "unknown" }
+    { "id": "occ-kiryu-yagibushi-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-nagano-binzuru-2025", "record_version": 1, "outcome": "held", "scale": "unknown" }
   ]
 }
