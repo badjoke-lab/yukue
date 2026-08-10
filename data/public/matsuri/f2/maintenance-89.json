@@ -1,0 +1,195 @@
+{
+  "entities": [
+    {
+      "id": "fst-yamaguchi-gion-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-10T00:00:00Z",
+      "updated_at": "2026-08-10T00:00:00Z",
+      "slug": "yamaguchi-gion-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [{
+        "value": "山口祇園祭",
+        "lang": "ja",
+        "kind": "canonical",
+        "is_preferred": true,
+        "source_ids": ["src-yamaguchi-gion-city-overview", "src-yamaguchi-gion-2026-city"]
+      }],
+      "summary_ja": "山口市の八坂神社の例祭。1459年に京都の祇園祭を取り入れた祭礼が始まったとされ、毎年7月20日から27日に御神幸、市民総踊り、御還幸などを行う。",
+      "geographic_scope": {
+        "areas": [{
+          "prefecture_code": "35",
+          "prefecture_name_ja": "山口県",
+          "municipality_name_ja": "山口市"
+        }],
+        "scope_type": "distributed",
+        "description_ja": "八坂神社、御旅所、山口駅通り、山口市中心商店街などを結ぶ祭礼。"
+      },
+      "primary_place_id": "plc-yamaguchi-yasaka-jinja",
+      "default_place_ids": ["plc-yamaguchi-yasaka-jinja", "plc-yamaguchi-gion-route"],
+      "external_links": [{
+        "kind": "official_information",
+        "platform": "web",
+        "url": "https://www.city.yamaguchi.lg.jp/soshiki/21/18478.html",
+        "is_primary": true,
+        "officiality": "public_authority",
+        "last_checked_at": "2026-08-10"
+      }],
+      "record_lifecycle": "active",
+      "festival_kind": "shrine_festival",
+      "usual_months": [7],
+      "usual_duration_days": 8,
+      "season_tags": ["夏"],
+      "occurrence_series_ids": ["ser-yamaguchi-gion-annual"]
+    },
+    {
+      "id": "shr-yamaguchi-yasaka-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-10T00:00:00Z",
+      "updated_at": "2026-08-10T00:00:00Z",
+      "slug": "yamaguchi-yasaka-jinja",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [{
+        "value": "八坂神社",
+        "lang": "ja",
+        "kind": "canonical",
+        "is_preferred": true,
+        "source_ids": ["src-yamaguchi-yasaka-tourism"]
+      }],
+      "summary_ja": "1369年に京都から勧請された山口市上竪小路の神社。山口祇園祭は同社の例祭として行われる。",
+      "geographic_scope": {
+        "areas": [{
+          "prefecture_code": "35",
+          "prefecture_name_ja": "山口県",
+          "municipality_name_ja": "山口市"
+        }],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-yamaguchi-yasaka-jinja",
+      "default_place_ids": ["plc-yamaguchi-yasaka-jinja"],
+      "external_links": [{
+        "kind": "official_information",
+        "platform": "web",
+        "url": "https://yamaguchi-city.jp/details/ac_yasaka.html",
+        "is_primary": true,
+        "officiality": "official_organization",
+        "last_checked_at": "2026-08-10"
+      }],
+      "record_lifecycle": "active"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-yamaguchi-yasaka-jinja",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "八坂神社",
+      "place_kind": "shrine_site",
+      "country_code": "JP",
+      "prefecture_code": "35",
+      "prefecture_name_ja": "山口県",
+      "municipality_name_ja": "山口市",
+      "locality_ja": "上竪小路100",
+      "street_address_ja": "山口県山口市上竪小路100",
+      "coordinate_precision": "address",
+      "map_label_ja": "山口祇園祭の祭祀基点・八坂神社",
+      "source_ids": ["src-yamaguchi-yasaka-tourism"]
+    },
+    {
+      "id": "plc-yamaguchi-gion-route",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "山口祇園祭 御神幸・御還幸経路",
+      "place_kind": "festival_route",
+      "country_code": "JP",
+      "prefecture_code": "35",
+      "prefecture_name_ja": "山口県",
+      "municipality_name_ja": "山口市",
+      "locality_ja": "八坂神社・御旅所・山口駅通り・中心商店街一帯",
+      "coordinate_precision": "municipality",
+      "map_label_ja": "山口祇園祭の巡行・中心市街地会場",
+      "source_ids": ["src-yamaguchi-gion-2026-city", "src-yamaguchi-gion-2026-tourism"]
+    }
+  ],
+  "stateSnapshots": [{
+    "id": "sts-yamaguchi-gion-current",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "entity_id": "fst-yamaguchi-gion-matsuri",
+    "state_schema": "matsuri.festival.v1",
+    "state_code": "active",
+    "observed_at": "2026-08-10",
+    "basis_evidence_ids": ["evd-yamaguchi-gion-state-2026"],
+    "review_status": "approved"
+  }],
+  "changeEvents": [{
+    "id": "chg-yamaguchi-gion-started-1459",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "event_type": "other",
+    "subject_entity_ids": ["fst-yamaguchi-gion-matsuri"],
+    "effective_period": {"start": "1459"},
+    "summary_ja": "大内教弘の代に京都の祇園祭を取り入れた祭礼が始まったとされる1459年を、山口祇園祭の開始年として年精度で記録する。",
+    "resulting_state_snapshot_ids": [],
+    "related_relation_ids": ["rel-yamaguchi-gion-ritually-associated-yasaka"],
+    "evidence_ids": ["evd-yamaguchi-gion-start-1459"],
+    "review_status": "approved"
+  }],
+  "occurrences": [{
+    "id": "occ-yamaguchi-gion-2023",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "subject_entity_id": "fst-yamaguchi-gion-matsuri",
+    "series_id": "ser-yamaguchi-gion-annual",
+    "occurrence_type": "festival_edition",
+    "temporal_extent": {
+      "start": "2023-07-20",
+      "end": "2023-07-27",
+      "precision": "range"
+    },
+    "outcome": "held",
+    "scale": "unknown",
+    "venue_place_ids": ["plc-yamaguchi-yasaka-jinja", "plc-yamaguchi-gion-route"],
+    "organizer_entity_ids": [],
+    "evidence_ids": ["evd-yamaguchi-gion-occ-2023-held", "evd-yamaguchi-gion-occ-2023-dates"],
+    "review_status": "approved"
+  }],
+  "occurrenceSeries": [{
+    "id": "ser-yamaguchi-gion-annual",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "subject_entity_id": "fst-yamaguchi-gion-matsuri",
+    "series_type": "annual_festival_edition",
+    "name_ja": "山口祇園祭 年次開催",
+    "recurrence_pattern_id": "rec-yamaguchi-gion-july-20-27",
+    "default_venue_place_ids": ["plc-yamaguchi-yasaka-jinja", "plc-yamaguchi-gion-route"],
+    "evidence_ids": ["evd-yamaguchi-gion-recurrence"]
+  }],
+  "recurrencePatterns": [{
+    "id": "rec-yamaguchi-gion-july-20-27",
+    "schema_version": "common.v1",
+    "record_version": 1,
+    "pattern_type": "annual",
+    "rule_text_ja": "毎年7月20日から7月27日まで行う。",
+    "evidence_ids": ["evd-yamaguchi-gion-recurrence"]
+  }],
+  "relations": [{
+    "id": "rel-yamaguchi-gion-ritually-associated-yasaka",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "source_entity_id": "fst-yamaguchi-gion-matsuri",
+    "relation_type": "ritually_associated_with",
+    "target_entity_id": "shr-yamaguchi-yasaka-jinja",
+    "evidence_ids": ["evd-rel-yamaguchi-gion-yasaka"],
+    "review_status": "approved"
+  }],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
