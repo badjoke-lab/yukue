@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-28 completed / Detail C completed / Matsuri corpus expansion active / stabilization observing / Jinja blocked
+**Status:** F2-28 completed / Detail C completed / Matsuri corpus expansion active / stabilization review eligible and observing / Jinja blocked
 
 This project is gate-driven rather than deadline-driven.
 
@@ -17,10 +17,11 @@ Phase 9 Launch Preparation   completed
 Phase 10 Stabilization       active
 Phase 10A Detail C repair    completed
 Phase 10B Corpus expansion   active
-Corpus batches 11-36         completed
-Batch 36 production          verified
-Next corpus batch            Batch 37
+Corpus batches 11-37         completed
+Batch 37 production          verified
+Next corpus batch            Batch 38
 Stabilization review         observing
+Formal review eligible       true
 Actual Jinja start gate      blocked
 ```
 
@@ -65,27 +66,27 @@ static + Chromium + representative screenshot checks
 
 Status: **Active**
 
-Batch 36 is complete and exact canonical production is verified.
+Batch 37 is complete and exact canonical production is verified.
 
 Current checkpoint:
 
 ```text
-Primary prefecture coverage  40 / 47
-Public Entities              106
-Places                        97
-State Snapshots               49
-Change Events                 98
-Relations                     63
-Occurrences                  158
-Sitemap entries              213
-Sources                      273
-Evidence                     623
+Primary prefecture coverage  41 / 47
+Public Entities              108
+Places                        99
+State Snapshots               50
+Change Events                 99
+Relations                     64
+Occurrences                  159
+Sitemap entries              217
+Sources                      278
+Evidence                     633
 Sparse primary Entities        0
 ```
 
-Batch 36 added 鳥取しゃんしゃん祭 for 鳥取県. The Festival is linked to 鳥取しゃんしゃん祭振興会, uses separate concrete and route Places, preserves the annual August 13–15 recurrence, keeps the future 2026 edition `scheduled / unknown`, and records the 1965 start at year precision. The official-map target uses the reviewed 鳥取市 風紋広場 page rather than fabricated coordinates.
+Batch 37 added 神戸まつり for 兵庫県. The Festival is linked to 神戸市民祭協会, uses separate concrete 東遊園地 and distributed parade-route Places, records Current State `active`, the annual May-third-Sunday recurrence, the May 17, 2026 edition as `held / unknown`, and the 1971 start at year precision. The official-map target uses the reviewed 神戸市 東遊園地 page rather than fabricated route coordinates.
 
-### Batch 37 breadth target
+### Batch 38 breadth target
 
 Add one reviewed primary record from:
 
@@ -93,7 +94,6 @@ Add one reviewed primary record from:
 群馬県
 新潟県
 長野県
-兵庫県
 和歌山県
 山口県
 宮崎県
@@ -101,7 +101,7 @@ Add one reviewed primary record from:
 
 Geographic breadth alone is not sufficient. The record must satisfy the existing Detail C, map, Evidence, Source, freshness, Relation, and production contracts.
 
-### Batch 37 depth target
+### Batch 38 depth target
 
 When evidence supports it, also do one of the following:
 
@@ -120,11 +120,12 @@ Started               2026-07-27
 Minimum duration      14 days
 Earliest review       2026-08-10
 Status                observing
+Review eligible       true
 Review complete       false
 Machine record        config/matsuri-stabilization-review.json
 ```
 
-Reaching 2026-08-10 alone does not complete the gate. Maintenance burden must be judged from real corpus and correction work.
+Reaching 2026-08-10 makes a formal review eligible to occur; it does not complete the gate. The review must record the required public-safe conclusions for production availability, canonical/HTTPS, Search, crawler/sitemap, Analytics traffic receipt, freshness, Relations, Evidence/corrections, manual maintenance burden, and Search Console observation.
 
 Current dated reviews:
 
@@ -144,11 +145,11 @@ Current dated reviews:
 春日若宮おん祭 2026             review after 2026-12-18
 ```
 
-## Batch 37 execution order
+## Batch 38 execution order
 
 ```text
 1. run freshness / Relation / Evidence / bundle checks on current main
-2. select one evidence-strong breadth target from the 7 uncovered prefectures
+2. select one evidence-strong breadth target from the 6 uncovered prefectures
 3. add only evidence-supported depth or due maintenance
 4. register canonical bundles in every required loader
 5. run corpus, freshness, Relation, external-link, correction, seed, and Jinja gates
@@ -160,6 +161,8 @@ Current dated reviews:
 11. require canonical-origin verification against the public hostname
 12. record production verification and advance project-status / roadmap / schedule
 ```
+
+The formal stabilization review can proceed in parallel with Batch 38, but it must not be marked complete until every review prerequisite is actually evidenced.
 
 ## Future-site boundary
 
