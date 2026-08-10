@@ -67,18 +67,6 @@
       "language": "ja"
     },
     {
-      "id": "src-niigata-matsuri-city-minyo-2026",
-      "schema_version": "common.v1",
-      "record_version": 1,
-      "source_type": "municipality",
-      "title": "2026年（令和8年）新潟まつり大民謡流しの参加団体を募集します",
-      "publisher": "新潟市",
-      "url": "https://www.city.niigata.lg.jp/chuo/sonota/minyonagashi.html",
-      "updated_at_source": "2026-05-19",
-      "accessed_at": "2026-08-10",
-      "language": "ja"
-    },
-    {
       "id": "src-niigata-matsuri-arts-council",
       "schema_version": "common.v1",
       "record_version": 1,
