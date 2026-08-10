@@ -1,0 +1,192 @@
+{
+  "entities": [
+    {
+      "id": "fst-kiryu-yagibushi-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-10T00:00:00Z",
+      "updated_at": "2026-08-10T00:00:00Z",
+      "slug": "kiryu-yagibushi-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [{
+        "value": "桐生八木節まつり",
+        "lang": "ja",
+        "kind": "canonical",
+        "is_preferred": true,
+        "source_ids": ["src-kiryu-yagibushi-history", "src-kiryu-yagibushi-2026-city"]
+      }],
+      "summary_ja": "1964年に第1回桐生まつりとして始まり、1988年に桐生八木節まつりへ改称した桐生市の夏祭り。現在は毎年8月第1週の金・土・日の3日間、市内中心部の本町通り・末広通り・錦町通りなどで八木節おどりや桐生祇園祭に関わる行事を行う。",
+      "geographic_scope": {
+        "areas": [{
+          "prefecture_code": "10",
+          "prefecture_name_ja": "群馬県",
+          "municipality_name_ja": "桐生市"
+        }],
+        "scope_type": "distributed",
+        "description_ja": "桐生市内各所、本町通り、末広通り、錦町通りを中心に複数の行事を行う。"
+      },
+      "primary_place_id": "plc-kiryu-yagibushi-center-route",
+      "default_place_ids": ["plc-kiryu-yagibushi-center-route"],
+      "external_links": [{
+        "kind": "official_website",
+        "platform": "web",
+        "url": "https://www.city.kiryu.lg.jp/kankou/event/1025571.html",
+        "is_primary": true,
+        "officiality": "official",
+        "last_checked_at": "2026-08-10"
+      }],
+      "record_lifecycle": "active",
+      "festival_kind": "community_festival",
+      "usual_months": [8],
+      "usual_duration_days": 3,
+      "season_tags": ["夏"],
+      "occurrence_series_ids": ["ser-kiryu-yagibushi-annual"]
+    },
+    {
+      "id": "org-kiryu-yagibushi-matsuri-kyosankai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-10T00:00:00Z",
+      "updated_at": "2026-08-10T00:00:00Z",
+      "slug": "kiryu-yagibushi-matsuri-kyosankai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [{
+        "value": "桐生八木節まつり協賛会",
+        "lang": "ja",
+        "kind": "canonical",
+        "is_preferred": true,
+        "source_ids": ["src-kiryu-yagibushi-2026-flyer"]
+      }],
+      "summary_ja": "第63回桐生八木節まつりの公式チラシで主催者として明示される運営組織。",
+      "geographic_scope": {
+        "areas": [{
+          "prefecture_code": "10",
+          "prefecture_name_ja": "群馬県",
+          "municipality_name_ja": "桐生市"
+        }],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [{
+        "kind": "organizer_website",
+        "platform": "web",
+        "url": "https://www.city.kiryu.lg.jp/kankou/event/1025571.html",
+        "is_primary": true,
+        "officiality": "official_organization",
+        "last_checked_at": "2026-08-10"
+      }],
+      "record_lifecycle": "active",
+      "organization_kind": "association"
+    }
+  ],
+  "places": [{
+    "id": "plc-kiryu-yagibushi-center-route",
+    "schema_version": "common.v1",
+    "record_version": 1,
+    "name_ja": "桐生八木節まつり 中心市街地会場",
+    "place_kind": "festival_route",
+    "country_code": "JP",
+    "prefecture_code": "10",
+    "prefecture_name_ja": "群馬県",
+    "municipality_name_ja": "桐生市",
+    "locality_ja": "本町通り・末広通り・錦町通りを中心とする桐生市内各所",
+    "coordinate_precision": "municipality",
+    "map_label_ja": "第63回桐生八木節まつり 中心市街地会場図",
+    "source_ids": ["src-kiryu-yagibushi-2026-city", "src-kiryu-yagibushi-2026-flyer"]
+  }],
+  "stateSnapshots": [{
+    "id": "sts-kiryu-yagibushi-current",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "entity_id": "fst-kiryu-yagibushi-matsuri",
+    "state_schema": "matsuri.festival.v1",
+    "state_code": "active",
+    "observed_at": "2026-08-10",
+    "basis_evidence_ids": ["evd-kiryu-yagibushi-state-2026"],
+    "review_status": "approved"
+  }],
+  "changeEvents": [
+    {
+      "id": "chg-kiryu-matsuri-started-1964",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "other",
+      "subject_entity_ids": ["fst-kiryu-yagibushi-matsuri"],
+      "effective_period": {"start": "1964"},
+      "summary_ja": "1964年、第1回桐生まつりが開催された。現在の桐生八木節まつりにつながる年次祭の開始として年精度で記録する。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-kiryu-matsuri-start-1964"],
+      "review_status": "approved"
+    },
+    {
+      "id": "chg-kiryu-yagibushi-renamed-1988",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "other",
+      "subject_entity_ids": ["fst-kiryu-yagibushi-matsuri"],
+      "effective_period": {"start": "1988"},
+      "summary_ja": "1988年、桐生まつりを桐生八木節まつりに改称した。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": [],
+      "evidence_ids": ["evd-kiryu-yagibushi-renamed-1988"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [{
+    "id": "occ-kiryu-yagibushi-2024",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "subject_entity_id": "fst-kiryu-yagibushi-matsuri",
+    "series_id": "ser-kiryu-yagibushi-annual",
+    "occurrence_type": "festival_edition",
+    "temporal_extent": {
+      "start": "2024-08-02",
+      "end": "2024-08-04",
+      "precision": "day"
+    },
+    "outcome": "held",
+    "scale": "unknown",
+    "venue_place_ids": ["plc-kiryu-yagibushi-center-route"],
+    "organizer_entity_ids": ["org-kiryu-yagibushi-matsuri-kyosankai"],
+    "evidence_ids": ["evd-kiryu-yagibushi-occ-2024-day1", "evd-kiryu-yagibushi-occ-2024-day2", "evd-kiryu-yagibushi-occ-2024-day3"],
+    "review_status": "approved"
+  }],
+  "occurrenceSeries": [{
+    "id": "ser-kiryu-yagibushi-annual",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "subject_entity_id": "fst-kiryu-yagibushi-matsuri",
+    "series_type": "annual_festival_edition",
+    "name_ja": "桐生八木節まつり 年次開催",
+    "recurrence_pattern_id": "rec-kiryu-yagibushi-first-week-august",
+    "default_venue_place_ids": ["plc-kiryu-yagibushi-center-route"],
+    "evidence_ids": ["evd-kiryu-yagibushi-recurrence"]
+  }],
+  "recurrencePatterns": [{
+    "id": "rec-kiryu-yagibushi-first-week-august",
+    "schema_version": "common.v1",
+    "record_version": 1,
+    "pattern_type": "annual",
+    "rule_text_ja": "毎年8月第1週の金曜日・土曜日・日曜日の3日間に開催する。",
+    "evidence_ids": ["evd-kiryu-yagibushi-recurrence"]
+  }],
+  "relations": [{
+    "id": "rel-kiryu-yagibushi-organized-by-kyosankai",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "source_entity_id": "fst-kiryu-yagibushi-matsuri",
+    "relation_type": "organized_by",
+    "target_entity_id": "org-kiryu-yagibushi-matsuri-kyosankai",
+    "evidence_ids": ["evd-rel-kiryu-yagibushi-kyosankai"],
+    "review_status": "approved"
+  }],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
