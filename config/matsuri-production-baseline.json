@@ -136,317 +136,57 @@
     "org-kobe-shiminsai-kyokai"
   ],
   "occurrence_assertions": [
-    {
-      "id": "occ-aso-onda-2024",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-aso-onda-2025",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-gion-matsuri-2026",
-      "record_version": 2,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-yoshida-fire-2026",
-      "record_version": 1,
-      "outcome": "scheduled",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-ueno-tenjin-2022",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-ueno-tenjin-2026",
-      "record_version": 1,
-      "outcome": "scheduled",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-sanja-matsuri-2020",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-sanja-matsuri-2021",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-sanja-matsuri-2022",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-sanja-matsuri-2023",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-ishioka-matsuri-2020",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-ishioka-matsuri-2022",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "normal"
-    },
-    {
-      "id": "occ-ishioka-matsuri-2026",
-      "record_version": 1,
-      "outcome": "scheduled",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-hayachine-kagura-joint-2019",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-hayachine-kagura-joint-2024",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-hayachine-kagura-new-year-2026",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-kasuga-onmatsuri-2021",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-kasuga-onmatsuri-2022",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-kasuga-onmatsuri-2026",
-      "record_version": 1,
-      "outcome": "scheduled",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-suneori-2020",
-      "record_version": 1,
-      "outcome": "cancelled",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-nagahama-hikiyama-2022",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-nagahama-hikiyama-2024",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "normal"
-    },
-    {
-      "id": "occ-nagahama-hikiyama-2026",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-sada-shin-noh-special-2022",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-sada-shin-noh-special-2026",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-sanuki-takamatsu-2022",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-sanuki-takamatsu-2025",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-sanuki-takamatsu-2026",
-      "record_version": 1,
-      "outcome": "scheduled",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-niihama-taiko-2020",
-      "record_version": 1,
-      "outcome": "cancelled",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-niihama-taiko-2021",
-      "record_version": 1,
-      "outcome": "not_held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-niihama-taiko-2022",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-niihama-taiko-2025",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-hamamatsu-matsuri-2020",
-      "record_version": 1,
-      "outcome": "cancelled",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-hamamatsu-matsuri-2021",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-hamamatsu-matsuri-2022",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-hamamatsu-matsuri-2026",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-nunobashi-2022",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "modified"
-    },
-    {
-      "id": "occ-nunobashi-2026",
-      "record_version": 1,
-      "outcome": "scheduled",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-saidaiji-eyo-2026",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-soma-2025",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-mikuni-matsuri-2026",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-hirosaki-neputa-2026-schedule",
-      "record_version": 2,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-akita-kanto-2026-schedule",
-      "record_version": 2,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-karatsu-kunchi-2025",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-aomori-nebuta-2026-schedule",
-      "record_version": 2,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-chigasaki-hamaori-2025",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-sendai-tanabata-2026-schedule",
-      "record_version": 2,
-      "outcome": "held",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-kagoshima-ohara-2026-schedule",
-      "record_version": 1,
-      "outcome": "scheduled",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-kishiwada-danjiri-2026-september",
-      "record_version": 1,
-      "outcome": "scheduled",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-kishiwada-danjiri-2026-october",
-      "record_version": 1,
-      "outcome": "scheduled",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-tottori-shanshan-2026",
-      "record_version": 1,
-      "outcome": "scheduled",
-      "scale": "unknown"
-    },
-    {
-      "id": "occ-kobe-matsuri-2026",
-      "record_version": 1,
-      "outcome": "held",
-      "scale": "unknown"
-    }
+    { "id": "occ-aso-onda-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-aso-onda-2025", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-gion-matsuri-2026", "record_version": 2, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-yoshida-fire-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
+    { "id": "occ-ueno-tenjin-2022", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-ueno-tenjin-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
+    { "id": "occ-sanja-matsuri-2020", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-sanja-matsuri-2021", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-sanja-matsuri-2022", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-sanja-matsuri-2023", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-ishioka-matsuri-2020", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-ishioka-matsuri-2022", "record_version": 1, "outcome": "held", "scale": "normal" },
+    { "id": "occ-ishioka-matsuri-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
+    { "id": "occ-hayachine-kagura-joint-2019", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-hayachine-kagura-joint-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-hayachine-kagura-new-year-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-kasuga-onmatsuri-2021", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-kasuga-onmatsuri-2022", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-kasuga-onmatsuri-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
+    { "id": "occ-suneori-2020", "record_version": 1, "outcome": "cancelled", "scale": "unknown" },
+    { "id": "occ-nagahama-hikiyama-2022", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-nagahama-hikiyama-2024", "record_version": 1, "outcome": "held", "scale": "normal" },
+    { "id": "occ-nagahama-hikiyama-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-sada-shin-noh-special-2022", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-sada-shin-noh-special-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-sanuki-takamatsu-2022", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-sanuki-takamatsu-2025", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-sanuki-takamatsu-2026", "record_version": 1, "outcome": "scheduled", "scale": "modified" },
+    { "id": "occ-niihama-taiko-2020", "record_version": 1, "outcome": "cancelled", "scale": "unknown" },
+    { "id": "occ-niihama-taiko-2021", "record_version": 1, "outcome": "not_held", "scale": "unknown" },
+    { "id": "occ-niihama-taiko-2022", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-niihama-taiko-2025", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-hamamatsu-matsuri-2020", "record_version": 1, "outcome": "cancelled", "scale": "unknown" },
+    { "id": "occ-hamamatsu-matsuri-2021", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-hamamatsu-matsuri-2022", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-hamamatsu-matsuri-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-nunobashi-2022", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-nunobashi-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
+    { "id": "occ-saidaiji-eyo-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-soma-2025", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-mikuni-matsuri-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-hirosaki-neputa-2026-schedule", "record_version": 2, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-akita-kanto-2026-schedule", "record_version": 2, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-karatsu-kunchi-2025", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-aomori-nebuta-2026-schedule", "record_version": 2, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-chigasaki-hamaori-2025", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-sendai-tanabata-2026-schedule", "record_version": 2, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-kagoshima-ohara-2026-schedule", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
+    { "id": "occ-kishiwada-danjiri-2026-september", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
+    { "id": "occ-kishiwada-danjiri-2026-october", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
+    { "id": "occ-tottori-shanshan-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
+    { "id": "occ-kobe-matsuri-2026", "record_version": 1, "outcome": "held", "scale": "unknown" }
   ]
 }
