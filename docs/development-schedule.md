@@ -17,9 +17,9 @@ Phase 9 Launch Preparation   completed
 Phase 10 Stabilization       active
 Phase 10A Detail C repair    completed
 Phase 10B Corpus expansion   active
-Corpus batches 11-38         completed
-Batch 38 production          verified
-Next corpus batch            Batch 39
+Corpus batches 11-39         completed
+Batch 39 production          verified
+Next corpus batch            Batch 40
 Stabilization review         observing
 Formal review eligible       true
 Actual Jinja start gate      blocked
@@ -66,33 +66,32 @@ static + Chromium + representative screenshot checks
 
 Status: **Active**
 
-Batch 38 is complete and exact canonical production is verified.
+Batch 39 is complete and exact canonical production is verified.
 
 Current checkpoint:
 
 ```text
-Primary prefecture coverage  42 / 47
-Public Entities              110
-Places                       100
-State Snapshots               51
-Change Events                101
-Relations                     65
-Occurrences                  160
-Sitemap entries              220
-Sources                      285
-Evidence                     645
+Primary prefecture coverage  43 / 47
+Public Entities              112
+Places                       101
+State Snapshots               52
+Change Events                102
+Relations                     66
+Occurrences                  161
+Sitemap entries              223
+Sources                      291
+Evidence                     654
 Sparse primary Entities        0
 ```
 
-Batch 38 added 桐生八木節まつり for 群馬県. The Festival is linked to 桐生八木節まつり協賛会, uses a distributed center-city route Place, records Current State `active`, the annual August-first-week Friday/Saturday/Sunday recurrence, the August 2–4, 2024 edition as `held / unknown`, and the 1964 start and 1988 rename at year precision. The official-map target uses the reviewed 桐生市 第63回公式チラシ rather than fabricated coordinates. The elapsed 2026 dates are not converted to a held Occurrence without post-event Evidence.
+Batch 39 added 長野びんずる for 長野県. The Festival is linked to 長野びんずる実行委員会, uses a center-city route Place, records Current State `active`, the annual first-Saturday-of-August recurrence, the 2025 edition as `held / unknown`, and the 1971 first edition/start at year precision. The approved official route/map target avoids fabricated coordinates. The elapsed 2026 date is not converted to a held Occurrence without post-event Evidence.
 
-### Batch 39 breadth target
+### Batch 40 breadth target
 
 Add one reviewed primary record from:
 
 ```text
 新潟県
-長野県
 和歌山県
 山口県
 宮崎県
@@ -100,7 +99,7 @@ Add one reviewed primary record from:
 
 Geographic breadth alone is not sufficient. The record must satisfy the existing Detail C, map, Evidence, Source, freshness, Relation, and production contracts.
 
-### Batch 39 depth target
+### Batch 40 depth target
 
 When evidence supports it, also do one of the following:
 
@@ -144,24 +143,24 @@ Current dated reviews:
 春日若宮おん祭 2026             review after 2026-12-18
 ```
 
-## Batch 39 execution order
+## Batch 40 execution order
 
 ```text
 1. run freshness / Relation / Evidence / bundle checks on current main
-2. select one evidence-strong breadth target from the 5 uncovered prefectures
+2. select one evidence-strong breadth target from the 4 uncovered prefectures
 3. add only evidence-supported depth or due maintenance
 4. register canonical bundles in every required loader
 5. run corpus, freshness, Relation, external-link, correction, seed, and Jinja gates
 6. run Detail C and map utility; do not invent coordinates
 7. run full-page desktop/mobile screenshot review
 8. merge implementation only when complete repository CI passes
-9. record a docs-only corpus audit from the squash-merged release baseline
+9. record a docs-only corpus audit from the merged release baseline
 10. advance the production baseline to the exact release commit
 11. require canonical-origin verification against the public hostname
 12. record production verification and advance project-status / roadmap / schedule
 ```
 
-The formal stabilization review can proceed in parallel with Batch 39, but it must not be marked complete until every review prerequisite is actually evidenced.
+The formal stabilization review can proceed in parallel with Batch 40, but it must not be marked complete until every review prerequisite is actually evidenced.
 
 ## Future-site boundary
 
