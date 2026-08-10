@@ -35,8 +35,8 @@ Analytics progression           config/matsuri-analytics-activation.json
 Final F2 launch gate            config/matsuri-f2-launch-gate.json
 Stabilization review            config/matsuri-stabilization-review.json
 Detail C implementation         docs/matsuri-detail-c-implementation.md
-Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-37-2026-08-09.md
-Latest production audit         docs/audits/matsuri-batch-37-production-verification-2026-08-10.md
+Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-38-2026-08-10.md
+Latest production audit         docs/audits/matsuri-batch-38-production-verification-2026-08-10.md
 Jinja start boundary            config/jinja-start-gate.json
 Production topology             docs/deployment-topology.md
 ```
@@ -47,60 +47,59 @@ Production topology             docs/deployment-topology.md
 Worker                    matsuri-yukue
 Canonical origin          https://matsuri-yukue.badjoke-lab.com/
 Permanent Workers origin  https://matsuri-yukue.badjoke-lab.workers.dev/
-Verified release          a0f1dfc3a241479c419e745cf8f04fbe33be9aae
+Verified release          03a6bcb8b58d3bc37e200c2eb4f7d6e41c7923d7
 Verified on               2026-08-10
-Canonical workflow        31363791720 — attempt 1 success
-Production-baseline PR    #222
-Production-baseline merge 016136a4a0b806aa1b17780df78dad7dbce622e5
+Canonical workflow        31367603570 — attempt 1 success
+Production-baseline PR    #226
+Production-baseline merge b84c83cf85096fb3215a4645d8e6e52f6eabe8fc
 ```
 
-Exact canonical-production verification succeeded on attempt 1 for Batch 37.
+Exact canonical-production verification succeeded on attempt 1 for Batch 38.
 
 ```text
-Entities          108
-Change Events      99
-Relations          64
-Occurrences       159
-Sitemap entries   217
+Entities          110
+Change Events     101
+Relations          65
+Occurrences       160
+Sitemap entries   220
 ```
 
-The Batch 37 production contract includes HTTP-reachable routes for 神戸まつり, 神戸市民祭協会, 東遊園地, and the distributed parade route. It also verifies the May 17, 2026 edition as record version 1 `held / unknown`.
+The Batch 38 production contract includes HTTP-reachable routes for 桐生八木節まつり, 桐生八木節まつり協賛会, and the center-city route Place. It verifies the August 2–4, 2024 edition as record version 1 `held / unknown`.
 
-No URL is claimed already indexed. No attendance or completion scale is inferred for the held 2026 edition.
+No URL is claimed already indexed. No 2026 held outcome is inferred merely because the announced dates have elapsed.
 
 ## Current product track
 
-Corpus expansion batches 11 through 37 are complete.
+Corpus expansion batches 11 through 38 are complete.
 
-Batch 37 added 神戸まつり as the first approved primary Matsuri record for 兵庫県. The record includes:
+Batch 38 added 桐生八木節まつり as the first approved primary Matsuri record for 群馬県. The record includes:
 
-- 神戸市民祭協会 through an evidence-backed `organized_by` Relation;
-- 東遊園地 and the distributed parade route as separate Places;
+- 桐生八木節まつり協賛会 through an evidence-backed `organized_by` Relation;
+- a distributed center-city route Place for 本町通り・末広通り・錦町通り context;
 - Current State `active`;
-- annual May-third-Sunday recurrence;
-- May 17, 2026 as `held / unknown`;
-- a reviewed year-level 1971 start Change Event;
-- five Sources and ten claim-linked Evidence records;
-- a concrete official-map anchor through the 神戸市 東遊園地 page without invented route coordinates.
+- annual August-first-week Friday/Saturday/Sunday recurrence;
+- August 2–4, 2024 as `held / unknown` using three municipal ended-event pages;
+- reviewed year-level 1964 start and 1988 rename Change Events;
+- seven Sources and twelve claim-linked Evidence records;
+- an official-map target through the 桐生市 第63回公式チラシ without invented coordinates.
 
 The canonical corpus now contains:
 
 ```text
-Entities          108
-Places             99
-State Snapshots    50
-Change Events      99
-Occurrences       159
-Relations          64
+Entities          110
+Places            100
+State Snapshots    51
+Change Events     101
+Occurrences       160
+Relations          65
 Designations       29
-Sources           278
-Evidence          633
+Sources           285
+Evidence          645
 ```
 
-Primary-record coverage is now 41 / 47 prefectures. Six prefectures remain uncovered:
+Primary-record coverage is now 42 / 47 prefectures. Five prefectures remain uncovered:
 
 ```text
-群馬県
 新潟県
 長野県
 和歌山県
@@ -123,7 +122,7 @@ Review complete       false
 
 Reaching 2026-08-10 makes the formal review eligible; it does not complete the gate. Production availability, canonical/HTTPS behavior, Search, crawler/sitemap behavior, Analytics traffic receipt, freshness, Relations, Evidence/corrections, manual maintenance burden, and Search Console observation must all be reviewed and recorded under the stabilization contract.
 
-Recorded maintenance evidence now includes the museum-hall route correction, transient map connection failure, Source-title correction, multiple 2026 scheduled-to-held rollovers, the Batch 34 official-map remediation, Batch 35 split-component modeling, Batch 36 official-map / future-occurrence handling, and Batch 37 held-occurrence / distributed-route modeling.
+Recorded maintenance evidence now includes the museum-hall route correction, transient map connection failure, Source-title correction, multiple 2026 scheduled-to-held rollovers, the Batch 34 official-map remediation, Batch 35 split-component modeling, Batch 36 official-map / future-occurrence handling, Batch 37 held-occurrence / distributed-route modeling, and Batch 38's explicit refusal to infer a held 2026 edition from elapsed dates without post-event Evidence.
 
 ## Routine Matsuri maintenance
 
@@ -166,7 +165,7 @@ Explicit start authorization          false
 
 Actual Jinja start gate — blocked
 
-The candidate baseline remains 23 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Batch 37 adds no Shrine or Temple seed. Candidate extraction does not authorize implementation.
+The candidate baseline remains 23 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Batch 38 adds no Shrine or Temple seed. Candidate extraction does not authorize implementation.
 
 ## Current release status
 
@@ -177,14 +176,14 @@ repository-verified-canonical-production-verified-crawler-reachability-verified-
 ## Immediate next actions
 
 ```text
-Product track       start Matsuri corpus expansion Batch 38
+Product track       start Matsuri corpus expansion Batch 39
 Depth target        resolve the next due 2026 Occurrence or deepen a low-density primary record with claim-specific Evidence
-Breadth target      add one reviewed primary record from the 6 uncovered prefectures
+Breadth target      add one reviewed primary record from the 5 uncovered prefectures
 Detail track        keep every public title navigable through the enforced Detail C and map contracts
-Production check    Batch 37 exact canonical-production baseline verified
+Production check    Batch 38 exact canonical-production baseline verified
 Dated review        follow the remaining dated review inventory above
 Stabilization       perform the now-eligible formal review without treating elapsed time as completion
 Review evidence     record manual maintenance burden and Search Console observation without private metrics
-Cloudflare track    no pending Batch 37 deployment action
+Cloudflare track    no pending Batch 38 deployment action
 Jinja track         remain blocked until all four post-launch prerequisites complete
 ```
