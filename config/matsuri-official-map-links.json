@@ -120,6 +120,16 @@
       "label_ja": "桐生市公式 第63回会場・交通規制図を見る",
       "url": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/025/571/63tirasi.pdf",
       "source_id": "src-kiryu-yagibushi-2026-flyer"
+    },
+    {
+      "entity_id": "fst-nagano-binzuru",
+      "entity_route": "/festivals/nagano-binzuru/",
+      "place_id": "plc-nagano-binzuru-central-route",
+      "place_route": "/places/nagano-binzuru-central-route/",
+      "place_name_ja": "長野びんずる 中心市街地会場",
+      "label_ja": "長野びんずる公式 連進行・施設配置図を見る",
+      "url": "https://binzuru.info/renmap/",
+      "source_id": "src-nagano-binzuru-route-official"
     }
   ]
 }
