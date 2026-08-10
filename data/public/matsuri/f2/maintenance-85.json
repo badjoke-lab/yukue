@@ -1,0 +1,177 @@
+{
+  "entities": [
+    {
+      "id": "fst-nagano-binzuru",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-10T00:00:00Z",
+      "updated_at": "2026-08-10T00:00:00Z",
+      "slug": "nagano-binzuru",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [{
+        "value": "長野びんずる",
+        "lang": "ja",
+        "kind": "canonical",
+        "is_preferred": true,
+        "source_ids": ["src-nagano-binzuru-2026-city", "src-nagano-binzuru-history-official"]
+      }],
+      "summary_ja": "1971年に長野青年会議所を中心に企画され、第1回が同年8月7日に開催された長野市の市民祭。毎年8月第1土曜日を基本に、善光寺表参道・昭和通りなど中心市街地でびんずる踊りや関連行事を行う。",
+      "geographic_scope": {
+        "areas": [{
+          "prefecture_code": "20",
+          "prefecture_name_ja": "長野県",
+          "municipality_name_ja": "長野市"
+        }],
+        "scope_type": "distributed",
+        "description_ja": "善光寺表参道、昭和通りなど長野市中心市街地を主会場とする。"
+      },
+      "primary_place_id": "plc-nagano-binzuru-central-route",
+      "default_place_ids": ["plc-nagano-binzuru-central-route"],
+      "external_links": [{
+        "kind": "official_website",
+        "platform": "web",
+        "url": "https://binzuru.info/",
+        "is_primary": true,
+        "officiality": "official",
+        "last_checked_at": "2026-08-10"
+      }],
+      "record_lifecycle": "active",
+      "festival_kind": "community_festival",
+      "usual_months": [8],
+      "usual_duration_days": 1,
+      "season_tags": ["夏"],
+      "occurrence_series_ids": ["ser-nagano-binzuru-annual"]
+    },
+    {
+      "id": "org-nagano-binzuru-jikkoiinkai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-10T00:00:00Z",
+      "updated_at": "2026-08-10T00:00:00Z",
+      "slug": "nagano-binzuru-jikkoiinkai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [{
+        "value": "長野びんずる実行委員会",
+        "lang": "ja",
+        "kind": "canonical",
+        "is_preferred": true,
+        "source_ids": ["src-nagano-binzuru-2026-city-pr"]
+      }],
+      "summary_ja": "長野市の2026年広報で第56回長野びんずるの問い合わせ先として示され、年度ごとの実行委員会運営を担う組織。",
+      "geographic_scope": {
+        "areas": [{
+          "prefecture_code": "20",
+          "prefecture_name_ja": "長野県",
+          "municipality_name_ja": "長野市"
+        }],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [{
+        "kind": "organizer_website",
+        "platform": "web",
+        "url": "https://binzuru.info/",
+        "is_primary": true,
+        "officiality": "official_organization",
+        "last_checked_at": "2026-08-10"
+      }],
+      "record_lifecycle": "active",
+      "organization_kind": "committee"
+    }
+  ],
+  "places": [{
+    "id": "plc-nagano-binzuru-central-route",
+    "schema_version": "common.v1",
+    "record_version": 1,
+    "name_ja": "長野びんずる 中心市街地会場",
+    "place_kind": "festival_route",
+    "country_code": "JP",
+    "prefecture_code": "20",
+    "prefecture_name_ja": "長野県",
+    "municipality_name_ja": "長野市",
+    "locality_ja": "善光寺表参道・昭和通りほか",
+    "coordinate_precision": "municipality",
+    "map_label_ja": "長野びんずる公式 連進行・施設配置図",
+    "source_ids": ["src-nagano-binzuru-2026-city", "src-nagano-binzuru-route-official"]
+  }],
+  "stateSnapshots": [{
+    "id": "sts-nagano-binzuru-current",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "entity_id": "fst-nagano-binzuru",
+    "state_schema": "matsuri.festival.v1",
+    "state_code": "active",
+    "observed_at": "2026-08-10",
+    "basis_evidence_ids": ["evd-nagano-binzuru-state-2026"],
+    "review_status": "approved"
+  }],
+  "changeEvents": [{
+    "id": "chg-nagano-binzuru-started-1971",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "event_type": "other",
+    "subject_entity_ids": ["fst-nagano-binzuru"],
+    "effective_period": {"start": "1971"},
+    "summary_ja": "1971年1月に長野青年会議所を中心に企画され、同年8月7日に第1回長野びんずるが開催された。開始を年精度で記録する。",
+    "resulting_state_snapshot_ids": [],
+    "related_relation_ids": [],
+    "evidence_ids": ["evd-nagano-binzuru-start-1971"],
+    "review_status": "approved"
+  }],
+  "occurrences": [{
+    "id": "occ-nagano-binzuru-2025",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "subject_entity_id": "fst-nagano-binzuru",
+    "series_id": "ser-nagano-binzuru-annual",
+    "occurrence_type": "festival_edition",
+    "temporal_extent": {
+      "start": "2025-08-02",
+      "end": "2025-08-02",
+      "precision": "day"
+    },
+    "outcome": "held",
+    "scale": "unknown",
+    "venue_place_ids": ["plc-nagano-binzuru-central-route"],
+    "organizer_entity_ids": ["org-nagano-binzuru-jikkoiinkai"],
+    "evidence_ids": ["evd-nagano-binzuru-occ-2025"],
+    "review_status": "approved"
+  }],
+  "occurrenceSeries": [{
+    "id": "ser-nagano-binzuru-annual",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "subject_entity_id": "fst-nagano-binzuru",
+    "series_type": "annual_festival_edition",
+    "name_ja": "長野びんずる 年次開催",
+    "recurrence_pattern_id": "rec-nagano-binzuru-first-saturday-august",
+    "default_venue_place_ids": ["plc-nagano-binzuru-central-route"],
+    "evidence_ids": ["evd-nagano-binzuru-recurrence"]
+  }],
+  "recurrencePatterns": [{
+    "id": "rec-nagano-binzuru-first-saturday-august",
+    "schema_version": "common.v1",
+    "record_version": 1,
+    "pattern_type": "annual",
+    "rule_text_ja": "毎年8月の第一土曜日に開催する。",
+    "evidence_ids": ["evd-nagano-binzuru-recurrence"]
+  }],
+  "relations": [{
+    "id": "rel-nagano-binzuru-organized-by-jikkoiinkai",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "source_entity_id": "fst-nagano-binzuru",
+    "relation_type": "organized_by",
+    "target_entity_id": "org-nagano-binzuru-jikkoiinkai",
+    "evidence_ids": ["evd-rel-nagano-binzuru-jikkoiinkai"],
+    "review_status": "approved"
+  }],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
