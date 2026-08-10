@@ -1,0 +1,192 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-nagano-binzuru-2026-city",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "第56回長野びんずる",
+      "publisher": "長野市",
+      "url": "https://www.city.nagano.nagano.jp/n150800/event/p000011.html",
+      "updated_at_source": "2026-05-26",
+      "accessed_at": "2026-08-10",
+      "language": "ja"
+    },
+    {
+      "id": "src-nagano-binzuru-2026-city-pr",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "広報ながの7月号（夏祭りのご案内）",
+      "publisher": "長野市",
+      "url": "https://www.city.nagano.nagano.jp/n042000/contents/p016462.html",
+      "accessed_at": "2026-08-10",
+      "language": "ja"
+    },
+    {
+      "id": "src-nagano-binzuru-2025-city-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "第55回長野びんずる開催!!",
+      "publisher": "長野市",
+      "url": "https://www.city.nagano.nagano.jp/n042000/news/p016375.html",
+      "updated_at_source": "2025-08-06",
+      "accessed_at": "2026-08-10",
+      "language": "ja"
+    },
+    {
+      "id": "src-nagano-binzuru-history-official",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "ご挨拶 - 第54回長野びんずる公式サイト",
+      "publisher": "長野びんずる実行委員会",
+      "url": "https://binzuru.info/goaisatu/",
+      "accessed_at": "2026-08-10",
+      "language": "ja"
+    },
+    {
+      "id": "src-nagano-binzuru-route-official",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "連進行・施設配置図 - 第54回長野びんずる公式サイト",
+      "publisher": "長野びんずる実行委員会",
+      "url": "https://binzuru.info/renmap/",
+      "accessed_at": "2026-08-10",
+      "language": "ja"
+    },
+    {
+      "id": "src-nagano-binzuru-recurrence-city",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "遊ぶ | おしごとながの",
+      "publisher": "長野市",
+      "url": "https://oshigoto.nagano.jp/nagalife/enjoy/",
+      "accessed_at": "2026-08-10",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-nagano-binzuru-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-nagano-binzuru-2026-city",
+      "target_type": "entity_identity",
+      "target_id": "fst-nagano-binzuru",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "長野市は2026年の公式イベントページで『第56回長野びんずる』を長野を代表する夏祭りとして案内している。",
+      "captured_at": "2026-08-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-nagano-binzuru-org-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-nagano-binzuru-2026-city-pr",
+      "target_type": "entity_identity",
+      "target_id": "org-nagano-binzuru-jikkoiinkai",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "長野市の2026年広報は第56回長野びんずるの問い合わせ先を『長野びんずる実行委員会』と記載している。",
+      "captured_at": "2026-08-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-nagano-binzuru-state-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-nagano-binzuru-2026-city",
+      "target_type": "state_snapshot",
+      "target_id": "sts-nagano-binzuru-current",
+      "assertion_code": "supports_current_state",
+      "summary_ja": "長野市は2026年5月26日更新の公式ページで第56回長野びんずるの開催日、場所、主催団体を案内しているため、祭りのCurrent Stateをactiveとする。2026年のheld outcomeはこのEvidenceからは推定しない。",
+      "captured_at": "2026-08-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-nagano-binzuru-place-central-route",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-nagano-binzuru-2026-city",
+      "target_type": "place",
+      "target_id": "plc-nagano-binzuru-central-route",
+      "assertion_code": "supports_place",
+      "summary_ja": "長野市の2026年公式イベントページは開催場所を善光寺表参道、昭和通りほかと明示している。",
+      "captured_at": "2026-08-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-nagano-binzuru-recurrence",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-nagano-binzuru-recurrence-city",
+      "target_type": "recurrence_pattern",
+      "target_id": "rec-nagano-binzuru-first-saturday-august",
+      "assertion_code": "supports_recurrence",
+      "summary_ja": "長野市が管理する『おしごとながの』は、長野びんずる祭りを毎年8月の第一土曜日に開催すると説明している。",
+      "captured_at": "2026-08-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-nagano-binzuru-start-1971",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-nagano-binzuru-history-official",
+      "target_type": "change_event",
+      "target_id": "chg-nagano-binzuru-started-1971",
+      "assertion_code": "supports_change_event",
+      "summary_ja": "長野びんずる公式サイトは昭和46年（1971年）1月に長野青年会議所を中心に企画し、同年8月7日に第1回を開催したと説明している。Change Eventは年精度に留める。",
+      "captured_at": "2026-08-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-rel-nagano-binzuru-jikkoiinkai",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-nagano-binzuru-2026-city",
+      "target_type": "relation",
+      "target_id": "rel-nagano-binzuru-organized-by-jikkoiinkai",
+      "assertion_code": "supports_relation",
+      "summary_ja": "長野市の2026年公式イベントページは主催団体を第56回長野びんずる実行委員会と明示しているため、Festivalから長野びんずる実行委員会へのorganized_by Relationを記録する。",
+      "captured_at": "2026-08-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-nagano-binzuru-occ-2025",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-nagano-binzuru-2025-city-held",
+      "target_type": "occurrence",
+      "target_id": "occ-nagano-binzuru-2025",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "長野市は2025年8月6日のフォトニュースで、8月2日に第55回長野びんずるが開催されたと明示しているため、2025 editionをheldとし、規模はunknownに留める。",
+      "captured_at": "2026-08-10",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-nagano-binzuru-official-map",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-nagano-binzuru-route-official",
+      "target_type": "place",
+      "target_id": "plc-nagano-binzuru-central-route",
+      "assertion_code": "supports_official_map",
+      "summary_ja": "長野びんずる公式サイトの連進行・施設配置図は中央通り・昭和通り等の進行区画を示す。Festival detailの地図導線にはこの公式ルート図を使用し、座標を推定しない。2026年の会場範囲自体は長野市の現行ページで別途確認する。",
+      "captured_at": "2026-08-10",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
