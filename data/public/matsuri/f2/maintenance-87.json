@@ -1,0 +1,177 @@
+{
+  "entities": [
+    {
+      "id": "fst-niigata-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-10T00:00:00Z",
+      "updated_at": "2026-08-10T00:00:00Z",
+      "slug": "niigata-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [{
+        "value": "新潟まつり",
+        "lang": "ja",
+        "kind": "canonical",
+        "is_preferred": true,
+        "source_ids": ["src-niigata-matsuri-about", "src-niigata-matsuri-2026-official"]
+      }],
+      "summary_ja": "住吉祭・商工祭・川開き・開港記念祭という4つの祭りを一つにし、1955年に第1回が始まった新潟市の祭り。毎年8月上旬の金・土・日曜日を基本に、古町、萬代橋周辺、信濃川河畔など中心市街地で複数の行事を行う。",
+      "geographic_scope": {
+        "areas": [{
+          "prefecture_code": "15",
+          "prefecture_name_ja": "新潟県",
+          "municipality_name_ja": "新潟市"
+        }],
+        "scope_type": "distributed",
+        "description_ja": "古町、萬代橋周辺、信濃川河畔など新潟市中心市街地の複数会場で行う。"
+      },
+      "primary_place_id": "plc-niigata-matsuri-central-area",
+      "default_place_ids": ["plc-niigata-matsuri-central-area"],
+      "external_links": [{
+        "kind": "official_website",
+        "platform": "web",
+        "url": "https://niigata-matsuri.com/",
+        "is_primary": true,
+        "officiality": "official",
+        "last_checked_at": "2026-08-10"
+      }],
+      "record_lifecycle": "active",
+      "festival_kind": "composite_festival",
+      "usual_months": [8],
+      "usual_duration_days": 3,
+      "season_tags": ["夏"],
+      "occurrence_series_ids": ["ser-niigata-matsuri-annual"]
+    },
+    {
+      "id": "org-niigata-matsuri-jikkoiinkai",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-10T00:00:00Z",
+      "updated_at": "2026-08-10T00:00:00Z",
+      "slug": "niigata-matsuri-jikkoiinkai",
+      "entity_type": "organization",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [{
+        "value": "新潟まつり実行委員会",
+        "lang": "ja",
+        "kind": "canonical",
+        "is_preferred": true,
+        "source_ids": ["src-niigata-matsuri-city-grant-2026", "src-niigata-matsuri-2026-official"]
+      }],
+      "summary_ja": "新潟市が2026年の新潟まつり開催事業補助金の補助事業者として明示し、新潟まつり公式サイトの運営・問い合わせ主体として掲載される実行委員会。",
+      "geographic_scope": {
+        "areas": [{
+          "prefecture_code": "15",
+          "prefecture_name_ja": "新潟県",
+          "municipality_name_ja": "新潟市"
+        }],
+        "scope_type": "single_area"
+      },
+      "default_place_ids": [],
+      "external_links": [{
+        "kind": "organizer_website",
+        "platform": "web",
+        "url": "https://niigata-matsuri.com/",
+        "is_primary": true,
+        "officiality": "official_organization",
+        "last_checked_at": "2026-08-10"
+      }],
+      "record_lifecycle": "active",
+      "organization_kind": "festival_committee"
+    }
+  ],
+  "places": [{
+    "id": "plc-niigata-matsuri-central-area",
+    "schema_version": "common.v1",
+    "record_version": 1,
+    "name_ja": "新潟まつり 中心市街地会場",
+    "place_kind": "festival_area",
+    "country_code": "JP",
+    "prefecture_code": "15",
+    "prefecture_name_ja": "新潟県",
+    "municipality_name_ja": "新潟市",
+    "locality_ja": "古町・萬代橋周辺・信濃川河畔ほか",
+    "coordinate_precision": "municipality",
+    "map_label_ja": "新潟まつり公式 交通規制・会場案内",
+    "source_ids": ["src-niigata-matsuri-schedule-2026", "src-niigata-matsuri-2026-home-map"]
+  }],
+  "stateSnapshots": [{
+    "id": "sts-niigata-matsuri-current",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "entity_id": "fst-niigata-matsuri",
+    "state_schema": "matsuri.festival.v1",
+    "state_code": "active",
+    "observed_at": "2026-08-10",
+    "basis_evidence_ids": ["evd-niigata-matsuri-state-2026"],
+    "review_status": "approved"
+  }],
+  "changeEvents": [{
+    "id": "chg-niigata-matsuri-started-1955",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "event_type": "other",
+    "subject_entity_ids": ["fst-niigata-matsuri"],
+    "effective_period": {"start": "1955"},
+    "summary_ja": "住吉祭・商工祭・川開き・開港記念祭の4つを一つにし、1955年に第1回新潟まつりが始まった。開始を年精度で記録する。",
+    "resulting_state_snapshot_ids": [],
+    "related_relation_ids": [],
+    "evidence_ids": ["evd-niigata-matsuri-start-1955"],
+    "review_status": "approved"
+  }],
+  "occurrences": [{
+    "id": "occ-niigata-matsuri-2025",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "subject_entity_id": "fst-niigata-matsuri",
+    "series_id": "ser-niigata-matsuri-annual",
+    "occurrence_type": "festival_edition",
+    "temporal_extent": {
+      "start": "2025-08-08",
+      "end": "2025-08-10",
+      "precision": "range"
+    },
+    "outcome": "held",
+    "scale": "modified",
+    "venue_place_ids": ["plc-niigata-matsuri-central-area"],
+    "organizer_entity_ids": ["org-niigata-matsuri-jikkoiinkai"],
+    "evidence_ids": ["evd-niigata-matsuri-occ-2025-held", "evd-niigata-matsuri-occ-2025-modified"],
+    "review_status": "approved"
+  }],
+  "occurrenceSeries": [{
+    "id": "ser-niigata-matsuri-annual",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "subject_entity_id": "fst-niigata-matsuri",
+    "series_type": "annual_festival_edition",
+    "name_ja": "新潟まつり 年次開催",
+    "recurrence_pattern_id": "rec-niigata-matsuri-early-august-weekend",
+    "default_venue_place_ids": ["plc-niigata-matsuri-central-area"],
+    "evidence_ids": ["evd-niigata-matsuri-recurrence"]
+  }],
+  "recurrencePatterns": [{
+    "id": "rec-niigata-matsuri-early-august-weekend",
+    "schema_version": "common.v1",
+    "record_version": 1,
+    "pattern_type": "annual",
+    "rule_text_ja": "毎年8月上旬の金曜日・土曜日・日曜日に行う。",
+    "evidence_ids": ["evd-niigata-matsuri-recurrence"]
+  }],
+  "relations": [{
+    "id": "rel-niigata-matsuri-organized-by-jikkoiinkai",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "source_entity_id": "fst-niigata-matsuri",
+    "relation_type": "organized_by",
+    "target_entity_id": "org-niigata-matsuri-jikkoiinkai",
+    "evidence_ids": ["evd-rel-niigata-matsuri-jikkoiinkai-explicit", "evd-rel-niigata-matsuri-jikkoiinkai-current"],
+    "review_status": "approved"
+  }],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
