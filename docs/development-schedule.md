@@ -20,7 +20,8 @@ Phase 10B Corpus expansion   active
 Corpus batches 11-37         completed
 Batch 37 production          verified
 Next corpus batch            Batch 38
-Stabilization review         eligible / observing
+Stabilization review         observing
+Formal review eligible       true
 Actual Jinja start gate      blocked
 ```
 
