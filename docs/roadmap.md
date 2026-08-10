@@ -1,6 +1,6 @@
 # Project Roadmap
 
-**Status:** Phase 9 completed / Phase 10 Detail C completed / Matsuri corpus expansion active / stabilization observing
+**Status:** Phase 9 completed / Phase 10 Detail C completed / Matsuri corpus expansion active / stabilization review eligible and observing
 
 ## Phase 0 through Phase 8
 
@@ -39,31 +39,36 @@ docs/matsuri-detail-c-implementation.md
 
 Status: **Active**
 
-Current verified checkpoint after Batch 36:
+Current verified checkpoint after Batch 37:
 
 ```text
-Primary prefecture coverage  40 / 47
-Public Entities              106
-Places                        97
-State Snapshots               49
-Change Events                 98
-Relations                     63
-Occurrences                  158
-Sitemap entries              213
-Sources                      273
-Evidence                     623
+Primary prefecture coverage  41 / 47
+Public Entities              108
+Places                        99
+State Snapshots               50
+Change Events                 99
+Relations                     64
+Occurrences                  159
+Sitemap entries              217
+Sources                      278
+Evidence                     633
 Sparse primary Entities        0
 ```
 
-Batch 36 added the first approved primary record for 鳥取県 through 鳥取しゃんしゃん祭. The festival is linked to 鳥取しゃんしゃん祭振興会, retains the annual August 13–15 recurrence, keeps the 2026 edition `scheduled / unknown` while still future-dated, records the 1965 start at year precision, and separates JR鳥取駅前風紋広場 from the distributed city-center route. The official-map contract uses the reviewed 鳥取市 風紋広場 page instead of invented coordinates.
+Batch 37 added the first approved primary record for 兵庫県 through 神戸まつり. The festival is linked to 神戸市民祭協会, retains the annual May-third-Sunday recurrence, records the May 17, 2026 edition as `held / unknown`, records the 1971 start at year precision, and separates the concrete 東遊園地 venue from the distributed parade route. The official-map contract uses the reviewed 神戸市 東遊園地 page instead of invented route coordinates.
 
-The next breadth target is one reviewed primary Entity from the remaining seven uncovered prefectures:
+Exact canonical-production verification passed for release:
+
+```text
+a0f1dfc3a241479c419e745cf8f04fbe33be9aae
+```
+
+The next breadth target is one reviewed primary Entity from the remaining six uncovered prefectures:
 
 ```text
 群馬県
 新潟県
 長野県
-兵庫県
 和歌山県
 山口県
 宮崎県
@@ -73,22 +78,26 @@ The next depth target is a due 2026 Occurrence or an existing low-density primar
 
 ### Parallel stabilization review
 
-Status: **Observing**
+Status: **Review eligible / Observing**
 
 ```text
 Started               2026-07-27
 Minimum duration      14 days
 Earliest review       2026-08-10
+Review eligible       true
+Review complete       false
 Machine record        config/matsuri-stabilization-review.json
 ```
 
-Elapsed time alone does not complete Phase 10. Production availability, deployment behavior, canonical/HTTPS behavior, Search, crawler/sitemap behavior, Analytics, Search Console, freshness, Relations, Evidence, corrections, map-contract maintenance, and real maintenance burden remain under observation.
+Elapsed time alone does not complete Phase 10. The formal review must record production availability, deployment behavior, canonical/HTTPS behavior, Search, crawler/sitemap behavior, Analytics traffic receipt, freshness, Relations, Evidence/corrections, map-contract maintenance, manual maintenance burden, and Search Console observation.
 
-Batch 36 adds another maintenance example: a future-dated edition remains scheduled despite being close to the observation date, while a route-based Festival still satisfies map requirements through a concrete official venue anchor without coordinate fabrication.
+Batch 37 adds another real maintenance/modeling example: an already-held 2026 edition is represented only at the evidence-supported `held / unknown` level, while the distributed parade route remains coordinate-free and the concrete official venue anchor satisfies the map contract.
+
+The review may now be performed, but it cannot be marked complete from the calendar alone or by inferring private Analytics/Search Console observations.
 
 ## Phase 11 — Portal and next-site gates
 
-Status: **Deferred until corpus, stabilization evidence, and explicit gate review exist**
+Status: **Deferred until stabilization evidence and explicit gate review exist**
 
 ```text
 Matsuri stabilization review          incomplete
@@ -97,4 +106,4 @@ Jinja State specification             unapproved
 Explicit start authorization          absent
 ```
 
-The current candidate inventory remains 23 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Batch 36 adds no Shrine or Temple seed. Seed accumulation does not activate the next site.
+The current candidate inventory remains 23 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Batch 37 adds no Shrine or Temple seed. Seed accumulation does not activate the next site.
