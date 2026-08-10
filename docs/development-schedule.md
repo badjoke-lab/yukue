@@ -17,9 +17,9 @@ Phase 9 Launch Preparation   completed
 Phase 10 Stabilization       active
 Phase 10A Detail C repair    completed
 Phase 10B Corpus expansion   active
-Corpus batches 11-39         completed
-Batch 39 production          verified
-Next corpus batch            Batch 40
+Corpus batches 11-40         completed
+Batch 40 production          verified
+Next corpus batch            Batch 41
 Stabilization review         observing
 Formal review eligible       true
 Actual Jinja start gate      blocked
@@ -66,32 +66,33 @@ static + Chromium + representative screenshot checks
 
 Status: **Active**
 
-Batch 39 is complete and exact canonical production is verified.
+Batch 40 is complete and exact canonical production is verified.
 
 Current checkpoint:
 
 ```text
-Primary prefecture coverage  43 / 47
-Public Entities              112
-Places                       101
-State Snapshots               52
-Change Events                102
-Relations                     66
-Occurrences                  161
-Sitemap entries              223
-Sources                      291
-Evidence                     654
+Primary prefecture coverage  44 / 47
+Public Entities              114
+Places                       102
+State Snapshots               53
+Change Events                103
+Relations                     67
+Occurrences                  162
+Sitemap entries              226
+Sources                      299
+Evidence                     665
 Sparse primary Entities        0
 ```
 
-Batch 39 added 長野びんずる for 長野県. The Festival is linked to 長野びんずる実行委員会, uses a center-city route Place, records Current State `active`, the annual first-Saturday-of-August recurrence, the 2025 edition as `held / unknown`, and the 1971 first edition/start at year precision. The approved official route/map target avoids fabricated coordinates. The elapsed 2026 date is not converted to a held Occurrence without post-event Evidence.
+Batch 40 added 新潟まつり for 新潟県. The Festival is linked to 新潟まつり実行委員会, uses distributed center-city venue context, records Current State `active`, the annual early-August Friday/Saturday/Sunday recurrence, the 2025 edition as `held / modified`, and the 1955 first edition/start at year precision. The approved official traffic/venue-map target avoids fabricated coordinates. The elapsed 2026 dates are not converted to a held Occurrence without post-event Evidence.
 
-### Batch 40 breadth target
+The final release also demonstrated that an unused public Source is rejected by the release contract: the unreferenced Source found by complete CI was removed and the full gate was rerun successfully.
+
+### Batch 41 breadth target
 
 Add one reviewed primary record from:
 
 ```text
-新潟県
 和歌山県
 山口県
 宮崎県
@@ -99,14 +100,14 @@ Add one reviewed primary record from:
 
 Geographic breadth alone is not sufficient. The record must satisfy the existing Detail C, map, Evidence, Source, freshness, Relation, and production contracts.
 
-### Batch 40 depth target
+### Batch 41 depth target
 
 When evidence supports it, also do one of the following:
 
 - close the next due 2026 Occurrence;
 - deepen a low-density primary record with claim-specific Evidence;
 - add a real Change Event or historical Occurrence;
-- strengthen Organization, Place, or Relation context;
+- strengthen Organization, Shrine/Temple seed, Place, or Relation context;
 - process a correction or freshness issue discovered by the gates.
 
 Do not manufacture a depth change solely for symmetry.
@@ -143,11 +144,11 @@ Current dated reviews:
 春日若宮おん祭 2026             review after 2026-12-18
 ```
 
-## Batch 40 execution order
+## Batch 41 execution order
 
 ```text
 1. run freshness / Relation / Evidence / bundle checks on current main
-2. select one evidence-strong breadth target from the 4 uncovered prefectures
+2. select one evidence-strong breadth target from the 3 uncovered prefectures
 3. add only evidence-supported depth or due maintenance
 4. register canonical bundles in every required loader
 5. run corpus, freshness, Relation, external-link, correction, seed, and Jinja gates
@@ -160,7 +161,7 @@ Current dated reviews:
 12. record production verification and advance project-status / roadmap / schedule
 ```
 
-The formal stabilization review can proceed in parallel with Batch 40, but it must not be marked complete until every review prerequisite is actually evidenced.
+The formal stabilization review can proceed in parallel with Batch 41, but it must not be marked complete until every review prerequisite is actually evidenced.
 
 ## Future-site boundary
 

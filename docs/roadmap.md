@@ -39,34 +39,35 @@ docs/matsuri-detail-c-implementation.md
 
 Status: **Active**
 
-Current verified checkpoint after Batch 39:
+Current verified checkpoint after Batch 40:
 
 ```text
-Primary prefecture coverage  43 / 47
-Public Entities              112
-Places                       101
-State Snapshots               52
-Change Events                102
-Relations                     66
-Occurrences                  161
-Sitemap entries              223
-Sources                      291
-Evidence                     654
+Primary prefecture coverage  44 / 47
+Public Entities              114
+Places                       102
+State Snapshots               53
+Change Events                103
+Relations                     67
+Occurrences                  162
+Sitemap entries              226
+Sources                      299
+Evidence                     665
 Sparse primary Entities        0
 ```
 
-Batch 39 added the first approved primary record for 長野県 through 長野びんずる. The Festival is linked to 長野びんずる実行委員会, records the reviewed first-Saturday-of-August recurrence, preserves the center-city area as a route Place, records the 2025 edition as `held / unknown`, and adds the year-level 1971 first-edition/start Change Event. The official-map contract uses reviewed route guidance rather than invented coordinates. The 2026 schedule is not promoted to a held Occurrence without post-event Evidence.
+Batch 40 added the first approved primary record for 新潟県 through 新潟まつり. The Festival is linked to 新潟まつり実行委員会, records the reviewed early-August Friday/Saturday/Sunday recurrence, preserves the center-city footprint as distributed venue context, records the 2025 edition as `held / modified` with separate claim-specific Evidence, and adds the year-level 1955 first-edition/start Change Event. The official-map contract uses reviewed traffic/venue guidance rather than invented coordinates. The 2026 schedule is not promoted to a held Occurrence without post-event Evidence.
+
+The final release also removed an unused public Source found by complete CI and reran the full verification chain successfully.
 
 Exact canonical-production verification passed for release:
 
 ```text
-76ab0b37294870e3fb372405672867053a7b7936
+3e483cbb05f1416398ccefc56576116af4e9b126
 ```
 
-The next breadth target is one reviewed primary Entity from the remaining four uncovered prefectures:
+The next breadth target is one reviewed primary Entity from the remaining three uncovered prefectures:
 
 ```text
-新潟県
 和歌山県
 山口県
 宮崎県
@@ -89,7 +90,7 @@ Machine record        config/matsuri-stabilization-review.json
 
 Elapsed time alone does not complete Phase 10. The formal review must record production availability, deployment behavior, canonical/HTTPS behavior, Search, crawler/sitemap behavior, Analytics traffic receipt, freshness, Relations, Evidence/corrections, map-contract maintenance, manual maintenance burden, and Search Console observation.
 
-Batch 39 adds another real maintenance/modeling example: an elapsed 2026 schedule is not converted to `held` without explicit post-event Evidence, while a distributed route satisfies map requirements through approved official route guidance without coordinate fabrication.
+Batch 40 adds two real maintenance/modeling examples: an elapsed 2026 schedule is not converted to `held` without explicit post-event Evidence, and unused public Source material is rejected rather than retained outside the public Evidence graph.
 
 The review may now be performed, but it cannot be marked complete from the calendar alone or by inferring private Analytics/Search Console observations.
 
@@ -104,4 +105,4 @@ Jinja State specification             unapproved
 Explicit start authorization          absent
 ```
 
-The current candidate inventory remains 23 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Batch 39 adds no Shrine or Temple seed. Seed accumulation does not activate the next site.
+The current candidate inventory remains 23 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Batch 40 adds no Shrine or Temple seed. Seed accumulation does not activate the next site.
