@@ -40,6 +40,7 @@ Stabilization review            config/matsuri-stabilization-review.json
 Stabilization review contract   docs/matsuri-stabilization-review.md
 Latest review audit             docs/audits/matsuri-stabilization-maintenance-review-2026-08-12.md
 Public review audit             docs/audits/matsuri-stabilization-public-review-2026-08-11.md
+Latest dated-review audit       docs/audits/matsuri-yamaage-2026-held-2026-08-11.md
 Detail C implementation         docs/matsuri-detail-c-implementation.md
 Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-43-2026-08-11.md
 Latest production audit         docs/audits/matsuri-batch-43-production-verification-2026-08-11.md
@@ -90,23 +91,27 @@ Batch 43 added 宮﨑神宮大祭（神武さま） as the first approved primar
 - seven Sources and twelve claim-linked Evidence records;
 - an approved public map target for the Shrine anchor.
 
-The canonical corpus now contains:
+The repository canonical corpus now contains:
 
 ```text
 Entities          120
 Places            108
 State Snapshots    56
 Change Events     106
-Occurrences       166
+Occurrences       167
 Relations          70
 Designations       29
-Sources           318
-Evidence          699
+Sources           319
+Evidence          701
 ```
 
 Primary-record coverage is now **47 / 47 prefectures**. Prefecture gaps are zero, and no sparse primary Entity remains under the current corpus-coverage rule.
 
 Geographic breadth is therefore no longer the default corpus-expansion axis. Subsequent Matsuri work should be depth-first: Occurrence history, Change Events, Relation density, Evidence quality, freshness review, corrections, and dated maintenance.
+
+Maintenance bundle 95 closes the 2026 山あげ祭 dated review with a Nasukarasuyama City post-event release. The edition is recorded for 2026-07-24 through 2026-07-26 as `held / modified`: the festival was held, while heatstroke countermeasures reduced the usual 16–18 performances to 13. This annual outcome does not change the Festival Current State and does not create a permanent Change Event.
+
+The production baseline above remains at 166 Occurrences until the new repository release is separately verified on the canonical production origin.
 
 ## Stabilization review window
 
@@ -162,7 +167,6 @@ pnpm check:matsuri:stabilization-review
 Current dated reviews:
 
 ```text
-山あげ祭 2026                    review when official post-event Evidence is available
 鳥取しゃんしゃん祭 2026          review after 2026-08-15
 さぬき高松まつり 2026           review after 2026-08-15
 吉田の火祭 2026                 review after 2026-08-27
@@ -205,11 +209,11 @@ Product track       continue Matsuri depth-first maintenance rather than breadth
 Depth target        prioritize due Occurrences, Change Events, Relation density, Evidence quality, freshness, and corrections
 Breadth target      completed at 47 / 47 reviewed primary-prefecture coverage
 Detail track        keep every public title navigable through the enforced Detail C and map contracts
-Production check    Batch 43 exact canonical-production baseline verified
-Dated review        follow the remaining dated review inventory above
+Production check    Batch 43 exact canonical-production baseline remains the last verified production baseline
+Dated review        山あげ祭 2026 closed; follow the remaining dated review inventory above
 Stabilization       reviewing; repository-visible conclusions recorded; formal review remains incomplete
 Private review      confirm current Analytics traffic receipt and Search Console observation without committing private data
 Operations review   critical correction count, deployment-failure count, and maintenance burden recorded
-Cloudflare track    no pending Batch 43 deployment action
+Cloudflare track    verify the repository update separately before advancing the production baseline
 Jinja track         remain blocked until all post-launch prerequisites complete
 ```
