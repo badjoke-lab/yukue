@@ -1,0 +1,238 @@
+{
+  "entities": [
+    {
+      "id": "fst-miyazaki-jingu-grand-festival",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-11T00:00:00Z",
+      "updated_at": "2026-08-11T00:00:00Z",
+      "slug": "miyazaki-jingu-grand-festival",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "宮﨑神宮大祭（神武さま）",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-miyazaki-jingu-festival-chamber", "src-miyazaki-jingu-festival-2026-faq"]
+        }
+      ],
+      "summary_ja": "宮﨑神宮の例祭後に行われる御神幸祭で、「神武さま」の愛称で親しまれる。御神幸行列と神賑行列が宮﨑神宮から市中心部の御旅所へ進み、明治42年頃から現在の形式になったとされる。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "45",
+            "prefecture_name_ja": "宮崎県",
+            "municipality_name_ja": "宮崎市"
+          }
+        ],
+        "scope_type": "distributed",
+        "description_ja": "宮﨑神宮を起点に宮崎市中心部の御旅所まで御神幸行列・神賑行列が進む祭礼。"
+      },
+      "primary_place_id": "plc-miyazaki-jingu",
+      "default_place_ids": ["plc-miyazaki-jingu", "plc-miyazaki-jingu-shinko-route"],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.miyazaki-cci.or.jp/miyazaki/events/jinmu-festival/",
+          "is_primary": true,
+          "officiality": "official",
+          "last_checked_at": "2026-08-11"
+        }
+      ],
+      "record_lifecycle": "active",
+      "festival_kind": "shrine_festival",
+      "usual_months": [10, 11],
+      "usual_duration_days": 2,
+      "season_tags": ["秋"],
+      "occurrence_series_ids": ["ser-miyazaki-jingu-grand-festival-annual"]
+    },
+    {
+      "id": "shr-miyazaki-jingu",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-11T00:00:00Z",
+      "updated_at": "2026-08-11T00:00:00Z",
+      "slug": "miyazaki-jingu",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "宮﨑神宮",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-miyazaki-jingu-city-tourism"]
+        }
+      ],
+      "summary_ja": "宮崎市神宮に鎮座する神社。宮﨑神宮大祭（神武さま）の祭祀基点で、御神幸行列は同宮から市中心部の御旅所へ進む。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "45",
+            "prefecture_name_ja": "宮崎県",
+            "municipality_name_ja": "宮崎市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-miyazaki-jingu",
+      "default_place_ids": ["plc-miyazaki-jingu"],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://miyazakijingu.or.jp/",
+          "is_primary": true,
+          "officiality": "official",
+          "last_checked_at": "2026-08-11"
+        }
+      ],
+      "record_lifecycle": "active"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-miyazaki-jingu",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "宮﨑神宮",
+      "place_kind": "shrine_site",
+      "country_code": "JP",
+      "prefecture_code": "45",
+      "prefecture_name_ja": "宮崎県",
+      "municipality_name_ja": "宮崎市",
+      "locality_ja": "神宮2丁目4-1",
+      "street_address_ja": "宮崎県宮崎市神宮2丁目4-1",
+      "coordinate_precision": "address",
+      "map_label_ja": "宮﨑神宮大祭の祭祀基点・宮﨑神宮",
+      "source_ids": ["src-miyazaki-jingu-city-tourism"]
+    },
+    {
+      "id": "plc-miyazaki-jingu-shinko-route",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "宮﨑神宮大祭 御神幸行列・市中心部経路",
+      "place_kind": "festival_route",
+      "country_code": "JP",
+      "prefecture_code": "45",
+      "prefecture_name_ja": "宮崎県",
+      "municipality_name_ja": "宮崎市",
+      "locality_ja": "宮﨑神宮・江平・橘通り・旭通り・瀬頭御旅所周辺",
+      "coordinate_precision": "municipality",
+      "map_label_ja": "宮﨑神宮大祭の御神幸行列・市中心部経路",
+      "source_ids": ["src-miyazaki-jingu-festival-2025-city", "src-miyazaki-jingu-festival-chamber"]
+    }
+  ],
+  "stateSnapshots": [
+    {
+      "id": "sts-miyazaki-jingu-grand-festival-current",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-miyazaki-jingu-grand-festival",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-08-11",
+      "basis_evidence_ids": ["evd-miyazaki-jingu-festival-state-2026"],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [
+    {
+      "id": "chg-miyazaki-jingu-current-form-c1909",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "event_type": "other",
+      "subject_entity_ids": ["fst-miyazaki-jingu-grand-festival"],
+      "effective_period": {"start": "1909"},
+      "summary_ja": "宮﨑神宮大祭が明治42年（1909年）頃から現在のような形式になったとする公式説明を、年精度のChange Eventとして記録する。",
+      "resulting_state_snapshot_ids": [],
+      "related_relation_ids": ["rel-miyazaki-jingu-festival-ritually-associated-miyazaki-jingu"],
+      "evidence_ids": ["evd-miyazaki-jingu-current-form-c1909"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occ-miyazaki-jingu-grand-festival-2024",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-miyazaki-jingu-grand-festival",
+      "series_id": "ser-miyazaki-jingu-grand-festival-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2024-10-26",
+        "end": "2024-10-27",
+        "precision": "day"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": ["plc-miyazaki-jingu", "plc-miyazaki-jingu-shinko-route"],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-miyazaki-jingu-occ-2024-held", "evd-miyazaki-jingu-occ-2024-modified"],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-miyazaki-jingu-grand-festival-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-miyazaki-jingu-grand-festival",
+      "series_id": "ser-miyazaki-jingu-grand-festival-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-10-31",
+        "end": "2026-11-01",
+        "precision": "day"
+      },
+      "outcome": "scheduled",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-miyazaki-jingu", "plc-miyazaki-jingu-shinko-route"],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-miyazaki-jingu-occ-2026-scheduled"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [
+    {
+      "id": "ser-miyazaki-jingu-grand-festival-annual",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-miyazaki-jingu-grand-festival",
+      "series_type": "annual_festival_edition",
+      "name_ja": "宮﨑神宮大祭（神武さま） 年次開催",
+      "recurrence_pattern_id": "rec-miyazaki-jingu-grand-festival-annual",
+      "default_venue_place_ids": ["plc-miyazaki-jingu", "plc-miyazaki-jingu-shinko-route"],
+      "evidence_ids": ["evd-miyazaki-jingu-festival-recurrence"]
+    }
+  ],
+  "recurrencePatterns": [
+    {
+      "id": "rec-miyazaki-jingu-grand-festival-annual",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "pattern_type": "annual",
+      "rule_text_ja": "例祭は例年10月26日、御神幸行列は例祭後の土曜日・日曜日に行う。",
+      "evidence_ids": ["evd-miyazaki-jingu-festival-recurrence"]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-miyazaki-jingu-festival-ritually-associated-miyazaki-jingu",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "source_entity_id": "fst-miyazaki-jingu-grand-festival",
+      "relation_type": "ritually_associated_with",
+      "target_entity_id": "shr-miyazaki-jingu",
+      "evidence_ids": ["evd-rel-miyazaki-jingu-festival-miyazaki-jingu"],
+      "review_status": "approved"
+    }
+  ],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}

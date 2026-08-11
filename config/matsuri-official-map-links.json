@@ -160,6 +160,16 @@
       "label_ja": "和歌山県公式観光 紀州東照宮地図を見る",
       "url": "https://www.wakayama-kanko.or.jp/spots/detail_1019.html",
       "source_id": "src-kishu-toshogu-pref-tourism"
+    },
+    {
+      "entity_id": "fst-miyazaki-jingu-grand-festival",
+      "entity_route": "/festivals/miyazaki-jingu-grand-festival/",
+      "place_id": "plc-miyazaki-jingu",
+      "place_route": "/places/miyazaki-jingu/",
+      "place_name_ja": "宮﨑神宮",
+      "label_ja": "宮崎市観光協会 宮﨑神宮地図を見る",
+      "url": "https://www.miyazaki-city.tourism.or.jp/spot/10004",
+      "source_id": "src-miyazaki-jingu-city-tourism"
     }
   ]
 }
