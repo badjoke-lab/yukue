@@ -1,6 +1,6 @@
 # Project Roadmap
 
-**Status:** Phase 9 completed / Phase 10 Detail C completed / prefecture breadth 47 / 47 completed / depth-first Matsuri maintenance active / stabilization review eligible and observing
+**Status:** Phase 9 completed / Phase 10 Detail C completed / prefecture breadth 47 / 47 completed / depth-first Matsuri maintenance active / stabilization reviewing and incomplete
 
 ## Phase 0 through Phase 8
 
@@ -84,22 +84,42 @@ New primary Entities remain allowed when they add substantive coverage, but raw 
 
 ### Parallel stabilization review
 
-Status: **Review eligible / Observing**
+Status: **Reviewing / Incomplete**
 
 ```text
 Started               2026-07-27
 Minimum duration      14 days
 Earliest review       2026-08-10
 Review eligible       true
+Current status        reviewing
 Review complete       false
 Machine record        config/matsuri-stabilization-review.json
 ```
 
-Elapsed time alone does not complete Phase 10. The formal review must record production availability, deployment behavior, canonical/HTTPS behavior, Search, crawler/sitemap behavior, Analytics traffic receipt, freshness, Relations, Evidence/corrections, map-contract maintenance, manual maintenance burden, and Search Console observation.
+The state model is `observing -> reviewing -> complete`. Elapsed time alone does not complete Phase 10.
 
-Batch 43 adds another modeling boundary: a State-free Shrine seed can strengthen Matsuri identity, Place, history, and ritual Relations without authorizing Jinja State inference. The future 2026 宮﨑神宮大祭 edition also remains `scheduled / unknown` until post-event Evidence supports another outcome.
+Repository/public review inputs already recorded cover production availability, canonical/HTTPS behavior, canonical Search, crawler/sitemap behavior, freshness, Relation coverage, Evidence/corrections, and manual maintenance burden.
 
-The next stabilization step is to inventory which required dimensions can be closed from public/repository evidence and which require direct private Analytics or Search Console observation. Private observations must not be inferred.
+Current public-safe review observations are:
+
+```text
+Known unresolved critical corrections   0
+Production deployment failures           1
+Manual maintenance burden                acceptable
+```
+
+The maintenance classification is deliberately `acceptable`, not `low`: the stabilization period required real corrective work, but fixes remained bounded and followed normal repository contracts and gates without correctness-gate bypass or untracked production-data mutation.
+
+The remaining review dimensions require current private observation:
+
+```text
+Cloudflare Web Analytics traffic receipt   pending
+Search Console observation                 pending
+```
+
+Search-engine indexation itself remains outside the completion requirement. Historical F2-27 traffic and F2-24 Search Console evidence are not automatically reused as current stabilization observations.
+
+Batch 43 continues to preserve the future-site boundary: a State-free Shrine seed can strengthen Matsuri identity, Place, history, and ritual Relations without authorizing Jinja State inference. The future 2026 宮﨑神宮大祭 edition also remains `scheduled / unknown` until post-event Evidence supports another outcome.
 
 ## Phase 11 — Portal and next-site gates
 
