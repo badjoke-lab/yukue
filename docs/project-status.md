@@ -20,7 +20,8 @@ F2-P01 through F2-P13 — completed
 Phase 9 Launch Preparation — completed
 Phase 10 Stabilization — active
 Matsuri Detail C implementation — completed
-Matsuri corpus expansion — active
+Matsuri prefecture breadth target — completed 47 / 47
+Matsuri depth-first corpus maintenance — active
 Matsuri stabilization review — observing / review eligible
 Actual Jinja start gate — blocked
 future specialist-site implementation — not activated
@@ -35,8 +36,8 @@ Analytics progression           config/matsuri-analytics-activation.json
 Final F2 launch gate            config/matsuri-f2-launch-gate.json
 Stabilization review            config/matsuri-stabilization-review.json
 Detail C implementation         docs/matsuri-detail-c-implementation.md
-Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-42-2026-08-11.md
-Latest production audit         docs/audits/matsuri-batch-42-production-verification-2026-08-11.md
+Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-43-2026-08-11.md
+Latest production audit         docs/audits/matsuri-batch-43-production-verification-2026-08-11.md
 Jinja start boundary            config/jinja-start-gate.json
 Production topology             docs/deployment-topology.md
 ```
@@ -47,63 +48,60 @@ Production topology             docs/deployment-topology.md
 Worker                    matsuri-yukue
 Canonical origin          https://matsuri-yukue.badjoke-lab.com/
 Permanent Workers origin  https://matsuri-yukue.badjoke-lab.workers.dev/
-Verified release          d36797b2980ef9d639bfa7ee0a152a287a223d3a
+Verified release          3604d984c71bb71f3b66245b87fa869a64ec85b3
 Verified on               2026-08-11
-Canonical workflow        31463272976 — attempt 1 success
-Production-baseline PR    #243
-Production-baseline merge aeea121ed2908e8e83c90ad727f5d69b6c1c753f
+Canonical workflow        31465702322 — attempt 1 success
+Production-baseline PR    #246
+Production-baseline merge 09f5b7c0ff2ff4f1e3bd0d59af1782eb720486e7
 ```
 
-Exact canonical-production verification succeeded on attempt 1 for Batch 42.
+Exact canonical-production verification succeeded on attempt 1 for Batch 43.
 
 ```text
-Entities          118
-Change Events     105
-Relations          69
-Occurrences       164
-Sitemap entries   234
+Entities          120
+Change Events     106
+Relations          70
+Occurrences       166
+Sitemap entries   238
 ```
 
-The Batch 42 production contract includes HTTP-reachable routes for 和歌祭, the 紀州東照宮 Shrine reference, the 紀州東照宮 Place, and the distributed 和歌浦渡御 route Place. It verifies the 2026 edition as record version 1 `held / unknown` using post-event Evidence.
+The Batch 43 production contract includes HTTP-reachable routes for 宮﨑神宮大祭, the 宮﨑神宮 Shrine reference, the 宮﨑神宮 Place, and the distributed 御神幸行列 route Place. It verifies the 2024 edition as record version 1 `held / modified` and keeps the 2026 edition as record version 1 `scheduled / unknown`.
 
-No URL is claimed already indexed.
+No URL is claimed already indexed. No future held outcome is inferred before post-event Evidence exists.
 
 ## Current product track
 
-Corpus expansion batches 11 through 42 are complete.
+Corpus expansion batches 11 through 43 are complete.
 
-Batch 42 added 和歌祭 as the first approved primary Matsuri record for 和歌山県. The record includes:
+Batch 43 added 宮﨑神宮大祭（神武さま） as the first approved primary Matsuri record for 宮崎県. The record includes:
 
-- 紀州東照宮 through an evidence-backed `ritually_associated_with` Relation;
-- a concrete Shrine Place and a distributed route Place without fabricated point coordinates;
+- 宮﨑神宮 through an evidence-backed `ritually_associated_with` Relation;
+- a concrete Shrine Place and a distributed procession-route Place without fabricated point coordinates;
 - Current State `active`;
-- annual second-Sunday-of-May recurrence;
-- the 2026 edition as `held / unknown` using post-event reporting, with municipal material independently supporting the date and venue;
-- a reviewed year-level 1622 first-edition/start Change Event;
-- six Sources and eleven claim-linked Evidence records;
+- annual recurrence centered on the October 26例祭 and the following Saturday/Sunday御神幸行列;
+- the 2024 edition as `held / modified`, separating actual performance from weather-related modification Evidence;
+- the 2026 edition as `scheduled / unknown` for October 31–November 1;
+- a reviewed year-level c.1909 current-form establishment Change Event;
+- seven Sources and twelve claim-linked Evidence records;
 - an approved public map target for the Shrine anchor.
 
 The canonical corpus now contains:
 
 ```text
-Entities          118
-Places            106
-State Snapshots    55
-Change Events     105
-Occurrences       164
-Relations          69
+Entities          120
+Places            108
+State Snapshots    56
+Change Events     106
+Occurrences       166
+Relations          70
 Designations       29
-Sources           311
-Evidence          687
+Sources           318
+Evidence          699
 ```
 
-Primary-record coverage is now 46 / 47 prefectures. One prefecture remains uncovered:
+Primary-record coverage is now **47 / 47 prefectures**. Prefecture gaps are zero, and no sparse primary Entity remains under the current corpus-coverage rule.
 
-```text
-宮崎県
-```
-
-No sparse primary Entity remains under the current corpus-coverage rule.
+Geographic breadth is therefore no longer the default corpus-expansion axis. Subsequent Matsuri work should be depth-first: Occurrence history, Change Events, Relation density, Evidence quality, freshness review, corrections, and dated maintenance.
 
 ## Stabilization review window
 
@@ -118,7 +116,7 @@ Review complete       false
 
 Reaching the minimum observation duration makes the formal review eligible; it does not complete the gate. Production availability, canonical/HTTPS behavior, Search, crawler/sitemap behavior, Analytics traffic receipt, freshness, Relations, Evidence/corrections, manual maintenance burden, and Search Console observation must all be reviewed and recorded under the stabilization contract.
 
-Recorded maintenance evidence now also includes Batch 42's narrow correction for a transient Google Maps third-party JWT RPC console message. The correction does not suppress general application or first-party console errors.
+Recorded maintenance evidence includes route and Source corrections, multiple scheduled-to-held rollovers, official-map remediation, split-component and distributed-route modeling, refusal to infer held outcomes from elapsed or future dates alone, strict rejection of unused Sources, State-free future-site seed alignment, and the narrow Batch 42 correction for a transient Google Maps third-party JWT RPC message without weakening first-party console-error strictness.
 
 ## Routine Matsuri maintenance
 
@@ -147,6 +145,7 @@ Current dated reviews:
 上野天神祭 2026                 review after 2026-10-25
 おはら祭 2026                   review after 2026-11-03
 春日若宮おん祭 2026             review after 2026-12-18
+宮﨑神宮大祭 2026               review after 2026-11-01
 ```
 
 ## Jinja start boundary
@@ -161,25 +160,25 @@ Explicit start authorization          false
 
 Actual Jinja start gate — blocked
 
-The candidate baseline is 25 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Batch 42 adds 紀州東照宮 as a State-free Shrine seed reference. Candidate extraction does not authorize implementation.
+The candidate baseline is 26 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Batch 43 adds 宮﨑神宮 as a State-free Shrine seed reference. Candidate extraction does not authorize implementation.
 
 ## Current release status
 
 ```text
-repository-verified-canonical-production-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-launch-complete-stabilization-review-eligible-observing-jinja-start-blocked
+repository-verified-canonical-production-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-launch-complete-prefecture-breadth-47-of-47-stabilization-review-eligible-observing-jinja-start-blocked
 ```
 
 ## Immediate next actions
 
 ```text
-Product track       execute Matsuri corpus expansion Batch 43
-Depth target        add evidence-supported history or verified Occurrences without inference
-Breadth target      add one reviewed primary record from the sole uncovered prefecture, 宮崎県
+Product track       switch Matsuri corpus work from breadth-first to depth-first maintenance
+Depth target        prioritize due Occurrences, Change Events, Relation density, Evidence quality, freshness, and corrections
+Breadth target      completed at 47 / 47 reviewed primary-prefecture coverage
 Detail track        keep every public title navigable through the enforced Detail C and map contracts
-Production check    Batch 42 exact canonical-production baseline verified
+Production check    Batch 43 exact canonical-production baseline verified
 Dated review        follow the remaining dated review inventory above
-Stabilization       perform the eligible formal review without treating elapsed time as completion
-Review evidence     record manual maintenance burden and Search Console observation without private metrics
-Cloudflare track    no pending Batch 42 deployment action
+Stabilization       begin the eligible formal review without treating elapsed time as completion
+Review evidence     distinguish public/repository evidence from observations that require private Analytics/Search Console confirmation
+Cloudflare track    no pending Batch 43 deployment action
 Jinja track         remain blocked until all post-launch prerequisites complete
 ```
