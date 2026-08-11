@@ -8,7 +8,7 @@ import "../styles/history.css";
 import "../styles/places.css";
 import "../styles/images.css";
 
-type JsonLdValue = Record<string, unknown> | Array<unknown>;
+type JsonLdObject = Record<string, unknown>;
 
 interface Props {
   site: SiteThemeKey;
@@ -18,7 +18,7 @@ interface Props {
   skipLinkLabel?: string;
   robots?: string;
   ogType?: "website" | "article";
-  structuredData?: JsonLdValue | JsonLdValue[];
+  structuredData?: JsonLdObject | JsonLdObject[];
 }
 
 const {
@@ -49,7 +49,7 @@ const jsonLdPayloads = structuredData
     ? structuredData
     : [structuredData]
   : [];
-const serializeJsonLd = (payload: JsonLdValue) =>
+const serializeJsonLd = (payload: JsonLdObject) =>
   JSON.stringify(payload).replace(/</g, "\\u003c");
 ---
 
