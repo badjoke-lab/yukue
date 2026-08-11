@@ -23,6 +23,7 @@ Matsuri Detail C implementation — completed
 Matsuri prefecture breadth target — completed 47 / 47
 Matsuri depth-first corpus maintenance — active
 Matsuri stabilization review — observing / review eligible
+Matsuri public/repository stabilization review — passed
 Actual Jinja start gate — blocked
 future specialist-site implementation — not activated
 ```
@@ -35,6 +36,8 @@ Current production baseline     config/matsuri-production-baseline.json
 Analytics progression           config/matsuri-analytics-activation.json
 Final F2 launch gate            config/matsuri-f2-launch-gate.json
 Stabilization review            config/matsuri-stabilization-review.json
+Stabilization review contract   docs/matsuri-stabilization-review.md
+Latest review audit             docs/audits/matsuri-stabilization-public-review-2026-08-11.md
 Detail C implementation         docs/matsuri-detail-c-implementation.md
 Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-43-2026-08-11.md
 Latest production audit         docs/audits/matsuri-batch-43-production-verification-2026-08-11.md
@@ -106,15 +109,20 @@ Geographic breadth is therefore no longer the default corpus-expansion axis. Sub
 ## Stabilization review window
 
 ```text
-Started               2026-07-27
-Minimum duration      14 days
-Earliest review       2026-08-10
-Current status        observing
-Review eligible       true
-Review complete       false
+Started                         2026-07-27
+Minimum duration                14 days
+Earliest review                 2026-08-10
+Current status                  observing
+Review eligible                 true
+Public/repository review        passed 2026-08-11
+Formal review complete          false
 ```
 
-Reaching the minimum observation duration makes the formal review eligible; it does not complete the gate. Production availability, canonical/HTTPS behavior, Search, crawler/sitemap behavior, Analytics traffic receipt, freshness, Relations, Evidence/corrections, manual maintenance burden, and Search Console observation must all be reviewed and recorded under the stabilization contract.
+The public/repository stabilization audit now records supported review inputs for production availability, canonical/HTTPS behavior, canonical Search, crawler/sitemap behavior, strict freshness, strict Relation coverage, and Evidence/correction-contract status.
+
+Those conclusions are review inputs only. They do not atomically change the stabilization machine record or complete the formal gate. The remaining completion items are current Cloudflare Web Analytics traffic receipt, Search Console observation, the applicable production deployment-failure count, an explicit final `unresolved_critical_corrections = 0` count, and an explicit manual-maintenance-burden classification.
+
+The correction contract verifies ordered correction chains and final corrected canonical records, but it does not itself count unresolved critical corrections. The current repository also has no machine threshold that would justify inventing a `low` or `acceptable` maintenance-burden classification.
 
 Recorded maintenance evidence includes route and Source corrections, multiple scheduled-to-held rollovers, official-map remediation, split-component and distributed-route modeling, refusal to infer held outcomes from elapsed or future dates alone, strict rejection of unused Sources, State-free future-site seed alignment, and the narrow Batch 42 correction for a transient Google Maps third-party JWT RPC message without weakening first-party console-error strictness.
 
@@ -165,20 +173,21 @@ The candidate baseline is 26 Relation-backed Shrine seeds and zero approved Jinj
 ## Current release status
 
 ```text
-repository-verified-canonical-production-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-launch-complete-prefecture-breadth-47-of-47-stabilization-review-eligible-observing-jinja-start-blocked
+repository-verified-canonical-production-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-launch-complete-prefecture-breadth-47-of-47-stabilization-public-review-passed-formal-review-incomplete-jinja-start-blocked
 ```
 
 ## Immediate next actions
 
 ```text
-Product track       switch Matsuri corpus work from breadth-first to depth-first maintenance
+Product track       continue Matsuri depth-first maintenance rather than breadth expansion
 Depth target        prioritize due Occurrences, Change Events, Relation density, Evidence quality, freshness, and corrections
 Breadth target      completed at 47 / 47 reviewed primary-prefecture coverage
 Detail track        keep every public title navigable through the enforced Detail C and map contracts
 Production check    Batch 43 exact canonical-production baseline verified
 Dated review        follow the remaining dated review inventory above
-Stabilization       begin the eligible formal review without treating elapsed time as completion
-Review evidence     distinguish public/repository evidence from observations that require private Analytics/Search Console confirmation
+Stabilization       public/repository review recorded; formal review remains incomplete
+Private review      confirm current Analytics traffic receipt and Search Console observation without committing private data
+Operations review   record applicable deployment-failure count, explicit critical-correction count, and maintenance-burden conclusion
 Cloudflare track    no pending Batch 43 deployment action
 Jinja track         remain blocked until all post-launch prerequisites complete
 ```
