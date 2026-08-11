@@ -9,7 +9,7 @@
   "review_evidence_document": null,
   "prerequisites": {
     "f2_launch_complete": true,
-    "minimum_observation_period_complete": false,
+    "minimum_observation_period_complete": true,
     "production_availability_reviewed": false,
     "canonical_and_https_reviewed": false,
     "canonical_search_reviewed": false,
