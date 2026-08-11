@@ -1,10 +1,10 @@
 # Matsuri Stabilization Review
 
-**Status:** Observing / review eligible
+**Status:** Reviewing / incomplete
 
 ## Purpose
 
-Phase 10 is a bounded post-launch observation period, not an indefinite pause and not automatic permission to build another specialist site.
+Phase 10 is a bounded post-launch observation and review period, not an indefinite pause and not automatic permission to build another specialist site.
 
 The machine record is:
 
@@ -20,6 +20,18 @@ pnpm check:matsuri:stabilization-review
 
 The validator also runs inside the complete repository gate.
 
+## State model
+
+```text
+observing -> reviewing -> complete
+```
+
+- `observing`: the post-launch observation window is running. No operational review conclusion is frozen.
+- `reviewing`: the minimum observation period has elapsed and one or more formal review categories have been recorded. Partial public-safe conclusions may be frozen, but the final review remains incomplete.
+- `complete`: every required review category and final observation is supported by evidence and a final public-safe review audit.
+
+A `reviewing` record must keep `reviewed_on` and `review_evidence_document` unset and must keep all completion, Phase 11, and Jinja claims false.
+
 ## Current observation window
 
 ```text
@@ -28,13 +40,13 @@ Minimum duration      14 days
 Earliest review       2026-08-10
 Minimum period        complete
 Review eligible       true
-Current status        observing
+Current status        reviewing
 Review complete       false
 ```
 
-The minimum observation period has elapsed, so a formal review is eligible to occur. Elapsed time alone does not complete the review.
+The minimum observation period has elapsed and the formal review is now in progress. Elapsed time alone does not complete the review.
 
-`prerequisites.minimum_observation_period_complete` records only this calendar eligibility. It does not imply that any operational review category has been completed, does not set `reviewed_on`, and does not authorize Phase 11 or Jinja.
+`prerequisites.minimum_observation_period_complete` records only calendar eligibility. It does not authorize Phase 11 or Jinja.
 
 ## Required review evidence
 
@@ -44,7 +56,7 @@ Completion requires recorded review of all of the following:
 - canonical hostname and HTTPS,
 - canonical Search behavior,
 - crawler and sitemap behavior,
-- Cloudflare Web Analytics traffic receipt,
+- current Cloudflare Web Analytics traffic receipt,
 - data freshness,
 - Relation coverage,
 - Evidence and correction status,
@@ -58,16 +70,82 @@ unresolved critical corrections   0
 production deployment failures    recorded as a non-negative count
 manual maintenance burden          low or acceptable
 Search Console observation         recorded
-public-safe review audit           present
+public-safe final review audit     present
 ```
 
-## Evidence-source boundary for the eligible review
+## Current reviewing record
 
-The formal review should distinguish evidence that can be checked from the repository or public production surface from observations that require private operational access.
+Public/repository review inputs already recorded:
 
-Repository/public review inputs include production-route behavior, canonical/HTTPS behavior, canonical Search, crawler and sitemap behavior, freshness, Relation coverage, Evidence/correction history, and documented maintenance cycles. Existing launch or maintenance evidence may be used as review input, but previous gate success does not automatically mark a stabilization review category complete.
+```text
+production availability          reviewed
+canonical hostname / HTTPS       reviewed
+canonical Search                 reviewed
+crawler / sitemap                reviewed
+data freshness                   reviewed
+Relation coverage                reviewed
+Evidence / corrections           reviewed
+manual maintenance burden        reviewed
+```
 
-Private operational observation is required for current Cloudflare Web Analytics traffic receipt and Search Console observation. A production deployment-failure count must likewise be based on the applicable deployment history rather than inferred from elapsed time or unrelated repository checks.
+Current public-safe observations:
+
+```text
+known unresolved critical corrections   0
+production deployment failures           1
+manual maintenance burden                acceptable
+```
+
+Still pending:
+
+```text
+current Cloudflare Web Analytics traffic receipt   pending
+Search Console observation                         pending
+```
+
+The supporting public-safe audits are:
+
+```text
+docs/audits/matsuri-stabilization-public-review-2026-08-11.md
+docs/audits/matsuri-stabilization-maintenance-review-2026-08-12.md
+```
+
+## Critical-correction count definition
+
+For this review, a critical correction is a **known** Matsuri correctness defect that would materially invalidate a published claim or required public contract and that remains unresolved in the tracked repository state.
+
+Recording zero requires both:
+
+1. no separately tracked unresolved Matsuri critical-correction issue; and
+2. the current strict correction, freshness, Relation, Evidence/public-content, and repository readiness gates to be green.
+
+The count does not claim that unknown defects can never exist. It records the known unresolved critical-correction inventory under this explicit review definition.
+
+## Manual maintenance burden classification
+
+The review uses this bounded classification:
+
+- `low`: routine dated review and content maintenance with little or no corrective remediation;
+- `acceptable`: corrective work occurs, but remains bounded, reproducible, and handled through normal repository contracts, correction bundles, pull requests, and gates, without correctness-gate bypass or untracked direct production-data mutation;
+- anything requiring repeated gate bypass, out-of-band production mutation, unresolved critical correctness defects, or an unbounded manual repair path is not acceptable for completion.
+
+The current window is `acceptable`, not `low`: several substantive corrective cycles occurred, but they were caught and repaired through the normal governed path.
+
+## Production deployment-failure count
+
+The current count is `1` for the applicable repository-recorded production deployment history during the stabilization window.
+
+The counted failure is the first F2-26 production deployment attempt on 2026-07-27, which completed build and asset upload and then received a transient provider-side HTTP 503 while creating the deployment. Retrying the same source succeeded.
+
+The Batch 30 screenshot/browser `ERR_CONNECTION_CLOSED` retry is not counted because it was not a production deployment failure.
+
+## Evidence-source boundary
+
+The formal review distinguishes evidence that can be checked from the repository or public production surface from observations that require private operational access.
+
+Repository/public review inputs include production-route behavior, canonical/HTTPS behavior, canonical Search, crawler and sitemap behavior, freshness, Relation coverage, Evidence/correction history, deployment-history facts already preserved in public-safe audits, and documented maintenance cycles.
+
+Private operational observation is required for **current** Cloudflare Web Analytics traffic receipt and Search Console observation. Historical F2-27 traffic evidence and F2-24 Search Console submission evidence do not automatically satisfy those current stabilization checks.
 
 No private observation is inferred from repository evidence.
 
@@ -93,7 +171,7 @@ Only public-safe conclusions and non-sensitive aggregate review statements belon
 
 Completing this review satisfies only the Matsuri stabilization prerequisite in the Jinja start gate. It does not decide portal/Jinja order, approve a Jinja State vocabulary, record explicit start authorization, create `apps/jinja`, or activate a Worker or hostname.
 
-The review is currently eligible but incomplete, so the Jinja stabilization prerequisite remains false.
+The review is currently in progress and incomplete, so the Jinja stabilization prerequisite remains false.
 
 ## Current dated maintenance
 
