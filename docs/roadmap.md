@@ -1,6 +1,6 @@
 # Project Roadmap
 
-**Status:** Phase 9 completed / Phase 10 Detail C completed / Matsuri corpus expansion active / stabilization review eligible and observing
+**Status:** Phase 9 completed / Phase 10 Detail C completed / prefecture breadth 47 / 47 completed / depth-first Matsuri maintenance active / stabilization review eligible and observing
 
 ## Phase 0 through Phase 8
 
@@ -35,41 +35,52 @@ Contract:
 docs/matsuri-detail-c-implementation.md
 ```
 
-### Phase 10B — Corpus expansion
+### Phase 10B — Prefecture breadth
 
-Status: **Active**
+Status: **Completed**
 
-Current verified checkpoint after Batch 42:
+Verified checkpoint after Batch 43:
 
 ```text
-Primary prefecture coverage  46 / 47
-Public Entities              118
-Places                       106
-State Snapshots               55
-Change Events                105
-Relations                     69
-Occurrences                  164
-Sitemap entries              234
-Sources                      311
-Evidence                     687
+Primary prefecture coverage  47 / 47
+Public Entities              120
+Places                       108
+State Snapshots               56
+Change Events                106
+Relations                     70
+Occurrences                  166
+Sitemap entries              238
+Sources                      318
+Evidence                     699
+Prefecture gaps                0
 Sparse primary Entities        0
 ```
 
-Batch 42 added the first approved primary record for 和歌山県 through 和歌祭. The Festival is linked to 紀州東照宮 through an evidence-backed ritual Relation, records the annual second-Sunday-of-May recurrence, preserves the Shrine anchor and distributed 和歌浦 route as separate Places, records the 2026 edition as `held / unknown`, and adds the year-level 1622 first-edition/start Change Event.
+Batch 43 added the first approved primary record for 宮崎県 through 宮﨑神宮大祭（神武さま）. The Festival is linked to 宮﨑神宮 through an evidence-backed ritual Relation, records the annual例祭/御神幸 recurrence, preserves the Shrine anchor and distributed procession route as separate Places, records the 2024 edition as `held / modified`, keeps the future 2026 edition as `scheduled / unknown`, and adds the year-level c.1909 current-form establishment Change Event.
 
 Exact canonical-production verification passed for release:
 
 ```text
-d36797b2980ef9d639bfa7ee0a152a287a223d3a
+3604d984c71bb71f3b66245b87fa869a64ec85b3
 ```
 
-The next breadth target is the sole remaining uncovered prefecture:
+All 47 prefectures now have at least one reviewed primary Matsuri record under the current corpus-coverage rule. Geographic breadth is therefore no longer the default expansion axis.
 
-```text
-宮崎県
-```
+### Phase 10C — Depth-first maintenance
 
-Once reviewed primary-prefecture coverage reaches 47 / 47, future corpus expansion should become depth-first rather than continuing to optimize for geographic breadth. Priority dimensions are Occurrence history, Change Events, Relation density, Evidence quality, stale-State review, and dated maintenance.
+Status: **Active**
+
+Subsequent Matsuri work should prioritize:
+
+- due and historical Occurrence closure using explicit Evidence;
+- Change Events that explain state or format transitions;
+- Relation density and provenance;
+- claim-specific Evidence quality;
+- stale-State and stale-link review;
+- corrections and dated maintenance;
+- Detail C, map, Search, and machine-readable regression maintenance.
+
+New primary Entities remain allowed when they add substantive coverage, but raw Entity-count growth is not a target.
 
 ### Parallel stabilization review
 
@@ -86,9 +97,9 @@ Machine record        config/matsuri-stabilization-review.json
 
 Elapsed time alone does not complete Phase 10. The formal review must record production availability, deployment behavior, canonical/HTTPS behavior, Search, crawler/sitemap behavior, Analytics traffic receipt, freshness, Relations, Evidence/corrections, map-contract maintenance, manual maintenance burden, and Search Console observation.
 
-Batch 42 adds two maintenance/modeling lessons: a State-free Shrine seed can strengthen Matsuri Relations without authorizing Jinja State inference, and a narrowly identified third-party Google Maps console transport error can be classified without weakening the zero-tolerance rule for first-party application errors.
+Batch 43 adds another modeling boundary: a State-free Shrine seed can strengthen Matsuri identity, Place, history, and ritual Relations without authorizing Jinja State inference. The future 2026 宮﨑神宮大祭 edition also remains `scheduled / unknown` until post-event Evidence supports another outcome.
 
-The review may be performed, but it cannot be marked complete from the calendar alone or by inferring private Analytics/Search Console observations.
+The next stabilization step is to inventory which required dimensions can be closed from public/repository evidence and which require direct private Analytics or Search Console observation. Private observations must not be inferred.
 
 ## Phase 11 — Portal and next-site gates
 
@@ -101,4 +112,4 @@ Jinja State specification             unapproved
 Explicit start authorization          absent
 ```
 
-The current candidate inventory is 25 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Seed accumulation does not activate the next site.
+The current candidate inventory is 26 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Seed accumulation and 47 / 47 Matsuri prefecture breadth do not activate the next site.

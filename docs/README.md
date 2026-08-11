@@ -17,7 +17,7 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | `audits/matsuri-stabilization-start-2026-07-27.md` | Observation-start audit | Public-safe start record and earliest eligible review date |
 | `audits/matsuri-detail-c-embedded-map-remediation-2026-07-28.md` | Passed corrective audit | Embedded-map remediation, exhaustive coverage, browser checks, and visual proof |
 | `matsuri-repository-baseline.md` | Machine-checked current | Exact bundle, Entity, launch-boundary, and Jinja-boundary values |
-| `audits/matsuri-batch-42-production-verification-2026-08-11.md` | Passed production audit | Batch 42 release, exact counts, Wakayama routes, 2026 held assertion, sitemap, and canonical verification |
+| `audits/matsuri-batch-43-production-verification-2026-08-11.md` | Passed production audit | Batch 43 release, 47/47 breadth, Miyazaki routes, 2024 held/modified and 2026 scheduled assertions, sitemap, and canonical verification |
 | `audits/matsuri-f2-27-production-traffic-2026-07-27.md` | Passed audit | Public-safe production traffic evidence |
 | `audits/matsuri-f2-28-final-launch-gate-2026-07-27.md` | Passed audit | Final F2 launch evaluation |
 | `deployment-topology.md` | Matsuri active | Portal and specialist-site hostname and Worker boundaries |
@@ -59,6 +59,7 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | 40 | `audits/matsuri-corpus-expansion-batch-40-2026-08-10.md` | Niigata breadth through Niigata Matsuri with a 1955 start and verified 2025 held/modified edition |
 | 41 | `audits/matsuri-corpus-expansion-batch-41-2026-08-10.md` | Yamaguchi breadth through Yamaguchi Gion Matsuri with a 1459 start and verified 2023 held edition |
 | 42 | `audits/matsuri-corpus-expansion-batch-42-2026-08-11.md` | Wakayama breadth through Waka Matsuri with a 1622 start and verified 2026 held edition |
+| 43 | `audits/matsuri-corpus-expansion-batch-43-2026-08-11.md` | Miyazaki breadth through Miyazaki Jingu Grand Festival, completing 47/47 prefecture coverage with 2024 held/modified and 2026 scheduled editions |
 
 ## Core specifications
 
