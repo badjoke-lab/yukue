@@ -109,13 +109,13 @@ Geographic breadth is therefore no longer the default corpus-expansion axis. Sub
 ## Stabilization review window
 
 ```text
-Started                         2026-07-27
-Minimum duration                14 days
-Earliest review                 2026-08-10
-Current status                  observing
-Review eligible                 true
-Public/repository review        passed 2026-08-11
-Formal review complete          false
+Started               2026-07-27
+Minimum duration      14 days
+Earliest review       2026-08-10
+Current status        observing
+Review eligible       true
+Public/repository review  passed 2026-08-11
+Formal review complete    false
 ```
 
 The public/repository stabilization audit now records supported review inputs for production availability, canonical/HTTPS behavior, canonical Search, crawler/sitemap behavior, strict freshness, strict Relation coverage, and Evidence/correction-contract status.
