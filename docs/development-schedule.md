@@ -20,6 +20,8 @@ Phase 10B Prefecture breadth  completed 47 / 47
 Phase 10C Depth maintenance   active
 Corpus batches 11-43          completed
 Batch 43 production           verified
+Maintenance bundle 95         repository-verified
+Yamaage 2026 dated review     completed
 Stabilization review          reviewing
 Formal review eligible        true
 Formal review complete        false
@@ -110,6 +112,24 @@ Priority order:
 
 Do not add records merely to increase the Entity count now that prefecture breadth is complete. New primary Entities remain allowed when they add substantive coverage, but quantity alone is not a target.
 
+Current repository maintenance checkpoint after bundle 95:
+
+```text
+Public Entities       120
+Places                108
+State Snapshots        56
+Change Events         106
+Occurrences           167
+Relations              70
+Designations           29
+Sources               319
+Evidence              701
+```
+
+Maintenance bundle 95 closes the 2026 山あげ祭 dated review using Nasukarasuyama City post-event Evidence. The 2026-07-24 through 2026-07-26 edition is `held / modified`: it was held, while heatstroke countermeasures reduced the program from the usual 16–18 performances to 13. This is an annual Occurrence conclusion only; Current State and Change Event remain unchanged.
+
+The last separately verified canonical-production baseline is still Batch 43. Repository counts must not be described as production counts until canonical production verification is completed.
+
 ## Parallel stabilization review
 
 ```text
@@ -146,7 +166,6 @@ Historical F2-27 traffic verification and F2-24 Search Console evidence are not 
 Current dated reviews:
 
 ```text
-山あげ祭 2026                    review when official post-event Evidence is available
 鳥取しゃんしゃん祭 2026          review after 2026-08-15
 さぬき高松まつり 2026           review after 2026-08-15
 吉田の火祭 2026                 review after 2026-08-27
@@ -169,11 +188,12 @@ Current dated reviews:
 2. preserve the reviewing machine state and its public-safe conclusions
 3. obtain current private Analytics traffic and Search Console observations without committing private data
 4. do not complete stabilization until both remaining observations and the final audit are actually supported
-5. process the next due dated Occurrence reviews when their review dates arrive
-6. use pre-due time for evidence-strong historical depth and correction work
-7. keep Detail C and map utility strict; do not invent coordinates
-8. keep future Occurrences scheduled until post-event Evidence supports another outcome
-9. continue docs-only audit -> exact production baseline -> canonical verification for material data changes
+5. verify the bundle-95 repository update on canonical production before advancing the production baseline
+6. process the next due dated Occurrence reviews when their review dates arrive
+7. use pre-due time for evidence-strong historical depth and correction work
+8. keep Detail C and map utility strict; do not invent coordinates
+9. keep future Occurrences scheduled until post-event Evidence supports another outcome
+10. continue docs-only audit -> exact production baseline -> canonical verification for material data changes
 ```
 
 ## Future-site boundary
