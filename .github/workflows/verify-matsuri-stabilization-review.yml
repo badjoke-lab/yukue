@@ -57,9 +57,13 @@ jobs:
         if: always()
         run: |
           echo "## Matsuri stabilization review" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Status: observing" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Status: reviewing" >> "$GITHUB_STEP_SUMMARY"
           echo "- Started: 2026-07-27" >> "$GITHUB_STEP_SUMMARY"
           echo "- Earliest review: 2026-08-10" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Known unresolved critical corrections: 0" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Production deployment failures: 1" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Manual maintenance burden: acceptable" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Current Analytics traffic and Search Console observations remain pending" >> "$GITHUB_STEP_SUMMARY"
           echo "- Elapsed time alone cannot complete the review" >> "$GITHUB_STEP_SUMMARY"
           echo "- Search-engine indexation is observed but is not required" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Negative fixtures prove rejection of premature completion, missing evidence, critical corrections, and removed boundaries" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Negative fixtures enforce reviewing/completion boundaries" >> "$GITHUB_STEP_SUMMARY"

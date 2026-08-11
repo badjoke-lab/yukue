@@ -121,15 +121,21 @@ assert(
   "F2-28 final launch gate evidence is incomplete",
 );
 assert(
-  stabilization.status === "observing" &&
+  stabilization.status === "reviewing" &&
     stabilization.started_on === "2026-07-27" &&
     stabilization.minimum_observation_days === 14 &&
     stabilization.earliest_review_on === "2026-08-10" &&
+    stabilization.prerequisites?.minimum_observation_period_complete === true &&
+    stabilization.prerequisites?.analytics_traffic_reviewed === false &&
+    stabilization.prerequisites?.search_console_observation_recorded === false &&
+    stabilization.observations?.unresolved_critical_corrections === 0 &&
+    stabilization.observations?.production_deployment_failures === 1 &&
+    stabilization.observations?.manual_maintenance_burden === "acceptable" &&
     stabilization.claims?.review_complete === false &&
     stabilization.claims?.phase_11_gate_review_authorized === false &&
     stabilization.claims?.jinja_stabilization_prerequisite_complete === false &&
     stabilization.boundary?.search_engine_indexation_not_required === true,
-  "Matsuri stabilization observation evidence is incomplete",
+  "Matsuri stabilization reviewing evidence is incomplete",
 );
 
 if (process.env.MATSURI_PUBLIC_ORIGIN) {
@@ -201,7 +207,7 @@ const releaseManifest = {
   dataset_version: version.dataset_version,
   schema_version: version.schema_version,
   release_status:
-    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-launch-complete-stabilization-observing",
+    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-launch-complete-stabilization-reviewing",
   artifact_origin_mode: "origin-neutral-repository-candidate",
   canonical_hostname_decision: matsuriTopology.canonical_hostname,
   canonical_origin_decision: matsuriTopology.canonical_origin,
@@ -267,8 +273,14 @@ const releaseManifest = {
     phase_11_gate_review_authorized: stabilization.claims.phase_11_gate_review_authorized,
     jinja_stabilization_prerequisite_complete:
       stabilization.claims.jinja_stabilization_prerequisite_complete,
+    unresolved_critical_corrections: stabilization.observations.unresolved_critical_corrections,
+    production_deployment_failures: stabilization.observations.production_deployment_failures,
+    manual_maintenance_burden: stabilization.observations.manual_maintenance_burden,
+    analytics_traffic_reviewed: stabilization.prerequisites.analytics_traffic_reviewed,
+    search_console_observation_recorded:
+      stabilization.prerequisites.search_console_observation_recorded,
     indexation_required: !stabilization.boundary.search_engine_indexation_not_required,
-    evidence_document: "docs/audits/matsuri-stabilization-start-2026-07-27.md",
+    evidence_document: "docs/audits/matsuri-stabilization-maintenance-review-2026-08-12.md",
   },
   verification_command: "pnpm verify:release",
   completed_repository_work: [
@@ -299,9 +311,9 @@ fs.writeFileSync(
   "utf8",
 );
 
-const summary = `# Matsuri Release Candidate\n\nStatus: **repository verified; F2-16 through F2-28 complete; Detail C complete; corpus expansion active; stabilization observing**\n\n- Source commit: \`${releaseManifest.source_commit ?? "unavailable"}\`\n- Dataset version: \`${releaseManifest.dataset_version}\`\n- Schema version: \`${releaseManifest.schema_version}\`\n- Artifact origin mode: \`${releaseManifest.artifact_origin_mode}\`\n- Public routes: ${publicRoutes.length}\n- Artifact files: ${releaseManifest.artifact_file_count}\n- Artifact bytes: ${releaseManifest.artifact_size_bytes}\n- Artifact SHA-256: \`${aggregateHash}\`\n- F2-28 evaluated: \`${launchGate.evaluated_at}\`\n- Stabilization started: \`${stabilization.started_on}\`\n- Earliest stabilization review: \`${stabilization.earliest_review_on}\`\n- Pending F2 launch work: none\n\nNo indexation claim, Phase 11 authorization, or Jinja authorization is included.\n`;
+const summary = `# Matsuri Release Candidate\n\nStatus: **repository verified; F2-16 through F2-28 complete; Detail C complete; prefecture breadth 47/47 complete; depth-first maintenance active; stabilization reviewing**\n\n- Source commit: \`${releaseManifest.source_commit ?? "unavailable"}\`\n- Dataset version: \`${releaseManifest.dataset_version}\`\n- Schema version: \`${releaseManifest.schema_version}\`\n- Artifact origin mode: \`${releaseManifest.artifact_origin_mode}\`\n- Public routes: ${publicRoutes.length}\n- Artifact files: ${releaseManifest.artifact_file_count}\n- Artifact bytes: ${releaseManifest.artifact_size_bytes}\n- Artifact SHA-256: \`${aggregateHash}\`\n- F2-28 evaluated: \`${launchGate.evaluated_at}\`\n- Stabilization started: \`${stabilization.started_on}\`\n- Earliest stabilization review: \`${stabilization.earliest_review_on}\`\n- Stabilization status: \`${stabilization.status}\`\n- Pending F2 launch work: none\n\nNo indexation claim, stabilization completion, Phase 11 authorization, or Jinja authorization is included.\n`;
 fs.writeFileSync(path.join(candidateRoot, "README.md"), summary, "utf8");
 
 console.log(
-  `Matsuri release candidate frozen: ${publicRoutes.length} routes, ${fileEntries.length} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${aggregateHash}; Detail C is complete, corpus expansion is active, stabilization is observing, and Jinja remains blocked.`,
+  `Matsuri release candidate frozen: ${publicRoutes.length} routes, ${fileEntries.length} files, ${releaseManifest.artifact_size_bytes} bytes, SHA-256 ${aggregateHash}; Detail C and 47/47 breadth are complete, depth-first maintenance is active, stabilization is reviewing, and Jinja remains blocked.`,
 );

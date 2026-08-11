@@ -141,7 +141,9 @@ assert(
 assert(projectStatus.includes("Phase 10 Stabilization — active"), "Project status does not record stabilization");
 const expectedStabilizationMarker = stabilization.claims?.review_complete
   ? "Matsuri stabilization review — completed"
-  : "Matsuri stabilization review — observing";
+  : stabilization.status === "reviewing"
+    ? "Matsuri stabilization review — reviewing / incomplete"
+    : "Matsuri stabilization review — observing / review eligible";
 assert(
   projectStatus.includes(expectedStabilizationMarker),
   `Project status is missing ${expectedStabilizationMarker}`,

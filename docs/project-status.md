@@ -1,6 +1,6 @@
 # Project Status
 
-**Last updated:** 2026-08-11
+**Last updated:** 2026-08-12
 
 ## Current phase
 
@@ -22,8 +22,9 @@ Phase 10 Stabilization — active
 Matsuri Detail C implementation — completed
 Matsuri prefecture breadth target — completed 47 / 47
 Matsuri depth-first corpus maintenance — active
-Matsuri stabilization review — observing / review eligible
+Matsuri stabilization review — reviewing / incomplete
 Matsuri public/repository stabilization review — passed
+Matsuri correction/deployment/maintenance review — passed
 Actual Jinja start gate — blocked
 future specialist-site implementation — not activated
 ```
@@ -37,7 +38,8 @@ Analytics progression           config/matsuri-analytics-activation.json
 Final F2 launch gate            config/matsuri-f2-launch-gate.json
 Stabilization review            config/matsuri-stabilization-review.json
 Stabilization review contract   docs/matsuri-stabilization-review.md
-Latest review audit             docs/audits/matsuri-stabilization-public-review-2026-08-11.md
+Latest review audit             docs/audits/matsuri-stabilization-maintenance-review-2026-08-12.md
+Public review audit             docs/audits/matsuri-stabilization-public-review-2026-08-11.md
 Detail C implementation         docs/matsuri-detail-c-implementation.md
 Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-43-2026-08-11.md
 Latest production audit         docs/audits/matsuri-batch-43-production-verification-2026-08-11.md
@@ -112,17 +114,37 @@ Geographic breadth is therefore no longer the default corpus-expansion axis. Sub
 Started               2026-07-27
 Minimum duration      14 days
 Earliest review       2026-08-10
-Current status        observing
+Current status        reviewing
 Review eligible       true
 Public/repository review  passed 2026-08-11
+Maintenance review        passed 2026-08-12
 Formal review complete    false
 ```
 
-The public/repository stabilization audit now records supported review inputs for production availability, canonical/HTTPS behavior, canonical Search, crawler/sitemap behavior, strict freshness, strict Relation coverage, and Evidence/correction-contract status.
+The public/repository stabilization audit records supported review inputs for production availability, canonical/HTTPS behavior, canonical Search, crawler/sitemap behavior, strict freshness, strict Relation coverage, and Evidence/correction-contract status.
 
-Those conclusions are review inputs only. They do not atomically change the stabilization machine record or complete the formal gate. The remaining completion items are current Cloudflare Web Analytics traffic receipt, Search Console observation, the applicable production deployment-failure count, an explicit final `unresolved_critical_corrections = 0` count, and an explicit manual-maintenance-burden classification.
+The maintenance review records the remaining repository-visible conclusions:
 
-The correction contract verifies ordered correction chains and final corrected canonical records, but it does not itself count unresolved critical corrections. The current repository also has no machine threshold that would justify inventing a `low` or `acceptable` maintenance-burden classification.
+```text
+Known unresolved critical corrections   0
+Production deployment failures           1
+Manual maintenance burden                acceptable
+```
+
+The critical-correction count is the known unresolved inventory under the explicit review definition: no separately tracked unresolved Matsuri critical-correction issue plus green strict correction/freshness/Relation/Evidence/repository gates. It does not claim unknown defects are impossible.
+
+The deployment-failure count records the one repository-preserved production deployment failure in the stabilization window: the first F2-26 attempt received a transient provider-side HTTP 503 after build and asset upload; retrying the same source succeeded. Batch 30's transient screenshot `ERR_CONNECTION_CLOSED` retry is not a production deployment failure.
+
+Maintenance burden is `acceptable`, not `low`: the period included substantive embedded-map, Place-route, dated Occurrence, Source, and map corrections, but they remained bounded and were handled through normal PR, correction-bundle, and gate paths without correctness-gate bypass or untracked direct production-data mutation.
+
+Still pending:
+
+```text
+Current Cloudflare Web Analytics traffic receipt   pending
+Search Console observation                         pending
+```
+
+Historical F2-27 traffic evidence and F2-24 Search Console evidence are not silently reused as current stabilization observations.
 
 Recorded maintenance evidence includes route and Source corrections, multiple scheduled-to-held rollovers, official-map remediation, split-component and distributed-route modeling, refusal to infer held outcomes from elapsed or future dates alone, strict rejection of unused Sources, State-free future-site seed alignment, and the narrow Batch 42 correction for a transient Google Maps third-party JWT RPC message without weakening first-party console-error strictness.
 
@@ -173,7 +195,7 @@ The candidate baseline is 26 Relation-backed Shrine seeds and zero approved Jinj
 ## Current release status
 
 ```text
-repository-verified-canonical-production-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-launch-complete-prefecture-breadth-47-of-47-stabilization-public-review-passed-formal-review-incomplete-jinja-start-blocked
+repository-verified-canonical-production-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-launch-complete-prefecture-breadth-47-of-47-stabilization-reviewing-private-observations-pending-jinja-start-blocked
 ```
 
 ## Immediate next actions
@@ -185,9 +207,9 @@ Breadth target      completed at 47 / 47 reviewed primary-prefecture coverage
 Detail track        keep every public title navigable through the enforced Detail C and map contracts
 Production check    Batch 43 exact canonical-production baseline verified
 Dated review        follow the remaining dated review inventory above
-Stabilization       public/repository review recorded; formal review remains incomplete
+Stabilization       reviewing; repository-visible conclusions recorded; formal review remains incomplete
 Private review      confirm current Analytics traffic receipt and Search Console observation without committing private data
-Operations review   record applicable deployment-failure count, explicit critical-correction count, and maintenance-burden conclusion
+Operations review   critical correction count, deployment-failure count, and maintenance burden recorded
 Cloudflare track    no pending Batch 43 deployment action
 Jinja track         remain blocked until all post-launch prerequisites complete
 ```

@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-28 completed / Detail C completed / Matsuri prefecture breadth 47 / 47 completed / depth-first maintenance active / stabilization review eligible and observing / Jinja blocked
+**Status:** F2-28 completed / Detail C completed / Matsuri prefecture breadth 47 / 47 completed / depth-first maintenance active / stabilization reviewing / Jinja blocked
 
 This project is gate-driven rather than deadline-driven.
 
@@ -20,8 +20,9 @@ Phase 10B Prefecture breadth  completed 47 / 47
 Phase 10C Depth maintenance   active
 Corpus batches 11-43          completed
 Batch 43 production           verified
-Stabilization review          observing
+Stabilization review          reviewing
 Formal review eligible        true
+Formal review complete        false
 Actual Jinja start gate       blocked
 ```
 
@@ -115,15 +116,32 @@ Do not add records merely to increase the Entity count now that prefecture bread
 Started               2026-07-27
 Minimum duration      14 days
 Earliest review       2026-08-10
-Status                observing
+Status                reviewing
 Review eligible       true
 Review complete       false
 Machine record        config/matsuri-stabilization-review.json
 ```
 
-Elapsed time alone does not complete the gate. The formal review must record the required public-safe conclusions for production availability, canonical/HTTPS, Search, crawler/sitemap, Analytics traffic receipt, freshness, Relations, Evidence/corrections, manual maintenance burden, and Search Console observation.
+The state model is `observing -> reviewing -> complete`. Elapsed time alone does not complete the gate.
 
-The next stabilization step is to separate fields that can be closed from repository/public evidence from fields that require direct private Analytics or Search Console observation. No private observation is inferred.
+Repository/public review is already recorded for production availability, canonical/HTTPS, canonical Search, crawler/sitemap, freshness, Relations, Evidence/corrections, and maintenance burden. The machine record also freezes:
+
+```text
+Known unresolved critical corrections   0
+Production deployment failures           1
+Manual maintenance burden                acceptable
+```
+
+The one production deployment failure is the repository-recorded F2-26 provider-side HTTP 503 on the first deployment attempt. The same-source retry succeeded. Screenshot/browser retries are not production deployment failures.
+
+The remaining formal-review work requires current private observation:
+
+```text
+Cloudflare Web Analytics traffic receipt   pending
+Search Console observation                 pending
+```
+
+Historical F2-27 traffic verification and F2-24 Search Console evidence are not substituted for those current observations.
 
 Current dated reviews:
 
@@ -148,13 +166,14 @@ Current dated reviews:
 
 ```text
 1. keep repository / canonical / freshness / Relation gates green on current main
-2. inventory stabilization-review evidence by public/repository vs private-observation source
-3. do not complete stabilization until every required review field is actually evidenced
-4. process the next due dated Occurrence reviews when their review dates arrive
-5. use pre-due time for evidence-strong historical depth and correction work
-6. keep Detail C and map utility strict; do not invent coordinates
-7. keep future Occurrences scheduled until post-event Evidence supports another outcome
-8. continue docs-only audit -> exact production baseline -> canonical verification for material data changes
+2. preserve the reviewing machine state and its public-safe conclusions
+3. obtain current private Analytics traffic and Search Console observations without committing private data
+4. do not complete stabilization until both remaining observations and the final audit are actually supported
+5. process the next due dated Occurrence reviews when their review dates arrive
+6. use pre-due time for evidence-strong historical depth and correction work
+7. keep Detail C and map utility strict; do not invent coordinates
+8. keep future Occurrences scheduled until post-event Evidence supports another outcome
+9. continue docs-only audit -> exact production baseline -> canonical verification for material data changes
 ```
 
 ## Future-site boundary

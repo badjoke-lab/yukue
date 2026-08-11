@@ -1,7 +1,7 @@
 {
   "format_version": 1,
   "site_id": "matsuri",
-  "status": "observing",
+  "status": "reviewing",
   "started_on": "2026-07-27",
   "minimum_observation_days": 14,
   "earliest_review_on": "2026-08-10",
@@ -10,21 +10,21 @@
   "prerequisites": {
     "f2_launch_complete": true,
     "minimum_observation_period_complete": true,
-    "production_availability_reviewed": false,
-    "canonical_and_https_reviewed": false,
-    "canonical_search_reviewed": false,
-    "crawler_and_sitemap_reviewed": false,
+    "production_availability_reviewed": true,
+    "canonical_and_https_reviewed": true,
+    "canonical_search_reviewed": true,
+    "crawler_and_sitemap_reviewed": true,
     "analytics_traffic_reviewed": false,
-    "freshness_reviewed": false,
-    "relation_coverage_reviewed": false,
-    "evidence_and_corrections_reviewed": false,
-    "maintenance_burden_recorded": false,
+    "freshness_reviewed": true,
+    "relation_coverage_reviewed": true,
+    "evidence_and_corrections_reviewed": true,
+    "maintenance_burden_recorded": true,
     "search_console_observation_recorded": false
   },
   "observations": {
-    "unresolved_critical_corrections": null,
-    "production_deployment_failures": null,
-    "manual_maintenance_burden": "unrecorded",
+    "unresolved_critical_corrections": 0,
+    "production_deployment_failures": 1,
+    "manual_maintenance_burden": "acceptable",
     "search_console_observation": "unrecorded"
   },
   "claims": {

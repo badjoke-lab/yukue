@@ -8,6 +8,12 @@ const f2GatePath = path.join(repositoryRoot, "config", "matsuri-f2-launch-gate.j
 const jinjaGatePath = path.join(repositoryRoot, "config", "jinja-start-gate.json");
 const projectStatusPath = path.join(repositoryRoot, "docs", "project-status.md");
 const contractPath = path.join(repositoryRoot, "docs", "matsuri-stabilization-review.md");
+const maintenanceAuditPath = path.join(
+  repositoryRoot,
+  "docs",
+  "audits",
+  "matsuri-stabilization-maintenance-review-2026-08-12.md",
+);
 const packagePath = path.join(repositoryRoot, "package.json");
 
 const forbiddenKeys = new Set([
@@ -35,6 +41,9 @@ const expectedPrerequisiteKeys = [
   "maintenance_burden_recorded",
   "search_console_observation_recorded",
 ];
+const operationalPrerequisiteKeys = expectedPrerequisiteKeys.filter(
+  (key) => key !== "f2_launch_complete" && key !== "minimum_observation_period_complete",
+);
 const expectedObservationKeys = [
   "unresolved_critical_corrections",
   "production_deployment_failures",
@@ -55,14 +64,6 @@ const expectedBoundaryKeys = [
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
-}
-
-function read(relativePath) {
-  return fs.readFileSync(path.join(repositoryRoot, relativePath), "utf8");
-}
-
-function readJson(relativePath) {
-  return JSON.parse(read(relativePath));
 }
 
 function parseIsoDay(value) {
@@ -110,13 +111,27 @@ function completeFixture(record) {
   const clone = structuredClone(record);
   clone.status = "complete";
   clone.reviewed_on = clone.earliest_review_on;
-  clone.review_evidence_document = "docs/audits/matsuri-stabilization-start-2026-07-27.md";
+  clone.review_evidence_document = "docs/audits/matsuri-stabilization-maintenance-review-2026-08-12.md";
   for (const key of expectedPrerequisiteKeys) clone.prerequisites[key] = true;
   clone.observations.unresolved_critical_corrections = 0;
-  clone.observations.production_deployment_failures = 0;
+  clone.observations.production_deployment_failures = 1;
   clone.observations.manual_maintenance_burden = "acceptable";
   clone.observations.search_console_observation = "recorded";
   for (const key of expectedClaimKeys) clone.claims[key] = true;
+  return clone;
+}
+
+function observingFixture(record) {
+  const clone = structuredClone(record);
+  clone.status = "observing";
+  clone.reviewed_on = null;
+  clone.review_evidence_document = null;
+  for (const key of operationalPrerequisiteKeys) clone.prerequisites[key] = false;
+  clone.observations.unresolved_critical_corrections = null;
+  clone.observations.production_deployment_failures = null;
+  clone.observations.manual_maintenance_burden = "unrecorded";
+  clone.observations.search_console_observation = "unrecorded";
+  for (const key of expectedClaimKeys) clone.claims[key] = false;
   return clone;
 }
 
@@ -124,7 +139,10 @@ function validateRecord(record, { today = new Date(), requireEvidenceFile = true
   inspectPrivacy(record);
   assert(record.format_version === 1, "Unexpected stabilization format_version");
   assert(record.site_id === "matsuri", "Unexpected stabilization site_id");
-  assert(["observing", "complete"].includes(record.status), `Unexpected stabilization status: ${record.status}`);
+  assert(
+    ["observing", "reviewing", "complete"].includes(record.status),
+    `Unexpected stabilization status: ${record.status}`,
+  );
 
   const startedOn = parseIsoDay(record.started_on);
   const earliestReviewOn = parseIsoDay(record.earliest_review_on);
@@ -156,9 +174,7 @@ function validateRecord(record, { today = new Date(), requireEvidenceFile = true
       record.prerequisites.minimum_observation_period_complete === minimumObservationPeriodComplete,
       `Observing record minimum_observation_period_complete must match calendar eligibility (${minimumObservationPeriodComplete})`,
     );
-    for (const key of expectedPrerequisiteKeys.filter(
-      (key) => key !== "f2_launch_complete" && key !== "minimum_observation_period_complete",
-    )) {
+    for (const key of operationalPrerequisiteKeys) {
       assert(record.prerequisites[key] === false, `Observing record must keep ${key} false`);
     }
     assert(record.observations.unresolved_critical_corrections === null, "Observing record must not freeze correction count");
@@ -167,6 +183,57 @@ function validateRecord(record, { today = new Date(), requireEvidenceFile = true
     assert(record.observations.search_console_observation === "unrecorded", "Observing record must keep Search Console observation unrecorded");
     for (const key of expectedClaimKeys) {
       assert(record.claims[key] === false, `Observing record must keep ${key} false`);
+    }
+    return;
+  }
+
+  assert(record.prerequisites.minimum_observation_period_complete === true, `${record.status} requires completed minimum observation period`);
+  assert(minimumObservationPeriodComplete, `${record.status} cannot begin before earliest_review_on`);
+
+  if (record.status === "reviewing") {
+    assert(record.reviewed_on === null, "Reviewing record must not set final reviewed_on");
+    assert(record.review_evidence_document === null, "Reviewing record must not set final review evidence");
+    assert(
+      operationalPrerequisiteKeys.some((key) => record.prerequisites[key] === true),
+      "Reviewing record must contain at least one completed operational review category",
+    );
+    for (const key of operationalPrerequisiteKeys) {
+      assert(typeof record.prerequisites[key] === "boolean", `Reviewing prerequisite ${key} must be boolean`);
+    }
+
+    if (record.prerequisites.evidence_and_corrections_reviewed) {
+      assert(
+        Number.isInteger(record.observations.unresolved_critical_corrections) &&
+          record.observations.unresolved_critical_corrections >= 0,
+        "Reviewing correction review requires a non-negative unresolved critical-correction count",
+      );
+    } else {
+      assert(record.observations.unresolved_critical_corrections === null, "Unreviewed corrections must not freeze a critical-correction count");
+    }
+
+    assert(
+      record.observations.production_deployment_failures === null ||
+        (Number.isInteger(record.observations.production_deployment_failures) &&
+          record.observations.production_deployment_failures >= 0),
+      "Reviewing deployment-failure count must be null or a non-negative integer",
+    );
+
+    if (record.prerequisites.maintenance_burden_recorded) {
+      assert(
+        ["low", "acceptable"].includes(record.observations.manual_maintenance_burden),
+        "Recorded maintenance burden must be low or acceptable",
+      );
+    } else {
+      assert(record.observations.manual_maintenance_burden === "unrecorded", "Unreviewed maintenance burden must remain unrecorded");
+    }
+
+    assert(
+      record.prerequisites.search_console_observation_recorded ===
+        (record.observations.search_console_observation === "recorded"),
+      "Search Console prerequisite and observation must advance together",
+    );
+    for (const key of expectedClaimKeys) {
+      assert(record.claims[key] === false, `Reviewing record must keep ${key} false`);
     }
     return;
   }
@@ -213,6 +280,38 @@ function assertRejects(label, callback) {
 const record = JSON.parse(fs.readFileSync(recordPath, "utf8"));
 validateRecord(record);
 
+assert(record.status === "reviewing", "Current Matsuri stabilization record must be in reviewing state");
+for (const key of [
+  "production_availability_reviewed",
+  "canonical_and_https_reviewed",
+  "canonical_search_reviewed",
+  "crawler_and_sitemap_reviewed",
+  "freshness_reviewed",
+  "relation_coverage_reviewed",
+  "evidence_and_corrections_reviewed",
+  "maintenance_burden_recorded",
+]) {
+  assert(record.prerequisites[key] === true, `Current reviewing record must preserve completed review category ${key}`);
+}
+assert(record.prerequisites.analytics_traffic_reviewed === false, "Current Analytics traffic review must remain pending");
+assert(record.prerequisites.search_console_observation_recorded === false, "Current Search Console review must remain pending");
+assert(record.observations.unresolved_critical_corrections === 0, "Current reviewing record must contain zero known unresolved critical corrections");
+assert(record.observations.production_deployment_failures === 1, "Current reviewing record must contain the one repository-recorded production deployment failure");
+assert(record.observations.manual_maintenance_burden === "acceptable", "Current reviewing record must classify maintenance burden as acceptable");
+assert(record.observations.search_console_observation === "unrecorded", "Current Search Console observation must remain unrecorded");
+assert(fs.existsSync(maintenanceAuditPath), "Stabilization maintenance review audit is missing");
+
+const maintenanceAudit = fs.readFileSync(maintenanceAuditPath, "utf8");
+for (const marker of [
+  "Known unresolved critical corrections   0",
+  "Production deployment failures   1",
+  "Manual maintenance burden   acceptable",
+  "Cloudflare Web Analytics traffic receipt   pending",
+  "Search Console observation                 pending",
+]) {
+  assert(maintenanceAudit.includes(marker), `Maintenance review audit is missing ${marker}`);
+}
+
 const f2Gate = JSON.parse(fs.readFileSync(f2GatePath, "utf8"));
 assert(f2Gate.status === "complete" && f2Gate.claims?.f2_28_complete === true, "Stabilization record requires completed F2-28 gate");
 
@@ -229,7 +328,7 @@ assert(
 
 const projectStatus = fs.readFileSync(projectStatusPath, "utf8");
 for (const marker of [
-  "Matsuri stabilization review — observing",
+  "Matsuri stabilization review — reviewing / incomplete",
   "Earliest review       2026-08-10",
   "config/matsuri-stabilization-review.json",
   "Actual Jinja start gate — blocked",
@@ -241,7 +340,8 @@ for (const marker of [
   "Elapsed time alone does not complete the review",
   "Search-engine indexation is not a completion requirement",
   "Review eligible       true",
-  "2026-08-10",
+  "Current status        reviewing",
+  "observing -> reviewing -> complete",
 ]) {
   assert(contract.includes(marker), `Stabilization contract is missing ${marker}`);
 }
@@ -258,16 +358,37 @@ assert(
 );
 
 if (process.argv.includes("--verify-fixtures")) {
-  const staleEligibility = structuredClone(record);
+  const staleEligibility = observingFixture(record);
   staleEligibility.prerequisites.minimum_observation_period_complete = false;
   assertRejects("elapsed minimum observation period not reflected", () =>
     validateRecord(staleEligibility, { today: new Date("2026-08-10T00:00:00Z") }),
   );
 
-  const prematureEligibility = structuredClone(record);
+  const prematureEligibility = observingFixture(record);
   prematureEligibility.prerequisites.minimum_observation_period_complete = true;
   assertRejects("minimum observation period marked complete before earliest review", () =>
     validateRecord(prematureEligibility, { today: new Date("2026-08-09T00:00:00Z") }),
+  );
+
+  const prematureReviewing = structuredClone(record);
+  assertRejects("reviewing before earliest review", () =>
+    validateRecord(prematureReviewing, { today: new Date("2026-08-09T00:00:00Z") }),
+  );
+
+  const reviewingClaimLeak = structuredClone(record);
+  reviewingClaimLeak.claims.review_complete = true;
+  assertRejects("reviewing state contains completion claim", () => validateRecord(reviewingClaimLeak));
+
+  const reviewingCorrectionCountRemoved = structuredClone(record);
+  reviewingCorrectionCountRemoved.observations.unresolved_critical_corrections = null;
+  assertRejects("reviewed corrections without explicit critical-correction count", () =>
+    validateRecord(reviewingCorrectionCountRemoved),
+  );
+
+  const reviewingMaintenanceMismatch = structuredClone(record);
+  reviewingMaintenanceMismatch.prerequisites.maintenance_burden_recorded = false;
+  assertRejects("maintenance burden value recorded without prerequisite", () =>
+    validateRecord(reviewingMaintenanceMismatch),
   );
 
   const beforeEarliest = completeFixture(record);
@@ -294,5 +415,5 @@ if (process.argv.includes("--verify-fixtures")) {
 }
 
 console.log(
-  `Matsuri stabilization review is ${record.status}; observation started ${record.started_on}, earliest review ${record.earliest_review_on}, minimum period complete ${record.prerequisites.minimum_observation_period_complete}, completion claim ${record.claims.review_complete}.`,
+  `Matsuri stabilization review is ${record.status}; observation started ${record.started_on}, earliest review ${record.earliest_review_on}, minimum period complete ${record.prerequisites.minimum_observation_period_complete}, known critical corrections ${record.observations.unresolved_critical_corrections}, deployment failures ${record.observations.production_deployment_failures}, maintenance burden ${record.observations.manual_maintenance_burden}, completion claim ${record.claims.review_complete}.`,
 );

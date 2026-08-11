@@ -88,6 +88,8 @@ const requiredDocs = [
   "docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md",
   "docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md",
   "docs/audits/matsuri-stabilization-start-2026-07-27.md",
+  "docs/audits/matsuri-stabilization-public-review-2026-08-11.md",
+  "docs/audits/matsuri-stabilization-maintenance-review-2026-08-12.md",
 ];
 const requiredConfig = [
   "config/matsuri-analytics-activation.json",
@@ -114,7 +116,7 @@ assert(manifest.project_id === "yukue-series", "Unexpected project_id");
 assert(manifest.site_id === "matsuri", "Unexpected site_id");
 assert(
   manifest.release_status ===
-    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-launch-complete-stabilization-observing",
+    "repository-verified-crawler-reachability-verified-sitemap-submission-verified-indexability-verified-analytics-traffic-verified-f2-launch-complete-stabilization-reviewing",
   `Unexpected release_status: ${String(manifest.release_status)}`,
 );
 assert(manifest.artifact_origin_mode === "origin-neutral-repository-candidate", "Wrong artifact mode");
@@ -207,14 +209,21 @@ assert(
   "F2-28 evidence is incomplete",
 );
 assert(
-  manifest.stabilization_review?.status === "observing" &&
+  manifest.stabilization_review?.status === "reviewing" &&
     manifest.stabilization_review?.started_on === "2026-07-27" &&
     manifest.stabilization_review?.earliest_review_on === "2026-08-10" &&
+    manifest.stabilization_review?.unresolved_critical_corrections === 0 &&
+    manifest.stabilization_review?.production_deployment_failures === 1 &&
+    manifest.stabilization_review?.manual_maintenance_burden === "acceptable" &&
+    manifest.stabilization_review?.analytics_traffic_reviewed === false &&
+    manifest.stabilization_review?.search_console_observation_recorded === false &&
     manifest.stabilization_review?.review_complete === false &&
     manifest.stabilization_review?.phase_11_gate_review_authorized === false &&
     manifest.stabilization_review?.jinja_stabilization_prerequisite_complete === false &&
-    manifest.stabilization_review?.indexation_required === false,
-  "Stabilization evidence is incomplete",
+    manifest.stabilization_review?.indexation_required === false &&
+    manifest.stabilization_review?.evidence_document ===
+      "docs/audits/matsuri-stabilization-maintenance-review-2026-08-12.md",
+  "Stabilization reviewing evidence is incomplete",
 );
 assert(typeof manifest.source_commit === "string" && /^[0-9a-f]{40}$/u.test(manifest.source_commit), "Invalid source_commit");
 assert(Array.isArray(manifest.public_routes) && manifest.public_routes.length > 0, "No public routes");
@@ -274,6 +283,9 @@ const roadmap = read("docs/roadmap.md");
 const detailContract = read("docs/matsuri-detail-c-implementation.md");
 const f228Audit = read("docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md");
 const stabilizationStartAudit = read("docs/audits/matsuri-stabilization-start-2026-07-27.md");
+const stabilizationMaintenanceAudit = read(
+  "docs/audits/matsuri-stabilization-maintenance-review-2026-08-12.md",
+);
 
 assert(
   launchGate.status === "complete" &&
@@ -283,18 +295,33 @@ assert(
   "Final F2 launch record is incomplete",
 );
 assert(
-  stabilization.status === "observing" &&
+  stabilization.status === "reviewing" &&
     stabilization.started_on === "2026-07-27" &&
     stabilization.minimum_observation_days === 14 &&
     stabilization.earliest_review_on === "2026-08-10" &&
     stabilization.reviewed_on === null &&
     stabilization.review_evidence_document === null &&
+    stabilization.prerequisites?.minimum_observation_period_complete === true &&
+    stabilization.prerequisites?.production_availability_reviewed === true &&
+    stabilization.prerequisites?.canonical_and_https_reviewed === true &&
+    stabilization.prerequisites?.canonical_search_reviewed === true &&
+    stabilization.prerequisites?.crawler_and_sitemap_reviewed === true &&
+    stabilization.prerequisites?.analytics_traffic_reviewed === false &&
+    stabilization.prerequisites?.freshness_reviewed === true &&
+    stabilization.prerequisites?.relation_coverage_reviewed === true &&
+    stabilization.prerequisites?.evidence_and_corrections_reviewed === true &&
+    stabilization.prerequisites?.maintenance_burden_recorded === true &&
+    stabilization.prerequisites?.search_console_observation_recorded === false &&
+    stabilization.observations?.unresolved_critical_corrections === 0 &&
+    stabilization.observations?.production_deployment_failures === 1 &&
+    stabilization.observations?.manual_maintenance_burden === "acceptable" &&
+    stabilization.observations?.search_console_observation === "unrecorded" &&
     stabilization.claims?.review_complete === false &&
     stabilization.claims?.phase_11_gate_review_authorized === false &&
     stabilization.claims?.jinja_stabilization_prerequisite_complete === false &&
     stabilization.boundary?.elapsed_time_alone_does_not_complete_review === true &&
     stabilization.boundary?.search_engine_indexation_not_required === true,
-  "Matsuri stabilization observation record is incomplete",
+  "Matsuri stabilization reviewing record is incomplete",
 );
 assert(
   jinja.status === "blocked-by-post-launch-prerequisites" &&
@@ -314,20 +341,24 @@ assert(
     projectStatus.includes("Matsuri Detail C implementation — completed") &&
     projectStatus.includes("Matsuri prefecture breadth target — completed 47 / 47") &&
     projectStatus.includes("Matsuri depth-first corpus maintenance — active") &&
-    projectStatus.includes("Matsuri stabilization review — observing / review eligible") &&
+    projectStatus.includes("Matsuri stabilization review — reviewing / incomplete") &&
     projectStatus.includes("Earliest review       2026-08-10") &&
+    projectStatus.includes("Known unresolved critical corrections   0") &&
+    projectStatus.includes("Production deployment failures           1") &&
+    projectStatus.includes("Manual maintenance burden                acceptable") &&
     projectStatus.includes("Actual Jinja start gate — blocked"),
-  "Project status does not reflect Detail C completion, 47/47 prefecture breadth, depth-first maintenance, and bounded stabilization",
+  "Project status does not reflect completed breadth, active depth maintenance, and bounded stabilization reviewing state",
 );
 assert(
   developmentSchedule.includes("F2-01 through F2-28           completed") &&
     developmentSchedule.includes("Phase 10A Detail C repair     completed") &&
     developmentSchedule.includes("Phase 10B Prefecture breadth  completed 47 / 47") &&
     developmentSchedule.includes("Phase 10C Depth maintenance   active") &&
-    developmentSchedule.includes("Stabilization review          observing") &&
+    developmentSchedule.includes("Stabilization review          reviewing") &&
     developmentSchedule.includes("Formal review eligible        true") &&
+    developmentSchedule.includes("Formal review complete        false") &&
     developmentSchedule.includes("Actual Jinja start gate       blocked"),
-  "Development schedule does not reflect the completed breadth target and active depth-first post-launch track",
+  "Development schedule does not reflect the completed breadth target and active stabilization review",
 );
 assert(
   roadmap.includes("## Phase 9 — Launch Preparation") &&
@@ -336,9 +367,10 @@ assert(
     roadmap.includes("### Phase 10A — Detail C product completion") &&
     roadmap.includes("### Phase 10B — Prefecture breadth") &&
     roadmap.includes("### Phase 10C — Depth-first maintenance") &&
-    roadmap.includes("Status: **Review eligible / Observing**") &&
+    roadmap.includes("Status: **Reviewing / Incomplete**") &&
+    roadmap.includes("Current status        reviewing") &&
     roadmap.includes("Earliest review       2026-08-10"),
-  "Roadmap does not reflect Detail C completion, completed prefecture breadth, active depth-first maintenance, and bounded stabilization",
+  "Roadmap does not reflect Detail C completion, completed prefecture breadth, active depth maintenance, and stabilization review",
 );
 assert(
   detailContract.includes("**Status:** Required implementation contract") &&
@@ -360,7 +392,15 @@ assert(
     stabilizationStartAudit.includes("Search-engine indexation is not required and is not claimed"),
   "Stabilization start audit is incomplete",
 );
+assert(
+  stabilizationMaintenanceAudit.includes("**Passed for repository-visible correction, deployment-history, and maintenance-burden review inputs. Formal stabilization review remains incomplete.**") &&
+    stabilizationMaintenanceAudit.includes("Known unresolved critical corrections   0") &&
+    stabilizationMaintenanceAudit.includes("Production deployment failures   1") &&
+    stabilizationMaintenanceAudit.includes("Manual maintenance burden   acceptable") &&
+    stabilizationMaintenanceAudit.includes("Jinja remains blocked."),
+  "Stabilization maintenance audit is incomplete",
+);
 
 console.log(
-  `Matsuri repository readiness gate passed: ${manifest.public_routes.length} routes, ${manifest.artifact_file_count} files, ${manifest.artifact_size_bytes} bytes, SHA-256 ${manifest.artifact_sha256}; Detail C is complete, prefecture breadth is complete at 47/47, depth-first maintenance is active, stabilization is observing and review-eligible, indexation is not required, and Jinja remains blocked.`,
+  `Matsuri repository readiness gate passed: ${manifest.public_routes.length} routes, ${manifest.artifact_file_count} files, ${manifest.artifact_size_bytes} bytes, SHA-256 ${manifest.artifact_sha256}; Detail C and prefecture breadth are complete, depth-first maintenance is active, stabilization is reviewing with private observations pending, indexation is not required, and Jinja remains blocked.`,
 );
