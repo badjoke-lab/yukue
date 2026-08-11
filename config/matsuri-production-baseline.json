@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
   "observed_on": "2026-08-11",
-  "release_merge_commit": "d36797b2980ef9d639bfa7ee0a152a287a223d3a",
+  "release_merge_commit": "3604d984c71bb71f3b66245b87fa869a64ec85b3",
   "expected_counts": {
-    "entities": 118,
-    "events": 105,
-    "relations": 69,
-    "occurrences": 164,
-    "sitemap_entries": 234
+    "entities": 120,
+    "events": 106,
+    "relations": 70,
+    "occurrences": 166,
+    "sitemap_entries": 238
   },
   "required_routes": [
     "/festivals/aso-onda-matsuri/",
@@ -107,7 +107,11 @@
     "/festivals/waka-matsuri/",
     "/references/shrines/kishu-toshogu/",
     "/places/kishu-toshogu/",
-    "/places/waka-matsuri-wakaura-route/"
+    "/places/waka-matsuri-wakaura-route/",
+    "/festivals/miyazaki-jingu-grand-festival/",
+    "/references/shrines/miyazaki-jingu/",
+    "/places/miyazaki-jingu/",
+    "/places/miyazaki-jingu-shinko-route/"
   ],
   "required_entities": [
     "fst-aso-onda-matsuri",
@@ -160,7 +164,9 @@
     "fst-yamaguchi-gion-matsuri",
     "shr-yamaguchi-yasaka-jinja",
     "fst-waka-matsuri",
-    "shr-kishu-toshogu"
+    "shr-kishu-toshogu",
+    "fst-miyazaki-jingu-grand-festival",
+    "shr-miyazaki-jingu"
   ],
   "occurrence_assertions": [
     { "id": "occ-aso-onda-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
@@ -219,6 +225,8 @@
     { "id": "occ-nagano-binzuru-2025", "record_version": 1, "outcome": "held", "scale": "unknown" },
     { "id": "occ-niigata-matsuri-2025", "record_version": 1, "outcome": "held", "scale": "modified" },
     { "id": "occ-yamaguchi-gion-2023", "record_version": 1, "outcome": "held", "scale": "unknown" },
-    { "id": "occ-waka-matsuri-2026", "record_version": 1, "outcome": "held", "scale": "unknown" }
+    { "id": "occ-waka-matsuri-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-miyazaki-jingu-grand-festival-2024", "record_version": 1, "outcome": "held", "scale": "modified" },
+    { "id": "occ-miyazaki-jingu-grand-festival-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" }
   ]
 }
