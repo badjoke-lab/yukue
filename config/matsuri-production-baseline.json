@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
   "observed_on": "2026-08-11",
-  "release_merge_commit": "69d350e9e55ae93c829f8ab535b22bc8df5f3772",
+  "release_merge_commit": "d36797b2980ef9d639bfa7ee0a152a287a223d3a",
   "expected_counts": {
-    "entities": 116,
-    "events": 104,
-    "relations": 68,
-    "occurrences": 163,
-    "sitemap_entries": 230
+    "entities": 118,
+    "events": 105,
+    "relations": 69,
+    "occurrences": 164,
+    "sitemap_entries": 234
   },
   "required_routes": [
     "/festivals/aso-onda-matsuri/",
@@ -103,7 +103,11 @@
     "/festivals/yamaguchi-gion-matsuri/",
     "/references/shrines/yamaguchi-yasaka-jinja/",
     "/places/yamaguchi-yasaka-jinja/",
-    "/places/yamaguchi-gion-route/"
+    "/places/yamaguchi-gion-route/",
+    "/festivals/waka-matsuri/",
+    "/references/shrines/kishu-toshogu/",
+    "/places/kishu-toshogu/",
+    "/places/waka-matsuri-wakaura-route/"
   ],
   "required_entities": [
     "fst-aso-onda-matsuri",
@@ -154,7 +158,9 @@
     "fst-niigata-matsuri",
     "org-niigata-matsuri-jikkoiinkai",
     "fst-yamaguchi-gion-matsuri",
-    "shr-yamaguchi-yasaka-jinja"
+    "shr-yamaguchi-yasaka-jinja",
+    "fst-waka-matsuri",
+    "shr-kishu-toshogu"
   ],
   "occurrence_assertions": [
     { "id": "occ-aso-onda-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
@@ -212,6 +218,7 @@
     { "id": "occ-kiryu-yagibushi-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
     { "id": "occ-nagano-binzuru-2025", "record_version": 1, "outcome": "held", "scale": "unknown" },
     { "id": "occ-niigata-matsuri-2025", "record_version": 1, "outcome": "held", "scale": "modified" },
-    { "id": "occ-yamaguchi-gion-2023", "record_version": 1, "outcome": "held", "scale": "unknown" }
+    { "id": "occ-yamaguchi-gion-2023", "record_version": 1, "outcome": "held", "scale": "unknown" },
+    { "id": "occ-waka-matsuri-2026", "record_version": 1, "outcome": "held", "scale": "unknown" }
   ]
 }
