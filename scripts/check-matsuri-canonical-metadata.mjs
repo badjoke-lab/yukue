@@ -100,10 +100,10 @@ for (const location of locations) {
     `Duplicate Google tag detected on ${pathname}.`,
   );
 
-  if (html.includes("data-detail-page")) {
+  if (configuredOrigin && html.includes("data-detail-page")) {
     assert(
       jsonLdScripts.some((script) => script.includes('"@type":"BreadcrumbList"')),
-      `Detail route ${pathname} is missing BreadcrumbList JSON-LD.`,
+      `Canonical detail route ${pathname} is missing BreadcrumbList JSON-LD.`,
     );
   }
 
