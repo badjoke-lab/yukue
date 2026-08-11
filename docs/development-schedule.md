@@ -17,9 +17,9 @@ Phase 9 Launch Preparation   completed
 Phase 10 Stabilization       active
 Phase 10A Detail C repair    completed
 Phase 10B Corpus expansion   active
-Corpus batches 11-41         completed
-Batch 41 production          verified
-Next corpus batch            Batch 42
+Corpus batches 11-42         completed
+Batch 42 production          verified
+Next corpus batch            Batch 43
 Stabilization review         observing
 Formal review eligible       true
 Actual Jinja start gate      blocked
@@ -66,50 +66,49 @@ static + Chromium + representative screenshot checks
 
 Status: **Active**
 
-Batch 41 is complete and exact canonical production is verified.
+Batch 42 is complete and exact canonical production is verified.
 
 Current checkpoint:
 
 ```text
-Primary prefecture coverage  45 / 47
-Public Entities              116
-Places                       104
-State Snapshots               54
-Change Events                104
-Relations                     68
-Occurrences                  163
-Sitemap entries              230
-Sources                      305
-Evidence                     676
+Primary prefecture coverage  46 / 47
+Public Entities              118
+Places                       106
+State Snapshots               55
+Change Events                105
+Relations                     69
+Occurrences                  164
+Sitemap entries              234
+Sources                      311
+Evidence                     687
 Sparse primary Entities        0
 ```
 
-Batch 41 added 山口祇園祭 for 山口県. The Festival is linked to 八坂神社 through `ritually_associated_with`, uses a concrete Shrine Place plus a distributed procession-route Place, records Current State `active`, the annual July 20–27 recurrence, the 2023 edition as `held / unknown`, and the 1459 first edition/start at year precision. The elapsed 2026 dates are not converted to a held Occurrence without post-event Evidence.
+Batch 42 added 和歌祭 for 和歌山県. The Festival is linked to 紀州東照宮 through `ritually_associated_with`, uses a concrete Shrine Place plus a distributed 和歌浦 route Place, records Current State `active`, annual second-Sunday-of-May recurrence, the 2026 edition as `held / unknown`, and the 1622 first edition/start at year precision. The held assertion uses post-event Evidence rather than elapsed-date inference.
 
-The Shrine seed remains State-free. Its addition advances Jinja seed bookkeeping to 24 Relation-backed Shrine seeds while approved Jinja State Snapshots remain zero and the Jinja start gate remains blocked.
+The Shrine seed remains State-free. Its addition advances Jinja seed bookkeeping to 25 Relation-backed Shrine seeds while approved Jinja State Snapshots remain zero and the Jinja start gate remains blocked.
 
-### Batch 42 breadth target
+### Batch 43 breadth target
 
-Add one reviewed primary record from:
+Add one reviewed primary record from the sole remaining uncovered prefecture:
 
 ```text
-和歌山県
 宮崎県
 ```
 
-Geographic breadth alone is not sufficient. The record must satisfy the existing Detail C, map, Evidence, Source, freshness, Relation, and production contracts.
+This final breadth target must satisfy the same Detail C, map, Evidence, Source, freshness, Relation, production, and future-site boundaries as every earlier batch.
 
-### Batch 42 depth target
+### Batch 43 depth target
 
-When evidence supports it, also do one of the following:
+When evidence supports it, also do one or more of the following:
 
-- close a due or already verifiable Occurrence using post-event Evidence;
-- deepen a low-density primary record with claim-specific Evidence;
-- add a real Change Event or historical Occurrence;
-- strengthen Organization, Shrine/Temple seed, Place, or Relation context;
-- process a correction or freshness issue discovered by the gates.
+- add a verified historical or recent Occurrence;
+- add a real Change Event;
+- strengthen Shrine/Temple seed, Place, or Relation context;
+- record a scheduled future Occurrence without promoting it to held in advance;
+- process any correction or freshness issue discovered by the gates.
 
-Do not manufacture a depth change solely for symmetry.
+After reviewed primary-prefecture coverage reaches 47 / 47, breadth is no longer the default expansion axis. Subsequent corpus work should be depth-first: Occurrence history, Change Events, Relation density, Evidence quality, stale-State review, and dated maintenance.
 
 ## Parallel stabilization review
 
@@ -143,12 +142,12 @@ Current dated reviews:
 春日若宮おん祭 2026             review after 2026-12-18
 ```
 
-## Batch 42 execution order
+## Batch 43 execution order
 
 ```text
 1. run freshness / Relation / Evidence / bundle checks on current main
-2. select one evidence-strong breadth target from the 2 uncovered prefectures
-3. add only evidence-supported depth or due maintenance
+2. add one evidence-strong reviewed primary record for 宮崎県
+3. add only evidence-supported depth or future scheduling
 4. register canonical bundles in every required loader
 5. run corpus, freshness, Relation, external-link, correction, seed, and Jinja gates
 6. run Detail C and map utility; do not invent coordinates
@@ -158,9 +157,10 @@ Current dated reviews:
 10. advance the production baseline to the exact release commit
 11. require canonical-origin verification against the public hostname
 12. record production verification and advance project-status / roadmap / schedule
+13. switch subsequent corpus planning from prefecture breadth to depth-first maintenance
 ```
 
-The formal stabilization review can proceed in parallel with Batch 42, but it must not be marked complete until every review prerequisite is actually evidenced.
+The formal stabilization review can proceed in parallel with Batch 43, but it must not be marked complete until every review prerequisite is actually evidenced.
 
 ## Future-site boundary
 
@@ -172,7 +172,7 @@ Jinja State specification approved    false
 Explicit start authorization          false
 ```
 
-Current candidate inventory is 24 Relation-backed Shrine seeds and zero approved Jinja State Snapshots.
+Current candidate inventory is 25 Relation-backed Shrine seeds and zero approved Jinja State Snapshots.
 
 ## Work not activated
 
