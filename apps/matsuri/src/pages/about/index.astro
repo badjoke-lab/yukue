@@ -1,5 +1,18 @@
 ---
 import MatsuriReferenceShell from "../../components/MatsuriReferenceShell.astro";
+
+const configuredCorrectionFormUrl = import.meta.env.PUBLIC_CORRECTION_FORM_URL?.trim();
+const correctionFormUrl = (() => {
+  if (!configuredCorrectionFormUrl) return undefined;
+
+  try {
+    const url = new URL(configuredCorrectionFormUrl);
+    const isGoogleFormHost = url.hostname === "forms.gle" || url.hostname === "docs.google.com";
+    return url.protocol === "https:" && isGoogleFormHost ? url.toString() : undefined;
+  } catch {
+    return undefined;
+  }
+})();
 ---
 
 <MatsuriReferenceShell
@@ -31,6 +44,13 @@ import MatsuriReferenceShell from "../../components/MatsuriReferenceShell.astro"
   <section id="corrections">
     <h2>訂正・情報提供</h2>
     <p>名称、所在地、開催・上演結果、現在状態、関係、出典などに誤りや不足がある場合は、対象ページのURLと確認できる根拠を添えて連絡してください。内容を確認し、必要な場合は公開データとページを訂正します。</p>
-    <p><a href="https://github.com/badjoke-lab/yukue/issues/new">GitHubで訂正・情報提供を送る</a></p>
+    {correctionFormUrl ? (
+      <>
+        <p><a href={correctionFormUrl}>Googleフォームで訂正・情報提供を送る</a></p>
+        <p>技術的な報告は、引き続き<a href="https://github.com/badjoke-lab/yukue/issues/new">GitHub Issues</a>からも送れます。</p>
+      </>
+    ) : (
+      <p><a href="https://github.com/badjoke-lab/yukue/issues/new">GitHubで訂正・情報提供を送る</a></p>
+    )}
   </section>
 </MatsuriReferenceShell>
