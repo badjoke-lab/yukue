@@ -63,9 +63,34 @@ const footerGroups = [
     ],
   },
 ];
+
+const breadcrumbItems = [
+  { name: "ホーム", href: "/" },
+  { name: page.browseLabel, href: page.browseHref },
+  ...(page.region ? [{ name: page.region, href: "/regions/" }] : []),
+  { name: page.name, href: Astro.url.pathname },
+];
+
+const breadcrumbStructuredData = Astro.site
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: breadcrumbItems.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.name,
+        item: new URL(item.href, Astro.site).toString(),
+      })),
+    }
+  : undefined;
 ---
 
-<PageShell site="matsuri" title={page.title} description={page.description}>
+<PageShell
+  site="matsuri"
+  title={page.title}
+  description={page.description}
+  structuredData={breadcrumbStructuredData}
+>
   <SiteHeader
     slot="header"
     siteName="祭のゆくえ"

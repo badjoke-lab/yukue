@@ -8,6 +8,8 @@ import "../styles/history.css";
 import "../styles/places.css";
 import "../styles/images.css";
 
+type JsonLdObject = Record<string, unknown>;
+
 interface Props {
   site: SiteThemeKey;
   title: string;
@@ -15,6 +17,8 @@ interface Props {
   lang?: string;
   skipLinkLabel?: string;
   robots?: string;
+  ogType?: "website" | "article";
+  structuredData?: JsonLdObject | JsonLdObject[];
 }
 
 const {
@@ -24,6 +28,8 @@ const {
   lang = "ja",
   skipLinkLabel = "本文へ移動",
   robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+  ogType = "website",
+  structuredData,
 } = Astro.props;
 
 const accent = getSiteAccent(site);
@@ -31,6 +37,20 @@ const canonicalUrl = Astro.site
   ? new URL(Astro.url.pathname, Astro.site).toString()
   : undefined;
 const robotsContent = canonicalUrl ? robots : "noindex,nofollow";
+
+const configuredGa4MeasurementId = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID?.trim();
+const ga4MeasurementId =
+  configuredGa4MeasurementId && /^G-[A-Z0-9]+$/i.test(configuredGa4MeasurementId)
+    ? configuredGa4MeasurementId
+    : undefined;
+
+const jsonLdPayloads = structuredData
+  ? Array.isArray(structuredData)
+    ? structuredData
+    : [structuredData]
+  : [];
+const serializeJsonLd = (payload: JsonLdObject) =>
+  JSON.stringify(payload).replace(/</g, "\\u003c");
 ---
 
 <!doctype html>
@@ -42,6 +62,33 @@ const robotsContent = canonicalUrl ? robots : "noindex,nofollow";
     {description && <meta name="description" content={description} />}
     <meta name="robots" content={robotsContent} />
     {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+
+    {jsonLdPayloads.map((payload) => (
+      <script type="application/ld+json" set:html={serializeJsonLd(payload)} />
+    ))}
+
+    {ga4MeasurementId && (
+      <>
+        <script
+          is:inline
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${ga4MeasurementId}`}
+        ></script>
+        <script
+          is:inline
+          set:html={`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${ga4MeasurementId}');`}
+        ></script>
+      </>
+    )}
+
     <slot name="head" />
   </head>
   <body class="yk-page-shell">

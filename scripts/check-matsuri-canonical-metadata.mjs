@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const repositoryRoot = fileURLToPath(new URL("../", import.meta.url));
 const outputRoot = path.join(repositoryRoot, "apps", "matsuri", "dist");
 const configuredOrigin = process.env.MATSURI_PUBLIC_ORIGIN?.replace(/\/$/u, "");
+const configuredGa4MeasurementId = process.env.PUBLIC_GA4_MEASUREMENT_ID?.trim();
 const fallbackOrigin = "https://matsuri.invalid";
 
 function assert(condition, message) {
@@ -42,6 +43,14 @@ function robotsMetaFromHtml(html) {
   return tag ? attribute(tag, "content") : undefined;
 }
 
+function metaContentFromHtml(html, attributeName, attributeValue) {
+  const tags = html.match(/<meta\b[^>]*>/giu) ?? [];
+  const tag = tags.find(
+    (candidate) => attribute(candidate, attributeName)?.toLowerCase() === attributeValue,
+  );
+  return tag ? attribute(tag, "content") : undefined;
+}
+
 function routeToHtmlPath(pathname) {
   if (pathname === "/") return path.join(outputRoot, "index.html");
   const relative = pathname.replace(/^\//u, "");
@@ -49,6 +58,13 @@ function routeToHtmlPath(pathname) {
 }
 
 assert(fs.existsSync(outputRoot), "Matsuri dist artifact is missing.");
+
+if (configuredGa4MeasurementId) {
+  assert(
+    /^G-[A-Z0-9]+$/iu.test(configuredGa4MeasurementId),
+    `Invalid PUBLIC_GA4_MEASUREMENT_ID: ${configuredGa4MeasurementId}.`,
+  );
+}
 
 const sitemapPath = path.join(outputRoot, "sitemap.xml");
 assert(fs.existsSync(sitemapPath), "Matsuri sitemap.xml is missing.");
@@ -67,8 +83,46 @@ for (const location of locations) {
 
   const html = fs.readFileSync(htmlPath, "utf8");
   const canonical = canonicalFromHtml(html);
+  const ogUrl = metaContentFromHtml(html, "property", "og:url");
+  const ogTitle = metaContentFromHtml(html, "property", "og:title");
+  const twitterCard = metaContentFromHtml(html, "name", "twitter:card");
   const robotsMeta = robotsMetaFromHtml(html);
+  const googleTagLoads = html.match(/googletagmanager\.com\/gtag\/js\?id=/gu) ?? [];
+  const googleTagConfigs = html.match(/gtag\(['"]config['"]/gu) ?? [];
+  const jsonLdScripts =
+    html.match(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/giu) ?? [];
+
   assert(robotsMeta, `Missing robots meta on ${pathname}.`);
+  assert(ogTitle, `Missing Open Graph title on ${pathname}.`);
+  assert(twitterCard === "summary", `Missing Twitter/X summary card on ${pathname}.`);
+  assert(
+    googleTagLoads.length <= 1 && googleTagConfigs.length <= 1,
+    `Duplicate Google tag detected on ${pathname}.`,
+  );
+
+  if (configuredOrigin && html.includes("data-detail-page")) {
+    assert(
+      jsonLdScripts.some((script) => script.includes('"@type":"BreadcrumbList"')),
+      `Canonical detail route ${pathname} is missing BreadcrumbList JSON-LD.`,
+    );
+  }
+
+  if (configuredGa4MeasurementId) {
+    assert(
+      googleTagLoads.length === 1 && googleTagConfigs.length === 1,
+      `Configured GA4 tag is missing on ${pathname}.`,
+    );
+    assert(
+      html.includes(`gtag/js?id=${configuredGa4MeasurementId}`) &&
+        html.includes(`gtag('config', '${configuredGa4MeasurementId}')`),
+      `GA4 measurement ID mismatch on ${pathname}.`,
+    );
+  } else {
+    assert(
+      googleTagLoads.length === 0 && googleTagConfigs.length === 0,
+      `Google tag emitted without PUBLIC_GA4_MEASUREMENT_ID on ${pathname}.`,
+    );
+  }
 
   const normalizedRobots = robotsMeta.toLowerCase();
 
@@ -87,6 +141,10 @@ for (const location of locations) {
       `Canonical link mismatch on ${pathname}: ${String(canonical)} !== ${expectedCanonical}.`,
     );
     assert(
+      ogUrl === expectedCanonical,
+      `Open Graph URL mismatch on ${pathname}: ${String(ogUrl)} !== ${expectedCanonical}.`,
+    );
+    assert(
       normalizedRobots.includes("index") &&
         normalizedRobots.includes("follow") &&
         !normalizedRobots.includes("noindex") &&
@@ -99,6 +157,7 @@ for (const location of locations) {
       `Origin-neutral sitemap location must be path-only: ${location}.`,
     );
     assert(!canonical, `Origin-neutral route ${pathname} emitted canonical ${canonical}.`);
+    assert(!ogUrl, `Origin-neutral route ${pathname} emitted Open Graph URL ${ogUrl}.`);
     assert(
       normalizedRobots.includes("noindex") && normalizedRobots.includes("nofollow"),
       `Origin-neutral route ${pathname} must use noindex,nofollow: ${robotsMeta}.`,
@@ -107,5 +166,5 @@ for (const location of locations) {
 }
 
 console.log(
-  `Matsuri canonical metadata passed in ${configuredOrigin ? "canonical" : "origin-neutral"} mode for ${locations.length} sitemap routes.`,
+  `Matsuri canonical/social metadata, detail structured data, and Google tag contract passed in ${configuredOrigin ? "canonical" : "origin-neutral"} mode for ${locations.length} sitemap routes.`,
 );
