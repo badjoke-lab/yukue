@@ -44,7 +44,7 @@
       "publisher": "那須烏山市",
       "url": "https://www.city.nasukarasuyama.lg.jp/city-administration/public-relations/press-release/page006847.html",
       "published_at": "2026-07-29",
-      "accessed_at": "2026-08-12",
+      "accessed_at": "2026-08-11",
       "language": "ja"
     }
   ],
@@ -58,7 +58,7 @@
       "target_id": "occ-yamaage-matsuri-2026",
       "assertion_code": "supports_occurrence_outcome",
       "summary_ja": "那須烏山市の2026年7月29日プレスリリースは、令和8年山あげ祭が鍛冶町の当番により7月24日から26日までの3日間開催されたと報告しているため、2026年版をheldとして記録する。",
-      "captured_at": "2026-08-12",
+      "captured_at": "2026-08-11",
       "review_status": "approved"
     },
     {
@@ -70,7 +70,7 @@
       "target_id": "occ-yamaage-matsuri-2026",
       "assertion_code": "supports_occurrence_scale",
       "summary_ja": "同プレスリリースは、熱中症対策として日中の公演を減らし、例年16～18公演に対して2026年は13公演だったと報告しているため、開催自体はheldのままscaleをmodifiedとする。入込数63,000人は補足情報であり、scale分類を来場者数から推定しない。",
-      "captured_at": "2026-08-12",
+      "captured_at": "2026-08-11",
       "review_status": "approved"
     }
   ],
