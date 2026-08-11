@@ -38,7 +38,13 @@ function knownThirdPartyMapConsoleError(message) {
     text.includes("blocked by CORS policy");
   const googleResourceFailure =
     text === "Failed to load resource: net::ERR_FAILED" && googleLocation;
-  return googleCors || googleResourceFailure;
+  const googleMapsJwtRpcFailure =
+    text.includes("<gmp-place-details-compact>: Encountered a network request error:") &&
+    text.includes("Rpc failed due to xhr error") &&
+    text.includes(
+      "https://maps.googleapis.com/$rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService/InitMapsJwt",
+    );
+  return googleCors || googleResourceFailure || googleMapsJwtRpcFailure;
 }
 
 async function waitForLoadedMapFrame(iframe, route, index) {

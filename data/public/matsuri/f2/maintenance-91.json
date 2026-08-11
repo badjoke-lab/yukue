@@ -1,0 +1,194 @@
+{
+  "entities": [
+    {
+      "id": "fst-waka-matsuri",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-10T00:00:00Z",
+      "updated_at": "2026-08-10T00:00:00Z",
+      "slug": "waka-matsuri",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [{
+        "value": "和歌祭",
+        "lang": "ja",
+        "kind": "canonical",
+        "is_preferred": true,
+        "source_ids": ["src-waka-matsuri-2026-city", "src-waka-matsuri-official-about"]
+      }],
+      "summary_ja": "紀州東照宮の例大祭として1622年に始まった祭礼。毎年5月第2日曜日を基本に、紀州東照宮の神輿おろしと和歌浦周辺を巡る渡御行列を行う。",
+      "geographic_scope": {
+        "areas": [{
+          "prefecture_code": "30",
+          "prefecture_name_ja": "和歌山県",
+          "municipality_name_ja": "和歌山市"
+        }],
+        "scope_type": "distributed",
+        "description_ja": "紀州東照宮を起点に和歌浦周辺を巡る祭礼。"
+      },
+      "primary_place_id": "plc-kishu-toshogu",
+      "default_place_ids": ["plc-kishu-toshogu", "plc-waka-matsuri-wakaura-route"],
+      "external_links": [{
+        "kind": "official_website",
+        "platform": "web",
+        "url": "https://wakamatsuri.com/",
+        "is_primary": true,
+        "officiality": "official",
+        "last_checked_at": "2026-08-10"
+      }],
+      "record_lifecycle": "active",
+      "festival_kind": "shrine_festival",
+      "usual_months": [5],
+      "usual_duration_days": 1,
+      "season_tags": ["春"],
+      "occurrence_series_ids": ["ser-waka-matsuri-annual"]
+    },
+    {
+      "id": "shr-kishu-toshogu",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-10T00:00:00Z",
+      "updated_at": "2026-08-10T00:00:00Z",
+      "slug": "kishu-toshogu",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [{
+        "value": "紀州東照宮",
+        "lang": "ja",
+        "kind": "canonical",
+        "is_preferred": true,
+        "source_ids": ["src-kishu-toshogu-pref-tourism"]
+      }],
+      "summary_ja": "1621年創建の和歌山市和歌浦西の神社。徳川家康と紀州藩初代藩主徳川頼宣を祀り、和歌祭は同社の例祭として行われる。",
+      "geographic_scope": {
+        "areas": [{
+          "prefecture_code": "30",
+          "prefecture_name_ja": "和歌山県",
+          "municipality_name_ja": "和歌山市"
+        }],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-kishu-toshogu",
+      "default_place_ids": ["plc-kishu-toshogu"],
+      "external_links": [{
+        "kind": "official_information",
+        "platform": "web",
+        "url": "https://www.wakayama-kanko.or.jp/spots/detail_1019.html",
+        "is_primary": true,
+        "officiality": "public_authority",
+        "last_checked_at": "2026-08-10"
+      }],
+      "record_lifecycle": "active"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-kishu-toshogu",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "紀州東照宮",
+      "place_kind": "shrine_site",
+      "country_code": "JP",
+      "prefecture_code": "30",
+      "prefecture_name_ja": "和歌山県",
+      "municipality_name_ja": "和歌山市",
+      "locality_ja": "和歌浦西2丁目1-20",
+      "street_address_ja": "和歌山県和歌山市和歌浦西2丁目1-20",
+      "coordinate_precision": "address",
+      "map_label_ja": "和歌祭の祭祀基点・紀州東照宮",
+      "source_ids": ["src-kishu-toshogu-pref-tourism"]
+    },
+    {
+      "id": "plc-waka-matsuri-wakaura-route",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "name_ja": "和歌祭 渡御行列・和歌浦周辺",
+      "place_kind": "festival_route",
+      "country_code": "JP",
+      "prefecture_code": "30",
+      "prefecture_name_ja": "和歌山県",
+      "municipality_name_ja": "和歌山市",
+      "locality_ja": "紀州東照宮・和歌浦周辺",
+      "coordinate_precision": "municipality",
+      "map_label_ja": "和歌祭の渡御行列・和歌浦周辺",
+      "source_ids": ["src-waka-matsuri-2026-city", "src-waka-matsuri-2026-pref-tourism"]
+    }
+  ],
+  "stateSnapshots": [{
+    "id": "sts-waka-matsuri-current",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "entity_id": "fst-waka-matsuri",
+    "state_schema": "matsuri.festival.v1",
+    "state_code": "active",
+    "observed_at": "2026-08-10",
+    "basis_evidence_ids": ["evd-waka-matsuri-state-2026"],
+    "review_status": "approved"
+  }],
+  "changeEvents": [{
+    "id": "chg-waka-matsuri-started-1622",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "event_type": "other",
+    "subject_entity_ids": ["fst-waka-matsuri"],
+    "effective_period": {"start": "1622"},
+    "summary_ja": "紀州東照宮の例大祭として和歌祭が始まった1622年を、祭礼開始のChange Eventとして年精度で記録する。",
+    "resulting_state_snapshot_ids": [],
+    "related_relation_ids": ["rel-waka-matsuri-ritually-associated-kishu-toshogu"],
+    "evidence_ids": ["evd-waka-matsuri-start-1622"],
+    "review_status": "approved"
+  }],
+  "occurrences": [{
+    "id": "occ-waka-matsuri-2026",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "subject_entity_id": "fst-waka-matsuri",
+    "series_id": "ser-waka-matsuri-annual",
+    "occurrence_type": "festival_edition",
+    "temporal_extent": {
+      "start": "2026-05-17",
+      "precision": "day"
+    },
+    "outcome": "held",
+    "scale": "unknown",
+    "venue_place_ids": ["plc-kishu-toshogu", "plc-waka-matsuri-wakaura-route"],
+    "organizer_entity_ids": [],
+    "evidence_ids": ["evd-waka-matsuri-occ-2026-held", "evd-waka-matsuri-occ-2026-date"],
+    "review_status": "approved"
+  }],
+  "occurrenceSeries": [{
+    "id": "ser-waka-matsuri-annual",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "subject_entity_id": "fst-waka-matsuri",
+    "series_type": "annual_festival_edition",
+    "name_ja": "和歌祭 年次開催",
+    "recurrence_pattern_id": "rec-waka-matsuri-second-sunday-may",
+    "default_venue_place_ids": ["plc-kishu-toshogu", "plc-waka-matsuri-wakaura-route"],
+    "evidence_ids": ["evd-waka-matsuri-recurrence"]
+  }],
+  "recurrencePatterns": [{
+    "id": "rec-waka-matsuri-second-sunday-may",
+    "schema_version": "common.v1",
+    "record_version": 1,
+    "pattern_type": "annual",
+    "rule_text_ja": "毎年5月第2日曜日を基本に行う。",
+    "evidence_ids": ["evd-waka-matsuri-recurrence"]
+  }],
+  "relations": [{
+    "id": "rel-waka-matsuri-ritually-associated-kishu-toshogu",
+    "schema_version": "matsuri.v1",
+    "record_version": 1,
+    "source_entity_id": "fst-waka-matsuri",
+    "relation_type": "ritually_associated_with",
+    "target_entity_id": "shr-kishu-toshogu",
+    "evidence_ids": ["evd-rel-waka-matsuri-kishu-toshogu"],
+    "review_status": "approved"
+  }],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}

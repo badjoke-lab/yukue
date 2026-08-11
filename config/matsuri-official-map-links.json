@@ -150,6 +150,16 @@
       "label_ja": "山口市観光情報 八坂神社地図を見る",
       "url": "https://yamaguchi-city.jp/details/ac_yasaka.html",
       "source_id": "src-yamaguchi-yasaka-tourism"
+    },
+    {
+      "entity_id": "fst-waka-matsuri",
+      "entity_route": "/festivals/waka-matsuri/",
+      "place_id": "plc-kishu-toshogu",
+      "place_route": "/places/kishu-toshogu/",
+      "place_name_ja": "紀州東照宮",
+      "label_ja": "和歌山県公式観光 紀州東照宮地図を見る",
+      "url": "https://www.wakayama-kanko.or.jp/spots/detail_1019.html",
+      "source_id": "src-kishu-toshogu-pref-tourism"
     }
   ]
 }
