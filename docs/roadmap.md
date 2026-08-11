@@ -39,38 +39,37 @@ docs/matsuri-detail-c-implementation.md
 
 Status: **Active**
 
-Current verified checkpoint after Batch 41:
+Current verified checkpoint after Batch 42:
 
 ```text
-Primary prefecture coverage  45 / 47
-Public Entities              116
-Places                       104
-State Snapshots               54
-Change Events                104
-Relations                     68
-Occurrences                  163
-Sitemap entries              230
-Sources                      305
-Evidence                     676
+Primary prefecture coverage  46 / 47
+Public Entities              118
+Places                       106
+State Snapshots               55
+Change Events                105
+Relations                     69
+Occurrences                  164
+Sitemap entries              234
+Sources                      311
+Evidence                     687
 Sparse primary Entities        0
 ```
 
-Batch 41 added the first approved primary record for 山口県 through 山口祇園祭. The Festival is linked to 八坂神社 through an evidence-backed ritual Relation, records the reviewed annual July 20–27 recurrence, preserves the Shrine anchor and distributed procession route as separate Places, records the 2023 edition as `held / unknown`, and adds the year-level 1459 first-edition/start Change Event. The 2026 dates are not promoted to a held Occurrence without post-event Evidence.
+Batch 42 added the first approved primary record for 和歌山県 through 和歌祭. The Festival is linked to 紀州東照宮 through an evidence-backed ritual Relation, records the annual second-Sunday-of-May recurrence, preserves the Shrine anchor and distributed 和歌浦 route as separate Places, records the 2026 edition as `held / unknown`, and adds the year-level 1622 first-edition/start Change Event.
 
 Exact canonical-production verification passed for release:
 
 ```text
-69d350e9e55ae93c829f8ab535b22bc8df5f3772
+d36797b2980ef9d639bfa7ee0a152a287a223d3a
 ```
 
-The next breadth target is one reviewed primary Entity from the remaining two uncovered prefectures:
+The next breadth target is the sole remaining uncovered prefecture:
 
 ```text
-和歌山県
 宮崎県
 ```
 
-The next depth target is an evidence-supported historical or current Occurrence, Change Event, or low-density primary record that can be strengthened without inference.
+Once reviewed primary-prefecture coverage reaches 47 / 47, future corpus expansion should become depth-first rather than continuing to optimize for geographic breadth. Priority dimensions are Occurrence history, Change Events, Relation density, Evidence quality, stale-State review, and dated maintenance.
 
 ### Parallel stabilization review
 
@@ -87,7 +86,7 @@ Machine record        config/matsuri-stabilization-review.json
 
 Elapsed time alone does not complete Phase 10. The formal review must record production availability, deployment behavior, canonical/HTTPS behavior, Search, crawler/sitemap behavior, Analytics traffic receipt, freshness, Relations, Evidence/corrections, map-contract maintenance, manual maintenance burden, and Search Console observation.
 
-Batch 41 adds another real modeling boundary: a Shrine can be captured as a State-free Relation-backed seed while Matsuri evidence remains sufficient for Festival identity, Place, history, and ritual association. Seed growth does not authorize Jinja State inference or implementation.
+Batch 42 adds two maintenance/modeling lessons: a State-free Shrine seed can strengthen Matsuri Relations without authorizing Jinja State inference, and a narrowly identified third-party Google Maps console transport error can be classified without weakening the zero-tolerance rule for first-party application errors.
 
 The review may be performed, but it cannot be marked complete from the calendar alone or by inferring private Analytics/Search Console observations.
 
@@ -102,4 +101,4 @@ Jinja State specification             unapproved
 Explicit start authorization          absent
 ```
 
-The current candidate inventory is 24 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Seed accumulation does not activate the next site.
+The current candidate inventory is 25 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Seed accumulation does not activate the next site.
