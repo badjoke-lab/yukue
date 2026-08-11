@@ -17,9 +17,9 @@ Phase 9 Launch Preparation   completed
 Phase 10 Stabilization       active
 Phase 10A Detail C repair    completed
 Phase 10B Corpus expansion   active
-Corpus batches 11-40         completed
-Batch 40 production          verified
-Next corpus batch            Batch 41
+Corpus batches 11-41         completed
+Batch 41 production          verified
+Next corpus batch            Batch 42
 Stabilization review         observing
 Formal review eligible       true
 Actual Jinja start gate      blocked
@@ -66,45 +66,44 @@ static + Chromium + representative screenshot checks
 
 Status: **Active**
 
-Batch 40 is complete and exact canonical production is verified.
+Batch 41 is complete and exact canonical production is verified.
 
 Current checkpoint:
 
 ```text
-Primary prefecture coverage  44 / 47
-Public Entities              114
-Places                       102
-State Snapshots               53
-Change Events                103
-Relations                     67
-Occurrences                  162
-Sitemap entries              226
-Sources                      299
-Evidence                     665
+Primary prefecture coverage  45 / 47
+Public Entities              116
+Places                       104
+State Snapshots               54
+Change Events                104
+Relations                     68
+Occurrences                  163
+Sitemap entries              230
+Sources                      305
+Evidence                     676
 Sparse primary Entities        0
 ```
 
-Batch 40 added 新潟まつり for 新潟県. The Festival is linked to 新潟まつり実行委員会, uses distributed center-city venue context, records Current State `active`, the annual early-August Friday/Saturday/Sunday recurrence, the 2025 edition as `held / modified`, and the 1955 first edition/start at year precision. The approved official traffic/venue-map target avoids fabricated coordinates. The elapsed 2026 dates are not converted to a held Occurrence without post-event Evidence.
+Batch 41 added 山口祇園祭 for 山口県. The Festival is linked to 八坂神社 through `ritually_associated_with`, uses a concrete Shrine Place plus a distributed procession-route Place, records Current State `active`, the annual July 20–27 recurrence, the 2023 edition as `held / unknown`, and the 1459 first edition/start at year precision. The elapsed 2026 dates are not converted to a held Occurrence without post-event Evidence.
 
-The final release also demonstrated that an unused public Source is rejected by the release contract: the unreferenced Source found by complete CI was removed and the full gate was rerun successfully.
+The Shrine seed remains State-free. Its addition advances Jinja seed bookkeeping to 24 Relation-backed Shrine seeds while approved Jinja State Snapshots remain zero and the Jinja start gate remains blocked.
 
-### Batch 41 breadth target
+### Batch 42 breadth target
 
 Add one reviewed primary record from:
 
 ```text
 和歌山県
-山口県
 宮崎県
 ```
 
 Geographic breadth alone is not sufficient. The record must satisfy the existing Detail C, map, Evidence, Source, freshness, Relation, and production contracts.
 
-### Batch 41 depth target
+### Batch 42 depth target
 
 When evidence supports it, also do one of the following:
 
-- close the next due 2026 Occurrence;
+- close a due or already verifiable Occurrence using post-event Evidence;
 - deepen a low-density primary record with claim-specific Evidence;
 - add a real Change Event or historical Occurrence;
 - strengthen Organization, Shrine/Temple seed, Place, or Relation context;
@@ -124,7 +123,7 @@ Review complete       false
 Machine record        config/matsuri-stabilization-review.json
 ```
 
-Reaching 2026-08-10 makes a formal review eligible to occur; it does not complete the gate. The review must record the required public-safe conclusions for production availability, canonical/HTTPS, Search, crawler/sitemap, Analytics traffic receipt, freshness, Relations, Evidence/corrections, manual maintenance burden, and Search Console observation.
+Elapsed time alone does not complete the gate. The review must record the required public-safe conclusions for production availability, canonical/HTTPS, Search, crawler/sitemap, Analytics traffic receipt, freshness, Relations, Evidence/corrections, manual maintenance burden, and Search Console observation.
 
 Current dated reviews:
 
@@ -144,11 +143,11 @@ Current dated reviews:
 春日若宮おん祭 2026             review after 2026-12-18
 ```
 
-## Batch 41 execution order
+## Batch 42 execution order
 
 ```text
 1. run freshness / Relation / Evidence / bundle checks on current main
-2. select one evidence-strong breadth target from the 3 uncovered prefectures
+2. select one evidence-strong breadth target from the 2 uncovered prefectures
 3. add only evidence-supported depth or due maintenance
 4. register canonical bundles in every required loader
 5. run corpus, freshness, Relation, external-link, correction, seed, and Jinja gates
@@ -161,7 +160,7 @@ Current dated reviews:
 12. record production verification and advance project-status / roadmap / schedule
 ```
 
-The formal stabilization review can proceed in parallel with Batch 41, but it must not be marked complete until every review prerequisite is actually evidenced.
+The formal stabilization review can proceed in parallel with Batch 42, but it must not be marked complete until every review prerequisite is actually evidenced.
 
 ## Future-site boundary
 
@@ -173,7 +172,7 @@ Jinja State specification approved    false
 Explicit start authorization          false
 ```
 
-Current candidate inventory remains 23 Relation-backed Shrine seeds and zero approved Jinja State Snapshots.
+Current candidate inventory is 24 Relation-backed Shrine seeds and zero approved Jinja State Snapshots.
 
 ## Work not activated
 
