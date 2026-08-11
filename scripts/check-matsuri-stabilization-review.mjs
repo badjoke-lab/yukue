@@ -138,6 +138,7 @@ function validateRecord(record, { today = new Date(), requireEvidenceFile = true
   );
   const todayDay = parseIsoDay(today.toISOString().slice(0, 10));
   assert(startedOn <= todayDay, "Stabilization cannot start in the future");
+  const minimumObservationPeriodComplete = todayDay >= earliestReviewOn;
 
   assertExactKeys(record.prerequisites, expectedPrerequisiteKeys, "Stabilization prerequisites");
   assertExactKeys(record.observations, expectedObservationKeys, "Stabilization observations");
@@ -151,7 +152,13 @@ function validateRecord(record, { today = new Date(), requireEvidenceFile = true
   if (record.status === "observing") {
     assert(record.reviewed_on === null, "Observing record must not set reviewed_on");
     assert(record.review_evidence_document === null, "Observing record must not set review evidence");
-    for (const key of expectedPrerequisiteKeys.filter((key) => key !== "f2_launch_complete")) {
+    assert(
+      record.prerequisites.minimum_observation_period_complete === minimumObservationPeriodComplete,
+      `Observing record minimum_observation_period_complete must match calendar eligibility (${minimumObservationPeriodComplete})`,
+    );
+    for (const key of expectedPrerequisiteKeys.filter(
+      (key) => key !== "f2_launch_complete" && key !== "minimum_observation_period_complete",
+    )) {
       assert(record.prerequisites[key] === false, `Observing record must keep ${key} false`);
     }
     assert(record.observations.unresolved_critical_corrections === null, "Observing record must not freeze correction count");
@@ -233,6 +240,7 @@ const contract = fs.readFileSync(contractPath, "utf8");
 for (const marker of [
   "Elapsed time alone does not complete the review",
   "Search-engine indexation is not a completion requirement",
+  "Review eligible       true",
   "2026-08-10",
 ]) {
   assert(contract.includes(marker), `Stabilization contract is missing ${marker}`);
@@ -250,6 +258,18 @@ assert(
 );
 
 if (process.argv.includes("--verify-fixtures")) {
+  const staleEligibility = structuredClone(record);
+  staleEligibility.prerequisites.minimum_observation_period_complete = false;
+  assertRejects("elapsed minimum observation period not reflected", () =>
+    validateRecord(staleEligibility, { today: new Date("2026-08-10T00:00:00Z") }),
+  );
+
+  const prematureEligibility = structuredClone(record);
+  prematureEligibility.prerequisites.minimum_observation_period_complete = true;
+  assertRejects("minimum observation period marked complete before earliest review", () =>
+    validateRecord(prematureEligibility, { today: new Date("2026-08-09T00:00:00Z") }),
+  );
+
   const beforeEarliest = completeFixture(record);
   beforeEarliest.reviewed_on = record.started_on;
   assertRejects("review completed before earliest_review_on", () =>
@@ -274,5 +294,5 @@ if (process.argv.includes("--verify-fixtures")) {
 }
 
 console.log(
-  `Matsuri stabilization review is ${record.status}; observation started ${record.started_on}, earliest review ${record.earliest_review_on}, completion claim ${record.claims.review_complete}.`,
+  `Matsuri stabilization review is ${record.status}; observation started ${record.started_on}, earliest review ${record.earliest_review_on}, minimum period complete ${record.prerequisites.minimum_observation_period_complete}, completion claim ${record.claims.review_complete}.`,
 );
