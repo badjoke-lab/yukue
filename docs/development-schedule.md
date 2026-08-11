@@ -1,28 +1,28 @@
 # Development Schedule
 
-**Status:** F2-28 completed / Detail C completed / Matsuri corpus expansion active / stabilization review eligible and observing / Jinja blocked
+**Status:** F2-28 completed / Detail C completed / Matsuri prefecture breadth 47 / 47 completed / depth-first maintenance active / stabilization review eligible and observing / Jinja blocked
 
 This project is gate-driven rather than deadline-driven.
 
 ## Current position
 
 ```text
-Foundation through Stage E  completed
-F1 corpus expansion          completed
-F2-01 through F2-28          completed
-F2-M01                       completed
-F2-M02                       completed
-F2-P01 through F2-P13        completed
-Phase 9 Launch Preparation   completed
-Phase 10 Stabilization       active
-Phase 10A Detail C repair    completed
-Phase 10B Corpus expansion   active
-Corpus batches 11-42         completed
-Batch 42 production          verified
-Next corpus batch            Batch 43
-Stabilization review         observing
-Formal review eligible       true
-Actual Jinja start gate      blocked
+Foundation through Stage E   completed
+F1 corpus expansion           completed
+F2-01 through F2-28           completed
+F2-M01                        completed
+F2-M02                        completed
+F2-P01 through F2-P13         completed
+Phase 9 Launch Preparation    completed
+Phase 10 Stabilization        active
+Phase 10A Detail C repair     completed
+Phase 10B Prefecture breadth  completed 47 / 47
+Phase 10C Depth maintenance   active
+Corpus batches 11-43          completed
+Batch 43 production           verified
+Stabilization review          observing
+Formal review eligible        true
+Actual Jinja start gate       blocked
 ```
 
 ## Completed F2 launch sequence
@@ -62,53 +62,52 @@ concrete map anchors or approved official maps
 static + Chromium + representative screenshot checks
 ```
 
-## Phase 10B — Matsuri corpus expansion
+## Phase 10B — Matsuri prefecture breadth
 
-Status: **Active**
+Status: **Completed**
 
-Batch 42 is complete and exact canonical production is verified.
+Batch 43 completes reviewed primary-prefecture coverage at 47 / 47.
 
-Current checkpoint:
+Final breadth checkpoint:
 
 ```text
-Primary prefecture coverage  46 / 47
-Public Entities              118
-Places                       106
-State Snapshots               55
-Change Events                105
-Relations                     69
-Occurrences                  164
-Sitemap entries              234
-Sources                      311
-Evidence                     687
+Primary prefecture coverage  47 / 47
+Public Entities              120
+Places                       108
+State Snapshots               56
+Change Events                106
+Relations                     70
+Occurrences                  166
+Sitemap entries              238
+Sources                      318
+Evidence                     699
+Prefecture gaps                0
 Sparse primary Entities        0
 ```
 
-Batch 42 added 和歌祭 for 和歌山県. The Festival is linked to 紀州東照宮 through `ritually_associated_with`, uses a concrete Shrine Place plus a distributed 和歌浦 route Place, records Current State `active`, annual second-Sunday-of-May recurrence, the 2026 edition as `held / unknown`, and the 1622 first edition/start at year precision. The held assertion uses post-event Evidence rather than elapsed-date inference.
+Batch 43 added 宮﨑神宮大祭（神武さま） for 宮崎県. The Festival is linked to 宮﨑神宮 through `ritually_associated_with`, uses a concrete Shrine Place plus a distributed procession-route Place, records Current State `active`, the annual例祭/御神幸 recurrence, the 2024 edition as `held / modified`, the future 2026 edition as `scheduled / unknown`, and a year-level c.1909 current-form establishment Change Event.
 
-The Shrine seed remains State-free. Its addition advances Jinja seed bookkeeping to 25 Relation-backed Shrine seeds while approved Jinja State Snapshots remain zero and the Jinja start gate remains blocked.
+The Shrine seed remains State-free. Its addition advances Jinja seed bookkeeping to 26 Relation-backed Shrine seeds while approved Jinja State Snapshots remain zero and the Jinja start gate remains blocked.
 
-### Batch 43 breadth target
+Geographic breadth is no longer the default expansion axis.
 
-Add one reviewed primary record from the sole remaining uncovered prefecture:
+## Phase 10C — Depth-first Matsuri maintenance
+
+Status: **Active**
+
+Priority order:
 
 ```text
-宮崎県
+1. due 2026 Occurrence reviews with explicit post-event Evidence
+2. historical Occurrence gaps on low-density primary records
+3. real Change Events that explain state or format transitions
+4. Relation density and provenance improvements
+5. claim-specific Evidence and Source quality
+6. stale-State / stale-link review and corrections
+7. Detail C / map / Search / machine-readable regression maintenance
 ```
 
-This final breadth target must satisfy the same Detail C, map, Evidence, Source, freshness, Relation, production, and future-site boundaries as every earlier batch.
-
-### Batch 43 depth target
-
-When evidence supports it, also do one or more of the following:
-
-- add a verified historical or recent Occurrence;
-- add a real Change Event;
-- strengthen Shrine/Temple seed, Place, or Relation context;
-- record a scheduled future Occurrence without promoting it to held in advance;
-- process any correction or freshness issue discovered by the gates.
-
-After reviewed primary-prefecture coverage reaches 47 / 47, breadth is no longer the default expansion axis. Subsequent corpus work should be depth-first: Occurrence history, Change Events, Relation density, Evidence quality, stale-State review, and dated maintenance.
+Do not add records merely to increase the Entity count now that prefecture breadth is complete. New primary Entities remain allowed when they add substantive coverage, but quantity alone is not a target.
 
 ## Parallel stabilization review
 
@@ -122,7 +121,9 @@ Review complete       false
 Machine record        config/matsuri-stabilization-review.json
 ```
 
-Elapsed time alone does not complete the gate. The review must record the required public-safe conclusions for production availability, canonical/HTTPS, Search, crawler/sitemap, Analytics traffic receipt, freshness, Relations, Evidence/corrections, manual maintenance burden, and Search Console observation.
+Elapsed time alone does not complete the gate. The formal review must record the required public-safe conclusions for production availability, canonical/HTTPS, Search, crawler/sitemap, Analytics traffic receipt, freshness, Relations, Evidence/corrections, manual maintenance burden, and Search Console observation.
+
+The next stabilization step is to separate fields that can be closed from repository/public evidence from fields that require direct private Analytics or Search Console observation. No private observation is inferred.
 
 Current dated reviews:
 
@@ -138,29 +139,23 @@ Current dated reviews:
 布橋灌頂会 2026                 review after 2026-09-27
 岸和田だんじり祭 10月祭礼 2026  review after 2026-10-11
 上野天神祭 2026                 review after 2026-10-25
+宮﨑神宮大祭 2026               review after 2026-11-01
 おはら祭 2026                   review after 2026-11-03
 春日若宮おん祭 2026             review after 2026-12-18
 ```
 
-## Batch 43 execution order
+## Immediate execution order
 
 ```text
-1. run freshness / Relation / Evidence / bundle checks on current main
-2. add one evidence-strong reviewed primary record for 宮崎県
-3. add only evidence-supported depth or future scheduling
-4. register canonical bundles in every required loader
-5. run corpus, freshness, Relation, external-link, correction, seed, and Jinja gates
-6. run Detail C and map utility; do not invent coordinates
-7. run full-page desktop/mobile screenshot review
-8. merge implementation only when complete repository CI passes
-9. record a docs-only corpus audit from the merged release baseline
-10. advance the production baseline to the exact release commit
-11. require canonical-origin verification against the public hostname
-12. record production verification and advance project-status / roadmap / schedule
-13. switch subsequent corpus planning from prefecture breadth to depth-first maintenance
+1. keep repository / canonical / freshness / Relation gates green on current main
+2. inventory stabilization-review evidence by public/repository vs private-observation source
+3. do not complete stabilization until every required review field is actually evidenced
+4. process the next due dated Occurrence reviews when their review dates arrive
+5. use pre-due time for evidence-strong historical depth and correction work
+6. keep Detail C and map utility strict; do not invent coordinates
+7. keep future Occurrences scheduled until post-event Evidence supports another outcome
+8. continue docs-only audit -> exact production baseline -> canonical verification for material data changes
 ```
-
-The formal stabilization review can proceed in parallel with Batch 43, but it must not be marked complete until every review prerequisite is actually evidenced.
 
 ## Future-site boundary
 
@@ -172,7 +167,7 @@ Jinja State specification approved    false
 Explicit start authorization          false
 ```
 
-Current candidate inventory is 25 Relation-backed Shrine seeds and zero approved Jinja State Snapshots.
+Current candidate inventory is 26 Relation-backed Shrine seeds and zero approved Jinja State Snapshots.
 
 ## Work not activated
 
