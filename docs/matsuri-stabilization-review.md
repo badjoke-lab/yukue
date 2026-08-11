@@ -1,6 +1,6 @@
 # Matsuri Stabilization Review
 
-**Status:** Observing
+**Status:** Observing / review eligible
 
 ## Purpose
 
@@ -26,11 +26,15 @@ The validator also runs inside the complete repository gate.
 Started               2026-07-27
 Minimum duration      14 days
 Earliest review       2026-08-10
+Minimum period        complete
+Review eligible       true
 Current status        observing
 Review complete       false
 ```
 
-Elapsed time alone does not complete the review. Reaching 2026-08-10 only makes a review eligible to occur.
+The minimum observation period has elapsed, so a formal review is eligible to occur. Elapsed time alone does not complete the review.
+
+`prerequisites.minimum_observation_period_complete` records only this calendar eligibility. It does not imply that any operational review category has been completed, does not set `reviewed_on`, and does not authorize Phase 11 or Jinja.
 
 ## Required review evidence
 
@@ -57,6 +61,16 @@ Search Console observation         recorded
 public-safe review audit           present
 ```
 
+## Evidence-source boundary for the eligible review
+
+The formal review should distinguish evidence that can be checked from the repository or public production surface from observations that require private operational access.
+
+Repository/public review inputs include production-route behavior, canonical/HTTPS behavior, canonical Search, crawler and sitemap behavior, freshness, Relation coverage, Evidence/correction history, and documented maintenance cycles. Existing launch or maintenance evidence may be used as review input, but previous gate success does not automatically mark a stabilization review category complete.
+
+Private operational observation is required for current Cloudflare Web Analytics traffic receipt and Search Console observation. A production deployment-failure count must likewise be based on the applicable deployment history rather than inferred from elapsed time or unrelated repository checks.
+
+No private observation is inferred from repository evidence.
+
 ## Search-engine boundary
 
 Search-engine indexation is not a completion requirement. The review records whether Search Console was checked, but it does not require a page to be indexed and does not claim that any page is indexed.
@@ -79,11 +93,23 @@ Only public-safe conclusions and non-sensitive aggregate review statements belon
 
 Completing this review satisfies only the Matsuri stabilization prerequisite in the Jinja start gate. It does not decide portal/Jinja order, approve a Jinja State vocabulary, record explicit start authorization, create `apps/jinja`, or activate a Worker or hostname.
 
+The review is currently eligible but incomplete, so the Jinja stabilization prerequisite remains false.
+
 ## Current dated maintenance
 
 ```text
-弘前ねぷた 2026   review after 2026-08-07
-郡上おどり 2026   review after 2026-09-05
+山あげ祭 2026                    review when official post-event Evidence is available
+鳥取しゃんしゃん祭 2026          review after 2026-08-15
+さぬき高松まつり 2026           review after 2026-08-15
+吉田の火祭 2026                 review after 2026-08-27
+郡上おどり 2026                  review after 2026-09-05
+岸和田だんじり祭 9月祭礼 2026   review after 2026-09-20
+石岡のおまつり 2026             review after 2026-09-21
+佐陀神能 御座替祭 2026          review after 2026-09-25
+布橋灌頂会 2026                 review after 2026-09-27
+岸和田だんじり祭 10月祭礼 2026  review after 2026-10-11
+上野天神祭 2026                 review after 2026-10-25
+宮﨑神宮大祭 2026               review after 2026-11-01
+おはら祭 2026                   review after 2026-11-03
+春日若宮おん祭 2026             review after 2026-12-18
 ```
-
-The 弘前ねぷた review occurs before the earliest stabilization review and provides one real maintenance cycle for the burden assessment.
