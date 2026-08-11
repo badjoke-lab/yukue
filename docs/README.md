@@ -10,13 +10,14 @@ Before implementing a feature, check the relevant document here. When a gate cha
 
 | Document | Status | Purpose |
 |---|---|---|
-| `project-status.md` | Living / stabilization observing | Current phase, completed F2 state, blockers, and immediate next work |
+| `project-status.md` | Living / stabilization reviewing | Current phase, completed F2 state, blockers, and immediate next work |
 | `development-schedule.md` | Current / Phase 10 active | Concrete maintenance and bounded post-launch review sequence |
-| `roadmap.md` | Phase 10 observing | Long-range phases and gates |
-| `matsuri-stabilization-review.md` | Active contract | Review state machine, minimum duration, evidence, privacy, and completion rules |
+| `roadmap.md` | Phase 10 reviewing | Long-range phases and gates |
+| `matsuri-stabilization-review.md` | Active contract | `observing -> reviewing -> complete` state machine, minimum duration, evidence, privacy, and completion rules |
 | `audits/matsuri-stabilization-start-2026-07-27.md` | Observation-start audit | Public-safe start record and earliest eligible review date |
 | `audits/matsuri-stabilization-review-eligibility-2026-08-11.md` | Review-eligibility audit | Calendar eligibility transition without completing the formal review |
-| `audits/matsuri-stabilization-public-review-2026-08-11.md` | Public/repository review passed | Public production, canonical, Search, crawler, freshness, Relation, Evidence, and correction-contract review inputs; private operational items remain pending |
+| `audits/matsuri-stabilization-public-review-2026-08-11.md` | Public/repository review passed | Public production, canonical, Search, crawler, freshness, Relation, Evidence, and correction-contract review inputs |
+| `audits/matsuri-stabilization-maintenance-review-2026-08-12.md` | Maintenance review passed | Known critical-correction count, production deployment-failure count, maintenance burden, and transition to reviewing; private observations remain pending |
 | `audits/matsuri-detail-c-embedded-map-remediation-2026-07-28.md` | Passed corrective audit | Embedded-map remediation, exhaustive coverage, browser checks, and visual proof |
 | `matsuri-repository-baseline.md` | Machine-checked current | Exact bundle, Entity, launch-boundary, and Jinja-boundary values |
 | `audits/matsuri-batch-43-production-verification-2026-08-11.md` | Passed production audit | Batch 43 release, 47/47 breadth, Miyazaki routes, 2024 held/modified and 2026 scheduled assertions, sitemap, and canonical verification |
