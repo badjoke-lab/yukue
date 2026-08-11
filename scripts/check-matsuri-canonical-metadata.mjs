@@ -89,6 +89,8 @@ for (const location of locations) {
   const robotsMeta = robotsMetaFromHtml(html);
   const googleTagLoads = html.match(/googletagmanager\.com\/gtag\/js\?id=/gu) ?? [];
   const googleTagConfigs = html.match(/gtag\(['"]config['"]/gu) ?? [];
+  const jsonLdScripts =
+    html.match(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/giu) ?? [];
 
   assert(robotsMeta, `Missing robots meta on ${pathname}.`);
   assert(ogTitle, `Missing Open Graph title on ${pathname}.`);
@@ -97,6 +99,13 @@ for (const location of locations) {
     googleTagLoads.length <= 1 && googleTagConfigs.length <= 1,
     `Duplicate Google tag detected on ${pathname}.`,
   );
+
+  if (html.includes("data-detail-page")) {
+    assert(
+      jsonLdScripts.some((script) => script.includes('"@type":"BreadcrumbList"')),
+      `Detail route ${pathname} is missing BreadcrumbList JSON-LD.`,
+    );
+  }
 
   if (configuredGa4MeasurementId) {
     assert(
@@ -157,5 +166,5 @@ for (const location of locations) {
 }
 
 console.log(
-  `Matsuri canonical/social metadata and Google tag contract passed in ${configuredOrigin ? "canonical" : "origin-neutral"} mode for ${locations.length} sitemap routes.`,
+  `Matsuri canonical/social metadata, detail structured data, and Google tag contract passed in ${configuredOrigin ? "canonical" : "origin-neutral"} mode for ${locations.length} sitemap routes.`,
 );
