@@ -35,8 +35,8 @@ Analytics progression           config/matsuri-analytics-activation.json
 Final F2 launch gate            config/matsuri-f2-launch-gate.json
 Stabilization review            config/matsuri-stabilization-review.json
 Detail C implementation         docs/matsuri-detail-c-implementation.md
-Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-41-2026-08-10.md
-Latest production audit         docs/audits/matsuri-batch-41-production-verification-2026-08-11.md
+Latest corpus audit             docs/audits/matsuri-corpus-expansion-batch-42-2026-08-11.md
+Latest production audit         docs/audits/matsuri-batch-42-production-verification-2026-08-11.md
 Jinja start boundary            config/jinja-start-gate.json
 Production topology             docs/deployment-topology.md
 ```
@@ -47,60 +47,59 @@ Production topology             docs/deployment-topology.md
 Worker                    matsuri-yukue
 Canonical origin          https://matsuri-yukue.badjoke-lab.com/
 Permanent Workers origin  https://matsuri-yukue.badjoke-lab.workers.dev/
-Verified release          69d350e9e55ae93c829f8ab535b22bc8df5f3772
+Verified release          d36797b2980ef9d639bfa7ee0a152a287a223d3a
 Verified on               2026-08-11
-Canonical workflow        31460920223 — attempt 1 success
-Production-baseline PR    #238
-Production-baseline merge b3049454625a25a37ce130b12dbb648aae3bd375
+Canonical workflow        31463272976 — attempt 1 success
+Production-baseline PR    #243
+Production-baseline merge aeea121ed2908e8e83c90ad727f5d69b6c1c753f
 ```
 
-Exact canonical-production verification succeeded on attempt 1 for Batch 41.
+Exact canonical-production verification succeeded on attempt 1 for Batch 42.
 
 ```text
-Entities          116
-Change Events     104
-Relations          68
-Occurrences       163
-Sitemap entries   230
+Entities          118
+Change Events     105
+Relations          69
+Occurrences       164
+Sitemap entries   234
 ```
 
-The Batch 41 production contract includes HTTP-reachable routes for 山口祇園祭, the 八坂神社 Shrine reference, the 八坂神社 Place, and the distributed 御神幸・御還幸 route Place. It verifies the 2023 edition as record version 1 `held / unknown`.
+The Batch 42 production contract includes HTTP-reachable routes for 和歌祭, the 紀州東照宮 Shrine reference, the 紀州東照宮 Place, and the distributed 和歌浦渡御 route Place. It verifies the 2026 edition as record version 1 `held / unknown` using post-event Evidence.
 
-No URL is claimed already indexed. No 2026 held outcome is inferred merely because the announced dates have elapsed.
+No URL is claimed already indexed.
 
 ## Current product track
 
-Corpus expansion batches 11 through 41 are complete.
+Corpus expansion batches 11 through 42 are complete.
 
-Batch 41 added 山口祇園祭 as the first approved primary Matsuri record for 山口県. The record includes:
+Batch 42 added 和歌祭 as the first approved primary Matsuri record for 和歌山県. The record includes:
 
-- 八坂神社 through an evidence-backed `ritually_associated_with` Relation;
-- a concrete Shrine Place and a distributed procession-route Place without fabricated point coordinates;
+- 紀州東照宮 through an evidence-backed `ritually_associated_with` Relation;
+- a concrete Shrine Place and a distributed route Place without fabricated point coordinates;
 - Current State `active`;
-- annual July 20–27 recurrence;
-- the 2023 edition as `held / unknown` using reviewed post-event municipal material;
-- a reviewed year-level 1459 first-edition/start Change Event;
+- annual second-Sunday-of-May recurrence;
+- the 2026 edition as `held / unknown` using post-event reporting, with municipal material independently supporting the date and venue;
+- a reviewed year-level 1622 first-edition/start Change Event;
 - six Sources and eleven claim-linked Evidence records;
-- an approved public map target for the Shrine anchor without invented route coordinates.
+- an approved public map target for the Shrine anchor.
 
 The canonical corpus now contains:
 
 ```text
-Entities          116
-Places            104
-State Snapshots    54
-Change Events     104
-Occurrences       163
-Relations          68
+Entities          118
+Places            106
+State Snapshots    55
+Change Events     105
+Occurrences       164
+Relations          69
 Designations       29
-Sources           305
-Evidence          676
+Sources           311
+Evidence          687
 ```
 
-Primary-record coverage is now 45 / 47 prefectures. Two prefectures remain uncovered:
+Primary-record coverage is now 46 / 47 prefectures. One prefecture remains uncovered:
 
 ```text
-和歌山県
 宮崎県
 ```
 
@@ -119,7 +118,7 @@ Review complete       false
 
 Reaching the minimum observation duration makes the formal review eligible; it does not complete the gate. Production availability, canonical/HTTPS behavior, Search, crawler/sitemap behavior, Analytics traffic receipt, freshness, Relations, Evidence/corrections, manual maintenance burden, and Search Console observation must all be reviewed and recorded under the stabilization contract.
 
-Recorded maintenance evidence includes route and Source corrections, multiple scheduled-to-held rollovers, official-map remediation, split-component and distributed-route modeling, refusal to infer held outcomes from elapsed dates alone, strict rejection of unused Sources, and Batch 41 Jinja seed-baseline alignment without Shrine State inference.
+Recorded maintenance evidence now also includes Batch 42's narrow correction for a transient Google Maps third-party JWT RPC console message. The correction does not suppress general application or first-party console errors.
 
 ## Routine Matsuri maintenance
 
@@ -162,7 +161,7 @@ Explicit start authorization          false
 
 Actual Jinja start gate — blocked
 
-The candidate baseline is 24 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Batch 41 adds 八坂神社 as a State-free Shrine seed reference. Candidate extraction does not authorize implementation.
+The candidate baseline is 25 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Batch 42 adds 紀州東照宮 as a State-free Shrine seed reference. Candidate extraction does not authorize implementation.
 
 ## Current release status
 
@@ -173,14 +172,14 @@ repository-verified-canonical-production-verified-crawler-reachability-verified-
 ## Immediate next actions
 
 ```text
-Product track       execute Matsuri corpus expansion Batch 42
-Depth target        add evidence-supported history or a verified Occurrence without inference
-Breadth target      add one reviewed primary record from the 2 uncovered prefectures
+Product track       execute Matsuri corpus expansion Batch 43
+Depth target        add evidence-supported history or verified Occurrences without inference
+Breadth target      add one reviewed primary record from the sole uncovered prefecture, 宮崎県
 Detail track        keep every public title navigable through the enforced Detail C and map contracts
-Production check    Batch 41 exact canonical-production baseline verified
+Production check    Batch 42 exact canonical-production baseline verified
 Dated review        follow the remaining dated review inventory above
 Stabilization       perform the eligible formal review without treating elapsed time as completion
 Review evidence     record manual maintenance burden and Search Console observation without private metrics
-Cloudflare track    no pending Batch 41 deployment action
+Cloudflare track    no pending Batch 42 deployment action
 Jinja track         remain blocked until all post-launch prerequisites complete
 ```
