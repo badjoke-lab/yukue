@@ -1,0 +1,42 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [
+    {
+      "id": "occ-kochi-yosakoi-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "subject_entity_id": "fst-kochi-yosakoi-matsuri",
+      "series_id": "ser-kochi-yosakoi-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-08-09",
+        "end": "2026-08-12",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-yosakoi-chuo-koen",
+        "plc-yosakoi-outesuji"
+      ],
+      "organizer_entity_ids": [
+        "org-yosakoi-shinkokai"
+      ],
+      "evidence_ids": [
+        "evd-kochi-yosakoi-occ-2026",
+        "evd-kochi-yosakoi-occ-2026-held"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
