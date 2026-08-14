@@ -1,0 +1,39 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-kochi-yosakoi-dokoiko-tacyon-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "TACYON - どこいこサービス",
+      "publisher": "よさこい祭り競演場連合会・よさこい祭振興会",
+      "url": "https://dokoiko.tosanonatsu.com/teams/102",
+      "accessed_at": "2026-08-15",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-kochi-yosakoi-occ-2026-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kochi-yosakoi-dokoiko-tacyon-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-kochi-yosakoi-2026",
+      "assertion_code": "supports_occurrence_outcome",
+      "summary_ja": "「どこいこサービス」は主催としてよさこい祭り競演場連合会・よさこい祭振興会を掲げ、2026年参加チームTACYONについて8月10日の受付、踊り開始、踊り終了など実運用後の演舞履歴を記録し、祭期後にはチーム状態を「また来年」としている。既存の公式2026年日程Evidenceと合わせ、2026年版が実際に開催されたことを裏付けるためOccurrenceはheldとする。一方、8月9日から12日までの全構成が予定どおり完遂されたことや規模区分まではこのEvidenceから断定せずscaleはunknownとする。",
+      "captured_at": "2026-08-15",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
