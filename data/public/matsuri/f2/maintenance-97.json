@@ -1,0 +1,105 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [
+    {
+      "id": "occ-kobe-matsuri-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-kobe-matsuri",
+      "series_id": "ser-kobe-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2025-05-18",
+        "end": "2025-05-18",
+        "precision": "day"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-kobe-matsuri-occ-2025-held"
+      ],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-kobe-matsuri-2024",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-kobe-matsuri",
+      "series_id": "ser-kobe-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2024-04-21",
+        "end": "2024-04-21",
+        "precision": "day"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-kobe-matsuri-occ-2024-held"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-kobe-matsuri-2025-city-postevent",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "2025年度 区長だより『西区発見！』 — 〖番外編〗神戸まつり",
+      "publisher": "神戸市西区",
+      "url": "https://www.city.kobe.lg.jp/k25836/kuchou2025.html",
+      "accessed_at": "2026-08-14",
+      "language": "ja"
+    },
+    {
+      "id": "src-kobe-matsuri-2024-city-council",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "正副議長の主な公式行事の記録（2024年）",
+      "publisher": "神戸市会",
+      "url": "https://www.city.kobe.lg.jp/a71064/shise/municipal/gityou_fukugityou/gyouji/r06.html",
+      "accessed_at": "2026-08-14",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-kobe-matsuri-occ-2025-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kobe-matsuri-2025-city-postevent",
+      "target_type": "occurrence",
+      "target_id": "occ-kobe-matsuri-2025",
+      "assertion_code": "supports_occurrence_outcome",
+      "summary_ja": "神戸市西区の区長だよりは、2025年5月18日に三宮で第52回神戸まつりが開催され、総踊りなどが実施されたと事後に記録しているため、2025年版をheldとして追加する。規模区分、個別会場、Occurrence単位の主催者はこの資料だけから補わず、scaleはunknown、venue_place_idsとorganizer_entity_idsは空配列とする。",
+      "captured_at": "2026-08-14",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-kobe-matsuri-occ-2024-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kobe-matsuri-2024-city-council",
+      "target_type": "occurrence",
+      "target_id": "occ-kobe-matsuri-2024",
+      "assertion_code": "supports_occurrence_outcome",
+      "summary_ja": "神戸市会の2024年公式行事記録は、2024年4月21日に神戸まつりが開催され、議長・副議長がパレードに参加したことを記録しているため、2024年版をheldとして追加する。掲載ページの回次表記には後年の公式回次と不整合があるため、Occurrenceには回次を記録せず、確認できる開催日とheld outcomeだけを採用する。規模、個別会場、Occurrence単位の主催者は補わず、scaleはunknown、venue_place_idsとorganizer_entity_idsは空配列とする。",
+      "captured_at": "2026-08-14",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}

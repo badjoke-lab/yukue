@@ -4,9 +4,9 @@
   "status": "repository-maintenance-current",
   "counts": {
     "f1_batches": 13,
-    "maintenance_bundles": 96,
+    "maintenance_bundles": 97,
     "correction_bundles": 22,
-    "additive_application_slots": 109,
+    "additive_application_slots": 110,
     "correction_application_slots": 22,
     "correction_records": 36,
     "corrected_logical_ids": 33,
