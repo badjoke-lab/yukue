@@ -1,12 +1,12 @@
 {
   "schema_version": "matsuri.repository-baseline.v1",
-  "observed_on": "2026-08-14",
+  "observed_on": "2026-08-15",
   "status": "repository-maintenance-current",
   "counts": {
     "f1_batches": 13,
-    "maintenance_bundles": 97,
+    "maintenance_bundles": 98,
     "correction_bundles": 22,
-    "additive_application_slots": 110,
+    "additive_application_slots": 111,
     "correction_application_slots": 22,
     "correction_records": 36,
     "corrected_logical_ids": 33,
