@@ -24,6 +24,28 @@
         "evd-saidaiji-eyo-occ-2025-held"
       ],
       "review_status": "approved"
+    },
+    {
+      "id": "occ-kagoshima-ohara-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-kagoshima-ohara-matsuri",
+      "series_id": "ser-kagoshima-ohara-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2025-11-02",
+        "end": "2025-11-03",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-kagoshima-ohara-occ-2025-dates",
+        "evd-kagoshima-ohara-occ-2025-held"
+      ],
+      "review_status": "approved"
     }
   ],
   "occurrenceSeries": [],
@@ -42,6 +64,18 @@
       "published_at": "2025-03-21",
       "accessed_at": "2026-08-15",
       "language": "ja"
+    },
+    {
+      "id": "src-kagoshima-ohara-2025-city-announcement",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "令和7年10月27日（月曜日）市長定例記者会見",
+      "publisher": "鹿児島市",
+      "url": "https://www.city.kagoshima.lg.jp/soumu/shichoshitu/kouhou/shise/shicho/kaiken/h30shicho/r71027.html",
+      "published_at": "2025-10-27",
+      "accessed_at": "2026-08-16",
+      "language": "ja"
     }
   ],
   "evidence": [
@@ -55,6 +89,30 @@
       "assertion_code": "supports_occurrence_outcome",
       "summary_ja": "岡山市の2025年3月21日公開記事は、令和7年2月15日に西大寺会陽が開催されたと事後に記録しているため、2025年版をheldとして追加する。規模区分、Occurrence単位の主催者、既存2026レコードの会場情報はこのEvidenceから必要以上に補わず、scaleはunknown、venue_place_idsとorganizer_entity_idsは空配列とする。",
       "captured_at": "2026-08-15",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-kagoshima-ohara-occ-2025-dates",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kagoshima-ohara-2025-city-announcement",
+      "target_type": "occurrence",
+      "target_id": "occ-kagoshima-ohara-2025",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "鹿児島市の2025年10月27日市長定例記者会見は、第74回おはら祭を同年11月2日・3日に開催すると明示しているため、2025年Occurrenceのtemporal_extentを11月2日から3日とする。これは開催前情報なので、このEvidence単独ではheldを確定しない。",
+      "captured_at": "2026-08-16",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-kagoshima-ohara-occ-2025-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kagoshima-ohara-2026-tourism",
+      "target_type": "occurrence",
+      "target_id": "occ-kagoshima-ohara-2025",
+      "assertion_code": "supports_occurrence_outcome",
+      "summary_ja": "鹿児島市公式観光サイトの現行おはら祭ページは、第74回おはら祭写真コンテストの受賞作品を複数掲載している。第74回の実施後に成立する公的な事後記録として2025年版のheldを支持する。日程は別の鹿児島市一次情報で固定し、規模区分、Occurrence単位の会場・主催者はこのEvidenceから逆算しないためscaleはunknown、venue_place_idsとorganizer_entity_idsは空配列とする。",
+      "captured_at": "2026-08-16",
       "review_status": "approved"
     }
   ],
