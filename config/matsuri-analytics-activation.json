@@ -3,32 +3,36 @@
   "site_id": "matsuri",
   "canonical_origin": "https://matsuri-yukue.badjoke-lab.com",
   "provider": "cloudflare-web-analytics",
-  "status": "traffic-verified",
+  "status": "pending-owner-access",
   "activation_method": "automatic-setup",
-  "activation_time_basis": "pre-existing-automatic-setup-observed",
-  "analytics_enabled": true,
-  "activated_at": "2026-07-27T09:37:29Z",
-  "activation_observed_at": "2026-07-27T09:37:29Z",
-  "activation_evidence_document": "docs/audits/matsuri-f2-25-analytics-activation-2026-07-27.md",
+  "analytics_enabled": false,
+  "activated_at": null,
+  "activation_observed_at": null,
+  "activation_evidence_document": null,
   "post_activation_deployment": {
     "required": true,
-    "completed": true,
-    "commit_sha": "108ac4e88407e1263229eb40bc88d76855e90131",
-    "deployed_at": "2026-07-27T10:34:17Z",
-    "cloudflare_build_id": "7026144e-1ce0-4927-9060-64919c3a4002",
-    "evidence_document": "docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md"
+    "completed": false,
+    "commit_sha": null,
+    "deployed_at": null,
+    "cloudflare_build_id": null,
+    "evidence_document": null
   },
   "traffic_verification": {
     "required": true,
-    "completed": true,
-    "verified_at": "2026-07-27T11:26:58Z",
-    "evidence_document": "docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md",
+    "completed": false,
+    "verified_at": null,
+    "evidence_document": null,
     "private_counts_published": false
   },
   "claims": {
-    "f2_25_complete": true,
-    "f2_26_complete": true,
-    "f2_27_complete": true
+    "f2_25_complete": false,
+    "f2_26_complete": false,
+    "f2_27_complete": false
+  },
+  "retraction": {
+    "recorded_on": "2026-08-16",
+    "tracking_issue": 262,
+    "reason": "Owner confirmed Cloudflare Web Analytics had not been configured; prior activation and traffic-verification claims were unsupported."
   },
   "privacy": {
     "manual_beacon_committed": false,
@@ -38,7 +42,7 @@
     "visitor_level_data_committed": false
   },
   "boundary": {
-    "owner_account_action_required": false,
+    "owner_account_action_required": true,
     "activation_does_not_equal_deployment": true,
     "activation_does_not_equal_traffic_verification": true,
     "private_metrics_remain_private": true
