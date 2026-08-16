@@ -3,12 +3,13 @@
   "site_id": "matsuri",
   "canonical_origin": "https://matsuri-yukue.badjoke-lab.com",
   "provider": "cloudflare-web-analytics",
-  "status": "pending-owner-access",
+  "status": "analytics-enabled",
   "activation_method": "automatic-setup",
-  "analytics_enabled": false,
-  "activated_at": null,
-  "activation_observed_at": null,
-  "activation_evidence_document": null,
+  "activation_time_basis": "exact-owner-action",
+  "analytics_enabled": true,
+  "activated_at": "2026-08-16T15:23:34Z",
+  "activation_observed_at": "2026-08-16T15:23:34Z",
+  "activation_evidence_document": "docs/audits/matsuri-f2-25-analytics-activation-2026-08-17.md",
   "post_activation_deployment": {
     "required": true,
     "completed": false,
@@ -25,14 +26,14 @@
     "private_counts_published": false
   },
   "claims": {
-    "f2_25_complete": false,
+    "f2_25_complete": true,
     "f2_26_complete": false,
     "f2_27_complete": false
   },
   "retraction": {
     "recorded_on": "2026-08-16",
     "tracking_issue": 262,
-    "reason": "Owner confirmed Cloudflare Web Analytics had not been configured; prior activation and traffic-verification claims were unsupported."
+    "reason": "Owner confirmed the prior July activation and traffic-verification claims were unsupported; Cloudflare Web Analytics was newly configured on 2026-08-17 JST."
   },
   "privacy": {
     "manual_beacon_committed": false,
@@ -42,7 +43,7 @@
     "visitor_level_data_committed": false
   },
   "boundary": {
-    "owner_account_action_required": true,
+    "owner_account_action_required": false,
     "activation_does_not_equal_deployment": true,
     "activation_does_not_equal_traffic_verification": true,
     "private_metrics_remain_private": true
