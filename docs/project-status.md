@@ -11,8 +11,15 @@ Phase 10 — Matsuri Public Corpus Expansion, Nationwide Scaling, and Stabilizat
 ## Current gate state
 
 ```text
+F2-15 — Repository Launch Readiness Gate — completed
+F2-M01 — Full-page screenshot visual-review workflow — completed
+F2-M02 — Matsuri data freshness audit — completed
+F2-16 through F2-27 — completed
 F2-28 — final F2 Launch Gate — completed
-Matsuri Detail C — completed
+F2-P01 through F2-P13 — completed
+Phase 9 Launch Preparation — completed
+Phase 10 Stabilization — active
+Matsuri Detail C implementation — completed
 Matsuri prefecture seed baseline — completed 47 / 47
 Matsuri nationwide public corpus scaling — active
 NCS-01 governing docs — completed
@@ -31,8 +38,15 @@ Nationwide scaling contract     docs/nationwide-corpus-scaling.md
 Development schedule            docs/development-schedule.md
 Corpus quality baseline         config/matsuri-corpus-quality-baseline.json
 Corpus quality interpretation   docs/matsuri-corpus-quality-baseline.md
-Repository counts               config/matsuri-repository-baseline.json
+Current repository counts       config/matsuri-repository-baseline.json
+Current production baseline     config/matsuri-production-baseline.json
+Analytics progression           config/matsuri-analytics-activation.json
+Final F2 launch gate            config/matsuri-f2-launch-gate.json
+Stabilization review            config/matsuri-stabilization-review.json
+Stabilization review contract   docs/matsuri-stabilization-review.md
+Detail C implementation         docs/matsuri-detail-c-implementation.md
 Jinja start boundary            config/jinja-start-gate.json
+Production topology             docs/deployment-topology.md
 ```
 
 ## Corrected coverage interpretation
@@ -142,6 +156,12 @@ public growth may remain around 57 while private candidates accumulate
 
 ## Nationwide scaling track
 
+Governing issue:
+
+```text
+#267 — Scale Matsuri nationwide with public A/B/C corpus tiers
+```
+
 ```text
 NCS-01  governing specification and schedule alignment — completed
 NCS-02  A/B/C classifier + current-corpus baseline — exact-head sync active
@@ -160,11 +180,33 @@ NCS-05 is not public expansion by itself. NCS-06 must actually add reviewed publ
 
 ## Matsuri maintenance remains active
 
-Freshness, Source/Evidence correctness, historical Occurrence review, Change Events, Relations, stale links, and Detail C regressions continue in parallel.
+Existing correctness and freshness work continues in parallel:
+
+```text
+pnpm audit:matsuri:freshness
+pnpm audit:matsuri:relations
+pnpm check:matsuri:evidence
+pnpm check:matsuri:bundle-inventory
+pnpm check:matsuri:detail-navigation
+pnpm check:matsuri:stabilization-review
+```
 
 The currently tracked closed-unresolved 2026 Occurrences must be resolved only with post-event Evidence. Elapsed dates, event-page persistence, ticket sales, or absence of a cancellation notice do not justify `held`.
 
 Those maintenance cases do not change the national scaling rule and do not create an A/B/C global stop.
+
+## Stabilization review
+
+```text
+Started               2026-07-27
+Minimum duration      14 days
+Earliest review       2026-08-10
+Current status        reviewing
+Review eligible       true
+Formal review complete false
+```
+
+Current owner-private observations still required by the existing stabilization contract remain separate from NCS repository work.
 
 ## Future-site boundary
 
@@ -181,6 +223,15 @@ Only Matsuri is currently activated for implementation/publication work.
 
 Jinja, Jiin, and Tomurai remain separately gated. Matsuri Shrine/Temple relation seeds do not automatically become public Tier A records on future specialist sites; each site must satisfy its own Tier A identity/source contract first.
 
+```text
+Matsuri F2-28 complete                 true
+Matsuri stabilization review          false
+Portal/Jinja implementation order     false
+Jinja State specification approved    false
+Explicit start authorization          false
+Actual Jinja start gate                blocked
+```
+
 Do not activate future-site hostname, Worker, public implementation, or specialist-site publication from this Matsuri NCS work.
 
 ## Immediate next actions
@@ -188,12 +239,11 @@ Do not activate future-site hostname, Worker, public implementation, or speciali
 ```text
 1. complete NCS-02 repo-wide A/B/C specification + classifier + baseline sync
 2. verify PR #270 exact-head Actions and distinguish NCS-caused failures from independent maintenance gates
-3. rewrite PR #270 and open governing Issue #267 to remove obsolete publication rules
-4. merge #270 only after the exact head is safe
-5. reread main governing docs after merge
-6. execute NCS-03 national authoritative-source inventory
-7. implement NCS-04 candidate + Tier A importer and dedupe/provenance/publication-time contracts
-8. run NCS-05 dry run
-9. begin NCS-06 real Tier A public expansion while A→B verification runs in parallel
-10. advance toward 500 then 1,000 public primary records while B→C deepening continues
+3. merge #270 only after the exact head is safe
+4. reread main governing docs after merge
+5. execute NCS-03 national authoritative-source inventory
+6. implement NCS-04 candidate + Tier A importer and dedupe/provenance/publication-time contracts
+7. run NCS-05 dry run
+8. begin NCS-06 real Tier A public expansion while A→B verification runs in parallel
+9. advance toward 500 then 1,000 public primary records while B→C deepening continues
 ```
