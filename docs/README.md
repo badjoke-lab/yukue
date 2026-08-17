@@ -8,14 +8,27 @@ Before implementing a feature, check the relevant document here. When a gate cha
 
 For corpus expansion, bulk ingestion, coverage metrics, future-site seeds, or specialist-site activation, `nationwide-corpus-scaling.md` is a governing specification and must be read together with `project-status.md` and `development-schedule.md`.
 
+The accepted Matsuri nationwide model is:
+
+```text
+Tier A  Public Index
+  ↓ target: about 7 calendar days
+Tier B  Public Verified
+  ↓ continuous deepening
+Tier C  Public History / Monitoring
+```
+
+Tier A is intentionally public. Private candidates are separate and do not count as public coverage. Missing Tier B/C dimensions do not make a valid Tier A private, and overdue Tier A does not globally stop unrelated valid Tier A publication.
+
 ## Current launch and stabilization references
 
 | Document | Status | Purpose |
 |---|---|---|
-| `project-status.md` | Living / nationwide scaling active / stabilization reviewing | Current phase, completed F2 state, nationwide scaling track, blockers, and immediate next work |
+| `project-status.md` | Living / nationwide scaling active / stabilization reviewing | Current phase, completed F2 state, public A/B/C scaling track, blockers, and immediate next work |
 | `development-schedule.md` | Current / Phase 10 active | Concrete NCS sequence plus maintenance and bounded post-launch review order |
 | `roadmap.md` | Phase 10 active | Long-range phases and gates |
-| `nationwide-corpus-scaling.md` | Accepted direction / governing specification | National breadth, anti-thin-record rule, substantive public minimum, automation boundary, depth-preservation gate, and future-site quality prerequisites |
+| `nationwide-corpus-scaling.md` | Accepted direction / governing specification | Public A/B/C model, Tier A minimum, A→B target, automation boundary, public-growth metrics, and future-site boundaries |
+| `matsuri-corpus-quality-baseline.md` | NCS-02 measured baseline | Current A/B/C distribution and missing-dimension interpretation |
 | `matsuri-stabilization-review.md` | Active contract | `observing -> reviewing -> complete` state machine, minimum duration, evidence, privacy, and completion rules |
 | `audits/matsuri-stabilization-start-2026-07-27.md` | Observation-start audit | Public-safe start record and earliest eligible review date |
 | `audits/matsuri-stabilization-review-eligibility-2026-08-11.md` | Review-eligibility audit | Calendar eligibility transition without completing the formal review |
@@ -31,7 +44,7 @@ For corpus expansion, bulk ingestion, coverage metrics, future-site seeds, or sp
 
 ## Corpus expansion audits
 
-The 47 / 47 result below is now treated as a **prefecture seed baseline**, not nationwide corpus completion. Historical audit results remain valid records of the original expansion work.
+The 47 / 47 result below is a **prefecture seed baseline**, not nationwide corpus completion. Historical audit results remain valid records of the original expansion work.
 
 | Batch | Audit | Result |
 |---:|---|---|
@@ -74,17 +87,17 @@ The 47 / 47 result below is now treated as a **prefecture seed baseline**, not n
 | Document | Status | Purpose |
 |---|---|---|
 | `project-concept.md` | Current | Series purpose, boundaries, and national breadth/depth direction |
-| `product-spec.md` | Working | Product capabilities, user needs, and public corpus quality expectations |
-| `nationwide-corpus-scaling.md` | Accepted direction / governing specification | Candidate/public boundary, substantive public minimum, depth-preservation rules, automation, coverage metrics, and future-site prerequisites |
-| `public-data-model.md` | Working | Public record model, candidate boundary, derived quality/depth classes, and projection rules |
-| `matsuri-mvp-spec.md` | Working | Matsuri scope, vocabularies, public-record minimum reference, and future-site seed boundary |
+| `product-spec.md` | Working | Product capabilities, public A/B/C user experience, and national public growth direction |
+| `nationwide-corpus-scaling.md` | Accepted direction / governing specification | Public Tier A minimum, A→B target, Tier B/C depth, automation, coverage metrics, and future-site prerequisites |
+| `public-data-model.md` | Working | Public A/B/C coverage classes, candidate boundary, publication-age metadata, and projection rules |
+| `matsuri-mvp-spec.md` | Working | Matsuri scope, vocabularies, public Tier A/B/C model, and future-site seed boundary |
 | `information-architecture.md` | Accepted / implemented | Home H1 and Detail C order, including required embedded-map behavior |
 | `matsuri-detail-c-implementation.md` | Required implementation contract | Detail composition, routes, Relations, Evidence, Places, maps, seeds, individual JSON, and build failures |
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, and layout language |
 | `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
 | `technical-architecture.md` | F2 production baseline | Build, search, deployment, canonical metadata, crawler, and Search Console evidence |
-| `verification-policy.md` | Current | Review and publication rules, including bulk-scaling fail-close boundaries |
+| `verification-policy.md` | Current | Review and A/B/C publication rules, including fail-close Evidence boundaries |
 | `source-policy.md` | Current | Source and Evidence rules |
 | `image-policy.md` | Current | Real-image, rights, credit, and gallery rules |
 | `machine-readable-layer.md` | Current direction | Public machine-readable outputs and crawler invariants |
@@ -92,28 +105,28 @@ The 47 / 47 result below is now treated as a **prefecture seed baseline**, not n
 ## Nationwide scaling checkpoints
 
 ```text
-NCS-01  governing specification and schedule alignment
-NCS-02  machine quality/depth classifier over existing corpus
-NCS-03  national authoritative-source inventory
-NCS-04  deterministic candidate importer + identity/dedupe pipeline
-NCS-05  non-public bulk dry run and error audit
-NCS-06  first public-quality expansion pilot
-NCS-07  cumulative 500 public-quality primary Matsuri records
-NCS-08  cumulative 1,000 public-quality primary Matsuri records
-NCS-09  source-inventory-derived national coverage target
+NCS-01  governing specification / schedule alignment — completed
+NCS-02  A/B/C classifier + current-corpus baseline — PR #270
+NCS-03  national authoritative-source inventory — next
+NCS-04  candidate + Tier A importer / identity-dedupe / publication-time pipeline
+NCS-05  bulk dry run + Tier A publication-readiness audit
+NCS-06  first bounded Tier A public wave + continuous A→B promotion
+NCS-07  cumulative 500 public primary Matsuri records
+NCS-08  cumulative 1,000 public primary Matsuri records
+NCS-09  source-inventory-derived national target + continued A→B→C expansion
 ```
 
-500 and 1,000 are scaling checkpoints, not nationwide-completion claims.
+500 and 1,000 are public A/B/C primary-record checkpoints, not private candidate counts or nationwide-completion claims.
 
-Thin name/location/link subjects may exist only as non-public candidates. They are not a public coverage tier.
+A reviewed Tier A name/geography/authoritative-source record is a valid public Index record. Completed Occurrence, Change Event, and multi-year history are not required merely to enter Tier A. Missing Evidence is never replaced with inference.
 
 ## Data and maintenance contracts
 
 | Document | Status | Purpose |
 |---|---|---|
-| `future-site-seed-inventory.md` | Candidate-only current | Relation-backed extraction without future-site activation |
-| `future-site-seed-readiness.md` | Candidate-only current | Carry-forward context and explicit gaps |
-| `future-site-seed-provenance-bundle.md` | Candidate-only current | Self-contained public provenance context |
+| `future-site-seed-inventory.md` | Candidate/reference current | Relation-backed extraction without future-site activation |
+| `future-site-seed-readiness.md` | Candidate/reference current | Carry-forward context and explicit gaps |
+| `future-site-seed-provenance-bundle.md` | Candidate/reference current | Self-contained public provenance context |
 | `future-site-seed-artifact-contract.md` | Completed | Candidate artifact contract |
 | `matsuri-correction-contract.md` | Completed / active | Ordered corrections and shared canonical assembly |
 | `matsuri-data-freshness-contract.md` | Active | Strict outcome, State-age, and link-age gate |
@@ -122,9 +135,22 @@ Thin name/location/link subjects may exist only as non-public candidates. They a
 
 ## Future-site quality boundary
 
-State-free Shrine and Temple records extracted from Matsuri are candidate/reference seeds only. They are not automatically acceptable public primary records for 神社のゆくえ or 寺院のゆくえ.
+The series design is:
 
-Each future specialist site must define and enforce its own substantive public-record minimum, authoritative source inventory, ingestion/dedupe path, machine quality/depth metrics, and public quality gate before activation. The same requirement applies to 弔いのゆくえ.
+```text
+祭のゆくえ
+神社のゆくえ
+寺院のゆくえ
+弔いのゆくえ
+```
+
+Only Matsuri is currently activated for implementation/publication work.
+
+The A→B→C operating principle is intended to scale across all four specialist sites, but each future site must define and enforce its own Tier A identity/source minimum and Tier B verification dimensions before activation.
+
+State-free Shrine/Temple records extracted from Matsuri are candidate/reference seeds only. They are not automatically public Tier A records for 神社のゆくえ or 寺院のゆくえ.
+
+Do not activate Jinja, Jiin, or Tomurai apps, hostnames, Workers, or public publication from current Matsuri work.
 
 ## Public/private boundary
 
