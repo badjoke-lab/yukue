@@ -5,23 +5,16 @@
 ## Current phase
 
 ```text
-Phase 10 — Matsuri Content Expansion, Nationwide Scaling, and Stabilization
+Phase 10 — Matsuri Public Corpus Expansion, Nationwide Scaling, and Stabilization
 ```
 
 ## Current gate state
 
 ```text
-F2-15 — Repository Launch Readiness Gate — completed
-F2-M01 — Full-page screenshot visual-review workflow — completed
-F2-M02 — Matsuri data freshness audit — completed
-F2-16 through F2-27 — completed
-F2-28 — final F2 Launch Gate — completed
-F2-P01 through F2-P13 — completed
-Phase 9 Launch Preparation — completed
-Phase 10 Stabilization — active
-Matsuri Detail C implementation — completed
+F2-28 final launch gate — completed
+Matsuri Detail C — completed
 Matsuri prefecture seed baseline — completed 47 / 47
-Matsuri nationwide corpus scaling — active
+Matsuri nationwide public corpus scaling — active
 NCS-01 governing docs — completed
 NCS-02 quality classifier/baseline — measured / exact-head verification active
 NCS-03 national source inventory — next
@@ -35,207 +28,135 @@ future specialist-site implementation — not activated
 
 ```text
 Nationwide scaling contract     docs/nationwide-corpus-scaling.md
+Development schedule            docs/development-schedule.md
 Corpus quality baseline         config/matsuri-corpus-quality-baseline.json
 Corpus quality interpretation   docs/matsuri-corpus-quality-baseline.md
-Current repository counts       config/matsuri-repository-baseline.json
-Current production baseline     config/matsuri-production-baseline.json
-Analytics progression           config/matsuri-analytics-activation.json
-Final F2 launch gate            config/matsuri-f2-launch-gate.json
-Stabilization review            config/matsuri-stabilization-review.json
-Stabilization review contract   docs/matsuri-stabilization-review.md
-Detail C implementation         docs/matsuri-detail-c-implementation.md
+Repository counts               config/matsuri-repository-baseline.json
 Jinja start boundary            config/jinja-start-gate.json
-Production topology             docs/deployment-topology.md
 ```
 
-## Corrected Matsuri coverage interpretation
+## Corrected coverage interpretation
 
-The existing corpus established reviewed primary presence in all 47 prefectures. That remains a useful milestone, but it is now classified only as a **prefecture seed baseline**.
+The existing corpus has reviewed primary presence in all 47 prefectures, but this is only a geographic seed baseline.
 
-It does not mean:
+Current specialist-primary public corpus:
 
 ```text
-nationwide Matsuri corpus complete
-municipality coverage complete
-national discovery coverage sufficient
-new Entity breadth no longer required
+Festival             49
+Folk Performance      8
+Total                 57
 ```
 
-The previous depth-first-only direction is superseded by the nationwide scaling contract.
+The project is **not** allowed to treat those 57 as the practical endpoint while candidate records accumulate privately.
 
-Current verified Batch 43 checkpoint remains:
+National scaling requires useful public-record growth from dozens to hundreds and then thousands where source coverage supports it.
+
+## Public quality rule
+
+Two bad outcomes are both prohibited:
 
 ```text
-Entities          120
-Places            108
-State Snapshots    56
-Change Events     106
-Occurrences       166
-Relations          70
-Designations       29
-Sources           318
-Evidence           699
-Primary prefecture presence 47 / 47
+1. publish thousands of name + location + URL shells
+2. keep the public corpus near 57 because every new subject is forced to have multi-year history before first publication
 ```
 
-These totals include supporting Organizations, Shrines, Places, and other record types; raw Entity count is not used as a substitute for primary Matsuri coverage.
+A raw shell remains a non-public candidate.
 
-## Public-record quality rule
+A new public `public_core` record is publishable once it has a useful standalone profile:
 
-Nationwide scaling is not permission to publish thin records.
-
-Index-like entries containing only name, location, and link are allowed only as **non-public candidates**. They do not enter the Public Projection and do not count as public coverage.
-
-Every newly published primary Festival or Folk Performance must satisfy the substantive minimum in `docs/nationwide-corpus-scaling.md`, including:
-
-- reviewed identity and Basic Profile;
-- substantive summary / description;
-- evidence-bounded geography, timing, recurrence, and Place handling;
-- approved Current State Snapshot with Evidence;
-- at least one evidence-backed completed dated Occurrence with a non-`scheduled` outcome;
-- at least one evidence-backed Change Event;
-- Source / Evidence coverage across profile and observation dimensions;
+- reviewed identity and entity boundary;
+- substantive Japanese summary + description;
+- geography and Place/distributed-place handling;
+- timing / recurrence where supportable;
+- authoritative public source or explicit reviewed source ceiling;
+- approved Current State + Evidence;
+- direct profile / identity Evidence;
+- at least one dated observation anchor;
 - deterministic identity / duplicate checks.
 
-A Change Event does not substitute for completed Occurrence history for newly published primary Matsuri records.
+The dated observation anchor may be an evidence-backed Occurrence, including a current scheduled edition with the normal freshness obligation, or an evidence-backed Change Event.
 
-The current reviewed records are not a special rich legacy tier. Existing and new public records are governed by the same product direction.
+Completed multi-year Occurrence history is **not** required for first publication. It is a later depth dimension.
 
-## NCS-02 measured quality baseline
+## NCS-02 measured baseline
 
-Exact measurement from workflow run `32044096419`, job `95428357764` and its per-record artifact:
+From workflow run `32044096419`, job `95428357764`:
 
 ```text
 Specialist primary subjects                    57
-  Festival                                      49
-  Folk Performance                               8
 Machine public_core                              0 / 57
-Machine history_enriched                         0 / 57
 Machine monitored                               21 / 57
-At least 1 completed Occurrence year            52 / 57  (91.2%)
-At least 2 completed Occurrence years           37 / 57  (64.9%)
+Completed Occurrence history                    52 / 57
 Evidence-backed Change Events                   57 / 57
 Current State Evidence                          56 / 57
 Direct profile Evidence                         39 / 57
+Entity-level description present                 0 / 57
 ```
 
-Measured machine-minimum gaps:
+The zero current `public_core` count reflects the newly added profile requirements, especially missing Entity-level descriptions. It does not mean the current 57 are directory shells.
+
+Existing records remain in the repair/deepening backlog, but they are not a ceiling on new public growth.
+
+## Rejected over-restriction
+
+The following previously proposed rules are withdrawn:
 
 ```text
-Entity description missing               57
-Direct profile Evidence missing           18
-Completed Occurrence history missing       5
-Authoritative external link missing        3
-Approved Current State missing             1
-Current State Evidence missing             1
-Timing / recurrence signal missing         1
+new public record must already have a completed Occurrence
+new public record must already have a Change Event
+64.9% of every new release must already have multi-year history
+candidate accumulation is acceptable while public count stays near 57
 ```
 
-The zero `public_core` count is deliberate and is not fixed by weakening the contract. The current corpus has significant historical/observation depth, but all 57 specialist-primary records remain in scope for quality deepening because they currently lack Entity-level `description_ja` under the newly tightened contract.
-
-The five existing specialist-primary records without completed Occurrence history are legacy promotion-backlog records, not precedent for publishing new records without completed history.
-
-## Measured anti-shallow floor
-
-For NCS-06-or-later public expansion:
-
-```text
-new public_core pass rate                         100%
-new records with >=2 completed Occurrence years  >= ceil(new_count * 37 / 57)
-corpus-wide >=2-year history proportion           >= 37 / 57
-```
-
-The `37 / 57` history-depth floor comes from the pre-expansion corpus itself rather than an arbitrary convenient percentage.
-
-Bulk public release remains unauthorized. The history floor is defined, but the remaining bounded promotion-backlog rule and full NCS-06 release guard are still pending. Machine classification never auto-approves publication.
+Those rules over-coupled first publication and maximum history depth and would make national scaling impractically slow.
 
 ## Nationwide scaling track
 
-Governing issue:
-
-```text
-#267 — Redesign nationwide corpus scaling and public quality gates
-```
-
-Implementation sequence:
-
 ```text
 NCS-01  governing specification and schedule alignment — completed
-NCS-02  machine quality/depth classifier + measured baseline — completing exact-head verification
+NCS-02  machine quality/depth classifier + measured baseline — verifying
 NCS-03  national authoritative-source inventory — next
 NCS-04  deterministic candidate importer + identity/dedupe pipeline
-NCS-05  non-public bulk dry run and error audit
-NCS-06  first public-quality expansion pilot — blocked by full release gate
-NCS-07  cumulative 500 public-quality primary Matsuri records
-NCS-08  cumulative 1,000 public-quality primary Matsuri records
-NCS-09  source-inventory-derived national coverage target
+NCS-05  bulk candidate dry run + promotion-readiness audit
+NCS-06  bounded public-standard expansion pilot
+NCS-07  cumulative 500 public_core primary Matsuri records
+NCS-08  cumulative 1,000 public_core primary Matsuri records
+NCS-09  source-inventory-derived national target
 ```
 
-500 and 1,000 are scale checkpoints only. They are not completion claims.
+NCS-05 by itself does not count as public expansion. NCS-06 must actually promote new public records.
 
-Before NCS-06, the remaining machine release guard must enforce the bounded promotion backlog as well as the already measured history-depth floor. Every expansion release train must include substantive depth upgrades in addition to new public Entities, and the existing 57 are not exempt from that deepening work.
+The NCS-06 pilot will measure review throughput and backlog growth. Those measurements will define the high-volume backlog bound for NCS-07 instead of importing the initial corpus's 64.9% multi-year history ratio as a publication gate.
 
 ## Matsuri maintenance remains active
 
-Existing correctness and freshness work continues in parallel:
+Freshness, Source/Evidence correctness, historical Occurrence review, Change Events, Relations, stale links, and Detail C regressions continue in parallel.
+
+Elapsed dates, event-page persistence, ticket sales, or absence of cancellation evidence do not justify `held`.
+
+## Future-site boundary
+
+Jinja, Jiin, and Tomurai remain separately gated for activation.
+
+State-free Shrine / Temple relation seeds may support Matsuri but cannot be promoted unchanged as specialist-site public records.
+
+Each future site must have both:
 
 ```text
-pnpm audit:matsuri:freshness
-pnpm audit:matsuri:relations
-pnpm check:matsuri:evidence
-pnpm check:matsuri:quality-baseline
-pnpm check:matsuri:bundle-inventory
-pnpm check:matsuri:detail-navigation
-pnpm check:matsuri:stabilization-review
+a substantive non-shell public-record minimum
+an explicit scale path beyond a tiny seed corpus
 ```
-
-Due Occurrences remain fail-closed. Elapsed dates, event-page persistence, ticket sales, or absence of cancellation evidence do not justify `held`.
-
-Maintenance is no longer allowed to consume the entire product roadmap while national corpus breadth remains small.
-
-## Stabilization review
-
-```text
-Started               2026-07-27
-Minimum duration      14 days
-Earliest review       2026-08-10
-Current status        reviewing
-Review eligible       true
-Formal review complete false
-```
-
-Current owner-private observations still required by the existing stabilization contract remain separate from NCS repository work.
-
-## Jinja and future-site boundary
-
-```text
-Matsuri F2-28 complete                 true
-Matsuri stabilization review          false
-Portal/Jinja implementation order     false
-Jinja State specification approved    false
-Explicit start authorization          false
-Actual Jinja start gate                blocked
-```
-
-State-free Shrine and Temple seeds may continue to support Matsuri Relations and candidate preparation.
-
-They must not be promoted unchanged into public 神社のゆくえ / 寺院のゆくえ records.
-
-Before Jinja, Jiin, or Tomurai activation, each site requires its own substantive public-record minimum, source inventory, ingestion/dedupe path, machine quality/depth metrics, and public quality gate under `docs/nationwide-corpus-scaling.md`.
-
-Each future site must also define a measured anti-shallow-expansion rule appropriate to its own State/history model rather than mechanically copying Matsuri Occurrence thresholds.
 
 ## Immediate next actions
 
 ```text
-1. finish NCS-02 baseline drift verification and merge the classifier/baseline
+1. finish NCS-02 exact-head verification and merge the corrected classifier/spec
 2. build NCS-03 national authoritative-source inventory
-3. generate the existing-57 promotion/deepening worklist from measured gaps
-4. implement NCS-04 private candidate importer and deterministic identity/dedupe checks
-5. run NCS-05 at bulk scale without publishing candidate shells
-6. audit quality, provenance, duplicate rate, and source ceilings
-7. implement the remaining bounded promotion-backlog release guard while preserving the measured 37 / 57 history floor
-8. only then allow NCS-06 public-quality expansion
-9. continue due Occurrence / freshness corrections in parallel
-10. keep future specialist sites blocked until their existing and new quality prerequisites are satisfied
+3. build the existing-57 repair/deepening worklist
+4. implement NCS-04 candidate importer + dedupe/conflict queue
+5. run NCS-05 bulk candidate dry run and promotion-readiness audit
+6. fix importer/source-quality failures
+7. run NCS-06 and actually publish a bounded batch of new public_core records
+8. derive high-volume backlog guard from NCS-06 throughput
+9. advance toward 500 then 1,000 public_core records while deepening history in parallel
 ```
