@@ -11,7 +11,7 @@ Phase 10 — Matsuri Public Corpus Expansion, Nationwide Scaling, and Stabilizat
 ## Current gate state
 
 ```text
-F2-28 final launch gate — completed
+F2-28 — final F2 Launch Gate — completed
 Matsuri Detail C — completed
 Matsuri prefecture seed baseline — completed 47 / 47
 Matsuri nationwide public corpus scaling — active
