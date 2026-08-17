@@ -119,7 +119,7 @@ require(ncs04.requirements.some((line) => /do not infer Current State/i.test(lin
 require(ncs04.requirements.some((line) => /actual Tier A publication time/i.test(line)), "NCS-04 handoff must require authentic Tier A publication time");
 
 const requiredDocPhrases = [
-  "Public Index",
+  "public Tier A records",
   "NCS-04 candidate + Tier A importer",
   "2,000 records or fewer",
   "8,255",
