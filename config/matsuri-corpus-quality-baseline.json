@@ -1,0 +1,58 @@
+{
+  "schema_version": "matsuri.corpus-quality-baseline.v1",
+  "observed_at": "2026-08-17T16:01:41.069Z",
+  "observed_on_jst": "2026-08-18",
+  "source_workflow_run_id": 32044096419,
+  "source_workflow_job_id": 95428357764,
+  "classifier": "scripts/audit-matsuri-corpus-quality.mjs",
+  "governing_spec": "docs/nationwide-corpus-scaling.md",
+  "status": "measurement-only",
+  "counts": {
+    "all_entities": 120,
+    "legacy_primary_subjects": 58,
+    "specialist_primary_subjects": 57,
+    "public_core_machine": 0,
+    "history_enriched_machine": 0,
+    "monitored_machine": 21,
+    "below_public_core_machine": 57,
+    "with_completed_occurrence_history": 52,
+    "with_change_events": 57,
+    "with_current_state_evidence": 56,
+    "with_direct_profile_evidence": 39
+  },
+  "by_entity_type": {
+    "festival": {
+      "records": 49,
+      "public_core_machine": 0,
+      "history_enriched_machine": 0,
+      "monitored_machine": 18
+    },
+    "folk_performance": {
+      "records": 8,
+      "public_core_machine": 0,
+      "history_enriched_machine": 0,
+      "monitored_machine": 3
+    },
+    "tradition_unit": {
+      "records": 1,
+      "public_core_machine": 0,
+      "history_enriched_machine": 0,
+      "monitored_machine": 0
+    }
+  },
+  "unmet_check_counts": {
+    "approved_current_state_present": 1,
+    "authoritative_external_link_present": 3,
+    "current_state_evidence_present": 1,
+    "description_present": 57,
+    "direct_profile_evidence_present": 18,
+    "timing_or_recurrence_present": 1
+  },
+  "boundaries": {
+    "bulk_public_release_authorized": false,
+    "thin_candidate_publication_authorized": false,
+    "machine_public_core_auto_approval_authorized": false,
+    "existing_records_exempt_from_quality_deepening": false,
+    "release_threshold_defined": false
+  }
+}
