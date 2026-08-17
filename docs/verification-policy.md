@@ -89,11 +89,32 @@ Candidate relation suggestions from automation remain non-public until reviewed.
 
 A newly published primary Matsuri record must meet the substantive minimum in `nationwide-corpus-scaling.md`.
 
-This includes reviewed identity/profile coverage, evidence-bounded Current State, and at least one completed dated Occurrence with a non-`scheduled` outcome or an evidence-backed Change Event when a completed Occurrence cannot responsibly be established.
+This includes reviewed identity/profile coverage, evidence-bounded Current State, **at least one evidence-backed completed dated Occurrence with a non-`scheduled` outcome**, and **at least one evidence-backed Change Event**.
+
+A Change Event does not substitute for completed Occurrence history for a newly published primary Matsuri record.
 
 A record that cannot meet the minimum remains a candidate rather than entering the Public Projection as a thin shell.
 
-Before bulk public release, machine-readable quality/depth metrics and a release guard must also verify that the expansion does not materially degrade the corpus depth distribution.
+## Measured history-depth verification
+
+The NCS-02 pre-expansion reference is:
+
+```text
+Specialist primary records                57
+>= 1 completed Occurrence year            52 / 57
+>= 2 completed Occurrence years           37 / 57
+>= 1 evidence-backed Change Event         57 / 57
+```
+
+For NCS-06-or-later public expansion:
+
+- 100% of newly published primary Matsuri records must satisfy `public_core`;
+- at least `ceil(new_public_primary_records * 37 / 57)` of the newly published records in a release train must have completed Occurrences in at least two distinct years;
+- the corpus-wide two-distinct-year proportion must not fall below `37 / 57`;
+- source-ceiling findings may keep a candidate unpublished but do not waive the new-record minimum;
+- the five existing specialist-primary records without completed Occurrence history remain promotion/deepening backlog and are not precedents for new publication.
+
+The remaining promotion-backlog bound and full release guard must be implemented before bulk public release. Until then, NCS-06 publication remains blocked.
 
 ## Conflicts
 
@@ -110,6 +131,8 @@ State-free Shrine and Temple seeds used by Matsuri remain valid candidate/refere
 They are not pre-approved public primary records for 神社のゆくえ or 寺院のゆくえ.
 
 Each future specialist site requires its own substantive public-record minimum and quality gate before activation under `nationwide-corpus-scaling.md`.
+
+Each future-site quality gate must include a measured anti-shallow-expansion rule appropriate to that domain rather than copying Matsuri Occurrence thresholds mechanically.
 
 ## Public Projection safety
 
