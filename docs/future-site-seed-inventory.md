@@ -1,14 +1,12 @@
 # Yukue Future-site Seed Inventory
 
-**Status:** F2-P02 and F2-P05 completed / F2-P09 and 2026-07-20 provenance refreshes / candidate inventory only
+**Status:** candidate inventory only / Jinja inactive / current machine baseline synchronized 2026-08-17
 
 ## Purpose
 
-The Matsuri corpus already contains approved Shrine, Temple, and funerary-place Entities when they are needed to explain a festival, performance, ritual, or historical relationship.
+The Matsuri corpus contains approved Shrine, Temple, and funerary-place Entities when they are required to explain a festival, performance, ritual, or historical relationship. This task derives public-safe future-site seed handoffs from those approved records so known cross-site context does not need to be rediscovered later.
 
-This repository task derives a public-safe seed inventory from those existing approved records. It avoids re-researching known cross-site context later while keeping the future Jinja, Jiin, and Tomurai applications inactive.
-
-F2-P05 extends each seed with explicit public handoff provenance. It carries the exact Place, direct Entity-identity Evidence, identity Source, approved State Snapshot, and Relation Evidence references already present in Matsuri. Empty arrays remain explicit gaps rather than being inferred or filled. F2-P09 refreshed the inventory after adding shrine-operated official provenance for 大日霊貴神社. The 2026-07-20 maintenance refreshes add dedicated shrine-page identity Sources for 櫛田神社, 阿蘇神社, and 秩父神社 without changing the Relation-backed eligibility rule.
+The inventory is preparation only. It does not activate Jinja, Jiin, or Tomurai and does not create an application, Worker, hostname, route, or publication decision.
 
 ## Command
 
@@ -25,9 +23,9 @@ Output:
   summary.md
 ```
 
-## F2-P02 verified baseline
+## Historical F2-P02 baseline
 
-The first hosted extraction completed successfully on 2026-07-16.
+The first hosted extraction completed on 2026-07-16 with five relation-backed Jinja seeds.
 
 ```text
 Workflow         Build Yukue future-site seed inventory
@@ -45,55 +43,38 @@ Jiin seeds                   0
 Tomurai seeds                0
 ```
 
-## F2-P05 verified result
+The original five Jinja seeds were 阿蘇神社, 櫛田神社, 佐太神社, 大日霊貴神社, and 秩父神社. Later Matsuri corpus batches added more approved shrine Relations, so that five-name list is historical and must not be presented as the current Jinja seed inventory.
+
+## Current machine-enforced Jinja aggregate
+
+`config/jinja-start-gate.json` records the current blocked-site seed baseline and `scripts/check-jinja-start-gate-record.mjs` independently rebuilds the same aggregate from the canonical Matsuri dataset.
 
 ```text
-Workflow         Build Yukue future-site seed inventory
-Run ID           29490466083
-Conclusion       success
-Artifact ID      8372200074
-Artifact name    yukue-future-site-seeds-97b26e7aa1e981d299f8cbf3914960e8a12b9716
-Artifact digest  sha256:427d3c63ae158246a3224e78bfcaaa63fa79268337bb32083550c8fc0c975389
+Observed on                       2026-08-11
+Relation-backed Jinja seeds       26
+Direct identity Evidence          30
+Place references                  26
+Approved shrine State Snapshots    0
+Seeds with official URLs          19
 ```
 
-F2-P05 established one direct identity Evidence reference per seed and a self-contained handoff structure.
+The exact current seed identities and per-seed provenance are generated artifacts. Regenerate `inventory.json` / `provenance.json` instead of relying on a manually maintained static name list.
 
-## Current inventory
+The current aggregate also establishes two important preparation gaps without authorizing inference:
 
-```text
-Total relation-backed seeds   5
-Relation contexts             5
-Relation Evidence references  5
-Identity Evidence references  9
-Place references              5
-Seeds with official URLs      5
-Jinja seeds                   5
-Jiin seeds                    0
-Tomurai seeds                 0
-```
+- no approved shrine State Snapshot exists yet;
+- 7 of the 26 relation-backed Jinja seeds do not currently contribute an official URL to the blocked-gate aggregate.
 
-佐太神社 carries one direct identity Evidence reference because its existing official homepage already directly identifies the shrine and its core context. 阿蘇神社, 櫛田神社, 大日霊貴神社, and 秩父神社 each carry two approved identity Evidence references. 阿蘇神社 combines the existing official restoration record with a dedicated shrine overview. 櫛田神社 combines the official festival schedule with a dedicated shrine page. 大日霊貴神社 retains one municipal Source and one shrine-operated Source. 秩父神社 combines the official night-festival page with a dedicated祭神・由緒 page. Every seed carries at least one identity Source reference, one Relation Evidence reference, one deduplicated Place reference, and at least one official URL. Every approved State Snapshot array remains empty because no shrine-specific State has been approved.
-
-Current Jinja seeds:
-
-```text
-阿蘇神社
-櫛田神社
-佐太神社
-大日霊貴神社
-秩父神社
-```
-
-The zero counts for Jiin and Tomurai mean only that the current approved Matsuri Relations do not yet connect a Temple or funerary-place Entity to a Matsuri specialist Entity under this strict rule. They are not claims that those future sites have no valid subjects.
+Neither gap may be filled merely to improve readiness numbers. State work remains dependent on an approved Jinja State specification and evidence-bounded target-site research. Official URL work requires supported public provenance.
 
 ## Eligibility rule
 
 A record becomes a seed candidate only when all of the following are true:
 
-1. the Entity type maps to a future specialist site,
-2. an approved Matsuri Relation connects it to a Matsuri specialist Entity,
-3. the Relation has one or more Evidence IDs,
-4. every referenced Evidence record is approved,
+1. the Entity type maps to a future specialist site;
+2. an approved Matsuri Relation connects it to a Matsuri specialist Entity;
+3. the Relation has one or more Evidence IDs;
+4. every referenced Evidence record is approved;
 5. every Evidence record targets the exact Relation.
 
 Entity-to-site mapping:
@@ -131,20 +112,9 @@ The generated artifact contains only fields derived from approved public canonic
 - approved Relation context,
 - connected Matsuri specialist identity.
 
-The artifact remains `format_version: 1`. The provenance refreshes add approved records and references without changing the inventory structure.
-
 ## Handoff validation
 
-The command validates that:
-
-- every carried Place ID exists,
-- every identity Evidence record is approved and targets the exact seed Entity,
-- every identity Evidence Source exists,
-- every Relation Evidence record is approved and targets the exact Relation,
-- every Relation Evidence Source exists,
-- every seed has at least one Place reference,
-- every seed exposes identity Evidence and identity Source arrays even when empty,
-- every seed carries at least one Relation Evidence reference.
+The generator validates that carried references resolve and that Evidence is approved and targets the correct Entity or Relation. Empty arrays remain explicit gaps instead of being inferred away.
 
 ## Boundary
 
@@ -152,29 +122,14 @@ The inventory does not:
 
 - activate Jinja, Jiin, or Tomurai,
 - create a new public application or route,
-- choose which future site should be implemented next,
+- choose implementation order,
 - rank candidates,
 - expose internal confidence or research notes,
 - import a private candidate queue,
-- assert that a seed is complete enough for publication on another site,
+- assert publication readiness,
 - infer a missing State, Source, Evidence, Place, or official URL.
 
 A seed is only a relation-backed starting point. Before later publication, the target site must apply its own identity, State, Evidence, Source, and maintenance review.
-
-## Failure behavior
-
-The command fails when:
-
-- no relation-backed seed exists,
-- an approved Relation lacks Evidence,
-- a Relation references a missing Entity,
-- Relation Evidence is missing or unapproved,
-- Evidence targets the wrong Relation or Entity,
-- an Evidence Source is missing,
-- a carried Place record is missing,
-- one Entity maps to conflicting future sites,
-- duplicate Entity IDs appear in the output,
-- required handoff arrays are absent.
 
 ## GitHub Actions
 
@@ -182,4 +137,4 @@ The command fails when:
 Build Yukue future-site seed inventory
 ```
 
-The workflow runs on relevant pull requests and `main` pushes and uploads the JSON and Markdown artifacts. It requires no Cloudflare access and does not deploy anything.
+The workflow generates and uploads the public-safe inventory, provenance bundle, and summary. It requires no Cloudflare access and deploys nothing.
