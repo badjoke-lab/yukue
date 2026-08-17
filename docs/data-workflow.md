@@ -65,11 +65,16 @@ The public gate requires, among the full contract:
 - substantive summary and description;
 - evidence-bounded geography / timing / recurrence / Place handling;
 - approved Current State with Evidence;
-- at least one completed dated Occurrence with a non-`scheduled` outcome, or an evidence-backed Change Event when a completed Occurrence cannot responsibly be established;
+- at least one evidence-backed completed dated Occurrence with a non-`scheduled` outcome;
+- at least one evidence-backed Change Event;
 - Source / Evidence coverage across profile and observation dimensions;
 - deterministic duplicate checking.
 
-The quality gate must also measure corpus depth and prevent new breadth from creating a permanently shallow second class of public records.
+A Change Event does not substitute for completed Occurrence history for a newly published primary Matsuri record.
+
+The NCS-02 history-depth reference is also mandatory for NCS-06-or-later releases: at least `ceil(new_public_primary_records * 37 / 57)` newly published primary records in each release train must have completed Occurrences in at least two distinct years, and the corpus-wide multi-year proportion must not fall below `37 / 57`.
+
+The quality gate must prevent new breadth from creating a permanently shallow second class of public records.
 
 ## Automation boundary
 
@@ -99,6 +104,7 @@ infer Current State transitions without Evidence
 fabricate descriptions, coordinates, Relations, or official links
 use unknown as a shortcut around research
 publish candidate shells
+classify one-event shells as history_enriched
 ```
 
 Human review remains the publication gate.
@@ -110,7 +116,8 @@ Before the first bulk public release:
 ```text
 classify existing approved corpus
 → record depth baseline
-→ define machine release threshold
+→ preserve measured 37 / 57 multi-year history floor
+→ define remaining backlog release bound
 → run bulk candidates privately
 → audit errors and source ceilings
 → promote only records meeting public minimum
@@ -118,6 +125,8 @@ classify existing approved corpus
 ```
 
 Every expansion release train must include substantive depth upgrades as well as new public Entities. Promotion backlog and source-ceiling exceptions must be machine-visible under the nationwide scaling contract.
+
+A source ceiling can explain why a candidate remains unpublished; it does not waive the new-record public minimum.
 
 ## Pull request rule
 
@@ -132,6 +141,7 @@ A public-data PR should explain:
 - important Relation changes;
 - Evidence coverage;
 - quality/depth classification impact;
+- multi-year history-floor impact for expansion work;
 - known limits and genuine source ceilings.
 
 A bulk-ingestion PR must additionally report candidate count separately from approved public count. Candidate count must never be presented as public corpus growth.
@@ -153,6 +163,7 @@ Public Projection leak check
 public-record substantive minimum
 identity / duplicate contract
 corpus quality / depth distribution
+multi-year history-depth floor
 promotion backlog bound
 ```
 
