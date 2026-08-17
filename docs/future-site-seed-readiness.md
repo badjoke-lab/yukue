@@ -1,18 +1,19 @@
 # Yukue Future-site Seed Readiness Audit
 
-**Status:** F2-P03 completed / F2-P04 identity Evidence completed / F2-P09 official provenance completed / public readiness audit only
+**Status:** public readiness audit only / Jinja inactive / current machine baseline synchronized 2026-08-17
 
 ## Purpose
 
-F2-P02 identifies future-site Entities already connected to approved Matsuri specialist records. F2-P03 measures how much approved public context can be carried forward and what still requires target-site research. F2-P04 adds direct Entity-identity Evidence for the five shrine seeds. F2-P09 adds shrine-operated official provenance for 大日霊貴神社 without reclassifying its municipal Source.
+This document describes the public-safe future-site seed readiness layer derived from approved Matsuri records. It is not a publication gate, candidate ranking, implementation priority, or future-site activation.
 
-This is an audit of approved public data. It is not a publication gate, candidate ranking, implementation priority, or future-site activation.
+The generated readiness artifact remains the detailed source for per-seed findings. The blocked Jinja start-gate record is the repository-enforced source for the current aggregate Jinja seed baseline.
 
 ## Commands
 
 ```text
 pnpm audit:yukue:future-site-seeds
 pnpm audit:yukue:future-site-seed-readiness
+pnpm check:yukue:jinja-start-gate
 ```
 
 The readiness command consumes:
@@ -29,7 +30,9 @@ and writes:
   summary.md
 ```
 
-## F2-P03 baseline
+## Historical F2-P03 baseline
+
+The first readiness baseline on 2026-07-16 contained five relation-backed Jinja seeds.
 
 ```text
 Workflow         Audit Yukue future-site seed readiness
@@ -50,91 +53,45 @@ With direct identity Evidence       0
 Without direct identity Evidence    5
 ```
 
-## F2-P04 verified result
+F2-P04 subsequently added direct Entity-identity Evidence for the original five shrine seeds, and F2-P09 added shrine-operated official provenance for 大日霊貴神社. Those values are historical milestones, not the current corpus size.
 
-F2-P04 added five approved `entity_identity` Evidence records in `data/public/matsuri/f2/maintenance-06.json`. Every record reuses an approved Matsuri Source and targets the exact shrine Entity.
+## Current machine-enforced Jinja seed baseline
 
-```text
-Workflow         Audit Yukue future-site seed readiness
-Run ID           29489701435
-Conclusion       success
-Artifact ID      8371871954
-Artifact name    yukue-future-site-seed-readiness-0a325403b479030229617fb2e295bf10455eb299
-Artifact digest  sha256:478c27bd7049c17ac2f7d3623f839b28125c391f356a4bb6d6c87cf431f35445
-```
-
-## F2-P09 current result
-
-F2-P09 records `https://dainichido.org/` as a shrine-operated official URL, adds the official name variant `大日靈貴神社`, and adds a second approved identity Evidence record for the same stable Entity. The existing 鹿角市 page remains separately classified as `public_authority`.
-
-Current totals:
+Matsuri corpus expansion after the original five-seed audit added further approved shrine-to-Matsuri Relations. `config/jinja-start-gate.json` and `scripts/check-jinja-start-gate-record.mjs` now enforce the following current aggregate baseline:
 
 ```text
-Total seeds                         5
-Cross-site context complete         0
-Cross-site context incomplete       5
-With official URL                   5
-Without official URL                0
-With approved State Snapshot        0
-With direct identity Evidence       5
-Without direct identity Evidence    0
-Direct identity Evidence records    6
+Observed on                       2026-08-11
+Relation-backed Jinja seeds       26
+Direct identity Evidence          30
+Place references                  26
+Approved shrine State Snapshots    0
+Seeds with official URLs          19
 ```
 
-Current detected gaps:
+The validator derives these counts again from the canonical Matsuri dataset. A stale manual count cannot pass the Jinja start-gate check.
+
+The aggregate gaps therefore include:
 
 ```text
-missing-approved-state-snapshot     5
-missing-direct-identity-evidence     0
-missing-official-url                 0
+approved shrine State Snapshots    0 / 26
+seeds with official URLs          19 / 26
 ```
 
-Current seed findings:
+This does **not** authorize filling either gap by inference. Missing State must remain absent until the Jinja State specification is approved and target-site research supports a State record. Official URLs must likewise be added only from supported public provenance.
 
-```text
-阿蘇神社        State Snapshotなし
-櫛田神社        State Snapshotなし
-佐太神社        State Snapshotなし
-大日霊貴神社    State Snapshotなし
-秩父神社        State Snapshotなし
-```
-
-All five retain valid summary, geographic scope, Place, Source, approved Relation context, direct Entity-identity Evidence, and at least one official URL. None is claimed ready to become a Jinja record because the shrine-specific State model and review have not been activated.
-
-## Identity Evidence targets
-
-```text
-shr-aso-jinja
-shr-chichibu-jinja
-shr-kushida-jinja
-shr-dainichireiki-jinja
-shr-sada-jinja
-```
-
-Current Source mapping:
-
-```text
-阿蘇神社        src-aso-restoration
-秩父神社        src-chichibu-yomatsuri
-櫛田神社        src-hakata-schedule-2026
-佐太神社        src-sada-jinja
-大日霊貴神社    src-dainichido-kazuno
-大日霊貴神社    src-dainichireiki-jinja-official
-```
-
-The second 大日霊貴神社 record is intentional: one municipal Source and one shrine-operated Source support the same Entity identity from distinct authority classes.
+For exact seed identities and per-seed gap details, regenerate the inventory/readiness artifacts rather than relying on the original five-name snapshot preserved in historical audit material.
 
 ## Checks
 
-Each seed is checked for:
+Each generated seed is checked for applicable public handoff context including:
 
 - public Japanese summary,
 - geographic scope,
 - valid primary or default Place references,
-- at least one approved State Snapshot,
+- approved State Snapshot references when present,
 - public Source coverage,
 - approved Relation and Relation Evidence context,
-- official public URL,
+- official public URL coverage,
 - approved Evidence directly targeting Entity identity.
 
 ## Result classes
@@ -144,23 +101,7 @@ context-complete
 context-incomplete
 ```
 
-`context-complete` means the existing Matsuri records provide summary, geography, Place, State, Source, and Relation context without broken references.
-
-It does not mean the record is ready for publication on Jinja, Jiin, or Tomurai. Every seed remains subject to target-site identity, State, Evidence, Source, and maintenance review.
-
-## Gap severities
-
-```text
-blocking-context
-```
-
-A required existing cross-site context layer is absent or invalid.
-
-```text
-target-site-research
-```
-
-The Matsuri context remains structurally usable, but the future specialist site must gather or strengthen target-specific public Evidence.
+`context-complete` means the existing Matsuri records provide the required cross-site context without broken references. It does not mean the record is ready for publication on Jinja, Jiin, or Tomurai.
 
 ## Boundaries
 
@@ -173,6 +114,8 @@ The audit does not:
 - include private notes,
 - invent a shrine State vocabulary before the Jinja specification exists,
 - turn a Matsuri relationship into a complete shrine, temple, cemetery, columbarium, or burial-facility profile.
+
+The Jinja start gate remains blocked until every prerequisite in `config/jinja-start-gate.json` is satisfied. Seed preparation is explicitly non-activating work; `apps/jinja`, Jinja Worker configuration, hostname activation, and publication remain prohibited while the gate is blocked.
 
 ## GitHub Actions
 
