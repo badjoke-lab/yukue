@@ -215,15 +215,14 @@ const records = dataset.entities
       approved_current_state_present: Boolean(state),
       current_state_evidence_present: stateEvidence,
       direct_profile_evidence_present: profileEvidence.length > 0,
-      completed_occurrence_or_change_present:
-        completedOccurrences.length > 0 || evidencedChangeEvents.length > 0,
+      completed_occurrence_present: completedOccurrences.length > 0,
+      change_event_present: evidencedChangeEvents.length > 0,
     };
 
     const machineCheckableMinimum =
       specialistPrimary && Object.values(checks).every(Boolean);
     const historyEnriched =
-      machineCheckableMinimum &&
-      (completedYears.size >= 2 || evidencedChangeEvents.length >= 1 || completedOccurrences.length >= 3);
+      machineCheckableMinimum && completedYears.size >= 2 && evidencedChangeEvents.length >= 1;
     const monitored = specialistPrimary && scheduledOccurrences.length > 0;
     const unmetChecks = Object.entries(checks)
       .filter(([, value]) => !value)
@@ -281,9 +280,9 @@ const report = {
   release_gate_authorized: false,
   classifier_notes: {
     public_core:
-      "Conservative machine-checkable subset of the governing public minimum. Human review of prose substance and source ceilings remains required; a true result does not auto-approve publication.",
+      "Conservative machine-checkable subset of the governing public minimum. Requires completed Occurrence history and a Change Event; human review of prose substance remains required and a true result does not auto-approve publication.",
     history_enriched:
-      "Requires public_core plus at least two completed Occurrence years, at least one evidenced Change Event, or at least three completed evidenced Occurrences.",
+      "Requires public_core plus evidence-backed completed Occurrences in at least two distinct years and at least one evidenced Change Event.",
     monitored:
       "Has at least one approved Occurrence still carrying scheduled or unknown outcome and therefore an active freshness/review obligation.",
     tradition_unit:
@@ -299,6 +298,9 @@ const report = {
     below_public_core_machine: specialistRecords.length - publicCoreRecords.length,
     with_completed_occurrence_history: specialistRecords.filter(
       (record) => record.evidence_and_history.completed_occurrences > 0,
+    ).length,
+    with_multi_year_completed_occurrence_history: specialistRecords.filter(
+      (record) => record.evidence_and_history.completed_occurrence_years.length >= 2,
     ).length,
     with_change_events: specialistRecords.filter(
       (record) => record.evidence_and_history.change_events > 0,
@@ -350,6 +352,7 @@ const markdown = [
   `- ${report.governing_spec}`,
   "- Thin candidate records remain non-public.",
   "- A machine `public_core=true` result never replaces required human review.",
+  "- New public primary Matsuri records require completed Occurrence history and a Change Event.",
   "",
   "## Counts",
   "",
