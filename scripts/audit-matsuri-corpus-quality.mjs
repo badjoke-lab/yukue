@@ -92,11 +92,11 @@ function preferredNameSourceBacked(entity) {
     entity.names?.find((name) => name.is_preferred) ??
     entity.names?.find((name) => name.kind === "canonical") ??
     entity.names?.[0];
-  return (
+  return Boolean(
     preferred &&
-    Array.isArray(preferred.source_ids) &&
-    preferred.source_ids.length > 0 &&
-    preferred.source_ids.every((sourceId) => sourcesById.has(sourceId))
+      Array.isArray(preferred.source_ids) &&
+      preferred.source_ids.length > 0 &&
+      preferred.source_ids.every((sourceId) => sourcesById.has(sourceId)),
   );
 }
 
@@ -186,15 +186,16 @@ const records = dataset.entities
     const state = latestState.get(entity.id);
     const occurrences = occurrencesByEntity.get(entity.id) ?? [];
     const changeEvents = changesByEntity.get(entity.id) ?? [];
-    const completedOccurrences = occurrences.filter(
-      (occurrence) =>
-        completedOccurrenceOutcomes.has(occurrence.outcome) &&
-        evidenceIdsAreApproved(occurrence.evidence_ids, "occurrence", occurrence.id),
+    const evidencedOccurrences = occurrences.filter((occurrence) =>
+      evidenceIdsAreApproved(occurrence.evidence_ids, "occurrence", occurrence.id),
+    );
+    const completedOccurrences = evidencedOccurrences.filter((occurrence) =>
+      completedOccurrenceOutcomes.has(occurrence.outcome),
     );
     const evidencedChangeEvents = changeEvents.filter((event) =>
       evidenceIdsAreApproved(event.evidence_ids, "change_event", event.id),
     );
-    const scheduledOccurrences = occurrences.filter(
+    const scheduledOccurrences = evidencedOccurrences.filter(
       (occurrence) => occurrence.outcome === "scheduled" || occurrence.outcome === "unknown",
     );
     const completedYears = new Set(completedOccurrences.map(occurrenceYear).filter(Boolean));
@@ -215,14 +216,14 @@ const records = dataset.entities
       approved_current_state_present: Boolean(state),
       current_state_evidence_present: stateEvidence,
       direct_profile_evidence_present: profileEvidence.length > 0,
-      completed_occurrence_present: completedOccurrences.length > 0,
-      change_event_present: evidencedChangeEvents.length > 0,
+      dated_observation_anchor_present:
+        evidencedOccurrences.length > 0 || evidencedChangeEvents.length > 0,
     };
 
-    const machineCheckableMinimum =
-      specialistPrimary && Object.values(checks).every(Boolean);
+    const machineCheckableMinimum = specialistPrimary && Object.values(checks).every(Boolean);
     const historyEnriched =
-      machineCheckableMinimum && completedYears.size >= 2 && evidencedChangeEvents.length >= 1;
+      machineCheckableMinimum &&
+      (completedYears.size >= 2 || evidencedChangeEvents.length >= 2 || completedOccurrences.length >= 3);
     const monitored = specialistPrimary && scheduledOccurrences.length > 0;
     const unmetChecks = Object.entries(checks)
       .filter(([, value]) => !value)
@@ -244,6 +245,7 @@ const records = dataset.entities
       },
       evidence_and_history: {
         direct_profile_evidence: profileEvidence.length,
+        evidenced_occurrences: evidencedOccurrences.length,
         completed_occurrences: completedOccurrences.length,
         completed_occurrence_years: [...completedYears].sort(),
         change_events: evidencedChangeEvents.length,
@@ -255,15 +257,9 @@ const records = dataset.entities
   .sort((a, b) => a.name.localeCompare(b.name, "ja"));
 
 const specialistRecords = records.filter((record) => record.specialist_primary);
-const publicCoreRecords = specialistRecords.filter(
-  (record) => record.machine_classification.public_core,
-);
-const historyEnrichedRecords = specialistRecords.filter(
-  (record) => record.machine_classification.history_enriched,
-);
-const monitoredRecords = specialistRecords.filter(
-  (record) => record.machine_classification.monitored,
-);
+const publicCoreRecords = specialistRecords.filter((record) => record.machine_classification.public_core);
+const historyEnrichedRecords = specialistRecords.filter((record) => record.machine_classification.history_enriched);
+const monitoredRecords = specialistRecords.filter((record) => record.machine_classification.monitored);
 
 const unmetCheckCounts = {};
 for (const record of specialistRecords) {
@@ -280,13 +276,13 @@ const report = {
   release_gate_authorized: false,
   classifier_notes: {
     public_core:
-      "Conservative machine-checkable subset of the governing public minimum. Requires completed Occurrence history and a Change Event; human review of prose substance remains required and a true result does not auto-approve publication.",
+      "Useful standalone public-standard record. Requires profile, State/Evidence, authoritative provenance, and a dated observation anchor; does not require completed multi-year history before first publication.",
     history_enriched:
-      "Requires public_core plus evidence-backed completed Occurrences in at least two distinct years and at least one evidenced Change Event.",
+      "Requires public_core plus meaningful longitudinal depth: at least two completed Occurrence years, at least two evidenced Change Events, or at least three completed evidenced Occurrences.",
     monitored:
-      "Has at least one approved Occurrence still carrying scheduled or unknown outcome and therefore an active freshness/review obligation.",
+      "Has at least one evidenced Occurrence still carrying scheduled or unknown outcome and therefore an active freshness/review obligation.",
     tradition_unit:
-      "Reported for legacy corpus visibility but excluded from specialist public_core counts because the current governing Matsuri public minimum explicitly names Festival and Folk Performance primary records.",
+      "Reported for legacy corpus visibility but excluded from specialist public_core counts because the governing Matsuri public standard explicitly names Festival and Folk Performance primary records.",
   },
   counts: {
     all_entities: dataset.entities.length,
@@ -298,9 +294,6 @@ const report = {
     below_public_core_machine: specialistRecords.length - publicCoreRecords.length,
     with_completed_occurrence_history: specialistRecords.filter(
       (record) => record.evidence_and_history.completed_occurrences > 0,
-    ).length,
-    with_multi_year_completed_occurrence_history: specialistRecords.filter(
-      (record) => record.evidence_and_history.completed_occurrence_years.length >= 2,
     ).length,
     with_change_events: specialistRecords.filter(
       (record) => record.evidence_and_history.change_events > 0,
@@ -320,16 +313,13 @@ const report = {
         {
           records: records.filter((record) => record.entity_type === entityType).length,
           public_core_machine: records.filter(
-            (record) =>
-              record.entity_type === entityType && record.machine_classification.public_core,
+            (record) => record.entity_type === entityType && record.machine_classification.public_core,
           ).length,
           history_enriched_machine: records.filter(
-            (record) =>
-              record.entity_type === entityType && record.machine_classification.history_enriched,
+            (record) => record.entity_type === entityType && record.machine_classification.history_enriched,
           ).length,
           monitored_machine: records.filter(
-            (record) =>
-              record.entity_type === entityType && record.machine_classification.monitored,
+            (record) => record.entity_type === entityType && record.machine_classification.monitored,
           ).length,
         },
       ]),
@@ -345,14 +335,14 @@ const markdown = [
   "",
   `Generated: ${report.generated_at}`,
   "",
-  "**Mode:** measurement only — this report does not authorize bulk public release.",
+  "**Mode:** measurement only — this report does not authorize high-volume bulk public release.",
   "",
   "## Governing contract",
   "",
   `- ${report.governing_spec}`,
-  "- Thin candidate records remain non-public.",
+  "- Raw name/location/link shells remain candidates.",
+  "- Public-core records do not need multi-year history before first publication.",
   "- A machine `public_core=true` result never replaces required human review.",
-  "- New public primary Matsuri records require completed Occurrence history and a Change Event.",
   "",
   "## Counts",
   "",
@@ -377,10 +367,7 @@ const markdown = [
   ...(specialistRecords.filter((record) => !record.machine_classification.public_core).length > 0
     ? specialistRecords
         .filter((record) => !record.machine_classification.public_core)
-        .map(
-          (record) =>
-            `- ${record.name} (${record.id}): ${record.unmet_checks.join(", ")}`,
-        )
+        .map((record) => `- ${record.name} (${record.id}): ${record.unmet_checks.join(", ")}`)
     : ["- None"]),
   "",
 ].join("\n");
