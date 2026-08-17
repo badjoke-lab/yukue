@@ -1,6 +1,6 @@
 # Yukue Future-site Seed Inventory
 
-**Status:** F2-P02 and F2-P05 completed / F2-P09 and 2026-07-20 provenance refreshes / candidate inventory only
+**Status:** candidate inventory only / current hosted extraction verified 2026-08-17
 
 ## Purpose
 
@@ -8,7 +8,9 @@ The Matsuri corpus already contains approved Shrine, Temple, and funerary-place 
 
 This repository task derives a public-safe seed inventory from those existing approved records. It avoids re-researching known cross-site context later while keeping the future Jinja, Jiin, and Tomurai applications inactive.
 
-F2-P05 extends each seed with explicit public handoff provenance. It carries the exact Place, direct Entity-identity Evidence, identity Source, approved State Snapshot, and Relation Evidence references already present in Matsuri. Empty arrays remain explicit gaps rather than being inferred or filled. F2-P09 refreshed the inventory after adding shrine-operated official provenance for 大日霊貴神社. The 2026-07-20 maintenance refreshes add dedicated shrine-page identity Sources for 櫛田神社, 阿蘇神社, and 秩父神社 without changing the Relation-backed eligibility rule.
+Each seed carries the exact Place, direct Entity-identity Evidence, identity Source, approved State Snapshot, and Relation Evidence references already present in Matsuri. Empty arrays remain explicit gaps rather than being inferred or filled.
+
+The inventory is generated from canonical public data. This document records the current hosted extraction; it is not a manually maintained candidate database and it does not activate a future site.
 
 ## Command
 
@@ -25,7 +27,7 @@ Output:
   summary.md
 ```
 
-## F2-P02 verified baseline
+## Historical hosted baselines
 
 The first hosted extraction completed successfully on 2026-07-16.
 
@@ -35,9 +37,7 @@ Run ID           29478631183
 Conclusion       success
 Artifact ID      8367573485
 Artifact digest  sha256:747a9b833adacbc049bf12e7a29312ab8ab676e3f3b2dc73e88c43e79a634524
-```
 
-```text
 Total relation-backed seeds  5
 Relation contexts            5
 Jinja seeds                  5
@@ -45,7 +45,7 @@ Jiin seeds                   0
 Tomurai seeds                0
 ```
 
-## F2-P05 verified result
+F2-P05 then established one direct identity Evidence reference per seed and a self-contained handoff structure.
 
 ```text
 Workflow         Build Yukue future-site seed inventory
@@ -56,32 +56,74 @@ Artifact name    yukue-future-site-seeds-97b26e7aa1e981d299f8cbf3914960e8a12b971
 Artifact digest  sha256:427d3c63ae158246a3224e78bfcaaa63fa79268337bb32083550c8fc0c975389
 ```
 
-F2-P05 established one direct identity Evidence reference per seed and a self-contained handoff structure.
+Subsequent Matsuri relation and provenance maintenance expanded the strict relation-backed Jinja seed set. F2-P09 added shrine-operated provenance for 大日霊貴神社; later maintenance added or refreshed dedicated identity provenance for additional shrines. The eligibility rule itself has not changed.
 
-## Current inventory
+## Current hosted inventory
+
+Current exact-head extraction for `agent/matsuri-saidaiji-2025-history` after the five-shrine provenance refresh:
 
 ```text
-Total relation-backed seeds   5
-Relation contexts             5
-Relation Evidence references  5
-Identity Evidence references  9
-Place references              5
-Seeds with official URLs      5
-Jinja seeds                   5
-Jiin seeds                    0
-Tomurai seeds                 0
+Workflow                     Build Yukue future-site seed inventory
+Run ID                       32041415850
+Conclusion                   success
+Artifact ID                  9292017345
+Artifact digest              sha256:64f58105d23b58a733ee2c93bb2b01af2be37325459dce16ad640552b2a270ca
+Head                         dd3d6c020eb842c1261ff4e30c4138a023dbbdf6
+
+Total relation-backed seeds  26
+Relation contexts            27
+Relation Evidence refs       27
+Identity Evidence refs       35
+Place references             26
+Seeds with official URLs     24
+Approved State Snapshot refs 0
+Jinja seeds                  26
+Jiin seeds                   0
+Tomurai seeds                0
 ```
 
-佐太神社 carries one direct identity Evidence reference because its existing official homepage already directly identifies the shrine and its core context. 阿蘇神社, 櫛田神社, 大日霊貴神社, and 秩父神社 each carry two approved identity Evidence references. 阿蘇神社 combines the existing official restoration record with a dedicated shrine overview. 櫛田神社 combines the official festival schedule with a dedicated shrine page. 大日霊貴神社 retains one municipal Source and one shrine-operated Source. 秩父神社 combines the official night-festival page with a dedicated祭神・由緒 page. Every seed carries at least one identity Source reference, one Relation Evidence reference, one deduplicated Place reference, and at least one official URL. Every approved State Snapshot array remains empty because no shrine-specific State has been approved.
+Every seed has at least one approved direct identity Evidence reference, one identity Source reference, one approved Relation Evidence reference, and one Place reference.
 
-Current Jinja seeds:
+Twenty-four of the 26 Jinja seeds currently carry an official URL. The two explicit official-URL gaps are:
 
 ```text
-阿蘇神社
-櫛田神社
-佐太神社
-大日霊貴神社
-秩父神社
+shr-karasuyama-yakumo-jinja  八雲神社（那須烏山）
+shr-sawara-yasaka-jinja      八坂神社（佐原）
+```
+
+Both remain valid relation-backed candidates because their existing approved identity Evidence and Relation Evidence satisfy the seed contract. Public-authority or tourism pages are not silently promoted into shrine-operated official URLs. No official URL is inferred merely to raise the count.
+
+Every approved State Snapshot array remains empty because no shrine-specific State has been approved for future-site handoff. Zero is intentional and must not be filled by inference.
+
+### Current Jinja seeds
+
+```text
+shr-aso-jinja                         阿蘇神社
+shr-samukawa-jinja                    寒川神社
+shr-kishu-toshogu                     紀州東照宮
+shr-miyazaki-jingu                    宮﨑神宮
+shr-kushida-jinja                     櫛田神社
+shr-sada-jinja                        佐太神社
+shr-mikuni-jinja                      三國神社
+shr-kasuga-wakamiya                   春日若宮
+shr-hitachi-sosogu-jinja              常陸國總社宮
+shr-shinjo-tenmangu                   新庄天満神社
+shr-kitaguchi-suwa-jinja              諏訪神社（北口）
+shr-sawara-suwa-jinja                 諏訪神社（佐原）
+shr-iga-sugawara-jinja                菅原神社
+shr-kawagoe-hikawa-jinja              川越氷川神社
+shr-asakusa-jinja                     浅草神社
+shr-nanao-oyama-jinja                 大地主神社
+shr-dainichireiki-jinja               大日霊貴神社
+shr-chichibu-jinja                    秩父神社
+shr-nagahama-hachimangu               長濱八幡宮
+shr-nagasaki-suwa-jinja               鎮西大社 諏訪神社
+shr-karatsu-jinja                     唐津神社
+shr-karasuyama-yakumo-jinja           八雲神社（那須烏山）
+shr-sawara-yasaka-jinja               八坂神社（佐原）
+shr-yamaguchi-yasaka-jinja            八坂神社（山口）
+shr-yasaka-jinja                      八坂神社（京都）
+shr-kitaguchi-hongu-fuji-sengen       北口本宮冨士浅間神社
 ```
 
 The zero counts for Jiin and Tomurai mean only that the current approved Matsuri Relations do not yet connect a Temple or funerary-place Entity to a Matsuri specialist Entity under this strict rule. They are not claims that those future sites have no valid subjects.
@@ -131,7 +173,7 @@ The generated artifact contains only fields derived from approved public canonic
 - approved Relation context,
 - connected Matsuri specialist identity.
 
-The artifact remains `format_version: 1`. The provenance refreshes add approved records and references without changing the inventory structure.
+The artifact remains `format_version: 1`. Provenance refreshes add approved records and references without changing the inventory structure.
 
 ## Handoff validation
 
