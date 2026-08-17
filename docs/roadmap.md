@@ -1,6 +1,6 @@
 # Project Roadmap
 
-**Status:** Phase 9 completed / Phase 10 Detail C completed / prefecture seed baseline 47 / 47 completed / nationwide Matsuri scaling active / stabilization reviewing and incomplete
+**Status:** Phase 9 completed / Phase 10 Detail C completed / prefecture seed baseline 47 / 47 completed / nationwide Matsuri public A/B/C scaling active / stabilization reviewing and incomplete
 
 ## Phase 0 through Phase 8
 
@@ -19,7 +19,7 @@ F2-16 through F2-28 — completed
 
 The final launch gate passed at `2026-07-27T11:45:20Z`. F2-28 does not claim that any URL is indexed.
 
-## Phase 10 — Matsuri Content Expansion and Stabilization
+## Phase 10 — Matsuri Public Corpus Expansion and Stabilization
 
 Status: **Active**
 
@@ -72,9 +72,9 @@ Continue:
 - corrections and dated maintenance;
 - Detail C, map, Search, and machine-readable regression maintenance.
 
-Maintenance remains mandatory but is not the only product track.
+Maintenance remains mandatory but is not the only product track. Evidence-less `held`, `cancelled`, Current State, organizer, Place, Relation, or coordinates are never inferred merely to close maintenance work.
 
-### Phase 10D — Nationwide corpus scaling
+### Phase 10D — Nationwide public corpus scaling
 
 Status: **Active**
 
@@ -84,36 +84,64 @@ Governing specification:
 docs/nationwide-corpus-scaling.md
 ```
 
-The goal is to move from a high-quality initial corpus to national-scale coverage without publishing thin directory shells.
+The operating model is:
+
+```text
+Tier A  Public Index
+  ↓ target: about 7 calendar days
+Tier B  Public Verified
+  ↓ continuous deepening
+Tier C  Public History / Monitoring
+```
+
+Tier A creates national public discovery breadth. Tier B adds evidence-backed verification depth. Tier C adds longitudinal history and monitoring.
 
 Key principles:
 
 ```text
-thin discovery candidates          non-public only
-new public primary records         substantive Basic Profile + Observation required
-47 / 47 prefecture presence        seed baseline only
-automation                         discovery/drafting/dedupe/provenance, not auto-approval
-bulk public release                blocked until quality/depth machine gate exists
-future-site seeds                  not specialist-site public records
+private candidates                   not public coverage
+reviewed Tier A                      public Index layer
+completed Occurrence for Tier A      not required
+Change Event for Tier A              not required
+multi-year history for Tier A/B      not required
+A→B target                           about 7 days
+one overdue A stops expansion        false
+valid A auto-withdraw after 7 days   false
+automation                           discovery/drafting/dedupe/provenance, not unsupported-fact approval
+future-site seeds                    not automatically future-site Tier A records
 ```
+
+A source-backed Tier A record may be intentionally thin. Once identity, subject type, geography, authoritative source, source verification date, and deterministic identity/dedupe review satisfy the Tier A contract, it is public even if Tier B/C dimensions remain incomplete.
 
 Implementation gates:
 
 ```text
-NCS-01  governing docs aligned
-NCS-02  machine depth classifier and current baseline
-NCS-03  national authoritative-source inventory
-NCS-04  bulk candidate importer + deterministic dedupe
-NCS-05  non-public bulk dry run
-NCS-06  first public-quality pilot
-NCS-07  500 cumulative public-quality primary Matsuri records
-NCS-08  1,000 cumulative public-quality primary Matsuri records
-NCS-09  source-inventory-derived national target
+NCS-01  governing specification / schedule alignment — completed
+NCS-02  A/B/C classifier + current-corpus baseline — active in PR #270
+NCS-03  national authoritative-source inventory — next
+NCS-04  candidate + Tier A importer / deterministic identity-dedupe / publication-time pipeline
+NCS-05  bulk dry run + Tier A publication-readiness audit
+NCS-06  first bounded Tier A public wave + continuous A→B promotion
+NCS-07  cumulative 500 public primary Matsuri records
+NCS-08  cumulative 1,000 public primary Matsuri records
+NCS-09  source-inventory-derived national target + continued A→B→C expansion
 ```
 
-The 500 and 1,000 checkpoints are scale tests, not declarations of completeness.
+The 500 and 1,000 checkpoints count public specialist-primary records across Tier A/B/C. They do not count private candidates and are not declarations of nationwide completeness.
 
-The depth-preservation gate must prevent nationwide expansion from leaving the existing reviewed records as a small rich subset surrounded by permanently shallow new records.
+NCS-02 current measured baseline:
+
+```text
+Specialist primary records                  57
+Tier A — Public Index                        19
+Tier B — Public Verified                      8
+Tier C — Public History / Monitoring         30
+Below Tier A                                  0
+```
+
+The existing `37 / 57` multi-year completed-Occurrence measurement remains descriptive history depth only. It is not a publication floor or per-wave quota.
+
+A→B overdue reporting is a work-priority mechanism. It must not become a repository-wide breadth stop or an automatic unpublish rule.
 
 ### Parallel stabilization review
 
@@ -144,15 +172,19 @@ Jinja State specification             unapproved
 Explicit start authorization          absent
 ```
 
-The current State-free Shrine candidate inventory is useful seed material but does not constitute a 神社のゆくえ corpus.
+The series design remains:
 
-Before any future specialist site activates, it must also satisfy the series-wide nationwide-scaling contract:
+```text
+祭のゆくえ
+神社のゆくえ
+寺院のゆくえ
+弔いのゆくえ
+```
 
-- site-specific substantive public-record minimum;
-- source inventory;
-- candidate ingestion and dedupe path;
-- machine-readable quality/depth metrics;
-- public quality gate;
-- initial corpus meeting that gate.
+Only Matsuri is currently activated for implementation/publication work.
 
-This applies to 神社のゆくえ, 寺院のゆくえ, and 弔いのゆくえ.
+The public A→B→C operating principle is intended to scale across all four specialist sites, but each future site must define its own Tier A identity/source minimum and Tier B verification dimensions.
+
+Matsuri Shrine/Temple Relation seeds or other cross-site reference seeds do not automatically become public Tier A records on a future specialist site.
+
+Do not activate Jinja, Jiin, or Tomurai applications, hostnames, Workers, or public publication from the Matsuri nationwide-scaling track.
