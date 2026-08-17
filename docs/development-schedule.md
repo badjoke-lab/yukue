@@ -281,7 +281,7 @@ future specialist-site implementation
 apps/jinja
 apps/jiin
 apps/tomurai
-Jinja/Jiin/Jiin/Tomurai Worker or hostname activation
+Jinja/Jiin/Tomurai Worker or hostname activation
 Stats
 Compare
 dynamic API
