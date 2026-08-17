@@ -40,6 +40,31 @@
         "evd-gujo-odori-2025-result"
       ],
       "review_status": "approved"
+    },
+    {
+      "id": "occ-nagano-binzuru-2024",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-nagano-binzuru",
+      "series_id": "ser-nagano-binzuru-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2024-08-03",
+        "end": "2024-08-03",
+        "precision": "day"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-nagano-binzuru-central-route"
+      ],
+      "organizer_entity_ids": [
+        "org-nagano-binzuru-jikkoiinkai"
+      ],
+      "evidence_ids": [
+        "evd-nagano-binzuru-occ-2024"
+      ],
+      "review_status": "approved"
     }
   ],
   "occurrenceSeries": [],
@@ -80,6 +105,18 @@
       "url": "https://www.city.gujo.gifu.jp/admin/info/docs/388927d054ccfd8cc721232e940c1a70ffa91319.pdf",
       "accessed_at": "2026-08-17",
       "language": "ja"
+    },
+    {
+      "id": "src-nagano-binzuru-2024-prefecture-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "【長野市】第54回長野びんずる踊りに参加しました～(^^♪",
+      "publisher": "長野県 長野地域振興局",
+      "url": "https://blog.nagano-ken.jp/nagachi/other/51013.html",
+      "published_at": "2024-08-09",
+      "accessed_at": "2026-08-17",
+      "language": "ja"
     }
   ],
   "evidence": [
@@ -116,6 +153,18 @@
       "target_id": "occ-gujo-odori-2025",
       "assertion_code": "supports_occurrence",
       "summary_ja": "郡上市公開の令和7年度事業報告書は、2025年7月12日のおどり発祥祭から9月6日のおどり納めまでの開催日程を記録し、シーズン中29夜が実施され、予定日のうち1日が荒天で中止となったことを報告している。全開催期が無変更で完遂されたとは扱わず、年次開催期を partially_held / modified とする根拠に限定する。",
+      "captured_at": "2026-08-17",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-nagano-binzuru-occ-2024",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-nagano-binzuru-2024-prefecture-held",
+      "target_type": "occurrence",
+      "target_id": "occ-nagano-binzuru-2024",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "長野県長野地域振興局は2024年8月9日の公式ブログで、8月3日に第54回長野びんずるが開催され、県職員等が実際に参加したことを写真付きで記録している。開催実績のみを採用し、参加人数からscaleは推定しない。",
       "captured_at": "2026-08-17",
       "review_status": "approved"
     }
