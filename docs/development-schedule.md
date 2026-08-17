@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-28 completed / Detail C completed / Matsuri prefecture seed baseline 47 / 47 completed / nationwide corpus scaling active / stabilization reviewing / Jinja blocked
+**Status:** F2-28 completed / Detail C completed / Matsuri prefecture seed baseline 47 / 47 completed / NCS-02 measured / nationwide corpus scaling active / stabilization reviewing / Jinja blocked
 
 This project is gate-driven rather than deadline-driven.
 
@@ -19,6 +19,9 @@ Phase 10A Detail C repair     completed
 Phase 10B Prefecture seed     completed 47 / 47
 Phase 10C Maintenance         active
 Phase 10D Nationwide scaling  active
+NCS-01                        completed
+NCS-02                        measured / baseline recorded
+NCS-03                        next
 Corpus batches 11-43          completed
 Stabilization review          reviewing
 Formal review eligible        true
@@ -119,18 +122,50 @@ The objective is national-scale public coverage without creating a shallow direc
 ### NCS sequence
 
 ```text
-NCS-01  specification / schedule / status alignment
-NCS-02  machine quality and depth classifier over existing corpus
-NCS-03  national authoritative-source inventory
-NCS-04  deterministic candidate importer + identity/dedupe pipeline
-NCS-05  non-public bulk dry run and error audit
-NCS-06  first public-quality expansion pilot under the new gate
-NCS-07  cumulative 500 public-quality primary Matsuri records
-NCS-08  cumulative 1,000 public-quality primary Matsuri records
-NCS-09  source-inventory-derived national target and continued expansion
+NCS-01  specification / schedule / status alignment                 completed
+NCS-02  machine quality/depth classifier + measured baseline        completed in this release train
+NCS-03  national authoritative-source inventory                     next
+NCS-04  deterministic candidate importer + identity/dedupe pipeline pending
+NCS-05  non-public bulk dry run and error audit                     pending
+NCS-06  first public-quality expansion pilot under the new gate     blocked
+NCS-07  cumulative 500 public-quality primary Matsuri records       future checkpoint
+NCS-08  cumulative 1,000 public-quality primary Matsuri records     future checkpoint
+NCS-09  source-inventory-derived national target                    future
 ```
 
 NCS-07 and NCS-08 are scaling checkpoints, not completion claims.
+
+### NCS-02 measured baseline
+
+Exact machine baseline:
+
+```text
+Specialist primary subjects             57
+  Festival                               49
+  Folk Performance                       8
+Machine public_core                       0 / 57
+Machine history_enriched                  0 / 57
+Machine monitored                        21 / 57
+Completed Occurrence history             52 / 57
+Evidence-backed Change Events            57 / 57
+Current State Evidence                   56 / 57
+Direct profile Evidence                  39 / 57
+```
+
+The zero `public_core` result is not hidden or repaired by lowering the new contract. Every existing specialist-primary record currently lacks Entity-level `description_ja`; 18 also lack direct profile Evidence, with smaller additional gaps.
+
+This does **not** mean the current corpus is a thin directory: almost all records already have completed Occurrence history and every specialist-primary record has a Change Event. It means the existing corpus itself must be deepened to satisfy the newly tightened complete public-core contract.
+
+Sources of truth:
+
+```text
+config/matsuri-corpus-quality-baseline.json
+docs/matsuri-corpus-quality-baseline.md
+scripts/audit-matsuri-corpus-quality.mjs
+scripts/check-matsuri-corpus-quality-baseline.mjs
+```
+
+Bulk public release remains unauthorized. No percentage threshold has been invented from this result.
 
 ### Publication boundary
 
@@ -139,6 +174,8 @@ Index-only records are allowed only as non-public candidates.
 A new public primary Matsuri record must satisfy the substantive minimum in `docs/nationwide-corpus-scaling.md`, including Basic Profile, evidence-bounded Current State, and at least one completed dated Occurrence or evidence-backed Change Event.
 
 A public release must not consist only of breadth work. Before bulk publication, the machine quality gate must measure depth distribution and promotion backlog and must prevent expansion from producing a permanent shallow second class of records.
+
+Existing records are not exempt from that deepening requirement.
 
 ### Automation objective
 
@@ -160,20 +197,20 @@ Machine record        config/matsuri-stabilization-review.json
 
 The state model is `observing -> reviewing -> complete`. Elapsed time alone does not complete the gate.
 
-The remaining formal-review work requires current private observation for Cloudflare Web Analytics traffic and Search Console. Those owner-private observations do not block NCS-02 through NCS-05 repository work.
+The remaining formal-review work requires current private observation for Cloudflare Web Analytics traffic and Search Console. Those owner-private observations do not block NCS-03 through NCS-05 repository work.
 
 Dated Occurrence reviews continue in parallel with NCS work and must remain fail-closed until post-event Evidence supports an outcome.
 
 ## Immediate execution order
 
 ```text
-1. merge NCS-01 governing documentation and use it as source of truth
-2. implement NCS-02 machine classifier for public_core / history_enriched / monitored depth
-3. measure current corpus quality distribution before setting the first bulk-release threshold
-4. build NCS-03 national authoritative-source inventory with source-family and geographic coverage
-5. implement NCS-04 importer, provenance capture, identity keys, and duplicate/conflict queue
-6. run NCS-05 at bulk scale without publishing candidate shells
-7. audit dry-run false positives, duplicates, missing fields, Source/Evidence mapping, and description quality
+1. complete NCS-02 exact-head verification and merge the measured baseline
+2. build NCS-03 national authoritative-source inventory with source-family and geographic coverage
+3. define the existing-57 promotion/deepening worklist from the NCS-02 gaps; do not exempt them
+4. implement NCS-04 importer, provenance capture, identity keys, and duplicate/conflict queue
+5. run NCS-05 at bulk scale without publishing candidate shells
+6. audit dry-run false positives, duplicates, missing fields, Source/Evidence mapping, and description quality
+7. implement the bounded promotion-backlog / depth-distribution release guard
 8. only then run NCS-06 public-quality pilot through the substantive public-record gate
 9. keep due Matsuri Occurrence freshness and existing production regressions green in parallel
 10. do not activate Jinja until its existing gate plus the future-site quality prerequisites are satisfied
