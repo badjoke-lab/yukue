@@ -86,6 +86,28 @@
         "evd-waka-matsuri-occ-2025-held"
       ],
       "review_status": "approved"
+    },
+    {
+      "id": "occ-yamaguchi-gion-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-yamaguchi-gion-matsuri",
+      "series_id": "ser-yamaguchi-gion-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2025-07-20",
+        "end": "2025-07-27",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-yamaguchi-gion-occ-2025-open",
+        "evd-yamaguchi-gion-occ-2025-close"
+      ],
+      "review_status": "approved"
     }
   ],
   "occurrenceSeries": [],
@@ -149,6 +171,30 @@
       "url": "https://www.tv-wakayama.co.jp/bangumi/onair/wakamatsuri/2025/",
       "accessed_at": "2026-08-17",
       "language": "ja"
+    },
+    {
+      "id": "src-yamaguchi-gion-2025-open-news",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "credible_news",
+      "title": "県無形民俗文化財『鷺の舞』で幕開け／山口祇園祭 みこしが御旅所へ勇壮に練り歩き",
+      "publisher": "山口新聞",
+      "url": "https://yama.minato-yamaguchi.co.jp/e-yama/articles/92367",
+      "published_at": "2025-07-21",
+      "accessed_at": "2026-08-17",
+      "language": "ja"
+    },
+    {
+      "id": "src-yamaguchi-gion-2025-close-news",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "credible_news",
+      "title": "120人の女みこしも勇壮に、山口祇園祭がフィナーレ【山口】",
+      "publisher": "宇部日報",
+      "url": "https://ubenippo.co.jp/2025/07/28/5448910/",
+      "published_at": "2025-07-28",
+      "accessed_at": "2026-08-17",
+      "language": "ja"
     }
   ],
   "evidence": [
@@ -209,6 +255,30 @@
       "target_id": "occ-waka-matsuri-2025",
       "assertion_code": "supports_occurrence",
       "summary_ja": "テレビ和歌山は特別番組『和歌祭2025』で、2025年5月11日に開かれた和歌祭の模様を放送すると明記し、年末の再放送案内でも同日に行われた和歌祭の模様と記録している。これを2025 editionのheld outcomeと日付の根拠に用い、規模・会場・主催者は遡及推定しない。",
+      "captured_at": "2026-08-17",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yamaguchi-gion-occ-2025-open",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaguchi-gion-2025-open-news",
+      "target_type": "occurrence",
+      "target_id": "occ-yamaguchi-gion-2025",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "山口新聞は2025年7月21日、山口祇園祭が前日20日に始まり、鷺の舞奉納と御神幸が実施されたと事後報道している。これを2025 editionの開始側実績根拠とする。",
+      "captured_at": "2026-08-17",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yamaguchi-gion-occ-2025-close",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaguchi-gion-2025-close-news",
+      "target_type": "occurrence",
+      "target_id": "occ-yamaguchi-gion-2025",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "宇部日報は2025年7月28日、前日27日に山口祇園祭が最終日を迎え、御還幸で八坂神社までみこしが巡行して祭りを締めくくったと報道している。開始側の事後証拠と合わせ、7月20日から27日の2025 editionをheldとする。規模は別途推定しない。",
       "captured_at": "2026-08-17",
       "review_status": "approved"
     }
