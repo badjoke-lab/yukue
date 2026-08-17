@@ -17,7 +17,31 @@
     }
   ],
   "changeEvents": [],
-  "occurrences": [],
+  "occurrences": [
+    {
+      "id": "occ-gujo-odori-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fpf-gujo-odori",
+      "series_id": "ser-gujo-odori-annual",
+      "occurrence_type": "performance",
+      "temporal_extent": {
+        "start": "2025-07-12",
+        "end": "2025-09-06",
+        "precision": "range"
+      },
+      "outcome": "partially_held",
+      "scale": "modified",
+      "venue_place_ids": [
+        "plc-gujo-hachiman-town"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-gujo-odori-2025-result"
+      ],
+      "review_status": "approved"
+    }
+  ],
   "occurrenceSeries": [],
   "recurrencePatterns": [],
   "relations": [],
@@ -45,6 +69,17 @@
       "url": "https://www.iyokannet.jp/event/2553",
       "accessed_at": "2026-08-17",
       "language": "ja"
+    },
+    {
+      "id": "src-gujo-odori-activity-report-2025",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "令和７年度 郡上おどり運営委員会事業報告書",
+      "publisher": "郡上市",
+      "url": "https://www.city.gujo.gifu.jp/admin/info/docs/388927d054ccfd8cc721232e940c1a70ffa91319.pdf",
+      "accessed_at": "2026-08-17",
+      "language": "ja"
     }
   ],
   "evidence": [
@@ -69,6 +104,18 @@
       "target_id": "sts-niihama-taiko-current-2026-08-17",
       "assertion_code": "supports_current_state",
       "summary_ja": "愛媛県公式観光サイトは新居浜太鼓祭りを現行イベントとして掲載し、桟敷席オンライン予約を2026年9月30日まで受け付けると案内しているため、2026年8月17日時点の活動継続を確認できる。",
+      "captured_at": "2026-08-17",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-gujo-odori-2025-result",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-gujo-odori-activity-report-2025",
+      "target_type": "occurrence",
+      "target_id": "occ-gujo-odori-2025",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "郡上市公開の令和7年度事業報告書は、2025年7月12日のおどり発祥祭から9月6日のおどり納めまでの開催日程を記録し、シーズン中29夜が実施され、予定日のうち1日が荒天で中止となったことを報告している。全開催期が無変更で完遂されたとは扱わず、年次開催期を partially_held / modified とする根拠に限定する。",
       "captured_at": "2026-08-17",
       "review_status": "approved"
     }
