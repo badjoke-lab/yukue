@@ -1,12 +1,12 @@
 # Yukue Future-site Seed Provenance Bundle
 
-**Status:** F2-P06 completed / F2-P09 and 2026-07-20 provenance refreshes / candidate provenance bundle only
+**Status:** candidate provenance bundle only / Jinja inactive / historical five-seed totals corrected 2026-08-17
 
 ## Purpose
 
-The F2-P05 inventory carries exact record IDs for later review. F2-P06 adds a self-contained public-safe `provenance.json` file containing the referenced records themselves.
+The future-site seed inventory carries exact public record IDs for later specialist-site review. The provenance bundle adds a self-contained public-safe `provenance.json` containing the referenced approved records themselves.
 
-This reduces later rework while preserving the candidate-only boundary. It does not make a seed publication-ready and does not activate another application. F2-P09 refreshed the generated bundle after adding shrine-operated official provenance for 大日霊貴神社. The 2026-07-20 maintenance refreshes add dedicated shrine-page identity Sources and approved Entity-identity Evidence for 櫛田神社, 阿蘇神社, and 秩父神社.
+This reduces later rework while preserving the candidate-only boundary. It does not make a seed publication-ready and does not activate another application.
 
 ## Command
 
@@ -23,7 +23,7 @@ Output:
   summary.md
 ```
 
-## F2-P06 hosted verification
+## Historical F2-P06 verification
 
 ```text
 Workflow         Build Yukue future-site seed inventory
@@ -34,15 +34,7 @@ Artifact name    yukue-future-site-seeds-19d6c208254373a3b68de148bfb8abc3af46998
 Artifact digest  sha256:68b75dad78b7eee5bc14fcec05d466c8e515aedcfaab58d3fa7f4de122d4ef3d
 ```
 
-Readiness compatibility:
-
-```text
-Workflow    Audit Yukue future-site seed readiness
-Run ID      29491507883
-Conclusion  success
-```
-
-F2-P06 bundle totals were:
+The F2-P06 five-seed bundle totals were:
 
 ```text
 Seed handoffs              5
@@ -55,20 +47,24 @@ Relations                  5
 State Snapshots            0
 ```
 
-## Current bundle totals
+Later 2026-07 provenance refreshes expanded that original five-seed bundle to 10 Sources and 14 Evidence records. Those values are historical snapshots of the original five-seed corpus and are **not** the current full Jinja seed aggregate.
+
+## Current aggregate boundary
+
+Matsuri corpus expansion subsequently increased the machine-enforced blocked Jinja baseline to:
 
 ```text
-Seed handoffs              5
-Seed Entities              5
-Matsuri context Entities   5
-Places                     5
-Sources                   10
-Evidence                  14
-Relations                  5
-State Snapshots            0
+Observed on                       2026-08-11
+Relation-backed Jinja seeds       26
+Direct identity Evidence          30
+Place references                  26
+Approved shrine State Snapshots    0
+Seeds with official URLs          19
 ```
 
-The provenance refreshes add four Sources and four direct Entity-identity Evidence records relative to the F2-P06 baseline. 大日霊貴神社 carries its shrine-operated Source in addition to the existing 鹿角市 Source. 櫛田神社 carries a dedicated shrine page in addition to the existing official festival schedule Source. 阿蘇神社 carries a dedicated shrine overview in addition to the official restoration record. 秩父神社 carries a dedicated祭神・由緒 page in addition to the official night-festival page. 佐太神社 retains its official homepage because that page already directly identifies the shrine and its core context. Existing Relation Evidence and Sources remain separately included. The zero State Snapshot count is preserved rather than inferred away.
+These aggregate values are enforced by `config/jinja-start-gate.json` and recalculated from the canonical Matsuri dataset by `scripts/check-jinja-start-gate-record.mjs`.
+
+The provenance bundle itself is generated. Its exact current Source, Evidence, Relation, and context-Entity totals must therefore be obtained from a fresh `pnpm audit:yukue:future-site-seeds` artifact rather than copied forward from the five-seed F2-P06 snapshot.
 
 ## Bundle contents
 
@@ -85,27 +81,17 @@ records.state_snapshots
 
 `seed_entities` is a public handoff projection rather than an unrestricted internal record dump. It contains public identity, summary, geography, Place references, external links, lifecycle, and version metadata.
 
-`matsuri_context_entities` contains only the ID, type, and preferred Japanese name required to interpret Relation context.
+`matsuri_context_entities` contains only the identity needed to interpret Relation context.
 
 ## Reference closure
 
-For each seed the bundle includes:
-
-- the seed Entity projection,
-- every Place referenced by the handoff,
-- Sources referenced by the seed Entity names,
-- Sources referenced by included Places,
-- direct Entity-identity Evidence and its Source,
-- approved State Snapshots and their basis Evidence when present,
-- approved Relations to Matsuri specialist Entities,
-- Relation Evidence and its Source,
-- minimal Matsuri counterpart identities.
+For each seed the bundle includes the supported records needed to interpret its handoff, including Places, identity Evidence and Sources, approved State Snapshots when present, Relation Evidence and Sources, and minimal Matsuri counterpart identity.
 
 The builder fails on missing records, unapproved Evidence, wrong Evidence targets, missing Evidence Sources, invalid Relation endpoints, drifted handoff IDs, or missing target-site-review boundaries.
 
 ## Boundaries
 
-The bundle declares:
+The bundle declares or enforces the equivalent of:
 
 ```text
 publication_ready_claimed          false
@@ -116,18 +102,11 @@ private_notes_included             false
 uses_only_approved_public_records  true
 ```
 
-The bundle must not contain:
-
-- a private candidate queue,
-- ranking or confidence notes,
-- unresolved private source conflicts,
-- credentials or operational account data,
-- inferred State or official URL values,
-- a decision to start Jinja, Jiin, or Tomurai.
+The bundle must not contain a private candidate queue, ranking/confidence notes, credentials, inferred State or official URL values, or a decision to start Jinja, Jiin, or Tomurai.
 
 ## Compatibility
 
-`inventory.json` remains `format_version: 1`. `provenance.json` remains `format_version: 1`. The provenance refreshes add records and references without changing either structure, and the readiness audit continues to consume `inventory.json` unchanged.
+`inventory.json` and `provenance.json` remain generated public-safe handoff artifacts. Seed preparation does not authorize `apps/jinja`, a Jinja Worker, hostname activation, or publication.
 
 ## Hosted workflow
 
@@ -135,4 +114,4 @@ The bundle must not contain:
 Build Yukue future-site seed inventory
 ```
 
-The workflow generates and uploads all three files. It requires no Cloudflare access and deploys nothing.
+The workflow generates and uploads the inventory, provenance bundle, and summary. It requires no Cloudflare access and deploys nothing.
