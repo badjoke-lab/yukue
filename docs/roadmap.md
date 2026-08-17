@@ -1,6 +1,6 @@
 # Project Roadmap
 
-**Status:** Phase 9 completed / Phase 10 Detail C completed / prefecture breadth 47 / 47 completed / depth-first Matsuri maintenance active / stabilization reviewing and incomplete
+**Status:** Phase 9 completed / Phase 10 Detail C completed / prefecture seed baseline 47 / 47 completed / nationwide Matsuri scaling active / stabilization reviewing and incomplete
 
 ## Phase 0 through Phase 8
 
@@ -35,14 +35,14 @@ Contract:
 docs/matsuri-detail-c-implementation.md
 ```
 
-### Phase 10B — Prefecture breadth
+### Phase 10B — Prefecture seed baseline
 
-Status: **Completed**
+Status: **Completed, not national completion**
 
-Verified checkpoint after Batch 43:
+The Batch 43 checkpoint established at least one reviewed primary Matsuri record in all 47 prefectures.
 
 ```text
-Primary prefecture coverage  47 / 47
+Primary prefecture presence  47 / 47
 Public Entities              120
 Places                       108
 State Snapshots               56
@@ -52,25 +52,17 @@ Occurrences                  166
 Sitemap entries              238
 Sources                      318
 Evidence                     699
-Prefecture gaps                0
-Sparse primary Entities        0
 ```
 
-Batch 43 added the first approved primary record for 宮崎県 through 宮﨑神宮大祭（神武さま）. The Festival is linked to 宮﨑神宮 through an evidence-backed ritual Relation, records the annual例祭/御神幸 recurrence, preserves the Shrine anchor and distributed procession route as separate Places, records the 2024 edition as `held / modified`, keeps the future 2026 edition as `scheduled / unknown`, and adds the year-level c.1909 current-form establishment Change Event.
+This proves geographic representation under the original sampling rule. It does not prove nationwide corpus breadth, municipality coverage, or practical discovery coverage.
 
-Exact canonical-production verification passed for release:
+The earlier rule that 47 / 47 meant geographic breadth was no longer an expansion axis is superseded for nationwide-corpus planning.
 
-```text
-3604d984c71bb71f3b66245b87fa869a64ec85b3
-```
+### Phase 10C — Maintenance and stabilization
 
-All 47 prefectures now have at least one reviewed primary Matsuri record under the current corpus-coverage rule. Geographic breadth is therefore no longer the default expansion axis.
+Status: **Active in parallel**
 
-### Phase 10C — Depth-first maintenance
-
-Status: **Active**
-
-Subsequent Matsuri work should prioritize:
+Continue:
 
 - due and historical Occurrence closure using explicit Evidence;
 - Change Events that explain state or format transitions;
@@ -80,7 +72,48 @@ Subsequent Matsuri work should prioritize:
 - corrections and dated maintenance;
 - Detail C, map, Search, and machine-readable regression maintenance.
 
-New primary Entities remain allowed when they add substantive coverage, but raw Entity-count growth is not a target.
+Maintenance remains mandatory but is not the only product track.
+
+### Phase 10D — Nationwide corpus scaling
+
+Status: **Active**
+
+Governing specification:
+
+```text
+docs/nationwide-corpus-scaling.md
+```
+
+The goal is to move from a high-quality initial corpus to national-scale coverage without publishing thin directory shells.
+
+Key principles:
+
+```text
+thin discovery candidates          non-public only
+new public primary records         substantive Basic Profile + Observation required
+47 / 47 prefecture presence        seed baseline only
+automation                         discovery/drafting/dedupe/provenance, not auto-approval
+bulk public release                blocked until quality/depth machine gate exists
+future-site seeds                  not specialist-site public records
+```
+
+Implementation gates:
+
+```text
+NCS-01  governing docs aligned
+NCS-02  machine depth classifier and current baseline
+NCS-03  national authoritative-source inventory
+NCS-04  bulk candidate importer + deterministic dedupe
+NCS-05  non-public bulk dry run
+NCS-06  first public-quality pilot
+NCS-07  500 cumulative public-quality primary Matsuri records
+NCS-08  1,000 cumulative public-quality primary Matsuri records
+NCS-09  source-inventory-derived national target
+```
+
+The 500 and 1,000 checkpoints are scale tests, not declarations of completeness.
+
+The depth-preservation gate must prevent nationwide expansion from leaving the existing reviewed records as a small rich subset surrounded by permanently shallow new records.
 
 ### Parallel stabilization review
 
@@ -98,28 +131,7 @@ Machine record        config/matsuri-stabilization-review.json
 
 The state model is `observing -> reviewing -> complete`. Elapsed time alone does not complete Phase 10.
 
-Repository/public review inputs already recorded cover production availability, canonical/HTTPS behavior, canonical Search, crawler/sitemap behavior, freshness, Relation coverage, Evidence/corrections, and manual maintenance burden.
-
-Current public-safe review observations are:
-
-```text
-Known unresolved critical corrections   0
-Production deployment failures           1
-Manual maintenance burden                acceptable
-```
-
-The maintenance classification is deliberately `acceptable`, not `low`: the stabilization period required real corrective work, but fixes remained bounded and followed normal repository contracts and gates without correctness-gate bypass or untracked production-data mutation.
-
-The remaining review dimensions require current private observation:
-
-```text
-Cloudflare Web Analytics traffic receipt   pending
-Search Console observation                 pending
-```
-
-Search-engine indexation itself remains outside the completion requirement. Historical F2-27 traffic and F2-24 Search Console evidence are not automatically reused as current stabilization observations.
-
-Batch 43 continues to preserve the future-site boundary: a State-free Shrine seed can strengthen Matsuri identity, Place, history, and ritual Relations without authorizing Jinja State inference. The future 2026 宮﨑神宮大祭 edition also remains `scheduled / unknown` until post-event Evidence supports another outcome.
+Current owner-private review dimensions remain Cloudflare Web Analytics traffic receipt and Search Console observation. Their pending state does not authorize bypassing correctness gates and does not prohibit repository-only NCS preparation.
 
 ## Phase 11 — Portal and next-site gates
 
@@ -132,4 +144,15 @@ Jinja State specification             unapproved
 Explicit start authorization          absent
 ```
 
-The current candidate inventory is 26 Relation-backed Shrine seeds and zero approved Jinja State Snapshots. Seed accumulation and 47 / 47 Matsuri prefecture breadth do not activate the next site.
+The current State-free Shrine candidate inventory is useful seed material but does not constitute a 神社のゆくえ corpus.
+
+Before any future specialist site activates, it must also satisfy the series-wide nationwide-scaling contract:
+
+- site-specific substantive public-record minimum;
+- source inventory;
+- candidate ingestion and dedupe path;
+- machine-readable quality/depth metrics;
+- public quality gate;
+- initial corpus meeting that gate.
+
+This applies to 神社のゆくえ, 寺院のゆくえ, and 弔いのゆくえ.

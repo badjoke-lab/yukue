@@ -6,13 +6,16 @@ This directory contains the public project reference documents for the Yukue Ser
 
 Before implementing a feature, check the relevant document here. When a gate changes, update the governing specification, machine record, current status, active schedule, roadmap, and verification contract in the same bounded pull request.
 
+For corpus expansion, bulk ingestion, coverage metrics, future-site seeds, or specialist-site activation, `nationwide-corpus-scaling.md` is a governing specification and must be read together with `project-status.md` and `development-schedule.md`.
+
 ## Current launch and stabilization references
 
 | Document | Status | Purpose |
 |---|---|---|
-| `project-status.md` | Living / stabilization reviewing | Current phase, completed F2 state, blockers, and immediate next work |
-| `development-schedule.md` | Current / Phase 10 active | Concrete maintenance and bounded post-launch review sequence |
-| `roadmap.md` | Phase 10 reviewing | Long-range phases and gates |
+| `project-status.md` | Living / nationwide scaling active / stabilization reviewing | Current phase, completed F2 state, nationwide scaling track, blockers, and immediate next work |
+| `development-schedule.md` | Current / Phase 10 active | Concrete NCS sequence plus maintenance and bounded post-launch review order |
+| `roadmap.md` | Phase 10 active | Long-range phases and gates |
+| `nationwide-corpus-scaling.md` | Accepted direction / governing specification | National breadth, anti-thin-record rule, substantive public minimum, automation boundary, depth-preservation gate, and future-site quality prerequisites |
 | `matsuri-stabilization-review.md` | Active contract | `observing -> reviewing -> complete` state machine, minimum duration, evidence, privacy, and completion rules |
 | `audits/matsuri-stabilization-start-2026-07-27.md` | Observation-start audit | Public-safe start record and earliest eligible review date |
 | `audits/matsuri-stabilization-review-eligibility-2026-08-11.md` | Review-eligibility audit | Calendar eligibility transition without completing the formal review |
@@ -20,13 +23,15 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | `audits/matsuri-stabilization-maintenance-review-2026-08-12.md` | Maintenance review passed | Known critical-correction count, production deployment-failure count, maintenance burden, and transition to reviewing; private observations remain pending |
 | `audits/matsuri-detail-c-embedded-map-remediation-2026-07-28.md` | Passed corrective audit | Embedded-map remediation, exhaustive coverage, browser checks, and visual proof |
 | `matsuri-repository-baseline.md` | Machine-checked current | Exact bundle, Entity, launch-boundary, and Jinja-boundary values |
-| `audits/matsuri-batch-43-production-verification-2026-08-11.md` | Passed production audit | Batch 43 release, 47/47 breadth, Miyazaki routes, 2024 held/modified and 2026 scheduled assertions, sitemap, and canonical verification |
+| `audits/matsuri-batch-43-production-verification-2026-08-11.md` | Passed production audit | Batch 43 release, 47/47 prefecture seed baseline, Miyazaki routes, 2024 held/modified and 2026 scheduled assertions, sitemap, and canonical verification |
 | `audits/matsuri-f2-27-production-traffic-2026-07-27.md` | Passed audit | Public-safe production traffic evidence |
 | `audits/matsuri-f2-28-final-launch-gate-2026-07-27.md` | Passed audit | Final F2 launch evaluation |
 | `deployment-topology.md` | Matsuri active | Portal and specialist-site hostname and Worker boundaries |
 | `jinja-start-gate.md` | Blocked post-launch guardrail | Remaining prerequisites before Jinja implementation |
 
 ## Corpus expansion audits
+
+The 47 / 47 result below is now treated as a **prefecture seed baseline**, not nationwide corpus completion. Historical audit results remain valid records of the original expansion work.
 
 | Batch | Audit | Result |
 |---:|---|---|
@@ -62,26 +67,45 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | 40 | `audits/matsuri-corpus-expansion-batch-40-2026-08-10.md` | Niigata breadth through Niigata Matsuri with a 1955 start and verified 2025 held/modified edition |
 | 41 | `audits/matsuri-corpus-expansion-batch-41-2026-08-10.md` | Yamaguchi breadth through Yamaguchi Gion Matsuri with a 1459 start and verified 2023 held edition |
 | 42 | `audits/matsuri-corpus-expansion-batch-42-2026-08-11.md` | Wakayama breadth through Waka Matsuri with a 1622 start and verified 2026 held edition |
-| 43 | `audits/matsuri-corpus-expansion-batch-43-2026-08-11.md` | Miyazaki breadth through Miyazaki Jingu Grand Festival, completing 47/47 prefecture coverage with 2024 held/modified and 2026 scheduled editions |
+| 43 | `audits/matsuri-corpus-expansion-batch-43-2026-08-11.md` | Miyazaki breadth through Miyazaki Jingu Grand Festival, completing 47/47 prefecture seed coverage with 2024 held/modified and 2026 scheduled editions |
 
 ## Core specifications
 
 | Document | Status | Purpose |
 |---|---|---|
-| `project-concept.md` | Current | Series purpose and boundaries |
-| `product-spec.md` | Working | Product capabilities and user needs |
-| `public-data-model.md` | Working | Public record model and projection rules |
-| `matsuri-mvp-spec.md` | Working | Matsuri MVP scope |
+| `project-concept.md` | Current | Series purpose, boundaries, and national breadth/depth direction |
+| `product-spec.md` | Working | Product capabilities, user needs, and public corpus quality expectations |
+| `nationwide-corpus-scaling.md` | Accepted direction / governing specification | Candidate/public boundary, substantive public minimum, depth-preservation rules, automation, coverage metrics, and future-site prerequisites |
+| `public-data-model.md` | Working | Public record model, candidate boundary, derived quality/depth classes, and projection rules |
+| `matsuri-mvp-spec.md` | Working | Matsuri scope, vocabularies, public-record minimum reference, and future-site seed boundary |
 | `information-architecture.md` | Accepted / implemented | Home H1 and Detail C order, including required embedded-map behavior |
 | `matsuri-detail-c-implementation.md` | Required implementation contract | Detail composition, routes, Relations, Evidence, Places, maps, seeds, individual JSON, and build failures |
 | `ui-direction.md` | Accepted direction | Visual character, typography, palette, and layout language |
 | `design-tokens.md` | Initial baseline | Shared typography, color, spacing, layout, and component tokens |
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
 | `technical-architecture.md` | F2 production baseline | Build, search, deployment, canonical metadata, crawler, and Search Console evidence |
-| `verification-policy.md` | Current | Review and publication rules |
+| `verification-policy.md` | Current | Review and publication rules, including bulk-scaling fail-close boundaries |
 | `source-policy.md` | Current | Source and Evidence rules |
 | `image-policy.md` | Current | Real-image, rights, credit, and gallery rules |
 | `machine-readable-layer.md` | Current direction | Public machine-readable outputs and crawler invariants |
+
+## Nationwide scaling checkpoints
+
+```text
+NCS-01  governing specification and schedule alignment
+NCS-02  machine quality/depth classifier over existing corpus
+NCS-03  national authoritative-source inventory
+NCS-04  deterministic candidate importer + identity/dedupe pipeline
+NCS-05  non-public bulk dry run and error audit
+NCS-06  first public-quality expansion pilot
+NCS-07  cumulative 500 public-quality primary Matsuri records
+NCS-08  cumulative 1,000 public-quality primary Matsuri records
+NCS-09  source-inventory-derived national coverage target
+```
+
+500 and 1,000 are scaling checkpoints, not nationwide-completion claims.
+
+Thin name/location/link subjects may exist only as non-public candidates. They are not a public coverage tier.
 
 ## Data and maintenance contracts
 
@@ -95,6 +119,12 @@ Before implementing a feature, check the relevant document here. When a gate cha
 | `matsuri-data-freshness-contract.md` | Active | Strict outcome, State-age, and link-age gate |
 | `matsuri-relation-coverage-contract.md` | Active | Strict zero-gap Relation gate |
 | `visual-review-workflow.md` | Active | Representative full-page screenshot and embedded-map review contract |
+
+## Future-site quality boundary
+
+State-free Shrine and Temple records extracted from Matsuri are candidate/reference seeds only. They are not automatically acceptable public primary records for 神社のゆくえ or 寺院のゆくえ.
+
+Each future specialist site must define and enforce its own substantive public-record minimum, authoritative source inventory, ingestion/dedupe path, machine quality/depth metrics, and public quality gate before activation. The same requirement applies to 弔いのゆくえ.
 
 ## Public/private boundary
 

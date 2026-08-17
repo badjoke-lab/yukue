@@ -23,6 +23,32 @@ Evidence
 
 The public website consumes a denormalized Public Projection generated from approved records.
 
+## Candidate versus public record
+
+Candidate discovery records are not part of the Public Data Model.
+
+A bulk-ingestion candidate may contain only identity, geography, and source pointers, but it remains outside the approved Public Projection until it satisfies the substantive public-record contract in `nationwide-corpus-scaling.md`.
+
+Do not add a public `directory_only`, `index_only`, or equivalent record type to bypass the product model.
+
+For primary Matsuri records, the public minimum requires a substantive Basic Profile plus evidence-bounded Observation. New public records must not be reduced to name/location/link shells merely because they came from a bulk source.
+
+## Derived public quality / depth
+
+Quality/depth classification is derived from approved record coverage; it is not a weaker publication tier.
+
+Planned derived classes:
+
+```text
+public_core
+history_enriched
+monitored
+```
+
+`public_core` means the substantive public minimum is already satisfied.
+
+The machine classifier must be implemented before bulk public publication and must not require weakening existing schemas or evidence semantics.
+
 ## Entity
 
 Shared public fields include:
@@ -84,6 +110,8 @@ map_label_ja
 
 Geographic scope and Place are different: scope describes area coverage; Place identifies a concrete place.
 
+Bulk ingestion must not manufacture point coordinates for route-based or distributed subjects.
+
 ## State Snapshot
 
 Representative fields:
@@ -100,6 +128,8 @@ review_status
 ```
 
 Current State is derived from the latest applicable approved snapshot.
+
+`unknown` is not a substitute for skipped research. It must be an approved evidence-bounded state result.
 
 ## Change Event
 
@@ -164,6 +194,8 @@ unknown
 
 A cancelled occurrence does not automatically change Entity State.
 
+A past scheduled date does not imply `held`. Bulk import and automated freshness work must preserve this fail-close rule.
+
 ## Occurrence Series
 
 Optional. Used only when one Entity has meaningfully distinct recurring performance or ritual contexts.
@@ -190,11 +222,15 @@ Relations are directed, evidence-backed, and may have validity periods.
 
 Examples include held_at, performed_at, dedicated_at, historically_dedicated_at, hosted_by, organized_by, maintained_by, supported_by, member_of, successor_of, includes_performance, includes_tradition, includes_unit, participates_in, part_of_tradition, ritually_associated_with, and historically_associated_with.
 
+Bulk ingestion may propose candidate Relations but may not publish unsupported generic associations merely to increase graph density.
+
 ## Source and Evidence
 
 A Source identifies an information source. Evidence explains how that Source supports a specific assertion or target record.
 
 Evidence targets may include state_snapshot, change_event, occurrence, relation, designation, recurrence_pattern, entity_identity, name_variant, location, and place.
+
+The same Source may support multiple claims only through explicit Evidence mappings. Bulk import does not collapse Source and Evidence into one link field.
 
 ## Image Asset
 
@@ -237,3 +273,5 @@ See `image-policy.md`.
 The Projection may denormalize identity, profile, Current State, Latest Occurrence, occurrence history, changes, relations, designations, public images, and Sources for efficient rendering.
 
 Public HTML, JSON, JSON-LD, search index, sitemap, and discovery files should be generated from the same approved projection.
+
+Candidate-only records and private promotion queues must not leak into these outputs.

@@ -32,7 +32,8 @@ Before modifying code or public data:
 2. read `docs/project-status.md`,
 3. read `docs/development-schedule.md`,
 4. read the governing specification documents for the task,
-5. read the nearest nested `AGENTS.md` for the path being changed.
+5. for corpus expansion, bulk ingestion, coverage metrics, future-site seeds, or specialist-site activation, read `docs/nationwide-corpus-scaling.md`,
+6. read the nearest nested `AGENTS.md` for the path being changed.
 
 Do not treat chat history as the implementation source of truth when repository documentation exists.
 
@@ -84,6 +85,9 @@ real images only
 no placeholder images
 static-first architecture
 approved Public Projection boundary
+national breadth and record depth must scale together
+thin index-only subjects remain non-public candidates
+future-site seeds are not specialist-site public corpus records
 ```
 
 ## Data-model invariants
@@ -101,6 +105,8 @@ A cancelled Occurrence does not automatically change Entity State.
 `revived` is not a standard Current State value.
 
 Do not introduce generic relations when a precise relation is supported.
+
+For nationwide scaling, do not weaken the current model to fit a bulk importer. Importers must adapt to the existing Source/Evidence, State/Occurrence, Place/scope, Relation, correction, and freshness contracts.
 
 ## UI invariants
 
@@ -159,7 +165,12 @@ Update documentation when changing:
 - image rules,
 - machine-readable outputs,
 - roadmap gates,
-- active schedule sequence.
+- active schedule sequence,
+- corpus scaling rules,
+- public record minimums,
+- coverage/depth metrics.
+
+For corpus expansion, bulk ingestion, future-site seed work, and specialist-site activation, treat `docs/nationwide-corpus-scaling.md` as a governing specification. Do not publish name/location/link shells as primary records.
 
 ## Required validation
 
@@ -190,6 +201,15 @@ A PR should state:
 - validation run,
 - known limitations,
 - documentation updated when needed.
+
+A corpus-expansion or bulk-ingestion PR should additionally state:
+
+- candidate count separately from approved public count,
+- identity/dedupe results,
+- substantive public-record gate results,
+- quality/depth distribution impact,
+- promotion-backlog impact,
+- genuine source-ceiling exceptions.
 
 A non-trivial UI PR should additionally state:
 

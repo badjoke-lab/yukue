@@ -315,6 +315,42 @@ Configuration committed to Git does not itself complete F2-20. Completion still 
 
 The portal hostname remains excluded from the Matsuri Wrangler configuration.
 
+## 2026-08-18 — Nationwide corpus breadth and public-record quality must scale together
+
+Decision: **47 / 47 prefecture presence is a seed baseline, not nationwide corpus completion.**
+
+The previous post-Batch-43 direction that raw breadth expansion was no longer a default axis is superseded for national-corpus planning.
+
+Accepted model:
+
+```text
+non-public bulk candidate discovery
++
+substantive reviewed public-record minimum
++
+continuous historical / observation deepening
+```
+
+A thin name/location/link record is not a public Matsuri tier. It may exist only as a candidate outside the approved Public Projection.
+
+Every newly published primary Matsuri record must meet the substantive minimum in:
+
+```text
+docs/nationwide-corpus-scaling.md
+```
+
+That minimum includes a real Basic Profile, evidence-bounded Current State, and at least one completed dated Occurrence with a non-scheduled outcome or an evidence-backed Change Event when a completed Occurrence cannot responsibly be established.
+
+The current reviewed corpus must not become a permanently richer legacy subset surrounded by shallow bulk-added records.
+
+Before bulk public expansion, the repository must implement machine-readable depth metrics and a release guard. Every expansion release train must contain substantive depth upgrades as well as new public Entities, and backlog growth must be bounded.
+
+State-free Shrine / Temple seed references remain valid cross-site support records for Matsuri but must not be promoted unchanged into the primary public corpus of future specialist sites.
+
+The same anti-thin-record rule applies to 神社のゆくえ, 寺院のゆくえ, and 弔いのゆくえ. Each requires its own substantive public-record contract, source inventory, ingestion/dedupe path, machine quality metrics, and public quality gate before activation.
+
+The implementation sequence is NCS-01 through NCS-09 in `docs/development-schedule.md`.
+
 ## Open decisions
 
 - final map component implementation,
@@ -323,4 +359,5 @@ The portal hostname remains excluded from the Matsuri Wrangler configuration.
 - slug policy,
 - JSON partition threshold,
 - whether Stats enters MVP,
-- whether Compare enters MVP.
+- whether Compare enters MVP,
+- exact machine thresholds for `public_core`, `history_enriched`, and promotion-backlog release guards after the existing corpus is measured under NCS-02.
