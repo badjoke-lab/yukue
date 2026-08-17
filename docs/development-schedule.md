@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-28 completed / Detail C completed / Matsuri prefecture seed baseline 47 / 47 completed / NCS-02 A/B/C baseline active / nationwide public corpus scaling active / stabilization reviewing / Jinja blocked
+**Status:** F2-28 completed / Detail C completed / Matsuri prefecture seed baseline 47 / 47 completed / NCS-02 A/B/C baseline completed / NCS-03 national source inventory active / nationwide public corpus scaling active / stabilization reviewing / Jinja blocked
 
 This project is gate-driven rather than deadline-driven.
 
@@ -20,8 +20,8 @@ Phase 10B Prefecture seed     completed 47 / 47
 Phase 10C Maintenance         active
 Phase 10D Nationwide scaling  active
 NCS-01                        completed
-NCS-02                        A/B/C baseline measured / exact-head alignment active
-NCS-03                        next
+NCS-02                        completed
+NCS-03                        active
 Corpus batches 11-43          completed
 Stabilization review          reviewing
 Formal review complete        false
@@ -78,8 +78,8 @@ Tier A creates national public discovery breadth. Tier B adds verified profile/c
 
 ```text
 NCS-01  governing specification / schedule alignment                    completed
-NCS-02  A/B/C classifier + current-corpus baseline                       active / exact-head sync
-NCS-03  national authoritative-source inventory                          next
+NCS-02  A/B/C classifier + current-corpus baseline                       completed
+NCS-03  national authoritative-source inventory                          active
 NCS-04  deterministic candidate + Tier A importer / identity-dedupe      pending
 NCS-05  bulk dry run + Tier A publication-readiness audit                pending
 NCS-06  first bounded Tier A public wave + continuous A→B promotion      pending
@@ -139,9 +139,9 @@ Tier C adds longitudinal value such as multiple-year Occurrences, cancellation/p
 
 Tier C deepening continues while Tier A breadth and Tier B verification continue.
 
-### NCS-02 measured baseline
+### NCS-02 completed baseline
 
-Current exact A/B/C baseline from workflow run `32080250053`, job `95541708043`:
+NCS-02 was merged by PR #270 at main commit `031b5de385330d9ef1eb3db728a8b11a3d04807c`.
 
 ```text
 Specialist primary subjects                  57
@@ -168,6 +168,42 @@ The 37 / 57 value is not a Tier A/B publication floor.
 
 The current 19 Tier A records lack authentic Tier A publication timestamps in the legacy model, so the classifier reports their age as metadata-missing rather than inventing an overdue age.
 
+### NCS-03 — National authoritative-source inventory
+
+Status: **Active**
+
+NCS-03 must inventory source families before importer implementation. It must distinguish:
+
+```text
+national structured / enumerated public sources
+prefectural cultural-property or cultural-policy sources
+municipal cultural-property / local-government sources
+official tourism bodies
+official festival / preservation / organizer organizations
+shrine / temple official sources where directly relevant
+discovery-only sources
+rights/reuse constraints
+```
+
+For every source family, record at least:
+
+```text
+publisher / authority level
+geographic scope
+subject coverage
+structured / enumerated capability
+Tier A identity suitability
+Tier B claim suitability where applicable
+source verification/access-date capability
+bulk/discovery method
+partition/pagination ceiling where known
+rights / reuse boundary
+expected identity / geography fields
+known source ceilings
+```
+
+NCS-03 does not itself publish candidate records and does not activate an importer. Its output is the source contract NCS-04 will consume.
+
 ### Public-growth guard
 
 The nationwide track must report public growth and verification depth separately:
@@ -192,9 +228,9 @@ High-volume publication must not bypass Tier A identity/source/dedupe review. Ho
 ### Immediate execution order
 
 ```text
-1. finish NCS-02 exact-head A/B/C specification + baseline verification
-2. merge NCS-02 only after its own policy/classifier drift is resolved and exact-head checks are understood
-3. build NCS-03 national authoritative-source inventory
+1. complete NCS-03 national authoritative-source inventory
+2. formalize source-family suitability and rights/reuse boundaries
+3. define national-source partition/discovery strategy and prefectural/municipal fallback families
 4. implement NCS-04 candidate + Tier A importer, provenance capture, publication timestamp, identity/dedupe checks
 5. run NCS-05 bulk dry run + Tier A publication-readiness audit
 6. fix importer/source-quality defects found by the dry run
