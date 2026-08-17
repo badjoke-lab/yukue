@@ -56,16 +56,34 @@ try {
   if (baseline.boundaries?.existing_records_exempt_from_quality_deepening !== false) {
     throw new Error("Existing records must remain inside the quality-deepening scope.");
   }
+  if (baseline.boundaries?.history_depth_floor_defined !== true) {
+    throw new Error("NCS-02 must preserve the measured history-depth floor before nationwide public expansion.");
+  }
   if (baseline.boundaries?.release_threshold_defined !== false) {
-    throw new Error("NCS-02 must not invent a bulk-release threshold before the release guard is designed.");
+    throw new Error("NCS-02 must not claim the full bulk-release guard is complete before backlog bounds are implemented.");
   }
 
   assertEqual("Corpus quality counts", baseline.counts, report.counts);
   assertEqual("Corpus quality by_entity_type", baseline.by_entity_type, report.by_entity_type);
   assertEqual("Corpus quality unmet_check_counts", baseline.unmet_check_counts, report.unmet_check_counts);
 
+  const expectedHistoryReference = {
+    denominator_specialist_primary_subjects: report.counts.specialist_primary_subjects,
+    at_least_one_completed_occurrence_year: report.counts.with_completed_occurrence_history,
+    at_least_two_completed_occurrence_years:
+      report.counts.with_multi_year_completed_occurrence_history,
+    minimum_new_release_multi_year_numerator:
+      report.counts.with_multi_year_completed_occurrence_history,
+    minimum_new_release_multi_year_denominator: report.counts.specialist_primary_subjects,
+  };
+  assertEqual(
+    "Corpus history-depth reference",
+    baseline.history_depth_reference,
+    expectedHistoryReference,
+  );
+
   console.log(
-    `Matsuri corpus quality baseline check passed: ${report.counts.specialist_primary_subjects} specialist primary subjects, ${report.counts.public_core_machine} machine public_core, ${report.counts.with_completed_occurrence_history} with completed Occurrence history, bulk publication remains blocked.`,
+    `Matsuri corpus quality baseline check passed: ${report.counts.specialist_primary_subjects} specialist primary subjects, ${report.counts.with_completed_occurrence_history} with completed Occurrence history, ${report.counts.with_multi_year_completed_occurrence_history} with multi-year completed Occurrence history; bulk publication remains blocked.`,
   );
 } finally {
   fs.rmSync(outputRoot, { recursive: true, force: true });
