@@ -315,41 +315,157 @@ Configuration committed to Git does not itself complete F2-20. Completion still 
 
 The portal hostname remains excluded from the Matsuri Wrangler configuration.
 
-## 2026-08-18 — Nationwide corpus breadth and public-record quality must scale together
+## 2026-08-18 — Public A/B/C nationwide corpus model supersedes the earlier anti-thin publication gate
 
-Decision: **47 / 47 prefecture presence is a seed baseline, not nationwide corpus completion.**
+Decision: **Tier A is a public national Index layer. Tier B is Public Verified. Tier C is Public History / Monitoring.**
 
-The previous post-Batch-43 direction that raw breadth expansion was no longer a default axis is superseded for national-corpus planning.
+This decision supersedes the earlier 2026-08-18 NCS wording that treated thin source-backed records as necessarily non-public and tied first publication to completed Occurrence / Change Event / multi-year-history gates.
 
 Accepted model:
 
 ```text
-non-public bulk candidate discovery
-+
-substantive reviewed public-record minimum
-+
-continuous historical / observation deepening
+private candidate preparation when needed
+→ reviewed Tier A Public Index
+→ target Tier B Public Verified in about 7 calendar days
+→ continuous Tier C Public History / Monitoring deepening
 ```
 
-A thin name/location/link record is not a public Matsuri tier. It may exist only as a candidate outside the approved Public Projection.
-
-Every newly published primary Matsuri record must meet the substantive minimum in:
+The tracks operate in parallel:
 
 ```text
-docs/nationwide-corpus-scaling.md
+publish valid Tier A breadth continuously
++
+verify Tier A → Tier B continuously
++
+deepen Tier B → Tier C continuously
 ```
 
-That minimum includes a real Basic Profile, evidence-bounded Current State, and at least one completed dated Occurrence with a non-scheduled outcome or an evidence-backed Change Event when a completed Occurrence cannot responsibly be established.
+### Tier A decision
 
-The current reviewed corpus must not become a permanently richer legacy subset surrounded by shallow bulk-added records.
+A Matsuri Tier A primary record requires the reviewed minimum in `docs/nationwide-corpus-scaling.md`:
 
-Before bulk public expansion, the repository must implement machine-readable depth metrics and a release guard. Every expansion release train must contain substantive depth upgrades as well as new public Entities, and backlog growth must be bounded.
+- canonical identity / entity boundary and subject type;
+- prefecture plus municipality when municipality-bounded, or an appropriate broader geographic scope;
+- at least one approved official/public/otherwise authoritative source;
+- source verification/access date;
+- deterministic identity / duplicate check;
+- machine-visible Tier A classification and a real publication timestamp for newly published Tier A records.
 
-State-free Shrine / Temple seed references remain valid cross-site support records for Matsuri but must not be promoted unchanged into the primary public corpus of future specialist sites.
+A reviewed name + geography + authoritative source is an acceptable public Tier A record.
 
-The same anti-thin-record rule applies to 神社のゆくえ, 寺院のゆくえ, and 弔いのゆくえ. Each requires its own substantive public-record contract, source inventory, ingestion/dedupe path, machine quality metrics, and public quality gate before activation.
+Tier A may appear in public detail pages, browse/search, public JSON, sitemap, and indexable discovery surfaces.
 
-The implementation sequence is NCS-01 through NCS-09 in `docs/development-schedule.md`.
+Tier A does not require Current State, completed Occurrence, Change Event, multi-year history, Place, organizer, Relation, or coordinates. Unsupported facts remain absent rather than inferred.
+
+### Tier A → B timing decision
+
+A newly published Tier A record is targeted for Tier B verification in about seven calendar days.
+
+The seven-day value is a service target and work-prioritization rule, **not** a global release blocker.
+
+Accepted behavior:
+
+- record the actual Tier A publication time;
+- calculate the Tier B target time;
+- report due/overdue Tier A and missing B dimensions;
+- prioritize overdue A→B work;
+- continue publishing unrelated valid Tier A records;
+- if Tier B cannot yet be supported, keep the valid record public as Tier A with the missing reason visible;
+- never invent facts to satisfy the target;
+- never automatically withdraw a valid Tier A only because seven days elapsed.
+
+A single difficult or overdue Tier A record must not stop nationwide expansion globally.
+
+### Tier B decision
+
+Tier B requires Tier A plus the applicable reviewed verification dimensions: substantive profile text, evidence-backed Current State, supportable Place/timing/organizer/Relation information, direct profile Evidence, authoritative-link review, and at least one dated evidence-backed observation anchor.
+
+The dated anchor may be an Occurrence, including a properly evidenced current scheduled Occurrence, or a Change Event.
+
+Tier B does not require multi-year history.
+
+### Tier C decision
+
+Tier C adds meaningful longitudinal history or monitoring, including multiple-year Occurrences, cancellation/postponement/partial-held/revival history, Change Events, governance or venue changes, freshness monitoring, or richer supported Relation history.
+
+Tier C is continuously deepened and is not a prerequisite for Tier A or Tier B publication.
+
+## 2026-08-18 — NCS-02 baseline is A/B/C classification, not a history release floor
+
+Decision: **the existing corpus is measured under the A/B/C model and historical depth ratios remain descriptive rather than prescriptive.**
+
+NCS-02 measured 57 Festival / Folk Performance specialist-primary records:
+
+```text
+Tier A — Public Index                        19
+Tier B — Public Verified                      8
+Tier C — Public History / Monitoring         30
+Below Tier A                                  0
+Public specialist-primary total              57
+
+with >= 1 completed Occurrence year          52 / 57
+with >= 2 completed Occurrence years         37 / 57
+with >= 1 evidence-backed Change Event       57 / 57
+Current State Evidence                       56 / 57
+Direct profile Evidence                      39 / 57
+```
+
+The old machine `public_core = 0 / 57` outcome is superseded as the governing classifier result. It came from applying Tier B-like dimensions such as Entity-level `description_ja` to every record and was not a valid representation of the Public Index layer.
+
+The `37 / 57` multi-year value remains a useful measurement of the current corpus but is **not**:
+
+- a new-record publication minimum;
+- a Tier A requirement;
+- a Tier B requirement;
+- a per-wave quota;
+- a corpus-wide floor that blocks breadth expansion.
+
+The following previously proposed rules are explicitly rejected and must not be restored without a new decision:
+
+```text
+Tier A-equivalent records must all remain non-public candidates
+completed Occurrence required for Tier A publication
+Change Event required for Tier A publication
+completed Occurrence + Change Event both required for Tier A
+37 / 57 or 64.9% multi-year-history release floor
+overdue Tier A globally blocks the next publication wave
+valid Tier A auto-withdraws after seven days
+public record count may remain near 57 while private candidates grow
+```
+
+NCS-02 remains measurement-only with respect to bulk publication: the classifier/baseline does not itself authorize the NCS-06 wave. NCS-03 source inventory, NCS-04 importer/dedupe/publication-time plumbing, and NCS-05 dry-run readiness work still precede NCS-06.
+
+## 2026-08-18 — Public checkpoints count A/B/C records, not private candidates
+
+Decision:
+
+```text
+NCS-07  cumulative 500 public primary Matsuri records
+NCS-08  cumulative 1,000 public primary Matsuri records
+```
+
+The checkpoints count public specialist-primary records across Tier A/B/C.
+
+Private candidate count is reported separately and never presented as national public coverage.
+
+NCS-06 begins actual Tier A publication while A→B verification runs in parallel. B→C deepening continues while new Tier A breadth is added.
+
+## 2026-08-18 — Four-site scale model, Matsuri-only current activation
+
+Decision: the series model remains:
+
+```text
+祭のゆくえ
+神社のゆくえ
+寺院のゆくえ
+弔いのゆくえ
+```
+
+The public A→B→C operating principle is intended to scale across all four specialist sites, but each future site must define its own Tier A identity/source minimum and Tier B verification dimensions.
+
+Matsuri Shrine/Temple Relation seeds do not automatically become Tier A records for 神社のゆくえ or 寺院のゆくえ.
+
+This Matsuri nationwide-scaling decision does **not** activate Jinja, Jiin, or Tomurai public implementation, hostnames, Workers, or publication.
 
 ## Open decisions
 
@@ -360,4 +476,5 @@ The implementation sequence is NCS-01 through NCS-09 in `docs/development-schedu
 - JSON partition threshold,
 - whether Stats enters MVP,
 - whether Compare enters MVP,
-- exact machine thresholds for `public_core`, `history_enriched`, and promotion-backlog release guards after the existing corpus is measured under NCS-02.
+- exact NCS-04 Tier A publication metadata/schema shape,
+- exact NCS-05/NCS-06 bounded pilot size after NCS-03 source inventory and dry-run evidence are available.

@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-28 completed / Detail C completed / Matsuri prefecture seed baseline 47 / 47 completed / nationwide corpus scaling active / stabilization reviewing / Jinja blocked
+**Status:** F2-28 completed / Detail C completed / Matsuri prefecture seed baseline 47 / 47 completed / NCS-02 A/B/C baseline active / nationwide public corpus scaling active / stabilization reviewing / Jinja blocked
 
 This project is gate-driven rather than deadline-driven.
 
@@ -19,92 +19,40 @@ Phase 10A Detail C repair     completed
 Phase 10B Prefecture seed     completed 47 / 47
 Phase 10C Maintenance         active
 Phase 10D Nationwide scaling  active
+NCS-01                        completed
+NCS-02                        A/B/C baseline measured / exact-head alignment active
+NCS-03                        next
 Corpus batches 11-43          completed
 Stabilization review          reviewing
-Formal review eligible        true
 Formal review complete        false
 Actual Jinja start gate       blocked
-```
-
-## Completed F2 launch sequence
-
-```text
-F2-16  Cloudflare Workers Builds connection — completed
-F2-17  first Workers Static Assets deployment — completed
-F2-18  deployed-origin smoke verification — completed
-F2-19  exact canonical Matsuri hostname decision — completed
-F2-20  Custom Domain activation and HTTPS verification — completed
-F2-21  canonical manifest and sitemap verification — completed
-F2-22  browser Pagefind Search verification — completed
-F2-23  crawler-reachability review — completed
-F2-24  Search Console sitemap submission and indexability check — completed
-F2-25  Cloudflare Web Analytics Automatic setup observed enabled — completed
-F2-26  post-activation main production deployment — completed
-F2-27  production traffic verification — completed
-F2-28  final F2 Launch Gate — completed
-```
-
-F2-28 does not claim search-engine indexation and does not authorize Jinja.
-
-## Phase 10A — Detail C product contract
-
-Status: **Completed and continuously enforced**
-
-```text
-real Festival / Performance / Organization detail pages
-State-free Shrine and Temple seed references
-Place pages with reverse links
-bidirectional Relations
-claim-linked Evidence and Sources
-individual public JSON
-Pagefind direct details
-complete sitemap coverage
-concrete map anchors or approved official maps
-static + Chromium + representative screenshot checks
 ```
 
 ## Phase 10B — Prefecture seed baseline
 
 Status: **Completed, but not nationwide corpus completion**
 
-The 47 / 47 checkpoint proves that every prefecture has at least one reviewed primary Matsuri record under the original breadth rule. It is now classified only as a geographic seed baseline.
+The 47 / 47 checkpoint proves only that every prefecture has at least one reviewed primary Matsuri record under the initial breadth rule.
 
 ```text
-Primary prefecture presence  47 / 47
 Public Entities              120
-Places                       108
-State Snapshots               56
-Change Events                106
-Relations                     70
-Occurrences                  166
-Sitemap entries              238
-Sources                      318
-Evidence                     699
+Specialist primary records    57
+Primary prefecture presence   47 / 47
 ```
 
-The previous instruction that geographic breadth was complete and Entity-count growth was no longer a target is superseded for nationwide-corpus planning. Quantity alone is still not a quality metric, but national public coverage is an explicit requirement.
+The public corpus must now grow from dozens to hundreds and then thousands where source inventory supports it. Private candidate discovery alone is not completion.
 
 ## Phase 10C — Matsuri maintenance and stabilization
 
 Status: **Active in parallel**
 
-Priority maintenance remains:
+Priority maintenance remains due Occurrence review, historical gaps, Change Events, Relation/provenance improvement, Source/Evidence quality, stale-State/link correction, and public-product regression maintenance.
 
-```text
-1. due 2026 Occurrence reviews with explicit post-event Evidence
-2. historical Occurrence gaps
-3. real Change Events that explain state or format transitions
-4. Relation density and provenance improvements
-5. claim-specific Evidence and Source quality
-6. stale-State / stale-link review and corrections
-7. Detail C / map / Search / machine-readable regression maintenance
-```
+Evidence boundaries remain strict: elapsed dates do not prove `held`; absence of cancellation evidence does not prove completion; unsupported organizer, Place, Relation, coordinate, or Current State claims are not added.
 
-Maintenance is no longer the sole primary product track. It runs in parallel with nationwide corpus scaling.
+Maintenance and nationwide scaling run in parallel. A difficult freshness case does not redefine the nationwide A/B/C publication model.
 
-Do not infer `held`, Current State changes, coordinates, Relations, or official links merely to close a maintenance or scaling gate.
-
-## Phase 10D — Nationwide Matsuri corpus scaling
+## Phase 10D — Nationwide Matsuri public corpus scaling
 
 Status: **Active**
 
@@ -114,93 +62,171 @@ Governing specification:
 docs/nationwide-corpus-scaling.md
 ```
 
-The objective is national-scale public coverage without creating a shallow directory.
+The operating model is:
+
+```text
+Tier A  Public Index
+  ↓ target: about 7 calendar days
+Tier B  Public Verified
+  ↓ continuous deepening
+Tier C  Public History / Monitoring
+```
+
+Tier A creates national public discovery breadth. Tier B adds verified profile/current-observation depth. Tier C adds longitudinal history and monitoring.
 
 ### NCS sequence
 
 ```text
-NCS-01  specification / schedule / status alignment
-NCS-02  machine quality and depth classifier over existing corpus
-NCS-03  national authoritative-source inventory
-NCS-04  deterministic candidate importer + identity/dedupe pipeline
-NCS-05  non-public bulk dry run and error audit
-NCS-06  first public-quality expansion pilot under the new gate
-NCS-07  cumulative 500 public-quality primary Matsuri records
-NCS-08  cumulative 1,000 public-quality primary Matsuri records
-NCS-09  source-inventory-derived national target and continued expansion
+NCS-01  governing specification / schedule alignment                    completed
+NCS-02  A/B/C classifier + current-corpus baseline                       active / exact-head sync
+NCS-03  national authoritative-source inventory                          next
+NCS-04  deterministic candidate + Tier A importer / identity-dedupe      pending
+NCS-05  bulk dry run + Tier A publication-readiness audit                pending
+NCS-06  first bounded Tier A public wave + continuous A→B promotion      pending
+NCS-07  cumulative 500 public primary Matsuri records                    checkpoint
+NCS-08  cumulative 1,000 public primary Matsuri records                  checkpoint
+NCS-09  source-inventory-derived national target + A→B→C expansion       future
 ```
 
-NCS-07 and NCS-08 are scaling checkpoints, not completion claims.
+500 and 1,000 mean public specialist-primary records across Tier A/B/C. They do not mean private candidates and are not claims of nationwide completeness.
 
-### Publication boundary
+### Tier A — Public Index rule
 
-Index-only records are allowed only as non-public candidates.
+A reviewed Tier A record may be intentionally thin.
 
-A new public primary Matsuri record must satisfy the substantive minimum in `docs/nationwide-corpus-scaling.md`, including Basic Profile, evidence-bounded Current State, and at least one completed dated Occurrence or evidence-backed Change Event.
+Minimum direction:
 
-A public release must not consist only of breadth work. Before bulk publication, the machine quality gate must measure depth distribution and promotion backlog and must prevent expansion from producing a permanent shallow second class of records.
+```text
+reviewed canonical identity + type
+prefecture + municipality or appropriate broader regional scope
+approved authoritative source
+source verification/access date
+identity / duplicate check
+machine-visible Tier A classification
+real Tier A publication timestamp for newly published records
+```
 
-### Automation objective
+Tier A is public and may enter detail/browse/search, public JSON, sitemap, and search-engine discovery.
 
-Use automation for candidate discovery, source normalization, draft generation, Evidence packet assembly, duplicate detection, and quality metrics. Keep public approval fail-closed and reviewed.
+Tier A does **not** require Current State, completed Occurrence, Change Event, multi-year history, organizer, Place, Relation, or coordinates before publication. Unsupported values in those dimensions remain absent rather than inferred.
 
-The design target is to process hundreds or thousands of candidates per ingestion run without approving hundreds or thousands of unsupported public claims.
+### Tier A → B target
+
+Every newly published Tier A record should be promoted toward Tier B in about seven calendar days.
+
+The seven-day value is a service target / prioritization rule, not a release blocker:
+
+```text
+report due and overdue Tier A
+prioritize overdue Tier A for verification
+continue unrelated valid Tier A publication
+never invent facts to satisfy the target
+never auto-withdraw a valid Tier A only because seven days elapsed
+keep evidence-blocked records public as Tier A with missing dimensions reported
+```
+
+One difficult or overdue Tier A record must not stop national expansion globally.
+
+### Tier B — Public Verified rule
+
+Tier B requires Tier A plus the applicable reviewed verification dimensions, including substantive profile text, evidence-backed Current State, supportable Place/timing/organizer/Relation information, direct profile Evidence, reviewed authoritative links, and at least one dated evidence-backed observation anchor.
+
+Tier B does **not** require multi-year history.
+
+### Tier C — Public History / Monitoring rule
+
+Tier C adds longitudinal value such as multiple-year Occurrences, cancellation/postponement/partial-held/revival history, meaningful Change Events, governance or venue changes, freshness monitoring, or richer Relation history.
+
+Tier C deepening continues while Tier A breadth and Tier B verification continue.
+
+### NCS-02 measured baseline
+
+Current exact A/B/C baseline from workflow run `32080250053`, job `95541708043`:
+
+```text
+Specialist primary subjects                  57
+Tier A — Public Index                        19
+Tier B — Public Verified                      8
+Tier C — Public History / Monitoring         30
+Below Tier A                                  0
+Public specialist-primary total              57
+Prefectures represented                      47
+Municipality scopes represented              55
+```
+
+Historical measurements remain descriptive only:
+
+```text
+Completed Occurrence history                52 / 57
+Multi-year completed Occurrence history     37 / 57
+Evidence-backed Change Events               57 / 57
+Current State Evidence                      56 / 57
+Direct profile Evidence                     39 / 57
+```
+
+The 37 / 57 value is not a Tier A/B publication floor.
+
+The current 19 Tier A records lack authentic Tier A publication timestamps in the legacy model, so the classifier reports their age as metadata-missing rather than inventing an overdue age.
+
+### Public-growth guard
+
+The nationwide track must report public growth and verification depth separately:
+
+```text
+private candidate count
+Tier A public count
+Tier A due / overdue / blocked dimensions
+Tier B public count
+Tier C public count
+new Tier A publication
+A→B promotion
+prefecture coverage
+municipality coverage
+source-family coverage
+```
+
+Candidate count alone is never public growth.
+
+High-volume publication must not bypass Tier A identity/source/dedupe review. However, no global backlog stop is created merely because one Tier A record is overdue.
+
+### Immediate execution order
+
+```text
+1. finish NCS-02 exact-head A/B/C specification + baseline verification
+2. merge NCS-02 only after its own policy/classifier drift is resolved and exact-head checks are understood
+3. build NCS-03 national authoritative-source inventory
+4. implement NCS-04 candidate + Tier A importer, provenance capture, publication timestamp, identity/dedupe checks
+5. run NCS-05 bulk dry run + Tier A publication-readiness audit
+6. fix importer/source-quality defects found by the dry run
+7. run NCS-06 and actually publish a bounded Tier A wave while A→B promotion runs in parallel
+8. advance toward 500 then 1,000 public primary records
+9. keep A→B verification and B→C history deepening running continuously
+10. keep due Occurrence freshness and production regressions maintained in parallel without inventing outcomes
+```
 
 ## Parallel stabilization review
 
-```text
-Started               2026-07-27
-Minimum duration      14 days
-Earliest review       2026-08-10
-Status                reviewing
-Review eligible       true
-Review complete       false
-Machine record        config/matsuri-stabilization-review.json
-```
+Stabilization remains active and independent. Owner-private Analytics / Search Console observations do not block NCS-03 through NCS-05 repository work.
 
-The state model is `observing -> reviewing -> complete`. Elapsed time alone does not complete the gate.
-
-The remaining formal-review work requires current private observation for Cloudflare Web Analytics traffic and Search Console. Those owner-private observations do not block NCS-02 through NCS-05 repository work.
-
-Dated Occurrence reviews continue in parallel with NCS work and must remain fail-closed until post-event Evidence supports an outcome.
-
-## Immediate execution order
-
-```text
-1. merge NCS-01 governing documentation and use it as source of truth
-2. implement NCS-02 machine classifier for public_core / history_enriched / monitored depth
-3. measure current corpus quality distribution before setting the first bulk-release threshold
-4. build NCS-03 national authoritative-source inventory with source-family and geographic coverage
-5. implement NCS-04 importer, provenance capture, identity keys, and duplicate/conflict queue
-6. run NCS-05 at bulk scale without publishing candidate shells
-7. audit dry-run false positives, duplicates, missing fields, Source/Evidence mapping, and description quality
-8. only then run NCS-06 public-quality pilot through the substantive public-record gate
-9. keep due Matsuri Occurrence freshness and existing production regressions green in parallel
-10. do not activate Jinja until its existing gate plus the future-site quality prerequisites are satisfied
-```
+Dated Occurrence reviews remain fail-closed; elapsed dates do not justify `held`.
 
 ## Future-site boundary
 
-```text
-Matsuri F2-28 complete                 true
-Matsuri stabilization review          false
-Portal/Jinja implementation order     false
-Jinja State specification approved    false
-Explicit start authorization          false
-```
+Jinja, Jiin, and Tomurai remain separately gated for activation.
 
-Current State-free Shrine seeds remain candidate/reference material only. They are not acceptable as the public primary corpus of 神社のゆくえ.
+The public A→B→C operating principle is reusable across the four specialist sites, but each future site must define and satisfy its own Tier A identity/source minimum and Tier B verification dimensions before activation.
 
-Before Jinja, Jiin, or Tomurai public activation, each site must have its own substantive public-record contract, authoritative source inventory, candidate ingestion/dedupe path, machine quality metrics, and public quality gate as required by `docs/nationwide-corpus-scaling.md`.
+State-free Shrine / Temple relation seeds may support Matsuri research but do not automatically become public Tier A records on another site.
 
 ## Work not activated
 
 ```text
 portal production deployment
 future specialist-site implementation
-Jinja State specification approval
 apps/jinja
-Jinja Worker or hostname activation
+apps/jiin
+apps/tomurai
+Jinja/Jiin/Tomurai Worker or hostname activation
 Stats
 Compare
 dynamic API

@@ -1,0 +1,92 @@
+{
+  "schema_version": "matsuri.corpus-quality-baseline.v2",
+  "observed_at": "2026-08-17T23:24:40.123Z",
+  "observed_on_jst": "2026-08-18",
+  "source_workflow_run_id": 32080250053,
+  "source_workflow_job_id": 95541708043,
+  "classifier": "scripts/audit-matsuri-corpus-quality.mjs",
+  "governing_spec": "docs/nationwide-corpus-scaling.md",
+  "status": "measurement-only",
+  "counts": {
+    "all_entities": 120,
+    "legacy_primary_subjects": 58,
+    "specialist_primary_subjects": 57,
+    "tier_a_index": 19,
+    "tier_b_verified": 8,
+    "tier_c_history_monitoring": 30,
+    "below_tier_a": 0,
+    "public_primary_total": 57,
+    "tier_a_overdue": 0,
+    "tier_a_due_within_48h": 0,
+    "tier_a_publication_metadata_missing": 19,
+    "with_completed_occurrence_history": 52,
+    "with_multi_year_completed_occurrence_history": 37,
+    "with_change_events": 57,
+    "with_current_state_evidence": 56,
+    "with_direct_profile_evidence": 39
+  },
+  "by_entity_type": {
+    "festival": {
+      "records": 49,
+      "tier_a_index": 13,
+      "tier_b_verified": 8,
+      "tier_c_history_monitoring": 28,
+      "below_tier_a": 0
+    },
+    "folk_performance": {
+      "records": 8,
+      "tier_a_index": 6,
+      "tier_b_verified": 0,
+      "tier_c_history_monitoring": 2,
+      "below_tier_a": 0
+    },
+    "tradition_unit": {
+      "records": 1,
+      "tier_a_index": 0,
+      "tier_b_verified": 0,
+      "tier_c_history_monitoring": 0,
+      "below_tier_a": 1
+    }
+  },
+  "tier_a_missing_dimension_counts": {},
+  "tier_a_to_b_missing_dimension_counts": {
+    "approved_current_state_present": 1,
+    "current_state_evidence_present": 1,
+    "direct_profile_evidence_present": 18,
+    "timing_or_recurrence_present": 1
+  },
+  "tier_b_missing_history_dimension_counts": {
+    "active_freshness_monitoring": 8,
+    "multi_year_completed_occurrence_history": 8,
+    "multiple_completed_occurrences": 8,
+    "multiple_evidence_backed_change_events": 8
+  },
+  "coverage": {
+    "prefecture_count": 47,
+    "municipality_count": 55,
+    "source_family_entity_coverage": {
+      "municipal_official": 1,
+      "municipality": 24,
+      "national_cultural_database": 1,
+      "official_organization": 23,
+      "official_tourism": 2,
+      "official_tourism_body": 4,
+      "preservation_group_official": 1,
+      "public_tourism_body": 1,
+      "shrine_official": 5
+    }
+  },
+  "boundaries": {
+    "tier_a_is_public": true,
+    "tier_b_target_days": 7,
+    "tier_a_overdue_blocks_new_publication": false,
+    "tier_a_auto_withdrawal_on_overdue": false,
+    "completed_occurrence_required_for_tier_a": false,
+    "change_event_required_for_tier_a": false,
+    "multi_year_history_required_for_tier_a_or_b": false,
+    "private_candidate_publication_authorized": false,
+    "machine_tier_auto_approval_authorized": false,
+    "bulk_public_release_authorized": false,
+    "future_site_activation_authorized": false
+  }
+}

@@ -10,25 +10,23 @@ Private candidate collection, unresolved review notes, internal confidence, sour
 
 Bulk scaling does not change that boundary.
 
+A private candidate stage is distinct from Tier A. **Tier A is public.**
+
 ## Workflow
 
 ```text
 Authoritative-source discovery
-→ non-public candidate extraction
+→ private candidate extraction / source normalization
 → identity and duplicate check
-→ source classification and provenance capture
-→ record decomposition
-→ draft Basic Profile + Observation records
-→ Evidence targeting
-→ substantive public-record gate
-→ human review
-→ approved public canonical data
-→ validation
-→ Public Projection
-→ HTML / JSON / JSON-LD / Search / Sitemap
+→ Tier A minimum review
+→ approved Tier A Public Index record
+→ Public Projection / detail / browse / search / JSON / sitemap
+      +
+      → Tier B verification work
+      → Tier C history / monitoring deepening
 ```
 
-A candidate that contains only name, geography, and a source link stops before the public-record gate. It is not a public record and does not count as public coverage.
+The tracks run in parallel. A record does not need Tier B/C depth before it can enter the public Index once the Tier A minimum is reviewed and satisfied.
 
 ## Record decomposition
 
@@ -57,23 +55,55 @@ The governing contract is:
 docs/nationwide-corpus-scaling.md
 ```
 
-For new primary Matsuri records, public approval requires a substantive Basic Profile plus Observation coverage. A bulk importer may draft fields, but it may not publish a directory shell.
+### Tier A publication workflow
 
-The public gate requires, among the full contract:
+A Matsuri primary record can enter the Public Projection as Tier A when the reviewed minimum is satisfied:
 
-- reviewed identity / entity boundary;
-- substantive summary and description;
-- evidence-bounded geography / timing / recurrence / Place handling;
-- approved Current State with Evidence;
-- at least one completed dated Occurrence with a non-`scheduled` outcome, or an evidence-backed Change Event when a completed Occurrence cannot responsibly be established;
-- Source / Evidence coverage across profile and observation dimensions;
-- deterministic duplicate checking.
+- canonical identity / entity boundary and subject type;
+- prefecture + municipality where municipality-bounded, or an appropriate broader scope;
+- approved official/public/otherwise authoritative source;
+- source verification/access date;
+- deterministic identity / duplicate check;
+- machine-visible Tier A classification;
+- real Tier A publication timestamp for newly published Tier A records.
 
-The quality gate must also measure corpus depth and prevent new breadth from creating a permanently shallow second class of public records.
+A reviewed name + geography + authoritative source can therefore be a valid public Tier A record.
+
+Tier A does not require a completed Occurrence, Change Event, Current State, multi-year history, Place, organizer, Relation, or coordinates before publication.
+
+Unsupported dimensions remain absent. Automation or review must not infer them merely to deepen the record.
+
+### Tier A → B workflow
+
+For newly published Tier A records:
+
+```text
+record tier_a_published_at
+→ calculate tier_b_target_at = +7 calendar days
+→ report due within 48h / overdue / missing B dimensions
+→ prioritize B verification
+→ keep unrelated valid Tier A publication running
+```
+
+If B cannot yet be established, keep the valid record public at Tier A with a machine-visible missing-dimension reason. Do not auto-withdraw it solely because seven days elapsed.
+
+The seven-day target is not a repository-wide release gate.
+
+### Tier B workflow
+
+Tier B review adds the applicable verified dimensions, including substantive profile text, evidence-backed Current State, supportable Place/timing/organizer/Relation information, direct profile Evidence, authoritative-link review, and a dated observation anchor.
+
+A dated anchor may be an evidenced Occurrence or an evidenced Change Event. Multi-year history is not required for Tier B.
+
+### Tier C workflow
+
+Tier C deepening adds longitudinal value such as multiple-year Occurrences, cancellation/postponement/partial-held/revival history, Change Events, governance/venue changes, freshness monitoring, or richer Relation history.
+
+Tier C work continues independently of new Tier A breadth and Tier B verification.
 
 ## Automation boundary
 
-Automation is expected to carry most scaling work before review.
+Automation is expected to carry most national-scale preparation before review.
 
 It may assist or perform:
 
@@ -83,58 +113,69 @@ source normalization
 name / geography normalization
 duplicate-key generation
 candidate duplicate matching
-draft generation
-Source / Evidence packet assembly
-checklist generation
-coverage metrics
-quality / depth classification
+Tier A draft generation
+source verification-date capture
+Tier A publication timestamp calculation at actual publication
+Tier B review-packet assembly
+candidate Place / timing / organizer / Relation extraction
+Source / Evidence draft mapping
+A/B/C classification
+Tier A age / overdue reporting
+prefecture / municipality / source-family coverage reporting
 ```
 
 Automation may not:
 
 ```text
-auto-approve public records
+auto-approve unsupported public claims
 infer held/cancelled outcomes from elapsed dates or silence
 infer Current State transitions without Evidence
-fabricate descriptions, coordinates, Relations, or official links
-use unknown as a shortcut around research
-publish candidate shells
+fabricate descriptions, organizers, Places, coordinates, Relations, or officiality
+silently promote A→B
+hide overdue Tier A records
+unpublish valid Tier A only because the seven-day target elapsed
+classify a record as Tier C merely to improve metrics
 ```
 
-Human review remains the publication gate.
+Human/reviewed evidence boundaries remain mandatory.
 
-## Depth-preservation workflow
+## Public-growth workflow
 
-Before the first bulk public release:
+Nationwide expansion must report separately:
 
 ```text
-classify existing approved corpus
-→ record depth baseline
-→ define machine release threshold
-→ run bulk candidates privately
-→ audit errors and source ceilings
-→ promote only records meeting public minimum
-→ verify post-release depth distribution
+private candidates discovered
+public Tier A count
+Tier A due / overdue / missing B dimensions
+public Tier B count
+public Tier C count
+new Tier A published
+Tier A promoted to B
+prefecture coverage
+municipality coverage
+source-family coverage
 ```
 
-Every expansion release train must include substantive depth upgrades as well as new public Entities. Promotion backlog and source-ceiling exceptions must be machine-visible under the nationwide scaling contract.
+Candidate count alone is not public corpus growth.
+
+The existing 37 / 57 multi-year completed-Occurrence measurement is retained as historical corpus information only. It is not a release floor or publication quota for Tier A/B.
 
 ## Pull request rule
 
-A public-data PR should explain:
+A public-data PR should explain, as applicable:
 
 - records added or changed;
-- candidate/import source family when applicable;
-- identity decision when ambiguous;
-- duplicate decisions for imported records;
+- source family / provenance;
+- identity and duplicate decisions;
+- Tier A/B/C classification impact;
+- real Tier A publication timestamps for newly published Tier A records;
 - State decision when changed;
 - Occurrence and Change Event distinction;
 - important Relation changes;
 - Evidence coverage;
-- quality/depth classification impact;
 - known limits and genuine source ceilings.
 
-A bulk-ingestion PR must additionally report candidate count separately from approved public count. Candidate count must never be presented as public corpus growth.
+A bulk-ingestion PR must additionally report candidate count separately from approved public A/B/C count.
 
 ## Validation before merge
 
@@ -150,16 +191,22 @@ Place reference integrity
 vocabulary validity
 Image rights gate
 Public Projection leak check
-public-record substantive minimum
+Tier A identity / geography / source minimum
 identity / duplicate contract
-corpus quality / depth distribution
-promotion backlog bound
+Tier A publication-age metadata for newly published A
+A/B/C classifier consistency
+Tier A→B missing-dimension / overdue reporting
+public-growth metrics
 ```
 
-## Corrections
+A valid Tier A record failing Tier B/C dimensions must not be rejected merely for being shallow. Conversely, passing Tier A must not be used to invent or expose unsupported Tier B/C claims.
+
+## Corrections and freshness
 
 Corrections should preserve stable identity when the subject is the same.
 
 Use record lifecycle and supersession mechanisms for merged or replaced records rather than silently reusing identifiers for different subjects.
 
 Bulk import does not bypass correction or supersession rules.
+
+Closed Occurrences remain fail-closed: elapsed dates, ticket sales, page persistence, or absence of cancellation evidence do not prove `held`.

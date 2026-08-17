@@ -6,7 +6,7 @@ These instructions apply repository-wide unless a more specific nested `AGENTS.m
 
 This repository contains the Yukue Series monorepo.
 
-Initial applications:
+Current applications:
 
 ```text
 apps/portal
@@ -23,6 +23,17 @@ packages/machine-readable
 packages/search
 packages/ui
 ```
+
+The series design has four specialist sites:
+
+```text
+祭のゆくえ
+神社のゆくえ
+寺院のゆくえ
+弔いのゆくえ
+```
+
+Only Matsuri is currently activated for implementation/publication work. Do not activate Jinja, Jiin, or Tomurai public apps, hostnames, Workers, or specialist-site publication without an explicit later gate.
 
 ## Required reading before work
 
@@ -68,6 +79,8 @@ Do not commit:
 
 Approved public canonical data, public-safe methodology, public verification rules, and implementation specifications may be committed.
 
+A private candidate and public Tier A are different states. A reviewed record that satisfies the Tier A minimum is intentionally public even if Tier B/C dimensions remain incomplete.
+
 ## Project invariants
 
 Preserve these unless `decision-log.md` explicitly changes them:
@@ -85,9 +98,23 @@ real images only
 no placeholder images
 static-first architecture
 approved Public Projection boundary
-national breadth and record depth must scale together
-thin index-only subjects remain non-public candidates
-future-site seeds are not specialist-site public corpus records
+national public breadth and record depth scale in parallel
+Tier A is a valid public Index tier
+Tier A targets Tier B in about seven days without a global overdue stop
+Tier C history/monitoring deepens continuously
+private candidates do not count as public coverage
+future-site seeds are not automatically specialist-site Tier A records
+```
+
+Do not reintroduce as invariants:
+
+```text
+all thin source-backed records are non-public
+completed Occurrence required for Tier A
+Change Event required for Tier A
+37 / 57 or 64.9% multi-year-history publication floor
+a single overdue Tier A stops unrelated publication
+valid Tier A auto-unpublishes after seven days
 ```
 
 ## Data-model invariants
@@ -106,7 +133,29 @@ A cancelled Occurrence does not automatically change Entity State.
 
 Do not introduce generic relations when a precise relation is supported.
 
-For nationwide scaling, do not weaken the current model to fit a bulk importer. Importers must adapt to the existing Source/Evidence, State/Occurrence, Place/scope, Relation, correction, and freshness contracts.
+For nationwide scaling, do not weaken Source/Evidence semantics to fit a bulk importer. Importers must adapt to the existing Source/Evidence, State/Occurrence, Place/scope, Relation, correction, and freshness contracts.
+
+Tier A may omit unsupported Current State, organizer, Place, Relation, coordinates, Occurrence outcome, or history. Absence is preferable to inference.
+
+## Nationwide scaling invariants
+
+The governing Matsuri model is:
+
+```text
+Tier A  Public Index
+  ↓ target: about 7 calendar days
+Tier B  Public Verified
+  ↓ continuous deepening
+Tier C  Public History / Monitoring
+```
+
+For Tier A, require the reviewed identity/geography/authoritative-source/source-date/dedupe minimum defined in `docs/nationwide-corpus-scaling.md`.
+
+For Tier B, require applicable evidence-backed verification dimensions without requiring multi-year history.
+
+For Tier C, measure and deepen longitudinal history/monitoring.
+
+Overdue Tier A is a work-priority signal, not a repository-wide stop condition. A valid Tier A record remains public if Tier B cannot yet be established safely.
 
 ## UI invariants
 
@@ -167,10 +216,12 @@ Update documentation when changing:
 - roadmap gates,
 - active schedule sequence,
 - corpus scaling rules,
-- public record minimums,
+- public tier minimums,
 - coverage/depth metrics.
 
-For corpus expansion, bulk ingestion, future-site seed work, and specialist-site activation, treat `docs/nationwide-corpus-scaling.md` as a governing specification. Do not publish name/location/link shells as primary records.
+For corpus expansion, bulk ingestion, future-site seed work, and specialist-site activation, treat `docs/nationwide-corpus-scaling.md` as a governing specification.
+
+Do not publish unreviewed candidates. Once the reviewed Tier A minimum is satisfied, however, do not hold the record private merely because Tier B/C work remains.
 
 ## Required validation
 
@@ -204,11 +255,12 @@ A PR should state:
 
 A corpus-expansion or bulk-ingestion PR should additionally state:
 
-- candidate count separately from approved public count,
+- private candidate count separately from approved public A/B/C count,
 - identity/dedupe results,
-- substantive public-record gate results,
-- quality/depth distribution impact,
-- promotion-backlog impact,
+- Tier A minimum results,
+- A/B/C distribution impact,
+- Tier A due/overdue/missing-B dimensions,
+- A→B promotion impact,
 - genuine source-ceiling exceptions.
 
 A non-trivial UI PR should additionally state:
@@ -220,7 +272,7 @@ A non-trivial UI PR should additionally state:
 - visual findings,
 - post-fix recapture result.
 
-Do not merge before required CI is green.
+Do not merge before required CI is understood and any change-caused failures are resolved. Independent fail-closed maintenance checks must not be weakened merely to make an unrelated PR green.
 
 Use squash merge for normal bounded implementation PRs unless repository policy changes.
 
@@ -247,4 +299,6 @@ paid API
 x402 billing
 real-time ingestion
 complex graph visualization
+Jinja/Jiin/Tomurai public implementation
+Jinja/Jiin/Tomurai hostname or Worker activation
 ```
