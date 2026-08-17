@@ -1,0 +1,381 @@
+{
+  "schema_version": "matsuri.national-source-inventory.v1",
+  "phase": "NCS-03",
+  "status": "accepted_inventory",
+  "reviewed_at": "2026-08-18",
+  "governing_spec": "docs/nationwide-corpus-scaling.md",
+  "scope": {
+    "site": "matsuri",
+    "specialist_primary_types": ["festival", "folk_performance"],
+    "prefecture_count_required": 47,
+    "future_sites_activated": false,
+    "candidate_importer_activated": false,
+    "bulk_public_release_authorized": false
+  },
+  "scale_references": [
+    {
+      "id": "local-designated-intangible-folk-2025-05-01",
+      "publisher": "Agency for Cultural Affairs",
+      "authority_level": "national_government",
+      "as_of": "2025-05-01",
+      "source_url": "https://www.bunka.go.jp/seisaku/bunkazai/shokai/chiho_shitei/kensu.html",
+      "metric": "locally_designated_intangible_folk_cultural_properties",
+      "prefectural_count": 1732,
+      "municipal_count": 6523,
+      "total_count": 8255,
+      "interpretation": "Scale reference only. This is not a count of all Japanese festivals or folk performances and must not be used as the Matsuri corpus target without subject filtering and deduplication."
+    },
+    {
+      "id": "national-important-intangible-folk-2026-08-01",
+      "publisher": "Agency for Cultural Affairs",
+      "authority_level": "national_government",
+      "as_of": "2026-08-01",
+      "source_url": "https://www.bunka.go.jp/seisaku/bunkazai/shokai/shitei.html",
+      "metric": "nationally_designated_important_intangible_folk_cultural_properties",
+      "total_count": 342,
+      "interpretation": "National designation count only. It is a high-authority seed stratum, not nationwide Matsuri completeness."
+    }
+  ],
+  "source_families": [
+    {
+      "id": "national_cultural_database",
+      "label": "Agency for Cultural Affairs — Database of Nationally Designated Cultural Properties",
+      "publisher_role": "national_government",
+      "geographic_scope": "national",
+      "subject_scope": ["nationally_designated_intangible_folk_cultural_property", "registered_intangible_folk_cultural_property", "recording_selected_intangible_folk_cultural_property"],
+      "canonical_source_type_values": ["national_cultural_database"],
+      "entry_url": "https://kunishitei.bunka.go.jp/bsys/index",
+      "about_url": "https://kunishitei.bunka.go.jp/bsys/about",
+      "terms_url": "https://kunishitei.bunka.go.jp/top/policy",
+      "tier_a_identity_suitability": "direct",
+      "tier_b_claim_suitability": "claim_specific",
+      "requires_underlying_source_resolution": false,
+      "enumeration": {
+        "structured": true,
+        "enumerated": true,
+        "methods": ["search", "classification_filter", "prefecture_filter", "csv_export", "detail_page"],
+        "current_csv_limit": 2000,
+        "limit_observed_at": "2026-08-18",
+        "limit_source_url": "https://kunishitei.bunka.go.jp/bsys/news",
+        "partition_strategy": ["designation_register", "prefecture", "classification"],
+        "must_verify_partition_completeness": true
+      },
+      "tier_a_expected_fields": ["name", "reading", "designation_class", "prefecture_or_region", "protection_group_when_present", "detail_url"],
+      "rights": {
+        "text_reuse": "permitted_with_attribution",
+        "image_reuse": "permission_required_per_item_or_rightsholder",
+        "bulk_copy_policy": "text_fields_only_with_attribution_and_field-level provenance; do not assume image rights"
+      },
+      "known_limits": [
+        "The database states that displayed records may differ from actual designation/registration counts while records are being prepared.",
+        "As of the 2026-05-07 notice, CSV all-record export is unavailable and exports should be kept at 2,000 records or fewer.",
+        "Designation data is not proof of a current event outcome or current festival state."
+      ]
+    },
+    {
+      "id": "cultural_heritage_online",
+      "label": "Cultural Heritage Online",
+      "publisher_role": "national_cultural_portal",
+      "geographic_scope": "national",
+      "subject_scope": ["national_cultural_properties", "local_designated_cultural_properties", "museum_and_institution_contributions"],
+      "canonical_source_type_values": [],
+      "entry_url": "https://online.bunka.go.jp/",
+      "about_url": "https://online.bunka.go.jp/about",
+      "tier_a_identity_suitability": "discovery_then_resolve",
+      "tier_b_claim_suitability": "discovery_then_resolve",
+      "requires_underlying_source_resolution": true,
+      "enumeration": {
+        "structured": true,
+        "enumerated": true,
+        "methods": ["search", "classification_filter", "region_filter", "provider_filter"],
+        "current_csv_limit": null,
+        "partition_strategy": ["provider", "classification", "region"],
+        "must_verify_partition_completeness": false
+      },
+      "tier_a_expected_fields": ["name", "classification", "region", "provider", "source_record_link"],
+      "rights": {
+        "text_reuse": "not_assumed",
+        "image_reuse": "not_assumed",
+        "bulk_copy_policy": "discovery and source-resolution only unless the underlying provider grants reusable terms"
+      },
+      "known_limits": [
+        "The portal contains records from multiple providers with different rights conditions.",
+        "The site states that individual text/images are copyright-protected and prohibits unauthorized reuse outside legally permitted uses.",
+        "Use provider identity to resolve the authoritative underlying source before Tier A approval."
+      ]
+    },
+    {
+      "id": "japan_search",
+      "label": "Japan Search",
+      "publisher_role": "national_metadata_aggregator",
+      "geographic_scope": "national",
+      "subject_scope": ["cross_database_metadata_discovery"],
+      "canonical_source_type_values": [],
+      "entry_url": "https://jpsearch.go.jp/",
+      "about_url": "https://jpsearch.go.jp/static/developer/webapi/ch1_intro.html",
+      "tier_a_identity_suitability": "discovery_only",
+      "tier_b_claim_suitability": "discovery_only",
+      "requires_underlying_source_resolution": true,
+      "enumeration": {
+        "structured": true,
+        "enumerated": true,
+        "methods": ["web_api", "linked_database_filter", "metadata_search"],
+        "current_csv_limit": null,
+        "partition_strategy": ["linked_database", "field_filter"],
+        "must_verify_partition_completeness": false
+      },
+      "tier_a_expected_fields": ["provider_database", "provider_record_id", "name", "provider_url"],
+      "rights": {
+        "text_reuse": "dataset_specific",
+        "image_reuse": "dataset_specific",
+        "bulk_copy_policy": "use as discovery/transport metadata; resolve and respect the underlying dataset's terms"
+      },
+      "known_limits": [
+        "Japan Search is an aggregator and is not itself sufficient to establish the authoritative publisher role for a Matsuri Tier A record.",
+        "Rights and claim authority remain dataset-specific."
+      ]
+    },
+    {
+      "id": "prefectural_cultural_property_registry",
+      "label": "Prefectural cultural-property registry or official cultural-policy database",
+      "publisher_role": "prefectural_government",
+      "geographic_scope": "prefecture",
+      "subject_scope": ["prefectural_designated_intangible_folk_cultural_property", "prefectural_local_cultural_property"],
+      "canonical_source_type_values": ["prefectural_cultural_property_registry", "prefectural_government"],
+      "entry_url": null,
+      "about_url": null,
+      "tier_a_identity_suitability": "direct",
+      "tier_b_claim_suitability": "claim_specific",
+      "requires_underlying_source_resolution": false,
+      "enumeration": {
+        "structured": "heterogeneous",
+        "enumerated": "usually",
+        "methods": ["prefecture_database", "prefecture_list", "pdf_or_spreadsheet_when_official"],
+        "current_csv_limit": null,
+        "partition_strategy": ["prefecture", "classification"],
+        "must_verify_partition_completeness": true
+      },
+      "tier_a_expected_fields": ["name", "designation_or_classification", "prefecture", "municipality_or_location_when_present", "official_record_url"],
+      "rights": {
+        "text_reuse": "publisher_specific",
+        "image_reuse": "publisher_specific",
+        "bulk_copy_policy": "do not copy descriptions by default; capture identity/provenance fields and follow the prefecture's terms"
+      },
+      "known_limits": ["Formats and reuse terms differ by prefecture.", "Some prefectural lists include non-Matsuri intangible folk properties and require subject filtering."]
+    },
+    {
+      "id": "municipal_cultural_property_registry",
+      "label": "Municipal cultural-property registry or official cultural-policy database",
+      "publisher_role": "municipal_government",
+      "geographic_scope": "municipality",
+      "subject_scope": ["municipal_designated_intangible_folk_cultural_property", "municipal_local_cultural_property"],
+      "canonical_source_type_values": ["municipal_cultural_property_registry", "municipality", "municipal_official"],
+      "entry_url": null,
+      "about_url": null,
+      "tier_a_identity_suitability": "direct",
+      "tier_b_claim_suitability": "claim_specific",
+      "requires_underlying_source_resolution": false,
+      "enumeration": {
+        "structured": "heterogeneous",
+        "enumerated": "sometimes",
+        "methods": ["municipal_database", "municipal_list", "official_page", "pdf_or_spreadsheet_when_official"],
+        "current_csv_limit": null,
+        "partition_strategy": ["municipality", "classification"],
+        "must_verify_partition_completeness": false
+      },
+      "tier_a_expected_fields": ["name", "municipality", "designation_or_classification_when_present", "official_record_url"],
+      "rights": {
+        "text_reuse": "publisher_specific",
+        "image_reuse": "publisher_specific",
+        "bulk_copy_policy": "capture only the fields required for Tier A unless explicit reuse terms permit more"
+      },
+      "known_limits": ["Coverage and formats vary by municipality.", "A municipal designation list is authoritative for its own designation but may not describe present festival activity."]
+    },
+    {
+      "id": "municipality_official",
+      "label": "Municipality official festival, culture, education-board, or event page",
+      "publisher_role": "municipal_government",
+      "geographic_scope": "municipality",
+      "subject_scope": ["festival_identity", "folk_performance_identity", "location", "official_schedule", "local_history"],
+      "canonical_source_type_values": ["municipality", "municipal_official"],
+      "entry_url": null,
+      "about_url": null,
+      "tier_a_identity_suitability": "direct",
+      "tier_b_claim_suitability": "claim_specific",
+      "requires_underlying_source_resolution": false,
+      "enumeration": {
+        "structured": false,
+        "enumerated": false,
+        "methods": ["official_site_search", "official_event_list", "education_board_page"],
+        "current_csv_limit": null,
+        "partition_strategy": ["municipality"],
+        "must_verify_partition_completeness": false
+      },
+      "tier_a_expected_fields": ["name", "municipality_or_location", "official_url"],
+      "rights": {
+        "text_reuse": "publisher_specific",
+        "image_reuse": "publisher_specific",
+        "bulk_copy_policy": "quote/copy only within the publisher's terms; Tier A normally needs provenance rather than copied prose"
+      },
+      "known_limits": ["Pages may be current-event announcements rather than stable identity records.", "A pre-event page does not prove the event was held."]
+    },
+    {
+      "id": "official_tourism_body",
+      "label": "Official or public tourism body",
+      "publisher_role": "official_tourism_body",
+      "geographic_scope": "regional_or_municipal",
+      "subject_scope": ["festival_identity", "location", "timing", "official_links", "visitor_information"],
+      "canonical_source_type_values": ["official_tourism", "official_tourism_body", "public_tourism_body"],
+      "entry_url": null,
+      "about_url": null,
+      "tier_a_identity_suitability": "conditional_direct",
+      "tier_b_claim_suitability": "claim_specific",
+      "requires_underlying_source_resolution": false,
+      "enumeration": {
+        "structured": "heterogeneous",
+        "enumerated": "sometimes",
+        "methods": ["official_tourism_site", "event_directory"],
+        "current_csv_limit": null,
+        "partition_strategy": ["region", "municipality"],
+        "must_verify_partition_completeness": false
+      },
+      "tier_a_expected_fields": ["name", "region", "publisher_role", "official_url"],
+      "rights": {
+        "text_reuse": "publisher_specific",
+        "image_reuse": "publisher_specific",
+        "bulk_copy_policy": "use as a source, not as a blanket reusable content feed"
+      },
+      "known_limits": ["Publisher role must be verified; an unrelated commercial tourism site is not equivalent to an official tourism body.", "Tourism pages may simplify governance/history and are not automatically sufficient for all Tier B claims."]
+    },
+    {
+      "id": "official_organization",
+      "label": "Festival organizer, preservation group, or responsible organization official source",
+      "publisher_role": "subject_responsible_organization",
+      "geographic_scope": "subject_specific",
+      "subject_scope": ["festival_identity", "folk_performance_identity", "organizer", "timing", "occurrence_announcement", "official_links"],
+      "canonical_source_type_values": ["official_organization", "preservation_group_official"],
+      "entry_url": null,
+      "about_url": null,
+      "tier_a_identity_suitability": "direct",
+      "tier_b_claim_suitability": "direct_for_self_claims",
+      "requires_underlying_source_resolution": false,
+      "enumeration": {
+        "structured": false,
+        "enumerated": false,
+        "methods": ["official_site", "official_notice", "official_social_as_limited_evidence"],
+        "current_csv_limit": null,
+        "partition_strategy": ["subject"],
+        "must_verify_partition_completeness": false
+      },
+      "tier_a_expected_fields": ["name", "publisher_identity", "official_url"],
+      "rights": {
+        "text_reuse": "publisher_specific",
+        "image_reuse": "publisher_specific",
+        "bulk_copy_policy": "use claim-linked provenance; do not assume reuse rights"
+      },
+      "known_limits": ["Official social posts may support limited announcements but should not alone establish long-term State when stronger evidence exists."]
+    },
+    {
+      "id": "shrine_or_temple_official",
+      "label": "Shrine or temple official source directly supporting a Matsuri claim",
+      "publisher_role": "religious_site_official",
+      "geographic_scope": "subject_specific",
+      "subject_scope": ["festival_identity", "ritual_relationship", "timing", "place", "official_schedule"],
+      "canonical_source_type_values": ["shrine_official", "temple_official"],
+      "entry_url": null,
+      "about_url": null,
+      "tier_a_identity_suitability": "conditional_direct",
+      "tier_b_claim_suitability": "claim_specific",
+      "requires_underlying_source_resolution": false,
+      "enumeration": {
+        "structured": false,
+        "enumerated": false,
+        "methods": ["official_site", "official_event_or_ritual_page"],
+        "current_csv_limit": null,
+        "partition_strategy": ["subject"],
+        "must_verify_partition_completeness": false
+      },
+      "tier_a_expected_fields": ["festival_or_performance_name", "shrine_or_temple_identity", "official_url"],
+      "rights": {
+        "text_reuse": "publisher_specific",
+        "image_reuse": "publisher_specific",
+        "bulk_copy_policy": "use only Matsuri claim-linked facts within terms; do not activate future-site records"
+      },
+      "known_limits": ["A Matsuri use of this family does not authorize Jinja/Jiin publication.", "Relation or Place claims still require claim-specific Evidence."]
+    },
+    {
+      "id": "academic_or_institutional",
+      "label": "Academic publication, museum, archive, or institutional research source",
+      "publisher_role": "research_or_memory_institution",
+      "geographic_scope": "varies",
+      "subject_scope": ["history", "continuity", "classification", "historical_location", "historical_relation"],
+      "canonical_source_type_values": ["academic_publication", "institutional_report"],
+      "entry_url": null,
+      "about_url": null,
+      "tier_a_identity_suitability": "supporting_only",
+      "tier_b_claim_suitability": "claim_specific",
+      "requires_underlying_source_resolution": false,
+      "enumeration": {
+        "structured": "heterogeneous",
+        "enumerated": false,
+        "methods": ["catalog", "repository", "publication"],
+        "current_csv_limit": null,
+        "partition_strategy": ["subject"],
+        "must_verify_partition_completeness": false
+      },
+      "tier_a_expected_fields": ["citation", "publisher_or_institution", "publication_date"],
+      "rights": {
+        "text_reuse": "publication_specific",
+        "image_reuse": "publication_specific",
+        "bulk_copy_policy": "citation and claim-specific use only unless reuse terms explicitly permit more"
+      },
+      "known_limits": ["Historical research does not automatically prove present Current State or current Occurrence outcome."]
+    },
+    {
+      "id": "credible_news",
+      "label": "Credible news reporting",
+      "publisher_role": "news_media",
+      "geographic_scope": "varies",
+      "subject_scope": ["change_event", "occurrence_outcome", "disaster_interruption", "revival", "governance_change"],
+      "canonical_source_type_values": ["news"],
+      "entry_url": null,
+      "about_url": null,
+      "tier_a_identity_suitability": "supporting_only",
+      "tier_b_claim_suitability": "claim_specific",
+      "requires_underlying_source_resolution": false,
+      "enumeration": {
+        "structured": false,
+        "enumerated": false,
+        "methods": ["article_search"],
+        "current_csv_limit": null,
+        "partition_strategy": ["subject", "date"],
+        "must_verify_partition_completeness": false
+      },
+      "tier_a_expected_fields": ["publisher", "article_title", "published_at", "url"],
+      "rights": {
+        "text_reuse": "citation_or_licensed_use_only",
+        "image_reuse": "not_assumed",
+        "bulk_copy_policy": "do not treat news as a bulk content source"
+      },
+      "known_limits": ["News is not the default Tier A identity source when a public/official source exists."]
+    }
+  ],
+  "prefectures": [
+    {"code":"01","name_ja":"北海道"},{"code":"02","name_ja":"青森県"},{"code":"03","name_ja":"岩手県"},{"code":"04","name_ja":"宮城県"},{"code":"05","name_ja":"秋田県"},{"code":"06","name_ja":"山形県"},{"code":"07","name_ja":"福島県"},{"code":"08","name_ja":"茨城県"},{"code":"09","name_ja":"栃木県"},{"code":"10","name_ja":"群馬県"},{"code":"11","name_ja":"埼玉県"},{"code":"12","name_ja":"千葉県"},{"code":"13","name_ja":"東京都"},{"code":"14","name_ja":"神奈川県"},{"code":"15","name_ja":"新潟県"},{"code":"16","name_ja":"富山県"},{"code":"17","name_ja":"石川県"},{"code":"18","name_ja":"福井県"},{"code":"19","name_ja":"山梨県"},{"code":"20","name_ja":"長野県"},{"code":"21","name_ja":"岐阜県"},{"code":"22","name_ja":"静岡県"},{"code":"23","name_ja":"愛知県"},{"code":"24","name_ja":"三重県"},{"code":"25","name_ja":"滋賀県"},{"code":"26","name_ja":"京都府"},{"code":"27","name_ja":"大阪府"},{"code":"28","name_ja":"兵庫県"},{"code":"29","name_ja":"奈良県"},{"code":"30","name_ja":"和歌山県"},{"code":"31","name_ja":"鳥取県"},{"code":"32","name_ja":"島根県"},{"code":"33","name_ja":"岡山県"},{"code":"34","name_ja":"広島県"},{"code":"35","name_ja":"山口県"},{"code":"36","name_ja":"徳島県"},{"code":"37","name_ja":"香川県"},{"code":"38","name_ja":"愛媛県"},{"code":"39","name_ja":"高知県"},{"code":"40","name_ja":"福岡県"},{"code":"41","name_ja":"佐賀県"},{"code":"42","name_ja":"長崎県"},{"code":"43","name_ja":"熊本県"},{"code":"44","name_ja":"大分県"},{"code":"45","name_ja":"宮崎県"},{"code":"46","name_ja":"鹿児島県"},{"code":"47","name_ja":"沖縄県"}
+  ],
+  "ncs04_contract_inputs": {
+    "tier_a_direct_families": ["national_cultural_database", "prefectural_cultural_property_registry", "municipal_cultural_property_registry", "municipality_official", "official_organization"],
+    "tier_a_conditional_families": ["official_tourism_body", "shrine_or_temple_official"],
+    "discovery_only_families": ["cultural_heritage_online", "japan_search"],
+    "supporting_only_families": ["academic_or_institutional", "credible_news"],
+    "requirements": [
+      "resolve discovery-only records to the underlying authoritative publisher before Tier A approval",
+      "capture publisher role and source access date",
+      "capture exact source URL and stable provider identifier when available",
+      "apply source-family-specific rights/reuse handling",
+      "perform deterministic identity/dedupe checks before public Tier A creation",
+      "do not infer Current State, Occurrence outcome, organizer, Place, Relation, coordinates, or officiality beyond the supporting source",
+      "record actual Tier A publication time only when a record is really published"
+    ]
+  }
+}
