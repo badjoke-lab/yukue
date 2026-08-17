@@ -92,27 +92,31 @@ Every newly published primary Festival or Folk Performance must satisfy the subs
 - substantive summary / description;
 - evidence-bounded geography, timing, recurrence, and Place handling;
 - approved Current State Snapshot with Evidence;
-- at least one completed dated Occurrence with a non-`scheduled` outcome, or an evidence-backed Change Event when completed Occurrence evidence cannot responsibly be established;
+- at least one evidence-backed completed dated Occurrence with a non-`scheduled` outcome;
+- at least one evidence-backed Change Event;
 - Source / Evidence coverage across profile and observation dimensions;
 - deterministic identity / duplicate checks.
+
+A Change Event does not substitute for completed Occurrence history for newly published primary Matsuri records.
 
 The current reviewed records are not a special rich legacy tier. Existing and new public records are governed by the same product direction.
 
 ## NCS-02 measured quality baseline
 
-Exact-head measurement from workflow run `32044096419`, job `95428357764`:
+Exact measurement from workflow run `32044096419`, job `95428357764` and its per-record artifact:
 
 ```text
-Specialist primary subjects             57
-  Festival                               49
-  Folk Performance                       8
-Machine public_core                       0 / 57
-Machine history_enriched                  0 / 57
-Machine monitored                        21 / 57
-Completed Occurrence history             52 / 57
-Evidence-backed Change Events            57 / 57
-Current State Evidence                   56 / 57
-Direct profile Evidence                  39 / 57
+Specialist primary subjects                    57
+  Festival                                      49
+  Folk Performance                               8
+Machine public_core                              0 / 57
+Machine history_enriched                         0 / 57
+Machine monitored                               21 / 57
+At least 1 completed Occurrence year            52 / 57  (91.2%)
+At least 2 completed Occurrence years           37 / 57  (64.9%)
+Evidence-backed Change Events                   57 / 57
+Current State Evidence                          56 / 57
+Direct profile Evidence                         39 / 57
 ```
 
 Measured machine-minimum gaps:
@@ -120,15 +124,30 @@ Measured machine-minimum gaps:
 ```text
 Entity description missing               57
 Direct profile Evidence missing           18
-Authoritative external link missing         3
-Approved Current State missing              1
-Current State Evidence missing              1
-Timing / recurrence signal missing          1
+Completed Occurrence history missing       5
+Authoritative external link missing        3
+Approved Current State missing             1
+Current State Evidence missing             1
+Timing / recurrence signal missing         1
 ```
 
 The zero `public_core` count is deliberate and is not fixed by weakening the contract. The current corpus has significant historical/observation depth, but all 57 specialist-primary records remain in scope for quality deepening because they currently lack Entity-level `description_ja` under the newly tightened contract.
 
-Bulk public release remains unauthorized. The NCS-02 baseline does not define a release percentage or allow machine auto-approval.
+The five existing specialist-primary records without completed Occurrence history are legacy promotion-backlog records, not precedent for publishing new records without completed history.
+
+## Measured anti-shallow floor
+
+For NCS-06-or-later public expansion:
+
+```text
+new public_core pass rate                         100%
+new records with >=2 completed Occurrence years  >= ceil(new_count * 37 / 57)
+corpus-wide >=2-year history proportion           >= 37 / 57
+```
+
+The `37 / 57` history-depth floor comes from the pre-expansion corpus itself rather than an arbitrary convenient percentage.
+
+Bulk public release remains unauthorized. The history floor is defined, but the remaining bounded promotion-backlog rule and full NCS-06 release guard are still pending. Machine classification never auto-approves publication.
 
 ## Nationwide scaling track
 
@@ -146,7 +165,7 @@ NCS-02  machine quality/depth classifier + measured baseline — completing exac
 NCS-03  national authoritative-source inventory — next
 NCS-04  deterministic candidate importer + identity/dedupe pipeline
 NCS-05  non-public bulk dry run and error audit
-NCS-06  first public-quality expansion pilot — blocked by release gate
+NCS-06  first public-quality expansion pilot — blocked by full release gate
 NCS-07  cumulative 500 public-quality primary Matsuri records
 NCS-08  cumulative 1,000 public-quality primary Matsuri records
 NCS-09  source-inventory-derived national coverage target
@@ -154,7 +173,7 @@ NCS-09  source-inventory-derived national coverage target
 
 500 and 1,000 are scale checkpoints only. They are not completion claims.
 
-Before NCS-06, a machine release guard must prevent bulk growth from materially degrading corpus depth. Every expansion release train must include substantive depth upgrades in addition to new public Entities, and the existing 57 are not exempt from that deepening work.
+Before NCS-06, the remaining machine release guard must enforce the bounded promotion backlog as well as the already measured history-depth floor. Every expansion release train must include substantive depth upgrades in addition to new public Entities, and the existing 57 are not exempt from that deepening work.
 
 ## Matsuri maintenance remains active
 
@@ -204,6 +223,8 @@ They must not be promoted unchanged into public 神社のゆくえ / 寺院の�
 
 Before Jinja, Jiin, or Tomurai activation, each site requires its own substantive public-record minimum, source inventory, ingestion/dedupe path, machine quality/depth metrics, and public quality gate under `docs/nationwide-corpus-scaling.md`.
 
+Each future site must also define a measured anti-shallow-expansion rule appropriate to its own State/history model rather than mechanically copying Matsuri Occurrence thresholds.
+
 ## Immediate next actions
 
 ```text
@@ -213,7 +234,7 @@ Before Jinja, Jiin, or Tomurai activation, each site requires its own substantiv
 4. implement NCS-04 private candidate importer and deterministic identity/dedupe checks
 5. run NCS-05 at bulk scale without publishing candidate shells
 6. audit quality, provenance, duplicate rate, and source ceilings
-7. implement bounded promotion-backlog and depth-distribution release guard
+7. implement the remaining bounded promotion-backlog release guard while preserving the measured 37 / 57 history floor
 8. only then allow NCS-06 public-quality expansion
 9. continue due Occurrence / freshness corrections in parallel
 10. keep future specialist sites blocked until their existing and new quality prerequisites are satisfied
