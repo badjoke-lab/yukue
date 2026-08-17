@@ -1,5 +1,7 @@
 # Matsuri F2-28 Final F2 Launch Gate — 2026-07-27
 
+> **Correction notice — 2026-08-17:** The July F2-25/F2-27 Cloudflare Web Analytics evidence used by this evaluation was later retracted after the owner confirmed Analytics had not actually been configured at that time. Do not treat the July Analytics sub-gate claims below as independently valid historical proof. Cloudflare Web Analytics was newly configured and the F2-25 → F2-26 → F2-27 sequence was re-established with 2026-08-17 evidence. The non-Analytics launch-gate evidence remains part of the historical audit trail.
+
 **Status:** Passed
 
 ## Evaluation basis
