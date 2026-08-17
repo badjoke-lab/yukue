@@ -39,15 +39,19 @@ A new public primary record is not considered product-complete merely because it
 
 Thin index-only records are not a public product tier.
 
-Bulk discovery may create non-public candidates, but a new public primary Festival or Folk Performance must include reviewed identity/profile coverage, evidence-bounded Current State, and at least one completed dated Occurrence or evidence-backed Change Event, together with the remaining minimum fields and checks defined in:
+Bulk discovery may create non-public candidates, but a new public primary Festival or Folk Performance must include reviewed identity/profile coverage, evidence-bounded Current State, **at least one evidence-backed completed dated Occurrence**, and **at least one evidence-backed Change Event**, together with the remaining minimum fields and checks defined in:
 
 ```text
 docs/nationwide-corpus-scaling.md
 ```
 
+A Change Event is not a substitute for completed Occurrence history for a newly published primary Matsuri record.
+
 The existing reviewed corpus must not become a permanently richer legacy subset while new records remain shallow.
 
-Before bulk public expansion, machine-readable depth metrics and a release guard must exist. National breadth and historical/observation depth are reported separately and must be advanced together.
+The NCS-02 measured reference is 52 / 57 existing specialist-primary records with at least one completed Occurrence year and 37 / 57 with at least two completed Occurrence years. NCS-06-or-later release trains must preserve the measured multi-year history floor defined in `nationwide-corpus-scaling.md`; at least `ceil(new_public_primary_records * 37 / 57)` of newly published primary records must meet the two-distinct-year history criterion.
+
+Before bulk public expansion, machine-readable depth metrics and the remaining release guard must exist. National breadth and historical/observation depth are reported separately and must be advanced together.
 
 ## User journeys
 
@@ -109,4 +113,4 @@ Stats and Compare remain optional future capabilities; the record model should n
 
 Before public launch or bulk public expansion, Current State and Occurrence must not be conflated, revival must be represented through change events and current state, evidence and relation integrity must pass, the Public Projection must not contain internal fields, HTML and public JSON must remain consistent, mobile reading and accessibility baseline must pass, and canonical URLs and sitemap must be validated.
 
-For nationwide expansion, the additional public-record and depth-preservation gates in `nationwide-corpus-scaling.md` are mandatory.
+For nationwide expansion, the additional public-record, measured history-depth, and depth-preservation gates in `nationwide-corpus-scaling.md` are mandatory.
