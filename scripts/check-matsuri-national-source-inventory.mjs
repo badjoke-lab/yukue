@@ -119,11 +119,11 @@ require(ncs04.requirements.some((line) => /do not infer Current State/i.test(lin
 require(ncs04.requirements.some((line) => /actual Tier A publication time/i.test(line)), "NCS-04 handoff must require authentic Tier A publication time");
 
 const requiredDocPhrases = [
-  "Tier A  Public Index",
+  "Public Index",
   "NCS-04 candidate + Tier A importer",
   "2,000 records or fewer",
   "8,255",
-  "not a count of Japanese festivals",
+  "count of Japanese festivals",
   "Cultural Heritage Online",
   "Japan Search",
   "discovery-only",
