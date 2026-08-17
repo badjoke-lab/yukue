@@ -29,6 +29,12 @@ function assertEqual(label, expected, actual) {
   }
 }
 
+function requireBoundary(boundaries, key, expected) {
+  if (boundaries?.[key] !== expected) {
+    throw new Error(`Matsuri A/B/C boundary ${key} must be ${expected}; got ${boundaries?.[key]}.`);
+  }
+}
+
 try {
   execFileSync(process.execPath, [auditScript, "--output", outputRoot], {
     cwd: repositoryRoot,
@@ -38,52 +44,75 @@ try {
   const baseline = JSON.parse(fs.readFileSync(baselinePath, "utf8"));
   const report = JSON.parse(fs.readFileSync(path.join(outputRoot, "report.json"), "utf8"));
 
-  if (baseline.schema_version !== "matsuri.corpus-quality-baseline.v1") {
+  if (baseline.schema_version !== "matsuri.corpus-quality-baseline.v2") {
     throw new Error(`Unsupported Matsuri quality baseline schema: ${baseline.schema_version}`);
+  }
+  if (report.schema_version !== "matsuri.corpus-quality.v2") {
+    throw new Error(`Unsupported Matsuri quality report schema: ${report.schema_version}`);
   }
   if (baseline.status !== "measurement-only") {
     throw new Error(`Matsuri quality baseline must remain measurement-only during NCS-02: ${baseline.status}`);
   }
-  if (baseline.boundaries?.bulk_public_release_authorized !== false) {
-    throw new Error("NCS-02 baseline must not authorize bulk public release.");
+
+  const boundaries = baseline.boundaries;
+  requireBoundary(boundaries, "tier_a_is_public", true);
+  requireBoundary(boundaries, "tier_b_target_days", 7);
+  requireBoundary(boundaries, "tier_a_overdue_blocks_new_publication", false);
+  requireBoundary(boundaries, "tier_a_auto_withdrawal_on_overdue", false);
+  requireBoundary(boundaries, "completed_occurrence_required_for_tier_a", false);
+  requireBoundary(boundaries, "change_event_required_for_tier_a", false);
+  requireBoundary(boundaries, "multi_year_history_required_for_tier_a_or_b", false);
+  requireBoundary(boundaries, "private_candidate_publication_authorized", false);
+  requireBoundary(boundaries, "machine_tier_auto_approval_authorized", false);
+  requireBoundary(boundaries, "bulk_public_release_authorized", false);
+  requireBoundary(boundaries, "future_site_activation_authorized", false);
+
+  if (report.tier_a_target?.target_days !== boundaries.tier_b_target_days) {
+    throw new Error("Classifier Tier A→B target must match the committed seven-day baseline target.");
   }
-  if (baseline.boundaries?.thin_candidate_publication_authorized !== false) {
-    throw new Error("NCS-02 baseline must not authorize thin candidate publication.");
+  if (report.tier_a_target?.overdue_blocks_new_tier_a_publication !== false) {
+    throw new Error("Overdue Tier A must remain a work-priority signal, not a global publication blocker.");
   }
-  if (baseline.boundaries?.machine_public_core_auto_approval_authorized !== false) {
-    throw new Error("NCS-02 baseline must not authorize machine auto-approval.");
-  }
-  if (baseline.boundaries?.existing_records_exempt_from_quality_deepening !== false) {
-    throw new Error("Existing records must remain inside the quality-deepening scope.");
-  }
-  if (baseline.boundaries?.history_depth_floor_defined !== true) {
-    throw new Error("NCS-02 must preserve the measured history-depth floor before nationwide public expansion.");
-  }
-  if (baseline.boundaries?.release_threshold_defined !== false) {
-    throw new Error("NCS-02 must not claim the full bulk-release guard is complete before backlog bounds are implemented.");
+  if (report.tier_a_target?.auto_withdraw_on_overdue !== false) {
+    throw new Error("A valid Tier A record must not be auto-withdrawn merely because the target age elapsed.");
   }
 
-  assertEqual("Corpus quality counts", baseline.counts, report.counts);
-  assertEqual("Corpus quality by_entity_type", baseline.by_entity_type, report.by_entity_type);
-  assertEqual("Corpus quality unmet_check_counts", baseline.unmet_check_counts, report.unmet_check_counts);
-
-  const expectedHistoryReference = {
-    denominator_specialist_primary_subjects: report.counts.specialist_primary_subjects,
-    at_least_one_completed_occurrence_year: report.counts.with_completed_occurrence_history,
-    at_least_two_completed_occurrence_years:
-      report.counts.with_multi_year_completed_occurrence_history,
-    minimum_new_release_multi_year_numerator:
-      report.counts.with_multi_year_completed_occurrence_history,
-    minimum_new_release_multi_year_denominator: report.counts.specialist_primary_subjects,
-  };
+  assertEqual("Corpus A/B/C counts", baseline.counts, report.counts);
+  assertEqual("Corpus A/B/C by_entity_type", baseline.by_entity_type, report.by_entity_type);
   assertEqual(
-    "Corpus history-depth reference",
-    baseline.history_depth_reference,
-    expectedHistoryReference,
+    "Tier A missing dimensions",
+    baseline.tier_a_missing_dimension_counts,
+    report.tier_a_missing_dimension_counts,
+  );
+  assertEqual(
+    "Tier A→B missing dimensions",
+    baseline.tier_a_to_b_missing_dimension_counts,
+    report.tier_a_to_b_missing_dimension_counts,
+  );
+  assertEqual(
+    "Tier B→C missing history dimensions",
+    baseline.tier_b_missing_history_dimension_counts,
+    report.tier_b_missing_history_dimension_counts,
   );
 
+  const coverageSummary = {
+    prefecture_count: report.coverage.prefecture_count,
+    municipality_count: report.coverage.municipality_count,
+    source_family_entity_coverage: report.coverage.source_family_entity_coverage,
+  };
+  assertEqual("Corpus geographic/source-family coverage", baseline.coverage, coverageSummary);
+
+  if (report.counts.public_primary_total !== report.counts.specialist_primary_subjects) {
+    throw new Error(
+      `Every current specialist primary public record must classify at A/B/C: ${report.counts.public_primary_total}/${report.counts.specialist_primary_subjects}.`,
+    );
+  }
+  if (report.counts.below_tier_a !== 0) {
+    throw new Error(`Current reviewed public corpus unexpectedly fell below Tier A: ${report.counts.below_tier_a}.`);
+  }
+
   console.log(
-    `Matsuri corpus quality baseline check passed: ${report.counts.specialist_primary_subjects} specialist primary subjects, ${report.counts.with_completed_occurrence_history} with completed Occurrence history, ${report.counts.with_multi_year_completed_occurrence_history} with multi-year completed Occurrence history; bulk publication remains blocked.`,
+    `Matsuri A/B/C baseline check passed: Tier A ${report.counts.tier_a_index}, Tier B ${report.counts.tier_b_verified}, Tier C ${report.counts.tier_c_history_monitoring}, public total ${report.counts.public_primary_total}; seven-day A→B target is non-blocking.`,
   );
 } finally {
   fs.rmSync(outputRoot, { recursive: true, force: true });
