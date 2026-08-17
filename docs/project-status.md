@@ -22,6 +22,9 @@ Phase 10 Stabilization — active
 Matsuri Detail C implementation — completed
 Matsuri prefecture seed baseline — completed 47 / 47
 Matsuri nationwide corpus scaling — active
+NCS-01 governing docs — completed
+NCS-02 quality classifier/baseline — measured / exact-head verification active
+NCS-03 national source inventory — next
 Matsuri maintenance / historical depth — active in parallel
 Matsuri stabilization review — reviewing / incomplete
 Actual Jinja start gate — blocked
@@ -32,6 +35,8 @@ future specialist-site implementation — not activated
 
 ```text
 Nationwide scaling contract     docs/nationwide-corpus-scaling.md
+Corpus quality baseline         config/matsuri-corpus-quality-baseline.json
+Corpus quality interpretation   docs/matsuri-corpus-quality-baseline.md
 Current repository counts       config/matsuri-repository-baseline.json
 Current production baseline     config/matsuri-production-baseline.json
 Analytics progression           config/matsuri-analytics-activation.json
@@ -91,7 +96,39 @@ Every newly published primary Festival or Folk Performance must satisfy the subs
 - Source / Evidence coverage across profile and observation dimensions;
 - deterministic identity / duplicate checks.
 
-The current reviewed records are not a special rich legacy tier. New public records are governed by the same product direction.
+The current reviewed records are not a special rich legacy tier. Existing and new public records are governed by the same product direction.
+
+## NCS-02 measured quality baseline
+
+Exact-head measurement from workflow run `32044096419`, job `95428357764`:
+
+```text
+Specialist primary subjects             57
+  Festival                               49
+  Folk Performance                       8
+Machine public_core                       0 / 57
+Machine history_enriched                  0 / 57
+Machine monitored                        21 / 57
+Completed Occurrence history             52 / 57
+Evidence-backed Change Events            57 / 57
+Current State Evidence                   56 / 57
+Direct profile Evidence                  39 / 57
+```
+
+Measured machine-minimum gaps:
+
+```text
+Entity description missing               57
+Direct profile Evidence missing           18
+Authoritative external link missing         3
+Approved Current State missing              1
+Current State Evidence missing              1
+Timing / recurrence signal missing          1
+```
+
+The zero `public_core` count is deliberate and is not fixed by weakening the contract. The current corpus has significant historical/observation depth, but all 57 specialist-primary records remain in scope for quality deepening because they currently lack Entity-level `description_ja` under the newly tightened contract.
+
+Bulk public release remains unauthorized. The NCS-02 baseline does not define a release percentage or allow machine auto-approval.
 
 ## Nationwide scaling track
 
@@ -105,11 +142,11 @@ Implementation sequence:
 
 ```text
 NCS-01  governing specification and schedule alignment — completed
-NCS-02  machine quality/depth classifier over existing corpus — next
-NCS-03  national authoritative-source inventory
+NCS-02  machine quality/depth classifier + measured baseline — completing exact-head verification
+NCS-03  national authoritative-source inventory — next
 NCS-04  deterministic candidate importer + identity/dedupe pipeline
 NCS-05  non-public bulk dry run and error audit
-NCS-06  first public-quality expansion pilot
+NCS-06  first public-quality expansion pilot — blocked by release gate
 NCS-07  cumulative 500 public-quality primary Matsuri records
 NCS-08  cumulative 1,000 public-quality primary Matsuri records
 NCS-09  source-inventory-derived national coverage target
@@ -117,7 +154,7 @@ NCS-09  source-inventory-derived national coverage target
 
 500 and 1,000 are scale checkpoints only. They are not completion claims.
 
-Before NCS-06, a machine release guard must prevent bulk growth from materially degrading corpus depth. Every expansion release train must include substantive depth upgrades in addition to new public Entities.
+Before NCS-06, a machine release guard must prevent bulk growth from materially degrading corpus depth. Every expansion release train must include substantive depth upgrades in addition to new public Entities, and the existing 57 are not exempt from that deepening work.
 
 ## Matsuri maintenance remains active
 
@@ -127,6 +164,7 @@ Existing correctness and freshness work continues in parallel:
 pnpm audit:matsuri:freshness
 pnpm audit:matsuri:relations
 pnpm check:matsuri:evidence
+pnpm check:matsuri:quality-baseline
 pnpm check:matsuri:bundle-inventory
 pnpm check:matsuri:detail-navigation
 pnpm check:matsuri:stabilization-review
@@ -169,13 +207,13 @@ Before Jinja, Jiin, or Tomurai activation, each site requires its own substantiv
 ## Immediate next actions
 
 ```text
-1. implement NCS-02 machine quality/depth classifier over the current corpus
-2. measure current public_core / history_enriched / monitored distribution
-3. define the first bulk-release guard from that measured baseline
-4. build NCS-03 national authoritative-source inventory
-5. implement NCS-04 private candidate importer and deterministic identity/dedupe checks
-6. run NCS-05 at bulk scale without publishing candidate shells
-7. audit quality, provenance, duplicate rate, and source ceilings
+1. finish NCS-02 baseline drift verification and merge the classifier/baseline
+2. build NCS-03 national authoritative-source inventory
+3. generate the existing-57 promotion/deepening worklist from measured gaps
+4. implement NCS-04 private candidate importer and deterministic identity/dedupe checks
+5. run NCS-05 at bulk scale without publishing candidate shells
+6. audit quality, provenance, duplicate rate, and source ceilings
+7. implement bounded promotion-backlog and depth-distribution release guard
 8. only then allow NCS-06 public-quality expansion
 9. continue due Occurrence / freshness corrections in parallel
 10. keep future specialist sites blocked until their existing and new quality prerequisites are satisfied
