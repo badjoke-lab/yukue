@@ -206,10 +206,14 @@ public Tier A breadth
 → Tier C longitudinal deepening
 ```
 
+Matsuri Relation seeds or other cross-site reference records do **not** automatically become Tier A records on a future specialist site. When Jinja, Jiin, or Tomurai is separately activated, each record must pass that site's own Tier A identity/source/geography minimum before specialist-site publication.
+
+The shared scale model does not authorize future-site application, hostname, Worker, or public publication work while Matsuri is the active implementation target.
+
 No future site may launch as a tiny hand-curated database with no scale path.
 
 ## Change control
 
 This document is a governing specification.
 
-Any change that makes Tier A private, removes public Tier A breadth, weakens fail-closed Evidence semantics, or treats candidate count as public coverage requires an explicit new decision in `docs/decision-log.md` and corresponding schedule/status changes.
+Any change that makes Tier A private, removes public Tier A breadth, weakens fail-closed Evidence semantics, treats candidate count as public coverage, auto-withdraws a valid Tier A because the seven-day target elapsed, or creates a global stop from one overdue Tier A requires an explicit new decision in `docs/decision-log.md` and corresponding schedule/status changes.
