@@ -1,0 +1,131 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-kishu-toshogu-official",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "shrine_official",
+      "title": "紀州東照宮",
+      "publisher": "紀州東照宮",
+      "url": "https://www.kishutoshogu.org/",
+      "accessed_at": "2026-08-17",
+      "language": "ja"
+    },
+    {
+      "id": "src-mikuni-jinja-official",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "shrine_official",
+      "title": "三國神社",
+      "publisher": "三國神社",
+      "url": "https://www.mikunijinja.jp/",
+      "accessed_at": "2026-08-17",
+      "language": "ja"
+    },
+    {
+      "id": "src-nanao-oyama-jinja-official",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "shrine_official",
+      "title": "大地主神社",
+      "publisher": "大地主神社",
+      "url": "https://www.otokonushi-jinja.com/",
+      "accessed_at": "2026-08-17",
+      "language": "ja"
+    },
+    {
+      "id": "src-karatsu-jinja-official",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "shrine_official",
+      "title": "唐津神社公式ホームページ",
+      "publisher": "唐津神社",
+      "url": "https://www.karatsu-jinja.org/",
+      "accessed_at": "2026-08-17",
+      "language": "ja"
+    },
+    {
+      "id": "src-sawara-suwa-jinja-official",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "shrine_official",
+      "title": "諏訪神社",
+      "publisher": "諏訪神社",
+      "url": "https://osuwa3.jp/",
+      "accessed_at": "2026-08-17",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-kishu-toshogu-official-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-kishu-toshogu-official",
+      "target_type": "entity_identity",
+      "target_id": "shr-kishu-toshogu",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "紀州東照宮公式サイトは、神社名、和歌山市和歌浦西2-1-20の所在地、由緒、祭神を同社自身の案内として掲載しており、神社Entityの同一性と公式ウェブサイトを直接裏付ける。",
+      "captured_at": "2026-08-17",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-mikuni-jinja-official-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-mikuni-jinja-official",
+      "target_type": "entity_identity",
+      "target_id": "shr-mikuni-jinja",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "坂井市公式ページが三國神社の外部サイトとして案内する同神社サイトは、三國神社Entityに対応する神社運営URLとして確認でき、同一性と公式ウェブサイトを裏付ける。",
+      "captured_at": "2026-08-17",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-nanao-oyama-jinja-official-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-nanao-oyama-jinja-official",
+      "target_type": "entity_identity",
+      "target_id": "shr-nanao-oyama-jinja",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "大地主神社公式サイトは、神社名、石川県七尾市山王町1-13の所在地、由緒、祭神、祭事を同社自身の案内として掲載しており、神社Entityの同一性と公式ウェブサイトを直接裏付ける。",
+      "captured_at": "2026-08-17",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-karatsu-jinja-official-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-karatsu-jinja-official",
+      "target_type": "entity_identity",
+      "target_id": "shr-karatsu-jinja",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "唐津神社公式ホームページは、唐津神社の名称、佐賀県唐津市南城内3-13の所在地、神社案内と祭礼情報を同社自身の案内として掲載しており、神社Entityの同一性と公式ウェブサイトを直接裏付ける。",
+      "captured_at": "2026-08-17",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-sawara-suwa-jinja-official-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-sawara-suwa-jinja-official",
+      "target_type": "entity_identity",
+      "target_id": "shr-sawara-suwa-jinja",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "香取市公式の寺社一覧が佐原イ1020番地3の諏訪神社について当該URLを「諏訪神社のHP」と明示しており、諏訪神社Entityの同一性と神社運営ウェブサイトを裏付ける。",
+      "captured_at": "2026-08-17",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
