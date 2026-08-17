@@ -1,6 +1,6 @@
-# Matsuri Corpus Quality Baseline
+# Matsuri Corpus A/B/C Quality Baseline
 
-**Status:** NCS-02 measured baseline / bulk public release not authorized
+**Status:** NCS-02 measured baseline / A/B/C classifier aligned / NCS-06 bulk publication not yet authorized
 
 ## Governing contract
 
@@ -10,111 +10,187 @@ This baseline implements the measurement step required by:
 docs/nationwide-corpus-scaling.md
 ```
 
-It does not weaken that contract and does not authorize bulk publication.
+The governing public model is:
+
+```text
+Tier A  Public Index
+  ↓ target: about 7 calendar days
+Tier B  Public Verified
+  ↓ continuous deepening
+Tier C  Public History / Monitoring
+```
+
+Tier A is a valid public product layer. A completed Occurrence, Change Event, or multi-year history is not required merely to publish a source-backed Tier A record.
+
+The seven-day A→B value is a work target and prioritization rule. An overdue Tier A record does not block unrelated valid Tier A publication and is not automatically withdrawn.
+
+This NCS-02 baseline measures the current corpus. It does not by itself authorize the first NCS-06 bulk public wave.
 
 ## Exact measured baseline
 
-Observed from GitHub Actions workflow run `32044096419`, job `95428357764`, at `2026-08-17T16:01:41.069Z` (`2026-08-18` JST). The per-record artifact was also used to derive the distinct completed-Occurrence-year distribution.
+Observed from GitHub Actions workflow run `32080250053`, job `95541708043`, at `2026-08-17T23:24:40.123Z` (`2026-08-18` JST).
 
 ```text
 All public Entities                         120
-Legacy primary subjects                     58
-Specialist primary subjects                 57
-  Festival                                  49
-  Folk Performance                           8
-  Tradition Unit                             1  (legacy coverage only)
+Legacy primary subjects                      58
+Specialist primary subjects                  57
+  Festival                                   49
+  Folk Performance                            8
 
-Machine public_core                          0 / 57
-Machine history_enriched                     0 / 57
-Machine monitored                           21 / 57
-Below machine public_core                   57 / 57
+Tier A — Public Index                        19
+Tier B — Public Verified                      8
+Tier C — Public History / Monitoring         30
+Below Tier A                                  0
+Public specialist-primary total              57
+```
 
-At least 1 completed Occurrence year        52 / 57  (91.2%)
-At least 2 completed Occurrence years       37 / 57  (64.9%)
-Evidence-backed Change Events               57 / 57  (100%)
+Current historical/observation depth remains useful as a descriptive baseline:
+
+```text
+At least 1 completed Occurrence year        52 / 57
+At least 2 completed Occurrence years       37 / 57
+Evidence-backed Change Events               57 / 57
 Current State Evidence                      56 / 57
 Direct profile Evidence                     39 / 57
 ```
 
-## Why `public_core` is currently zero
+The `37 / 57` multi-year value is **not** a release floor for new Tier A or Tier B records. It is only a measurement of the current corpus.
 
-The classifier intentionally applies the newly accepted public-record contract to the existing corpus instead of exempting old records.
+## Tier A interpretation
 
-Every one of the 57 Festival / Folk Performance specialist-primary records currently lacks an Entity-level `description_ja`, so all 57 fail the new machine-checkable minimum on that dimension.
+All 57 current specialist-primary public records satisfy the machine-checkable Tier A identity/geography/source baseline. None is classified below Tier A.
 
-Additional measured gaps are:
+Tier A requires the public Index minimum: reviewed identity, geographic scope, reviewed source-backed identity provenance, source verification/access date, and a deterministic duplicate-clear identity check.
+
+Tier A does **not** require:
+
+- an approved Current State;
+- a completed Occurrence;
+- a Change Event;
+- multi-year history;
+- a Place or coordinate;
+- an organizer;
+- a Relation;
+- a substantive long description.
+
+Those fields may be present when supported, but missing Tier B/C dimensions do not make a valid Tier A non-public.
+
+## Tier A → B work dimensions
+
+The 19 current Tier A records are public records that need additional verified dimensions before Tier B classification.
+
+Measured missing Tier B dimensions among those 19 records:
 
 ```text
 direct profile Evidence missing             18
-completed Occurrence history missing          5
-authoritative external link missing           3
 approved Current State missing                1
 Current State Evidence missing                1
 timing / recurrence signal missing            1
 ```
 
-This result must **not** be interpreted as meaning the existing corpus is only a directory. The same baseline shows substantial Observation depth already exists: 52 / 57 have at least one completed Occurrence year, 37 / 57 have completed Occurrences in at least two years, all 57 have an evidence-backed Change Event, and 56 / 57 have Current State Evidence.
+These are promotion priorities, not global release blockers.
 
-The correct interpretation is:
+No missing dimension may be repaired by inference. If Evidence cannot yet support the field, the record remains public as Tier A and the missing reason remains visible to the machine report.
 
-```text
-existing corpus has meaningful historical / observation depth
-+
-existing corpus does not yet satisfy the newly tightened complete public-core contract
-```
+## Tier A publication age
 
-The project must improve the existing corpus while expanding national breadth. The current 57 records are not exempt from the new quality direction.
+The current legacy data model does not contain an authentic `tier_a_published_at` timestamp for the 19 records that now classify as Tier A.
 
-The five current records with no completed Occurrence history remain legacy promotion-backlog records. They are not precedent for allowing a newly discovered record to publish without completed Occurrence history.
-
-## Classifier boundary
-
-The classifier is conservative and measurement-only.
-
-`public_core=true` means all currently machine-checkable minimum dimensions are present, including at least one evidence-backed completed Occurrence and at least one evidence-backed Change Event. It does **not** auto-approve a record and does not prove prose quality, source interpretation quality, or absence of unresolved identity conflict.
-
-`history_enriched=true` requires `public_core=true` plus evidence-backed completed Occurrences in at least **two distinct years**. The record also necessarily has at least one Change Event through the `public_core` minimum.
-
-A single Change Event is no longer sufficient to classify history enrichment.
-
-`monitored=true` means the subject has at least one approved Occurrence whose current outcome remains `scheduled` or `unknown`, creating an active freshness/review obligation.
-
-`tradition_unit` remains visible in the legacy coverage count but is excluded from the Festival/Folk Performance `public_core` denominator under the current governing contract.
-
-## Measured anti-shallow floor
-
-The pre-expansion history-depth reference is the measured existing distribution, not a convenient target chosen after the fact:
+Therefore the classifier reports:
 
 ```text
->= 1 completed Occurrence year   52 / 57
->= 2 completed Occurrence years  37 / 57
+Tier A due within 48 hours                    0
+Tier A overdue                                0
+Tier A publication metadata missing          19
 ```
 
-For NCS-06-or-later expansion:
+The first two values do **not** mean that all 19 records are known to be within target. Their publication age is unknown. The classifier deliberately does not backfill a guessed publication date from repository age, Git history, or another unrelated timestamp.
 
-- every newly published primary Matsuri record must satisfy `public_core`;
-- therefore every new public record must have at least one completed Occurrence and one Change Event;
-- at least `ceil(new_public_primary_records * 37 / 57)` of the newly published records in a release train must satisfy the two-distinct-year history criterion;
-- the corpus-wide two-distinct-year proportion must not fall below `37 / 57`;
-- the existing measured gaps remain a promotion/deepening backlog rather than a grandfathered weaker tier.
+NCS-04/NCS-06 publication plumbing must write the real Tier A publication timestamp for newly published Tier A records so later reports can calculate the seven-day target honestly.
 
-This is the concrete guard against making the old corpus rich while bulk-added records remain shallow.
+## Tier B and Tier C interpretation
 
-## Full release guard not complete yet
+Eight current records classify as Tier B. They satisfy the Tier B verification dimensions but do not yet have one of the configured Tier C depth/monitoring signals.
 
-The measured history-depth floor is now defined, but this baseline still does not authorize bulk public publication.
+Thirty current records classify as Tier C because they satisfy Tier B and carry longitudinal depth or an active freshness-monitoring obligation.
 
-Before NCS-06, the repository still needs the rest of the release guard and promotion/deepening workflow. In particular:
+Tier C signals currently measured include:
 
-- thin discovery candidates remain non-public;
-- new public records must meet the substantive public minimum;
-- existing records remain in the quality-deepening scope;
-- nationwide expansion cannot consist only of new Entity creation;
-- breadth expansion must stop if the bounded promotion backlog is exceeded;
-- source ceilings must be explicit and machine-visible, but cannot waive new-record `public_core`.
+- completed Occurrences across multiple years;
+- multiple completed evidenced Occurrences;
+- multiple evidence-backed Change Events;
+- an evidence-backed scheduled/unknown Occurrence that creates an active freshness-monitoring obligation.
 
-## Immediate implication
+Tier C is not a publication prerequisite for Tier A or Tier B.
 
-NCS-03 and NCS-04 may proceed because source inventory and private candidate ingestion do not publish records.
+## Geographic and source-family baseline
 
-NCS-06 public expansion remains blocked until the remaining public quality gate and promotion-backlog bound are implemented.
+Current specialist-primary coverage:
+
+```text
+Prefectures represented                       47
+Municipality scopes represented               55
+```
+
+Identity/profile source-family entity coverage in the current reviewed canonical corpus:
+
+```text
+municipal_official                             1
+municipality                                  24
+national_cultural_database                     1
+official_organization                         23
+official_tourism                               2
+official_tourism_body                          4
+preservation_group_official                    1
+public_tourism_body                            1
+shrine_official                                5
+```
+
+These values are a baseline for NCS-03 source-inventory work, not a claim that the source inventory is already nationally complete.
+
+## Growth metrics
+
+This NCS-02 run is a current-corpus baseline, so it does not fabricate growth values that are not derivable from the public canonical dataset.
+
+The report therefore keeps:
+
+```text
+candidate_count       unavailable from public canonical dataset
+new_public_growth     unavailable for first A/B/C baseline checkpoint
+```
+
+Future NCS work must report private candidate discovery separately from public A/B/C growth. Candidate count alone is never a public-coverage result.
+
+## Publication and automation boundaries
+
+NCS-02 records the classification model and baseline only.
+
+It preserves these boundaries:
+
+- Tier A is public.
+- Tier B target age is seven days.
+- overdue Tier A does not stop unrelated valid Tier A publication.
+- valid Tier A is not auto-withdrawn only because seven days elapsed.
+- completed Occurrence is not a Tier A requirement.
+- Change Event is not a Tier A requirement.
+- multi-year history is not a Tier A or Tier B publication requirement.
+- machine classification does not auto-approve publication or A→B promotion.
+- private candidate records are not public until the Tier A minimum is actually satisfied.
+- NCS-02 itself does not authorize the first bulk public wave.
+- NCS-02 does not authorize Jinja, Jiin, or Tomurai activation.
+
+## Next sequence
+
+After NCS-02:
+
+```text
+NCS-03  national authoritative-source inventory
+NCS-04  deterministic candidate + Tier A importer / identity-dedupe pipeline
+NCS-05  bulk dry run + Tier A publication-readiness audit
+NCS-06  first bounded Tier A public wave + continuous A→B promotion
+NCS-07  cumulative 500 public Matsuri primary records
+NCS-08  cumulative 1,000 public Matsuri primary records
+NCS-09  source-inventory-derived national target + continued A→B→C expansion
+```
+
+Matsuri freshness maintenance continues in parallel. An unresolved post-event outcome must not be guessed to make a gate green, but those independent maintenance cases do not redefine Tier A or stop nationwide corpus work.
