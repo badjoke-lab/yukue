@@ -1,6 +1,6 @@
 # Nationwide Corpus Scaling and Public-Record Quality Contract
 
-**Status:** Accepted direction / pre-implementation governing specification
+**Status:** Accepted governing specification / NCS-02 baseline measured
 
 This document governs nationwide corpus expansion for the Yukue Series and must be read for Matsuri corpus expansion, future-site seed work, and any bulk-ingestion design.
 
@@ -61,9 +61,14 @@ For Matsuri, a new primary Festival or Folk Performance must have reviewed, evid
 6. an appropriate Place, route, multi-place, or distributed-place model when the evidence supports one;
 7. official or authoritative public information link(s), with reviewed absence recorded when no such link can responsibly be established;
 8. an approved Current State Snapshot with claim-linked Evidence; `unknown` must not be used as a shortcut around research;
-9. at least one evidence-backed dated completed Occurrence with a non-`scheduled` outcome, or an evidence-backed Change Event when a completed Occurrence cannot responsibly be established;
-10. Source / Evidence coverage across both identity/profile and observation dimensions;
-11. deterministic identity / duplicate checks before approval.
+9. at least one evidence-backed dated completed Occurrence with a non-`scheduled` outcome;
+10. at least one evidence-backed Change Event so the record contains an observed longitudinal change dimension rather than only a one-edition event card;
+11. Source / Evidence coverage across both identity/profile and observation dimensions;
+12. deterministic identity / duplicate checks before approval.
+
+A Change Event is **not** a substitute for completed Occurrence history for new public Matsuri records.
+
+A newly discovered subject for which no evidence-backed completed Occurrence can be established remains a non-public candidate. The five existing specialist-primary records that currently lack completed Occurrence history are legacy promotion-backlog records, not precedents for weaker new publication.
 
 Missing optional data is allowed when the source record genuinely does not support it. Missing required dimensions are not filled with invented facts and do not become public merely to increase counts.
 
@@ -71,7 +76,7 @@ Missing optional data is allowed when the source record genuinely does not suppo
 
 Depth classes are quality measurements over approved records, not permission to publish thin shells.
 
-Planned derived classes:
+Derived classes:
 
 ```text
 public_core
@@ -79,13 +84,43 @@ history_enriched
 monitored
 ```
 
-`public_core` already satisfies the substantive minimum above.
+`public_core` satisfies the substantive minimum above.
 
-`history_enriched` adds meaningful historical density beyond the minimum, such as multiple dated Occurrences across different years, one or more evidence-backed Change Events, or similarly strong longitudinal context appropriate to the subject.
+`history_enriched` requires `public_core` plus evidence-backed completed Occurrences in **at least two distinct years** and at least one evidence-backed Change Event. A single Change Event alone is not history enrichment.
 
 `monitored` adds an active freshness / due-review obligation for current or future change.
 
-The exact machine classifier and thresholds must be implemented and measured against the existing corpus before the first bulk public release.
+The NCS-02 measured baseline is recorded in:
+
+```text
+config/matsuri-corpus-quality-baseline.json
+docs/matsuri-corpus-quality-baseline.md
+```
+
+Before the newly tightened profile fields are repaired, 52 / 57 existing specialist-primary records already have at least one completed Occurrence year, and 37 / 57 have completed Occurrences in at least two distinct years. All 57 have at least one evidence-backed Change Event.
+
+## Measured history-depth floor
+
+The pre-expansion NCS-02 corpus establishes a history-depth reference of:
+
+```text
+specialist-primary records                            57
+with >= 1 completed Occurrence year                  52 / 57  (91.2%)
+with >= 2 completed Occurrence years                 37 / 57  (64.9%)
+with >= 1 evidence-backed Change Event               57 / 57  (100%)
+```
+
+This measured distribution is used to stop future breadth from becoming systematically thinner than the initial corpus.
+
+For every NCS-06-or-later public expansion release train:
+
+1. **100% of newly published primary Matsuri records** must satisfy `public_core`, including at least one completed Occurrence and at least one Change Event;
+2. the number of newly published records satisfying the two-distinct-year history criterion must be at least `ceil(new_public_primary_records * 37 / 57)`;
+3. the corpus-wide proportion satisfying the two-distinct-year history criterion must not fall below the NCS-02 reference of `37 / 57` unless a later explicit decision raises or replaces the floor;
+4. source-ceiling exceptions cannot be used to publish a record below `public_core`; they remain candidate or promotion-backlog records until the minimum is supportable;
+5. the existing five public records without completed Occurrence history and all other measured profile gaps remain a promotion/deepening backlog and are not grandfathered as a target quality level.
+
+The ratio is derived from the measured existing corpus rather than chosen as a convenient round percentage.
 
 ## Depth-preservation guard
 
@@ -94,12 +129,12 @@ Nationwide expansion must not create thousands of `public_core` records while on
 Before bulk public publication is allowed, the repository must implement machine-readable quality metrics and a release gate that enforces all of the following:
 
 - corpus-wide depth distribution is measured before and after each expansion wave;
-- a release cannot materially degrade the accepted depth distribution;
+- a release cannot degrade the measured history-depth floor above;
 - no expansion wave may consist only of net-new breadth work;
 - the number of distinct substantive depth upgrades in an expansion release train must be at least the number of newly published primary Entities in that release train;
 - a public record that remains below the accepted history-enriched target enters a bounded promotion backlog;
 - net-new breadth is blocked when the promotion backlog exceeds its accepted bound;
-- exceptions caused by genuine source ceilings must be explicit and machine-visible rather than silently treated as complete.
+- genuine source ceilings are explicit and machine-visible, but do not waive the new-record `public_core` minimum.
 
 This prevents a permanent two-class corpus in which old records are rich and new records remain directory entries.
 
@@ -126,7 +161,8 @@ Automation must not:
 - infer Current State transitions without Evidence;
 - fabricate descriptions, coordinates, Relations, or official links;
 - use `unknown` as a shortcut to pass a publication gate;
-- publish index-only shells as primary records.
+- publish index-only shells as primary records;
+- classify a one-event shell as `history_enriched`.
 
 ## Nationwide coverage metrics
 
@@ -142,6 +178,7 @@ prefecture coverage
 municipality coverage
 source-family coverage
 records with completed Occurrence history
+records with multi-year completed Occurrence history
 records with Change Events
 records with current State Evidence
 ```
@@ -161,7 +198,7 @@ NCS-05  non-public bulk dry run and error audit
 NCS-06  first public-quality expansion pilot under the new gate
 NCS-07  cumulative 500 public-quality primary Matsuri records
 NCS-08  cumulative 1,000 public-quality primary Matsuri records
-NCS-09  source-inventory-derived national coverage target and continued expansion
+NCS-09  source-inventory-derived national target and continued expansion
 ```
 
 500 and 1,000 are scaling checkpoints, not claims of nationwide completeness.
@@ -192,11 +229,15 @@ Before a future specialist site activates, it requires:
 6. a public quality gate;
 7. an initial corpus that satisfies that quality gate.
 
+Each future-site quality gate must be calibrated against that domain's measured seed/initial corpus and must contain an anti-shallow-expansion history/observation-depth rule equivalent in purpose to the Matsuri guard. The exact dimensions may differ because Shrine, Temple, and Memorial subjects do not share Matsuri Occurrence semantics.
+
 Candidate acquisition for later sites may begin before public activation when it does not violate the site-start boundary. Public specialist-site implementation and publication remain separately gated.
 
 ## Existing corpus preservation
 
 Existing approved Matsuri data remains valid and must not be downgraded to fit a bulk importer.
+
+Existing records are also not exempt from the new quality direction. Measured missing descriptions, profile Evidence, completed Occurrence history, links, State, timing, and other gaps form a promotion/deepening backlog to be repaired in parallel with nationwide expansion.
 
 Importers and quality classifiers must adapt to the current evidence model rather than weakening:
 
@@ -212,4 +253,4 @@ Importers and quality classifiers must adapt to the current evidence model rathe
 
 This document is a governing specification.
 
-Any change that weakens the public minimum, allows index-only public primary records, removes the depth-preservation guard, or treats future-site seeds as specialist-site launch records requires an explicit new decision in `docs/decision-log.md` and corresponding schedule / status changes.
+Any change that weakens the public minimum, allows index-only public primary records, lowers or removes the NCS-02 history-depth floor, removes the depth-preservation guard, or treats future-site seeds as specialist-site launch records requires an explicit new decision in `docs/decision-log.md` and corresponding schedule / status changes.
