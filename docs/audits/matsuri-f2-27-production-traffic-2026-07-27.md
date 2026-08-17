@@ -1,5 +1,7 @@
 # Matsuri F2-27 Production Traffic Verification — 2026-07-27
 
+> **Correction notice — 2026-08-17:** The owner later confirmed that Cloudflare Web Analytics had not been configured when this July audit was written. The dashboard/traffic claims below are therefore **retracted and must not be used as F2-27 evidence**. The original text is retained only as an audit trail. Corrected browser collection-path evidence is `docs/audits/matsuri-f2-27-production-traffic-2026-08-17.md`.
+
 **Status:** Passed
 
 ## Verified public facts

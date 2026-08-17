@@ -5,30 +5,35 @@
   "provider": "cloudflare-web-analytics",
   "status": "traffic-verified",
   "activation_method": "automatic-setup",
-  "activation_time_basis": "pre-existing-automatic-setup-observed",
+  "activation_time_basis": "exact-owner-action",
   "analytics_enabled": true,
-  "activated_at": "2026-07-27T09:37:29Z",
-  "activation_observed_at": "2026-07-27T09:37:29Z",
-  "activation_evidence_document": "docs/audits/matsuri-f2-25-analytics-activation-2026-07-27.md",
+  "activated_at": "2026-08-16T15:23:34Z",
+  "activation_observed_at": "2026-08-16T15:23:34Z",
+  "activation_evidence_document": "docs/audits/matsuri-f2-25-analytics-activation-2026-08-17.md",
   "post_activation_deployment": {
     "required": true,
     "completed": true,
-    "commit_sha": "108ac4e88407e1263229eb40bc88d76855e90131",
-    "deployed_at": "2026-07-27T10:34:17Z",
-    "cloudflare_build_id": "7026144e-1ce0-4927-9060-64919c3a4002",
-    "evidence_document": "docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md"
+    "commit_sha": "d3cc420b0b30758ae05ae41496bda53280d10c38",
+    "deployed_at": "2026-08-16T16:46:40Z",
+    "cloudflare_build_id": "5bd6df31",
+    "evidence_document": "docs/audits/matsuri-f2-26-post-activation-deployment-2026-08-17.md"
   },
   "traffic_verification": {
     "required": true,
     "completed": true,
-    "verified_at": "2026-07-27T11:26:58Z",
-    "evidence_document": "docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md",
+    "verified_at": "2026-08-17T05:25:16Z",
+    "evidence_document": "docs/audits/matsuri-f2-27-production-traffic-2026-08-17.md",
     "private_counts_published": false
   },
   "claims": {
     "f2_25_complete": true,
     "f2_26_complete": true,
     "f2_27_complete": true
+  },
+  "retraction": {
+    "recorded_on": "2026-08-16",
+    "tracking_issue": 262,
+    "reason": "Owner confirmed the prior July activation and traffic-verification claims were unsupported; Cloudflare Web Analytics was newly configured and re-verified on 2026-08-17 JST."
   },
   "privacy": {
     "manual_beacon_committed": false,

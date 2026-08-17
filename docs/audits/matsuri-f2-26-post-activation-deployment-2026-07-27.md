@@ -1,5 +1,7 @@
 # Matsuri F2-26 Post-activation Deployment Audit
 
+> **Correction notice — 2026-08-17:** This July sequence depended on the now-retracted July F2-25 Analytics activation claim. The deployment itself may have occurred, but it is **not valid as post-activation F2-26 evidence**. The original text is retained only as an audit trail. Corrected post-activation deployment evidence is `docs/audits/matsuri-f2-26-post-activation-deployment-2026-08-17.md`.
+
 **Status:** Passed
 
 ## Scope

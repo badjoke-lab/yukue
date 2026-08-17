@@ -1,5 +1,7 @@
 # Matsuri F2-25 Cloudflare Web Analytics Activation
 
+> **Correction notice — 2026-08-17:** The owner later confirmed that Cloudflare Web Analytics had not in fact been configured when this July audit was written. The activation/owner-dashboard claims below are **retracted and must not be used as current or historical proof of F2-25**. The original text is retained only as an audit trail. Corrected activation evidence is `docs/audits/matsuri-f2-25-analytics-activation-2026-08-17.md`.
+
 **Status:** Passed / Automatic setup observed enabled
 
 ## Scope
