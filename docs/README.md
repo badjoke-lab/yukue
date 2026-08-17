@@ -28,7 +28,8 @@ Tier A is intentionally public. Private candidates are separate and do not count
 | `development-schedule.md` | Current / Phase 10 active | Concrete NCS sequence plus maintenance and bounded post-launch review order |
 | `roadmap.md` | Phase 10 active | Long-range phases and gates |
 | `nationwide-corpus-scaling.md` | Accepted direction / governing specification | Public A/B/C model, Tier A minimum, A→B target, automation boundary, public-growth metrics, and future-site boundaries |
-| `matsuri-corpus-quality-baseline.md` | NCS-02 measured baseline | Current A/B/C distribution and missing-dimension interpretation |
+| `matsuri-corpus-quality-baseline.md` | NCS-02 completed baseline | Current A/B/C distribution and missing-dimension interpretation |
+| `matsuri-national-source-inventory.md` | NCS-03 completed inventory | National source families, source-resolution roles, acquisition ceilings, reuse boundaries, and NCS-04 handoff |
 | `matsuri-stabilization-review.md` | Active contract | `observing -> reviewing -> complete` state machine, minimum duration, evidence, privacy, and completion rules |
 | `audits/matsuri-stabilization-start-2026-07-27.md` | Observation-start audit | Public-safe start record and earliest eligible review date |
 | `audits/matsuri-stabilization-review-eligibility-2026-08-11.md` | Review-eligibility audit | Calendar eligibility transition without completing the formal review |
@@ -89,6 +90,7 @@ The 47 / 47 result below is a **prefecture seed baseline**, not nationwide corpu
 | `project-concept.md` | Current | Series purpose, boundaries, and national breadth/depth direction |
 | `product-spec.md` | Working | Product capabilities, public A/B/C user experience, and national public growth direction |
 | `nationwide-corpus-scaling.md` | Accepted direction / governing specification | Public Tier A minimum, A→B target, Tier B/C depth, automation, coverage metrics, and future-site prerequisites |
+| `matsuri-national-source-inventory.md` | NCS-03 completed inventory | Direct/conditional/discovery/supporting source families, source resolution, enumeration, rights/reuse, and NCS-04 handoff |
 | `public-data-model.md` | Working | Public A/B/C coverage classes, candidate boundary, publication-age metadata, and projection rules |
 | `matsuri-mvp-spec.md` | Working | Matsuri scope, vocabularies, public Tier A/B/C model, and future-site seed boundary |
 | `information-architecture.md` | Accepted / implemented | Home H1 and Detail C order, including required embedded-map behavior |
@@ -98,7 +100,7 @@ The 47 / 47 result below is a **prefecture seed baseline**, not nationwide corpu
 | `ui-foundation-spec.md` | Implementation spec | Shared shell, patterns, responsive and accessibility rules |
 | `technical-architecture.md` | F2 production baseline | Build, search, deployment, canonical metadata, crawler, and Search Console evidence |
 | `verification-policy.md` | Current | Review and A/B/C publication rules, including fail-close Evidence boundaries |
-| `source-policy.md` | Current | Source and Evidence rules |
+| `source-policy.md` | Current / NCS-03 aligned | Source/Evidence rules plus nationwide source-family and rights boundaries |
 | `image-policy.md` | Current | Real-image, rights, credit, and gallery rules |
 | `machine-readable-layer.md` | Current direction | Public machine-readable outputs and crawler invariants |
 
@@ -106,9 +108,9 @@ The 47 / 47 result below is a **prefecture seed baseline**, not nationwide corpu
 
 ```text
 NCS-01  governing specification / schedule alignment — completed
-NCS-02  A/B/C classifier + current-corpus baseline — PR #270
-NCS-03  national authoritative-source inventory — next
-NCS-04  candidate + Tier A importer / identity-dedupe / publication-time pipeline
+NCS-02  A/B/C classifier + current-corpus baseline — completed via PR #270
+NCS-03  national authoritative-source inventory — completed in PR #272
+NCS-04  candidate + Tier A importer / identity-dedupe / publication-time pipeline — next
 NCS-05  bulk dry run + Tier A publication-readiness audit
 NCS-06  first bounded Tier A public wave + continuous A→B promotion
 NCS-07  cumulative 500 public primary Matsuri records
