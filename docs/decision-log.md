@@ -339,8 +339,6 @@ Every newly published primary Matsuri record must meet the substantive minimum i
 docs/nationwide-corpus-scaling.md
 ```
 
-That minimum includes a real Basic Profile, evidence-bounded Current State, and at least one completed dated Occurrence with a non-scheduled outcome or an evidence-backed Change Event when a completed Occurrence cannot responsibly be established.
-
 The current reviewed corpus must not become a permanently richer legacy subset surrounded by shallow bulk-added records.
 
 Before bulk public expansion, the repository must implement machine-readable depth metrics and a release guard. Every expansion release train must contain substantive depth upgrades as well as new public Entities, and backlog growth must be bounded.
@@ -351,6 +349,45 @@ The same anti-thin-record rule applies to 神社のゆくえ, 寺院のゆくえ
 
 The implementation sequence is NCS-01 through NCS-09 in `docs/development-schedule.md`.
 
+## 2026-08-18 — NCS-02 calibrates Matsuri history depth from the existing corpus
+
+Decision: **new nationwide Matsuri publication must not be systematically shallower than the measured pre-expansion corpus.**
+
+The NCS-02 baseline measured 57 Festival / Folk Performance specialist-primary records:
+
+```text
+with >= 1 evidence-backed completed Occurrence year   52 / 57
+with >= 2 completed Occurrence years                  37 / 57
+with >= 1 evidence-backed Change Event                57 / 57
+```
+
+The original NCS-01 wording that allowed a Change Event to substitute for completed Occurrence history is superseded.
+
+For a newly published primary Matsuri record, `public_core` now requires both:
+
+```text
+>= 1 evidence-backed completed dated Occurrence
+>= 1 evidence-backed Change Event
+```
+
+A candidate that cannot support completed Occurrence history remains non-public. The five existing specialist-primary records without completed Occurrence history remain promotion/deepening backlog and do not set a weaker precedent.
+
+`history_enriched` requires `public_core` plus completed Occurrences in at least two distinct years.
+
+For every NCS-06-or-later expansion release train:
+
+```text
+new public_core pass rate                         100%
+new records with >=2 completed Occurrence years  >= ceil(new_count * 37 / 57)
+corpus-wide >=2-year history proportion           >= 37 / 57
+```
+
+The `37 / 57` floor is derived from the measured existing corpus, not chosen as a convenient percentage.
+
+This decision does not authorize bulk public release. The bounded promotion-backlog rule and remaining full release guard must still be implemented before NCS-06.
+
+Future specialist sites must create equivalent anti-shallow-expansion gates calibrated to their own State/history models rather than mechanically reusing Matsuri Occurrence thresholds.
+
 ## Open decisions
 
 - final map component implementation,
@@ -360,4 +397,4 @@ The implementation sequence is NCS-01 through NCS-09 in `docs/development-schedu
 - JSON partition threshold,
 - whether Stats enters MVP,
 - whether Compare enters MVP,
-- exact machine thresholds for `public_core`, `history_enriched`, and promotion-backlog release guards after the existing corpus is measured under NCS-02.
+- exact bounded promotion-backlog rule and remaining NCS-06 release-guard mechanics after NCS-03/NCS-05 evidence is available.
