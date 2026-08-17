@@ -21,7 +21,23 @@ folk_performance
 organization
 ```
 
-Shrine and Temple records may initially be minimal cross-site seeds. Their own State models belong to future home surfaces.
+Shrine and Temple records may initially be minimal cross-site seeds inside Matsuri. Their own State models belong to future home surfaces.
+
+These State-free seeds are **not** acceptable as the primary public corpus of 神社のゆくえ or 寺院のゆくえ. Future specialist sites must apply their own substantive public-record contracts under `nationwide-corpus-scaling.md` before publication.
+
+## Matsuri public-record minimum
+
+For nationwide post-launch expansion, a newly published primary Festival or Folk Performance must satisfy the substantive public-record quality contract in:
+
+```text
+docs/nationwide-corpus-scaling.md
+```
+
+A name/location/link-only record remains a non-public candidate.
+
+A public primary Matsuri record requires a substantive Basic Profile plus evidence-bounded Observation, including an approved Current State and at least one completed dated Occurrence with a non-`scheduled` outcome or an evidence-backed Change Event when a completed Occurrence cannot responsibly be established.
+
+Bulk discovery and draft generation may be automated, but publication remains reviewed and fail-closed.
 
 ## Festival profile
 
@@ -87,6 +103,8 @@ unknown
 ```
 
 `revived` is not a Current State value. Revival is represented through Change Events, and a confirmed resumed tradition may return to `active`.
+
+`unknown` is a real evidence-bounded result. It must not be used as a publication shortcut for insufficient research.
 
 ## Change Event examples
 
@@ -167,10 +185,12 @@ prefecture
 current state
 ```
 
-Future-ready dimensions may include municipality, usual month, season, recurrence, kind, designation, website presence, image presence, latest Occurrence outcome, and history flags.
+Future-ready dimensions may include municipality, usual month, season, recurrence, kind, designation, website presence, image presence, latest Occurrence outcome, history flags, and public quality/depth class.
 
 ## Entity boundary rule
 
 Do not create same-name Festival and Folk Performance records merely because a performance happens annually.
 
 Separate records only when independent identity is supported by meaningful differences such as name, organization, State, Occurrence history, Source corpus, or useful Relation structure.
+
+Bulk import does not weaken this rule. Ambiguous imported candidates remain outside the Public Projection until identity is resolved.
