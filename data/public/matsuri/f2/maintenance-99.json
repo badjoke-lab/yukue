@@ -1,0 +1,40 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-yamaga-toro-reduced-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_tourism_body",
+      "title": "2026年山鹿灯籠まつり開催について【R8.7.31更新】",
+      "publisher": "山鹿温泉観光協会",
+      "url": "https://www.y-kankoukyoukai.com/info/?p=3013",
+      "published_at": "2026-07-31",
+      "accessed_at": "2026-08-17",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-yamaga-sennin-odori-2026-cancelled",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaga-toro-reduced-2026",
+      "target_type": "occurrence",
+      "target_id": "occ-yamaga-sennin-odori-2026",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "山鹿温泉観光協会は令和8年熊本地震を受け、2026年山鹿灯籠まつりを大宮神社の神事等のみに規模縮小し、千人灯籠踊りを中止すると明記している。",
+      "captured_at": "2026-08-17",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
