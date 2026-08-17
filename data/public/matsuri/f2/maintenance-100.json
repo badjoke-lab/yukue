@@ -1,0 +1,53 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [
+    {
+      "id": "sts-niihama-taiko-current-2026-08-17",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-niihama-taiko-matsuri",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-08-17",
+      "basis_evidence_ids": [
+        "evd-niihama-taiko-state-2026-08-17"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-niihama-taiko-current-2026",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_tourism_body",
+      "title": "新居浜太鼓祭り",
+      "publisher": "愛媛県公式観光サイト いよ観ネット",
+      "url": "https://www.iyokannet.jp/event/2553",
+      "accessed_at": "2026-08-17",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-niihama-taiko-state-2026-08-17",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-niihama-taiko-current-2026",
+      "target_type": "state_snapshot",
+      "target_id": "sts-niihama-taiko-current-2026-08-17",
+      "assertion_code": "supports_current_state",
+      "summary_ja": "愛媛県公式観光サイトは新居浜太鼓祭りを現行イベントとして掲載し、桟敷席オンライン予約を2026年9月30日まで受け付けると案内しているため、2026年8月17日時点の活動継続を確認できる。",
+      "captured_at": "2026-08-17",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
