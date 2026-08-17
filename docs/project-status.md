@@ -23,8 +23,8 @@ Matsuri Detail C implementation — completed
 Matsuri prefecture seed baseline — completed 47 / 47
 Matsuri nationwide public corpus scaling — active
 NCS-01 governing docs — completed
-NCS-02 A/B/C classifier/baseline — exact-head alignment active
-NCS-03 national source inventory — next
+NCS-02 A/B/C classifier/baseline — completed
+NCS-03 national source inventory — active
 Matsuri maintenance / historical depth — active in parallel
 Matsuri stabilization review — reviewing / incomplete
 Actual Jinja start gate — blocked
@@ -108,9 +108,11 @@ Multi-year history is not required.
 
 Tier C adds longitudinal depth and/or active monitoring, including multiple-year Occurrences, cancellation/postponement/partial-held/revival history, meaningful Change Events, governance/venue changes, freshness monitoring, or richer supported Relation history.
 
-## NCS-02 measured baseline
+## NCS-02 completed baseline
 
-From workflow run `32080250053`, job `95541708043`:
+NCS-02 was merged by PR #270 at main commit `031b5de385330d9ef1eb3db728a8b11a3d04807c`.
+
+Exact measured baseline:
 
 ```text
 Specialist primary subjects                  57
@@ -123,7 +125,7 @@ Prefectures represented                      47
 Municipality scopes represented              55
 ```
 
-Existing historical depth is also retained as a descriptive measurement:
+Existing historical depth remains descriptive only:
 
 ```text
 Completed Occurrence history                52 / 57
@@ -164,8 +166,8 @@ Governing issue:
 
 ```text
 NCS-01  governing specification and schedule alignment — completed
-NCS-02  A/B/C classifier + current-corpus baseline — exact-head sync active
-NCS-03  national authoritative-source inventory — next
+NCS-02  A/B/C classifier + current-corpus baseline — completed
+NCS-03  national authoritative-source inventory — active
 NCS-04  deterministic candidate + Tier A importer / identity-dedupe pipeline
 NCS-05  bulk dry run + Tier A publication-readiness audit
 NCS-06  first bounded Tier A public wave + continuous A→B promotion
@@ -191,7 +193,7 @@ pnpm check:matsuri:detail-navigation
 pnpm check:matsuri:stabilization-review
 ```
 
-The currently tracked closed-unresolved 2026 Occurrences must be resolved only with post-event Evidence. Elapsed dates, event-page persistence, ticket sales, or absence of a cancellation notice do not justify `held`.
+The exact-head audit on 2026-08-18 detected five closed-unresolved 2026 Occurrences plus one stale Current State. These remain fail-closed until direct Evidence supports a change. Elapsed dates, event-page persistence, ticket sales, or absence of a cancellation notice do not justify `held`.
 
 Those maintenance cases do not change the national scaling rule and do not create an A/B/C global stop.
 
@@ -237,13 +239,13 @@ Do not activate future-site hostname, Worker, public implementation, or speciali
 ## Immediate next actions
 
 ```text
-1. complete NCS-02 repo-wide A/B/C specification + classifier + baseline sync
-2. verify PR #270 exact-head Actions and distinguish NCS-caused failures from independent maintenance gates
-3. merge #270 only after the exact head is safe
-4. reread main governing docs after merge
-5. execute NCS-03 national authoritative-source inventory
-6. implement NCS-04 candidate + Tier A importer and dedupe/provenance/publication-time contracts
-7. run NCS-05 dry run
-8. begin NCS-06 real Tier A public expansion while A→B verification runs in parallel
-9. advance toward 500 then 1,000 public primary records while B→C deepening continues
+1. execute NCS-03 national authoritative-source inventory
+2. define machine-readable source-family suitability and rights/reuse boundaries
+3. identify national, prefectural, municipal, cultural-property, official-tourism, preservation-group, and organizer source families
+4. define partition/discovery strategy for structured national sources
+5. implement NCS-04 candidate + Tier A importer and dedupe/provenance/publication-time contracts
+6. run NCS-05 dry run
+7. begin NCS-06 real Tier A public expansion while A→B verification runs in parallel
+8. advance toward 500 then 1,000 public primary records while B→C deepening continues
+9. maintain due Occurrences and stale State independently without inference
 ```
