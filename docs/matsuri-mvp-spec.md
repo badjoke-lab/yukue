@@ -35,7 +35,11 @@ docs/nationwide-corpus-scaling.md
 
 A name/location/link-only record remains a non-public candidate.
 
-A public primary Matsuri record requires a substantive Basic Profile plus evidence-bounded Observation, including an approved Current State and at least one completed dated Occurrence with a non-`scheduled` outcome or an evidence-backed Change Event when a completed Occurrence cannot responsibly be established.
+A public primary Matsuri record requires a substantive Basic Profile plus evidence-bounded Observation, including an approved Current State, at least one evidence-backed completed dated Occurrence with a non-`scheduled` outcome, and at least one evidence-backed Change Event.
+
+A Change Event is not a substitute for completed Occurrence history for new public records. A candidate with no supportable completed Occurrence remains non-public rather than being promoted as a shallow record.
+
+For NCS-06-or-later expansion, the measured history-depth floor also applies: at least `ceil(new_public_primary_records * 37 / 57)` newly published primary records in each release train must have evidence-backed completed Occurrences in at least two distinct years, and the corpus-wide multi-year history proportion must not fall below `37 / 57`.
 
 Bulk discovery and draft generation may be automated, but publication remains reviewed and fail-closed.
 
