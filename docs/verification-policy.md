@@ -2,24 +2,39 @@
 
 ## Principle
 
-Public records are published only after review.
+Public records are published only after the review required for their public tier.
 
 The public product distinguishes a subject's identity, current state, a specific occurrence, a historical change event, a relation, a designation, the source, and the evidence supporting an assertion.
 
-Nationwide scale does not change the publication threshold. Bulk discovery increases the number of candidates; it does not create a weaker class of public records.
+Nationwide scale uses a three-layer public model:
+
+```text
+Tier A  Public Index
+Tier B  Public Verified
+Tier C  Public History / Monitoring
+```
+
+A record does not need Tier B/C depth before it can be public Tier A. Verification remains claim-bounded: a thin public record may expose only the facts actually supported at Tier A.
 
 ## Candidate/public boundary
 
-Index-like records containing only name, geography, and source links may exist only as non-public candidates.
+A private candidate may contain incomplete parsed/source material before identity/source review.
 
-They:
+A record becomes intentionally public Tier A once it satisfies the minimum in `nationwide-corpus-scaling.md`, including reviewed identity, subject type, geography, authoritative source, source verification/access date, and deterministic identity/duplicate checking.
 
-- do not enter the Public Projection;
-- do not count toward public national coverage;
-- do not receive specialist public detail pages;
-- do not become public merely because a source importer can generate them cheaply.
+A reviewed name + geography + authoritative source may therefore be a legitimate public Tier A record.
 
-For nationwide expansion, the substantive public-record contract is defined in `nationwide-corpus-scaling.md`.
+Tier A:
+
+- enters the Public Projection;
+- may receive a specialist detail page;
+- may appear in browse/search, public JSON, sitemap, and indexable surfaces;
+- counts toward public national coverage;
+- is visibly distinguishable from Tier B/C.
+
+Tier A must not claim unsupported Current State, held/cancelled outcome, organizer, Place, Relation, coordinates, history, or officiality.
+
+Private candidates that have not satisfied Tier A remain non-public and do not count toward public coverage.
 
 ## Review states
 
@@ -36,9 +51,21 @@ on_hold
 superseded
 ```
 
-Only approved public material enters the Public Projection.
+Only reviewed public material enters the Public Projection. Automation may draft and classify records but does not invent approval or unsupported facts.
 
-Automation may draft and classify records but does not set `approved` without the required review gate.
+## Tier A → B target
+
+A newly published Tier A record should be promoted toward Tier B in about seven calendar days.
+
+The target is an operational priority, not a global release gate:
+
+- report due and overdue Tier A;
+- prioritize overdue A→B research;
+- continue unrelated valid Tier A publication;
+- never satisfy the target by inference or fabricated Evidence;
+- never auto-withdraw a valid Tier A only because seven days elapsed.
+
+If Tier B Evidence remains insufficient, keep the record public at Tier A and report its missing verification dimensions.
 
 ## Current State
 
@@ -46,13 +73,15 @@ Current State is derived from approved State Snapshots.
 
 A State should not be changed solely because:
 
-- one Occurrence was cancelled,
-- a website disappeared,
-- a social account became inactive,
-- the format changed,
+- one Occurrence was cancelled;
+- a website disappeared;
+- a social account became inactive;
+- the format changed;
 - the recurrence cycle has a naturally long gap.
 
-`unknown` is not a shortcut around research. It must be an approved evidence-bounded conclusion.
+`unknown` is not a shortcut around research. It must be an approved evidence-bounded conclusion when exposed as Current State.
+
+Tier A does not require Current State at all.
 
 ## Revival
 
@@ -77,6 +106,8 @@ Elapsed dates, a still-live event page, ticket sales, livestream links, or absen
 
 Bulk import and automated maintenance must preserve this fail-close rule.
 
+A completed Occurrence is not a Tier A publication prerequisite. Tier B may use a properly evidenced Occurrence, including a current scheduled edition, as its dated observation anchor.
+
 ## Relations
 
 Relations should be specific when Evidence supports specificity. Avoid a generic association relation when a more precise relationship is known.
@@ -85,55 +116,101 @@ Relations may have validity periods.
 
 Candidate relation suggestions from automation remain non-public until reviewed.
 
-## Public-record completeness for scaling
+A Relation is not required merely to publish Tier A.
 
-A newly published primary Matsuri record must meet the substantive minimum in `nationwide-corpus-scaling.md`.
+## Tier B — Public Verified
 
-This includes reviewed identity/profile coverage, evidence-bounded Current State, **at least one evidence-backed completed dated Occurrence with a non-`scheduled` outcome**, and **at least one evidence-backed Change Event**.
+Tier B requires Tier A plus applicable reviewed verification dimensions. For Matsuri these include:
 
-A Change Event does not substitute for completed Occurrence history for a newly published primary Matsuri record.
+- substantive profile text;
+- approved Current State with claim-linked Evidence;
+- Place/route/distributed-place treatment where supportable;
+- organizer / responsible organization where supportable;
+- supported Shrine / Temple / Organization Relations where available;
+- timing / recurrence where supportable;
+- direct profile / identity Evidence;
+- reviewed authoritative external links;
+- at least one dated observation anchor supported by Evidence.
 
-A record that cannot meet the minimum remains a candidate rather than entering the Public Projection as a thin shell.
+Tier B does not require multi-year Occurrence history.
 
-## Measured history-depth verification
+A field that cannot responsibly be established is not invented merely to obtain Tier B.
 
-The NCS-02 pre-expansion reference is:
+## Tier C — Public History / Monitoring
+
+Tier C adds meaningful longitudinal history or monitoring beyond Tier B.
+
+Examples include:
+
+- completed Occurrences across multiple years;
+- evidence-backed cancellation / postponement / partial-held / revival history;
+- meaningful Change Events;
+- governance or venue changes;
+- active scheduled-Occurrence freshness monitoring;
+- richer supported Relation history.
+
+Tier C is a deepening target, not a publication prerequisite for Tier A/B.
+
+## NCS-02 measured baseline
+
+The current specialist-primary baseline is:
 
 ```text
-Specialist primary records                57
->= 1 completed Occurrence year            52 / 57
->= 2 completed Occurrence years           37 / 57
->= 1 evidence-backed Change Event         57 / 57
+Specialist primary records                  57
+Tier A — Public Index                        19
+Tier B — Public Verified                      8
+Tier C — Public History / Monitoring         30
+Below Tier A                                  0
+>= 1 completed Occurrence year              52 / 57
+>= 2 completed Occurrence years             37 / 57
+>= 1 evidence-backed Change Event           57 / 57
 ```
 
-For NCS-06-or-later public expansion:
+The completed-Occurrence and 37 / 57 multi-year values are descriptive measurements of the existing corpus. They are **not** first-publication requirements or release quotas for Tier A/B.
 
-- 100% of newly published primary Matsuri records must satisfy `public_core`;
-- at least `ceil(new_public_primary_records * 37 / 57)` of the newly published records in a release train must have completed Occurrences in at least two distinct years;
-- the corpus-wide two-distinct-year proportion must not fall below `37 / 57`;
-- source-ceiling findings may keep a candidate unpublished but do not waive the new-record minimum;
-- the five existing specialist-primary records without completed Occurrence history remain promotion/deepening backlog and are not precedents for new publication.
+The current Tier A records have no authentic legacy `tier_a_published_at`, so the classifier reports publication-age metadata missing rather than inventing a due/overdue age.
 
-The remaining promotion-backlog bound and full release guard must be implemented before bulk public release. Until then, NCS-06 publication remains blocked.
+## Obsolete verification rules
+
+Do not reintroduce any of the following as nationwide publication requirements:
+
+```text
+Tier A-equivalent records are necessarily non-public
+completed Occurrence required for Tier A
+Change Event required for Tier A
+completed Occurrence + Change Event both required for Tier A
+37 / 57 or 64.9% multi-year-history release floor
+a single overdue Tier A globally stops new Tier A publication
+valid Tier A auto-unpublishes when seven days elapse
+```
 
 ## Conflicts
 
 Unresolved Source conflicts are not silently flattened into a public conclusion.
 
-Conflicted or unresolved claims remain outside the Public Projection until a public statement can be supported.
+Conflicted or unresolved claims remain outside the relevant public claim set until a statement can be supported. A record may still remain public at a lower tier if its Tier A facts themselves are not conflicted.
 
 Bulk scale does not justify resolving identity or source conflicts by majority vote, heuristic confidence alone, or automatic preference for one source family.
 
 ## Future-site verification
 
-State-free Shrine and Temple seeds used by Matsuri remain valid candidate/reference records for Matsuri Relations.
+The series design includes:
 
-They are not pre-approved public primary records for 神社のゆくえ or 寺院のゆくえ.
+```text
+祭のゆくえ
+神社のゆくえ
+寺院のゆくえ
+弔いのゆくえ
+```
 
-Each future specialist site requires its own substantive public-record minimum and quality gate before activation under `nationwide-corpus-scaling.md`.
+Only Matsuri is currently activated for implementation/publication work.
 
-Each future-site quality gate must include a measured anti-shallow-expansion rule appropriate to that domain rather than copying Matsuri Occurrence thresholds mechanically.
+State-free Shrine and Temple references used by Matsuri remain valid relation/reference seeds where supported, but they do not automatically become public primary Tier A records for 神社のゆくえ or 寺院のゆくえ.
+
+Each future specialist site must define its own Tier A identity/source minimum and Tier B verification dimensions before activation. Matsuri Occurrence-specific thresholds must not be copied mechanically to another domain.
 
 ## Public Projection safety
 
-Do not publish candidate queues, internal confidence, reviewer notes, unresolved source conflicts, internal priorities, private operational comments, or thin candidate shells.
+Do not publish candidate queues, internal confidence, reviewer notes, unresolved source conflicts, internal priorities, private operational comments, or other internal-only data.
+
+This does not prohibit reviewed public Tier A records: Tier A is part of the Public Projection by design.
