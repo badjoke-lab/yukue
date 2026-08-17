@@ -98,13 +98,13 @@ The current reviewed records are not a special rich legacy tier. New public reco
 Governing issue:
 
 ```text
-#267 — Redesign nationwide corpus scaling and coverage tiers
+#267 — Redesign nationwide corpus scaling and public quality gates
 ```
 
 Implementation sequence:
 
 ```text
-NCS-01  governing specification and schedule alignment — active / this change
+NCS-01  governing specification and schedule alignment — completed
 NCS-02  machine quality/depth classifier over existing corpus — next
 NCS-03  national authoritative-source inventory
 NCS-04  deterministic candidate importer + identity/dedupe pipeline
@@ -169,15 +169,14 @@ Before Jinja, Jiin, or Tomurai activation, each site requires its own substantiv
 ## Immediate next actions
 
 ```text
-1. complete and merge NCS-01 documentation alignment
-2. implement NCS-02 machine quality/depth classifier over the current corpus
-3. measure current public_core / history_enriched / monitored distribution
-4. define the first bulk-release guard from that measured baseline
-5. build NCS-03 national authoritative-source inventory
-6. implement NCS-04 private candidate importer and deterministic identity/dedupe checks
-7. run NCS-05 at bulk scale without publishing candidate shells
-8. audit quality, provenance, duplicate rate, and source ceilings
-9. only then allow NCS-06 public-quality expansion
-10. continue due Occurrence / freshness corrections in parallel
-11. keep future specialist sites blocked until their existing and new quality prerequisites are satisfied
+1. implement NCS-02 machine quality/depth classifier over the current corpus
+2. measure current public_core / history_enriched / monitored distribution
+3. define the first bulk-release guard from that measured baseline
+4. build NCS-03 national authoritative-source inventory
+5. implement NCS-04 private candidate importer and deterministic identity/dedupe checks
+6. run NCS-05 at bulk scale without publishing candidate shells
+7. audit quality, provenance, duplicate rate, and source ceilings
+8. only then allow NCS-06 public-quality expansion
+9. continue due Occurrence / freshness corrections in parallel
+10. keep future specialist sites blocked until their existing and new quality prerequisites are satisfied
 ```
