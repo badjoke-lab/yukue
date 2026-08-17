@@ -65,6 +65,27 @@
         "evd-nagano-binzuru-occ-2024"
       ],
       "review_status": "approved"
+    },
+    {
+      "id": "occ-waka-matsuri-2025",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "subject_entity_id": "fst-waka-matsuri",
+      "series_id": "ser-waka-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2025-05-11",
+        "end": "2025-05-11",
+        "precision": "day"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": [],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-waka-matsuri-occ-2025-held"
+      ],
+      "review_status": "approved"
     }
   ],
   "occurrenceSeries": [],
@@ -117,6 +138,17 @@
       "published_at": "2024-08-09",
       "accessed_at": "2026-08-17",
       "language": "ja"
+    },
+    {
+      "id": "src-waka-matsuri-2025-tv-wakayama",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "credible_news",
+      "title": "和歌祭2025",
+      "publisher": "テレビ和歌山",
+      "url": "https://www.tv-wakayama.co.jp/bangumi/onair/wakamatsuri/2025/",
+      "accessed_at": "2026-08-17",
+      "language": "ja"
     }
   ],
   "evidence": [
@@ -165,6 +197,18 @@
       "target_id": "occ-nagano-binzuru-2024",
       "assertion_code": "supports_occurrence",
       "summary_ja": "長野県長野地域振興局は2024年8月9日の公式ブログで、8月3日に第54回長野びんずるが開催され、県職員等が実際に参加したことを写真付きで記録している。開催実績のみを採用し、参加人数からscaleは推定しない。",
+      "captured_at": "2026-08-17",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-waka-matsuri-occ-2025-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-waka-matsuri-2025-tv-wakayama",
+      "target_type": "occurrence",
+      "target_id": "occ-waka-matsuri-2025",
+      "assertion_code": "supports_occurrence",
+      "summary_ja": "テレビ和歌山は特別番組『和歌祭2025』で、2025年5月11日に開かれた和歌祭の模様を放送すると明記し、年末の再放送案内でも同日に行われた和歌祭の模様と記録している。これを2025 editionのheld outcomeと日付の根拠に用い、規模・会場・主催者は遡及推定しない。",
       "captured_at": "2026-08-17",
       "review_status": "approved"
     }
