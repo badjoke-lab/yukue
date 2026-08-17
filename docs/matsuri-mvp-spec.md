@@ -23,25 +23,64 @@ organization
 
 Shrine and Temple records may initially be minimal cross-site seeds inside Matsuri. Their own State models belong to future home surfaces.
 
-These State-free seeds are **not** acceptable as the primary public corpus of 神社のゆくえ or 寺院のゆくえ. Future specialist sites must apply their own substantive public-record contracts under `nationwide-corpus-scaling.md` before publication.
+These State-free seeds are **not** automatically Tier A records for 神社のゆくえ or 寺院のゆくえ. Future specialist sites must satisfy their own Tier A identity/source minimum before public specialist-site publication.
 
-## Matsuri public-record minimum
+## Matsuri public A/B/C model
 
-For nationwide post-launch expansion, a newly published primary Festival or Folk Performance must satisfy the substantive public-record quality contract in:
+Nationwide post-launch expansion is governed by:
 
 ```text
 docs/nationwide-corpus-scaling.md
 ```
 
-A name/location/link-only record remains a non-public candidate.
+### Tier A — Public Index
 
-A public primary Matsuri record requires a substantive Basic Profile plus evidence-bounded Observation, including an approved Current State, at least one evidence-backed completed dated Occurrence with a non-`scheduled` outcome, and at least one evidence-backed Change Event.
+Tier A is public. A reviewed Festival or Folk Performance may publish at Tier A with the source-backed Index minimum:
 
-A Change Event is not a substitute for completed Occurrence history for new public records. A candidate with no supportable completed Occurrence remains non-public rather than being promoted as a shallow record.
+- canonical identity and subject type;
+- prefecture + municipality where municipality-bounded, or an appropriate wider region scope;
+- approved authoritative source;
+- source verification/access date;
+- deterministic identity / duplicate check;
+- machine-visible Tier A class and real publication timestamp for newly published A records.
 
-For NCS-06-or-later expansion, the measured history-depth floor also applies: at least `ceil(new_public_primary_records * 37 / 57)` newly published primary records in each release train must have evidence-backed completed Occurrences in at least two distinct years, and the corpus-wide multi-year history proportion must not fall below `37 / 57`.
+A reviewed name + geography + authoritative source is a valid public Tier A record.
 
-Bulk discovery and draft generation may be automated, but publication remains reviewed and fail-closed.
+Completed Occurrence, Change Event, Current State, multi-year history, organizer, Place, Relation, and coordinates are not Tier A prerequisites. Unsupported dimensions remain absent rather than inferred.
+
+### Tier A → B target
+
+New Tier A records are targeted for Tier B verification in about seven calendar days.
+
+Overdue Tier A is visible and prioritized, but:
+
+- one overdue record does not block unrelated valid Tier A publication;
+- seven days does not automatically withdraw a valid Tier A record;
+- missing Evidence is never replaced with an inferred fact to meet the target.
+
+### Tier B — Public Verified
+
+Tier B adds the applicable reviewed verification dimensions: substantive profile text, evidence-backed Current State, supportable Place/timing/organizer/Relation information, direct profile Evidence, authoritative-link review, and an evidence-backed dated observation anchor.
+
+Tier B does not require multi-year history.
+
+### Tier C — Public History / Monitoring
+
+Tier C adds longitudinal depth or monitoring, including multiple-year Occurrences, cancellation/postponement/partial-held/revival history, meaningful Change Events, governance/venue changes, freshness monitoring, or richer Relation history.
+
+Tier C deepening runs in parallel with Tier A breadth and Tier B verification.
+
+## Current NCS-02 baseline
+
+```text
+Specialist primary records                  57
+Tier A — Public Index                        19
+Tier B — Public Verified                      8
+Tier C — Public History / Monitoring         30
+Below Tier A                                  0
+```
+
+The existing 52 / 57 completed-Occurrence and 37 / 57 multi-year measurements describe current history depth. They are not release floors for new Tier A/B records.
 
 ## Festival profile
 
@@ -108,7 +147,7 @@ unknown
 
 `revived` is not a Current State value. Revival is represented through Change Events, and a confirmed resumed tradition may return to `active`.
 
-`unknown` is a real evidence-bounded result. It must not be used as a publication shortcut for insufficient research.
+`unknown` is a real evidence-bounded result. It must not be used as a shortcut for insufficient research. Tier A may simply omit unsupported Current State.
 
 ## Change Event examples
 
@@ -146,18 +185,21 @@ dedication
 other
 ```
 
+Elapsed dates do not prove an Occurrence was held. Pre-event schedules, ticket sales, event-page persistence, or silence about cancellation are not post-event Evidence.
+
 ## Place and map behavior
 
-- Single-site subjects may show one primary map.
-- Multi-site subjects should show a representative map and a place list.
+- Single-site subjects may show one primary map when Place Evidence supports it.
+- Multi-site subjects should show a representative map and a place list when supported.
 - Route-based traditions should not be represented as if one pin describes the whole tradition.
 - Distributed traditions should prefer area explanation over false precision.
+- Tier A may have no Place/coordinate beyond its supported geographic scope.
 
 Entity default places and Occurrence-specific venues remain separate.
 
 ## External links
 
-Display priority:
+Display priority when supported:
 
 1. official website,
 2. organizer or preservation-group website,
@@ -186,10 +228,12 @@ Initial:
 full text
 entity type
 prefecture
-current state
+current state where available
 ```
 
-Future-ready dimensions may include municipality, usual month, season, recurrence, kind, designation, website presence, image presence, latest Occurrence outcome, history flags, and public quality/depth class.
+Future-ready dimensions may include municipality, coverage tier, usual month, season, recurrence, kind, designation, website presence, image presence, latest Occurrence outcome, and history flags.
+
+Tier A records remain searchable even when Tier B-only dimensions are absent.
 
 ## Entity boundary rule
 
@@ -197,4 +241,10 @@ Do not create same-name Festival and Folk Performance records merely because a p
 
 Separate records only when independent identity is supported by meaningful differences such as name, organization, State, Occurrence history, Source corpus, or useful Relation structure.
 
-Bulk import does not weaken this rule. Ambiguous imported candidates remain outside the Public Projection until identity is resolved.
+Bulk import does not weaken this rule. Ambiguous imported candidates remain private until identity is resolved sufficiently for Tier A.
+
+## Automation and publication boundary
+
+Bulk discovery and draft generation may be automated, but automation must not infer held/cancelled outcomes, Current State, organizer, Place, Relation, coordinates, or other unsupported claims.
+
+Machine classification does not replace review. Once the reviewed Tier A minimum is satisfied, however, the record is intentionally public and does not wait for Tier B/C completion.
