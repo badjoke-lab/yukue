@@ -140,21 +140,22 @@ NCS-07 and NCS-08 are scaling checkpoints, not completion claims.
 Exact machine baseline:
 
 ```text
-Specialist primary subjects             57
-  Festival                               49
-  Folk Performance                       8
-Machine public_core                       0 / 57
-Machine history_enriched                  0 / 57
-Machine monitored                        21 / 57
-Completed Occurrence history             52 / 57
-Evidence-backed Change Events            57 / 57
-Current State Evidence                   56 / 57
-Direct profile Evidence                  39 / 57
+Specialist primary subjects                    57
+  Festival                                      49
+  Folk Performance                               8
+Machine public_core                              0 / 57
+Machine history_enriched                         0 / 57
+Machine monitored                               21 / 57
+At least 1 completed Occurrence year            52 / 57
+At least 2 completed Occurrence years           37 / 57
+Evidence-backed Change Events                   57 / 57
+Current State Evidence                          56 / 57
+Direct profile Evidence                         39 / 57
 ```
 
-The zero `public_core` result is not hidden or repaired by lowering the new contract. Every existing specialist-primary record currently lacks Entity-level `description_ja`; 18 also lack direct profile Evidence, with smaller additional gaps.
+The zero `public_core` result is not hidden or repaired by lowering the new contract. Every existing specialist-primary record currently lacks Entity-level `description_ja`; 18 also lack direct profile Evidence, five lack completed Occurrence history, and smaller additional gaps remain.
 
-This does **not** mean the current corpus is a thin directory: almost all records already have completed Occurrence history and every specialist-primary record has a Change Event. It means the existing corpus itself must be deepened to satisfy the newly tightened complete public-core contract.
+This does **not** mean the current corpus is a thin directory: 52 / 57 already have completed Occurrence history, 37 / 57 have multi-year completed Occurrence history, and every specialist-primary record has a Change Event. It means the existing corpus itself must be deepened to satisfy the newly tightened complete public-core contract.
 
 Sources of truth:
 
@@ -165,15 +166,27 @@ scripts/audit-matsuri-corpus-quality.mjs
 scripts/check-matsuri-corpus-quality-baseline.mjs
 ```
 
-Bulk public release remains unauthorized. No percentage threshold has been invented from this result.
+Bulk public release remains unauthorized. The measured history-depth floor is now defined, but the remaining promotion-backlog bound and full NCS-06 release guard are not yet complete.
 
 ### Publication boundary
 
 Index-only records are allowed only as non-public candidates.
 
-A new public primary Matsuri record must satisfy the substantive minimum in `docs/nationwide-corpus-scaling.md`, including Basic Profile, evidence-bounded Current State, and at least one completed dated Occurrence or evidence-backed Change Event.
+A new public primary Matsuri record must satisfy the substantive minimum in `docs/nationwide-corpus-scaling.md`, including Basic Profile, evidence-bounded Current State, at least one evidence-backed completed dated Occurrence, and at least one evidence-backed Change Event.
 
-A public release must not consist only of breadth work. Before bulk publication, the machine quality gate must measure depth distribution and promotion backlog and must prevent expansion from producing a permanent shallow second class of records.
+A Change Event cannot substitute for completed Occurrence history for a newly published primary record.
+
+For every NCS-06-or-later expansion release train:
+
+```text
+new public_core pass rate                         100%
+new records with >=2 completed Occurrence years  >= ceil(new_count * 37 / 57)
+corpus-wide >=2-year history proportion           >= 37 / 57
+```
+
+The `37 / 57` floor is derived from the measured current corpus rather than selected as a convenient threshold.
+
+A public release must not consist only of breadth work. The remaining machine quality gate must also enforce the bounded promotion backlog and prevent expansion from producing a permanent shallow second class of records.
 
 Existing records are not exempt from that deepening requirement.
 
@@ -210,7 +223,7 @@ Dated Occurrence reviews continue in parallel with NCS work and must remain fail
 4. implement NCS-04 importer, provenance capture, identity keys, and duplicate/conflict queue
 5. run NCS-05 at bulk scale without publishing candidate shells
 6. audit dry-run false positives, duplicates, missing fields, Source/Evidence mapping, and description quality
-7. implement the bounded promotion-backlog / depth-distribution release guard
+7. implement the remaining bounded promotion-backlog release guard while preserving the measured 37 / 57 history floor
 8. only then run NCS-06 public-quality pilot through the substantive public-record gate
 9. keep due Matsuri Occurrence freshness and existing production regressions green in parallel
 10. do not activate Jinja until its existing gate plus the future-site quality prerequisites are satisfied
@@ -229,6 +242,8 @@ Explicit start authorization          false
 Current State-free Shrine seeds remain candidate/reference material only. They are not acceptable as the public primary corpus of 神社のゆくえ.
 
 Before Jinja, Jiin, or Tomurai public activation, each site must have its own substantive public-record contract, authoritative source inventory, candidate ingestion/dedupe path, machine quality metrics, and public quality gate as required by `docs/nationwide-corpus-scaling.md`.
+
+Each future site must also define a measured anti-shallow-expansion rule appropriate to its own State/history model rather than mechanically copying Matsuri Occurrence thresholds.
 
 ## Work not activated
 
