@@ -38,8 +38,7 @@
       "forms": [],
       "usual_months": [],
       "occurrence_series_ids": [],
-      "coverage_tier": "tier_a_index",
-      "tier_a_published_at": "2026-08-18T15:51:45Z"
+      "coverage_tier": "tier_a_index"
     },
     {
       "id": "fpf-hirado-jangara",
@@ -79,8 +78,7 @@
       "forms": [],
       "usual_months": [],
       "occurrence_series_ids": [],
-      "coverage_tier": "tier_a_index",
-      "tier_a_published_at": "2026-08-18T15:51:45Z"
+      "coverage_tier": "tier_a_index"
     },
     {
       "id": "fst-mamada-jagamaita",
@@ -119,8 +117,7 @@
       "festival_kind": "other",
       "usual_months": [],
       "season_tags": [],
-      "coverage_tier": "tier_a_index",
-      "tier_a_published_at": "2026-08-18T15:51:45Z"
+      "coverage_tier": "tier_a_index"
     }
   ],
   "sources": [
