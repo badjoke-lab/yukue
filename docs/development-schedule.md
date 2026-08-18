@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Status:** F2-28 completed / Detail C completed / Matsuri prefecture seed baseline 47 / 47 completed / NCS-02 A/B/C baseline completed / NCS-03 national source inventory completed / NCS-04 importer completed / NCS-05 next / nationwide public corpus scaling active / stabilization reviewing / Jinja blocked
+**Status:** F2-28 completed / Detail C completed / Matsuri prefecture seed baseline 47 / 47 completed / NCS-02 A/B/C baseline completed / NCS-03 national source inventory completed / NCS-04 importer completed / NCS-05 dry run completed / NCS-06 active / nationwide public corpus scaling active / stabilization reviewing / Jinja blocked
 
 This project is gate-driven rather than deadline-driven.
 
@@ -23,7 +23,8 @@ NCS-01                        completed
 NCS-02                        completed
 NCS-03                        completed
 NCS-04                        completed
-NCS-05                        next
+NCS-05                        completed
+NCS-06                        active
 Corpus batches 11-43          completed
 Stabilization review          reviewing
 Formal review complete        false
@@ -83,8 +84,8 @@ NCS-01  governing specification / schedule alignment                    complete
 NCS-02  A/B/C classifier + current-corpus baseline                       completed
 NCS-03  national authoritative-source inventory                          completed
 NCS-04  deterministic candidate + Tier A importer / identity-dedupe      completed
-NCS-05  bulk dry run + Tier A publication-readiness audit                next
-NCS-06  first bounded Tier A public wave + continuous A→B promotion      pending
+NCS-05  bulk dry run + Tier A publication-readiness audit                completed
+NCS-06  first bounded Tier A public wave + continuous A→B promotion      active
 NCS-07  cumulative 500 public primary Matsuri records                    checkpoint
 NCS-08  cumulative 1,000 public primary Matsuri records                  checkpoint
 NCS-09  source-inventory-derived national target + A→B→C expansion       future
@@ -242,34 +243,66 @@ The importer fails closed when a discovery-only aggregator cannot be resolved to
 
 ### NCS-05 — Bulk dry run + Tier A publication-readiness audit
 
-Status: **Next**
+Status: **Completed**
 
-NCS-05 must exercise the NCS-04 importer against a bounded real-source acquisition sample while keeping the real candidate queue out of the public repository.
-
-Required audit output:
+Merged by PR #275 at main commit:
 
 ```text
-source-resolution success rate
-Tier A-ready count
-blocked_input / blocked_source / blocked_identity counts and reasons
-existing-public duplicate count
-same-batch duplicate count
-provider-record identity conflict count
-prefecture coverage
-municipality or broader-scope coverage
-source-family distribution
-stable-provider-ID coverage where available
-partition-completeness status for structured acquisition
-rights/reuse handling
-candidate count vs Tier A-ready count
-absence of invented Tier B/C facts
-absence of tier_a_published_at before actual publication
-published count = 0
+4f8afbd0dd429e84c92988e5ba0d6089d28785aa
 ```
 
-Only public-safe aggregate/audit output may be committed. A real operational candidate queue must remain outside the public repository.
+Sources of truth:
 
-NCS-05 does **not** count as public corpus growth and does not authorize NCS-06 by itself unless the dry-run defects are resolved and the completion record explicitly advances the schedule.
+```text
+config/matsuri-tier-a-publication-readiness-contract.json
+config/matsuri-tier-a-dry-run-baseline.json
+docs/matsuri-tier-a-dry-run.md
+scripts/lib/matsuri-tier-a-publication-readiness.mjs
+scripts/check-matsuri-tier-a-publication-readiness.mjs
+scripts/check-matsuri-tier-a-dry-run.mjs
+```
+
+The bounded real-source run produced only a public-safe aggregate:
+
+```text
+real-source candidates                   6
+source-resolution success                6
+Tier A publication-ready                 2
+blocked_review                           3
+blocked_input                            1
+blocked_source                           0
+blocked_identity                         0
+published                                0
+```
+
+NCS-05 added a separate explicit review gate on top of the NCS-04 deterministic source/identity checks. It requires reviewed identity, subject type, geography, source role, and name variants, forbids automation self-approval, and requires an explicit source-supported basis for broader geographic scope when municipality is absent.
+
+The operational candidate queue, candidate identifiers, provider identifiers, and exact candidate URLs remain outside the public repository. NCS-05 published no public record and wrote no `tier_a_published_at`.
+
+### NCS-06 — First bounded Tier A public wave
+
+Status: **Active**
+
+NCS-06 must select only records that pass both NCS-04 and NCS-05. The public wave must add actual canonical Matsuri primary records rather than candidate artifacts.
+
+Required publication verification:
+
+```text
+reviewed identity / type / geography
+approved authoritative Source
+identity Evidence
+machine-visible Tier A classification
+authentic Tier A publication timestamp
+no unsupported Tier B/C dimensions
+detail HTML generated
+public JSON generated
+search/browse inclusion
+sitemap inclusion
+exact corpus-quality baseline refreshed
+production detail / JSON / sitemap verified after deployment
+```
+
+A→B work starts from the real publication timestamp. Tier A validity does not depend on immediate Tier B completion.
 
 ### Public-growth guard
 
@@ -295,20 +328,20 @@ High-volume publication must not bypass Tier A identity/source/dedupe review. Ho
 ### Immediate execution order
 
 ```text
-1. run NCS-05 against a bounded real-source sample outside the public repository candidate queue
-2. audit source resolution / identity-dedupe / geography / source-family / rights / partition / readiness results
-3. record only public-safe aggregate/audit output
-4. fix importer or source-quality defects exposed by NCS-05 without inventing facts
-5. keep tier_a_published_at absent/null and published count at zero throughout NCS-05
-6. after NCS-05 passes, run NCS-06 and actually publish a bounded reviewed Tier A wave
-7. start A→B seven-day targets from each real publication timestamp
-8. advance toward 500 then 1,000 public primary records
-9. keep A→B verification, B→C history deepening, due Occurrence freshness, and production maintenance running in parallel without inference
+1. select a bounded NCS-06 wave only from NCS-04 + NCS-05 reviewed-ready records
+2. re-check authoritative sources before publication and repeat exact identity/dedupe checks against current main
+3. write only canonical Tier A minimum data and authentic publication metadata; do not invent Tier B/C facts
+4. build detail HTML / public JSON / search-browse / sitemap and add a dedicated publication-wave checker
+5. refresh corpus-quality baseline from the exact classifier output, not from estimates
+6. merge the bounded public wave after exact-head verification
+7. verify production detail / JSON / sitemap after deployment
+8. begin A→B work from actual publication timestamps while unrelated valid Tier A waves may continue
+9. advance public primary records toward 500 then 1,000 while B→C history deepening and independent freshness maintenance continue
 ```
 
 ## Parallel stabilization review
 
-Stabilization remains active and independent. Owner-private Analytics / Search Console observations do not block NCS-05 repository work.
+Stabilization remains active and independent. Owner-private Analytics / Search Console observations do not block NCS-06 repository work.
 
 Dated Occurrence reviews remain fail-closed; elapsed dates do not justify `held`.
 
