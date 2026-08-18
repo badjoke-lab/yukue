@@ -316,7 +316,7 @@ Those maintenance cases do not change the national scaling rule and do not creat
 ```text
 Started               2026-07-27
 Minimum duration      14 days
-Earliest review 2026-08-10
+Earliest review       2026-08-10
 Current status        reviewing
 Review eligible       true
 Formal review complete false
