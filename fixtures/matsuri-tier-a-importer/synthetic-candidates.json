@@ -1,0 +1,286 @@
+{
+  "schema_version": "matsuri.tier-a-candidate-batch.v1",
+  "batch_id": "ncs04-synthetic-boundary-fixtures",
+  "fixture_only": true,
+  "contains_real_candidates": false,
+  "candidates": [
+    {
+      "candidate_id": "synthetic-direct-001",
+      "expected_readiness": "tier_a_ready",
+      "entity_type": "festival",
+      "name_ja": "試験祭一",
+      "geography": {
+        "prefecture_code": "01",
+        "prefecture_name_ja": "北海道",
+        "municipality_name_ja": "札幌市"
+      },
+      "source": {
+        "family_id": "national_cultural_database",
+        "url": "https://kunishitei.bunka.go.jp/heritage/detail/312/fixture-001",
+        "accessed_at": "2026-08-18",
+        "publisher_name": "文化庁",
+        "publisher_role_verified": true,
+        "provider_record_id": "fixture-kunishitei-001"
+      },
+      "claims": {
+        "current_state": "active",
+        "coordinates": {"latitude": 43.0, "longitude": 141.0}
+      }
+    },
+    {
+      "candidate_id": "synthetic-conditional-001",
+      "expected_readiness": "tier_a_ready",
+      "entity_type": "festival",
+      "name_ja": "試験祭二",
+      "geography": {
+        "prefecture_code": "02",
+        "prefecture_name_ja": "青森県",
+        "municipality_name_ja": "青森市"
+      },
+      "source": {
+        "family_id": "official_tourism_body",
+        "url": "https://tourism.example.invalid/festival-002",
+        "accessed_at": "2026-08-18",
+        "publisher_name": "試験観光公式団体",
+        "publisher_role_verified": true,
+        "provider_record_id": "fixture-tourism-002"
+      }
+    },
+    {
+      "candidate_id": "synthetic-discovery-resolved-001",
+      "expected_readiness": "tier_a_ready",
+      "entity_type": "folk_performance",
+      "name_ja": "試験神楽三",
+      "geography": {
+        "prefecture_code": "03",
+        "prefecture_name_ja": "岩手県",
+        "municipality_name_ja": "盛岡市"
+      },
+      "source": {
+        "family_id": "cultural_heritage_online",
+        "url": "https://online.bunka.go.jp/fixture/003",
+        "accessed_at": "2026-08-18",
+        "publisher_name": "文化遺産オンライン",
+        "publisher_role_verified": true,
+        "provider_record_id": "fixture-cho-003",
+        "resolved_source": {
+          "family_id": "municipal_cultural_property_registry",
+          "url": "https://city.example.invalid/cultural-property/003",
+          "accessed_at": "2026-08-18",
+          "publisher_name": "試験市教育委員会",
+          "publisher_role_verified": true,
+          "provider_record_id": "fixture-municipal-003"
+        }
+      }
+    },
+    {
+      "candidate_id": "synthetic-discovery-unresolved-001",
+      "expected_readiness": "blocked_source",
+      "entity_type": "festival",
+      "name_ja": "試験祭四",
+      "geography": {
+        "prefecture_code": "04",
+        "prefecture_name_ja": "宮城県",
+        "municipality_name_ja": "仙台市"
+      },
+      "source": {
+        "family_id": "japan_search",
+        "url": "https://jpsearch.go.jp/fixture/004",
+        "accessed_at": "2026-08-18",
+        "publisher_name": "ジャパンサーチ",
+        "publisher_role_verified": true,
+        "provider_record_id": "fixture-jpsearch-004"
+      }
+    },
+    {
+      "candidate_id": "synthetic-conditional-unverified-001",
+      "expected_readiness": "blocked_source",
+      "entity_type": "festival",
+      "name_ja": "試験祭五",
+      "geography": {
+        "prefecture_code": "05",
+        "prefecture_name_ja": "秋田県",
+        "municipality_name_ja": "秋田市"
+      },
+      "source": {
+        "family_id": "official_tourism_body",
+        "url": "https://unknown-tourism.example.invalid/festival-005",
+        "accessed_at": "2026-08-18",
+        "publisher_name": "試験観光サイト",
+        "publisher_role_verified": false,
+        "provider_record_id": "fixture-tourism-005"
+      }
+    },
+    {
+      "candidate_id": "synthetic-existing-duplicate-001",
+      "expected_readiness": "blocked_identity",
+      "entity_type": "festival",
+      "name_ja": "祇園祭",
+      "geography": {
+        "prefecture_code": "26",
+        "prefecture_name_ja": "京都府",
+        "municipality_name_ja": "京都市"
+      },
+      "source": {
+        "family_id": "official_organization",
+        "url": "https://fixture.example.invalid/gion-duplicate",
+        "accessed_at": "2026-08-18",
+        "publisher_name": "試験祭礼公式団体",
+        "publisher_role_verified": true,
+        "provider_record_id": "fixture-duplicate-gion"
+      }
+    },
+    {
+      "candidate_id": "synthetic-batch-anchor-001",
+      "expected_readiness": "tier_a_ready",
+      "entity_type": "festival",
+      "name_ja": "試験重複祭",
+      "geography": {
+        "prefecture_code": "06",
+        "prefecture_name_ja": "山形県",
+        "municipality_name_ja": "山形市"
+      },
+      "source": {
+        "family_id": "municipality_official",
+        "url": "https://city.example.invalid/festival/batch-anchor",
+        "accessed_at": "2026-08-18",
+        "publisher_name": "試験山形市",
+        "publisher_role_verified": true,
+        "provider_record_id": "fixture-batch-anchor"
+      }
+    },
+    {
+      "candidate_id": "synthetic-batch-duplicate-001",
+      "expected_readiness": "blocked_identity",
+      "entity_type": "festival",
+      "name_ja": "試験重複祭",
+      "geography": {
+        "prefecture_code": "06",
+        "prefecture_name_ja": "山形県",
+        "municipality_name_ja": "山形市"
+      },
+      "source": {
+        "family_id": "official_organization",
+        "url": "https://organization.example.invalid/festival/batch-duplicate",
+        "accessed_at": "2026-08-18",
+        "publisher_name": "試験保存会",
+        "publisher_role_verified": true,
+        "provider_record_id": "fixture-batch-duplicate"
+      }
+    },
+    {
+      "candidate_id": "synthetic-provider-anchor-001",
+      "expected_readiness": "tier_a_ready",
+      "entity_type": "festival",
+      "name_ja": "試験提供元祭一",
+      "geography": {
+        "prefecture_code": "07",
+        "prefecture_name_ja": "福島県",
+        "municipality_name_ja": "福島市"
+      },
+      "source": {
+        "family_id": "national_cultural_database",
+        "url": "https://kunishitei.bunka.go.jp/heritage/detail/312/provider-shared-a",
+        "accessed_at": "2026-08-18",
+        "publisher_name": "文化庁",
+        "publisher_role_verified": true,
+        "provider_record_id": "fixture-provider-shared"
+      }
+    },
+    {
+      "candidate_id": "synthetic-provider-conflict-001",
+      "expected_readiness": "blocked_identity",
+      "entity_type": "festival",
+      "name_ja": "試験提供元祭二",
+      "geography": {
+        "prefecture_code": "08",
+        "prefecture_name_ja": "茨城県",
+        "municipality_name_ja": "水戸市"
+      },
+      "source": {
+        "family_id": "national_cultural_database",
+        "url": "https://kunishitei.bunka.go.jp/heritage/detail/312/provider-shared-b",
+        "accessed_at": "2026-08-18",
+        "publisher_name": "文化庁",
+        "publisher_role_verified": true,
+        "provider_record_id": "fixture-provider-shared"
+      }
+    },
+    {
+      "candidate_id": "synthetic-broader-scope-001",
+      "expected_readiness": "tier_a_ready",
+      "entity_type": "folk_performance",
+      "name_ja": "試験広域芸能",
+      "geography": {
+        "prefecture_code": "47",
+        "prefecture_name_ja": "沖縄県",
+        "broader_scope_ja": "沖縄県内の複数地域"
+      },
+      "source": {
+        "family_id": "prefectural_cultural_property_registry",
+        "url": "https://pref.example.invalid/cultural-property/broader-scope",
+        "accessed_at": "2026-08-18",
+        "publisher_name": "試験沖縄県",
+        "publisher_role_verified": true,
+        "provider_record_id": "fixture-pref-broader"
+      }
+    },
+    {
+      "candidate_id": "synthetic-missing-scope-001",
+      "expected_readiness": "blocked_input",
+      "entity_type": "festival",
+      "name_ja": "試験地域不足祭",
+      "geography": {
+        "prefecture_code": "09",
+        "prefecture_name_ja": "栃木県"
+      },
+      "source": {
+        "family_id": "municipality_official",
+        "url": "https://city.example.invalid/festival/missing-scope",
+        "accessed_at": "2026-08-18",
+        "publisher_name": "試験市",
+        "publisher_role_verified": true,
+        "provider_record_id": "fixture-missing-scope"
+      }
+    },
+    {
+      "candidate_id": "synthetic-supporting-only-001",
+      "expected_readiness": "blocked_source",
+      "entity_type": "festival",
+      "name_ja": "試験報道祭",
+      "geography": {
+        "prefecture_code": "10",
+        "prefecture_name_ja": "群馬県",
+        "municipality_name_ja": "前橋市"
+      },
+      "source": {
+        "family_id": "credible_news",
+        "url": "https://news.example.invalid/article/013",
+        "accessed_at": "2026-08-18",
+        "publisher_name": "試験新聞",
+        "publisher_role_verified": true,
+        "provider_record_id": "fixture-news-013"
+      }
+    },
+    {
+      "candidate_id": "synthetic-publication-time-forbidden-001",
+      "expected_readiness": "blocked_input",
+      "entity_type": "festival",
+      "name_ja": "試験公開時刻祭",
+      "tier_a_published_at": "2026-08-18T00:00:00Z",
+      "geography": {
+        "prefecture_code": "11",
+        "prefecture_name_ja": "埼玉県",
+        "municipality_name_ja": "さいたま市"
+      },
+      "source": {
+        "family_id": "municipality_official",
+        "url": "https://city.example.invalid/festival/publication-time",
+        "accessed_at": "2026-08-18",
+        "publisher_name": "試験市",
+        "publisher_role_verified": true,
+        "provider_record_id": "fixture-publication-time"
+      }
+    }
+  ]
+}
