@@ -1,0 +1,54 @@
+{
+  "schema_version": "matsuri.tier-a-dry-run-baseline.v1",
+  "phase": "NCS-05",
+  "status": "completed",
+  "measured_at": "2026-08-18T15:40:00Z",
+  "input_scope": {
+    "kind": "bounded_real_source_sample",
+    "source_family": "national_cultural_database",
+    "candidate_count": 6,
+    "real_candidate_queue_committed": false,
+    "candidate_identifiers_disclosed": false,
+    "candidate_urls_disclosed": false
+  },
+  "ncs04_base_result": {
+    "source_resolution_success": 6,
+    "source_resolution_blocked": 0,
+    "provider_record_id_present": 6,
+    "existing_public_exact_matches_found": 0,
+    "same_batch_exact_duplicates_found": 0,
+    "provider_identity_conflicts_found": 0
+  },
+  "ncs05_review_result": {
+    "tier_a_ready": 2,
+    "blocked_review": 3,
+    "blocked_input": 1,
+    "blocked_source": 0,
+    "blocked_identity": 0,
+    "published": 0,
+    "blocked_reason_counts": {
+      "subject_or_name_boundary_requires_review": 1,
+      "historical_geography_requires_review": 2,
+      "multi_prefecture_scope_not_representable_without_additional_review": 1
+    }
+  },
+  "coverage": {
+    "source_families_exercised": 1,
+    "broader_scope_case_exercised": true,
+    "municipality_or_locality_case_exercised": true,
+    "multi_prefecture_case_exercised": true
+  },
+  "rights_and_reuse": {
+    "authority_and_reuse_treated_separately": true,
+    "text_reuse_policy_inherited_from_source_inventory": true,
+    "images_imported": false
+  },
+  "boundaries": {
+    "publication_authorized": false,
+    "writes_canonical_public_data": false,
+    "writes_tier_a_publication_time": false,
+    "automation_must_not_self_approve": true,
+    "unsupported_tier_b_or_c_claims_projected": false,
+    "future_sites_activated": false
+  }
+}
