@@ -1,0 +1,200 @@
+{
+  "entities": [
+    {
+      "id": "fpf-kuta-hanagasa-odori",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-18T15:51:45Z",
+      "updated_at": "2026-08-18T15:51:45Z",
+      "slug": "kuta-hanagasa-odori",
+      "entity_type": "folk_performance",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "久多の花笠踊",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-bunka-kuta-hanagasa-odori"]
+        }
+      ],
+      "summary_ja": "京都市左京区久多地区で、花笠と呼ばれる灯籠を手に持ち、太鼓に合わせて歌い踊る民俗芸能。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "26",
+            "prefecture_name_ja": "京都府",
+            "municipality_name_ja": "京都市"
+          }
+        ],
+        "scope_type": "single_area",
+        "description_ja": "京都市左京区の久多地区に伝承される。"
+      },
+      "default_place_ids": [],
+      "external_links": [],
+      "record_lifecycle": "active",
+      "performance_kind": "dance",
+      "forms": [],
+      "usual_months": [],
+      "occurrence_series_ids": [],
+      "coverage_tier": "tier_a_index",
+      "tier_a_published_at": "2026-08-18T15:51:45Z"
+    },
+    {
+      "id": "fpf-hirado-jangara",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-18T15:51:45Z",
+      "updated_at": "2026-08-18T15:51:45Z",
+      "slug": "hirado-jangara",
+      "entity_type": "folk_performance",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "平戸のジャンガラ",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-bunka-hirado-jangara"]
+        }
+      ],
+      "summary_ja": "長崎県平戸市内の九地区に伝承され、祖先供養や五穀豊穣祈願として奉納される念仏踊。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "42",
+            "prefecture_name_ja": "長崎県",
+            "municipality_name_ja": "平戸市"
+          }
+        ],
+        "scope_type": "multi_area",
+        "description_ja": "平戸市内の九地区に伝承される。"
+      },
+      "default_place_ids": [],
+      "external_links": [],
+      "record_lifecycle": "active",
+      "performance_kind": "dance",
+      "forms": [],
+      "usual_months": [],
+      "occurrence_series_ids": [],
+      "coverage_tier": "tier_a_index",
+      "tier_a_published_at": "2026-08-18T15:51:45Z"
+    },
+    {
+      "id": "fst-mamada-jagamaita",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "created_at": "2026-08-18T15:51:45Z",
+      "updated_at": "2026-08-18T15:51:45Z",
+      "slug": "mamada-jagamaita",
+      "entity_type": "festival",
+      "home_surface": "matsuri",
+      "tradition_scope": "unknown",
+      "names": [
+        {
+          "value": "間々田のじゃがまいた",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": ["src-bunka-mamada-jagamaita"]
+        }
+      ],
+      "summary_ja": "栃木県小山市間々田に伝承され、藁などで作る蛇体を担いで地区内を練り歩く祭礼行事。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "09",
+            "prefecture_name_ja": "栃木県",
+            "municipality_name_ja": "小山市"
+          }
+        ],
+        "scope_type": "single_area",
+        "description_ja": "小山市間々田地区に伝承される。"
+      },
+      "default_place_ids": [],
+      "external_links": [],
+      "record_lifecycle": "active",
+      "festival_kind": "other",
+      "usual_months": [],
+      "season_tags": [],
+      "coverage_tier": "tier_a_index",
+      "tier_a_published_at": "2026-08-18T15:51:45Z"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-bunka-kuta-hanagasa-odori",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "国指定文化財等データベース「久多の花笠踊」",
+      "publisher": "文化庁",
+      "url": "https://kunishitei.bunka.go.jp/heritage/detail/302/638",
+      "accessed_at": "2026-08-18",
+      "language": "ja"
+    },
+    {
+      "id": "src-bunka-hirado-jangara",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "国指定文化財等データベース「平戸のジャンガラ」",
+      "publisher": "文化庁",
+      "url": "https://kunishitei.bunka.go.jp/bsys/maindetails/302/641",
+      "accessed_at": "2026-08-18",
+      "language": "ja"
+    },
+    {
+      "id": "src-bunka-mamada-jagamaita",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "public_authority",
+      "title": "国指定文化財等データベース「間々田のじゃがまいた」",
+      "publisher": "文化庁",
+      "url": "https://kunishitei.bunka.go.jp/heritage/detail/302/00000960",
+      "accessed_at": "2026-08-18",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-kuta-hanagasa-odori-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-bunka-kuta-hanagasa-odori",
+      "target_type": "entity_identity",
+      "target_id": "fpf-kuta-hanagasa-odori",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "文化庁データベースは、久多の花笠踊を京都府の民俗芸能・風流として記録し、解説で京都市左京区久多地区への伝承を示している。",
+      "captured_at": "2026-08-18",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-hirado-jangara-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-bunka-hirado-jangara",
+      "target_type": "entity_identity",
+      "target_id": "fpf-hirado-jangara",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "文化庁データベースは、平戸のジャンガラを長崎県の民俗芸能・風流として記録し、平戸市内九地区に伝承される念仏踊と説明している。",
+      "captured_at": "2026-08-18",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-mamada-jagamaita-identity",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-bunka-mamada-jagamaita",
+      "target_type": "entity_identity",
+      "target_id": "fst-mamada-jagamaita",
+      "assertion_code": "supports_entity_identity",
+      "summary_ja": "文化庁データベースは、間々田のじゃがまいたを栃木県小山市間々田に伝承される蛇祭り・祭礼行事として説明している。",
+      "captured_at": "2026-08-18",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
