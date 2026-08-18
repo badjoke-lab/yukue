@@ -1,0 +1,39 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [
+    {
+      "id": "occ-yamaga-sennin-odori-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "subject_entity_id": "fpf-yamaga-toro-odori",
+      "series_id": "ser-yamaga-toro-odori-annual",
+      "occurrence_type": "performance",
+      "temporal_extent": {
+        "start": "2026-08-16",
+        "end": "2026-08-16",
+        "precision": "day"
+      },
+      "outcome": "cancelled",
+      "scale": "unknown",
+      "venue_place_ids": [
+        "plc-yamaga-elementary-ground"
+      ],
+      "organizer_entity_ids": [],
+      "evidence_ids": [
+        "evd-yamaga-dance-occ-2026",
+        "evd-yamaga-sennin-odori-2026-cancelled"
+      ],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}

@@ -1,0 +1,304 @@
+{
+  "entities": [
+    {
+      "id": "shr-kishu-toshogu",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-08-10T00:00:00Z",
+      "updated_at": "2026-08-17T00:00:00Z",
+      "slug": "kishu-toshogu",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "紀州東照宮",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-kishu-toshogu-pref-tourism"
+          ]
+        }
+      ],
+      "summary_ja": "1621年創建の和歌山市和歌浦西の神社。徳川家康と紀州藩初代藩主徳川頼宣を祀り、和歌祭は同社の例祭として行われる。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "30",
+            "prefecture_name_ja": "和歌山県",
+            "municipality_name_ja": "和歌山市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-kishu-toshogu",
+      "default_place_ids": [
+        "plc-kishu-toshogu"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.kishutoshogu.org/",
+          "is_primary": true,
+          "officiality": "official",
+          "last_checked_at": "2026-08-17"
+        },
+        {
+          "kind": "official_information",
+          "platform": "web",
+          "url": "https://www.wakayama-kanko.or.jp/spots/detail_1019.html",
+          "is_primary": false,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-10"
+        }
+      ],
+      "record_lifecycle": "active"
+    },
+    {
+      "id": "shr-mikuni-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-08-06T00:00:00Z",
+      "updated_at": "2026-08-17T00:00:00Z",
+      "slug": "mikuni-jinja",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "三國神社",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-mikuni-jinja-city"
+          ]
+        }
+      ],
+      "summary_ja": "三国祭の大祭式典、神輿・山車の発幸祭と還幸祭が行われる坂井市三国町山王の神社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "18",
+            "prefecture_name_ja": "福井県",
+            "municipality_name_ja": "坂井市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-mikuni-jinja",
+      "default_place_ids": [
+        "plc-mikuni-jinja"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.mikunijinja.jp/",
+          "is_primary": true,
+          "officiality": "official",
+          "last_checked_at": "2026-08-17"
+        },
+        {
+          "kind": "official_information",
+          "platform": "web",
+          "url": "https://www.city.fukui-sakai.lg.jp/kankou/kanko-bunka/kanko/rekishi/mikuni-jinja.html",
+          "is_primary": false,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-06"
+        }
+      ],
+      "record_lifecycle": "active"
+    },
+    {
+      "id": "shr-nanao-oyama-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-31T00:00:00Z",
+      "updated_at": "2026-08-17T00:00:00Z",
+      "slug": "nanao-oyama-jinja",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "大地主神社",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-seihakusai-current-2026"
+          ]
+        },
+        {
+          "value": "山王神社",
+          "lang": "ja",
+          "kind": "common",
+          "is_preferred": false,
+          "source_ids": [
+            "src-seihakusai-current-2026"
+          ]
+        }
+      ],
+      "summary_ja": "青柏祭の春祭りと曳山奉納の祭祀基点となる七尾市山王町の神社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "17",
+            "prefecture_name_ja": "石川県",
+            "municipality_name_ja": "七尾市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-nanao-oyama-jinja",
+      "default_place_ids": [
+        "plc-nanao-oyama-jinja"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.otokonushi-jinja.com/",
+          "is_primary": true,
+          "officiality": "official",
+          "last_checked_at": "2026-08-17"
+        },
+        {
+          "kind": "official_information",
+          "platform": "web",
+          "url": "https://www.city.nanao.lg.jp/koryu-s/event/event_syokai/seihakusai.html",
+          "is_primary": false,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-07-31"
+        }
+      ],
+      "record_lifecycle": "active"
+    },
+    {
+      "id": "shr-karatsu-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-08-07T00:00:00Z",
+      "updated_at": "2026-08-17T00:00:00Z",
+      "slug": "karatsu-jinja",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "唐津神社",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-karatsu-kunchi-overview"
+          ]
+        }
+      ],
+      "summary_ja": "唐津くんちが秋季例大祭として行われる唐津市南城内の神社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "41",
+            "prefecture_name_ja": "佐賀県",
+            "municipality_name_ja": "唐津市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-karatsu-jinja",
+      "default_place_ids": [
+        "plc-karatsu-jinja"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://www.karatsu-jinja.org/",
+          "is_primary": true,
+          "officiality": "official",
+          "last_checked_at": "2026-08-17"
+        },
+        {
+          "kind": "official_information",
+          "platform": "web",
+          "url": "https://www.city.karatsu.lg.jp/page/26467.html",
+          "is_primary": false,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-08-07"
+        }
+      ],
+      "record_lifecycle": "active"
+    },
+    {
+      "id": "shr-sawara-suwa-jinja",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "created_at": "2026-07-29T00:00:00Z",
+      "updated_at": "2026-08-17T00:00:00Z",
+      "slug": "sawara-suwa-jinja",
+      "entity_type": "shrine",
+      "home_surface": "matsuri",
+      "tradition_scope": "standalone",
+      "names": [
+        {
+          "value": "諏訪神社",
+          "lang": "ja",
+          "kind": "canonical",
+          "is_preferred": true,
+          "source_ids": [
+            "src-sawara-shrine-directory"
+          ]
+        }
+      ],
+      "summary_ja": "香取市佐原イ1020番地3に鎮座し、佐原の大祭秋祭りの祭祀的基点となる神社。",
+      "geographic_scope": {
+        "areas": [
+          {
+            "prefecture_code": "12",
+            "prefecture_name_ja": "千葉県",
+            "municipality_name_ja": "香取市"
+          }
+        ],
+        "scope_type": "single_site"
+      },
+      "primary_place_id": "plc-sawara-suwa-jinja",
+      "default_place_ids": [
+        "plc-sawara-suwa-jinja"
+      ],
+      "external_links": [
+        {
+          "kind": "official_website",
+          "platform": "web",
+          "url": "https://osuwa3.jp/",
+          "is_primary": true,
+          "officiality": "official",
+          "last_checked_at": "2026-08-17"
+        },
+        {
+          "kind": "official_directory",
+          "platform": "web",
+          "url": "https://www.city.katori.lg.jp/culture_sport/bunkazai/jisha.html",
+          "is_primary": false,
+          "officiality": "public_authority",
+          "last_checked_at": "2026-07-29"
+        }
+      ],
+      "record_lifecycle": "active"
+    }
+  ],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
