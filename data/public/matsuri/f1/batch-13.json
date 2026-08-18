@@ -5,7 +5,7 @@
       "schema_version": "matsuri.v1",
       "record_version": 1,
       "created_at": "2026-08-18T15:51:45Z",
-      "updated_at": "2026-08-18T15:51:45Z",
+      "updated_at": "2026-08-18T16:33:34Z",
       "slug": "kuta-hanagasa-odori",
       "entity_type": "folk_performance",
       "home_surface": "matsuri",
@@ -38,14 +38,15 @@
       "forms": [],
       "usual_months": [],
       "occurrence_series_ids": [],
-      "coverage_tier": "tier_a_index"
+      "coverage_tier": "tier_a_index",
+      "tier_a_published_at": "2026-08-18T16:33:34Z"
     },
     {
       "id": "fpf-hirado-jangara",
       "schema_version": "matsuri.v1",
       "record_version": 1,
       "created_at": "2026-08-18T15:51:45Z",
-      "updated_at": "2026-08-18T15:51:45Z",
+      "updated_at": "2026-08-18T16:33:34Z",
       "slug": "hirado-jangara",
       "entity_type": "folk_performance",
       "home_surface": "matsuri",
@@ -78,14 +79,15 @@
       "forms": [],
       "usual_months": [],
       "occurrence_series_ids": [],
-      "coverage_tier": "tier_a_index"
+      "coverage_tier": "tier_a_index",
+      "tier_a_published_at": "2026-08-18T16:33:34Z"
     },
     {
       "id": "fst-mamada-jagamaita",
       "schema_version": "matsuri.v1",
       "record_version": 1,
       "created_at": "2026-08-18T15:51:45Z",
-      "updated_at": "2026-08-18T15:51:45Z",
+      "updated_at": "2026-08-18T16:33:34Z",
       "slug": "mamada-jagamaita",
       "entity_type": "festival",
       "home_surface": "matsuri",
@@ -117,7 +119,8 @@
       "festival_kind": "other",
       "usual_months": [],
       "season_tags": [],
-      "coverage_tier": "tier_a_index"
+      "coverage_tier": "tier_a_index",
+      "tier_a_published_at": "2026-08-18T16:33:34Z"
     }
   ],
   "sources": [
