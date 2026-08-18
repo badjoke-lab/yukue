@@ -2,6 +2,8 @@
 
 **Last updated:** 2026-08-18
 
+**Matsuri canonical public origin:** https://matsuri-yukue.badjoke-lab.com
+
 ## Current phase
 
 ```text
@@ -25,7 +27,8 @@ Matsuri nationwide public corpus scaling — active
 NCS-01 governing docs — completed
 NCS-02 A/B/C classifier/baseline — completed
 NCS-03 national source inventory — completed
-NCS-04 candidate + Tier A importer / identity-dedupe pipeline — next
+NCS-04 candidate + Tier A importer / identity-dedupe pipeline — completed
+NCS-05 bulk dry run + Tier A publication-readiness audit — next
 Matsuri maintenance / historical depth — active in parallel
 Matsuri stabilization review — reviewing / incomplete
 Actual Jinja start gate — blocked
@@ -41,6 +44,8 @@ Corpus quality baseline         config/matsuri-corpus-quality-baseline.json
 Corpus quality interpretation   docs/matsuri-corpus-quality-baseline.md
 National source inventory       config/matsuri-national-source-inventory.json
 Source inventory interpretation docs/matsuri-national-source-inventory.md
+Tier A importer contract        config/matsuri-tier-a-importer-contract.json
+Tier A importer interpretation  docs/matsuri-tier-a-importer.md
 Current repository counts       config/matsuri-repository-baseline.json
 Current production baseline     config/matsuri-production-baseline.json
 Analytics progression           config/matsuri-analytics-activation.json
@@ -146,7 +151,7 @@ The legacy records do not carry authentic Tier A publication timestamps, so thei
 
 ## NCS-03 completed source inventory
 
-NCS-03 defines the source-family contract NCS-04 must consume.
+NCS-03 defines the source-family contract NCS-04 and later acquisition work must consume.
 
 Machine and human sources of truth:
 
@@ -162,7 +167,6 @@ source families                     11
 prefecture control set              47 / 47
 national DB current CSV ceiling     2,000 records per export
 future-site activation              false
-candidate importer activation       false
 bulk public release authorization   false
 ```
 
@@ -177,9 +181,43 @@ supporting-only
 
 The inventory records Agency for Cultural Affairs scale references of 8,255 locally designated intangible folk cultural properties as of 2025-05-01 and 342 nationally designated Important Intangible Folk Cultural Properties as of 2026-08-01. These are source-universe scale references, not counts of Japanese festivals and not corpus targets.
 
-Cultural Heritage Online and Japan Search remain discovery/source-resolution layers. NCS-04 must resolve the underlying authoritative provider before Tier A approval.
+Cultural Heritage Online and Japan Search remain discovery/source-resolution layers. The importer must resolve the underlying authoritative provider before Tier A readiness.
 
 Authority and reuse permission remain separate. The national cultural-property database text-use rule is recorded separately from image-rights restrictions, and publisher-specific rights remain publisher-specific.
+
+## NCS-04 completed importer
+
+NCS-04 was merged by PR #273 at main commit `0047a7853c45c561e14c7119e05c9556cd4ca5ad`.
+
+Sources of truth:
+
+```text
+config/matsuri-tier-a-importer-contract.json
+docs/matsuri-tier-a-importer.md
+scripts/lib/matsuri-tier-a-importer.mjs
+scripts/import-matsuri-tier-a-candidates.mjs
+scripts/check-matsuri-tier-a-importer.mjs
+```
+
+The importer is readiness-only. It:
+
+```text
+consumes the NCS-03 source-family registry
+resolves discovery-only sources before Tier A readiness
+requires reviewed source role / source access metadata
+normalizes identity and geography without inventing facts
+checks existing-public, same-batch, and provider-record identity conflicts
+emits explicit blocked_input / blocked_source / blocked_identity results
+keeps unsupported Tier B/C dimensions out of Tier A drafts
+rejects candidate-supplied tier_a_published_at
+writes no canonical public data
+publishes no Tier A records
+assigns no canonical ID or public slug
+```
+
+Synthetic contract coverage verifies direct, conditional, resolved-discovery, unresolved-source, duplicate, provider-conflict, broader-scope, supporting-only, and forbidden-publication-time cases.
+
+NCS-04 completion does not count as public corpus growth. NCS-05 must now exercise the importer against a bounded real-source acquisition sample without committing a real candidate queue.
 
 ## Rejected obsolete rules
 
@@ -208,8 +246,8 @@ Governing issue:
 NCS-01  governing specification and schedule alignment — completed
 NCS-02  A/B/C classifier + current-corpus baseline — completed
 NCS-03  national authoritative-source inventory — completed
-NCS-04  deterministic candidate + Tier A importer / identity-dedupe pipeline — next
-NCS-05  bulk dry run + Tier A publication-readiness audit
+NCS-04  deterministic candidate + Tier A importer / identity-dedupe pipeline — completed
+NCS-05  bulk dry run + Tier A publication-readiness audit — next
 NCS-06  first bounded Tier A public wave + continuous A→B promotion
 NCS-07  cumulative 500 public primary Matsuri records
 NCS-08  cumulative 1,000 public primary Matsuri records
@@ -279,14 +317,13 @@ Do not activate future-site hostname, Worker, public implementation, or speciali
 ## Immediate next actions
 
 ```text
-1. implement NCS-04 deterministic candidate + Tier A importer against the NCS-03 source registry
-2. require discovery-only underlying-source resolution before Tier A readiness
-3. capture publisher role, exact source URL, access date, stable provider identifier, and rights/reuse policy
-4. implement deterministic identity/dedupe and explicit identity-conflict output
-5. keep unsupported Current State / Occurrence / organizer / Place / Relation / coordinate fields absent
-6. design authentic tier_a_published_at writing only at actual public publication
-7. run NCS-05 bulk dry run after the importer contract is complete
-8. begin NCS-06 real Tier A public expansion while A→B verification runs in parallel
-9. advance toward 500 then 1,000 public primary records while B→C deepening continues
-10. maintain due Occurrences and stale State independently without inference
+1. run NCS-05 bounded real-source acquisition / importer dry run outside the public candidate queue
+2. audit source-resolution success, Tier A-ready count, blocked-source/input/identity reasons, geography, source-family distribution, provider-ID conflicts, partition completeness, and rights/reuse handling
+3. store only public-safe aggregate/audit output in the repository; do not commit the real candidate queue
+4. fix importer or source-quality defects exposed by NCS-05 without inventing identity, geography, State, Occurrence, organizer, Place, Relation, or coordinates
+5. keep tier_a_published_at absent/null throughout NCS-05
+6. after NCS-05 passes, run NCS-06 and actually publish a bounded reviewed Tier A wave
+7. start the real A→B seven-day target from each NCS-06 publication timestamp
+8. advance toward 500 then 1,000 public primary records while B→C deepening continues
+9. maintain due Occurrences and stale State independently without inference
 ```

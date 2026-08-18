@@ -2,6 +2,8 @@
 
 **Status:** Working specification
 
+**Canonical public origin:** https://matsuri-yukue.badjoke-lab.com
+
 ## Purpose
 
 祭のゆくえ records festivals and folk performing arts as observable subjects rather than only as event listings or tourist attractions.
