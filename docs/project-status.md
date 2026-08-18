@@ -1,6 +1,6 @@
 # Project Status
 
-**Last updated:** 2026-08-18
+**Last updated:** 2026-08-19
 
 **Matsuri canonical public origin:** https://matsuri-yukue.badjoke-lab.com
 
@@ -28,7 +28,8 @@ NCS-01 governing docs — completed
 NCS-02 A/B/C classifier/baseline — completed
 NCS-03 national source inventory — completed
 NCS-04 candidate + Tier A importer / identity-dedupe pipeline — completed
-NCS-05 bulk dry run + Tier A publication-readiness audit — next
+NCS-05 bulk dry run + Tier A publication-readiness audit — completed
+NCS-06 first bounded Tier A public wave + A→B promotion — active
 Matsuri maintenance / historical depth — active in parallel
 Matsuri stabilization review — reviewing / incomplete
 Actual Jinja start gate — blocked
@@ -38,23 +39,26 @@ future specialist-site implementation — not activated
 ## Current sources of truth
 
 ```text
-Nationwide scaling contract     docs/nationwide-corpus-scaling.md
-Development schedule            docs/development-schedule.md
-Corpus quality baseline         config/matsuri-corpus-quality-baseline.json
-Corpus quality interpretation   docs/matsuri-corpus-quality-baseline.md
-National source inventory       config/matsuri-national-source-inventory.json
-Source inventory interpretation docs/matsuri-national-source-inventory.md
-Tier A importer contract        config/matsuri-tier-a-importer-contract.json
-Tier A importer interpretation  docs/matsuri-tier-a-importer.md
-Current repository counts       config/matsuri-repository-baseline.json
-Current production baseline     config/matsuri-production-baseline.json
-Analytics progression           config/matsuri-analytics-activation.json
-Final F2 launch gate            config/matsuri-f2-launch-gate.json
-Stabilization review            config/matsuri-stabilization-review.json
-Stabilization review contract   docs/matsuri-stabilization-review.md
-Detail C implementation         docs/matsuri-detail-c-implementation.md
-Jinja start boundary            config/jinja-start-gate.json
-Production topology             docs/deployment-topology.md
+Nationwide scaling contract             docs/nationwide-corpus-scaling.md
+Development schedule                    docs/development-schedule.md
+Corpus quality baseline                 config/matsuri-corpus-quality-baseline.json
+Corpus quality interpretation           docs/matsuri-corpus-quality-baseline.md
+National source inventory               config/matsuri-national-source-inventory.json
+Source inventory interpretation         docs/matsuri-national-source-inventory.md
+Tier A importer contract                config/matsuri-tier-a-importer-contract.json
+Tier A importer interpretation          docs/matsuri-tier-a-importer.md
+Tier A publication-readiness contract   config/matsuri-tier-a-publication-readiness-contract.json
+NCS-05 real-source aggregate            config/matsuri-tier-a-dry-run-baseline.json
+NCS-05 interpretation                   docs/matsuri-tier-a-dry-run.md
+Current repository counts               config/matsuri-repository-baseline.json
+Current production baseline             config/matsuri-production-baseline.json
+Analytics progression                   config/matsuri-analytics-activation.json
+Final F2 launch gate                    config/matsuri-f2-launch-gate.json
+Stabilization review                    config/matsuri-stabilization-review.json
+Stabilization review contract           docs/matsuri-stabilization-review.md
+Detail C implementation                 docs/matsuri-detail-c-implementation.md
+Jinja start boundary                    config/jinja-start-gate.json
+Production topology                     docs/deployment-topology.md
 ```
 
 ## Corrected coverage interpretation
@@ -217,7 +221,41 @@ assigns no canonical ID or public slug
 
 Synthetic contract coverage verifies direct, conditional, resolved-discovery, unresolved-source, duplicate, provider-conflict, broader-scope, supporting-only, and forbidden-publication-time cases.
 
-NCS-04 completion does not count as public corpus growth. NCS-05 must now exercise the importer against a bounded real-source acquisition sample without committing a real candidate queue.
+## NCS-05 completed dry run and review hardening
+
+NCS-05 was merged by PR #275 at main commit `4f8afbd0dd429e84c92988e5ba0d6089d28785aa`.
+
+Sources of truth:
+
+```text
+config/matsuri-tier-a-publication-readiness-contract.json
+config/matsuri-tier-a-dry-run-baseline.json
+docs/matsuri-tier-a-dry-run.md
+scripts/lib/matsuri-tier-a-publication-readiness.mjs
+scripts/check-matsuri-tier-a-publication-readiness.mjs
+scripts/check-matsuri-tier-a-dry-run.mjs
+```
+
+The bounded real-source dry run recorded only a public-safe aggregate:
+
+```text
+real-source candidates                   6
+source-resolution success                6
+Tier A publication-ready                 2
+blocked_review                           3
+blocked_input                            1
+blocked_source                           0
+blocked_identity                         0
+published                                0
+```
+
+The operational candidate queue, candidate identities, provider identifiers, and candidate URLs remain outside the public repository.
+
+NCS-05 hardened publication readiness so an NCS-04-ready record must also carry an explicit review attestation for identity, subject type, geography, source role, and name variants. Automation cannot self-approve. A broader geographic scope without a municipality requires an explicit source-supported basis.
+
+Exact deterministic identity checks remain in NCS-04. NCS-05 does not introduce fuzzy automatic alias merging.
+
+NCS-05 published no records, wrote no canonical public data, wrote no `tier_a_published_at`, and activated no future site.
 
 ## Rejected obsolete rules
 
@@ -247,16 +285,14 @@ NCS-01  governing specification and schedule alignment — completed
 NCS-02  A/B/C classifier + current-corpus baseline — completed
 NCS-03  national authoritative-source inventory — completed
 NCS-04  deterministic candidate + Tier A importer / identity-dedupe pipeline — completed
-NCS-05  bulk dry run + Tier A publication-readiness audit — next
-NCS-06  first bounded Tier A public wave + continuous A→B promotion
+NCS-05  bulk dry run + Tier A publication-readiness audit — completed
+NCS-06  first bounded Tier A public wave + continuous A→B promotion — active
 NCS-07  cumulative 500 public primary Matsuri records
 NCS-08  cumulative 1,000 public primary Matsuri records
 NCS-09  source-inventory-derived national target + continued A→B→C expansion
 ```
 
-NCS-05 is not public expansion by itself. NCS-06 must actually add reviewed public Tier A records.
-
-500 and 1,000 are public A/B/C specialist-primary checkpoints, not private candidate counts.
+NCS-06 must now actually add reviewed public Tier A records. 500 and 1,000 are public A/B/C specialist-primary checkpoints, not private candidate counts.
 
 ## Matsuri maintenance remains active
 
@@ -271,7 +307,7 @@ pnpm check:matsuri:detail-navigation
 pnpm check:matsuri:stabilization-review
 ```
 
-The exact-head audit on 2026-08-18 detected five closed-unresolved 2026 Occurrences plus one stale Current State. These remain fail-closed until direct Evidence supports a change. Elapsed dates, event-page persistence, ticket sales, or absence of a cancellation notice do not justify `held`.
+The current exact-head audit still detects closed-unresolved 2026 Occurrences. These remain fail-closed until direct Evidence supports a change. Elapsed dates, event-page persistence, ticket sales, or absence of a cancellation notice do not justify `held`.
 
 Those maintenance cases do not change the national scaling rule and do not create an A/B/C global stop.
 
@@ -280,7 +316,7 @@ Those maintenance cases do not change the national scaling rule and do not creat
 ```text
 Started               2026-07-27
 Minimum duration      14 days
-Earliest review       2026-08-10
+Earliest review 2026-08-10
 Current status        reviewing
 Review eligible       true
 Formal review complete false
@@ -317,13 +353,14 @@ Do not activate future-site hostname, Worker, public implementation, or speciali
 ## Immediate next actions
 
 ```text
-1. run NCS-05 bounded real-source acquisition / importer dry run outside the public candidate queue
-2. audit source-resolution success, Tier A-ready count, blocked-source/input/identity reasons, geography, source-family distribution, provider-ID conflicts, partition completeness, and rights/reuse handling
-3. store only public-safe aggregate/audit output in the repository; do not commit the real candidate queue
-4. fix importer or source-quality defects exposed by NCS-05 without inventing identity, geography, State, Occurrence, organizer, Place, Relation, or coordinates
-5. keep tier_a_published_at absent/null throughout NCS-05
-6. after NCS-05 passes, run NCS-06 and actually publish a bounded reviewed Tier A wave
-7. start the real A→B seven-day target from each NCS-06 publication timestamp
-8. advance toward 500 then 1,000 public primary records while B→C deepening continues
-9. maintain due Occurrences and stale State independently without inference
+1. select the first bounded NCS-06 wave only from records passing NCS-04 source/identity checks plus the NCS-05 explicit review gate
+2. re-check each selected authoritative source immediately before publication
+3. add only the Tier A minimum: reviewed identity/type/geography, authoritative Source, identity Evidence, explicit Tier A classification, and authentic publication timestamp
+4. keep unsupported Current State / Occurrence / organizer / Place / Relation / coordinates / history absent
+5. build detail HTML, public JSON, search/browse, and sitemap and verify the new records are machine-visible
+6. refresh the exact corpus quality baseline from the classifier after the real wave
+7. merge the bounded publication wave only after exact-head checks; independently known freshness failures remain fail-closed
+8. verify production detail HTML / public JSON / sitemap after deployment
+9. start the real A→B seven-day target from each actual NCS-06 publication timestamp
+10. continue public Tier A waves toward 500 while A→B and B→C work proceeds in parallel
 ```
