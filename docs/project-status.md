@@ -2,6 +2,8 @@
 
 **Last updated:** 2026-08-18
 
+**Matsuri canonical public origin:** https://matsuri-yukue.badjoke-lab.com
+
 ## Current phase
 
 ```text
