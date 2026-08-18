@@ -1,0 +1,51 @@
+{
+  "schema_version": "matsuri.tier-a-publication-readiness-contract.v1",
+  "phase": "NCS-05",
+  "status": "implementation_contract",
+  "governing_spec": "docs/nationwide-corpus-scaling.md",
+  "ncs04_importer_contract": "config/matsuri-tier-a-importer-contract.json",
+  "mode": "publication_readiness_dry_run",
+  "review": {
+    "required_status": "approved_for_tier_a_readiness",
+    "required_fields": [
+      "reviewed_at",
+      "identity_reviewed",
+      "subject_type_reviewed",
+      "geography_reviewed",
+      "source_role_reviewed",
+      "name_variant_reviewed",
+      "automation_self_approved"
+    ],
+    "required_true": [
+      "identity_reviewed",
+      "subject_type_reviewed",
+      "geography_reviewed",
+      "source_role_reviewed",
+      "name_variant_reviewed"
+    ],
+    "automation_self_approved_must_equal": false,
+    "automation_must_not_self_approve": true,
+    "broader_scope_without_municipality_requires": "broader_scope_basis_verified=true"
+  },
+  "identity": {
+    "deterministic_exact_dedupe_remains_ncs04": true,
+    "fuzzy_alias_auto_merge": false,
+    "name_variants_require_explicit_review": true
+  },
+  "readiness_values": [
+    "tier_a_ready",
+    "blocked_review",
+    "blocked_input",
+    "blocked_source",
+    "blocked_identity"
+  ],
+  "boundaries": {
+    "publication_authorized": false,
+    "writes_canonical_public_data": false,
+    "writes_tier_a_published_at": false,
+    "commits_real_candidate_queue": false,
+    "commits_candidate_urls": false,
+    "projects_unsupported_tier_b_or_c_claims": false,
+    "future_sites_activated": false
+  }
+}

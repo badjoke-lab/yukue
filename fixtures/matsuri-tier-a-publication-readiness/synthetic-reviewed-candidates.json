@@ -1,0 +1,65 @@
+{
+  "schema_version": "matsuri.tier-a-candidate-batch.v1",
+  "batch_id": "ncs05-synthetic-review-gate",
+  "fixture_only": true,
+  "contains_real_candidates": false,
+  "candidates": [
+    {
+      "candidate_id": "synthetic-review-approved-001",
+      "expected_ncs05_readiness": "tier_a_ready",
+      "entity_type": "festival",
+      "name_ja": "試験審査祭一",
+      "geography": {"prefecture_code": "10", "prefecture_name_ja": "群馬県", "municipality_name_ja": "前橋市"},
+      "source": {"family_id": "national_cultural_database", "url": "https://kunishitei.bunka.go.jp/heritage/detail/312/review-001", "accessed_at": "2026-08-18", "publisher_name": "文化庁", "publisher_role_verified": true, "provider_record_id": "fixture-review-001"},
+      "review": {"status": "approved_for_tier_a_readiness", "reviewed_at": "2026-08-18T15:30:00Z", "identity_reviewed": true, "subject_type_reviewed": true, "geography_reviewed": true, "source_role_reviewed": true, "name_variant_reviewed": true, "automation_self_approved": false}
+    },
+    {
+      "candidate_id": "synthetic-review-missing-001",
+      "expected_ncs05_readiness": "blocked_review",
+      "expected_review_problem": "review_missing",
+      "entity_type": "festival",
+      "name_ja": "試験審査祭二",
+      "geography": {"prefecture_code": "11", "prefecture_name_ja": "埼玉県", "municipality_name_ja": "川越市"},
+      "source": {"family_id": "national_cultural_database", "url": "https://kunishitei.bunka.go.jp/heritage/detail/312/review-002", "accessed_at": "2026-08-18", "publisher_name": "文化庁", "publisher_role_verified": true, "provider_record_id": "fixture-review-002"}
+    },
+    {
+      "candidate_id": "synthetic-self-approved-001",
+      "expected_ncs05_readiness": "blocked_review",
+      "expected_review_problem": "automation_self_approval_forbidden",
+      "entity_type": "folk_performance",
+      "name_ja": "試験審査芸能三",
+      "geography": {"prefecture_code": "12", "prefecture_name_ja": "千葉県", "municipality_name_ja": "千葉市"},
+      "source": {"family_id": "national_cultural_database", "url": "https://kunishitei.bunka.go.jp/heritage/detail/312/review-003", "accessed_at": "2026-08-18", "publisher_name": "文化庁", "publisher_role_verified": true, "provider_record_id": "fixture-review-003"},
+      "review": {"status": "approved_for_tier_a_readiness", "reviewed_at": "2026-08-18T15:30:00Z", "identity_reviewed": true, "subject_type_reviewed": true, "geography_reviewed": true, "source_role_reviewed": true, "name_variant_reviewed": true, "automation_self_approved": true}
+    },
+    {
+      "candidate_id": "synthetic-broader-unverified-001",
+      "expected_ncs05_readiness": "blocked_review",
+      "expected_review_problem": "broader_scope_basis_unverified",
+      "entity_type": "festival",
+      "name_ja": "試験広域祭四",
+      "geography": {"prefecture_code": "13", "prefecture_name_ja": "東京都", "broader_scope_ja": "東京都内の複数地域"},
+      "source": {"family_id": "national_cultural_database", "url": "https://kunishitei.bunka.go.jp/heritage/detail/312/review-004", "accessed_at": "2026-08-18", "publisher_name": "文化庁", "publisher_role_verified": true, "provider_record_id": "fixture-review-004"},
+      "review": {"status": "approved_for_tier_a_readiness", "reviewed_at": "2026-08-18T15:30:00Z", "identity_reviewed": true, "subject_type_reviewed": true, "geography_reviewed": true, "source_role_reviewed": true, "name_variant_reviewed": true, "automation_self_approved": false, "broader_scope_basis_verified": false}
+    },
+    {
+      "candidate_id": "synthetic-name-variant-unreviewed-001",
+      "expected_ncs05_readiness": "blocked_review",
+      "expected_review_problem": "name_variant_review_unapproved",
+      "entity_type": "folk_performance",
+      "name_ja": "試験名称差芸能五",
+      "geography": {"prefecture_code": "14", "prefecture_name_ja": "神奈川県", "municipality_name_ja": "横浜市"},
+      "source": {"family_id": "national_cultural_database", "url": "https://kunishitei.bunka.go.jp/heritage/detail/312/review-005", "accessed_at": "2026-08-18", "publisher_name": "文化庁", "publisher_role_verified": true, "provider_record_id": "fixture-review-005"},
+      "review": {"status": "approved_for_tier_a_readiness", "reviewed_at": "2026-08-18T15:30:00Z", "identity_reviewed": true, "subject_type_reviewed": true, "geography_reviewed": true, "source_role_reviewed": true, "name_variant_reviewed": false, "automation_self_approved": false}
+    },
+    {
+      "candidate_id": "synthetic-broader-approved-001",
+      "expected_ncs05_readiness": "tier_a_ready",
+      "entity_type": "festival",
+      "name_ja": "試験広域祭六",
+      "geography": {"prefecture_code": "15", "prefecture_name_ja": "新潟県", "broader_scope_ja": "新潟県内の複数地域"},
+      "source": {"family_id": "national_cultural_database", "url": "https://kunishitei.bunka.go.jp/heritage/detail/312/review-006", "accessed_at": "2026-08-18", "publisher_name": "文化庁", "publisher_role_verified": true, "provider_record_id": "fixture-review-006"},
+      "review": {"status": "approved_for_tier_a_readiness", "reviewed_at": "2026-08-18T15:30:00Z", "identity_reviewed": true, "subject_type_reviewed": true, "geography_reviewed": true, "source_role_reviewed": true, "name_variant_reviewed": true, "automation_self_approved": false, "broader_scope_basis_verified": true}
+    }
+  ]
+}
