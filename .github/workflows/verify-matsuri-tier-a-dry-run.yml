@@ -2,6 +2,8 @@ name: Verify Matsuri Tier A dry run
 
 on:
   pull_request:
+    branches:
+      - main
     paths:
       - "config/matsuri-tier-a-publication-readiness-contract.json"
       - "config/matsuri-tier-a-dry-run-baseline.json"
@@ -13,7 +15,8 @@ on:
       - ".github/workflows/verify-matsuri-tier-a-dry-run.yml"
       - "package.json"
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
       - "config/matsuri-tier-a-publication-readiness-contract.json"
       - "config/matsuri-tier-a-dry-run-baseline.json"
@@ -24,23 +27,34 @@ on:
       - "docs/matsuri-tier-a-dry-run.md"
       - ".github/workflows/verify-matsuri-tier-a-dry-run.yml"
       - "package.json"
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  verify:
+  verify-tier-a-dry-run:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24
-          cache: pnpm
-      - uses: pnpm/action-setup@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
         with:
           version: 11.10.0
-          run_install: false
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm check:matsuri:tier-a-publication-readiness
-      - run: pnpm check:matsuri:tier-a-dry-run
+
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify NCS-05 publication-readiness review gate
+        run: pnpm check:matsuri:tier-a-publication-readiness
+
+      - name: Verify NCS-05 public-safe dry-run baseline
+        run: pnpm check:matsuri:tier-a-dry-run
