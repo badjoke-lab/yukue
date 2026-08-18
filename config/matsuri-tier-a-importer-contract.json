@@ -1,0 +1,80 @@
+{
+  "schema_version": "matsuri.tier-a-importer-contract.v1",
+  "phase": "NCS-04",
+  "status": "implementation_contract",
+  "governing_spec": "docs/nationwide-corpus-scaling.md",
+  "source_inventory": "config/matsuri-national-source-inventory.json",
+  "mode": "readiness_only",
+  "boundaries": {
+    "reads_source_inventory": true,
+    "resolves_discovery_only_sources": true,
+    "requires_verified_publisher_role": true,
+    "requires_identity_dedupe": true,
+    "checks_existing_public_identity": true,
+    "checks_batch_identity_duplicates": true,
+    "checks_provider_record_identity_conflicts": true,
+    "allows_private_candidate_input": true,
+    "commits_private_candidate_queue": false,
+    "writes_canonical_public_data": false,
+    "publishes_tier_a": false,
+    "writes_tier_a_published_at": false,
+    "ncs05_dry_run_authorized": false,
+    "ncs06_publication_authorized": false,
+    "future_sites_activated": false
+  },
+  "input_minimum": [
+    "candidate_id",
+    "entity_type",
+    "name_ja",
+    "geography.prefecture_code",
+    "geography.municipality_name_ja or geography.broader_scope_ja",
+    "source.family_id",
+    "source.url",
+    "source.accessed_at",
+    "source.publisher_name",
+    "source.publisher_role_verified"
+  ],
+  "readiness_values": [
+    "tier_a_ready",
+    "blocked_input",
+    "blocked_source",
+    "blocked_identity"
+  ],
+  "tier_a_draft": {
+    "coverage_tier": "tier_a_index",
+    "publication_status": "not_published",
+    "tier_a_published_at": null,
+    "canonical_id_assigned": false,
+    "slug_assigned": false,
+    "allowed_dimensions": [
+      "entity_type",
+      "preferred_name",
+      "geographic_scope",
+      "source_provenance",
+      "identity_key"
+    ],
+    "must_not_project_candidate_dimensions": [
+      "current_state",
+      "occurrence_outcome",
+      "organizer",
+      "place",
+      "relations",
+      "coordinates",
+      "history"
+    ]
+  },
+  "identity": {
+    "normalization": "NFKC + trim + whitespace removal + Japanese-locale lowercase",
+    "key_components": ["entity_type", "preferred_name", "prefecture_code", "municipality_name_ja or broader_scope_ja"],
+    "existing_public_match": "block",
+    "same_batch_match": "block later duplicate",
+    "same_provider_record_id_different_identity": "block later conflict"
+  },
+  "source_resolution": {
+    "direct": "may become Tier A-ready after source validation",
+    "conditional": "requires verified publisher role and family-specific relationship checks",
+    "discovery_only": "must resolve to a direct or conditional underlying source",
+    "supporting_only": "cannot establish Tier A readiness alone"
+  },
+  "publication_time_rule": "NCS-04 candidate generation and readiness artifacts must never invent, accept, or write tier_a_published_at. The real timestamp is written only when a record is actually published in NCS-06 or a separately authorized publication path."
+}
