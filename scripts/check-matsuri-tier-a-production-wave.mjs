@@ -1,7 +1,5 @@
 import fs from "node:fs";
-import { fileURLToPath } from "node:url";
 
-const root = fileURLToPath(new URL("../", import.meta.url));
 const wave = JSON.parse(
   fs.readFileSync(new URL("../config/matsuri-tier-a-publication-wave-001.json", import.meta.url), "utf8"),
 );
@@ -38,6 +36,27 @@ async function fetchText(pathname) {
   return { response, body };
 }
 
+async function fetchJson(pathname) {
+  const result = await fetchText(pathname);
+  if (!result.response.ok) {
+    throw new Error(`${pathname} returned HTTP ${result.response.status}`);
+  }
+  const contentType = (result.response.headers.get("content-type") ?? "").toLowerCase();
+  if (!contentType.includes("application/json")) {
+    throw new Error(`${pathname} returned unexpected content-type ${contentType}`);
+  }
+  return JSON.parse(result.body);
+}
+
+function verifyFeed(name, feed) {
+  if (!Array.isArray(feed.records)) throw new Error(`${name} feed has no records array`);
+  if (!Number.isInteger(feed.record_count) || feed.record_count !== feed.records.length) {
+    throw new Error(
+      `${name} feed count mismatch: record_count=${String(feed.record_count)}, records=${feed.records.length}`,
+    );
+  }
+}
+
 function verifyHtml(item, response, body) {
   if (!response.ok) throw new Error(`${item.expected_route} returned HTTP ${response.status}`);
   if (!(response.headers.get("content-type") ?? "").toLowerCase().includes("text/html")) {
@@ -50,22 +69,57 @@ function verifyHtml(item, response, body) {
 }
 
 async function verifyOnce() {
-  const entityResponse = await fetchText("/data/entities.json");
-  if (!entityResponse.response.ok) {
-    throw new Error(`/data/entities.json returned HTTP ${entityResponse.response.status}`);
+  const [manifest, entities, events, relations, occurrences, sitemapResponse] = await Promise.all([
+    fetchJson("/data/manifest.json"),
+    fetchJson("/data/entities.json"),
+    fetchJson("/data/events.json"),
+    fetchJson("/data/relations.json"),
+    fetchJson("/data/occurrences.json"),
+    fetchText("/sitemap.xml"),
+  ]);
+
+  for (const [name, feed] of [
+    ["Entity", entities],
+    ["Event", events],
+    ["Relation", relations],
+    ["Occurrence", occurrences],
+  ]) {
+    verifyFeed(name, feed);
   }
-  const entities = JSON.parse(entityResponse.body);
-  if (!Array.isArray(entities.records)) throw new Error("Public entity feed has no records array");
+
+  if (manifest.site_id !== "matsuri" || manifest.site_origin !== origin) {
+    throw new Error(
+      `Production manifest origin mismatch: site_id=${String(manifest.site_id)}, site_origin=${String(manifest.site_origin)}`,
+    );
+  }
+
   if (entities.record_count !== wave.expected_repository_counts?.all_entities) {
     throw new Error(
       `Public entity count is ${String(entities.record_count)}; expected ${String(wave.expected_repository_counts?.all_entities)}`,
     );
   }
 
-  const sitemapResponse = await fetchText("/sitemap.xml");
+  const measuredCounts = {
+    entities: entities.record_count,
+    events: events.record_count,
+    relations: relations.record_count,
+    occurrences: occurrences.record_count,
+  };
+  for (const [recordType, count] of Object.entries(measuredCounts)) {
+    if (manifest.record_counts?.[recordType] !== count) {
+      throw new Error(
+        `Manifest ${recordType} count is ${String(manifest.record_counts?.[recordType])}; feed count is ${count}`,
+      );
+    }
+  }
+
   if (!sitemapResponse.response.ok) {
     throw new Error(`/sitemap.xml returned HTTP ${sitemapResponse.response.status}`);
   }
+  const sitemapLocations = [...sitemapResponse.body.matchAll(/<loc>(.*?)<\/loc>/gu)].map(
+    (match) => match[1],
+  );
+  if (sitemapLocations.length === 0) throw new Error("Canonical sitemap has no <loc> entries");
 
   for (const item of selected) {
     const publicEntity = entities.records.find((record) => record.id === item.id);
@@ -80,13 +134,14 @@ async function verifyOnce() {
     verifyHtml(item, page.response, page.body);
 
     const expectedLocation = `${origin}${item.expected_route}`;
-    if (!sitemapResponse.body.includes(`<loc>${expectedLocation}</loc>`)) {
+    if (!sitemapLocations.includes(expectedLocation)) {
       throw new Error(`Canonical sitemap is missing ${expectedLocation}`);
     }
   }
 
   return {
-    entity_count: entities.record_count,
+    ...measuredCounts,
+    sitemap_entries: sitemapLocations.length,
     selected_count: selected.length,
     selected_ids: selected.map((item) => item.id),
   };
@@ -100,9 +155,12 @@ for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
   try {
     const result = await verifyOnce();
     console.log(
-      `Matsuri NCS-06 production wave verified at ${origin}: ${result.selected_count} selected Tier A records, ${result.entity_count} public entities.`,
+      `Matsuri NCS-06 production wave verified at ${origin}: ${result.selected_count} selected Tier A records.`,
     );
     console.log(`verified entities: ${result.selected_ids.join(", ")}`);
+    console.log(
+      `production counts: entities=${result.entities}, events=${result.events}, relations=${result.relations}, occurrences=${result.occurrences}, sitemap_entries=${result.sitemap_entries}`,
+    );
     process.exit(0);
   } catch (error) {
     lastError = error;
