@@ -1,0 +1,41 @@
+name: Verify Matsuri NCS-06 production wave
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/verify-matsuri-tier-a-production-smoke.yml"
+      - "scripts/check-matsuri-tier-a-production-wave.mjs"
+      - "config/matsuri-tier-a-publication-wave-001.json"
+      - "config/yukue-deployment-topology.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-production-wave:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Verify NCS-06 production HTML, JSON, and sitemap
+        run: node scripts/check-matsuri-tier-a-production-wave.mjs
+
+      - name: Write verification summary
+        if: always()
+        shell: bash
+        run: |
+          echo "## Matsuri NCS-06 production wave" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Canonical origin: https://matsuri-yukue.badjoke-lab.com" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Checks: selected detail HTML, public entity JSON, canonical sitemap" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Expected public entities: 123" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Selected wave records: 3" >> "$GITHUB_STEP_SUMMARY"
