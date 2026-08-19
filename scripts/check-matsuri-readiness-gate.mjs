@@ -338,38 +338,42 @@ assert(
   projectStatus.includes("F2-28 — final F2 Launch Gate — completed") &&
     projectStatus.includes("Phase 10 Stabilization — active") &&
     projectStatus.includes("Matsuri Detail C implementation — completed") &&
-    projectStatus.includes("Matsuri prefecture breadth target — completed 47 / 47") &&
-    projectStatus.includes("Matsuri depth-first corpus maintenance — active") &&
+    projectStatus.includes("Matsuri prefecture seed baseline — completed 47 / 47") &&
+    projectStatus.includes("Matsuri nationwide public corpus scaling — active") &&
+    projectStatus.includes("NCS-06 first bounded Tier A public wave + A→B promotion — active") &&
+    projectStatus.includes("Matsuri maintenance / historical depth — active in parallel") &&
     projectStatus.includes("Matsuri stabilization review — reviewing / incomplete") &&
     projectStatus.includes("Earliest review       2026-08-10") &&
     projectStatus.includes("Known unresolved critical corrections   0") &&
     projectStatus.includes("Production deployment failures           1") &&
     projectStatus.includes("Manual maintenance burden                acceptable") &&
     projectStatus.includes("Actual Jinja start gate — blocked"),
-  "Project status does not reflect completed breadth, active depth maintenance, and bounded stabilization reviewing state",
+  "Project status does not reflect the current nationwide-scaling and bounded stabilization state",
 );
 assert(
   developmentSchedule.includes("F2-01 through F2-28           completed") &&
     developmentSchedule.includes("Phase 10A Detail C repair     completed") &&
-    developmentSchedule.includes("Phase 10B Prefecture breadth  completed 47 / 47") &&
-    developmentSchedule.includes("Phase 10C Depth maintenance   active") &&
+    developmentSchedule.includes("Phase 10B Prefecture seed     completed 47 / 47") &&
+    developmentSchedule.includes("Phase 10C Maintenance         active") &&
+    developmentSchedule.includes("Phase 10D Nationwide scaling  active") &&
+    developmentSchedule.includes("NCS-06                        active") &&
     developmentSchedule.includes("Stabilization review          reviewing") &&
-    developmentSchedule.includes("Formal review eligible        true") &&
     developmentSchedule.includes("Formal review complete        false") &&
     developmentSchedule.includes("Actual Jinja start gate       blocked"),
-  "Development schedule does not reflect the completed breadth target and active stabilization review",
+  "Development schedule does not reflect the current nationwide-scaling and stabilization state",
 );
 assert(
   roadmap.includes("## Phase 9 — Launch Preparation") &&
     roadmap.includes("Status: **Completed**") &&
-    roadmap.includes("## Phase 10 — Matsuri Content Expansion and Stabilization") &&
+    roadmap.includes("## Phase 10 — Matsuri Public Corpus Expansion and Stabilization") &&
     roadmap.includes("### Phase 10A — Detail C product completion") &&
-    roadmap.includes("### Phase 10B — Prefecture breadth") &&
-    roadmap.includes("### Phase 10C — Depth-first maintenance") &&
+    roadmap.includes("### Phase 10B — Prefecture seed baseline") &&
+    roadmap.includes("### Phase 10C — Maintenance and stabilization") &&
+    roadmap.includes("### Phase 10D — Nationwide public corpus scaling") &&
     roadmap.includes("Status: **Reviewing / Incomplete**") &&
     roadmap.includes("Current status        reviewing") &&
     roadmap.includes("Earliest review       2026-08-10"),
-  "Roadmap does not reflect Detail C completion, completed prefecture breadth, active depth maintenance, and stabilization review",
+  "Roadmap does not reflect Detail C completion, seed completion, nationwide scaling, and stabilization review",
 );
 assert(
   detailContract.includes("**Status:** Required implementation contract") &&
@@ -401,5 +405,5 @@ assert(
 );
 
 console.log(
-  `Matsuri repository readiness gate passed: ${manifest.public_routes.length} routes, ${manifest.artifact_file_count} files, ${manifest.artifact_size_bytes} bytes, SHA-256 ${manifest.artifact_sha256}; Detail C and prefecture breadth are complete, depth-first maintenance is active, stabilization is reviewing with private observations pending, indexation is not required, and Jinja remains blocked.`,
+  `Matsuri repository readiness gate passed: ${manifest.public_routes.length} routes, ${manifest.artifact_file_count} files, ${manifest.artifact_size_bytes} bytes, SHA-256 ${manifest.artifact_sha256}; Detail C and prefecture seed baseline are complete, nationwide A/B/C scaling and maintenance are active, stabilization is reviewing, indexation is not required, and Jinja remains blocked.`,
 );
