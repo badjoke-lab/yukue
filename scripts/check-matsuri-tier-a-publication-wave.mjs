@@ -22,6 +22,38 @@ if (!new Set(["staged", "release_ready", "published_verified"]).has(config.statu
 if (selected.length !== 3) failures.push(`expected_3_selected_entities_got_${selected.length}`);
 if (new Set(selected.map((item) => item.id)).size !== selected.length) failures.push("duplicate_selected_entity_ids");
 
+const initialTierABoundaryLocked = config.status !== "published_verified";
+const allowedPostPublicationTiers = new Set([
+  "tier_a_index",
+  "tier_b_verified",
+  "tier_c_history_monitoring",
+]);
+
+let productionVerification = null;
+if (config.status === "published_verified") {
+  const recordPath = config.production_verification?.record;
+  if (typeof recordPath !== "string" || recordPath.length === 0) {
+    failures.push("published_verified_record_missing");
+  } else {
+    const absoluteRecordPath = path.join(root, recordPath);
+    if (!fs.existsSync(absoluteRecordPath)) {
+      failures.push("published_verified_record_not_found");
+    } else {
+      productionVerification = JSON.parse(fs.readFileSync(absoluteRecordPath, "utf8"));
+      if (productionVerification.schema_version !== "matsuri.tier-a-production-verification.v1") {
+        failures.push("published_verified_record_schema_invalid");
+      }
+      if (
+        productionVerification.status !== "verified" ||
+        productionVerification.wave_id !== config.wave_id ||
+        productionVerification.checks?.all_selected_entities_tier_a_index !== true
+      ) {
+        failures.push("published_verified_initial_tier_a_proof_invalid");
+      }
+    }
+  }
+}
+
 const entityById = new Map(dataset.entities.map((record) => [record.id, record]));
 const sourceById = new Map(dataset.sources.map((record) => [record.id, record]));
 const evidenceById = new Map(dataset.evidence.map((record) => [record.id, record]));
@@ -39,7 +71,11 @@ for (const item of selected) {
   }
   if (entity.entity_type !== item.entity_type) failures.push(`${item.id}:entity_type_mismatch`);
   if (entity.slug !== item.slug) failures.push(`${item.id}:slug_mismatch`);
-  if (rawEntity.coverage_tier !== "tier_a_index") failures.push(`${item.id}:tier_a_metadata_missing`);
+  if (initialTierABoundaryLocked) {
+    if (rawEntity.coverage_tier !== "tier_a_index") failures.push(`${item.id}:tier_a_metadata_missing`);
+  } else if (!allowedPostPublicationTiers.has(rawEntity.coverage_tier)) {
+    failures.push(`${item.id}:invalid_post_publication_tier`);
+  }
 
   const areas = entity.geographic_scope?.areas ?? [];
   if (!areas.some((area) => area.prefecture_name_ja || area.prefecture_code)) failures.push(`${item.id}:prefecture_missing`);
@@ -63,11 +99,13 @@ for (const item of selected) {
     if (evidence.review_status !== "approved") failures.push(`${item.id}:identity_evidence_not_approved`);
   }
 
-  if (dataset.stateSnapshots.some((record) => record.entity_id === item.id)) failures.push(`${item.id}:unexpected_current_state`);
-  if (dataset.occurrences.some((record) => record.subject_entity_id === item.id)) failures.push(`${item.id}:unexpected_occurrence`);
-  if (dataset.changeEvents.some((record) => (record.subject_entity_ids ?? []).includes(item.id))) failures.push(`${item.id}:unexpected_change_event`);
-  if (dataset.relations.some((record) => JSON.stringify(record).includes(item.id))) failures.push(`${item.id}:unexpected_relation`);
-  if ((entity.default_place_ids ?? []).length > 0 || entity.primary_place_id) failures.push(`${item.id}:unexpected_place_link`);
+  if (initialTierABoundaryLocked) {
+    if (dataset.stateSnapshots.some((record) => record.entity_id === item.id)) failures.push(`${item.id}:unexpected_current_state`);
+    if (dataset.occurrences.some((record) => record.subject_entity_id === item.id)) failures.push(`${item.id}:unexpected_occurrence`);
+    if (dataset.changeEvents.some((record) => (record.subject_entity_ids ?? []).includes(item.id))) failures.push(`${item.id}:unexpected_change_event`);
+    if (dataset.relations.some((record) => JSON.stringify(record).includes(item.id))) failures.push(`${item.id}:unexpected_relation`);
+    if ((entity.default_place_ids ?? []).length > 0 || entity.primary_place_id) failures.push(`${item.id}:unexpected_place_link`);
+  }
 
   if (config.status === "staged") {
     if (rawEntity.tier_a_published_at !== undefined && rawEntity.tier_a_published_at !== null) failures.push(`${item.id}:staged_publication_timestamp_present`);
@@ -90,9 +128,14 @@ if (builtMode) {
   if (fs.existsSync(publicFeedPath)) {
     const publicFeed = JSON.parse(fs.readFileSync(publicFeedPath, "utf8"));
     for (const item of selected) {
+      const rawEntity = rawEntityById.get(item.id);
       const publicEntity = publicFeed.records?.find((record) => record.id === item.id);
       if (!publicEntity) failures.push(`${item.id}:built_public_json_missing`);
-      else if (publicEntity.coverage_tier !== "tier_a_index") failures.push(`${item.id}:built_public_tier_metadata_missing`);
+      else if (initialTierABoundaryLocked && publicEntity.coverage_tier !== "tier_a_index") {
+        failures.push(`${item.id}:built_public_tier_metadata_missing`);
+      } else if (!initialTierABoundaryLocked && publicEntity.coverage_tier !== rawEntity?.coverage_tier) {
+        failures.push(`${item.id}:built_public_tier_metadata_mismatch`);
+      }
     }
   }
   const sitemap = fs.existsSync(sitemapPath) ? fs.readFileSync(sitemapPath, "utf8") : "";
@@ -109,4 +152,6 @@ if (failures.length > 0) {
   throw new Error(`Matsuri NCS-06 publication wave failed:\n- ${failures.join("\n- ")}`);
 }
 
-console.log(`Matsuri NCS-06 wave OK: ${selected.length} selected, ${dataset.entities.length} entities, ${specialist.length} specialist primary, status=${config.status}${builtMode ? ", built outputs verified" : ""}.`);
+console.log(
+  `Matsuri NCS-06 wave OK: ${selected.length} selected, ${dataset.entities.length} entities, ${specialist.length} specialist primary, status=${config.status}${productionVerification ? ", initial Tier A publication preserved by production verification record" : ""}${builtMode ? ", built outputs verified" : ""}.`,
+);
