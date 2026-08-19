@@ -2,10 +2,17 @@
   "schema_version": "matsuri.tier-a-publication-wave.v1",
   "phase": "NCS-06",
   "wave_id": "ncs06-tier-a-wave-001",
-  "status": "release_ready",
+  "status": "published_verified",
   "canonical_bundle": "data/public/matsuri/f1/batch-13.json",
   "publication_timestamp": "2026-08-18T16:33:34Z",
   "publication_timestamp_rule": "Set only in the final release commit immediately before merge; staged records must not claim a publication time.",
+  "production_verification": {
+    "record": "config/matsuri-tier-a-production-wave-001-verification.json",
+    "release_merge_commit": "96c7f778133b67b523b29344d8226a4c097b104e",
+    "verified_at": "2026-08-19T15:57:44Z",
+    "workflow_run_id": 32273129036,
+    "job_id": 96134104817
+  },
   "selected_entities": [
     {
       "id": "fpf-kuta-hanagasa-odori",
