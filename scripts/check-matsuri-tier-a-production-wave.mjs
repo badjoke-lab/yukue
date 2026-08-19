@@ -22,6 +22,60 @@ const origin = matsuri.canonical_origin.replace(/\/$/u, "");
 const selected = wave.selected_entities ?? [];
 if (selected.length === 0) throw new Error("Publication wave has no selected entities");
 
+let recordedVerification = null;
+if (wave.status === "published_verified") {
+  const relativeRecordPath = wave.production_verification?.record;
+  if (typeof relativeRecordPath !== "string" || relativeRecordPath.length === 0) {
+    throw new Error("published_verified wave is missing production_verification.record");
+  }
+  recordedVerification = JSON.parse(
+    fs.readFileSync(new URL(`../${relativeRecordPath}`, import.meta.url), "utf8"),
+  );
+  if (recordedVerification.schema_version !== "matsuri.tier-a-production-verification.v1") {
+    throw new Error("Unexpected production-verification schema");
+  }
+  if (
+    recordedVerification.status !== "verified" ||
+    recordedVerification.wave_id !== wave.wave_id ||
+    recordedVerification.canonical_origin !== origin
+  ) {
+    throw new Error("Production-verification record does not match the publication wave");
+  }
+  if (
+    recordedVerification.release_merge_commit !== wave.production_verification?.release_merge_commit ||
+    recordedVerification.verified_at !== wave.production_verification?.verified_at ||
+    recordedVerification.github_actions?.workflow_run_id !== wave.production_verification?.workflow_run_id ||
+    recordedVerification.github_actions?.job_id !== wave.production_verification?.job_id
+  ) {
+    throw new Error("Publication-wave production_verification metadata does not match its record");
+  }
+
+  const recordedSelected = recordedVerification.selected_entities ?? [];
+  const expectedSelected = selected.map((item) => ({ id: item.id, route: item.expected_route }));
+  if (JSON.stringify(recordedSelected) !== JSON.stringify(expectedSelected)) {
+    throw new Error("Production-verification selected entity set does not match the wave");
+  }
+
+  for (const flag of [
+    "detail_html",
+    "public_entity_json",
+    "manifest_counts_match_feeds",
+    "canonical_sitemap",
+    "all_selected_entities_tier_a_index",
+  ]) {
+    if (recordedVerification.checks?.[flag] !== true) {
+      throw new Error(`Production-verification record is missing successful check ${flag}`);
+    }
+  }
+  if (
+    recordedVerification.boundaries?.production_mutated_by_verifier !== false ||
+    recordedVerification.boundaries?.future_sites_activated !== false ||
+    recordedVerification.boundaries?.freshness_repaired_by_inference !== false
+  ) {
+    throw new Error("Production-verification boundaries are invalid");
+  }
+}
+
 const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
 async function fetchText(pathname) {
@@ -139,12 +193,26 @@ async function verifyOnce() {
     }
   }
 
-  return {
+  const result = {
     ...measuredCounts,
     sitemap_entries: sitemapLocations.length,
     selected_count: selected.length,
     selected_ids: selected.map((item) => item.id),
   };
+
+  if (recordedVerification) {
+    for (const [field, value] of Object.entries(result).filter(([field]) =>
+      ["entities", "events", "relations", "occurrences", "sitemap_entries"].includes(field),
+    )) {
+      if (recordedVerification.observed_counts?.[field] !== value) {
+        throw new Error(
+          `Recorded production ${field} count is ${String(recordedVerification.observed_counts?.[field])}; live production is ${String(value)}`,
+        );
+      }
+    }
+  }
+
+  return result;
 }
 
 const maxAttempts = Number(process.env.MATSURI_PRODUCTION_SMOKE_ATTEMPTS ?? "12");
@@ -161,6 +229,9 @@ for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
     console.log(
       `production counts: entities=${result.entities}, events=${result.events}, relations=${result.relations}, occurrences=${result.occurrences}, sitemap_entries=${result.sitemap_entries}`,
     );
+    if (recordedVerification) {
+      console.log("published_verified machine record matches live production.");
+    }
     process.exit(0);
   } catch (error) {
     lastError = error;
