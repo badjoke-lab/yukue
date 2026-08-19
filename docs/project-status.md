@@ -349,12 +349,12 @@ Those maintenance cases do not change the national scaling rule and do not creat
 ## Stabilization review
 
 ```text
-Started                                  2026-07-27
-Minimum duration                         14 days
-Earliest review                          2026-08-10
-Current status                           reviewing
-Review eligible                          true
-Formal review complete                   false
+Started               2026-07-27
+Minimum duration      14 days
+Earliest review       2026-08-10
+Current status        reviewing
+Review eligible       true
+Formal review complete false
 Known unresolved critical corrections   0
 Production deployment failures           1
 Manual maintenance burden                acceptable
