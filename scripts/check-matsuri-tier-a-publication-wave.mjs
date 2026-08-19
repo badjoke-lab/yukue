@@ -50,6 +50,12 @@ if (config.status === "published_verified") {
       ) {
         failures.push("published_verified_initial_tier_a_proof_invalid");
       }
+      if (
+        productionVerification.observed_counts?.entities !==
+        config.expected_repository_counts?.all_entities
+      ) {
+        failures.push("published_verified_initial_entity_count_mismatch");
+      }
     }
   }
 }
@@ -116,8 +122,10 @@ for (const item of selected) {
 }
 
 const specialist = dataset.entities.filter((entity) => ["festival", "folk_performance"].includes(entity.entity_type));
-if (dataset.entities.length !== config.expected_repository_counts.all_entities) failures.push(`all_entities_${dataset.entities.length}`);
-if (specialist.length !== config.expected_repository_counts.specialist_primary_entities) failures.push(`specialist_primary_${specialist.length}`);
+if (initialTierABoundaryLocked) {
+  if (dataset.entities.length !== config.expected_repository_counts.all_entities) failures.push(`all_entities_${dataset.entities.length}`);
+  if (specialist.length !== config.expected_repository_counts.specialist_primary_entities) failures.push(`specialist_primary_${specialist.length}`);
+}
 
 if (builtMode) {
   const dist = path.join(root, "apps", "matsuri", "dist");
@@ -153,5 +161,5 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `Matsuri NCS-06 wave OK: ${selected.length} selected, ${dataset.entities.length} entities, ${specialist.length} specialist primary, status=${config.status}${productionVerification ? ", initial Tier A publication preserved by production verification record" : ""}${builtMode ? ", built outputs verified" : ""}.`,
+  `Matsuri NCS-06 wave OK: ${selected.length} selected, ${dataset.entities.length} current entities, ${specialist.length} current specialist primary, status=${config.status}${productionVerification ? ", initial Tier A publication preserved by production verification record" : ""}${builtMode ? ", built outputs verified" : ""}.`,
 );
