@@ -285,22 +285,19 @@ They intentionally do not add unsupported Current State, Occurrence, Change Even
 
 Production verification completed at `2026-08-19T15:57:44Z` by GitHub Actions run `32273129036`, job `96134104817`.
 
-Observed canonical-production counts:
+The exact production feed/manifest/sitemap counts are recorded only in the machine verification record below so narrative status does not duplicate repository-baseline count fields.
+
+The production smoke verified all three selected records in `/data/entities.json` as `tier_a_index`, each selected detail HTML route, manifest/feed count consistency, and each selected canonical sitemap URL.
+
+Current specialist-primary result after the verified wave:
 
 ```text
-Public Entities                             123
-Events                                      106
-Relations                                    70
-Occurrences                                 169
-Sitemap entries                             241
 Public specialist-primary total              60
 Tier A — Public Index                        22
 Tier B — Public Verified                      8
 Tier C — Public History / Monitoring         30
 Below Tier A                                  0
 ```
-
-The production smoke verified all three selected records in `/data/entities.json` as `tier_a_index`, each selected detail HTML route, manifest/feed count consistency, and each selected canonical sitemap URL.
 
 Machine record:
 
