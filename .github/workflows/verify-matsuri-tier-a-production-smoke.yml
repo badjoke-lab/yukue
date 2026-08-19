@@ -39,5 +39,6 @@ jobs:
           echo "## Matsuri NCS-06 production wave" >> "$GITHUB_STEP_SUMMARY"
           echo "- Canonical origin: https://matsuri-yukue.badjoke-lab.com" >> "$GITHUB_STEP_SUMMARY"
           echo "- Checks: selected detail HTML, public feeds, manifest counts, canonical sitemap, published-verification record" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Expected public entities: 123" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Historic wave-001 entity checkpoint: 123" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Current live corpus may grow or deepen after publication verification" >> "$GITHUB_STEP_SUMMARY"
           echo "- Selected wave records: 3" >> "$GITHUB_STEP_SUMMARY"
