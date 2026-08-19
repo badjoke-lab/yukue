@@ -17,6 +17,10 @@ function entityUpdatedDay(entity) {
   return parseIsoDay(entity.updated_at.slice(0, 10));
 }
 
+function tierAWithoutEntityLinkAllowed(entity) {
+  return entity?.coverage_tier === "tier_a_index";
+}
+
 export function validateMatsuriExternalLinkMaintenance(entities, options = {}) {
   const asOfText = options.asOf ?? new Date().toISOString().slice(0, 10);
   const asOf = parseIsoDay(asOfText);
@@ -33,6 +37,7 @@ export function validateMatsuriExternalLinkMaintenance(entities, options = {}) {
   const violations = [];
   let externalLinkCount = 0;
   let primaryLinkCount = 0;
+  let tierAWithoutEntityLinkCount = 0;
 
   for (const entity of entities) {
     const entityId = typeof entity?.id === "string" ? entity.id : "<missing-entity-id>";
@@ -43,7 +48,11 @@ export function validateMatsuriExternalLinkMaintenance(entities, options = {}) {
 
     const links = entity?.external_links;
     if (!Array.isArray(links) || links.length === 0) {
-      violations.push(`${entityId}: at least one external link is required`);
+      if (tierAWithoutEntityLinkAllowed(entity)) {
+        tierAWithoutEntityLinkCount += 1;
+        continue;
+      }
+      violations.push(`${entityId}: at least one external link is required unless the record is explicit Tier A Public Index`);
       continue;
     }
 
@@ -113,6 +122,7 @@ export function validateMatsuriExternalLinkMaintenance(entities, options = {}) {
     entityCount: entities.length,
     externalLinkCount,
     primaryLinkCount,
+    tierAWithoutEntityLinkCount,
     asOf: asOfText,
   };
 }
@@ -138,7 +148,14 @@ const makeFixture = () => structuredClone(fixture);
 {
   const candidate = makeFixture();
   candidate.external_links = [];
-  assertRejected([candidate], "Entity without external links");
+  delete candidate.coverage_tier;
+  assertRejected([candidate], "non-Tier-A Entity without external links");
+}
+{
+  const candidate = makeFixture();
+  candidate.external_links = [];
+  candidate.coverage_tier = "tier_a_index";
+  validateMatsuriExternalLinkMaintenance([candidate]);
 }
 {
   const candidate = makeFixture();
@@ -181,5 +198,5 @@ const makeFixture = () => structuredClone(fixture);
 }
 
 console.log(
-  `Matsuri external-link maintenance contract passed: ${result.entityCount} Entities, ${result.externalLinkCount} external links, ${result.primaryLinkCount} primary links, and seven invalid fixtures rejected.`,
+  `Matsuri external-link maintenance contract passed: ${result.entityCount} Entities, ${result.externalLinkCount} external links, ${result.primaryLinkCount} primary links, ${result.tierAWithoutEntityLinkCount} explicit Tier A records without Entity external links, seven invalid fixtures rejected, and one Tier A no-link fixture accepted.`,
 );

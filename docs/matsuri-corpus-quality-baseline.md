@@ -1,16 +1,16 @@
 # Matsuri Corpus A/B/C Quality Baseline
 
-**Status:** NCS-02 measured baseline / A/B/C classifier aligned / NCS-06 bulk publication not yet authorized
+**Status:** NCS-06 release-ready measurement / A/B/C classifier aligned
 
 ## Governing contract
 
-This baseline implements the measurement step required by:
+This baseline is measured under:
 
 ```text
 docs/nationwide-corpus-scaling.md
 ```
 
-The governing public model is:
+The public model is:
 
 ```text
 Tier A  Public Index
@@ -20,83 +20,57 @@ Tier B  Public Verified
 Tier C  Public History / Monitoring
 ```
 
-Tier A is a valid public product layer. A completed Occurrence, Change Event, or multi-year history is not required merely to publish a source-backed Tier A record.
+Tier A is intentionally public. Completed Occurrence history, Change Events, multi-year history, Current State, organizer, Place, Relation, and coordinates are not Tier A publication prerequisites. Unsupported dimensions remain absent rather than being inferred.
 
-The seven-day A→B value is a work target and prioritization rule. An overdue Tier A record does not block unrelated valid Tier A publication and is not automatically withdrawn.
+The seven-day A→B value is a work target and prioritization rule, not a global release blocker or automatic withdrawal rule.
 
-This NCS-02 baseline measures the current corpus. It does not by itself authorize the first NCS-06 bulk public wave.
+## Exact NCS-06 release-ready measurement
 
-## Exact measured baseline
-
-Observed from GitHub Actions workflow run `32080250053`, job `95541708043`, at `2026-08-17T23:24:40.123Z` (`2026-08-18` JST).
+Observed from GitHub Actions workflow run `32161043573`, job `95789744900`, at `2026-08-18T16:35:24.944Z` (`2026-08-19` JST), after the authentic release timestamp was assigned to the three NCS-06 wave records.
 
 ```text
-All public Entities                         120
-Legacy primary subjects                      58
-Specialist primary subjects                  57
-  Festival                                   49
-  Folk Performance                            8
+All public Entities                         123
+Legacy primary subjects                      61
+Specialist primary subjects                  60
+  Festival                                   50
+  Folk Performance                           10
 
-Tier A — Public Index                        19
+Tier A — Public Index                        22
 Tier B — Public Verified                      8
 Tier C — Public History / Monitoring         30
 Below Tier A                                  0
-Public specialist-primary total              57
+Public specialist-primary total              60
 ```
 
-Current historical/observation depth remains useful as a descriptive baseline:
+Compared with the pre-wave 57-record baseline, NCS-06 adds three actual public Tier A records. Candidate counts are not counted as public growth.
+
+## Historical / observation depth
 
 ```text
-At least 1 completed Occurrence year        52 / 57
-At least 2 completed Occurrence years       37 / 57
-Evidence-backed Change Events               57 / 57
-Current State Evidence                      56 / 57
-Direct profile Evidence                     39 / 57
+At least 1 completed Occurrence year        52 / 60
+At least 2 completed Occurrence years       37 / 60
+Evidence-backed Change Events               57 / 60
+Current State Evidence                      56 / 60
+Direct profile Evidence                     42 / 60
 ```
 
-The `37 / 57` multi-year value is **not** a release floor for new Tier A or Tier B records. It is only a measurement of the current corpus.
+These values describe depth. They are not Tier A publication floors.
 
 ## Tier A interpretation
 
-All 57 current specialist-primary public records satisfy the machine-checkable Tier A identity/geography/source baseline. None is classified below Tier A.
+All 60 current specialist-primary public records satisfy the machine-checkable Tier A identity/geography/source baseline. None is below Tier A.
 
-Tier A requires the public Index minimum: reviewed identity, geographic scope, reviewed source-backed identity provenance, source verification/access date, and a deterministic duplicate-clear identity check.
-
-Tier A does **not** require:
-
-- an approved Current State;
-- a completed Occurrence;
-- a Change Event;
-- multi-year history;
-- a Place or coordinate;
-- an organizer;
-- a Relation;
-- a substantive long description.
-
-Those fields may be present when supported, but missing Tier B/C dimensions do not make a valid Tier A non-public.
-
-## Tier A → B work dimensions
-
-The 19 current Tier A records are public records that need additional verified dimensions before Tier B classification.
-
-Measured missing Tier B dimensions among those 19 records:
+The three NCS-06 records are:
 
 ```text
-direct profile Evidence missing             18
-approved Current State missing                1
-Current State Evidence missing                1
-timing / recurrence signal missing            1
+久多の花笠踊            Tier A
+平戸のジャンガラ        Tier A
+間々田のじゃがまいた    Tier A
 ```
 
-These are promotion priorities, not global release blockers.
+Their Tier A release timestamp is `2026-08-18T16:33:34Z` (`2026-08-19 01:33:34 JST`). The A→B target clock starts from that authentic release time.
 
-No missing dimension may be repaired by inference. If Evidence cannot yet support the field, the record remains public as Tier A and the missing reason remains visible to the machine report.
-
-## Tier A publication age
-
-The current legacy data model does not contain an authentic `tier_a_published_at` timestamp for the 19 records that now classify as Tier A.
-
-Therefore the classifier reports:
+The 19 legacy Tier A records still do not have authentic Tier A publication timestamps. Their age remains unknown rather than being guessed.
 
 ```text
 Tier A due within 48 hours                    0
@@ -104,35 +78,37 @@ Tier A overdue                                0
 Tier A publication metadata missing          19
 ```
 
-The first two values do **not** mean that all 19 records are known to be within target. Their publication age is unknown. The classifier deliberately does not backfill a guessed publication date from repository age, Git history, or another unrelated timestamp.
+## Tier A → B work dimensions
 
-NCS-04/NCS-06 publication plumbing must write the real Tier A publication timestamp for newly published Tier A records so later reports can calculate the seven-day target honestly.
+Measured missing Tier B dimensions among the 22 current Tier A records:
 
-## Tier B and Tier C interpretation
+```text
+direct profile Evidence missing             18
+approved Current State missing                4
+Current State Evidence missing                4
+timing / recurrence signal missing            4
+dated observation anchor missing              3
+Place model missing                           2
+```
 
-Eight current records classify as Tier B. They satisfy the Tier B verification dimensions but do not yet have one of the configured Tier C depth/monitoring signals.
+For the three new records, these missing dimensions are expected Tier A omissions. They are promotion work, not evidence defects and not reasons to suppress the records.
 
-Thirty current records classify as Tier C because they satisfy Tier B and carry longitudinal depth or an active freshness-monitoring obligation.
+No missing dimension may be repaired by inference. If evidence does not support promotion, the record remains public at Tier A while research continues.
 
-Tier C signals currently measured include:
+## Tier B and Tier C
 
-- completed Occurrences across multiple years;
-- multiple completed evidenced Occurrences;
-- multiple evidence-backed Change Events;
-- an evidence-backed scheduled/unknown Occurrence that creates an active freshness-monitoring obligation.
+Eight records classify as Tier B. Thirty classify as Tier C. NCS-06 does not demote or rewrite those existing records.
 
-Tier C is not a publication prerequisite for Tier A or Tier B.
+Tier C signals include longitudinal Occurrence history, evidence-backed Change Events, and active freshness-monitoring obligations. Tier C remains a depth layer rather than a prerequisite for Tier A or Tier B publication.
 
-## Geographic and source-family baseline
-
-Current specialist-primary coverage:
+## Geographic and source-family coverage
 
 ```text
 Prefectures represented                       47
-Municipality scopes represented               55
+Municipality scopes represented               57
 ```
 
-Identity/profile source-family entity coverage in the current reviewed canonical corpus:
+Identity/profile source-family Entity coverage:
 
 ```text
 municipal_official                             1
@@ -142,55 +118,32 @@ official_organization                         23
 official_tourism                               2
 official_tourism_body                          4
 preservation_group_official                    1
+public_authority                               3
 public_tourism_body                            1
 shrine_official                                5
 ```
 
-These values are a baseline for NCS-03 source-inventory work, not a claim that the source inventory is already nationally complete.
+The three NCS-06 records use Culture Agency public-authority Sources and approved entity-identity Evidence.
 
-## Growth metrics
+## Publication boundary
 
-This NCS-02 run is a current-corpus baseline, so it does not fabricate growth values that are not derivable from the public canonical dataset.
+The quality classifier measures the canonical public corpus; it does not auto-approve records or invent missing facts.
 
-The report therefore keeps:
-
-```text
-candidate_count       unavailable from public canonical dataset
-new_public_growth     unavailable for first A/B/C baseline checkpoint
-```
-
-Future NCS work must report private candidate discovery separately from public A/B/C growth. Candidate count alone is never a public-coverage result.
-
-## Publication and automation boundaries
-
-NCS-02 records the classification model and baseline only.
-
-It preserves these boundaries:
+NCS-06 preserves these rules:
 
 - Tier A is public.
-- Tier B target age is seven days.
-- overdue Tier A does not stop unrelated valid Tier A publication.
+- A→B target age is seven days.
+- overdue Tier A does not globally stop unrelated valid Tier A publication.
 - valid Tier A is not auto-withdrawn only because seven days elapsed.
 - completed Occurrence is not a Tier A requirement.
 - Change Event is not a Tier A requirement.
 - multi-year history is not a Tier A or Tier B publication requirement.
-- machine classification does not auto-approve publication or A→B promotion.
-- private candidate records are not public until the Tier A minimum is actually satisfied.
-- NCS-02 itself does not authorize the first bulk public wave.
-- NCS-02 does not authorize Jinja, Jiin, or Tomurai activation.
+- Relation and Entity external-link presence are not Tier A requirements when authoritative Source/Evidence requirements are satisfied.
+- machine classification does not auto-approve A→B promotion.
+- Jinja, Jiin, and Tomurai remain inactive.
 
-## Next sequence
+## Next checkpoint
 
-After NCS-02:
+After NCS-06 production verification, NCS-07 advances the public specialist-primary corpus from 60 toward 500 while A→B work on newly published Tier A records proceeds in parallel.
 
-```text
-NCS-03  national authoritative-source inventory
-NCS-04  deterministic candidate + Tier A importer / identity-dedupe pipeline
-NCS-05  bulk dry run + Tier A publication-readiness audit
-NCS-06  first bounded Tier A public wave + continuous A→B promotion
-NCS-07  cumulative 500 public Matsuri primary records
-NCS-08  cumulative 1,000 public Matsuri primary records
-NCS-09  source-inventory-derived national target + continued A→B→C expansion
-```
-
-Matsuri freshness maintenance continues in parallel. An unresolved post-event outcome must not be guessed to make a gate green, but those independent maintenance cases do not redefine Tier A or stop nationwide corpus work.
+Independent Matsuri freshness failures remain fail-closed. They are not repaired by inference and do not redefine the nationwide A/B/C publication model.

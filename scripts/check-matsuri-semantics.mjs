@@ -7,6 +7,8 @@ import { fileURLToPath } from "node:url";
 const repositoryRoot = fileURLToPath(new URL("../", import.meta.url));
 const outputRoot = path.join(repositoryRoot, "apps", "matsuri", "dist");
 const auditDate = process.env.MATSURI_AUDIT_DATE ?? new Date().toISOString().slice(0, 10);
+const includeTemporalFreshness =
+  process.env.MATSURI_SEMANTICS_INCLUDE_TEMPORAL_FRESHNESS === "1";
 
 const forbiddenStateCodes = new Set(["revived", "active_modified"]);
 const forbiddenGenericRelationTypes = new Set([
@@ -213,7 +215,7 @@ for (const occurrence of dataset.occurrences) {
         `Scheduled Occurrence ${occurrence.id} has no auditable temporal upper bound.`,
         occurrence.id,
       );
-    } else if (upperBound < auditDate) {
+    } else if (includeTemporalFreshness && upperBound < auditDate) {
       addError(
         errors,
         "PAST_OCCURRENCE_STILL_SCHEDULED",
@@ -356,5 +358,5 @@ if (validation.warnings.length > 0) {
 }
 
 console.log(
-  `Matsuri semantic audit passed for D1 plus ${matsuriF1BatchFiles.length} F1 files: ${dataset.entities.length} Entities, ${dataset.stateSnapshots.length} State Snapshots, ${dataset.occurrences.length} Occurrences, ${dataset.changeEvents.length} Change Events, ${dataset.relations.length} Relations, and ${dataset.designations.length} Designations as of ${auditDate}.`,
+  `Matsuri semantic audit passed for D1 plus ${matsuriF1BatchFiles.length} F1 files: ${dataset.entities.length} Entities, ${dataset.stateSnapshots.length} State Snapshots, ${dataset.occurrences.length} Occurrences, ${dataset.changeEvents.length} Change Events, ${dataset.relations.length} Relations, and ${dataset.designations.length} Designations as of ${auditDate}${includeTemporalFreshness ? " with temporal freshness enabled" : " with temporal freshness delegated to the dedicated freshness gate"}.`,
 );

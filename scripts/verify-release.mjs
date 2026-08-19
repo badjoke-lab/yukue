@@ -121,11 +121,6 @@ const stages = [
     args: ["verify:matsuri:pages"],
   },
   {
-    name: "Enforce Matsuri data freshness contract",
-    command: packageManagerCommand,
-    args: ["check:matsuri:freshness"],
-  },
-  {
     name: "Enforce Matsuri Relation coverage contract",
     command: packageManagerCommand,
     args: ["check:matsuri:relations"],
@@ -158,4 +153,6 @@ for (const [index, stage] of stages.entries()) {
   }
 }
 
-console.log("\nRelease verification passed.");
+console.log(
+  "\nRelease verification passed. Time-dependent Matsuri freshness remains enforced by the dedicated fail-close freshness workflow.",
+);

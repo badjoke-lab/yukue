@@ -1,0 +1,51 @@
+{
+  "schema_version": "matsuri.tier-a-publication-wave.v1",
+  "phase": "NCS-06",
+  "wave_id": "ncs06-tier-a-wave-001",
+  "status": "release_ready",
+  "canonical_bundle": "data/public/matsuri/f1/batch-13.json",
+  "publication_timestamp": "2026-08-18T16:33:34Z",
+  "publication_timestamp_rule": "Set only in the final release commit immediately before merge; staged records must not claim a publication time.",
+  "selected_entities": [
+    {
+      "id": "fpf-kuta-hanagasa-odori",
+      "slug": "kuta-hanagasa-odori",
+      "entity_type": "folk_performance",
+      "expected_route": "/performances/kuta-hanagasa-odori/",
+      "source_id": "src-bunka-kuta-hanagasa-odori",
+      "evidence_id": "evd-kuta-hanagasa-odori-identity"
+    },
+    {
+      "id": "fpf-hirado-jangara",
+      "slug": "hirado-jangara",
+      "entity_type": "folk_performance",
+      "expected_route": "/performances/hirado-jangara/",
+      "source_id": "src-bunka-hirado-jangara",
+      "evidence_id": "evd-hirado-jangara-identity"
+    },
+    {
+      "id": "fst-mamada-jagamaita",
+      "slug": "mamada-jagamaita",
+      "entity_type": "festival",
+      "expected_route": "/festivals/mamada-jagamaita/",
+      "source_id": "src-bunka-mamada-jagamaita",
+      "evidence_id": "evd-mamada-jagamaita-identity"
+    }
+  ],
+  "expected_repository_counts": {
+    "all_entities": 123,
+    "specialist_primary_entities": 60
+  },
+  "boundaries": {
+    "matsuri_only": true,
+    "future_sites_activated": false,
+    "requires_current_state": false,
+    "requires_occurrence": false,
+    "requires_change_event": false,
+    "requires_place": false,
+    "requires_relation": false,
+    "requires_coordinates": false,
+    "requires_organizer": false,
+    "requires_history": false
+  }
+}

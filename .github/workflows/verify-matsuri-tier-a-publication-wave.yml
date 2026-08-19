@@ -1,0 +1,71 @@
+name: Verify Matsuri Tier A publication wave
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "data/public/matsuri/f1/batch-13.json"
+      - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
+      - "apps/matsuri/src/data/matsuri-projection.ts"
+      - "config/matsuri-tier-a-publication-wave-001.json"
+      - "scripts/check-matsuri-tier-a-publication-wave.mjs"
+      - "scripts/audit-matsuri-production-drift.mjs"
+      - ".github/workflows/verify-matsuri-tier-a-publication-wave.yml"
+      - "config/matsuri-corpus-quality-baseline.json"
+      - "docs/matsuri-corpus-quality-baseline.md"
+  push:
+    branches:
+      - main
+    paths:
+      - "data/public/matsuri/f1/batch-13.json"
+      - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
+      - "apps/matsuri/src/data/matsuri-projection.ts"
+      - "config/matsuri-tier-a-publication-wave-001.json"
+      - "scripts/check-matsuri-tier-a-publication-wave.mjs"
+      - "scripts/audit-matsuri-production-drift.mjs"
+      - ".github/workflows/verify-matsuri-tier-a-publication-wave.yml"
+      - "config/matsuri-corpus-quality-baseline.json"
+      - "docs/matsuri-corpus-quality-baseline.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-tier-a-publication-wave:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      MATSURI_CHECK_ORIGIN: https://matsuri-yukue.badjoke-lab.com
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+        with:
+          version: 11.10.0
+
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify staged NCS-06 wave contract
+        run: node scripts/check-matsuri-tier-a-publication-wave.mjs
+
+      - name: Measure exact A/B/C corpus after wave
+        run: pnpm audit:matsuri:quality
+
+      - name: Report production drift before deployment
+        run: node scripts/audit-matsuri-production-drift.mjs --report-only
+
+      - name: Build Matsuri public artifact
+        run: pnpm build:matsuri:pages
+
+      - name: Verify wave in built HTML JSON and sitemap
+        run: node scripts/check-matsuri-tier-a-publication-wave.mjs --built

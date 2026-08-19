@@ -31,6 +31,10 @@ function relationConnects(relations, leftId, rightId) {
   );
 }
 
+function relationIsRequiredForEntity(entity) {
+  return entity?.coverage_tier !== "tier_a_index";
+}
+
 function buildRelationCoverageReport(inputDataset) {
   const entitiesById = new Map(inputDataset.entities.map((entity) => [entity.id, entity]));
   const relationCounts = new Map(inputDataset.entities.map((entity) => [entity.id, 0]));
@@ -49,8 +53,21 @@ function buildRelationCoverageReport(inputDataset) {
   const specialistEntities = inputDataset.entities.filter((entity) =>
     specialistTypes.has(entity.entity_type),
   );
+  const relationRequiredSpecialists = specialistEntities.filter(relationIsRequiredForEntity);
+  const tierARelationOptionalSpecialists = specialistEntities.filter(
+    (entity) => !relationIsRequiredForEntity(entity),
+  );
 
-  const zeroRelationEntities = specialistEntities
+  const zeroRelationEntities = relationRequiredSpecialists
+    .filter((entity) => (relationCounts.get(entity.id) ?? 0) === 0)
+    .map((entity) => ({
+      entity_id: entity.id,
+      entity_type: entity.entity_type,
+      name_ja: preferredName(entity),
+    }))
+    .sort((left, right) => left.entity_id.localeCompare(right.entity_id));
+
+  const tierAWithoutRelationEntities = tierARelationOptionalSpecialists
     .filter((entity) => (relationCounts.get(entity.id) ?? 0) === 0)
     .map((entity) => ({
       entity_id: entity.id,
@@ -136,6 +153,9 @@ function buildRelationCoverageReport(inputDataset) {
   const summary = {
     entities_total: inputDataset.entities.length,
     specialist_entities_checked: specialistEntities.length,
+    relation_required_specialists: relationRequiredSpecialists.length,
+    tier_a_relation_optional_specialists: tierARelationOptionalSpecialists.length,
+    tier_a_without_relation: tierAWithoutRelationEntities.length,
     relations_total: inputDataset.relations.length,
     zero_relation_specialists: zeroRelationEntities.length,
     organizer_relation_gaps: organizerRelationGaps.length,
@@ -146,6 +166,7 @@ function buildRelationCoverageReport(inputDataset) {
   return {
     summary,
     zero_relation_entities: zeroRelationEntities,
+    tier_a_without_relation_entities: tierAWithoutRelationEntities,
     organizer_relation_gaps: organizerRelationGaps,
     place_context_relation_gaps: placeContextRelationGaps,
     relations_missing_evidence: relationsMissingEvidence,
@@ -179,15 +200,27 @@ function printReport(report) {
   console.log("Matsuri relation coverage audit");
   console.log(`Entities total: ${summary.entities_total}`);
   console.log(`Specialist Entities checked: ${summary.specialist_entities_checked}`);
+  console.log(`Relation-required specialists: ${summary.relation_required_specialists}`);
+  console.log(`Explicit Tier A specialists where Relation is optional: ${summary.tier_a_relation_optional_specialists}`);
+  console.log(`Explicit Tier A specialists with no Relation: ${summary.tier_a_without_relation}`);
   console.log(`Relations total: ${summary.relations_total}`);
-  console.log(`Specialists with no Relation: ${summary.zero_relation_specialists}`);
+  console.log(`Relation-required specialists with no Relation: ${summary.zero_relation_specialists}`);
   console.log(`Occurrence organizer Relation gaps: ${summary.organizer_relation_gaps}`);
   console.log(`Place-context Relation gaps: ${summary.place_context_relation_gaps}`);
   console.log(`Relations missing Evidence: ${summary.relations_missing_evidence}`);
 
   if (report.zero_relation_entities.length > 0) {
-    console.log("\nSpecialists with no Relation:");
+    console.log("\nRelation-required specialists with no Relation:");
     for (const candidate of report.zero_relation_entities) {
+      console.log(
+        `- ${candidate.entity_id} | ${candidate.entity_type} | ${candidate.name_ja}`,
+      );
+    }
+  }
+
+  if (report.tier_a_without_relation_entities.length > 0) {
+    console.log("\nExplicit Tier A specialists with no Relation (allowed at Tier A):");
+    for (const candidate of report.tier_a_without_relation_entities) {
       console.log(
         `- ${candidate.entity_id} | ${candidate.entity_type} | ${candidate.name_ja}`,
       );
@@ -250,6 +283,7 @@ function verifyNegativeFixtures(inputDataset) {
   const specialist = inputDataset.entities.find(
     (entity) =>
       specialistTypes.has(entity.entity_type) &&
+      relationIsRequiredForEntity(entity) &&
       inputDataset.relations.some(
         (relation) =>
           relation.source_entity_id === entity.id || relation.target_entity_id === entity.id,
@@ -264,10 +298,26 @@ function verifyNegativeFixtures(inputDataset) {
       relation.source_entity_id !== specialist.id && relation.target_entity_id !== specialist.id,
   );
   expectFixtureRejected(
-    "zero-Relation specialist",
+    "zero-Relation relation-required specialist",
     zeroRelationFixture,
     (report) => report.summary.zero_relation_specialists > 0,
   );
+
+  const tierA = inputDataset.entities.find(
+    (entity) => specialistTypes.has(entity.entity_type) && entity.coverage_tier === "tier_a_index",
+  );
+  if (tierA) {
+    const tierAFixture = cloneDataset(inputDataset);
+    tierAFixture.relations = tierAFixture.relations.filter(
+      (relation) =>
+        relation.source_entity_id !== tierA.id && relation.target_entity_id !== tierA.id,
+    );
+    const tierAReport = buildRelationCoverageReport(tierAFixture);
+    if (tierAReport.zero_relation_entities.some((item) => item.entity_id === tierA.id)) {
+      throw new Error("Explicit Tier A no-Relation fixture was incorrectly treated as a contract gap.");
+    }
+    console.log("[fixture accepted] explicit Tier A without Relation");
+  }
 
   const organizerOccurrence = inputDataset.occurrences.find((occurrence) =>
     (occurrence.organizer_entity_ids ?? []).some((organizerId) =>
@@ -373,7 +423,7 @@ function verifyNegativeFixtures(inputDataset) {
     (report) => report.summary.relations_missing_evidence > 0,
   );
 
-  console.log("Matsuri relation coverage negative fixtures passed: 4 rejected.");
+  console.log("Matsuri relation coverage fixtures passed: 4 negative fixtures rejected and explicit Tier A no-Relation behavior accepted when present.");
 }
 
 if (jsonOutput && verifyFixtures) {
@@ -390,7 +440,7 @@ if (jsonOutput) {
 
 if (requireClean) {
   assertCleanRelationCoverage(report);
-  console.log("Matsuri relation coverage contract passed with no reported gaps.");
+  console.log("Matsuri relation coverage contract passed with no required Relation gaps; explicit Tier A records may remain Relation-free until evidence-backed promotion work adds one.");
 }
 
 if (verifyFixtures) {

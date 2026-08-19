@@ -1,6 +1,6 @@
 # Project Status
 
-**Last updated:** 2026-08-19
+**Last updated:** 2026-08-20
 
 **Matsuri canonical public origin:** https://matsuri-yukue.badjoke-lab.com
 
@@ -63,17 +63,22 @@ Production topology                     docs/deployment-topology.md
 
 ## Corrected coverage interpretation
 
-The existing corpus has reviewed primary presence in all 47 prefectures, but this is only a geographic seed baseline.
+The corpus has reviewed primary presence in all 47 prefectures, but this is only a geographic seed baseline.
 
-Current specialist-primary public corpus:
+Current specialist-primary public corpus on the NCS-06 release-ready branch:
 
 ```text
-Festival             49
-Folk Performance      8
-Total                 57
+Festival             50
+Folk Performance     10
+Total                 60
+
+Tier A — Public Index                        22
+Tier B — Public Verified                      8
+Tier C — Public History / Monitoring         30
+Below Tier A                                  0
 ```
 
-The project must not treat those 57 as the practical endpoint while candidate records accumulate privately.
+The project must not treat those 60 as the practical endpoint while candidate records accumulate privately.
 
 National scaling requires useful **public** A/B/C growth from dozens to hundreds and then thousands where the authoritative-source inventory supports it.
 
@@ -124,7 +129,7 @@ Tier C adds longitudinal depth and/or active monitoring, including multiple-year
 
 NCS-02 was merged by PR #270 at main commit `031b5de385330d9ef1eb3db728a8b11a3d04807c`.
 
-Exact measured baseline:
+Exact measured baseline before the first NCS-06 public wave:
 
 ```text
 Specialist primary subjects                  57
@@ -137,7 +142,7 @@ Prefectures represented                      47
 Municipality scopes represented              55
 ```
 
-Existing historical depth remains descriptive only:
+Existing historical depth at that baseline remains descriptive only:
 
 ```text
 Completed Occurrence history                52 / 57
@@ -149,7 +154,7 @@ Direct profile Evidence                     39 / 57
 
 The 37 / 57 value is **not** a publication quota or release floor for new Tier A/B records.
 
-Among the current 19 Tier A records, the main A→B gap is direct profile Evidence for 18 records. One record also lacks approved Current State/State Evidence/timing-recurrence coverage.
+Among the legacy 19 Tier A records, the main A→B gap is direct profile Evidence for 18 records. One record also lacks approved Current State/State Evidence/timing-recurrence coverage.
 
 The legacy records do not carry authentic Tier A publication timestamps, so their A→B age is reported as metadata-missing rather than guessed.
 
@@ -257,6 +262,36 @@ Exact deterministic identity checks remain in NCS-04. NCS-05 does not introduce 
 
 NCS-05 published no records, wrote no canonical public data, wrote no `tier_a_published_at`, and activated no future site.
 
+## NCS-06 first public Tier A wave
+
+PR #278 is the first bounded NCS-06 public wave and is release-ready pending the final repository gate and merge.
+
+Selected reviewed records:
+
+```text
+久多の花笠踊
+平戸のジャンガラ
+間々田のじゃがまいた
+```
+
+The initially considered 脚折の雨乞行事 was rejected because the same subject already exists as `fst-suneori-amagoi`.
+
+The three selected records add only the Tier A minimum: reviewed identity/type/geography, authoritative Source, identity Evidence, explicit Tier A classification, and an authentic shared publication timestamp of `2026-08-18T16:33:34Z`.
+
+They intentionally do not add unsupported Current State, Occurrence, Change Event, organizer, Place, Relation, coordinates, or history.
+
+Exact release-ready measurement:
+
+```text
+Public specialist-primary total              60
+Tier A — Public Index                        22
+Tier B — Public Verified                      8
+Tier C — Public History / Monitoring         30
+Below Tier A                                  0
+```
+
+The dedicated NCS-06 gate verifies canonical record linkage, public detail HTML, individual public JSON, sitemap visibility, exact corpus measurement, and production-drift assumptions before merge/deployment.
+
 ## Rejected obsolete rules
 
 The following rules are not part of the current contract:
@@ -292,7 +327,7 @@ NCS-08  cumulative 1,000 public primary Matsuri records
 NCS-09  source-inventory-derived national target + continued A→B→C expansion
 ```
 
-NCS-06 must now actually add reviewed public Tier A records. 500 and 1,000 are public A/B/C specialist-primary checkpoints, not private candidate counts.
+500 and 1,000 are public A/B/C specialist-primary checkpoints, not private candidate counts.
 
 ## Matsuri maintenance remains active
 
@@ -320,6 +355,9 @@ Earliest review       2026-08-10
 Current status        reviewing
 Review eligible       true
 Formal review complete false
+Known unresolved critical corrections   0
+Production deployment failures           1
+Manual maintenance burden                acceptable
 ```
 
 Current owner-private observations still required by the existing stabilization contract remain separate from NCS repository work.
@@ -353,14 +391,10 @@ Do not activate future-site hostname, Worker, public implementation, or speciali
 ## Immediate next actions
 
 ```text
-1. select the first bounded NCS-06 wave only from records passing NCS-04 source/identity checks plus the NCS-05 explicit review gate
-2. re-check each selected authoritative source immediately before publication
-3. add only the Tier A minimum: reviewed identity/type/geography, authoritative Source, identity Evidence, explicit Tier A classification, and authentic publication timestamp
-4. keep unsupported Current State / Occurrence / organizer / Place / Relation / coordinates / history absent
-5. build detail HTML, public JSON, search/browse, and sitemap and verify the new records are machine-visible
-6. refresh the exact corpus quality baseline from the classifier after the real wave
-7. merge the bounded publication wave only after exact-head checks; independently known freshness failures remain fail-closed
-8. verify production detail HTML / public JSON / sitemap after deployment
-9. start the real A→B seven-day target from each actual NCS-06 publication timestamp
-10. continue public Tier A waves toward 500 while A→B and B→C work proceeds in parallel
+1. pass the final exact-head repository gate for PR #278; keep the independent freshness workflow fail-closed
+2. merge PR #278 only if the release gate is green and no new regression appears
+3. verify production detail HTML, individual public JSON, sitemap visibility, and post-merge corpus counts after deployment
+4. start and track the real A→B target from the three authentic Tier A publication timestamps
+5. continue bounded public Tier A waves toward NCS-07 while A→B and B→C work proceeds in parallel
+6. continue direct-Evidence review of closed-unresolved Occurrences separately; do not infer held/cancelled outcomes
 ```
