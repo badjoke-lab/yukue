@@ -1,0 +1,97 @@
+name: Diagnose Matsuri repository gate
+
+on:
+  pull_request:
+    paths:
+      - 'data/**'
+      - 'scripts/**'
+      - 'config/**'
+      - 'package.json'
+      - '.github/workflows/diagnose-matsuri-repository-gate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: repository baseline
+        continue-on-error: true
+        run: node scripts/check-matsuri-repository-baseline.mjs
+      - name: repository bundles
+        continue-on-error: true
+        run: node scripts/check-matsuri-repository-bundles.mjs
+      - name: open maintenance records
+        continue-on-error: true
+        run: node scripts/check-matsuri-open-maintenance-records.mjs
+      - name: bootstrap consistency
+        continue-on-error: true
+        run: node scripts/check-matsuri-bootstrap-consistency.mjs
+      - name: corpus quality baseline
+        continue-on-error: true
+        run: node scripts/check-matsuri-corpus-quality-baseline.mjs
+      - name: detail equivalence
+        continue-on-error: true
+        run: node scripts/check-matsuri-detail-equivalence.mjs
+      - name: summary tags
+        continue-on-error: true
+        run: node scripts/check-matsuri-summary-tags.mjs
+      - name: updated-at consistency
+        continue-on-error: true
+        run: node scripts/check-matsuri-updated-at-consistency.mjs
+      - name: external link coverage
+        continue-on-error: true
+        run: node scripts/check-matsuri-external-link-coverage.mjs
+      - name: search coverage
+        continue-on-error: true
+        run: node scripts/check-matsuri-search-coverage.mjs
+      - name: materialize coverage
+        continue-on-error: true
+        run: node scripts/check-matsuri-materialize-coverage.mjs
+      - name: relation coverage
+        continue-on-error: true
+        run: node scripts/check-matsuri-relation-coverage.mjs
+      - name: event responsive
+        continue-on-error: true
+        run: node scripts/check-matsuri-event-responsive.mjs
+      - name: css properties
+        continue-on-error: true
+        run: node scripts/check-matsuri-css-properties.mjs
+      - name: typography overrides
+        continue-on-error: true
+        run: node scripts/check-matsuri-typography-overrides.mjs
+      - name: contract breaks
+        continue-on-error: true
+        run: node scripts/check-matsuri-contract-breaks.mjs
+      - name: archive candidates
+        continue-on-error: true
+        run: npm run check:matsuri:archive:candidates
+      - name: relation classifier
+        continue-on-error: true
+        run: npm run check:matsuri:relation:classifier
+      - name: detail payload size
+        continue-on-error: true
+        run: npm run check:matsuri:detail:payload-size
+      - name: index rollout verify
+        continue-on-error: true
+        run: npm run audit:matsuri:index-rollout:verify
+      - name: inx13
+        continue-on-error: true
+        run: npm run check:matsuri:inx13
+      - name: inx14
+        continue-on-error: true
+        run: npm run check:matsuri:inx14
+      - name: index diff
+        continue-on-error: true
+        run: npm run check:matsuri:index:diff
+      - name: index model alignment
+        continue-on-error: true
+        run: npm run check:matsuri:index-model-alignment
