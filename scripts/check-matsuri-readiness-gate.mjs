@@ -83,9 +83,9 @@ const requiredDocs = [
   "docs/audits/matsuri-f2-22-canonical-search-2026-07-12.md",
   "docs/audits/matsuri-f2-23-crawler-reachability-2026-07-13.md",
   "docs/audits/matsuri-f2-24-search-console-2026-07-14.md",
-  "docs/audits/matsuri-f2-25-analytics-activation-2026-07-27.md",
-  "docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md",
-  "docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md",
+  "docs/audits/matsuri-f2-25-analytics-activation-2026-08-17.md",
+  "docs/audits/matsuri-f2-26-post-activation-deployment-2026-08-17.md",
+  "docs/audits/matsuri-f2-27-production-traffic-2026-08-17.md",
   "docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md",
   "docs/audits/matsuri-stabilization-start-2026-07-27.md",
   "docs/audits/matsuri-stabilization-public-review-2026-08-11.md",
@@ -111,6 +111,11 @@ assert(fs.existsSync(releaseManifestPath), "Missing release candidate manifest")
 assert(fs.existsSync(candidateSiteRoot), "Missing frozen Matsuri site");
 
 const manifest = JSON.parse(fs.readFileSync(releaseManifestPath, "utf8"));
+const analytics = readJson("config/matsuri-analytics-activation.json");
+const launchGate = readJson("config/matsuri-f2-launch-gate.json");
+const stabilization = readJson("config/matsuri-stabilization-review.json");
+const jinja = readJson("config/jinja-start-gate.json");
+
 assert(manifest.format_version === 1, "Unexpected manifest format");
 assert(manifest.project_id === "yukue-series", "Unexpected project_id");
 assert(manifest.site_id === "matsuri", "Unexpected site_id");
@@ -158,54 +163,51 @@ assert(
   "F2-24 evidence is incomplete",
 );
 assert(
-  manifest.analytics_activation_verification?.provider === "cloudflare-web-analytics" &&
-    manifest.analytics_activation_verification?.activation_method === "automatic-setup" &&
-    manifest.analytics_activation_verification?.activation_time_basis ===
-      "pre-existing-automatic-setup-observed" &&
-    manifest.analytics_activation_verification?.activation_observed_at ===
-      "2026-07-27T09:37:29Z" &&
-    manifest.analytics_activation_verification?.f2_25_complete === true,
-  "F2-25 evidence is incomplete",
+  analytics.status === "traffic-verified" &&
+    analytics.claims?.f2_25_complete === true &&
+    analytics.claims?.f2_26_complete === true &&
+    analytics.claims?.f2_27_complete === true,
+  "Current analytics progression record is incomplete",
 );
 assert(
-  manifest.post_activation_deployment_verification?.commit_sha ===
-    "108ac4e88407e1263229eb40bc88d76855e90131" &&
-    manifest.post_activation_deployment_verification?.cloudflare_build_id ===
-      "7026144e-1ce0-4927-9060-64919c3a4002" &&
-    manifest.post_activation_deployment_verification?.deployed_at ===
-      "2026-07-27T10:34:17Z" &&
-    manifest.post_activation_deployment_verification?.evidence_document ===
-      "docs/audits/matsuri-f2-26-post-activation-deployment-2026-07-27.md" &&
-    manifest.post_activation_deployment_verification?.f2_26_complete === true,
-  "F2-26 evidence is incomplete",
+  manifest.analytics_activation_verification?.provider === analytics.provider &&
+    manifest.analytics_activation_verification?.activation_method === analytics.activation_method &&
+    manifest.analytics_activation_verification?.activation_time_basis === analytics.activation_time_basis &&
+    manifest.analytics_activation_verification?.activated_at === analytics.activated_at &&
+    manifest.analytics_activation_verification?.activation_observed_at === analytics.activation_observed_at &&
+    manifest.analytics_activation_verification?.evidence_document === analytics.activation_evidence_document &&
+    manifest.analytics_activation_verification?.f2_25_complete === analytics.claims.f2_25_complete,
+  "F2-25 evidence does not match the current analytics activation record",
 );
 assert(
-  manifest.production_traffic_verification?.verified_at === "2026-07-27T11:26:58Z" &&
-    manifest.production_traffic_verification?.evidence_document ===
-      "docs/audits/matsuri-f2-27-production-traffic-2026-07-27.md" &&
+  manifest.post_activation_deployment_verification?.commit_sha === analytics.post_activation_deployment.commit_sha &&
+    manifest.post_activation_deployment_verification?.cloudflare_build_id === analytics.post_activation_deployment.cloudflare_build_id &&
+    manifest.post_activation_deployment_verification?.deployed_at === analytics.post_activation_deployment.deployed_at &&
+    manifest.post_activation_deployment_verification?.evidence_document === analytics.post_activation_deployment.evidence_document &&
+    manifest.post_activation_deployment_verification?.f2_26_complete === analytics.claims.f2_26_complete,
+  "F2-26 evidence does not match the current post-activation deployment record",
+);
+assert(
+  manifest.production_traffic_verification?.verified_at === analytics.traffic_verification.verified_at &&
+    manifest.production_traffic_verification?.evidence_document === analytics.traffic_verification.evidence_document &&
     manifest.production_traffic_verification?.traffic_observed === true &&
-    manifest.production_traffic_verification?.private_counts_published === false &&
-    manifest.production_traffic_verification?.f2_27_complete === true &&
-    JSON.stringify(manifest.production_traffic_verification?.representative_routes) ===
-      JSON.stringify(expectedTrafficRoutes),
-  "F2-27 evidence is incomplete",
+    manifest.production_traffic_verification?.private_counts_published === analytics.traffic_verification.private_counts_published &&
+    manifest.production_traffic_verification?.f2_27_complete === analytics.claims.f2_27_complete &&
+    JSON.stringify(manifest.production_traffic_verification?.representative_routes) === JSON.stringify(expectedTrafficRoutes),
+  "F2-27 evidence does not match the current production traffic record",
 );
 assert(
-  manifest.final_f2_launch_gate_verification?.evaluated_at === "2026-07-27T11:45:20Z" &&
-    manifest.final_f2_launch_gate_verification?.f2_27_merge_commit ===
-      "6a0ef91dad62fb7f5d65135d846b1cf6b6301d25" &&
-    manifest.final_f2_launch_gate_verification?.validation_head_sha ===
-      "f8115c65e0f7a1fbdebd9339ec26a6bb0da18cbc" &&
-    JSON.stringify(manifest.final_f2_launch_gate_verification?.verification_runs) ===
-      JSON.stringify(expectedFinalRuns) &&
-    manifest.final_f2_launch_gate_verification?.release_artifact?.id === 8651652059 &&
-    manifest.final_f2_launch_gate_verification?.release_artifact?.digest ===
-      "sha256:230ee6ab4f354d26e71d22a9c174d7dcc7f782f90bf5c9e0ff1278bbd401b5d8" &&
+  manifest.final_f2_launch_gate_verification?.evaluated_at === launchGate.evaluated_at &&
+    manifest.final_f2_launch_gate_verification?.f2_27_merge_commit === launchGate.f2_27_merge_commit &&
+    manifest.final_f2_launch_gate_verification?.validation_head_sha === launchGate.validation_head_sha &&
+    JSON.stringify(manifest.final_f2_launch_gate_verification?.verification_runs) === JSON.stringify(expectedFinalRuns) &&
+    manifest.final_f2_launch_gate_verification?.release_artifact?.id === launchGate.release_artifact.id &&
+    manifest.final_f2_launch_gate_verification?.release_artifact?.digest === launchGate.release_artifact.digest &&
     manifest.final_f2_launch_gate_verification?.evidence_document ===
       "docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md" &&
-    manifest.final_f2_launch_gate_verification?.f2_28_complete === true &&
-    manifest.final_f2_launch_gate_verification?.indexation_claimed === false &&
-    manifest.final_f2_launch_gate_verification?.jinja_start_authorized === false,
+    manifest.final_f2_launch_gate_verification?.f2_28_complete === launchGate.claims.f2_28_complete &&
+    manifest.final_f2_launch_gate_verification?.indexation_claimed === launchGate.claims.indexation_claimed &&
+    manifest.final_f2_launch_gate_verification?.jinja_start_authorized === launchGate.claims.jinja_start_authorized,
   "F2-28 evidence is incomplete",
 );
 assert(
@@ -274,9 +276,6 @@ assert(
   "Artifact aggregate digest mismatch",
 );
 
-const launchGate = readJson("config/matsuri-f2-launch-gate.json");
-const stabilization = readJson("config/matsuri-stabilization-review.json");
-const jinja = readJson("config/jinja-start-gate.json");
 const projectStatus = read("docs/project-status.md");
 const developmentSchedule = read("docs/development-schedule.md");
 const roadmap = read("docs/roadmap.md");
