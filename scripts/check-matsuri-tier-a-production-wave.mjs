@@ -21,6 +21,11 @@ if (!new Set(["release_ready", "published_verified"]).has(wave.status)) {
 const origin = matsuri.canonical_origin.replace(/\/$/u, "");
 const selected = wave.selected_entities ?? [];
 if (selected.length === 0) throw new Error("Publication wave has no selected entities");
+const postPublicationTiers = new Set([
+  "tier_a_index",
+  "tier_b_verified",
+  "tier_c_history_monitoring",
+]);
 
 let recordedVerification = null;
 if (wave.status === "published_verified") {
@@ -73,6 +78,16 @@ if (wave.status === "published_verified") {
     recordedVerification.boundaries?.freshness_repaired_by_inference !== false
   ) {
     throw new Error("Production-verification boundaries are invalid");
+  }
+  if (
+    recordedVerification.observed_counts?.entities !== wave.expected_repository_counts?.all_entities
+  ) {
+    throw new Error("Historic production entity count does not match the wave release checkpoint");
+  }
+  for (const field of ["entities", "events", "relations", "occurrences", "sitemap_entries"]) {
+    if (!Number.isInteger(recordedVerification.observed_counts?.[field])) {
+      throw new Error(`Historic production verification is missing integer count ${field}`);
+    }
   }
 }
 
@@ -147,9 +162,9 @@ async function verifyOnce() {
     );
   }
 
-  if (entities.record_count !== wave.expected_repository_counts?.all_entities) {
+  if (wave.status === "release_ready" && entities.record_count !== wave.expected_repository_counts?.all_entities) {
     throw new Error(
-      `Public entity count is ${String(entities.record_count)}; expected ${String(wave.expected_repository_counts?.all_entities)}`,
+      `Release-ready public entity count is ${String(entities.record_count)}; expected ${String(wave.expected_repository_counts?.all_entities)}`,
     );
   }
 
@@ -178,9 +193,15 @@ async function verifyOnce() {
   for (const item of selected) {
     const publicEntity = entities.records.find((record) => record.id === item.id);
     if (!publicEntity) throw new Error(`Production entity feed is missing ${item.id}`);
-    if (publicEntity.coverage_tier !== "tier_a_index") {
+    if (wave.status === "release_ready") {
+      if (publicEntity.coverage_tier !== "tier_a_index") {
+        throw new Error(
+          `${item.id} coverage_tier is ${String(publicEntity.coverage_tier)}; expected tier_a_index before publication verification`,
+        );
+      }
+    } else if (!postPublicationTiers.has(publicEntity.coverage_tier)) {
       throw new Error(
-        `${item.id} coverage_tier is ${String(publicEntity.coverage_tier)}; expected tier_a_index`,
+        `${item.id} coverage_tier is ${String(publicEntity.coverage_tier)}; expected a public A/B/C tier after publication verification`,
       );
     }
 
@@ -193,26 +214,12 @@ async function verifyOnce() {
     }
   }
 
-  const result = {
+  return {
     ...measuredCounts,
     sitemap_entries: sitemapLocations.length,
     selected_count: selected.length,
     selected_ids: selected.map((item) => item.id),
   };
-
-  if (recordedVerification) {
-    for (const [field, value] of Object.entries(result).filter(([field]) =>
-      ["entities", "events", "relations", "occurrences", "sitemap_entries"].includes(field),
-    )) {
-      if (recordedVerification.observed_counts?.[field] !== value) {
-        throw new Error(
-          `Recorded production ${field} count is ${String(recordedVerification.observed_counts?.[field])}; live production is ${String(value)}`,
-        );
-      }
-    }
-  }
-
-  return result;
 }
 
 const maxAttempts = Number(process.env.MATSURI_PRODUCTION_SMOKE_ATTEMPTS ?? "12");
@@ -223,14 +230,16 @@ for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
   try {
     const result = await verifyOnce();
     console.log(
-      `Matsuri NCS-06 production wave verified at ${origin}: ${result.selected_count} selected Tier A records.`,
+      `Matsuri NCS-06 production wave live surface verified at ${origin}: ${result.selected_count} selected records remain public.`,
     );
     console.log(`verified entities: ${result.selected_ids.join(", ")}`);
     console.log(
-      `production counts: entities=${result.entities}, events=${result.events}, relations=${result.relations}, occurrences=${result.occurrences}, sitemap_entries=${result.sitemap_entries}`,
+      `current production counts: entities=${result.entities}, events=${result.events}, relations=${result.relations}, occurrences=${result.occurrences}, sitemap_entries=${result.sitemap_entries}`,
     );
     if (recordedVerification) {
-      console.log("published_verified machine record matches live production.");
+      console.log(
+        `historic Tier A publication checkpoint preserved separately: entities=${recordedVerification.observed_counts.entities}, events=${recordedVerification.observed_counts.events}, relations=${recordedVerification.observed_counts.relations}, occurrences=${recordedVerification.observed_counts.occurrences}, sitemap_entries=${recordedVerification.observed_counts.sitemap_entries}.`,
+      );
     }
     process.exit(0);
   } catch (error) {
