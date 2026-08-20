@@ -5,10 +5,10 @@ on:
     branches:
       - main
     paths:
-      - "data/public/matsuri/f1/batch-13.json"
+      - "data/public/matsuri/f1/*.json"
       - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
       - "apps/matsuri/src/data/matsuri-projection.ts"
-      - "config/matsuri-tier-a-publication-wave-001.json"
+      - "config/matsuri-tier-a-publication-wave-*.json"
       - "scripts/check-matsuri-tier-a-publication-wave.mjs"
       - "scripts/audit-matsuri-production-drift.mjs"
       - ".github/workflows/verify-matsuri-tier-a-publication-wave.yml"
@@ -18,10 +18,10 @@ on:
     branches:
       - main
     paths:
-      - "data/public/matsuri/f1/batch-13.json"
+      - "data/public/matsuri/f1/*.json"
       - "apps/matsuri/scripts/load-matsuri-dataset.mjs"
       - "apps/matsuri/src/data/matsuri-projection.ts"
-      - "config/matsuri-tier-a-publication-wave-001.json"
+      - "config/matsuri-tier-a-publication-wave-*.json"
       - "scripts/check-matsuri-tier-a-publication-wave.mjs"
       - "scripts/audit-matsuri-production-drift.mjs"
       - ".github/workflows/verify-matsuri-tier-a-publication-wave.yml"
@@ -55,7 +55,7 @@ jobs:
       - name: Install dependencies from lockfile
         run: pnpm install --frozen-lockfile
 
-      - name: Verify staged NCS-06 wave contract
+      - name: Verify latest Tier A publication wave contract
         run: node scripts/check-matsuri-tier-a-publication-wave.mjs
 
       - name: Measure exact A/B/C corpus after wave
@@ -67,5 +67,5 @@ jobs:
       - name: Build Matsuri public artifact
         run: pnpm build:matsuri:pages
 
-      - name: Verify wave in built HTML JSON and sitemap
+      - name: Verify latest wave in built HTML JSON and sitemap
         run: node scripts/check-matsuri-tier-a-publication-wave.mjs --built

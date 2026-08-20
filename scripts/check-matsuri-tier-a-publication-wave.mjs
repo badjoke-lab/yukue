@@ -6,9 +6,33 @@ import { loadMatsuriDataset } from "../apps/matsuri/scripts/load-matsuri-dataset
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const builtMode = process.argv.includes("--built");
-const config = JSON.parse(
-  fs.readFileSync(path.join(root, "config", "matsuri-tier-a-publication-wave-001.json"), "utf8"),
-);
+const explicitConfigArg = process.argv.find((arg) => arg.startsWith("--config="));
+const configDir = path.join(root, "config");
+
+function resolveWaveConfigPath() {
+  if (explicitConfigArg) {
+    const relative = explicitConfigArg.slice("--config=".length);
+    const resolved = path.resolve(root, relative);
+    if (!resolved.startsWith(`${root}${path.sep}`)) {
+      throw new Error(`Wave config must stay inside repository root: ${relative}`);
+    }
+    return resolved;
+  }
+
+  const candidates = fs
+    .readdirSync(configDir)
+    .filter((name) => /^matsuri-tier-a-publication-wave-\d{3}\.json$/u.test(name))
+    .sort();
+
+  if (candidates.length === 0) {
+    throw new Error("No Matsuri Tier A publication wave config found");
+  }
+
+  return path.join(configDir, candidates.at(-1));
+}
+
+const configPath = resolveWaveConfigPath();
+const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
 const bundle = JSON.parse(
   fs.readFileSync(path.join(root, config.canonical_bundle), "utf8"),
 );
@@ -17,9 +41,9 @@ const failures = [];
 
 const selected = config.selected_entities ?? [];
 if (config.schema_version !== "matsuri.tier-a-publication-wave.v1") failures.push("unexpected_schema_version");
-if (config.phase !== "NCS-06") failures.push("unexpected_phase");
+if (!new Set(["NCS-06", "NCS-07"]).has(config.phase)) failures.push(`unexpected_phase_${String(config.phase)}`);
 if (!new Set(["staged", "release_ready", "published_verified"]).has(config.status)) failures.push("invalid_status");
-if (selected.length !== 3) failures.push(`expected_3_selected_entities_got_${selected.length}`);
+if (selected.length < 1 || selected.length > 100) failures.push(`selected_entity_count_out_of_bounds_${selected.length}`);
 if (new Set(selected.map((item) => item.id)).size !== selected.length) failures.push("duplicate_selected_entity_ids");
 
 const initialTierABoundaryLocked = config.status !== "published_verified";
@@ -157,9 +181,9 @@ if (builtMode) {
 if (config.boundaries?.matsuri_only !== true || config.boundaries?.future_sites_activated !== false) failures.push("future_site_boundary_invalid");
 
 if (failures.length > 0) {
-  throw new Error(`Matsuri NCS-06 publication wave failed:\n- ${failures.join("\n- ")}`);
+  throw new Error(`Matsuri ${config.phase} publication wave failed (${path.relative(root, configPath)}):\n- ${failures.join("\n- ")}`);
 }
 
 console.log(
-  `Matsuri NCS-06 wave OK: ${selected.length} selected, ${dataset.entities.length} current entities, ${specialist.length} current specialist primary, status=${config.status}${productionVerification ? ", initial Tier A publication preserved by production verification record" : ""}${builtMode ? ", built outputs verified" : ""}.`,
+  `Matsuri ${config.phase} wave OK: ${selected.length} selected, ${dataset.entities.length} current entities, ${specialist.length} current specialist primary, status=${config.status}, config=${path.relative(root, configPath)}${productionVerification ? ", initial Tier A publication preserved by production verification record" : ""}${builtMode ? ", built outputs verified" : ""}.`,
 );
