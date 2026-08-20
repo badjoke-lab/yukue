@@ -29,8 +29,7 @@ NCS-02 A/B/C classifier/baseline — completed
 NCS-03 national source inventory — completed
 NCS-04 candidate + Tier A importer / identity-dedupe pipeline — completed
 NCS-05 bulk dry run + Tier A publication-readiness audit — completed
-NCS-06 first bounded Tier A public wave — merged + production verified
-NCS-06 A→B promotion + next bounded public waves — active
+NCS-06 first bounded Tier A public wave + A→B promotion — active; wave 001 merged + production verified; next bounded public waves active
 Matsuri maintenance / historical depth — active in parallel
 Matsuri stabilization review — reviewing / incomplete
 Actual Jinja start gate — blocked
