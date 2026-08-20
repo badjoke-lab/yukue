@@ -29,7 +29,7 @@ NCS-02 A/B/C classifier/baseline — completed
 NCS-03 national source inventory — completed
 NCS-04 candidate + Tier A importer / identity-dedupe pipeline — completed
 NCS-05 bulk dry run + Tier A publication-readiness audit — completed
-NCS-06 first bounded Tier A public wave + A→B promotion — active
+NCS-06 first bounded Tier A public wave + A→B promotion — active; wave 001 merged + production verified; next bounded public waves active
 Matsuri maintenance / historical depth — active in parallel
 Matsuri stabilization review — reviewing / incomplete
 Actual Jinja start gate — blocked
@@ -50,8 +50,10 @@ Tier A importer interpretation          docs/matsuri-tier-a-importer.md
 Tier A publication-readiness contract   config/matsuri-tier-a-publication-readiness-contract.json
 NCS-05 real-source aggregate            config/matsuri-tier-a-dry-run-baseline.json
 NCS-05 interpretation                   docs/matsuri-tier-a-dry-run.md
+NCS-06 wave 001                         config/matsuri-tier-a-publication-wave-001.json
+NCS-06 production verification          config/matsuri-tier-a-production-wave-001-verification.json
 Current repository counts               config/matsuri-repository-baseline.json
-Current production baseline             config/matsuri-production-baseline.json
+Legacy production baseline snapshot     config/matsuri-production-baseline.json
 Analytics progression                   config/matsuri-analytics-activation.json
 Final F2 launch gate                    config/matsuri-f2-launch-gate.json
 Stabilization review                    config/matsuri-stabilization-review.json
@@ -65,7 +67,7 @@ Production topology                     docs/deployment-topology.md
 
 The corpus has reviewed primary presence in all 47 prefectures, but this is only a geographic seed baseline.
 
-Current specialist-primary public corpus on the NCS-06 release-ready branch:
+Current canonical-production specialist-primary corpus after NCS-06 wave 001:
 
 ```text
 Festival             50
@@ -264,7 +266,7 @@ NCS-05 published no records, wrote no canonical public data, wrote no `tier_a_pu
 
 ## NCS-06 first public Tier A wave
 
-PR #278 is the first bounded NCS-06 public wave and is release-ready pending the final repository gate and merge.
+PR #278 merged as main commit `96c7f778133b67b523b29344d8226a4c097b104e`.
 
 Selected reviewed records:
 
@@ -280,7 +282,13 @@ The three selected records add only the Tier A minimum: reviewed identity/type/g
 
 They intentionally do not add unsupported Current State, Occurrence, Change Event, organizer, Place, Relation, coordinates, or history.
 
-Exact release-ready measurement:
+Production verification completed at `2026-08-19T15:57:44Z` by GitHub Actions run `32273129036`, job `96134104817`.
+
+The exact production feed/manifest/sitemap counts are recorded only in the machine verification record below so narrative status does not duplicate repository-baseline count fields.
+
+The production smoke verified all three selected records in `/data/entities.json` as `tier_a_index`, each selected detail HTML route, manifest/feed count consistency, and each selected canonical sitemap URL.
+
+Current specialist-primary result after the verified wave:
 
 ```text
 Public specialist-primary total              60
@@ -290,7 +298,11 @@ Tier C — Public History / Monitoring         30
 Below Tier A                                  0
 ```
 
-The dedicated NCS-06 gate verifies canonical record linkage, public detail HTML, individual public JSON, sitemap visibility, exact corpus measurement, and production-drift assumptions before merge/deployment.
+Machine record:
+
+```text
+config/matsuri-tier-a-production-wave-001-verification.json
+```
 
 ## Rejected obsolete rules
 
@@ -321,7 +333,7 @@ NCS-02  A/B/C classifier + current-corpus baseline — completed
 NCS-03  national authoritative-source inventory — completed
 NCS-04  deterministic candidate + Tier A importer / identity-dedupe pipeline — completed
 NCS-05  bulk dry run + Tier A publication-readiness audit — completed
-NCS-06  first bounded Tier A public wave + continuous A→B promotion — active
+NCS-06  first bounded Tier A public wave — production verified; A→B + next waves active
 NCS-07  cumulative 500 public primary Matsuri records
 NCS-08  cumulative 1,000 public primary Matsuri records
 NCS-09  source-inventory-derived national target + continued A→B→C expansion
@@ -391,10 +403,9 @@ Do not activate future-site hostname, Worker, public implementation, or speciali
 ## Immediate next actions
 
 ```text
-1. pass the final exact-head repository gate for PR #278; keep the independent freshness workflow fail-closed
-2. merge PR #278 only if the release gate is green and no new regression appears
-3. verify production detail HTML, individual public JSON, sitemap visibility, and post-merge corpus counts after deployment
-4. start and track the real A→B target from the three authentic Tier A publication timestamps
-5. continue bounded public Tier A waves toward NCS-07 while A→B and B→C work proceeds in parallel
-6. continue direct-Evidence review of closed-unresolved Occurrences separately; do not infer held/cancelled outcomes
+1. merge the reusable NCS-06 production-smoke verifier and production-verification record after exact-head CI
+2. start evidence-backed A→B promotion for the three wave-001 Tier A records from their authentic publication timestamp
+3. prepare the next bounded public Tier A wave toward NCS-07 without making A→B a global release blocker
+4. refresh the older general production-baseline snapshot from independently measured production data without deleting historical assertions
+5. continue direct-Evidence review of closed-unresolved Occurrences separately; do not infer held/cancelled outcomes
 ```

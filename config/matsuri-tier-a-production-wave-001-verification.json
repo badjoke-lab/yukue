@@ -1,0 +1,47 @@
+{
+  "schema_version": "matsuri.tier-a-production-verification.v1",
+  "phase": "NCS-06",
+  "wave_id": "ncs06-tier-a-wave-001",
+  "status": "verified",
+  "canonical_origin": "https://matsuri-yukue.badjoke-lab.com",
+  "release_merge_commit": "96c7f778133b67b523b29344d8226a4c097b104e",
+  "verified_at": "2026-08-19T15:57:44Z",
+  "github_actions": {
+    "workflow_name": "Verify Matsuri NCS-06 production wave",
+    "workflow_run_id": 32273129036,
+    "job_id": 96134104817
+  },
+  "observed_counts": {
+    "entities": 123,
+    "events": 106,
+    "relations": 70,
+    "occurrences": 169,
+    "sitemap_entries": 241
+  },
+  "selected_entities": [
+    {
+      "id": "fpf-kuta-hanagasa-odori",
+      "route": "/performances/kuta-hanagasa-odori/"
+    },
+    {
+      "id": "fpf-hirado-jangara",
+      "route": "/performances/hirado-jangara/"
+    },
+    {
+      "id": "fst-mamada-jagamaita",
+      "route": "/festivals/mamada-jagamaita/"
+    }
+  ],
+  "checks": {
+    "detail_html": true,
+    "public_entity_json": true,
+    "manifest_counts_match_feeds": true,
+    "canonical_sitemap": true,
+    "all_selected_entities_tier_a_index": true
+  },
+  "boundaries": {
+    "production_mutated_by_verifier": false,
+    "future_sites_activated": false,
+    "freshness_repaired_by_inference": false
+  }
+}
