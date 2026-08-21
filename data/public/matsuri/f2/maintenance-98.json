@@ -1,0 +1,216 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [
+    {
+      "id": "sts-niihama-taiko-current-2026-06",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-niihama-taiko-matsuri",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-06-04",
+      "basis_evidence_ids": ["evd-niihama-taiko-state-2026-06"],
+      "review_status": "approved"
+    },
+    {
+      "id": "sts-saidaiji-eyo-current-2026-03",
+      "schema_version": "matsuri.v1",
+      "record_version": 1,
+      "entity_id": "fst-saidaiji-eyo",
+      "state_schema": "matsuri.festival.v1",
+      "state_code": "active",
+      "observed_at": "2026-03-17",
+      "basis_evidence_ids": ["evd-saidaiji-eyo-state-2026-03"],
+      "review_status": "approved"
+    }
+  ],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-awa-2026-closed",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "THE AWAODORI 2026 閉幕",
+      "publisher": "阿波おどり未来へつなぐ実行委員会",
+      "url": "https://www.awaodorimirai.com/blog",
+      "accessed_at": "2026-08-21",
+      "language": "ja"
+    },
+    {
+      "id": "src-takamatsu-matsuri-2026-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "第59回さぬき高松まつり公式ホームページ",
+      "publisher": "高松市",
+      "url": "https://www.city.takamatsu.kagawa.jp/kanko/takamatsumatsuri/matsuri.html",
+      "updated_at_source": "2026-08-14",
+      "accessed_at": "2026-08-21",
+      "language": "ja"
+    },
+    {
+      "id": "src-tottori-shanshan-2026-photo-contest",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "鳥取しゃんしゃん祭写真コンテスト 募集要項",
+      "publisher": "鳥取しゃんしゃん祭振興会",
+      "url": "https://tottori-shanshan.jp/photo/info",
+      "accessed_at": "2026-08-21",
+      "language": "ja"
+    },
+    {
+      "id": "src-yamaga-toro-2026-reduced-city",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "2026年山鹿灯籠まつり規模縮小のお知らせ",
+      "publisher": "山鹿市",
+      "url": "https://www.city.yamaga.kumamoto.jp/kiji0033147/index.html",
+      "published_at": "2026-07-31",
+      "accessed_at": "2026-08-21",
+      "language": "ja"
+    },
+    {
+      "id": "src-yamaga-toro-2026-held-report",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "credible_news",
+      "title": "「山鹿灯籠まつり」開催　熊本地震の影響で規模縮小",
+      "publisher": "テレビ朝日",
+      "url": "https://news.tv-asahi.co.jp/news_society/articles/000526724.html",
+      "published_at": "2026-08-17",
+      "accessed_at": "2026-08-21",
+      "language": "ja"
+    },
+    {
+      "id": "src-niihama-taiko-2026-ticket-sales",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "municipality",
+      "title": "「いよ観ネット」での一宮の杜桟敷席の予約販売を開始しました",
+      "publisher": "新居浜市",
+      "url": "https://www.city.niihama.lg.jp/soshiki/kankou/ikkunomoriiyokannet.html",
+      "updated_at_source": "2026-06-04",
+      "accessed_at": "2026-08-21",
+      "language": "ja"
+    },
+    {
+      "id": "src-saidaiji-eyo-current-2026-03",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "西大寺会陽",
+      "publisher": "岡山商工会議所・西大寺会陽奉賛会",
+      "url": "https://okayama-cci.or.jp/activation/saidaijieyo.html",
+      "accessed_at": "2026-08-21",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-awa-occ-2026-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-awa-2026-closed",
+      "target_type": "occurrence",
+      "target_id": "occ-awa-2026-schedule",
+      "assertion_code": "supports_occurrence_outcome",
+      "summary_ja": "主催者公式サイトは2026年徳島市阿波おどりについて、街中が熱気と笑顔に包まれた5日間を振り返り、無事に閉幕したと報告しているため、2026 editionのoutcomeをheldとする。",
+      "captured_at": "2026-08-21",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-takamatsu-festival-occ-2026-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-takamatsu-matsuri-2026-held",
+      "target_type": "occurrence",
+      "target_id": "occ-sanuki-takamatsu-2026",
+      "assertion_code": "supports_occurrence_outcome",
+      "summary_ja": "高松市は2026年8月14日更新の公式ページで、第59回さぬき高松まつりを無事に開催し、多くの来場者を迎えて終了したと報告しているため、2026 editionのoutcomeをheldとする。既存の会場変更等を反映したscale=modifiedは維持する。",
+      "captured_at": "2026-08-21",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-tottori-shanshan-occ-2026-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-tottori-shanshan-2026-photo-contest",
+      "target_type": "occurrence",
+      "target_id": "occ-tottori-shanshan-2026",
+      "assertion_code": "supports_occurrence_outcome",
+      "summary_ja": "鳥取しゃんしゃん祭振興会の公式写真コンテストは、2026年8月17日から、第62回の前夜祭および一斉傘踊りで実際に撮影した作品を募集対象としている。開催後の公式記録として2026 editionのoutcomeをheldとする。規模は独立根拠がないためunknownを維持する。",
+      "captured_at": "2026-08-21",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yamaga-toro-festival-occ-2026-partial",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaga-toro-2026-held-report",
+      "target_type": "occurrence",
+      "target_id": "occ-yamaga-toro-festival-2026",
+      "assertion_code": "supports_occurrence_outcome",
+      "summary_ja": "2026年8月17日の報道は、熊本地震の影響で規模を縮小した山鹿灯籠まつりが実際に開催され、上がり灯籠、奉納灯籠、山鹿太鼓、保存会による灯籠踊りが行われたと報じている。公式決定で主要イベントが中止されたためoutcomeをpartially_heldとする。",
+      "captured_at": "2026-08-21",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yamaga-toro-festival-occ-2026-reduced",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaga-toro-2026-reduced-city",
+      "target_type": "occurrence",
+      "target_id": "occ-yamaga-toro-festival-2026",
+      "assertion_code": "supports_occurrence_scale",
+      "summary_ja": "山鹿市は令和8年熊本地震を受け、大宮神社の神事と関連行事のみ実施し、納涼花火大会、千人灯籠踊り、おまつり広場等を中止すると決定したため、2026 editionのscaleをreducedとする。",
+      "captured_at": "2026-08-21",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-yamaga-sennin-odori-2026-cancelled",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yamaga-toro-2026-reduced-city",
+      "target_type": "occurrence",
+      "target_id": "occ-yamaga-sennin-odori-2026",
+      "assertion_code": "supports_occurrence_outcome",
+      "summary_ja": "山鹿市は2026年の千人灯籠踊りを中止し、延期もしないと明記しているため、当該performance occurrenceのoutcomeをcancelled、scaleをunknownとする。",
+      "captured_at": "2026-08-21",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-niihama-taiko-state-2026-06",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-niihama-taiko-2026-ticket-sales",
+      "target_type": "state_snapshot",
+      "target_id": "sts-niihama-taiko-current-2026-06",
+      "assertion_code": "supports_current_state",
+      "summary_ja": "新居浜市は2026年6月4日、新居浜太鼓祭りの一宮の杜桟敷席の予約販売開始を公式に案内しているため、祭りが2026年も継続していることを確認しCurrent Stateをactiveとする。開催結果そのものはこのEvidenceから推定しない。",
+      "captured_at": "2026-08-21",
+      "review_status": "approved"
+    },
+    {
+      "id": "evd-saidaiji-eyo-state-2026-03",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-saidaiji-eyo-current-2026-03",
+      "target_type": "state_snapshot",
+      "target_id": "sts-saidaiji-eyo-current-2026-03",
+      "assertion_code": "supports_current_state",
+      "summary_ja": "西大寺会陽奉賛会の公式ページは2026年3月17日まで公式発表を継続掲載し、会陽を毎年2月第3土曜日の祭礼として現行案内しているため、2026年3月時点のCurrent Stateをactiveとする。",
+      "captured_at": "2026-08-21",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
