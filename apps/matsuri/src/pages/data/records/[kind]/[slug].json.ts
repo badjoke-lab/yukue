@@ -2,7 +2,7 @@ import type { APIRoute, GetStaticPaths } from "astro";
 import {
   findMatsuriEntityDetail,
   matsuriEntityDetails,
-} from "../../../../data/matsuri-projection.js";
+} from "../../../../data/matsuri-projection-current.js";
 import { entityRouteKind } from "../../../../data/public-routes.js";
 
 export const getStaticPaths = (() =>
