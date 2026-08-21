@@ -164,7 +164,7 @@ const baseF1Files = projectionImports.f1.map((item) => item.fileName);
 const overlayF1Files = currentProjectionImports.f1.map((item) => item.fileName);
 const combinedF1Files = [...baseF1Files, ...overlayF1Files];
 const expectedBaseAdditiveOrder = [
-  ...baseF1Files.map((fileName) => `f1/${fileName}`),
+  ...matsuriF1BatchFiles.slice(0, -1).map((fileName) => `f1/${fileName}`),
   ...matsuriF2MaintenanceFiles.map((fileName) => `f2/${fileName}`),
 ];
 const expectedCorrectionOrder = matsuriF2CorrectionFiles.map(
