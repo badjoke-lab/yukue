@@ -1,9 +1,9 @@
 {
   "schema_version": "matsuri.corpus-quality-baseline.v2",
-  "observed_at": "2026-08-21T04:59:37.455Z",
+  "observed_at": "2026-08-21T12:47:54.414Z",
   "observed_on_jst": "2026-08-21",
-  "source_workflow_run_id": 32448888263,
-  "source_workflow_job_id": 96673477823,
+  "source_workflow_run_id": 32483455698,
+  "source_workflow_job_id": 96774649602,
   "classifier": "scripts/audit-matsuri-corpus-quality.mjs",
   "governing_spec": "docs/nationwide-corpus-scaling.md",
   "status": "measurement-only",
@@ -12,14 +12,14 @@
     "legacy_primary_subjects": 70,
     "specialist_primary_subjects": 69,
     "tier_a_index": 31,
-    "tier_b_verified": 8,
-    "tier_c_history_monitoring": 30,
+    "tier_b_verified": 9,
+    "tier_c_history_monitoring": 29,
     "below_tier_a": 0,
     "public_primary_total": 69,
     "tier_a_overdue": 0,
     "tier_a_due_within_48h": 0,
     "tier_a_publication_metadata_missing": 28,
-    "with_completed_occurrence_history": 52,
+    "with_completed_occurrence_history": 54,
     "with_multi_year_completed_occurrence_history": 37,
     "with_change_events": 57,
     "with_current_state_evidence": 56,
@@ -29,8 +29,8 @@
     "festival": {
       "records": 53,
       "tier_a_index": 17,
-      "tier_b_verified": 8,
-      "tier_c_history_monitoring": 28,
+      "tier_b_verified": 9,
+      "tier_c_history_monitoring": 27,
       "below_tier_a": 0
     },
     "folk_performance": {
@@ -58,10 +58,10 @@
     "timing_or_recurrence_present": 13
   },
   "tier_b_missing_history_dimension_counts": {
-    "active_freshness_monitoring": 8,
-    "multi_year_completed_occurrence_history": 8,
-    "multiple_completed_occurrences": 8,
-    "multiple_evidence_backed_change_events": 8
+    "active_freshness_monitoring": 9,
+    "multi_year_completed_occurrence_history": 9,
+    "multiple_completed_occurrences": 9,
+    "multiple_evidence_backed_change_events": 9
   },
   "coverage": {
     "prefecture_count": 47,
