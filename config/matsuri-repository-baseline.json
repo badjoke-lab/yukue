@@ -10,8 +10,8 @@
     "correction_application_slots": 23,
     "correction_records": 41,
     "corrected_logical_ids": 38,
-    "public_entities": 142,
-    "entities_without_external_links": 22
+    "public_entities": 141,
+    "entities_without_external_links": 21
   },
   "boundaries": {
     "f2_25_owner_access": "not-pending",
