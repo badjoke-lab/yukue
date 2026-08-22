@@ -18,6 +18,14 @@ const projectionPath = path.join(
   "data",
   "matsuri-projection.ts",
 );
+const currentProjectionPath = path.join(
+  repositoryRoot,
+  "apps",
+  "matsuri",
+  "src",
+  "data",
+  "matsuri-projection-current.ts",
+);
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -92,8 +100,13 @@ function extractArrayIdentifiers(source, arrayName) {
 }
 
 assert(fs.existsSync(projectionPath), "Matsuri HTML projection source is missing");
+assert(
+  fs.existsSync(currentProjectionPath),
+  "Matsuri current HTML projection source is missing",
+);
 
 const projectionSource = fs.readFileSync(projectionPath, "utf8");
+const currentProjectionSource = fs.readFileSync(currentProjectionPath, "utf8");
 const importPattern =
   /import\s+([A-Za-z_$][\w$]*)\s+from\s+["']\.\.\/\.\.\/\.\.\/\.\.\/data\/public\/matsuri\/(f1|f2)\/([^"']+\.json)["'];?/gu;
 const projectionImports = { f1: [], f2: [] };
@@ -111,11 +124,24 @@ for (const match of projectionSource.matchAll(importPattern)) {
   projectionImportsByIdentifier.set(identifier, importRecord);
 }
 
+const currentProjectionImports = { f1: [], f2: [] };
+for (const match of currentProjectionSource.matchAll(importPattern)) {
+  const [, identifier, directory, fileName] = match;
+  currentProjectionImports[directory].push({ identifier, directory, fileName });
+}
+
 for (const [directory, imports] of Object.entries(projectionImports)) {
   const files = imports.map((item) => item.fileName);
   assert(
     new Set(files).size === files.length,
     `Matsuri HTML projection imports a duplicate ${directory} bundle`,
+  );
+}
+for (const [directory, imports] of Object.entries(currentProjectionImports)) {
+  const files = imports.map((item) => item.fileName);
+  assert(
+    new Set(files).size === files.length,
+    `Matsuri current HTML projection imports a duplicate ${directory} bundle`,
   );
 }
 
@@ -134,8 +160,11 @@ const expectedF2Files = [
   ...matsuriF2MaintenanceFiles,
   ...matsuriF2CorrectionFiles,
 ];
-const expectedAdditiveOrder = [
-  ...matsuriF1BatchFiles.map((fileName) => `f1/${fileName}`),
+const baseF1Files = projectionImports.f1.map((item) => item.fileName);
+const overlayF1Files = currentProjectionImports.f1.map((item) => item.fileName);
+const combinedF1Files = [...baseF1Files, ...overlayF1Files];
+const expectedBaseAdditiveOrder = [
+  ...matsuriF1BatchFiles.slice(0, -1).map((fileName) => `f1/${fileName}`),
   ...matsuriF2MaintenanceFiles.map((fileName) => `f2/${fileName}`),
 ];
 const expectedCorrectionOrder = matsuriF2CorrectionFiles.map(
@@ -147,9 +176,18 @@ assertFilesExist("f2", matsuriF2MaintenanceFiles, "Canonical loader maintenance 
 assertFilesExist("f2", matsuriF2CorrectionFiles, "Canonical loader correction inventory");
 
 assertExactInventory(
-  projectionImports.f1.map((item) => item.fileName),
+  combinedF1Files,
   matsuriF1BatchFiles,
-  "Matsuri F1 loader/projection",
+  "Matsuri F1 loader/current-projection",
+);
+assert(
+  overlayF1Files.length === 1 && overlayF1Files[0] === matsuriF1BatchFiles.at(-1),
+  `Matsuri current projection must contain exactly the newest F1 wave; actual: ${JSON.stringify(overlayF1Files)}`,
+);
+assertExactInventory(
+  currentProjectionImports.f2.map((item) => item.fileName),
+  [],
+  "Matsuri current projection F2 overlay",
 );
 assertExactInventory(
   projectionImports.f2.map((item) => item.fileName),
@@ -158,15 +196,21 @@ assertExactInventory(
 );
 assertOrderedInventory(
   resolveOrderedBundlePaths("additiveBundles"),
-  expectedAdditiveOrder,
-  "Matsuri additive bundle application",
+  expectedBaseAdditiveOrder,
+  "Matsuri base additive bundle application",
 );
 assertOrderedInventory(
   resolveOrderedBundlePaths("correctionBundles"),
   expectedCorrectionOrder,
   "Matsuri correction bundle application",
 );
+assert(
+  /import\s+\{\s*matsuriProjection\s+as\s+baseProjection\s*\}\s+from\s+["']\.\/matsuri-projection\.js["']/u.test(
+    currentProjectionSource,
+  ),
+  "Matsuri current projection must extend the validated base projection.",
+);
 
 console.log(
-  `Matsuri bundle inventory and order are aligned: ${matsuriF1BatchFiles.length} F1 batch(es), ${matsuriF2MaintenanceFiles.length} maintenance batch(es), and ${matsuriF2CorrectionFiles.length} correction bundle(s).`,
+  `Matsuri bundle inventory is aligned across canonical loader, base projection, and current wave overlay: ${matsuriF1BatchFiles.length} F1 batch(es), ${matsuriF2MaintenanceFiles.length} maintenance batch(es), and ${matsuriF2CorrectionFiles.length} correction bundle(s).`,
 );

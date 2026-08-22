@@ -1,0 +1,110 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [
+    {
+      "id": "occ-awa-2026-schedule",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "subject_entity_id": "fst-tokushima-awaodori",
+      "series_id": "ser-awa-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-08-11",
+        "end": "2026-08-15",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "normal",
+      "venue_place_ids": ["plc-tokushima-city-center"],
+      "organizer_entity_ids": ["org-awaodori-mirai"],
+      "evidence_ids": ["evd-awa-occ-2026", "evd-awa-occ-2026-held"],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-sanuki-takamatsu-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "subject_entity_id": "fst-sanuki-takamatsu-matsuri",
+      "series_id": "ser-sanuki-takamatsu-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-08-12",
+        "end": "2026-08-14",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "modified",
+      "venue_place_ids": ["plc-anabuki-arena-kagawa", "plc-sanport-takamatsu-multipurpose-square"],
+      "organizer_entity_ids": ["org-takamatsu-matsuri-shinkokai"],
+      "evidence_ids": ["evd-takamatsu-festival-occ-2026", "evd-takamatsu-festival-occ-2026-held"],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-tottori-shanshan-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "subject_entity_id": "fst-tottori-shanshan-matsuri",
+      "series_id": "ser-tottori-shanshan-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-08-13",
+        "end": "2026-08-15",
+        "precision": "range"
+      },
+      "outcome": "held",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-tottori-fumon-hiroba", "plc-tottori-shanshan-central-route"],
+      "organizer_entity_ids": ["org-tottori-shanshan-shinkokai"],
+      "evidence_ids": ["evd-tottori-shanshan-occ-2026", "evd-tottori-shanshan-occ-2026-held"],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-yamaga-toro-festival-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "subject_entity_id": "fst-yamaga-toro-matsuri",
+      "series_id": "ser-yamaga-toro-matsuri-annual",
+      "occurrence_type": "festival_edition",
+      "temporal_extent": {
+        "start": "2026-08-15",
+        "end": "2026-08-16",
+        "precision": "range"
+      },
+      "outcome": "partially_held",
+      "scale": "reduced",
+      "venue_place_ids": ["plc-yamaga-city-center", "plc-yamaga-elementary-ground"],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-yamaga-toro-festival-occ-2026", "evd-yamaga-toro-festival-occ-2026-partial", "evd-yamaga-toro-festival-occ-2026-reduced"],
+      "review_status": "approved"
+    },
+    {
+      "id": "occ-yamaga-sennin-odori-2026",
+      "schema_version": "matsuri.v1",
+      "record_version": 2,
+      "subject_entity_id": "fpf-yamaga-toro-odori",
+      "series_id": "ser-yamaga-toro-odori-annual",
+      "occurrence_type": "performance",
+      "temporal_extent": {
+        "start": "2026-08-16",
+        "end": "2026-08-16",
+        "precision": "day"
+      },
+      "outcome": "cancelled",
+      "scale": "unknown",
+      "venue_place_ids": ["plc-yamaga-elementary-ground"],
+      "organizer_entity_ids": [],
+      "evidence_ids": ["evd-yamaga-dance-occ-2026", "evd-yamaga-sennin-odori-2026-cancelled"],
+      "review_status": "approved"
+    }
+  ],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [],
+  "evidence": [],
+  "images": []
+}
