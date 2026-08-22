@@ -47,6 +47,13 @@ function knownThirdPartyMapConsoleError(message) {
     text.includes(
       "https://maps.googleapis.com/$rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService/InitMapsJwt",
     );
+  const googleMapsMetadataRpcFailure =
+    text.includes("<gmp-place-details-compact>: Encountered a network request error:") &&
+    text.includes("Rpc failed due to xhr error") &&
+    text.includes(
+      "https://maps.googleapis.com/$rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService/GetPlaceWidgetMetadata",
+    ) &&
+    text.includes("error code: 6");
   const googleMapsPermissionFailure =
     text.includes("<gmp-place-details-compact>: Encountered a network request error:") &&
     text.includes("The caller does not have permission");
@@ -55,6 +62,7 @@ function knownThirdPartyMapConsoleError(message) {
     googleResourceFailure ||
     googleHttp403Failure ||
     googleMapsJwtRpcFailure ||
+    googleMapsMetadataRpcFailure ||
     googleMapsPermissionFailure
   );
 }

@@ -161,10 +161,14 @@ const expectedF2Files = [
   ...matsuriF2CorrectionFiles,
 ];
 const baseF1Files = projectionImports.f1.map((item) => item.fileName);
+const baseF1Set = new Set(baseF1Files);
 const overlayF1Files = currentProjectionImports.f1.map((item) => item.fileName);
 const combinedF1Files = [...baseF1Files, ...overlayF1Files];
+const expectedOverlayF1Files = matsuriF1BatchFiles.filter((fileName) => !baseF1Set.has(fileName));
 const expectedBaseAdditiveOrder = [
-  ...matsuriF1BatchFiles.slice(0, -1).map((fileName) => `f1/${fileName}`),
+  ...matsuriF1BatchFiles
+    .filter((fileName) => baseF1Set.has(fileName))
+    .map((fileName) => `f1/${fileName}`),
   ...matsuriF2MaintenanceFiles.map((fileName) => `f2/${fileName}`),
 ];
 const expectedCorrectionOrder = matsuriF2CorrectionFiles.map(
@@ -181,8 +185,17 @@ assertExactInventory(
   "Matsuri F1 loader/current-projection",
 );
 assert(
-  overlayF1Files.length === 1 && overlayF1Files[0] === matsuriF1BatchFiles.at(-1),
-  `Matsuri current projection must contain exactly the newest F1 wave; actual: ${JSON.stringify(overlayF1Files)}`,
+  overlayF1Files.length > 0,
+  "Matsuri current projection must contain at least the newest F1 wave.",
+);
+assertOrderedInventory(
+  overlayF1Files,
+  expectedOverlayF1Files,
+  "Matsuri current projection contiguous F1 suffix",
+);
+assert(
+  overlayF1Files.at(-1) === matsuriF1BatchFiles.at(-1),
+  `Matsuri current projection must include the newest F1 wave; actual tail: ${JSON.stringify(overlayF1Files)}`,
 );
 assertExactInventory(
   currentProjectionImports.f2.map((item) => item.fileName),
