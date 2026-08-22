@@ -161,11 +161,14 @@ const expectedF2Files = [
   ...matsuriF2CorrectionFiles,
 ];
 const baseF1Files = projectionImports.f1.map((item) => item.fileName);
+const baseF1Set = new Set(baseF1Files);
 const overlayF1Files = currentProjectionImports.f1.map((item) => item.fileName);
 const combinedF1Files = [...baseF1Files, ...overlayF1Files];
-const expectedOverlayF1Files = matsuriF1BatchFiles.slice(baseF1Files.length);
+const expectedOverlayF1Files = matsuriF1BatchFiles.filter((fileName) => !baseF1Set.has(fileName));
 const expectedBaseAdditiveOrder = [
-  ...baseF1Files.map((fileName) => `f1/${fileName}`),
+  ...matsuriF1BatchFiles
+    .filter((fileName) => baseF1Set.has(fileName))
+    .map((fileName) => `f1/${fileName}`),
   ...matsuriF2MaintenanceFiles.map((fileName) => `f2/${fileName}`),
 ];
 const expectedCorrectionOrder = matsuriF2CorrectionFiles.map(
@@ -176,10 +179,10 @@ assertFilesExist("f1", matsuriF1BatchFiles, "Canonical loader F1 inventory");
 assertFilesExist("f2", matsuriF2MaintenanceFiles, "Canonical loader maintenance inventory");
 assertFilesExist("f2", matsuriF2CorrectionFiles, "Canonical loader correction inventory");
 
-assertOrderedInventory(
+assertExactInventory(
   combinedF1Files,
   matsuriF1BatchFiles,
-  "Matsuri F1 base/current-projection partition",
+  "Matsuri F1 loader/current-projection",
 );
 assert(
   overlayF1Files.length > 0,
