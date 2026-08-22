@@ -4,10 +4,11 @@ import {
 } from "@badjoke-lab/yukue-observation-core";
 import batch14 from "../../../../data/public/matsuri/f1/batch-14.json";
 import batch15 from "../../../../data/public/matsuri/f1/batch-15.json";
+import batch16 from "../../../../data/public/matsuri/f1/batch-16.json";
 import { matsuriProjection as baseProjection } from "./matsuri-projection.js";
 
 const waveBundle = {
-  entities: [...batch14.entities, ...batch15.entities],
+  entities: [...batch14.entities, ...batch15.entities, ...batch16.entities],
   places: [],
   stateSnapshots: [],
   changeEvents: [],
@@ -16,9 +17,9 @@ const waveBundle = {
   recurrencePatterns: [],
   relations: [],
   designations: [],
-  sources: [...batch14.sources, ...batch15.sources],
-  evidence: [...batch14.evidence, ...batch15.evidence],
-  images: [...batch14.images, ...batch15.images],
+  sources: [...batch14.sources, ...batch15.sources, ...batch16.sources],
+  evidence: [...batch14.evidence, ...batch15.evidence, ...batch16.evidence],
+  images: [...batch14.images, ...batch15.images, ...batch16.images],
 };
 
 const waveProjection = buildPublicProjection(
