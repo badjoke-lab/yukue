@@ -1,0 +1,22 @@
+{
+  "format_version": 1,
+  "site_id": "jinja",
+  "issue": 284,
+  "next_specialist_site": true,
+  "matsuri_500_required": false,
+  "matsuri_1000_required": false,
+  "portal_completion_required": false,
+  "required_before_application": [
+    "current_seed_readiness_refresh",
+    "specialist_contract_approved",
+    "matsuri_stabilization_review_complete",
+    "explicit_start_authorization"
+  ],
+  "execution_after_gate": [
+    "create_apps_jinja_in_separate_pr",
+    "bounded_specialist_seed_review",
+    "local_and_ci_surface_validation",
+    "separate_publication_gate"
+  ],
+  "activation_authorized": false
+}

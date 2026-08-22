@@ -1,0 +1,36 @@
+{
+  "format_version": 1,
+  "site_id": "jinja",
+  "status": "pre_activation_contract_defined",
+  "issue": 284,
+  "publication_tiers": {
+    "A": {
+      "name": "Public Index",
+      "requires": ["reviewed_identity", "reviewed_geography", "authoritative_identity_source", "source_verified_at", "identity_dedupe", "published_at"],
+      "matsuri_relation_alone_sufficient": false
+    },
+    "B": {
+      "name": "Public Verified",
+      "adds": ["profile_evidence", "state_when_supportable", "reviewed_current_place", "reviewed_links", "supported_specialist_dimensions", "supported_relations", "dated_observation_anchor"]
+    },
+    "C": {
+      "name": "Public History / Monitoring",
+      "adds": ["longitudinal_events_or_monitoring"]
+    }
+  },
+  "continuity_states": ["operating", "rebuilding", "relocated", "merged", "dissolved", "unknown"],
+  "separate_dimensions": ["enshrinement_goshi", "corporate_status", "affiliation", "administration", "building_condition", "temporary_access", "disaster_damage"],
+  "event_types": ["founded", "relocated", "transferred", "rebuilt", "destroyed", "damaged", "merged", "enshrined", "split_or_reestablished", "administration_changed", "corporate_status_changed", "affiliation_changed", "designation_added", "designation_changed", "designation_removed", "related_festival_changed", "other_reviewed_change"],
+  "detail_sections": ["identity", "current_state", "location", "profile", "administration_and_relations", "related_matsuri", "designations", "major_structures", "timeline", "focused_changes", "evidence", "sources", "verification_and_corrections", "machine_readable"],
+  "portal_blocks_jinja": false,
+  "boundaries": {
+    "apps_jinja_allowed_before_start_gate": false,
+    "worker_allowed_before_start_gate": false,
+    "hostname_or_route_allowed_before_start_gate": false,
+    "public_records_allowed_before_start_gate": false,
+    "infer_state_from_matsuri": false,
+    "jinja_activation_authorized_by_this_file": false,
+    "jiin_active": false,
+    "tomurai_active": false
+  }
+}
