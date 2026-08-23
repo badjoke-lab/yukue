@@ -1,0 +1,24 @@
+{
+  "format_version": 1,
+  "site_id": "jiin",
+  "status": "planned_after_jinja_application_validation",
+  "default_predecessor_site": "jinja",
+  "matsuri_500_required": false,
+  "matsuri_1000_required": false,
+  "tomurai_required": false,
+  "required_before_application": [
+    "jinja_specialist_application_path_validated",
+    "current_jiin_seed_readiness_refresh",
+    "jiin_specialist_contract_approved",
+    "jiin_start_gate_passed",
+    "explicit_start_authorization"
+  ],
+  "execution_after_gate": [
+    "create_apps_jiin_in_separate_pr",
+    "bounded_specialist_seed_review",
+    "local_and_ci_surface_validation",
+    "separate_publication_gate"
+  ],
+  "activation_authorized": false,
+  "publication_authorized": false
+}

@@ -1,0 +1,37 @@
+{
+  "format_version": 1,
+  "site_id": "jiin",
+  "status": "pre_activation_contract_defined",
+  "publication_tiers": {
+    "A": {
+      "name": "Public Index",
+      "requires": ["reviewed_identity", "reviewed_geography", "authoritative_identity_source", "source_verified_at", "identity_dedupe", "published_at"],
+      "cross_site_relation_alone_sufficient": false
+    },
+    "B": {
+      "name": "Public Verified",
+      "adds": ["profile_evidence", "state_when_supportable", "reviewed_current_place", "reviewed_links", "supported_temple_dimensions", "supported_relations", "dated_observation_anchor"]
+    },
+    "C": {
+      "name": "Public History / Monitoring",
+      "adds": ["longitudinal_events_or_monitoring"]
+    }
+  },
+  "continuity_states": ["operating", "rebuilding", "relocated", "merged", "dissolved", "reestablished", "unknown"],
+  "separate_dimensions": ["sect_affiliation", "comprehensive_affiliation", "head_branch_relation", "administration", "corporate_status", "building_condition", "temporary_access", "disaster_damage", "cemetery_operation", "columbarium_operation", "memorial_services"],
+  "event_types": ["founded", "relocated", "rebuilt", "destroyed", "damaged", "merged", "dissolved", "reestablished", "sect_changed", "affiliation_changed", "head_branch_relation_changed", "administration_changed", "corporate_status_changed", "principal_image_changed_or_transferred", "cemetery_opened", "cemetery_transferred", "columbarium_opened", "memorial_facility_changed", "designation_added", "designation_changed", "designation_removed", "related_festival_changed", "other_reviewed_change"],
+  "detail_sections": ["identity", "current_state", "location", "profile", "administration_and_relations", "related_matsuri", "related_memorial_facilities", "designations", "major_structures", "timeline", "focused_changes", "evidence", "sources", "verification_and_corrections", "machine_readable"],
+  "activation_order": {
+    "after_site": "jinja",
+    "requires_shared_specialist_path_validation": true
+  },
+  "boundaries": {
+    "apps_jiin_allowed_before_start_gate": false,
+    "worker_allowed_before_start_gate": false,
+    "hostname_or_route_allowed_before_start_gate": false,
+    "public_records_allowed_before_start_gate": false,
+    "infer_state_from_other_sites": false,
+    "jiin_activation_authorized_by_this_file": false,
+    "tomurai_active": false
+  }
+}
