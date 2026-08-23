@@ -328,9 +328,9 @@ assert(
     jinja.prerequisites?.matsuri_f2_28_complete === true &&
     jinja.prerequisites?.matsuri_stabilization_review_complete ===
       stabilization.claims.jinja_stabilization_prerequisite_complete &&
-    jinja.prerequisites?.portal_jinja_order_decided === false &&
-    jinja.prerequisites?.jinja_state_spec_approved === false &&
-    jinja.prerequisites?.explicit_start_authorization === false &&
+    jinja.prerequisites?.portal_jinja_order_decided === true &&
+    jinja.prerequisites?.jinja_state_spec_approved === true &&
+    jinja.prerequisites?.explicit_start_authorization === true &&
     jinja.claims?.jinja_start_gate_passed === false,
   "Jinja is not correctly blocked during Matsuri stabilization",
 );
