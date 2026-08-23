@@ -165,11 +165,11 @@ assert(
   jinja.status === "blocked-by-post-launch-prerequisites" &&
     jinja.prerequisites?.matsuri_f2_28_complete === true &&
     jinja.prerequisites?.matsuri_stabilization_review_complete === false &&
-    jinja.prerequisites?.portal_jinja_order_decided === false &&
-    jinja.prerequisites?.jinja_state_spec_approved === false &&
-    jinja.prerequisites?.explicit_start_authorization === false &&
-    jinja.claims?.jinja_start_gate_passed === false,
-  "Jinja must remain blocked after F2-28",
+    jinja.claims?.jinja_start_gate_passed === false &&
+    jinja.claims?.jinja_application_creation_authorized === false &&
+    jinja.claims?.jinja_worker_creation_authorized === false &&
+    jinja.claims?.jinja_publication_authorized === false,
+  "Jinja must remain blocked after F2-28 until its start gate passes",
 );
 
 const audit = read("docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md");
@@ -196,6 +196,7 @@ assert(
   "Repository gate does not enforce F2 launch completion",
 );
 
+const remainingJinjaPrerequisites = Object.entries(jinja.prerequisites ?? {}).filter(([, value]) => value === false).length;
 console.log(
-  `Matsuri F2-28 final launch gate is complete at ${record.evaluated_at}; indexation is not claimed and Jinja remains blocked by four post-launch prerequisites.`,
+  `Matsuri F2-28 final launch gate is complete at ${record.evaluated_at}; indexation is not claimed and Jinja remains blocked with ${remainingJinjaPrerequisites} prerequisite(s) incomplete.`,
 );
