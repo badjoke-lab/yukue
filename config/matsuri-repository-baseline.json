@@ -3,15 +3,15 @@
   "observed_on": "2026-08-23",
   "status": "repository-maintenance-current",
   "counts": {
-    "f1_batches": 18,
+    "f1_batches": 19,
     "maintenance_bundles": 98,
     "correction_bundles": 23,
-    "additive_application_slots": 116,
+    "additive_application_slots": 117,
     "correction_application_slots": 23,
     "correction_records": 41,
     "corrected_logical_ids": 38,
-    "public_entities": 147,
-    "entities_without_external_links": 27
+    "public_entities": 155,
+    "entities_without_external_links": 35
   },
   "boundaries": {
     "f2_25_owner_access": "not-pending",
