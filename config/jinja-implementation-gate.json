@@ -1,0 +1,36 @@
+{
+  "format_version": 1,
+  "site_id": "jinja",
+  "status": "implementation-authorized",
+  "purpose": "Allow local/repository Jinja application implementation to proceed while private Matsuri stabilization observations are deferred.",
+  "prerequisites": {
+    "matsuri_f2_28_complete": true,
+    "portal_jinja_order_decided": true,
+    "jinja_specialist_contract_approved": true,
+    "jinja_state_spec_approved": true,
+    "explicit_start_authorization": true,
+    "repository_visible_matsuri_stabilization_inputs_reviewed": true
+  },
+  "deferred_private_operations": {
+    "cloudflare_web_analytics_current_observation": "pending-owner-access",
+    "google_search_console_current_observation": "pending-owner-access",
+    "blocks_application_implementation": false,
+    "blocks_worker_or_hostname_activation": true,
+    "blocks_publication": true
+  },
+  "claims": {
+    "jinja_application_creation_authorized": true,
+    "jinja_local_and_ci_implementation_authorized": true,
+    "jinja_worker_creation_authorized": false,
+    "jinja_hostname_activation_authorized": false,
+    "jinja_publication_authorized": false
+  },
+  "boundary": {
+    "no_private_observation_is_inferred": true,
+    "matsuri_stabilization_review_remains_incomplete": true,
+    "jinja_start_gate_remains_blocked": true,
+    "no_worker_hostname_route_or_publication": true,
+    "seed_records_require_jinja_specific_review": true,
+    "missing_state_must_not_be_inferred": true
+  }
+}
