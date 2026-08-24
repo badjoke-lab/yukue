@@ -2,11 +2,49 @@
   "format_version": 1,
   "site_id": "jinja",
   "publication_status": "implementation_only",
-  "entities": [],
+  "entities": [
+    {
+      "id": "shr-sada-jinja",
+      "canonical_name": "佐太神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-08-24",
+      "current_place_id": "plc-sada-jinja",
+      "official_links": ["https://www.sadajinjya.jp/"]
+    }
+  ],
   "states": [],
   "events": [],
   "relations": [],
-  "evidence": [],
-  "sources": [],
-  "places": []
+  "evidence": [
+    {
+      "id": "evd-jinja-sada-identity-20260824",
+      "target_type": "entity",
+      "target_id": "shr-sada-jinja",
+      "source_id": "src-jinja-sada-official-20260824",
+      "review_status": "approved",
+      "verified_at": "2026-08-24",
+      "summary": "佐太神社公式サイトで神社名と所在地を確認。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-jinja-sada-official-20260824",
+      "title": "佐太神社公式ホームページ",
+      "publisher": "佐太神社",
+      "url": "https://www.sadajinjya.jp/",
+      "source_type": "official_organization",
+      "accessed_at": "2026-08-24"
+    }
+  ],
+  "places": [
+    {
+      "id": "plc-sada-jinja",
+      "prefecture": "島根県",
+      "municipality": "松江市",
+      "review_status": "approved",
+      "address": "島根県松江市鹿島町佐陀宮内73",
+      "verified_at": "2026-08-24"
+    }
+  ]
 }
