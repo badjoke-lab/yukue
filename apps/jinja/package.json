@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "check": "node scripts/check.mjs && node scripts/check-data.mjs",
-    "typecheck": "node scripts/check.mjs && node scripts/check-data.mjs"
+    "typecheck": "node scripts/check.mjs && node scripts/check-data.mjs",
+    "audit:tier-a-candidates": "node scripts/audit-tier-a-candidates.mjs"
   }
 }
