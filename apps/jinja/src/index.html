@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex,nofollow" />
-    <title>神社のゆくえ — implementation preview</title>
+    <title>神社のゆくえ — Public preview</title>
     <style>
       :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
       body { margin: 0; background: #111; color: #eee; }
@@ -15,14 +15,20 @@
       .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 16px; }
       section { border-top: 1px solid #444; padding-top: 18px; }
       ul { padding-left: 1.2rem; }
+      a { color: inherit; }
     </style>
   </head>
   <body>
     <main>
-      <p class="eyebrow">Yukue Series / implementation preview</p>
+      <p class="eyebrow">Yukue Series / Public preview</p>
       <h1>神社のゆくえ</h1>
-      <p>神社の現在状態、移転・遷座、合祀、再建、管理関係、関連祭礼と、その根拠を記録する専門サイトの実装プレビューです。</p>
-      <div class="notice"><strong>Not public.</strong> このworkspaceはrepository/local/CI実装専用です。Worker、hostname、route、公開神社レコードは未承認です。</div>
+      <p>神社の現在状態、移転・遷座、合祀、再建、管理関係、関連祭礼と、その根拠を記録する専門サイトです。</p>
+      <div class="notice"><strong>Public preview.</strong> 現在は workers.dev 上の非canonicalプレビューです。検索エンジンへの登録は行わず、独自ドメインは後続のcanonical activationで接続します。</div>
+      <section>
+        <h2>収録済み</h2>
+        <p><strong>佐太神社</strong> — 島根県松江市。Tier Aとして神社名・所在地・公式Sourceを確認済みです。Stateや歴史は根拠確認後に追加します。</p>
+        <p><a href="https://www.sadajinjya.jp/" rel="external">佐太神社公式サイト</a></p>
+      </section>
       <div class="grid">
         <section><h2>Identity</h2><ul><li>正式名称・読み・別称・旧称</li><li>現在地・旧所在地</li><li>公式/公的識別情報</li></ul></section>
         <section><h2>Current state</h2><ul><li>operating / rebuilding / relocated</li><li>merged / dissolved / unknown</li><li>合祀・法人・兼務等は別dimension</li></ul></section>
