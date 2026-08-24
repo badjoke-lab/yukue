@@ -41,6 +41,7 @@ export const matsuriProjection: PublicProjection = {
   json: {
     ...baseProjection.json,
     entities: [...baseProjection.json.entities, ...waveProjection.json.entities],
+    current_states: [...baseProjection.json.current_states, ...waveProjection.json.current_states],
     sources: [...baseProjection.json.sources, ...waveProjection.json.sources],
     evidence: [...baseProjection.json.evidence, ...waveProjection.json.evidence],
     occurrences: [...baseProjection.json.occurrences, ...waveProjection.json.occurrences],
