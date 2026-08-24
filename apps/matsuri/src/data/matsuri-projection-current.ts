@@ -8,10 +8,11 @@ import batch16 from "../../../../data/public/matsuri/f1/batch-16.json";
 import batch17 from "../../../../data/public/matsuri/f1/batch-17.json";
 import batch18 from "../../../../data/public/matsuri/f1/batch-18.json";
 import batch19 from "../../../../data/public/matsuri/f1/batch-19.json";
+import batch20 from "../../../../data/public/matsuri/f1/batch-20.json";
 import { matsuriProjection as baseProjection } from "./matsuri-projection.js";
 
 const waveBundle = {
-  entities: [...batch14.entities, ...batch15.entities, ...batch16.entities, ...batch17.entities, ...batch18.entities, ...batch19.entities],
+  entities: [...batch14.entities, ...batch15.entities, ...batch16.entities, ...batch17.entities, ...batch18.entities, ...batch19.entities, ...batch20.entities],
   places: [],
   stateSnapshots: [],
   changeEvents: [],
@@ -20,9 +21,9 @@ const waveBundle = {
   recurrencePatterns: [],
   relations: [],
   designations: [],
-  sources: [...batch14.sources, ...batch15.sources, ...batch16.sources, ...batch17.sources, ...batch18.sources, ...batch19.sources],
-  evidence: [...batch14.evidence, ...batch15.evidence, ...batch16.evidence, ...batch17.evidence, ...batch18.evidence, ...batch19.evidence],
-  images: [...batch14.images, ...batch15.images, ...batch16.images, ...batch17.images, ...batch18.images, ...batch19.images],
+  sources: [...batch14.sources, ...batch15.sources, ...batch16.sources, ...batch17.sources, ...batch18.sources, ...batch19.sources, ...batch20.sources],
+  evidence: [...batch14.evidence, ...batch15.evidence, ...batch16.evidence, ...batch17.evidence, ...batch18.evidence, ...batch19.evidence, ...batch20.evidence],
+  images: [...batch14.images, ...batch15.images, ...batch16.images, ...batch17.images, ...batch18.images, ...batch19.images, ...batch20.images],
 };
 
 const waveProjection = buildPublicProjection(

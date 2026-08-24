@@ -1,43 +1,43 @@
 {
   "schema_version": "matsuri.corpus-quality-baseline.v2",
-  "observed_at": "2026-08-23T09:35:04.966Z",
+  "observed_at": "2026-08-23T10:50:30.480Z",
   "observed_on_jst": "2026-08-23",
-  "source_workflow_run_id": 32631380450,
-  "source_workflow_job_id": 97174621503,
+  "source_workflow_run_id": 32634608167,
+  "source_workflow_job_id": 97182364294,
   "classifier": "scripts/audit-matsuri-corpus-quality.mjs",
   "governing_spec": "docs/nationwide-corpus-scaling.md",
   "status": "measurement-only",
   "counts": {
-    "all_entities": 163,
-    "legacy_primary_subjects": 101,
-    "specialist_primary_subjects": 100,
-    "tier_a_index": 62,
+    "all_entities": 171,
+    "legacy_primary_subjects": 109,
+    "specialist_primary_subjects": 108,
+    "tier_a_index": 70,
     "tier_b_verified": 9,
     "tier_c_history_monitoring": 29,
     "below_tier_a": 0,
-    "public_primary_total": 100,
+    "public_primary_total": 108,
     "tier_a_overdue": 0,
     "tier_a_due_within_48h": 0,
-    "tier_a_publication_metadata_missing": 59,
+    "tier_a_publication_metadata_missing": 67,
     "with_completed_occurrence_history": 54,
     "with_multi_year_completed_occurrence_history": 37,
     "with_change_events": 57,
     "with_current_state_evidence": 56,
-    "with_direct_profile_evidence": 82
+    "with_direct_profile_evidence": 90
   },
   "by_entity_type": {
-    "festival": {"records":76,"tier_a_index":40,"tier_b_verified":9,"tier_c_history_monitoring":27,"below_tier_a":0},
-    "folk_performance": {"records":24,"tier_a_index":22,"tier_b_verified":0,"tier_c_history_monitoring":2,"below_tier_a":0},
+    "festival": {"records":83,"tier_a_index":47,"tier_b_verified":9,"tier_c_history_monitoring":27,"below_tier_a":0},
+    "folk_performance": {"records":25,"tier_a_index":23,"tier_b_verified":0,"tier_c_history_monitoring":2,"below_tier_a":0},
     "tradition_unit": {"records":1,"tier_a_index":0,"tier_b_verified":0,"tier_c_history_monitoring":0,"below_tier_a":1}
   },
   "tier_a_missing_dimension_counts": {},
   "tier_a_to_b_missing_dimension_counts": {
-    "approved_current_state_present": 44,
-    "current_state_evidence_present": 44,
-    "dated_observation_anchor_present": 43,
+    "approved_current_state_present": 52,
+    "current_state_evidence_present": 52,
+    "dated_observation_anchor_present": 51,
     "direct_profile_evidence_present": 18,
-    "place_model_present": 40,
-    "timing_or_recurrence_present": 44
+    "place_model_present": 48,
+    "timing_or_recurrence_present": 52
   },
   "tier_b_missing_history_dimension_counts": {
     "active_freshness_monitoring": 9,
@@ -47,7 +47,7 @@
   },
   "coverage": {
     "prefecture_count": 47,
-    "municipality_count": 89,
+    "municipality_count": 94,
     "source_family_entity_coverage": {
       "municipal_official": 1,
       "municipality": 24,
@@ -56,7 +56,7 @@
       "official_tourism": 2,
       "official_tourism_body": 4,
       "preservation_group_official": 1,
-      "public_authority": 43,
+      "public_authority": 51,
       "public_tourism_body": 1,
       "shrine_official": 5
     }
