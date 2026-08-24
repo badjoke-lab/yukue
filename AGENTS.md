@@ -11,6 +11,7 @@ Current applications:
 ```text
 apps/portal
 apps/matsuri
+apps/jinja
 ```
 
 Shared packages:
@@ -33,7 +34,7 @@ The series design has four specialist sites:
 弔いのゆくえ
 ```
 
-Only Matsuri is currently activated for implementation/publication work. Do not activate Jinja, Jiin, or Tomurai public apps, hostnames, Workers, or specialist-site publication without an explicit later gate.
+Matsuri is the active canonical public site. Jinja repository implementation is active, and an explicit owner-authorized, noncanonical, `noindex,nofollow` workers.dev public preview is permitted only under `config/jinja-preview-deployment-gate.json`. Jinja custom-domain activation, canonical publication, Search submission, and indexability remain blocked until the canonical start gate is satisfied. Jiin and Tomurai remain inactive; do not create their public apps, hostnames, Workers, or publication without explicit later gates.
 
 ## Required reading before work
 
@@ -218,87 +219,3 @@ Update documentation when changing:
 - corpus scaling rules,
 - public tier minimums,
 - coverage/depth metrics.
-
-For corpus expansion, bulk ingestion, future-site seed work, and specialist-site activation, treat `docs/nationwide-corpus-scaling.md` as a governing specification.
-
-Do not publish unreviewed candidates. Once the reviewed Tier A minimum is satisfied, however, do not hold the record private merely because Tier B/C work remains.
-
-## Required validation
-
-At minimum, run the repository checks relevant to the change.
-
-Baseline commands:
-
-```bash
-pnpm install --frozen-lockfile
-pnpm build
-pnpm check
-pnpm typecheck
-```
-
-The committed `pnpm-lock.yaml` is required. Do not use `--no-frozen-lockfile` to bypass manifest or lockfile drift; update and review the lockfile in the same bounded dependency change instead.
-
-Some workspaces may not yet implement every script. Do not fake success; report exactly which commands exist and which passed.
-
-Add focused tests when implementing schemas, validation, projections, or behavior with regression risk.
-
-## PR rules
-
-A PR should state:
-
-- governing docs consulted,
-- scope included,
-- scope intentionally excluded,
-- validation run,
-- known limitations,
-- documentation updated when needed.
-
-A corpus-expansion or bulk-ingestion PR should additionally state:
-
-- private candidate count separately from approved public A/B/C count,
-- identity/dedupe results,
-- Tier A minimum results,
-- A/B/C distribution impact,
-- Tier A due/overdue/missing-B dimensions,
-- A→B promotion impact,
-- genuine source-ceiling exceptions.
-
-A non-trivial UI PR should additionally state:
-
-- screenshot workflow run,
-- screenshot artifact name,
-- desktop routes reviewed,
-- mobile routes reviewed,
-- visual findings,
-- post-fix recapture result.
-
-Do not merge before required CI is understood and any change-caused failures are resolved. Independent fail-closed maintenance checks must not be weakened merely to make an unrelated PR green.
-
-Use squash merge for normal bounded implementation PRs unless repository policy changes.
-
-## Status updates
-
-When a project gate is completed, update `docs/project-status.md`.
-
-When implementation order materially changes, update `docs/development-schedule.md`.
-
-When a project decision changes, update `docs/decision-log.md`.
-
-## Scope currently deferred
-
-Do not add without an explicit decision:
-
-```text
-Stats
-Compare
-D1 canonical database
-Cron monitoring
-Queues
-MCP
-paid API
-x402 billing
-real-time ingestion
-complex graph visualization
-Jinja/Jiin/Tomurai public implementation
-Jinja/Jiin/Tomurai hostname or Worker activation
-```
