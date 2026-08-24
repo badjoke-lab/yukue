@@ -1,0 +1,23 @@
+{
+  "schema_version": "matsuri.tier-a-production-verification.v1",
+  "wave_id": "ncs07-tier-a-wave-008",
+  "status": "verified",
+  "verified_at": "2026-08-24T03:54:03Z",
+  "publication_merge": {
+    "pr": 301,
+    "head_sha": "837e1ab27102b4a2655eb05533f1bb6106906554",
+    "merge_commit_sha": "02ed86356b1e72ea11f8a6c6ea49eca146f5c631",
+    "merged_at": "2026-08-24T03:54:03Z"
+  },
+  "checks": {
+    "all_selected_entities_tier_a_index": true,
+    "exact_head_workflows_green": 15,
+    "cloudflare_deployment_success": true
+  },
+  "observed_counts": {
+    "entities": 171,
+    "specialist_primary_entities": 108
+  },
+  "publication_metadata_backfill_pending": true,
+  "publication_metadata_note": "Wave 008 merged after exact-head verification while batch-20 remained staged; the actual merge timestamp is preserved here and no per-entity publication timestamp is invented retroactively."
+}

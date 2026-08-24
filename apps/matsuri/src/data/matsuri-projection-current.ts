@@ -9,20 +9,21 @@ import batch17 from "../../../../data/public/matsuri/f1/batch-17.json";
 import batch18 from "../../../../data/public/matsuri/f1/batch-18.json";
 import batch19 from "../../../../data/public/matsuri/f1/batch-19.json";
 import batch20 from "../../../../data/public/matsuri/f1/batch-20.json";
+import maintenance99 from "../../../../data/public/matsuri/f2/maintenance-99.json";
 import { matsuriProjection as baseProjection } from "./matsuri-projection.js";
 
 const waveBundle = {
   entities: [...batch14.entities, ...batch15.entities, ...batch16.entities, ...batch17.entities, ...batch18.entities, ...batch19.entities, ...batch20.entities],
   places: [],
-  stateSnapshots: [],
+  stateSnapshots: [...maintenance99.stateSnapshots],
   changeEvents: [],
-  occurrences: [],
+  occurrences: [...maintenance99.occurrences],
   occurrenceSeries: [],
   recurrencePatterns: [],
   relations: [],
   designations: [],
-  sources: [...batch14.sources, ...batch15.sources, ...batch16.sources, ...batch17.sources, ...batch18.sources, ...batch19.sources, ...batch20.sources],
-  evidence: [...batch14.evidence, ...batch15.evidence, ...batch16.evidence, ...batch17.evidence, ...batch18.evidence, ...batch19.evidence, ...batch20.evidence],
+  sources: [...batch14.sources, ...batch15.sources, ...batch16.sources, ...batch17.sources, ...batch18.sources, ...batch19.sources, ...batch20.sources, ...maintenance99.sources],
+  evidence: [...batch14.evidence, ...batch15.evidence, ...batch16.evidence, ...batch17.evidence, ...batch18.evidence, ...batch19.evidence, ...batch20.evidence, ...maintenance99.evidence],
   images: [...batch14.images, ...batch15.images, ...batch16.images, ...batch17.images, ...batch18.images, ...batch19.images, ...batch20.images],
 };
 
@@ -40,8 +41,10 @@ export const matsuriProjection: PublicProjection = {
   json: {
     ...baseProjection.json,
     entities: [...baseProjection.json.entities, ...waveProjection.json.entities],
+    current_states: [...baseProjection.json.current_states, ...waveProjection.json.current_states],
     sources: [...baseProjection.json.sources, ...waveProjection.json.sources],
     evidence: [...baseProjection.json.evidence, ...waveProjection.json.evidence],
+    occurrences: [...baseProjection.json.occurrences, ...waveProjection.json.occurrences],
   },
 };
 

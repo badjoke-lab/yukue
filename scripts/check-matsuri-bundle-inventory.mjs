@@ -100,10 +100,7 @@ function extractArrayIdentifiers(source, arrayName) {
 }
 
 assert(fs.existsSync(projectionPath), "Matsuri HTML projection source is missing");
-assert(
-  fs.existsSync(currentProjectionPath),
-  "Matsuri current HTML projection source is missing",
-);
+assert(fs.existsSync(currentProjectionPath), "Matsuri current HTML projection source is missing");
 
 const projectionSource = fs.readFileSync(projectionPath, "utf8");
 const currentProjectionSource = fs.readFileSync(currentProjectionPath, "utf8");
@@ -114,11 +111,7 @@ const projectionImportsByIdentifier = new Map();
 
 for (const match of projectionSource.matchAll(importPattern)) {
   const [, identifier, directory, fileName] = match;
-  assert(
-    !projectionImportsByIdentifier.has(identifier),
-    `Matsuri HTML projection reuses imported bundle identifier ${identifier}.`,
-  );
-
+  assert(!projectionImportsByIdentifier.has(identifier), `Matsuri HTML projection reuses imported bundle identifier ${identifier}.`);
   const importRecord = { identifier, directory, fileName };
   projectionImports[directory].push(importRecord);
   projectionImportsByIdentifier.set(identifier, importRecord);
@@ -132,95 +125,60 @@ for (const match of currentProjectionSource.matchAll(importPattern)) {
 
 for (const [directory, imports] of Object.entries(projectionImports)) {
   const files = imports.map((item) => item.fileName);
-  assert(
-    new Set(files).size === files.length,
-    `Matsuri HTML projection imports a duplicate ${directory} bundle`,
-  );
+  assert(new Set(files).size === files.length, `Matsuri HTML projection imports a duplicate ${directory} bundle`);
 }
 for (const [directory, imports] of Object.entries(currentProjectionImports)) {
   const files = imports.map((item) => item.fileName);
-  assert(
-    new Set(files).size === files.length,
-    `Matsuri current HTML projection imports a duplicate ${directory} bundle`,
-  );
+  assert(new Set(files).size === files.length, `Matsuri current HTML projection imports a duplicate ${directory} bundle`);
 }
 
 function resolveOrderedBundlePaths(arrayName) {
   return extractArrayIdentifiers(projectionSource, arrayName).map((identifier) => {
     const importRecord = projectionImportsByIdentifier.get(identifier);
-    assert(
-      importRecord,
-      `${arrayName} references ${identifier}, which is not an imported Matsuri F1 or F2 bundle.`,
-    );
+    assert(importRecord, `${arrayName} references ${identifier}, which is not an imported Matsuri F1 or F2 bundle.`);
     return `${importRecord.directory}/${importRecord.fileName}`;
   });
 }
 
-const expectedF2Files = [
-  ...matsuriF2MaintenanceFiles,
-  ...matsuriF2CorrectionFiles,
-];
+const expectedF2Files = [...matsuriF2MaintenanceFiles, ...matsuriF2CorrectionFiles];
 const baseF1Files = projectionImports.f1.map((item) => item.fileName);
 const baseF1Set = new Set(baseF1Files);
 const overlayF1Files = currentProjectionImports.f1.map((item) => item.fileName);
 const combinedF1Files = [...baseF1Files, ...overlayF1Files];
 const expectedOverlayF1Files = matsuriF1BatchFiles.filter((fileName) => !baseF1Set.has(fileName));
+
+const baseF2Files = projectionImports.f2.map((item) => item.fileName);
+const baseF2Set = new Set(baseF2Files);
+const overlayF2Files = currentProjectionImports.f2.map((item) => item.fileName);
+const combinedF2Files = [...baseF2Files, ...overlayF2Files];
+const expectedOverlayF2Files = expectedF2Files.filter((fileName) => !baseF2Set.has(fileName));
+const baseMaintenanceFiles = matsuriF2MaintenanceFiles.filter((fileName) => baseF2Set.has(fileName));
+const baseCorrectionFiles = matsuriF2CorrectionFiles.filter((fileName) => baseF2Set.has(fileName));
+
 const expectedBaseAdditiveOrder = [
-  ...matsuriF1BatchFiles
-    .filter((fileName) => baseF1Set.has(fileName))
-    .map((fileName) => `f1/${fileName}`),
-  ...matsuriF2MaintenanceFiles.map((fileName) => `f2/${fileName}`),
+  ...matsuriF1BatchFiles.filter((fileName) => baseF1Set.has(fileName)).map((fileName) => `f1/${fileName}`),
+  ...baseMaintenanceFiles.map((fileName) => `f2/${fileName}`),
 ];
-const expectedCorrectionOrder = matsuriF2CorrectionFiles.map(
-  (fileName) => `f2/${fileName}`,
-);
+const expectedCorrectionOrder = baseCorrectionFiles.map((fileName) => `f2/${fileName}`);
 
 assertFilesExist("f1", matsuriF1BatchFiles, "Canonical loader F1 inventory");
 assertFilesExist("f2", matsuriF2MaintenanceFiles, "Canonical loader maintenance inventory");
 assertFilesExist("f2", matsuriF2CorrectionFiles, "Canonical loader correction inventory");
 
-assertExactInventory(
-  combinedF1Files,
-  matsuriF1BatchFiles,
-  "Matsuri F1 loader/current-projection",
-);
-assert(
-  overlayF1Files.length > 0,
-  "Matsuri current projection must contain at least the newest F1 wave.",
-);
-assertOrderedInventory(
-  overlayF1Files,
-  expectedOverlayF1Files,
-  "Matsuri current projection contiguous F1 suffix",
-);
+assertExactInventory(combinedF1Files, matsuriF1BatchFiles, "Matsuri F1 loader/current-projection");
+assert(overlayF1Files.length > 0, "Matsuri current projection must contain at least the newest F1 wave.");
+assertOrderedInventory(overlayF1Files, expectedOverlayF1Files, "Matsuri current projection contiguous F1 suffix");
 assert(
   overlayF1Files.at(-1) === matsuriF1BatchFiles.at(-1),
   `Matsuri current projection must include the newest F1 wave; actual tail: ${JSON.stringify(overlayF1Files)}`,
 );
-assertExactInventory(
-  currentProjectionImports.f2.map((item) => item.fileName),
-  [],
-  "Matsuri current projection F2 overlay",
-);
-assertExactInventory(
-  projectionImports.f2.map((item) => item.fileName),
-  expectedF2Files,
-  "Matsuri F2 loader/projection",
-);
-assertOrderedInventory(
-  resolveOrderedBundlePaths("additiveBundles"),
-  expectedBaseAdditiveOrder,
-  "Matsuri base additive bundle application",
-);
-assertOrderedInventory(
-  resolveOrderedBundlePaths("correctionBundles"),
-  expectedCorrectionOrder,
-  "Matsuri correction bundle application",
-);
+
+assertExactInventory(combinedF2Files, expectedF2Files, "Matsuri F2 loader/current-projection");
+assertOrderedInventory(overlayF2Files, expectedOverlayF2Files, "Matsuri current projection contiguous F2 suffix");
+assertOrderedInventory(resolveOrderedBundlePaths("additiveBundles"), expectedBaseAdditiveOrder, "Matsuri base additive bundle application");
+assertOrderedInventory(resolveOrderedBundlePaths("correctionBundles"), expectedCorrectionOrder, "Matsuri correction bundle application");
 assert(
-  /import\s+\{\s*matsuriProjection\s+as\s+baseProjection\s*\}\s+from\s+["']\.\/matsuri-projection\.js["']/u.test(
-    currentProjectionSource,
-  ),
+  /import\s+\{\s*matsuriProjection\s+as\s+baseProjection\s*\}\s+from\s+["']\.\/matsuri-projection\.js["']/u.test(currentProjectionSource),
   "Matsuri current projection must extend the validated base projection.",
 );
 
