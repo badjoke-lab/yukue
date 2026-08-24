@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "check": "node scripts/check.mjs && node scripts/check-data.mjs",
+    "check": "node scripts/check.mjs && node scripts/check-data.mjs && node scripts/audit-tier-a-candidates.mjs --summary",
     "typecheck": "node scripts/check.mjs && node scripts/check-data.mjs",
     "audit:tier-a-candidates": "node scripts/audit-tier-a-candidates.mjs"
   }

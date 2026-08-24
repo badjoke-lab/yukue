@@ -64,4 +64,22 @@ const output = {
   candidates,
 };
 
-process.stdout.write(`${JSON.stringify(output, null, 2)}\n`);
+if (process.argv.includes("--summary")) {
+  const summary = {
+    candidate_count: candidates.length,
+    first_candidates: candidates.slice(0, 10).map((candidate) => ({
+      matsuri_entity_id: candidate.matsuri_entity_id,
+      name: candidate.name,
+      official_urls: candidate.official_urls,
+      place_ids: candidate.place_ids,
+      related_matsuri: candidate.related_matsuri.map((relation) => ({
+        relation_id: relation.relation_id,
+        entity_id: relation.entity_id,
+        name: relation.name,
+      })),
+    })),
+  };
+  process.stdout.write(`JINJA_TIER_A_AUDIT_SUMMARY=${JSON.stringify(summary)}\n`);
+} else {
+  process.stdout.write(`${JSON.stringify(output, null, 2)}\n`);
+}
