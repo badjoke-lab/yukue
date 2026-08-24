@@ -1,7 +1,7 @@
 {
   "format_version": 1,
   "site_id": "jinja",
-  "publication_status": "implementation_only",
+  "publication_status": "public_preview_noncanonical",
   "entities": [
     {
       "id": "shr-sada-jinja",
