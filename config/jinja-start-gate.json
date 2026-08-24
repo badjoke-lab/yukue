@@ -21,6 +21,7 @@
     "official_urls": 19
   },
   "claims": {
+    "jinja_start_gate_passed": false,
     "jinja_canonical_start_gate_passed": false,
     "jinja_application_creation_authorized": true,
     "jinja_worker_preview_creation_authorized": true,
