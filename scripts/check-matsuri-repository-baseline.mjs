@@ -165,7 +165,7 @@ const actualBoundaries = {
   jinja_start_gate:
     jinjaGate.status === "blocked-by-post-launch-prerequisites" &&
     jinjaGate.prerequisites?.matsuri_f2_28_complete === true &&
-    jinjaGate.claims?.jinja_start_gate_passed === false
+    jinjaGate.claims?.jinja_canonical_start_gate_passed === false
       ? "blocked"
       : "not-blocked",
   jinja_state_snapshots: jinjaGate.seed_baseline?.approved_state_snapshots,
@@ -178,5 +178,5 @@ for (const key of expectedBoundaryKeys) {
 }
 
 console.log(
-  `Matsuri repository baseline is current as of ${baseline.observed_on}; F2-25 through F2-28 are complete, Phase 10 stabilization is active, the Jinja start gate remains blocked, and narrative documents do not duplicate machine counts.`,
+  `Matsuri repository baseline is current as of ${baseline.observed_on}; F2-25 through F2-28 are complete, Phase 10 stabilization is active, the Jinja canonical start gate remains blocked while its authorized workers.dev preview may proceed, and narrative documents do not duplicate machine counts.`,
 );

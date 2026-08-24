@@ -11,7 +11,7 @@ function assert(condition, message) {
 }
 
 assert(schema.site_id === "jinja" && data.site_id === "jinja", "Unexpected Jinja site_id");
-assert(data.publication_status === "implementation_only", "Jinja canonical store must remain implementation_only before public activation");
+assert(["implementation_only", "public_preview_noncanonical"].includes(data.publication_status), "Unexpected Jinja publication_status");
 for (const name of Object.keys(schema.collections)) assert(Array.isArray(data[name]), `Missing canonical collection: ${name}`);
 
 const ids = new Set();
@@ -34,4 +34,4 @@ for (const [collection, records] of Object.entries(data)) {
 
 assert(data.entities.length === 0 || data.sources.length > 0, "Jinja entities require specialist Sources");
 assert(data.entities.length === 0 || data.evidence.length > 0, "Jinja entities require specialist Evidence");
-console.log(`Jinja canonical model verified: ${data.entities.length} entities, ${data.states.length} states, ${data.events.length} events.`);
+console.log(`Jinja canonical model verified: ${data.entities.length} entities, ${data.states.length} states, ${data.events.length} events, publication_status=${data.publication_status}.`);

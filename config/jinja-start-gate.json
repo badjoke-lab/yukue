@@ -22,15 +22,25 @@
   },
   "claims": {
     "jinja_start_gate_passed": false,
-    "jinja_application_creation_authorized": false,
-    "jinja_worker_creation_authorized": false,
-    "jinja_publication_authorized": false
+    "jinja_canonical_start_gate_passed": false,
+    "jinja_application_creation_authorized": true,
+    "jinja_worker_preview_creation_authorized": true,
+    "jinja_workers_dev_preview_publication_authorized": true,
+    "jinja_custom_domain_activation_authorized": false,
+    "jinja_canonical_publication_authorized": false
+  },
+  "preview_scope": {
+    "gate_record": "config/jinja-preview-deployment-gate.json",
+    "origin": "https://jinja-yukue.badjoke-lab.workers.dev",
+    "canonical": false,
+    "indexable": false
   },
   "boundary": {
-    "seed_preparation_does_not_activate_site": true,
-    "all_prerequisites_required": true,
-    "application_directory_must_remain_absent": true,
-    "worker_and_hostname_must_remain_inactive": true,
+    "seed_preparation_does_not_auto_promote_records": true,
+    "canonical_activation_requires_all_prerequisites": true,
+    "application_directory_allowed": true,
+    "workers_dev_preview_allowed": true,
+    "custom_domain_and_canonical_route_must_remain_inactive": true,
     "missing_state_must_not_be_inferred": true
   }
 }

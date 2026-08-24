@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "jinja-yukue",
+  "compatibility_date": "2026-08-25",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./apps/jinja/dist"
+  }
+}

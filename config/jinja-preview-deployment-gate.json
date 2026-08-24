@@ -1,0 +1,28 @@
+{
+  "format_version": 1,
+  "site_id": "jinja",
+  "status": "workers-dev-preview-authorized",
+  "authorized_at": "2026-08-25",
+  "authorization_basis": "Explicit owner instruction to stop blocking Jinja publication on deferred Cloudflare Web Analytics and Google Search Console observations.",
+  "scope": {
+    "worker_name": "jinja-yukue",
+    "workers_dev_origin": "https://jinja-yukue.badjoke-lab.workers.dev",
+    "custom_domain": false,
+    "canonical": false,
+    "indexable": false,
+    "robots_directive": "noindex,nofollow"
+  },
+  "claims": {
+    "worker_creation_authorized": true,
+    "workers_dev_preview_publication_authorized": true,
+    "custom_domain_activation_authorized": false,
+    "canonical_publication_authorized": false,
+    "search_engine_submission_authorized": false
+  },
+  "deferred_owner_operations": {
+    "cloudflare_web_analytics_current_observation": "pending-owner-access",
+    "google_search_console_current_observation": "pending-owner-access",
+    "blocks_workers_dev_preview": false,
+    "blocks_custom_domain_canonical_activation": true
+  }
+}

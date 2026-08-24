@@ -165,11 +165,15 @@ assert(
   jinja.status === "blocked-by-post-launch-prerequisites" &&
     jinja.prerequisites?.matsuri_f2_28_complete === true &&
     jinja.prerequisites?.matsuri_stabilization_review_complete === false &&
-    jinja.claims?.jinja_start_gate_passed === false &&
-    jinja.claims?.jinja_application_creation_authorized === false &&
-    jinja.claims?.jinja_worker_creation_authorized === false &&
-    jinja.claims?.jinja_publication_authorized === false,
-  "Jinja must remain blocked after F2-28 until its start gate passes",
+    jinja.claims?.jinja_canonical_start_gate_passed === false &&
+    jinja.claims?.jinja_application_creation_authorized === true &&
+    jinja.claims?.jinja_worker_preview_creation_authorized === true &&
+    jinja.claims?.jinja_workers_dev_preview_publication_authorized === true &&
+    jinja.claims?.jinja_custom_domain_activation_authorized === false &&
+    jinja.claims?.jinja_canonical_publication_authorized === false &&
+    jinja.preview_scope?.canonical === false &&
+    jinja.preview_scope?.indexable === false,
+  "Jinja canonical activation must remain blocked after F2-28 while the authorized workers.dev preview remains noncanonical and noindex",
 );
 
 const audit = read("docs/audits/matsuri-f2-28-final-launch-gate-2026-07-27.md");
@@ -183,7 +187,7 @@ assert(
 
 const projectStatus = read("docs/project-status.md");
 assert(projectStatus.includes("F2-28 — final F2 Launch Gate — completed"), "Project status lacks F2-28 completion");
-assert(projectStatus.includes("Actual Jinja start gate — blocked"), "Project status no longer blocks Jinja");
+assert(projectStatus.includes("Actual Jinja start gate — blocked"), "Project status no longer blocks Jinja canonical activation");
 
 const packageJson = readJson("package.json");
 assert(
@@ -198,5 +202,5 @@ assert(
 
 const remainingJinjaPrerequisites = Object.entries(jinja.prerequisites ?? {}).filter(([, value]) => value === false).length;
 console.log(
-  `Matsuri F2-28 final launch gate is complete at ${record.evaluated_at}; indexation is not claimed and Jinja remains blocked with ${remainingJinjaPrerequisites} prerequisite(s) incomplete.`,
+  `Matsuri F2-28 final launch gate is complete at ${record.evaluated_at}; indexation is not claimed, Jinja workers.dev preview may run, and Jinja canonical activation remains blocked with ${remainingJinjaPrerequisites} prerequisite(s) incomplete.`,
 );

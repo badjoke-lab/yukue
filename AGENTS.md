@@ -11,6 +11,7 @@ Current applications:
 ```text
 apps/portal
 apps/matsuri
+apps/jinja
 ```
 
 Shared packages:
@@ -33,7 +34,7 @@ The series design has four specialist sites:
 弔いのゆくえ
 ```
 
-Only Matsuri is currently activated for implementation/publication work. Do not activate Jinja, Jiin, or Tomurai public apps, hostnames, Workers, or specialist-site publication without an explicit later gate.
+Matsuri is the active canonical public site. Jinja repository implementation is active, and an explicit owner-authorized, noncanonical, `noindex,nofollow` workers.dev public preview is permitted only under `config/jinja-preview-deployment-gate.json`. Jinja custom-domain activation, canonical publication, Search submission, and indexability remain blocked until the canonical start gate is satisfied. Jiin and Tomurai remain inactive; do not create their public apps, hostnames, Workers, or publication without explicit later gates.
 
 ## Required reading before work
 
@@ -299,6 +300,7 @@ paid API
 x402 billing
 real-time ingestion
 complex graph visualization
-Jinja/Jiin/Tomurai public implementation
-Jinja/Jiin/Tomurai hostname or Worker activation
+Jinja custom-domain/canonical activation or Search submission
+Jiin/Tomurai public implementation
+Jiin/Tomurai hostname or Worker activation
 ```
