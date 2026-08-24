@@ -141,7 +141,12 @@ for (const item of selected) {
     if (rawEntity.tier_a_published_at !== undefined && rawEntity.tier_a_published_at !== null) failures.push(`${item.id}:staged_publication_timestamp_present`);
   } else {
     if (!config.publication_timestamp) failures.push("publication_timestamp_missing");
-    if (rawEntity.tier_a_published_at !== config.publication_timestamp) failures.push(`${item.id}:publication_timestamp_mismatch`);
+    const backfillPending = productionVerification?.publication_metadata_backfill_pending === true;
+    if (rawEntity.tier_a_published_at === undefined || rawEntity.tier_a_published_at === null) {
+      if (!backfillPending) failures.push(`${item.id}:publication_timestamp_missing_from_entity`);
+    } else if (rawEntity.tier_a_published_at !== config.publication_timestamp) {
+      failures.push(`${item.id}:publication_timestamp_mismatch`);
+    }
   }
 }
 
