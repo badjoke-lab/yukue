@@ -18,7 +18,6 @@ on:
 
 permissions:
   contents: read
-  issues: write
 
 concurrency:
   group: deploy-jinja-workers-preview
@@ -26,6 +25,9 @@ concurrency:
 
 jobs:
   deploy:
+    permissions:
+      contents: read
+      issues: write
     runs-on: ubuntu-latest
     environment: jinja-workers-preview
     steps:
