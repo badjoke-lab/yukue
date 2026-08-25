@@ -10,11 +10,12 @@ import batch18 from "../../../../data/public/matsuri/f1/batch-18.json";
 import batch19 from "../../../../data/public/matsuri/f1/batch-19.json";
 import batch20 from "../../../../data/public/matsuri/f1/batch-20.json";
 import batch21 from "../../../../data/public/matsuri/f1/batch-21.json";
+import batch22 from "../../../../data/public/matsuri/f1/batch-22.json";
 import maintenance99 from "../../../../data/public/matsuri/f2/maintenance-99.json";
 import { matsuriProjection as baseProjection } from "./matsuri-projection.js";
 
 const waveBundle = {
-  entities: [...batch14.entities, ...batch15.entities, ...batch16.entities, ...batch17.entities, ...batch18.entities, ...batch19.entities, ...batch20.entities, ...batch21.entities],
+  entities: [...batch14.entities, ...batch15.entities, ...batch16.entities, ...batch17.entities, ...batch18.entities, ...batch19.entities, ...batch20.entities, ...batch21.entities, ...batch22.entities],
   places: [],
   stateSnapshots: [...maintenance99.stateSnapshots],
   changeEvents: [],
@@ -23,9 +24,9 @@ const waveBundle = {
   recurrencePatterns: [],
   relations: [],
   designations: [],
-  sources: [...batch14.sources, ...batch15.sources, ...batch16.sources, ...batch17.sources, ...batch18.sources, ...batch19.sources, ...batch20.sources, ...batch21.sources, ...maintenance99.sources],
-  evidence: [...batch14.evidence, ...batch15.evidence, ...batch16.evidence, ...batch17.evidence, ...batch18.evidence, ...batch19.evidence, ...batch20.evidence, ...batch21.evidence, ...maintenance99.evidence],
-  images: [...batch14.images, ...batch15.images, ...batch16.images, ...batch17.images, ...batch18.images, ...batch19.images, ...batch20.images, ...batch21.images],
+  sources: [...batch14.sources, ...batch15.sources, ...batch16.sources, ...batch17.sources, ...batch18.sources, ...batch19.sources, ...batch20.sources, ...batch21.sources, ...batch22.sources, ...maintenance99.sources],
+  evidence: [...batch14.evidence, ...batch15.evidence, ...batch16.evidence, ...batch17.evidence, ...batch18.evidence, ...batch19.evidence, ...batch20.evidence, ...batch21.evidence, ...batch22.evidence, ...maintenance99.evidence],
+  images: [...batch14.images, ...batch15.images, ...batch16.images, ...batch17.images, ...batch18.images, ...batch19.images, ...batch20.images, ...batch21.images, ...batch22.images],
 };
 
 const waveProjection = buildPublicProjection(
