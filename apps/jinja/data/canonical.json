@@ -11,6 +11,15 @@
       "verified_at": "2026-08-24",
       "current_place_id": "plc-sada-jinja",
       "official_links": ["https://www.sadajinjya.jp/"]
+    },
+    {
+      "id": "shr-aso-jinja",
+      "canonical_name": "阿蘇神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-08-25",
+      "current_place_id": "plc-aso-jinja",
+      "official_links": ["https://asojinja.or.jp/"]
     }
   ],
   "states": [],
@@ -25,6 +34,15 @@
       "review_status": "approved",
       "verified_at": "2026-08-24",
       "summary": "佐太神社公式サイトで神社名と所在地を確認。"
+    },
+    {
+      "id": "evd-jinja-aso-identity-geography-20260825",
+      "target_type": "entity",
+      "target_id": "shr-aso-jinja",
+      "source_id": "src-jinja-aso-official-about-20260825",
+      "review_status": "approved",
+      "verified_at": "2026-08-25",
+      "summary": "阿蘇神社公式「阿蘇神社について」で神社名と所在地を確認。"
     }
   ],
   "sources": [
@@ -35,6 +53,14 @@
       "url": "https://www.sadajinjya.jp/",
       "source_type": "official_organization",
       "accessed_at": "2026-08-24"
+    },
+    {
+      "id": "src-jinja-aso-official-about-20260825",
+      "title": "阿蘇神社について",
+      "publisher": "阿蘇神社",
+      "url": "https://asojinja.or.jp/about/",
+      "source_type": "official_organization",
+      "accessed_at": "2026-08-25"
     }
   ],
   "places": [
@@ -45,6 +71,14 @@
       "review_status": "approved",
       "address": "島根県松江市鹿島町佐陀宮内73",
       "verified_at": "2026-08-24"
+    },
+    {
+      "id": "plc-aso-jinja",
+      "prefecture": "熊本県",
+      "municipality": "阿蘇市",
+      "review_status": "approved",
+      "address": "熊本県阿蘇市一の宮町宮地3083-1",
+      "verified_at": "2026-08-25"
     }
   ]
 }
