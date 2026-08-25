@@ -25,6 +25,9 @@ concurrency:
 
 jobs:
   deploy:
+    permissions:
+      contents: read
+      issues: write
     runs-on: ubuntu-latest
     environment: jinja-workers-preview
     steps:
@@ -59,3 +62,20 @@ jobs:
       - name: Verify public preview
         run: |
           node -e "fetch('https://jinja-yukue.badjoke-lab.workers.dev/').then(async r => { const t = await r.text(); if (!r.ok || !t.includes('神社のゆくえ') || !t.includes('Public preview')) process.exit(1); console.log('Jinja workers.dev preview reachable:', r.status); })"
+
+      - name: Record deployment result
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_STATUS: ${{ job.status }}
+          RUN_ID: ${{ github.run_id }}
+          COMMIT_SHA: ${{ github.sha }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          gh issue comment 311 --repo "$REPOSITORY" --body "Jinja workers.dev preview deployment: **${DEPLOY_STATUS}**
+
+          - run: https://github.com/${REPOSITORY}/actions/runs/${RUN_ID}
+          - commit: \`${COMMIT_SHA}\`
+          - preview: https://jinja-yukue.badjoke-lab.workers.dev/
+
+          This record covers only the noncanonical noindex workers.dev preview."
