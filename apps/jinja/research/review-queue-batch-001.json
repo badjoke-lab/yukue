@@ -10,35 +10,11 @@
     "ordering": "candidate_site_id:name_ja:entity_id localeCompare(ja)",
     "canonical_exclusion": true,
     "source_candidate_count": 26,
-    "canonical_candidate_count": 1,
-    "pending_candidate_count": 25,
+    "canonical_candidate_count": 2,
+    "pending_candidate_count": 24,
     "selected_count": 5
   },
   "items": [
-    {
-      "entity_id": "shr-aso-jinja",
-      "name_ja": "阿蘇神社",
-      "status": "pending_jinja_source_review",
-      "promotion_authorized": false,
-      "jinja_state": null,
-      "matsuri_handoff": {
-        "place_ids": ["plc-aso-jinja"],
-        "source_ids": ["src-aso-jinja-about", "src-aso-onda", "src-aso-restoration"],
-        "identity_evidence_ids": ["evd-aso-jinja-about-identity", "evd-aso-jinja-identity"],
-        "official_urls": ["https://asojinja.or.jp/"],
-        "relation_contexts": [
-          {
-            "relation_id": "rel-aso-onda-dedicated-at-jinja",
-            "relation_type": "dedicated_at",
-            "direction": "matsuri_to_candidate",
-            "matsuri_entity_id": "fst-aso-onda-matsuri",
-            "matsuri_entity_type": "festival",
-            "matsuri_name_ja": "御田祭",
-            "evidence_ids": ["evd-rel-aso-onda-jinja"]
-          }
-        ]
-      }
-    },
     {
       "entity_id": "shr-samukawa-jinja",
       "name_ja": "寒川神社",
@@ -131,6 +107,30 @@
             "matsuri_entity_type": "festival",
             "matsuri_name_ja": "博多祇園山笠",
             "evidence_ids": ["evd-rel-hakata-kushida"]
+          }
+        ]
+      }
+    },
+    {
+      "entity_id": "shr-mikuni-jinja",
+      "name_ja": "三國神社",
+      "status": "pending_jinja_source_review",
+      "promotion_authorized": false,
+      "jinja_state": null,
+      "matsuri_handoff": {
+        "place_ids": ["plc-mikuni-jinja"],
+        "source_ids": ["src-mikuni-jinja-city", "src-mikuni-matsuri-schedule-2026"],
+        "identity_evidence_ids": ["evd-mikuni-jinja-identity"],
+        "official_urls": [],
+        "relation_contexts": [
+          {
+            "relation_id": "rel-mikuni-matsuri-ritually-associated-with-mikuni-jinja",
+            "relation_type": "ritually_associated_with",
+            "direction": "matsuri_to_candidate",
+            "matsuri_entity_id": "fst-mikuni-matsuri",
+            "matsuri_entity_type": "festival",
+            "matsuri_name_ja": "三国祭",
+            "evidence_ids": ["evd-rel-mikuni-matsuri-mikuni-jinja"]
           }
         ]
       }
