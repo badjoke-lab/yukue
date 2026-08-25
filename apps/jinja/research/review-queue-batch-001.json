@@ -10,35 +10,11 @@
     "ordering": "candidate_site_id:name_ja:entity_id localeCompare(ja)",
     "canonical_exclusion": true,
     "source_candidate_count": 26,
-    "canonical_candidate_count": 2,
-    "pending_candidate_count": 24,
+    "canonical_candidate_count": 3,
+    "pending_candidate_count": 23,
     "selected_count": 5
   },
   "items": [
-    {
-      "entity_id": "shr-samukawa-jinja",
-      "name_ja": "寒川神社",
-      "status": "pending_jinja_source_review",
-      "promotion_authorized": false,
-      "jinja_state": null,
-      "matsuri_handoff": {
-        "place_ids": ["plc-samukawa-jinja"],
-        "source_ids": ["src-chigasaki-hamaori-cultural-property"],
-        "identity_evidence_ids": ["evd-samukawa-jinja-identity"],
-        "official_urls": ["https://samukawajinjya.jp/"],
-        "relation_contexts": [
-          {
-            "relation_id": "rel-chigasaki-hamaori-ritually-associated-with-samukawa-jinja",
-            "relation_type": "ritually_associated_with",
-            "direction": "matsuri_to_candidate",
-            "matsuri_entity_id": "fst-chigasaki-kaigan-hamaori-sai",
-            "matsuri_entity_type": "festival",
-            "matsuri_name_ja": "茅ヶ崎海岸浜降祭",
-            "evidence_ids": ["evd-rel-chigasaki-hamaori-samukawa-jinja"]
-          }
-        ]
-      }
-    },
     {
       "entity_id": "shr-kishu-toshogu",
       "name_ja": "紀州東照宮",
@@ -131,6 +107,30 @@
             "matsuri_entity_type": "festival",
             "matsuri_name_ja": "三国祭",
             "evidence_ids": ["evd-rel-mikuni-matsuri-mikuni-jinja"]
+          }
+        ]
+      }
+    },
+    {
+      "entity_id": "shr-kasuga-wakamiya",
+      "name_ja": "春日若宮",
+      "status": "pending_jinja_source_review",
+      "promotion_authorized": false,
+      "jinja_state": null,
+      "matsuri_handoff": {
+        "place_ids": ["plc-kasuga-wakamiya"],
+        "source_ids": ["src-kasuga-onmatsuri-history", "src-kasuga-wakamiya-official"],
+        "identity_evidence_ids": ["evd-kasuga-wakamiya-identity"],
+        "official_urls": ["https://www.kasugataisha.or.jp/guidance/keidai-map2/modal-08/"],
+        "relation_contexts": [
+          {
+            "relation_id": "rel-kasuga-onmatsuri-associated-with-wakamiya",
+            "relation_type": "ritually_associated_with",
+            "direction": "matsuri_to_candidate",
+            "matsuri_entity_id": "fst-kasuga-wakamiya-onmatsuri",
+            "matsuri_entity_type": "festival",
+            "matsuri_name_ja": "春日若宮おん祭",
+            "evidence_ids": ["evd-rel-kasuga-onmatsuri-wakamiya"]
           }
         ]
       }

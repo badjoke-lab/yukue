@@ -20,6 +20,15 @@
       "verified_at": "2026-08-25",
       "current_place_id": "plc-aso-jinja",
       "official_links": ["https://asojinja.or.jp/"]
+    },
+    {
+      "id": "shr-samukawa-jinja",
+      "canonical_name": "寒川神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-08-25",
+      "current_place_id": "plc-samukawa-jinja",
+      "official_links": ["https://samukawajinjya.jp/"]
     }
   ],
   "states": [],
@@ -43,6 +52,15 @@
       "review_status": "approved",
       "verified_at": "2026-08-25",
       "summary": "阿蘇神社公式「阿蘇神社について」で神社名と所在地を確認。"
+    },
+    {
+      "id": "evd-jinja-samukawa-identity-geography-20260825",
+      "target_type": "entity",
+      "target_id": "shr-samukawa-jinja",
+      "source_id": "src-jinja-samukawa-official-access-20260825",
+      "review_status": "approved",
+      "verified_at": "2026-08-25",
+      "summary": "寒川神社公式「神社への道案内」で神社名と所在地を確認。"
     }
   ],
   "sources": [
@@ -59,6 +77,14 @@
       "title": "阿蘇神社について",
       "publisher": "阿蘇神社",
       "url": "https://asojinja.or.jp/about/",
+      "source_type": "official_organization",
+      "accessed_at": "2026-08-25"
+    },
+    {
+      "id": "src-jinja-samukawa-official-access-20260825",
+      "title": "神社への道案内",
+      "publisher": "寒川神社",
+      "url": "https://samukawajinjya.jp/access/",
       "source_type": "official_organization",
       "accessed_at": "2026-08-25"
     }
@@ -78,6 +104,14 @@
       "municipality": "阿蘇市",
       "review_status": "approved",
       "address": "熊本県阿蘇市一の宮町宮地3083-1",
+      "verified_at": "2026-08-25"
+    },
+    {
+      "id": "plc-samukawa-jinja",
+      "prefecture": "神奈川県",
+      "municipality": "寒川町",
+      "review_status": "approved",
+      "address": "神奈川県高座郡寒川町宮山3916",
       "verified_at": "2026-08-25"
     }
   ]
