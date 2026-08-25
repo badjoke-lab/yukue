@@ -10,35 +10,11 @@
     "ordering": "candidate_site_id:name_ja:entity_id localeCompare(ja)",
     "canonical_exclusion": true,
     "source_candidate_count": 26,
-    "canonical_candidate_count": 3,
-    "pending_candidate_count": 23,
+    "canonical_candidate_count": 4,
+    "pending_candidate_count": 22,
     "selected_count": 5
   },
   "items": [
-    {
-      "entity_id": "shr-kishu-toshogu",
-      "name_ja": "紀州東照宮",
-      "status": "pending_jinja_source_review",
-      "promotion_authorized": false,
-      "jinja_state": null,
-      "matsuri_handoff": {
-        "place_ids": ["plc-kishu-toshogu"],
-        "source_ids": ["src-kishu-toshogu-pref-tourism", "src-waka-matsuri-2026-pref-tourism"],
-        "identity_evidence_ids": ["evd-kishu-toshogu-identity"],
-        "official_urls": [],
-        "relation_contexts": [
-          {
-            "relation_id": "rel-waka-matsuri-ritually-associated-kishu-toshogu",
-            "relation_type": "ritually_associated_with",
-            "direction": "matsuri_to_candidate",
-            "matsuri_entity_id": "fst-waka-matsuri",
-            "matsuri_entity_type": "festival",
-            "matsuri_name_ja": "和歌祭",
-            "evidence_ids": ["evd-rel-waka-matsuri-kishu-toshogu"]
-          }
-        ]
-      }
-    },
     {
       "entity_id": "shr-miyazaki-jingu",
       "name_ja": "宮﨑神宮",
@@ -131,6 +107,30 @@
             "matsuri_entity_type": "festival",
             "matsuri_name_ja": "春日若宮おん祭",
             "evidence_ids": ["evd-rel-kasuga-onmatsuri-wakamiya"]
+          }
+        ]
+      }
+    },
+    {
+      "entity_id": "shr-hitachi-sosogu-jinja",
+      "name_ja": "常陸國總社宮",
+      "status": "pending_jinja_source_review",
+      "promotion_authorized": false,
+      "jinja_state": null,
+      "matsuri_handoff": {
+        "place_ids": ["plc-hitachi-sosogu-jinja"],
+        "source_ids": ["src-hitachi-sosogu-official", "src-ishioka-matsuri-current-2026"],
+        "identity_evidence_ids": ["evd-hitachi-sosogu-identity"],
+        "official_urls": ["https://sosyagu.jp/"],
+        "relation_contexts": [
+          {
+            "relation_id": "rel-ishioka-matsuri-associated-with-sosogu",
+            "relation_type": "ritually_associated_with",
+            "direction": "matsuri_to_candidate",
+            "matsuri_entity_id": "fst-ishioka-matsuri",
+            "matsuri_entity_type": "festival",
+            "matsuri_name_ja": "石岡のおまつり",
+            "evidence_ids": ["evd-rel-ishioka-matsuri-sosogu"]
           }
         ]
       }
