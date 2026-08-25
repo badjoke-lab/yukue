@@ -29,6 +29,15 @@
       "verified_at": "2026-08-25",
       "current_place_id": "plc-samukawa-jinja",
       "official_links": ["https://samukawajinjya.jp/"]
+    },
+    {
+      "id": "shr-kishu-toshogu",
+      "canonical_name": "紀州東照宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-08-25",
+      "current_place_id": "plc-kishu-toshogu",
+      "official_links": ["https://www.kishutoshogu.org/"]
     }
   ],
   "states": [],
@@ -61,6 +70,15 @@
       "review_status": "approved",
       "verified_at": "2026-08-25",
       "summary": "寒川神社公式「神社への道案内」で神社名と所在地を確認。"
+    },
+    {
+      "id": "evd-jinja-kishu-toshogu-identity-geography-20260825",
+      "target_type": "entity",
+      "target_id": "shr-kishu-toshogu",
+      "source_id": "src-jinja-kishu-toshogu-official-20260825",
+      "review_status": "approved",
+      "verified_at": "2026-08-25",
+      "summary": "紀州東照宮公式サイトで神社名と所在地を確認。"
     }
   ],
   "sources": [
@@ -85,6 +103,14 @@
       "title": "神社への道案内",
       "publisher": "寒川神社",
       "url": "https://samukawajinjya.jp/access/",
+      "source_type": "official_organization",
+      "accessed_at": "2026-08-25"
+    },
+    {
+      "id": "src-jinja-kishu-toshogu-official-20260825",
+      "title": "紀州東照宮 公式サイト",
+      "publisher": "紀州東照宮",
+      "url": "https://www.kishutoshogu.org/",
       "source_type": "official_organization",
       "accessed_at": "2026-08-25"
     }
@@ -112,6 +138,14 @@
       "municipality": "寒川町",
       "review_status": "approved",
       "address": "神奈川県高座郡寒川町宮山3916",
+      "verified_at": "2026-08-25"
+    },
+    {
+      "id": "plc-kishu-toshogu",
+      "prefecture": "和歌山県",
+      "municipality": "和歌山市",
+      "review_status": "approved",
+      "address": "和歌山県和歌山市和歌浦西2-1-20",
       "verified_at": "2026-08-25"
     }
   ]
