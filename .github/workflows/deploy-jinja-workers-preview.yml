@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "apps/jinja/**"
+      - "packages/ui/**"
       - "config/jinja-preview-deployment-gate.json"
       - "config/jinja-implementation-gate.json"
       - "config/jinja-start-gate.json"
@@ -15,8 +16,6 @@ on:
       - "package.json"
       - ".github/workflows/deploy-jinja-workers-preview.yml"
   workflow_dispatch:
-  schedule:
-    - cron: "35 16 26 8 *"
 
 permissions:
   contents: read
