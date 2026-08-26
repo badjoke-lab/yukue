@@ -16,8 +16,6 @@ on:
       - "package.json"
       - ".github/workflows/deploy-jinja-workers-preview.yml"
   workflow_dispatch:
-  schedule:
-    - cron: "0 17 26 8 *"
 
 permissions:
   contents: read
