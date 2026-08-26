@@ -38,6 +38,15 @@
       "verified_at": "2026-08-25",
       "current_place_id": "plc-kishu-toshogu",
       "official_links": ["https://www.kishutoshogu.org/"]
+    },
+    {
+      "id": "shr-hitachi-sosogu-jinja",
+      "canonical_name": "常陸國總社宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-08-25",
+      "current_place_id": "plc-hitachi-sosogu-jinja",
+      "official_links": ["https://sosyagu.jp/"]
     }
   ],
   "states": [],
@@ -79,6 +88,15 @@
       "review_status": "approved",
       "verified_at": "2026-08-25",
       "summary": "紀州東照宮公式サイトで神社名と所在地を確認。"
+    },
+    {
+      "id": "evd-jinja-hitachi-sosogu-identity-geography-20260825",
+      "target_type": "entity",
+      "target_id": "shr-hitachi-sosogu-jinja",
+      "source_id": "src-jinja-hitachi-sosogu-official-20260825",
+      "review_status": "approved",
+      "verified_at": "2026-08-25",
+      "summary": "常陸國總社宮公式サイトで神社名と所在地を確認。"
     }
   ],
   "sources": [
@@ -111,6 +129,14 @@
       "title": "紀州東照宮 公式サイト",
       "publisher": "紀州東照宮",
       "url": "https://www.kishutoshogu.org/",
+      "source_type": "official_organization",
+      "accessed_at": "2026-08-25"
+    },
+    {
+      "id": "src-jinja-hitachi-sosogu-official-20260825",
+      "title": "常陸國總社宮 公式サイト",
+      "publisher": "常陸國總社宮",
+      "url": "https://sosyagu.jp/",
       "source_type": "official_organization",
       "accessed_at": "2026-08-25"
     }
@@ -146,6 +172,14 @@
       "municipality": "和歌山市",
       "review_status": "approved",
       "address": "和歌山県和歌山市和歌浦西2-1-20",
+      "verified_at": "2026-08-25"
+    },
+    {
+      "id": "plc-hitachi-sosogu-jinja",
+      "prefecture": "茨城県",
+      "municipality": "石岡市",
+      "review_status": "approved",
+      "address": "茨城県石岡市総社2丁目8-1",
       "verified_at": "2026-08-25"
     }
   ]
