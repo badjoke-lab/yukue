@@ -10,8 +10,8 @@
     "ordering": "candidate_site_id:name_ja:entity_id localeCompare(ja)",
     "canonical_exclusion": true,
     "source_candidate_count": 26,
-    "canonical_candidate_count": 4,
-    "pending_candidate_count": 22,
+    "canonical_candidate_count": 5,
+    "pending_candidate_count": 21,
     "selected_count": 5
   },
   "items": [
@@ -112,25 +112,25 @@
       }
     },
     {
-      "entity_id": "shr-hitachi-sosogu-jinja",
-      "name_ja": "常陸國總社宮",
+      "entity_id": "shr-shinjo-tenmangu",
+      "name_ja": "新庄天満神社",
       "status": "pending_jinja_source_review",
       "promotion_authorized": false,
       "jinja_state": null,
       "matsuri_handoff": {
-        "place_ids": ["plc-hitachi-sosogu-jinja"],
-        "source_ids": ["src-hitachi-sosogu-official", "src-ishioka-matsuri-current-2026"],
-        "identity_evidence_ids": ["evd-hitachi-sosogu-identity"],
-        "official_urls": ["https://sosyagu.jp/"],
+        "place_ids": ["plc-shinjo-tenmangu"],
+        "source_ids": ["src-shinjo-tenmangu"],
+        "identity_evidence_ids": ["evd-shinjo-tenmangu-identity"],
+        "official_urls": ["https://shinjo-matsuri.jp/db/tenman"],
         "relation_contexts": [
           {
-            "relation_id": "rel-ishioka-matsuri-associated-with-sosogu",
+            "relation_id": "rel-shinjo-matsuri-associated-with-tenmangu",
             "relation_type": "ritually_associated_with",
             "direction": "matsuri_to_candidate",
-            "matsuri_entity_id": "fst-ishioka-matsuri",
+            "matsuri_entity_id": "fst-shinjo-matsuri",
             "matsuri_entity_type": "festival",
-            "matsuri_name_ja": "石岡のおまつり",
-            "evidence_ids": ["evd-rel-ishioka-matsuri-sosogu"]
+            "matsuri_name_ja": "新庄まつり",
+            "evidence_ids": ["evd-rel-shinjo-matsuri-tenmangu"]
           }
         ]
       }
