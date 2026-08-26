@@ -1,9 +1,9 @@
 {
   "schema_version": "matsuri.corpus-quality-baseline.v2",
-  "observed_at": "2026-08-26T03:52:00.000Z",
+  "observed_at": "2026-08-26T03:55:19.264Z",
   "observed_on_jst": "2026-08-26",
-  "source_workflow_run_id": 0,
-  "source_workflow_job_id": 0,
+  "source_workflow_run_id": 32928241607,
+  "source_workflow_job_id": 98055327220,
   "classifier": "scripts/audit-matsuri-corpus-quality.mjs",
   "governing_spec": "docs/nationwide-corpus-scaling.md",
   "status": "measurement-only",
@@ -16,8 +16,8 @@
     "tier_c_history_monitoring": 29,
     "below_tier_a": 0,
     "public_primary_total": 132,
-    "tier_a_overdue": 0,
-    "tier_a_due_within_48h": 3,
+    "tier_a_overdue": 3,
+    "tier_a_due_within_48h": 0,
     "tier_a_publication_metadata_missing": 91,
     "with_completed_occurrence_history": 55,
     "with_multi_year_completed_occurrence_history": 37,
@@ -26,8 +26,8 @@
     "with_direct_profile_evidence": 114
   },
   "by_entity_type": {
-    "festival": {"records":103,"tier_a_index":67,"tier_b_verified":9,"tier_c_history_monitoring":27,"below_tier_a":0},
-    "folk_performance": {"records":29,"tier_a_index":27,"tier_b_verified":0,"tier_c_history_monitoring":2,"below_tier_a":0},
+    "festival": {"records":101,"tier_a_index":65,"tier_b_verified":9,"tier_c_history_monitoring":27,"below_tier_a":0},
+    "folk_performance": {"records":31,"tier_a_index":29,"tier_b_verified":0,"tier_c_history_monitoring":2,"below_tier_a":0},
     "tradition_unit": {"records":1,"tier_a_index":0,"tier_b_verified":0,"tier_c_history_monitoring":0,"below_tier_a":1}
   },
   "tier_a_missing_dimension_counts": {},
@@ -36,7 +36,7 @@
     "current_state_evidence_present": 70,
     "dated_observation_anchor_present": 74,
     "direct_profile_evidence_present": 18,
-    "place_model_present": 72,
+    "place_model_present": 70,
     "timing_or_recurrence_present": 76
   },
   "tier_b_missing_history_dimension_counts": {
@@ -47,7 +47,7 @@
   },
   "coverage": {
     "prefecture_count": 47,
-    "municipality_count": 107,
+    "municipality_count": 105,
     "source_family_entity_coverage": {
       "municipal_official": 1,
       "municipality": 24,
