@@ -47,7 +47,7 @@
   },
   "coverage": {
     "prefecture_count": 47,
-    "municipality_count": 108,
+    "municipality_count": 107,
     "source_family_entity_coverage": {
       "municipal_official": 1,
       "municipality": 24,
