@@ -9,6 +9,8 @@ const gate = JSON.parse(fs.readFileSync(path.join(repoRoot, "config", "jinja-imp
 const previewGate = JSON.parse(fs.readFileSync(path.join(repoRoot, "config", "jinja-preview-deployment-gate.json"), "utf8"));
 const publicGate = JSON.parse(fs.readFileSync(path.join(repoRoot, "config", "jinja-start-gate.json"), "utf8"));
 const html = fs.readFileSync(path.join(appRoot, "src", "index.html"), "utf8");
+const buildScript = fs.readFileSync(path.join(appRoot, "scripts", "build.mjs"), "utf8");
+const sharedTokens = fs.readFileSync(path.join(repoRoot, "packages", "ui", "src", "styles", "tokens.css"), "utf8");
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -40,4 +42,12 @@ assert(html.includes("Public preview."), "Jinja page must visibly state the work
 assert(html.includes("workers.dev"), "Jinja page must identify the workers.dev preview scope");
 assert(!html.includes("jinja-yukue.badjoke-lab.com"), "Public preview must not introduce a production custom hostname");
 
-console.log("Jinja workers.dev preview boundary verified; custom-domain and canonical publication remain blocked.");
+assert(buildScript.includes('packages", "ui", "src", "styles"'), "Jinja build must source styles from packages/ui");
+assert(buildScript.includes('data-site="jinja"'), "Jinja build must select the shared Jinja theme");
+assert(!buildScript.includes("color-scheme: dark"), "Jinja build must not hard-code a dark color scheme");
+assert(!buildScript.includes("font-family: system-ui"), "Jinja build must not hard-code system-ui");
+assert(sharedTokens.includes('--color-bg: #ffffff;'), "Shared Yukue UI background token changed unexpectedly");
+assert(sharedTokens.includes('--font-family-mincho:'), "Shared Yukue UI Mincho font token missing");
+assert(sharedTokens.includes('--accent-jinja: #a33a32;'), "Shared Jinja accent token missing");
+
+console.log("Jinja workers.dev preview boundary and shared Yukue UI contract verified; custom-domain and canonical publication remain blocked.");
