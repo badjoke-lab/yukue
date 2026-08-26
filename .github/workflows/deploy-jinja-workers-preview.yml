@@ -15,6 +15,8 @@ on:
       - "package.json"
       - ".github/workflows/deploy-jinja-workers-preview.yml"
   workflow_dispatch:
+  schedule:
+    - cron: "35 16 26 8 *"
 
 permissions:
   contents: read
@@ -60,8 +62,30 @@ jobs:
         run: npx wrangler deploy --config wrangler.jinja.preview.jsonc
 
       - name: Verify public preview
+        shell: bash
         run: |
-          node -e "fetch('https://jinja-yukue.badjoke-lab.workers.dev/').then(async r => { const t = await r.text(); if (!r.ok || !t.includes('神社のゆくえ') || !t.includes('Public preview')) process.exit(1); console.log('Jinja workers.dev preview reachable:', r.status); })"
+          node <<'NODE'
+          const url = 'https://jinja-yukue.badjoke-lab.workers.dev/';
+          const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+          let last = 'no response';
+          for (let attempt = 1; attempt <= 12; attempt += 1) {
+            try {
+              const response = await fetch(url, { cache: 'no-store' });
+              const text = await response.text();
+              if (response.ok && text.includes('神社のゆくえ') && text.includes('Public preview')) {
+                console.log(`Jinja workers.dev preview reachable: ${response.status} (attempt ${attempt})`);
+                process.exit(0);
+              }
+              last = `HTTP ${response.status}; expected preview markers missing`;
+            } catch (error) {
+              last = error instanceof Error ? error.message : String(error);
+            }
+            console.log(`Jinja preview verification attempt ${attempt}/12 failed: ${last}`);
+            if (attempt < 12) await sleep(5000);
+          }
+          console.error(`Jinja workers.dev preview verification failed after 12 attempts: ${last}`);
+          process.exit(1);
+          NODE
 
       - name: Record deployment result
         if: always()
