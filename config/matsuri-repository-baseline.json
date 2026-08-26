@@ -1,17 +1,17 @@
 {
   "schema_version": "matsuri.repository-baseline.v1",
-  "observed_on": "2026-08-25",
+  "observed_on": "2026-08-26",
   "status": "repository-maintenance-current",
   "counts": {
-    "f1_batches": 23,
+    "f1_batches": 24,
     "maintenance_bundles": 99,
     "correction_bundles": 23,
-    "additive_application_slots": 122,
+    "additive_application_slots": 123,
     "correction_application_slots": 23,
     "correction_records": 41,
     "corrected_logical_ids": 38,
-    "public_entities": 187,
-    "entities_without_external_links": 67
+    "public_entities": 195,
+    "entities_without_external_links": 75
   },
   "boundaries": {
     "f2_25_owner_access": "not-pending",
