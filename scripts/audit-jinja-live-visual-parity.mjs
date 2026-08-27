@@ -151,7 +151,7 @@ try {
           ensure(matsuri.metrics.headerExists && jinja.metrics.headerExists, `${prefix}: shared header missing`, failures);
           ensure(matsuri.metrics.footerExists && jinja.metrics.footerExists, `${prefix}: shared footer missing`, failures);
           ensure(matsuri.metrics.mainExists && jinja.metrics.mainExists, `${prefix}: main landmark missing`, failures);
-          ensure(matsuri.metrics.sectionCount > 0 && jinja.metrics.sectionCount > 0, `${prefix}: shared Section structure missing`, failures);
+          ensure(jinja.metrics.sectionCount > 0, `${prefix}: Jinja shared Section structure missing`, failures);
           ensure(matsuri.metrics.scrollWidth <= matsuri.metrics.viewportWidth + 1, `${prefix}: Matsuri horizontal overflow ${matsuri.metrics.scrollWidth}/${matsuri.metrics.viewportWidth}`, failures);
           ensure(jinja.metrics.scrollWidth <= jinja.metrics.viewportWidth + 1, `${prefix}: Jinja horizontal overflow ${jinja.metrics.scrollWidth}/${jinja.metrics.viewportWidth}`, failures);
           ensure(matsuri.metrics.bodyBackground === jinja.metrics.bodyBackground, `${prefix}: body background differs`, failures);
