@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.mjs",
+    "dev": "pnpm --filter @badjoke-lab/yukue-matsuri exec astro dev ../jinja",
+    "build": "pnpm --filter @badjoke-lab/yukue-matsuri exec astro build ../jinja",
     "check": "node scripts/check.mjs && node scripts/check-data.mjs && node scripts/audit-tier-a-candidates.mjs --summary",
     "typecheck": "node scripts/check.mjs && node scripts/check-data.mjs",
     "audit:tier-a-candidates": "node scripts/audit-tier-a-candidates.mjs"
