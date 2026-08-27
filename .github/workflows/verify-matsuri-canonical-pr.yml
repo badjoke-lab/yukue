@@ -57,7 +57,7 @@ jobs:
               exit 0
             fi
 
-            if printf '%s\n' "$output" | grep -Eq 'record_count mismatch|records length mismatch|Manifest .* count mismatch|Sitemap entry-count mismatch|Required production|Manifest site_origin mismatch|Representative record|Unexpected version site_id|Unexpected manifest site_id|Entity feed contains no public records|Search page does not reference|Sitemap does not contain'; then
+            if printf '%s\n' "$output" | grep -Eq 'record_count mismatch|records length mismatch|Manifest .* count mismatch|Sitemap entry-count mismatch|Occurrence .* mismatch|missing from the deployed feed|Required production|Manifest site_origin mismatch|Representative record|Unexpected version site_id|Unexpected manifest site_id|Entity feed contains no public records|Search page does not reference|Sitemap does not contain|Sitemap contains non-canonical'; then
               echo "Deterministic canonical-content mismatch detected; provisioning retries will not change this result."
               exit "$status"
             fi
