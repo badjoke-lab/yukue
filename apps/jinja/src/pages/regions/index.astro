@@ -1,0 +1,41 @@
+---
+import Container from "../../../../../packages/ui/src/components/Container.astro";
+import Section from "../../../../../packages/ui/src/components/Section.astro";
+import JinjaFrame from "../../components/JinjaFrame.astro";
+import { approvedShrines, regionCounts } from "../../data/jinja.ts";
+---
+
+<JinjaFrame title="地域 — 神社のゆくえ" description="都道府県からreview済み神社記録をたどります。" activeHref="/regions/">
+  <section class="page-hero">
+    <Container size="wide">
+      <p class="page-hero__kicker">Regions</p>
+      <h1>地域からたどる</h1>
+      <p>現在のpreviewに収録した神社を都道府県別に表示します。</p>
+    </Container>
+  </section>
+
+  {regionCounts.map((region) => (
+    <Section kicker="Prefecture" title={`${region.prefecture} — ${region.count}件`}>
+      <div class="region-list">
+        {approvedShrines.filter(({ place }) => place?.prefecture === region.prefecture).map(({ entity, place }) => (
+          <a href={`/shrines/${entity.id}/`}>
+            <strong>{entity.canonical_name}</strong>
+            <span>{place?.municipality}</span>
+          </a>
+        ))}
+      </div>
+    </Section>
+  ))}
+</JinjaFrame>
+
+<style>
+  .page-hero { padding-block: var(--space-14) var(--space-10); border-bottom: var(--rule-standard); }
+  .page-hero__kicker { margin: 0 0 var(--space-3); color: var(--color-accent); font-size: var(--font-size-sm); letter-spacing: .12em; }
+  .page-hero h1 { margin: 0; font-size: var(--font-size-entity); font-weight: 500; letter-spacing: .06em; }
+  .page-hero p:last-child { max-width: var(--container-prose); margin: var(--space-5) 0 0; color: var(--color-text-soft); }
+  .region-list { border-top: var(--rule-strong); }
+  .region-list a { display: grid; grid-template-columns: minmax(12rem,1fr) 1fr; gap: var(--space-5); padding-block: var(--space-5); border-bottom: var(--rule-standard); color: var(--color-text); text-decoration: none; }
+  .region-list strong { font-size: var(--font-size-h3); font-weight: 500; }
+  .region-list span { color: var(--color-muted); }
+  @media (max-width: 640px) { .region-list a { grid-template-columns: 1fr; gap: var(--space-1); } }
+</style>
