@@ -7,7 +7,9 @@ const gate = JSON.parse(fs.readFileSync(path.join(root, "config", "jinja-preview
 const wranglerText = fs.readFileSync(path.join(root, "wrangler.jinja.preview.jsonc"), "utf8");
 const wrangler = JSON.parse(wranglerText.replace(/^\s*\/\/.*$/gmu, ""));
 const canonical = JSON.parse(fs.readFileSync(path.join(root, "apps", "jinja", "data", "canonical.json"), "utf8"));
-const index = fs.readFileSync(path.join(root, "apps", "jinja", "src", "index.html"), "utf8");
+const packageText = fs.readFileSync(path.join(root, "apps", "jinja", "package.json"), "utf8");
+const frameSource = fs.readFileSync(path.join(root, "apps", "jinja", "src", "components", "JinjaFrame.astro"), "utf8");
+const homeSource = fs.readFileSync(path.join(root, "apps", "jinja", "src", "pages", "index.astro"), "utf8");
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -24,7 +26,10 @@ assert(wrangler.workers_dev === true, "Jinja preview must enable workers.dev");
 assert(wrangler.assets?.directory === "./apps/jinja/dist", "Unexpected Jinja preview asset directory");
 assert(!("routes" in wrangler), "Jinja preview must not define routes or a custom domain");
 assert(canonical.publication_status === "public_preview_noncanonical", "Jinja canonical store must identify the noncanonical public preview state");
-assert(index.includes('content="noindex,nofollow"'), "Jinja preview must remain noindex,nofollow");
-assert(index.includes("Public preview"), "Jinja preview page must identify itself as a public preview");
+assert(packageText.includes("astro build"), "Jinja preview must be built as an Astro application");
+assert(frameSource.includes('robots="noindex,nofollow"'), "Jinja preview must remain noindex,nofollow");
+assert(frameSource.includes("PageShell") && frameSource.includes("SiteHeader") && frameSource.includes("SiteFooter"), "Jinja preview must use the shared Yukue shell");
+assert(homeSource.includes("Public preview."), "Jinja preview page must identify itself as a public preview");
+assert(homeSource.includes("workers.dev"), "Jinja preview page must identify the workers.dev scope");
 
-console.log(`Jinja workers.dev preview contract verified: ${gate.scope.workers_dev_origin}`);
+console.log(`Jinja workers.dev Astro preview contract verified: ${gate.scope.workers_dev_origin}`);
