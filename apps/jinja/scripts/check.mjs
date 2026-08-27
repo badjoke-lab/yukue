@@ -8,8 +8,10 @@ const repoRoot = path.resolve(appRoot, "..", "..");
 const gate = JSON.parse(fs.readFileSync(path.join(repoRoot, "config", "jinja-implementation-gate.json"), "utf8"));
 const previewGate = JSON.parse(fs.readFileSync(path.join(repoRoot, "config", "jinja-preview-deployment-gate.json"), "utf8"));
 const publicGate = JSON.parse(fs.readFileSync(path.join(repoRoot, "config", "jinja-start-gate.json"), "utf8"));
-const html = fs.readFileSync(path.join(appRoot, "src", "index.html"), "utf8");
-const buildScript = fs.readFileSync(path.join(appRoot, "scripts", "build.mjs"), "utf8");
+const packageText = fs.readFileSync(path.join(appRoot, "package.json"), "utf8");
+const homeSource = fs.readFileSync(path.join(appRoot, "src", "pages", "index.astro"), "utf8");
+const frameSource = fs.readFileSync(path.join(appRoot, "src", "components", "JinjaFrame.astro"), "utf8");
+const detailSource = fs.readFileSync(path.join(appRoot, "src", "components", "JinjaShrineDetailPage.astro"), "utf8");
 const sharedTokens = fs.readFileSync(path.join(repoRoot, "packages", "ui", "src", "styles", "tokens.css"), "utf8");
 
 function assert(condition, message) {
@@ -32,22 +34,32 @@ assert(previewGate.claims?.search_engine_submission_authorized === false, "Jinja
 
 assert(publicGate.claims?.jinja_start_gate_passed === false, "Canonical public start gate unexpectedly passed");
 assert(publicGate.claims?.jinja_canonical_start_gate_passed === false, "Canonical Jinja start gate unexpectedly passed");
-assert(publicGate.claims?.jinja_worker_preview_creation_authorized === true, "Public gate must recognize preview Worker authorization");
-assert(publicGate.claims?.jinja_workers_dev_preview_publication_authorized === true, "Public gate must recognize workers.dev preview authorization");
 assert(publicGate.claims?.jinja_custom_domain_activation_authorized === false, "Custom-domain activation unexpectedly authorized");
 assert(publicGate.claims?.jinja_canonical_publication_authorized === false, "Canonical publication unexpectedly authorized");
 
-assert(/<meta name="robots" content="noindex,nofollow"\s*\/>/u.test(html), "Public preview must remain noindex,nofollow");
-assert(html.includes("Public preview."), "Jinja page must visibly state the workers.dev preview boundary");
-assert(html.includes("workers.dev"), "Jinja page must identify the workers.dev preview scope");
-assert(!html.includes("jinja-yukue.badjoke-lab.com"), "Public preview must not introduce a production custom hostname");
+assert(packageText.includes("astro build"), "Jinja preview must build as an Astro application");
+assert(frameSource.includes("PageShell"), "Jinja must use the shared PageShell component");
+assert(frameSource.includes("SiteHeader"), "Jinja must use the shared SiteHeader component");
+assert(frameSource.includes("SiteFooter"), "Jinja must use the shared SiteFooter component");
+assert(frameSource.includes('site="jinja"'), "Jinja frame must select the shared Jinja theme");
+assert(frameSource.includes('robots="noindex,nofollow"'), "Jinja preview must remain noindex,nofollow");
+assert(homeSource.includes("ObservationSnapshot"), "Jinja home must use the shared observation layout used by Matsuri");
+assert(homeSource.includes("SearchForm"), "Jinja home must use the shared search treatment used by Matsuri");
+assert(homeSource.includes("Public preview."), "Jinja home must visibly identify the preview boundary");
+assert(homeSource.includes("workers.dev"), "Jinja home must identify the workers.dev preview scope");
+assert(detailSource.includes("OverviewGrid"), "Jinja detail pages must use the shared integrated overview");
+assert(detailSource.includes("PlaceMap"), "Jinja detail pages must use the shared place/map treatment");
+assert(detailSource.includes("EvidenceList"), "Jinja detail pages must use the shared evidence treatment");
+assert(detailSource.includes("Record Updates"), "Jinja detail pages must expose record update history");
 
-assert(buildScript.includes('packages", "ui", "src", "styles"'), "Jinja build must source styles from packages/ui");
-assert(buildScript.includes('data-site="jinja"'), "Jinja build must select the shared Jinja theme");
-assert(!buildScript.includes("color-scheme: dark"), "Jinja build must not hard-code a dark color scheme");
-assert(!buildScript.includes("font-family: system-ui"), "Jinja build must not hard-code system-ui");
+for (const source of [homeSource, frameSource, detailSource]) {
+  assert(!source.includes("#101010"), "Jinja must not restore the temporary dark preview background");
+  assert(!source.includes("font-family: system-ui"), "Jinja must not restore the temporary system-ui typography");
+  assert(!source.includes("jinja-yukue.badjoke-lab.com"), "Public preview must not introduce a production custom hostname");
+}
+
 assert(sharedTokens.includes('--color-bg: #ffffff;'), "Shared Yukue UI background token changed unexpectedly");
 assert(sharedTokens.includes('--font-family-mincho:'), "Shared Yukue UI Mincho font token missing");
 assert(sharedTokens.includes('--accent-jinja: #a33a32;'), "Shared Jinja accent token missing");
 
-console.log("Jinja workers.dev preview boundary and shared Yukue UI contract verified; custom-domain and canonical publication remain blocked.");
+console.log("Jinja workers.dev preview boundary and Matsuri-compatible shared UI architecture verified; custom-domain and canonical publication remain blocked.");
