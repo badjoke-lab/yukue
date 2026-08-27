@@ -280,6 +280,17 @@ if (canonicalMode) {
   }
 
   const expectedCounts = productionBaseline.expected_counts;
+  const locations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(
+    (match) => match[1],
+  );
+
+  console.log(
+    `canonical observed counts: entities=${String(entities.record_count)} events=${String(events.record_count)} relations=${String(relations.record_count)} occurrences=${String(occurrences.record_count)} sitemap_entries=${locations.length}`,
+  );
+  console.log(
+    `canonical observed record lengths: entities=${entities.records?.length ?? "missing"} events=${events.records?.length ?? "missing"} relations=${relations.records?.length ?? "missing"} occurrences=${occurrences.records?.length ?? "missing"}`,
+  );
+
   assertRecordCount("Entity", entities, expectedCounts.entities);
   assertRecordCount("Event", events, expectedCounts.events);
   assertRecordCount("Relation", relations, expectedCounts.relations);
@@ -324,10 +335,6 @@ if (canonicalMode) {
       }
     }
   }
-
-  const locations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(
-    (match) => match[1],
-  );
 
   if (locations.length === 0) {
     throw new Error("Sitemap contains no <loc> entries");
