@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
-  "observed_on": "2026-08-19",
-  "release_merge_commit": "96c7f778133b67b523b29344d8226a4c097b104e",
+  "observed_on": "2026-08-27",
+  "release_merge_commit": "5466a1926bcecbb8a36dffc5a80f517ee8f2bcbd",
   "expected_counts": {
-    "entities": 123,
+    "entities": 203,
     "events": 106,
     "relations": 70,
-    "occurrences": 169,
-    "sitemap_entries": 241
+    "occurrences": 170,
+    "sitemap_entries": 321
   },
   "required_routes": [
     "/festivals/aso-onda-matsuri/",
@@ -196,7 +196,7 @@
     { "id": "occ-sada-shin-noh-special-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
     { "id": "occ-sanuki-takamatsu-2022", "record_version": 1, "outcome": "held", "scale": "unknown" },
     { "id": "occ-sanuki-takamatsu-2025", "record_version": 1, "outcome": "held", "scale": "modified" },
-    { "id": "occ-sanuki-takamatsu-2026", "record_version": 1, "outcome": "scheduled", "scale": "modified" },
+    { "id": "occ-sanuki-takamatsu-2026", "record_version": 2, "outcome": "held", "scale": "modified" },
     { "id": "occ-niihama-taiko-2020", "record_version": 1, "outcome": "cancelled", "scale": "unknown" },
     { "id": "occ-niihama-taiko-2021", "record_version": 1, "outcome": "not_held", "scale": "unknown" },
     { "id": "occ-niihama-taiko-2022", "record_version": 1, "outcome": "held", "scale": "modified" },
@@ -219,7 +219,7 @@
     { "id": "occ-kagoshima-ohara-2026-schedule", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
     { "id": "occ-kishiwada-danjiri-2026-september", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
     { "id": "occ-kishiwada-danjiri-2026-october", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
-    { "id": "occ-tottori-shanshan-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
+    { "id": "occ-tottori-shanshan-2026", "record_version": 2, "outcome": "held", "scale": "unknown" },
     { "id": "occ-kobe-matsuri-2026", "record_version": 1, "outcome": "held", "scale": "unknown" },
     { "id": "occ-kiryu-yagibushi-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
     { "id": "occ-nagano-binzuru-2025", "record_version": 1, "outcome": "held", "scale": "unknown" },

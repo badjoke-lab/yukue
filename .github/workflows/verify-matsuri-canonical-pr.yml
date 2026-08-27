@@ -48,16 +48,22 @@ jobs:
 
           for attempt in $(seq 1 "$attempts"); do
             echo "Canonical verification attempt $attempt of $attempts"
-            node scripts/check-matsuri-deployed.mjs --canonical
+            output="$(node scripts/check-matsuri-deployed.mjs --canonical 2>&1)"
             status=$?
+            printf '%s\n' "$output"
 
             if [ "$status" -eq 0 ]; then
               echo "Canonical verification succeeded on attempt $attempt."
               exit 0
             fi
 
+            if printf '%s\n' "$output" | grep -Eq 'record_count mismatch|records length mismatch|Manifest .* count mismatch|Sitemap entry-count mismatch|Occurrence .* mismatch|missing from the deployed feed|Required production|Manifest site_origin mismatch|Representative record|Unexpected version site_id|Unexpected manifest site_id|Entity feed contains no public records|Search page does not reference|Sitemap does not contain|Sitemap contains non-canonical'; then
+              echo "Deterministic canonical-content mismatch detected; provisioning retries will not change this result."
+              exit "$status"
+            fi
+
             if [ "$attempt" -lt "$attempts" ]; then
-              echo "Custom Domain is not ready or verification failed; retrying in ${delay_seconds}s."
+              echo "Custom Domain is not ready or a transient verification failure occurred; retrying in ${delay_seconds}s."
               sleep "$delay_seconds"
             fi
           done
@@ -72,5 +78,6 @@ jobs:
           echo "## Matsuri canonical-origin gate" >> "$GITHUB_STEP_SUMMARY"
           echo "- Origin: $MATSURI_CHECK_ORIGIN" >> "$GITHUB_STEP_SUMMARY"
           echo "- Canonical mode: true" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Retry window: 18 attempts × 30 seconds" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Retry window: up to 18 attempts × 30 seconds for transient/provisioning failures" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Deterministic content/baseline mismatches: fail immediately" >> "$GITHUB_STEP_SUMMARY"
           echo "- Commit: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"

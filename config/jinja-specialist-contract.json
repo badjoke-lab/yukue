@@ -1,13 +1,14 @@
 {
   "format_version": 1,
   "site_id": "jinja",
-  "status": "pre_activation_contract_defined",
+  "status": "implementation_and_preview_active",
   "issue": 284,
   "publication_tiers": {
     "A": {
       "name": "Public Index",
       "requires": ["reviewed_identity", "reviewed_geography", "authoritative_identity_source", "source_verified_at", "identity_dedupe", "published_at"],
-      "matsuri_relation_alone_sufficient": false
+      "matsuri_relation_alone_sufficient": false,
+      "current_stage_surface": "workers_dev_noncanonical_preview"
     },
     "B": {
       "name": "Public Verified",
@@ -23,13 +24,25 @@
   "event_types": ["founded", "relocated", "transferred", "rebuilt", "destroyed", "damaged", "merged", "enshrined", "split_or_reestablished", "administration_changed", "corporate_status_changed", "affiliation_changed", "designation_added", "designation_changed", "designation_removed", "related_festival_changed", "other_reviewed_change"],
   "detail_sections": ["identity", "current_state", "location", "profile", "administration_and_relations", "related_matsuri", "designations", "major_structures", "timeline", "focused_changes", "evidence", "sources", "verification_and_corrections", "machine_readable"],
   "portal_blocks_jinja": false,
+  "activation": {
+    "repository_local_implementation_authorized": true,
+    "workers_dev_preview_authorized": true,
+    "workers_dev_origin": "https://jinja-yukue.badjoke-lab.workers.dev",
+    "custom_domain_authorized": false,
+    "canonical_publication_authorized": false,
+    "search_submission_authorized": false,
+    "indexable": false,
+    "canonical_activation_requires_completed_matsuri_stabilization": true
+  },
   "boundaries": {
-    "apps_jinja_allowed_before_start_gate": false,
-    "worker_allowed_before_start_gate": false,
-    "hostname_or_route_allowed_before_start_gate": false,
-    "public_records_allowed_before_start_gate": false,
+    "apps_jinja_allowed": true,
+    "preview_worker_allowed": true,
+    "workers_dev_public_preview_allowed": true,
+    "custom_hostname_or_route_allowed": false,
+    "canonical_public_records_allowed": false,
+    "search_submission_allowed": false,
     "infer_state_from_matsuri": false,
-    "jinja_activation_authorized_by_this_file": false,
+    "specialist_contract_itself_grants_activation": false,
     "jiin_active": false,
     "tomurai_active": false
   }
