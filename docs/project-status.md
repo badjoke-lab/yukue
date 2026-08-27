@@ -76,6 +76,26 @@ These are current repository measurements, not a claim of national completeness.
 
 Matsuri nationwide scaling continues toward larger public A/B/C coverage. A difficult or overdue Tier A record does not globally block unrelated valid publication.
 
+## Matsuri stabilization review
+
+The stabilization machine record remains in `reviewing` state. These exact observations remain current and are retained here because repository validators treat them as explicit public-safe status markers:
+
+```text
+Started               2026-07-27
+Minimum duration      14 days
+Earliest review       2026-08-10
+Current status        reviewing
+Review eligible       true
+Formal review complete false
+Known unresolved critical corrections   0
+Production deployment failures           1
+Manual maintenance burden                acceptable
+Cloudflare Web Analytics traffic receipt pending
+Search Console observation               pending
+```
+
+The current source of truth is `config/matsuri-stabilization-review.json`. Owner-private Analytics and Search Console observations remain pending; they are never inferred or fabricated.
+
 ## Matsuri freshness maintenance
 
 The 2026-08-27 freshness audit identifies one closed-unresolved occurrence:
