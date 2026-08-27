@@ -4,10 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "pnpm --filter @badjoke-lab/yukue-matsuri exec astro dev --root ../jinja",
-    "build": "pnpm --filter @badjoke-lab/yukue-matsuri exec astro build --root ../jinja",
+    "dev": "astro dev",
+    "build": "astro build",
     "check": "node scripts/check.mjs && node scripts/check-data.mjs && node scripts/audit-tier-a-candidates.mjs --summary",
     "typecheck": "node scripts/check.mjs && node scripts/check-data.mjs",
     "audit:tier-a-candidates": "node scripts/audit-tier-a-candidates.mjs"
+  },
+  "dependencies": {
+    "@badjoke-lab/yukue-ui": "workspace:*",
+    "astro": "7.1.1"
   }
 }
