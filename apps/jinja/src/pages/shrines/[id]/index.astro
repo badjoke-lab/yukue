@@ -1,0 +1,16 @@
+---
+import JinjaShrineDetailPage from "../../../components/JinjaShrineDetailPage.astro";
+import { approvedShrines } from "../../../data/jinja.ts";
+
+export function getStaticPaths() {
+  return approvedShrines.map(({ entity }) => ({
+    params: { id: entity.id },
+    props: { id: entity.id },
+  }));
+}
+
+interface Props { id: string; }
+const { id } = Astro.props;
+---
+
+<JinjaShrineDetailPage id={id} />
