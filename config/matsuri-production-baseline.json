@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
-  "observed_on": "2026-08-19",
-  "release_merge_commit": "96c7f778133b67b523b29344d8226a4c097b104e",
+  "observed_on": "2026-08-27",
+  "release_merge_commit": "5466a1926bcecbb8a36dffc5a80f517ee8f2bcbd",
   "expected_counts": {
-    "entities": 123,
+    "entities": 203,
     "events": 106,
     "relations": 70,
-    "occurrences": 169,
-    "sitemap_entries": 241
+    "occurrences": 170,
+    "sitemap_entries": 321
   },
   "required_routes": [
     "/festivals/aso-onda-matsuri/",
