@@ -1,0 +1,73 @@
+name: Audit Jinja live visual parity
+
+on:
+  pull_request:
+    paths:
+      - "scripts/audit-jinja-live-visual-parity.mjs"
+      - ".github/workflows/audit-jinja-live-visual-parity.yml"
+      - "apps/jinja/**"
+      - "packages/ui/**"
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/audit-jinja-live-visual-parity.mjs"
+      - ".github/workflows/audit-jinja-live-visual-parity.yml"
+      - "apps/jinja/**"
+      - "packages/ui/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        run: npm install --global pnpm@11.10.0
+
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Audit live Matsuri/Jinja parity
+        run: node scripts/audit-jinja-live-visual-parity.mjs
+
+      - name: Upload live visual parity artifact
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: jinja-live-visual-parity-${{ github.run_id }}
+          path: artifacts/jinja-live-visual-parity/**
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Write audit summary
+        if: always()
+        shell: bash
+        run: |
+          echo "## Jinja live visual parity" >> "$GITHUB_STEP_SUMMARY"
+          REPORT="artifacts/jinja-live-visual-parity/report.json"
+          if [ -f "$REPORT" ]; then
+            RESULT_COUNT=$(node -e "const x=require('./$REPORT'); console.log(x.result_count)")
+            FAILURE_COUNT=$(node -e "const x=require('./$REPORT'); console.log(x.failure_count)")
+            echo "- Paired device/routes audited: $RESULT_COUNT" >> "$GITHUB_STEP_SUMMARY"
+            echo "- Contract failures: $FAILURE_COUNT" >> "$GITHUB_STEP_SUMMARY"
+            echo "- Live Matsuri origin: https://matsuri-yukue.badjoke-lab.com" >> "$GITHUB_STEP_SUMMARY"
+            echo "- Live Jinja origin: https://jinja-yukue.badjoke-lab.workers.dev" >> "$GITHUB_STEP_SUMMARY"
+            echo "- Screenshots: desktop + mobile, both sites, 10 page families" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "- Report missing" >> "$GITHUB_STEP_SUMMARY"
+          fi
