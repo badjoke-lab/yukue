@@ -1,0 +1,46 @@
+---
+import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
+import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
+import JinjaFrame from "../../components/JinjaFrame.astro";
+---
+
+<JinjaFrame title="方法論 — 神社のゆくえ" description="神社のゆくえの確認・分類・Evidence方針です。">
+  <section class="page-hero">
+    <Container size="wide">
+      <p class="page-hero__kicker">Methodology</p>
+      <h1>方法論</h1>
+      <p>Identity、State、Event、Relationを混同せず、各記録を根拠資料と対応させます。</p>
+    </Container>
+  </section>
+
+  <Section kicker="Identity" title="Identityを先に確定する">
+    <div class="yk-prose">
+      <p>正式名称、所在地、公式Sourceなど、対象を同定するための情報を最初に確認します。現在のTier A previewは神社自身が管理する公式Sourceを基本としています。</p>
+    </div>
+  </Section>
+
+  <Section kicker="State & Events" title="状態と出来事を分ける">
+    <div class="yk-prose">
+      <p>「現在どうなっているか」というStateと、「いつ何が変わったか」というEventを別に記録します。所在地が確認できるだけでoperating等のStateを推測することはしません。</p>
+    </div>
+  </Section>
+
+  <Section kicker="Relations" title="関係を独立して記録する">
+    <div class="yk-prose">
+      <p>関連する祭礼、神社、寺院、管理組織、文化財指定などはRelationとして扱い、IdentityやStateへ押し込みません。</p>
+    </div>
+  </Section>
+
+  <Section kicker="Evidence" title="Evidenceと出典" id="evidence" rule="none">
+    <div class="yk-prose">
+      <p>重要な確認事項にはSourceと確認日を結び付けます。確認できない値はunknownまたは未収録のまま残し、推測で補完しません。</p>
+    </div>
+  </Section>
+</JinjaFrame>
+
+<style>
+  .page-hero { padding-block: var(--space-14) var(--space-10); border-bottom: var(--rule-standard); }
+  .page-hero__kicker { margin: 0 0 var(--space-3); color: var(--color-accent); font-size: var(--font-size-sm); letter-spacing: .12em; }
+  .page-hero h1 { margin: 0; font-size: var(--font-size-entity); font-weight: 500; letter-spacing: .06em; }
+  .page-hero p:last-child { max-width: var(--container-prose); margin: var(--space-5) 0 0; color: var(--color-text-soft); }
+</style>

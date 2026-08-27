@@ -1,0 +1,205 @@
+---
+import ActionLink from "@badjoke-lab/yukue-ui/components/ActionLink.astro";
+import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
+import ObservationSnapshot from "@badjoke-lab/yukue-ui/components/ObservationSnapshot.astro";
+import SearchForm from "@badjoke-lab/yukue-ui/components/SearchForm.astro";
+import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
+import JinjaFrame from "../components/JinjaFrame.astro";
+import { approvedShrines, previewMetrics } from "../data/jinja.ts";
+
+const recent = [...approvedShrines]
+  .sort((a, b) => b.entity.verified_at.localeCompare(a.entity.verified_at) || a.entity.canonical_name.localeCompare(b.entity.canonical_name, "ja"))
+  .slice(0, 5);
+
+const exploreItems = [
+  { title: "神社から", description: "review済みの神社記録をたどる", href: "/shrines/" },
+  { title: "地域から", description: "都道府県から神社記録をたどる", href: "/regions/" },
+  { title: "変化から", description: "確認済みの移転・遷座・合祀・再建などをたどる", href: "/changes/" },
+];
+---
+
+<JinjaFrame
+  title="神社のゆくえ — Public preview"
+  description="神社の現在状態、移転・遷座、合祀、再建、管理関係、関連祭礼と、その根拠を記録する非canonicalプレビューです。"
+>
+  <section class="home-hero">
+    <Container size="wide">
+      <p class="home-hero__kicker">神社の継続と変化の記録</p>
+      <h1>神社の、<br />現在と変化を<span class="home-hero__closing">記録する。</span></h1>
+      <p class="home-hero__lead">名称、所在地などのIdentityに加え、現在状態、移転・遷座、合祀、再建、管理関係、関連する祭礼・寺院、そして根拠資料を分けて記録します。未確認のStateやEventは推測で補いません。</p>
+      <div class="home-hero__search">
+        <SearchForm
+          action="/search/"
+          label="神社・地域を検索"
+          placeholder="神社・地域を検索"
+        />
+      </div>
+      <p class="preview-boundary"><strong>Public preview.</strong> workers.dev 上の非canonical・noindexプレビューです。独自ドメイン、canonical化、検索エンジン登録はまだ行いません。</p>
+    </Container>
+  </section>
+
+  <Section kicker="Current Observation" title="現在の観測状況">
+    <ObservationSnapshot metrics={previewMetrics} />
+  </Section>
+
+  <Section kicker="Reviewed Records" title="最近確認した神社" actionHref="/shrines/" actionLabel="神社一覧を見る">
+    <div class="reviewed-list">
+      {recent.map(({ entity, place }) => (
+        <article class="reviewed-row">
+          <time>{entity.verified_at}</time>
+          <div>
+            <h3><a href={`/shrines/${entity.id}/`}>{entity.canonical_name}</a></h3>
+            <p>{place ? `${place.prefecture} ${place.municipality}` : "所在地未確認"} · Tier {entity.tier}</p>
+          </div>
+          <ActionLink href={`/shrines/${entity.id}/`} label="詳細" />
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section kicker="Recent Changes" title="最近の変化" actionHref="/changes/" actionLabel="変化記録を見る">
+    <p class="empty-state">review済みChange Eventはまだありません。Identity確認だけからStateや変化を推測して追加しません。</p>
+  </Section>
+
+  <Section kicker="Explore" title="記録をたどる">
+    <div class="explore-grid">
+      {exploreItems.map((item) => (
+        <a class="explore-item" href={item.href}>
+          <strong>{item.title}</strong>
+          <span>{item.description}</span>
+        </a>
+      ))}
+    </div>
+  </Section>
+
+  <Section kicker="Methodology & Evidence" title="記録の考え方">
+    <div class="home-info-grid">
+      <article>
+        <h3>IdentityとStateを分けて記録する</h3>
+        <p>神社名や所在地を確認できても、それだけで継続状態、合祀、兼務、法人状態などは判定しません。それぞれ対応するEvidenceを確認してから記録します。</p>
+        <ActionLink href="/methodology/" label="検証方法を見る" />
+      </article>
+      <article>
+        <h3>根拠へたどれる記録</h3>
+        <p>公開するIdentity、State、Event、Relationを、確認に用いた公式・公的資料へ結び付けます。</p>
+        <ActionLink href="/methodology/#evidence" label="根拠と出典について" />
+      </article>
+    </div>
+  </Section>
+
+  <Section kicker="Data Access" title="データとして利用する" rule="none">
+    <div class="data-access">
+      <p>このpreviewで表示しているreview済みデータは、機械可読なJSONでも確認できます。</p>
+      <ActionLink href="/data/" label="公開データについて" />
+    </div>
+  </Section>
+</JinjaFrame>
+
+<style>
+  .home-hero {
+    padding-block: var(--space-20) var(--space-16);
+    border-bottom: var(--rule-standard);
+  }
+
+  .home-hero__kicker {
+    margin: 0 0 var(--space-4);
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.12em;
+  }
+
+  .home-hero h1 {
+    max-width: 13em;
+    margin: 0;
+    font-size: var(--font-size-hero);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  .home-hero__closing { white-space: nowrap; }
+
+  .home-hero__lead {
+    max-width: var(--container-prose);
+    margin: var(--space-6) 0 0;
+    color: var(--color-text-soft);
+    font-size: var(--font-size-lead);
+    line-height: var(--line-height-lead);
+  }
+
+  .home-hero__search {
+    max-width: var(--container-page);
+    margin-top: var(--space-10);
+  }
+
+  .preview-boundary {
+    max-width: var(--container-prose);
+    margin: var(--space-6) 0 0;
+    padding-left: var(--space-4);
+    border-left: var(--rule-accent);
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  .reviewed-list { border-top: var(--rule-strong); }
+
+  .reviewed-row {
+    display: grid;
+    grid-template-columns: 8rem minmax(0, 1fr) auto;
+    gap: var(--space-5);
+    align-items: center;
+    padding-block: var(--space-5);
+    border-bottom: var(--rule-standard);
+  }
+
+  .reviewed-row time,
+  .reviewed-row p {
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  .reviewed-row h3,
+  .reviewed-row p { margin: 0; }
+  .reviewed-row h3 { margin-bottom: var(--space-1); font-size: var(--font-size-h3); }
+  .reviewed-row h3 a { color: var(--color-text); text-decoration: none; }
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: var(--rule-strong);
+    border-bottom: var(--rule-strong);
+  }
+
+  .explore-item {
+    padding: var(--space-8) var(--space-6);
+    border-right: var(--rule-standard);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .explore-item:last-child { border-right: 0; }
+  .explore-item strong { display: block; margin-bottom: var(--space-3); font-size: var(--font-size-h3); font-weight: 500; }
+  .explore-item span, .empty-state, .home-info-grid p, .data-access p { color: var(--color-text-soft); }
+  .explore-item span { font-size: var(--font-size-sm); }
+
+  .home-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-12);
+  }
+
+  .home-info-grid article { padding-left: var(--space-5); border-left: var(--rule-accent); }
+  .home-info-grid h3 { margin: 0 0 var(--space-3); font-size: var(--font-size-h3); }
+  .data-access { max-width: var(--container-prose); }
+
+  @media (max-width: 900px) {
+    .explore-grid { grid-template-columns: 1fr; }
+    .explore-item { border-right: 0; border-bottom: var(--rule-standard); }
+    .explore-item:last-child { border-bottom: 0; }
+  }
+
+  @media (max-width: 640px) {
+    .home-hero { padding-block: var(--space-14) var(--space-12); }
+    .reviewed-row { grid-template-columns: 1fr; gap: var(--space-2); }
+    .home-info-grid { grid-template-columns: 1fr; gap: var(--space-10); }
+  }
+</style>

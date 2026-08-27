@@ -1,4 +1,4 @@
-name: Verify Jinja start-gate record
+name: Verify Jinja preview contract
 
 on:
   pull_request:
@@ -11,8 +11,11 @@ on:
       - "config/jinja-implementation-gate.json"
       - "config/matsuri-stabilization-review.json"
       - "scripts/check-jinja-start-gate-record.mjs"
+      - "scripts/check-jinja-preview-deployment.mjs"
+      - "scripts/build-jinja-workers-preview.mjs"
       - "scripts/check-matsuri-stabilization-review.mjs"
-      - "apps/**"
+      - "apps/jinja/**"
+      - "packages/ui/**"
       - "data/public/matsuri/**"
       - "docs/jinja-start-gate.md"
       - "docs/jinja-start-plan.md"
@@ -20,8 +23,9 @@ on:
       - "docs/matsuri-stabilization-review.md"
       - "docs/project-status.md"
       - "docs/development-schedule.md"
-      - "wrangler*.jsonc"
+      - "wrangler.jinja.preview.jsonc"
       - "package.json"
+      - "pnpm-lock.yaml"
   push:
     branches:
       - main
@@ -32,8 +36,11 @@ on:
       - "config/jinja-implementation-gate.json"
       - "config/matsuri-stabilization-review.json"
       - "scripts/check-jinja-start-gate-record.mjs"
+      - "scripts/check-jinja-preview-deployment.mjs"
+      - "scripts/build-jinja-workers-preview.mjs"
       - "scripts/check-matsuri-stabilization-review.mjs"
-      - "apps/**"
+      - "apps/jinja/**"
+      - "packages/ui/**"
       - "data/public/matsuri/**"
       - "docs/jinja-start-gate.md"
       - "docs/jinja-start-plan.md"
@@ -41,17 +48,18 @@ on:
       - "docs/matsuri-stabilization-review.md"
       - "docs/project-status.md"
       - "docs/development-schedule.md"
-      - "wrangler*.jsonc"
+      - "wrangler.jinja.preview.jsonc"
       - "package.json"
+      - "pnpm-lock.yaml"
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  verify-jinja-start-gate:
+  verify-jinja-preview:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - name: Checkout
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -66,21 +74,44 @@ jobs:
         with:
           version: 11.10.0
 
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
+
       - name: Validate Matsuri stabilization record
         run: pnpm check:matsuri:stabilization-review
 
       - name: Validate Jinja start-gate record
         run: pnpm check:yukue:jinja-start-gate
 
+      - name: Validate Jinja preview contract
+        run: |
+          pnpm --filter @badjoke-lab/yukue-jinja check
+          pnpm check:jinja:preview-deployment
+
+      - name: Build Jinja Astro preview
+        run: pnpm build:jinja:workers-preview
+
+      - name: Verify generated preview structure
+        run: |
+          test -f apps/jinja/dist/index.html
+          test -f apps/jinja/dist/robots.txt
+          test -f apps/jinja/dist/data/canonical.json
+          test -f apps/jinja/dist/shrines/shr-sada-jinja/index.html
+          grep -q '神社のゆくえ' apps/jinja/dist/index.html
+          grep -q 'Public preview' apps/jinja/dist/index.html
+          grep -q 'noindex,nofollow' apps/jinja/dist/index.html
+          grep -q 'yk-site-header' apps/jinja/dist/index.html
+          grep -q 'yk-site-footer' apps/jinja/dist/index.html
+          grep -q '判断根拠と出典' apps/jinja/dist/shrines/shr-sada-jinja/index.html
+          if grep -q '#101010' apps/jinja/dist/index.html; then exit 1; fi
+          if grep -q 'font-family: system-ui' apps/jinja/dist/index.html; then exit 1; fi
+
       - name: Write verification summary
         if: always()
         run: |
-          echo "## Jinja gate state" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Matsuri F2-28: complete" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Matsuri stabilization review: reviewing / incomplete" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Jinja repository/local implementation: authorized" >> "$GITHUB_STEP_SUMMARY"
+          echo "## Jinja preview contract" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Shared Matsuri/Yukue Astro shell: required" >> "$GITHUB_STEP_SUMMARY"
           echo "- Jinja workers.dev preview: authorized, noncanonical, noindex" >> "$GITHUB_STEP_SUMMARY"
           echo "- Jinja custom-domain/canonical activation: blocked" >> "$GITHUB_STEP_SUMMARY"
           echo "- Jinja Search submission/indexability: blocked" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Seed baseline: 26 Relation-backed research candidates; no automatic promotion" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Missing State: must not be inferred" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Missing State/Event/Relation: must not be inferred" >> "$GITHUB_STEP_SUMMARY"

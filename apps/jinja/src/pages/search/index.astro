@@ -1,0 +1,82 @@
+---
+import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
+import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
+import JinjaFrame from "../../components/JinjaFrame.astro";
+import { approvedShrines } from "../../data/jinja.ts";
+---
+
+<JinjaFrame title="検索 — 神社のゆくえ" description="神社名・都道府県・市区町村からreview済み神社記録を検索します。" activeHref="/search/">
+  <section class="page-hero">
+    <Container size="wide">
+      <p class="page-hero__kicker">Search</p>
+      <h1>検索</h1>
+      <p>神社名、都道府県、市区町村から現在のreview済み記録を絞り込みます。</p>
+      <form class="search-box" id="jinja-search-form" role="search">
+        <label for="jinja-search">神社・地域を検索</label>
+        <div>
+          <input id="jinja-search" name="q" type="search" autocomplete="off" placeholder="例：阿蘇、茨城県、松江市" />
+          <button type="submit">検索</button>
+        </div>
+      </form>
+    </Container>
+  </section>
+
+  <Section kicker="Reviewed Records" title="検索結果" rule="none">
+    <p id="search-summary" class="search-summary">{approvedShrines.length}件を表示しています。</p>
+    <div class="result-list" id="search-results">
+      {approvedShrines.map(({ entity, place }) => {
+        const haystack = [entity.canonical_name, place?.prefecture, place?.municipality, place?.address].filter(Boolean).join(" ");
+        return (
+          <a class="result-row" href={`/shrines/${entity.id}/`} data-search-row data-search-text={haystack}>
+            <strong>{entity.canonical_name}</strong>
+            <span>{place ? `${place.prefecture} ${place.municipality}` : "所在地未確認"}</span>
+            <span>Tier {entity.tier}</span>
+          </a>
+        );
+      })}
+    </div>
+  </Section>
+
+  <script is:inline>
+    const form = document.getElementById('jinja-search-form');
+    const input = document.getElementById('jinja-search');
+    const rows = [...document.querySelectorAll('[data-search-row]')];
+    const summary = document.getElementById('search-summary');
+    const apply = () => {
+      const q = (input.value || '').trim().toLocaleLowerCase('ja-JP');
+      let visible = 0;
+      rows.forEach((row) => {
+        const match = !q || (row.dataset.searchText || '').toLocaleLowerCase('ja-JP').includes(q);
+        row.hidden = !match;
+        if (match) visible += 1;
+      });
+      summary.textContent = q ? `「${input.value.trim()}」: ${visible}件` : `${visible}件を表示しています。`;
+      const url = new URL(window.location.href);
+      if (q) url.searchParams.set('q', input.value.trim()); else url.searchParams.delete('q');
+      history.replaceState(null, '', url);
+    };
+    const initial = new URL(window.location.href).searchParams.get('q');
+    if (initial) input.value = initial;
+    apply();
+    form.addEventListener('submit', (event) => { event.preventDefault(); apply(); });
+    input.addEventListener('input', apply);
+  </script>
+</JinjaFrame>
+
+<style>
+  .page-hero { padding-block: var(--space-14) var(--space-10); border-bottom: var(--rule-standard); }
+  .page-hero__kicker { margin: 0 0 var(--space-3); color: var(--color-accent); font-size: var(--font-size-sm); letter-spacing: .12em; }
+  .page-hero h1 { margin: 0; font-size: var(--font-size-entity); font-weight: 500; letter-spacing: .06em; }
+  .page-hero > :global(.yk-container) > p:last-of-type { max-width: var(--container-prose); margin: var(--space-5) 0 0; color: var(--color-text-soft); }
+  .search-box { max-width: var(--container-page); margin-top: var(--space-8); }
+  .search-box label { display: block; margin-bottom: var(--space-2); color: var(--color-muted); font-size: var(--font-size-sm); }
+  .search-box div { display: grid; grid-template-columns: minmax(0,1fr) auto; border-top: var(--rule-strong); border-bottom: var(--rule-strong); }
+  .search-box input { min-width: 0; padding: var(--space-5) 0; border: 0; background: transparent; color: var(--color-text); font: inherit; outline: 0; }
+  .search-box button { padding-inline: var(--space-6); border: 0; border-left: var(--rule-standard); background: transparent; color: var(--color-accent); font: inherit; cursor: pointer; }
+  .search-summary { color: var(--color-muted); font-size: var(--font-size-sm); }
+  .result-list { border-top: var(--rule-strong); }
+  .result-row { display: grid; grid-template-columns: minmax(12rem,1.4fr) minmax(10rem,1fr) 6rem; gap: var(--space-5); padding-block: var(--space-5); border-bottom: var(--rule-standard); color: var(--color-text); text-decoration: none; }
+  .result-row strong { font-size: var(--font-size-h3); font-weight: 500; }
+  .result-row span { color: var(--color-muted); font-size: var(--font-size-sm); }
+  @media (max-width: 720px) { .result-row { grid-template-columns: 1fr; gap: var(--space-1); } }
+</style>

@@ -1,0 +1,43 @@
+---
+import ActionLink from "@badjoke-lab/yukue-ui/components/ActionLink.astro";
+import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
+import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
+import JinjaFrame from "../../components/JinjaFrame.astro";
+---
+
+<JinjaFrame title="このサイトについて — 神社のゆくえ" description="神社のゆくえの目的、公開範囲、訂正方針です。" activeHref="/about/">
+  <section class="page-hero">
+    <Container size="wide">
+      <p class="page-hero__kicker">About</p>
+      <h1>このサイトについて</h1>
+      <p>神社の現在状態と長期的な変化を、Entity / State / Event / Relation / Evidenceを分けて記録する「ゆくえシリーズ」の専門サイトです。</p>
+    </Container>
+  </section>
+
+  <Section kicker="Scope" title="何を記録するか">
+    <div class="yk-prose">
+      <p>名称、所在地、旧称・旧所在地、現在状態、移転・遷座、合祀、再建、管理関係、関連祭礼・寺院・組織、根拠資料などを対象にします。</p>
+      <p>ただし、確認できたIdentityだけからStateや歴史を推測して埋めることはしません。</p>
+    </div>
+  </Section>
+
+  <Section kicker="Preview Boundary" title="現在の公開範囲">
+    <div class="yk-prose">
+      <p>現在はworkers.dev上の非canonical・noindex Public previewです。独自ドメイン、canonical公開、検索エンジン登録はまだ行いません。</p>
+    </div>
+  </Section>
+
+  <Section kicker="Corrections" title="訂正について" id="corrections" rule="none">
+    <div class="yk-prose">
+      <p>誤りや更新情報は、根拠となる公式・公的資料とあわせて確認し、review後に反映します。</p>
+      <ActionLink href="/methodology/" label="方法論を見る" />
+    </div>
+  </Section>
+</JinjaFrame>
+
+<style>
+  .page-hero { padding-block: var(--space-14) var(--space-10); border-bottom: var(--rule-standard); }
+  .page-hero__kicker { margin: 0 0 var(--space-3); color: var(--color-accent); font-size: var(--font-size-sm); letter-spacing: .12em; }
+  .page-hero h1 { margin: 0; font-size: var(--font-size-entity); font-weight: 500; letter-spacing: .06em; }
+  .page-hero p:last-child { max-width: var(--container-prose); margin: var(--space-5) 0 0; color: var(--color-text-soft); }
+</style>
