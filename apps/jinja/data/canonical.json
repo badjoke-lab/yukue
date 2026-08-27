@@ -49,7 +49,53 @@
       "official_links": ["https://sosyagu.jp/"]
     }
   ],
-  "states": [],
+  "states": [
+    {
+      "id": "sta-jinja-sada-operating-20260827",
+      "entity_id": "shr-sada-jinja",
+      "continuity_state": "operating",
+      "review_status": "approved",
+      "verified_at": "2026-08-27",
+      "evidence_ids": ["evd-jinja-sada-state-20260827"],
+      "basis_summary": "佐太神社公式の御祈念・御祈祷案内が現在の受付時間と申込方法を案内しているため、継続して神社活動が行われていることを確認。"
+    },
+    {
+      "id": "sta-jinja-aso-operating-20260827",
+      "entity_id": "shr-aso-jinja",
+      "continuity_state": "operating",
+      "review_status": "approved",
+      "verified_at": "2026-08-27",
+      "evidence_ids": ["evd-jinja-aso-state-20260827"],
+      "basis_summary": "阿蘇神社公式の参拝・ご祈願祭案内が現在の参拝時間、御札所時間、ご祈願祭受付を案内しているため、継続して神社活動が行われていることを確認。"
+    },
+    {
+      "id": "sta-jinja-samukawa-operating-20260827",
+      "entity_id": "shr-samukawa-jinja",
+      "continuity_state": "operating",
+      "review_status": "approved",
+      "verified_at": "2026-08-27",
+      "evidence_ids": ["evd-jinja-samukawa-state-20260827"],
+      "basis_summary": "寒川神社公式の御祈祷案内が現在の受付時間と年中無休での受付を案内しているため、継続して神社活動が行われていることを確認。"
+    },
+    {
+      "id": "sta-jinja-kishu-toshogu-operating-20260827",
+      "entity_id": "shr-kishu-toshogu",
+      "continuity_state": "operating",
+      "review_status": "approved",
+      "verified_at": "2026-08-27",
+      "evidence_ids": ["evd-jinja-kishu-toshogu-state-20260827"],
+      "basis_summary": "紀州東照宮公式サイトが現在の開門時間と各種御祈祷・神前結婚式・地鎮祭等の受付を案内しているため、継続して神社活動が行われていることを確認。"
+    },
+    {
+      "id": "sta-jinja-hitachi-sosogu-operating-20260827",
+      "entity_id": "shr-hitachi-sosogu-jinja",
+      "continuity_state": "operating",
+      "review_status": "approved",
+      "verified_at": "2026-08-27",
+      "evidence_ids": ["evd-jinja-hitachi-sosogu-state-20260827"],
+      "basis_summary": "常陸國總社宮公式の御祈祷案内が毎日の御祈祷受付と年中無休の受付時間を案内しているため、継続して神社活動が行われていることを確認。"
+    }
+  ],
   "events": [],
   "relations": [],
   "evidence": [
@@ -97,6 +143,51 @@
       "review_status": "approved",
       "verified_at": "2026-08-25",
       "summary": "常陸國總社宮公式サイトで神社名と所在地を確認。"
+    },
+    {
+      "id": "evd-jinja-sada-state-20260827",
+      "target_type": "state",
+      "target_id": "sta-jinja-sada-operating-20260827",
+      "source_id": "src-jinja-sada-prayer-20260827",
+      "review_status": "approved",
+      "verified_at": "2026-08-27",
+      "summary": "公式「御祈念・正式参拝のお申し込み」で御祈念・御祈祷の申込方法と9時から17時までの受付を確認。"
+    },
+    {
+      "id": "evd-jinja-aso-state-20260827",
+      "target_type": "state",
+      "target_id": "sta-jinja-aso-operating-20260827",
+      "source_id": "src-jinja-aso-prayer-20260827",
+      "review_status": "approved",
+      "verified_at": "2026-08-27",
+      "summary": "公式「ご参拝とご祈願祭」で参拝6時から18時、御札所9時から17時、ご祈願祭9時から16時30分の現行案内を確認。"
+    },
+    {
+      "id": "evd-jinja-samukawa-state-20260827",
+      "target_type": "state",
+      "target_id": "sta-jinja-samukawa-operating-20260827",
+      "source_id": "src-jinja-samukawa-prayer-20260827",
+      "review_status": "approved",
+      "verified_at": "2026-08-27",
+      "summary": "公式「御祈祷のご案内」で御祈祷受付8時から17時、年中無休との現行案内を確認。"
+    },
+    {
+      "id": "evd-jinja-kishu-toshogu-state-20260827",
+      "target_type": "state",
+      "target_id": "sta-jinja-kishu-toshogu-operating-20260827",
+      "source_id": "src-jinja-kishu-toshogu-home-20260827",
+      "review_status": "approved",
+      "verified_at": "2026-08-27",
+      "summary": "公式サイトで開門9時から16時30分、各種御祈祷、神前結婚式、地鎮祭・出張祭の現行案内を確認。"
+    },
+    {
+      "id": "evd-jinja-hitachi-sosogu-state-20260827",
+      "target_type": "state",
+      "target_id": "sta-jinja-hitachi-sosogu-operating-20260827",
+      "source_id": "src-jinja-hitachi-sosogu-prayer-20260827",
+      "review_status": "approved",
+      "verified_at": "2026-08-27",
+      "summary": "公式「御祈祷と人生儀礼」で毎日の御祈祷受付と9時から16時・年中無休の現行案内を確認。"
     }
   ],
   "sources": [
@@ -139,6 +230,46 @@
       "url": "https://sosyagu.jp/",
       "source_type": "official_organization",
       "accessed_at": "2026-08-25"
+    },
+    {
+      "id": "src-jinja-sada-prayer-20260827",
+      "title": "御祈念・正式参拝のお申し込み",
+      "publisher": "佐太神社",
+      "url": "https://www.sadajinjya.jp/?WID=4214&m=wp",
+      "source_type": "official_organization",
+      "accessed_at": "2026-08-27"
+    },
+    {
+      "id": "src-jinja-aso-prayer-20260827",
+      "title": "ご参拝とご祈願祭（お祓い）",
+      "publisher": "阿蘇神社",
+      "url": "https://asojinja.or.jp/prayer/",
+      "source_type": "official_organization",
+      "accessed_at": "2026-08-27"
+    },
+    {
+      "id": "src-jinja-samukawa-prayer-20260827",
+      "title": "御祈祷のご案内",
+      "publisher": "寒川神社",
+      "url": "https://samukawajinjya.jp/worship/prayer.html",
+      "source_type": "official_organization",
+      "accessed_at": "2026-08-27"
+    },
+    {
+      "id": "src-jinja-kishu-toshogu-home-20260827",
+      "title": "紀州東照宮 公式サイト",
+      "publisher": "紀州東照宮",
+      "url": "https://www.kishutoshogu.org/",
+      "source_type": "official_organization",
+      "accessed_at": "2026-08-27"
+    },
+    {
+      "id": "src-jinja-hitachi-sosogu-prayer-20260827",
+      "title": "御祈祷と人生儀礼",
+      "publisher": "常陸國總社宮",
+      "url": "https://sosyagu.jp/gokitou/",
+      "source_type": "official_organization",
+      "accessed_at": "2026-08-27"
     }
   ],
   "places": [
