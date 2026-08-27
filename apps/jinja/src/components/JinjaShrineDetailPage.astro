@@ -12,14 +12,24 @@ interface Props { id: string; }
 const { id } = Astro.props;
 const record = findShrine(id);
 if (!record) throw new Error(`Unknown Jinja shrine: ${id}`);
-const { entity, place } = record;
+const { entity, place, state } = record;
 const evidenceRecords = evidenceFor(entity.id);
+const stateLabels: Record<string, string> = {
+  operating: "継続（operating）",
+  rebuilding: "再建中（rebuilding）",
+  relocated: "移転・遷座後（relocated）",
+  merged: "統合・合祀（merged）",
+  dissolved: "解散・廃止（dissolved）",
+  unknown: "未確認（unknown）",
+};
+const stateLabel = state ? (stateLabels[state.continuity_state] ?? state.continuity_state) : "未確認";
+const latestVerifiedAt = state?.verified_at ?? entity.verified_at;
 
 const overview = [
   { label: "所在地", value: place ? `${place.prefecture} ${place.municipality}` : "未確認" },
-  { label: "Current State", value: "未確認", accent: false },
+  { label: "Current State", value: stateLabel, accent: Boolean(state) },
   { label: "Review", value: `Tier ${entity.tier} / reviewed` },
-  { label: "確認日", value: entity.verified_at },
+  { label: "確認日", value: latestVerifiedAt },
 ];
 
 const places = place ? [{
@@ -28,9 +38,9 @@ const places = place ? [{
   contextLabel: "神社",
 }] : [];
 
-const evidenceItems = evidenceRecords.map(({ evidence, source }) => ({
+const evidenceItems = evidenceRecords.map(({ evidence, source, targetLabel }) => ({
   id: evidence.id,
-  targetLabel: "Identity / Geography",
+  targetLabel,
   sourceTitle: source?.title ?? evidence.source_id,
   supportSummary: evidence.summary,
   sourceHref: source?.url ?? entity.official_links[0],
@@ -73,10 +83,18 @@ const evidenceItems = evidenceRecords.map(({ evidence, source }) => ({
 
     <Section kicker="Integrated Overview" title="現在確認できていること" id="current">
       <OverviewGrid items={overview} />
-      <div class="state-explanation">
-        <h3>Current Stateは未確認です</h3>
-        <p>現在のcanonicalで確認済みなのはIdentityと所在地です。継続、休止、遷座、合祀、再建、兼務、法人状態などは、対応するEvidenceを確認するまで推測で補いません。</p>
-      </div>
+      {state ? (
+        <div class="state-explanation" data-reviewed-current-state>
+          <h3>Current State: {stateLabel}</h3>
+          <p>{state.basis_summary}</p>
+          <p>確認日: {state.verified_at}。この判定はStateに直接結び付く公式Evidenceからreviewしたもので、公式URLの存在だけから推測したものではありません。</p>
+        </div>
+      ) : (
+        <div class="state-explanation">
+          <h3>Current Stateは未確認です</h3>
+          <p>継続、休止、遷座、合祀、再建、兼務、法人状態などは、対応するEvidenceを確認するまで推測で補いません。</p>
+        </div>
+      )}
     </Section>
 
     {places.length > 0 && (
@@ -102,6 +120,15 @@ const evidenceItems = evidenceRecords.map(({ evidence, source }) => ({
 
     <Section kicker="Record Updates" title="この記録の更新" id="record-updates">
       <ol class="record-updates">
+        {state && (
+          <li>
+            <time>{state.verified_at}</time>
+            <div>
+              <h3>Current State review</h3>
+              <p>{stateLabel}を公式Evidenceから確認しました。</p>
+            </div>
+          </li>
+        )}
         <li>
           <time>{entity.verified_at}</time>
           <div>
@@ -127,7 +154,6 @@ const evidenceItems = evidenceRecords.map(({ evidence, source }) => ({
   .breadcrumb ol { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0; padding: 0; list-style: none; color: var(--color-muted); font-size: var(--font-size-xs); }
   .breadcrumb li:not(:last-child)::after { content: "／"; margin-left: var(--space-2); color: var(--color-rule-strong); }
   .breadcrumb a { color: inherit; }
-
   .entity-identity { padding-block: var(--space-14) var(--space-10); border-bottom: var(--rule-standard); }
   .entity-identity__kicker { margin: 0 0 var(--space-3); color: var(--color-accent); font-size: var(--font-size-sm); letter-spacing: 0.12em; }
   .entity-identity h1 { margin: 0; font-size: var(--font-size-entity); font-weight: 500; letter-spacing: 0.08em; }
@@ -135,18 +161,15 @@ const evidenceItems = evidenceRecords.map(({ evidence, source }) => ({
   .entity-identity__meta li + li { padding-left: var(--space-4); border-left: var(--rule-standard); }
   .entity-identity__actions, .machine-data { display: flex; flex-wrap: wrap; gap: var(--space-5); }
   .entity-identity__actions { margin-top: var(--space-8); }
-
   .state-explanation, .section-intro, .machine-data p, .empty-state { max-width: var(--container-prose); color: var(--color-text-soft); }
   .state-explanation { margin-top: var(--space-8); padding-top: var(--space-6); border-top: var(--rule-standard); }
   .state-explanation h3, .record-updates h3 { margin: 0; font-size: var(--font-size-h3); font-weight: 500; }
   .state-explanation p, .record-updates p { margin: var(--space-3) 0 0; }
-
   .record-updates { display: grid; gap: 0; margin: 0; padding: 0; border-top: var(--rule-strong); list-style: none; }
   .record-updates li { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: var(--space-8); padding-block: var(--space-6); border-bottom: var(--rule-standard); }
   .record-updates time { color: var(--color-muted); font-size: var(--font-size-sm); }
   .machine-data { align-items: center; }
   .machine-data p { flex-basis: 100%; margin: 0; }
-
   @media (max-width: 640px) {
     .entity-identity { padding-block: var(--space-10) var(--space-8); }
     .entity-identity__meta { display: grid; gap: var(--space-2); }
