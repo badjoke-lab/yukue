@@ -1,0 +1,40 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-shinjo-matsuri-2026-award-result",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "official_organization",
+      "title": "今年の優秀山車が決定いたしました！",
+      "publisher": "新庄まつり実行委員会",
+      "url": "https://shinjo-matsuri.jp/db/",
+      "accessed_at": "2026-08-27",
+      "language": "ja",
+      "published_at": "2026-08-26"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-shinjo-matsuri-occ-2026-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-shinjo-matsuri-2026-award-result",
+      "target_type": "occurrence",
+      "target_id": "occ-shinjo-matsuri-2026-schedule",
+      "assertion_code": "supports_occurrence_outcome",
+      "summary_ja": "新庄まつり公式サイトは2026年8月26日付で「今年の優秀山車が決定いたしました！」と掲載し、同年の山車審査結果を事後公表しているため、2026年新庄まつりが実際に開催されたことを支持する。全3日程の通常どおりの完遂や規模はこの資料だけでは確定しない。",
+      "captured_at": "2026-08-27",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
