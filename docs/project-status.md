@@ -16,6 +16,7 @@ Jinja — repository implementation + noncanonical workers.dev preview active in
 ## Current gate state
 
 ```text
+F2-16 through F2-27 — completed
 F2-28 — final F2 Launch Gate — completed
 Phase 10 Stabilization — active
 Matsuri nationwide public corpus scaling — active
