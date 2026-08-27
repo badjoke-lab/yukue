@@ -19,7 +19,10 @@ Jinja — repository implementation + noncanonical workers.dev preview active in
 F2-16 through F2-27 — completed
 F2-28 — final F2 Launch Gate — completed
 Phase 10 Stabilization — active
+Matsuri Detail C implementation — completed
+Matsuri prefecture seed baseline — completed 47 / 47
 Matsuri nationwide public corpus scaling — active
+NCS-06 first bounded Tier A public wave + A→B promotion — active
 Matsuri maintenance / historical depth — active in parallel
 Matsuri stabilization review — reviewing / incomplete
 
