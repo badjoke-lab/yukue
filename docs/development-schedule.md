@@ -1,6 +1,6 @@
 # Development Schedule
 
-**Updated:** 2026-08-27
+**Updated:** 2026-08-28
 
 **Status:** Matsuri nationwide scaling active / Matsuri stabilization reviewing / Jinja repository implementation complete / Jinja workers.dev preview deployed / Jinja canonical activation still blocked
 
@@ -11,18 +11,17 @@ This project is gate-driven rather than deadline-driven. Work that is independen
 ```text
 Foundation through Stage E                completed
 F1 corpus expansion                        completed
-F2-01 through F2-28           completed
+F2-01 through F2-28                        completed
 Phase 9 Launch Preparation                 completed
 Phase 10 Stabilization                     active
-Phase 10A Detail C repair     completed
-Phase 10B Prefecture seed     completed 47 / 47
-Phase 10C Maintenance         active
-Phase 10D Nationwide scaling  active
-NCS-01 through NCS-05                      completed
-NCS-06                        active
-Stabilization review          reviewing
-Formal review complete        false
-Actual Jinja start gate       blocked
+Phase 10A Detail C repair                  completed
+Phase 10B Prefecture seed                  completed 47 / 47
+Phase 10C Maintenance                      active
+Phase 10D Nationwide scaling               active
+NCS-07 Tier A wave 013                     completed
+Stabilization review                       reviewing
+Formal review complete                     false
+Actual Jinja start gate                    blocked
 
 JINJA-I01 specialist contract/state/order  completed
 JINJA-I02 repository/local authorization   completed
@@ -65,17 +64,17 @@ config/matsuri-corpus-quality-baseline.json
 config/matsuri-repository-baseline.json
 ```
 
-Current measured repository baseline from 2026-08-26:
+Current measured repository/quality baseline after PR #322:
 
 ```text
-Public entities                         203
-Specialist-primary subjects             140
-Tier A — Public Index                   102
+Public entities                         211
+Specialist-primary subjects             148
+Tier A — Public Index                   110
 Tier B — Public Verified                  9
 Tier C — Public History / Monitoring     29
 Below Tier A                              0
 Prefectures represented                  47
-Municipalities represented              112
+Municipalities represented              117
 ```
 
 The next Matsuri corpus checkpoints remain larger public A/B/C coverage. Private candidate count is not public growth.
@@ -84,17 +83,20 @@ The Tier A → B target remains approximately seven calendar days, but overdue T
 
 ### Freshness / maintenance
 
-Current known maintenance case:
+The previously tracked Shinjo 2026 closed-occurrence case is resolved:
 
 ```text
-#326 — 2026 新庄まつり closed-unresolved occurrence
+#326 — closed
+occ-shinjo-matsuri-2026-schedule — record_version 2 / held / unknown
+resolution PR #330 — merged
+current freshness workflow — green
 ```
 
-The scheduled date range ended on 2026-08-26, but elapsed dates alone do not prove `held`, `cancelled`, or another outcome. Resolve only from direct/authoritative Evidence.
+Official post-event Evidence supports the held outcome but not a blanket normal-scale claim for all three scheduled days. Future elapsed dates still do not prove `held`, `cancelled`, or another outcome; resolve each case only from direct/authoritative Evidence.
 
 ## Jinja lane
 
-Jinja now has three distinct activation stages. They must not be collapsed back into one all-or-nothing gate.
+Jinja has distinct activation stages. They must not be collapsed back into one all-or-nothing gate.
 
 ### Stage 1 — repository/local implementation
 
@@ -243,12 +245,12 @@ Their own specialist contracts and explicit activation decisions remain required
 ## Immediate execution order
 
 ```text
-1. keep #327 live visual-parity coverage green as Jinja UI changes
-2. resolve Matsuri #326 from direct Evidence without outcome inference
+1. keep the live Jinja/Matsuri visual-parity coverage green as Jinja UI changes
+2. continue Matsuri national A/B/C publication and evidence-backed freshness maintenance
 3. prepare the next bounded Jinja Tier A reviewed batch from authoritative sources
 4. deepen the current Jinja records toward Tier B where State/profile Evidence exists
 5. add reviewed Event/Relation/history only where direct Evidence supports it
-6. continue Matsuri national A/B/C publication and A→B verification in parallel
+6. reconcile or retire stale long-lived PRs without discarding unique reviewed data
 7. when owner-private stabilization observations are available, complete the stabilization review
 8. only then reevaluate Jinja custom-domain/canonical activation
 ```
