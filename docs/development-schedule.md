@@ -11,17 +11,17 @@ This project is gate-driven rather than deadline-driven. Work that is independen
 ```text
 Foundation through Stage E                completed
 F1 corpus expansion                        completed
-F2-01 through F2-28                        completed
+F2-01 through F2-28           completed
 Phase 9 Launch Preparation                 completed
 Phase 10 Stabilization                     active
-Phase 10A Detail C repair                  completed
-Phase 10B Prefecture seed                  completed 47 / 47
-Phase 10C Maintenance                      active
-Phase 10D Nationwide scaling               active
+Phase 10A Detail C repair     completed
+Phase 10B Prefecture seed     completed 47 / 47
+Phase 10C Maintenance         active
+Phase 10D Nationwide scaling  active
 NCS-07 Tier A wave 013                     completed
-Stabilization review                       reviewing
-Formal review complete                     false
-Actual Jinja start gate                    blocked
+Stabilization review          reviewing
+Formal review complete        false
+Actual Jinja start gate       blocked
 
 JINJA-I01 specialist contract/state/order  completed
 JINJA-I02 repository/local authorization   completed
