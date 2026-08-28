@@ -1,9 +1,9 @@
 {
   "schema_version": "matsuri.corpus-quality-baseline.v2",
-  "observed_at": "2026-08-26T16:52:10.073Z",
-  "observed_on_jst": "2026-08-27",
-  "source_workflow_run_id": 32990840047,
-  "source_workflow_job_id": 98247779779,
+  "observed_at": "2026-08-28T08:22:39.364Z",
+  "observed_on_jst": "2026-08-28",
+  "source_workflow_run_id": 33155082100,
+  "source_workflow_job_id": 98795830795,
   "classifier": "scripts/audit-matsuri-corpus-quality.mjs",
   "governing_spec": "docs/nationwide-corpus-scaling.md",
   "status": "measurement-only",
@@ -12,21 +12,21 @@
     "legacy_primary_subjects": 149,
     "specialist_primary_subjects": 148,
     "tier_a_index": 110,
-    "tier_b_verified": 9,
-    "tier_c_history_monitoring": 29,
+    "tier_b_verified": 8,
+    "tier_c_history_monitoring": 30,
     "below_tier_a": 0,
     "public_primary_total": 148,
     "tier_a_overdue": 3,
     "tier_a_due_within_48h": 0,
     "tier_a_publication_metadata_missing": 107,
-    "with_completed_occurrence_history": 55,
-    "with_multi_year_completed_occurrence_history": 37,
+    "with_completed_occurrence_history": 56,
+    "with_multi_year_completed_occurrence_history": 38,
     "with_change_events": 57,
     "with_current_state_evidence": 62,
     "with_direct_profile_evidence": 130
   },
   "by_entity_type": {
-    "festival": {"records":105,"tier_a_index":69,"tier_b_verified":9,"tier_c_history_monitoring":27,"below_tier_a":0},
+    "festival": {"records":105,"tier_a_index":69,"tier_b_verified":8,"tier_c_history_monitoring":28,"below_tier_a":0},
     "folk_performance": {"records":43,"tier_a_index":41,"tier_b_verified":0,"tier_c_history_monitoring":2,"below_tier_a":0},
     "tradition_unit": {"records":1,"tier_a_index":0,"tier_b_verified":0,"tier_c_history_monitoring":0,"below_tier_a":1}
   },
@@ -41,10 +41,10 @@
     "timing_or_recurrence_present": 92
   },
   "tier_b_missing_history_dimension_counts": {
-    "active_freshness_monitoring": 9,
-    "multi_year_completed_occurrence_history": 9,
-    "multiple_completed_occurrences": 9,
-    "multiple_evidence_backed_change_events": 9
+    "active_freshness_monitoring": 8,
+    "multi_year_completed_occurrence_history": 8,
+    "multiple_completed_occurrences": 8,
+    "multiple_evidence_backed_change_events": 8
   },
   "coverage": {
     "prefecture_count": 47,
