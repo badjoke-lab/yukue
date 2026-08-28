@@ -1,0 +1,40 @@
+{
+  "entities": [],
+  "places": [],
+  "stateSnapshots": [],
+  "changeEvents": [],
+  "occurrences": [],
+  "occurrenceSeries": [],
+  "recurrencePatterns": [],
+  "relations": [],
+  "designations": [],
+  "sources": [
+    {
+      "id": "src-yoshida-fire-2026-post-event",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_type": "credible_news",
+      "title": "日本三奇祭の一つ「吉田の火祭り」　450年以上の歴史　山梨・富士吉田市",
+      "publisher": "テレビ朝日 / ABEMA NEWS",
+      "url": "https://news.tv-asahi.co.jp/news_society/articles/000529263.html",
+      "published_at": "2026-08-27",
+      "accessed_at": "2026-08-28",
+      "language": "ja"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd-yoshida-fire-occ-2026-held",
+      "schema_version": "common.v1",
+      "record_version": 1,
+      "source_id": "src-yoshida-fire-2026-post-event",
+      "target_type": "occurrence",
+      "target_id": "occ-yoshida-fire-2026",
+      "assertion_code": "supports_occurrence_outcome",
+      "summary_ja": "テレビ朝日 / ABEMA NEWSは2026年8月27日、吉田の火祭りが開かれ、8月26日18時30分ごろに約120本の大松明が実際に点火されたと事後報道している。2026 editionが実際に開催されたことを確認できるためoutcomeをheldへ更新する。8月27日の全個別神事の完遂や二日間全体の規模はこのEvidenceから推定しない。",
+      "captured_at": "2026-08-28",
+      "review_status": "approved"
+    }
+  ],
+  "images": []
+}
