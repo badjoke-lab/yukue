@@ -1,13 +1,13 @@
 {
   "schema_version": "matsuri.production-baseline.v1",
-  "observed_on": "2026-08-27",
-  "release_merge_commit": "5466a1926bcecbb8a36dffc5a80f517ee8f2bcbd",
+  "observed_on": "2026-08-28",
+  "release_merge_commit": "68f5f732c11edf8fe7deaf3153c487e3f37ade07",
   "expected_counts": {
-    "entities": 203,
+    "entities": 211,
     "events": 106,
     "relations": 70,
     "occurrences": 170,
-    "sitemap_entries": 321
+    "sitemap_entries": 329
   },
   "required_routes": [
     "/festivals/aso-onda-matsuri/",
@@ -172,7 +172,7 @@
     { "id": "occ-aso-onda-2024", "record_version": 1, "outcome": "held", "scale": "unknown" },
     { "id": "occ-aso-onda-2025", "record_version": 1, "outcome": "held", "scale": "unknown" },
     { "id": "occ-gion-matsuri-2026", "record_version": 2, "outcome": "held", "scale": "unknown" },
-    { "id": "occ-yoshida-fire-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
+    { "id": "occ-yoshida-fire-2026", "record_version": 2, "outcome": "held", "scale": "unknown" },
     { "id": "occ-ueno-tenjin-2022", "record_version": 1, "outcome": "held", "scale": "modified" },
     { "id": "occ-ueno-tenjin-2026", "record_version": 1, "outcome": "scheduled", "scale": "unknown" },
     { "id": "occ-sanja-matsuri-2020", "record_version": 1, "outcome": "held", "scale": "modified" },
