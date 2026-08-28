@@ -23,13 +23,13 @@ const waveBundle = {
   places: [],
   stateSnapshots: [...maintenance99.stateSnapshots],
   changeEvents: [],
-  occurrences: [...maintenance99.occurrences, ...maintenance102.occurrences],
+  occurrences: [...maintenance99.occurrences],
   occurrenceSeries: [],
   recurrencePatterns: [],
   relations: [],
   designations: [],
-  sources: [...batch14.sources, ...batch15.sources, ...batch16.sources, ...batch17.sources, ...batch18.sources, ...batch19.sources, ...batch20.sources, ...batch21.sources, ...batch22.sources, ...batch23.sources, ...batch24.sources, ...batch25.sources, ...maintenance99.sources, ...maintenance102.sources],
-  evidence: [...batch14.evidence, ...batch15.evidence, ...batch16.evidence, ...batch17.evidence, ...batch18.evidence, ...batch19.evidence, ...batch20.evidence, ...batch21.evidence, ...batch22.evidence, ...batch23.evidence, ...batch24.evidence, ...batch25.evidence, ...maintenance99.evidence, ...maintenance102.evidence],
+  sources: [...batch14.sources, ...batch15.sources, ...batch16.sources, ...batch17.sources, ...batch18.sources, ...batch19.sources, ...batch20.sources, ...batch21.sources, ...batch22.sources, ...batch23.sources, ...batch24.sources, ...batch25.sources, ...maintenance99.sources],
+  evidence: [...batch14.evidence, ...batch15.evidence, ...batch16.evidence, ...batch17.evidence, ...batch18.evidence, ...batch19.evidence, ...batch20.evidence, ...batch21.evidence, ...batch22.evidence, ...batch23.evidence, ...batch24.evidence, ...batch25.evidence, ...maintenance99.evidence],
   images: [...batch14.images, ...batch15.images, ...batch16.images, ...batch17.images, ...batch18.images, ...batch19.images, ...batch20.images, ...batch21.images, ...batch22.images, ...batch23.images, ...batch24.images, ...batch25.images],
 };
 
@@ -37,20 +37,41 @@ const waveProjection = buildPublicProjection(
   waveBundle as unknown as Parameters<typeof buildPublicProjection>[0],
 );
 
+const salvagedOccurrences = maintenance102.occurrences as unknown as PublicProjection["json"]["occurrences"];
+const salvagedSources = maintenance102.sources as unknown as PublicProjection["json"]["sources"];
+const salvagedEvidence = maintenance102.evidence as unknown as PublicProjection["json"]["evidence"];
+
+const entityDetails = [
+  ...baseProjection.html.entity_details,
+  ...waveProjection.html.entity_details,
+].map((detail) => {
+  const additions = salvagedOccurrences.filter(
+    (occurrence) => occurrence.subject_entity_id === detail.entity.id,
+  );
+  if (additions.length === 0) return detail;
+
+  return {
+    ...detail,
+    occurrence_history: [...detail.occurrence_history, ...additions].sort((a, b) => {
+      const aDate = a.temporal_extent.start ?? a.temporal_extent.end ?? "";
+      const bDate = b.temporal_extent.start ?? b.temporal_extent.end ?? "";
+      const dateOrder = bDate.localeCompare(aDate);
+      return dateOrder !== 0 ? dateOrder : a.id.localeCompare(b.id);
+    }),
+  };
+});
+
 export const matsuriProjection: PublicProjection = {
   html: {
-    entity_details: [
-      ...baseProjection.html.entity_details,
-      ...waveProjection.html.entity_details,
-    ],
+    entity_details: entityDetails,
   },
   json: {
     ...baseProjection.json,
     entities: [...baseProjection.json.entities, ...waveProjection.json.entities],
     current_states: [...baseProjection.json.current_states, ...waveProjection.json.current_states],
-    sources: [...baseProjection.json.sources, ...waveProjection.json.sources],
-    evidence: [...baseProjection.json.evidence, ...waveProjection.json.evidence],
-    occurrences: [...baseProjection.json.occurrences, ...waveProjection.json.occurrences],
+    sources: [...baseProjection.json.sources, ...waveProjection.json.sources, ...salvagedSources],
+    evidence: [...baseProjection.json.evidence, ...waveProjection.json.evidence, ...salvagedEvidence],
+    occurrences: [...baseProjection.json.occurrences, ...waveProjection.json.occurrences, ...salvagedOccurrences],
   },
 };
 
