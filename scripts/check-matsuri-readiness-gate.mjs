@@ -340,7 +340,7 @@ assert(
     projectStatus.includes("Matsuri Detail C implementation — completed") &&
     projectStatus.includes("Matsuri prefecture seed baseline — completed 47 / 47") &&
     projectStatus.includes("Matsuri nationwide public corpus scaling — active") &&
-    projectStatus.includes("NCS-06 first bounded Tier A public wave + A→B promotion — active") &&
+    projectStatus.includes("NCS-07 Tier A wave 013 — completed") &&
     projectStatus.includes("Matsuri maintenance / historical depth — active in parallel") &&
     projectStatus.includes("Matsuri stabilization review — reviewing / incomplete") &&
     projectStatus.includes("Earliest review       2026-08-10") &&
@@ -356,7 +356,7 @@ assert(
     developmentSchedule.includes("Phase 10B Prefecture seed     completed 47 / 47") &&
     developmentSchedule.includes("Phase 10C Maintenance         active") &&
     developmentSchedule.includes("Phase 10D Nationwide scaling  active") &&
-    developmentSchedule.includes("NCS-06                        active") &&
+    developmentSchedule.includes("NCS-07 Tier A wave 013                     completed") &&
     developmentSchedule.includes("Stabilization review          reviewing") &&
     developmentSchedule.includes("Formal review complete        false") &&
     developmentSchedule.includes("Actual Jinja start gate       blocked"),
