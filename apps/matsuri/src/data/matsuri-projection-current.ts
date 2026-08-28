@@ -15,6 +15,7 @@ import batch23 from "../../../../data/public/matsuri/f1/batch-23.json";
 import batch24 from "../../../../data/public/matsuri/f1/batch-24.json";
 import batch25 from "../../../../data/public/matsuri/f1/batch-25.json";
 import maintenance99 from "../../../../data/public/matsuri/f2/maintenance-99.json";
+import maintenance102 from "../../../../data/public/matsuri/f2/maintenance-102.json";
 import { matsuriProjection as baseProjection } from "./matsuri-projection.js";
 
 const waveBundle = {
@@ -36,20 +37,41 @@ const waveProjection = buildPublicProjection(
   waveBundle as unknown as Parameters<typeof buildPublicProjection>[0],
 );
 
+const salvagedOccurrences = maintenance102.occurrences as unknown as PublicProjection["json"]["occurrences"];
+const salvagedSources = maintenance102.sources as unknown as PublicProjection["json"]["sources"];
+const salvagedEvidence = maintenance102.evidence as unknown as PublicProjection["json"]["evidence"];
+
+const entityDetails = [
+  ...baseProjection.html.entity_details,
+  ...waveProjection.html.entity_details,
+].map((detail) => {
+  const additions = salvagedOccurrences.filter(
+    (occurrence) => occurrence.subject_entity_id === detail.entity.id,
+  );
+  if (additions.length === 0) return detail;
+
+  return {
+    ...detail,
+    occurrence_history: [...detail.occurrence_history, ...additions].sort((a, b) => {
+      const aDate = a.temporal_extent.start ?? a.temporal_extent.end ?? "";
+      const bDate = b.temporal_extent.start ?? b.temporal_extent.end ?? "";
+      const dateOrder = bDate.localeCompare(aDate);
+      return dateOrder !== 0 ? dateOrder : a.id.localeCompare(b.id);
+    }),
+  };
+});
+
 export const matsuriProjection: PublicProjection = {
   html: {
-    entity_details: [
-      ...baseProjection.html.entity_details,
-      ...waveProjection.html.entity_details,
-    ],
+    entity_details: entityDetails,
   },
   json: {
     ...baseProjection.json,
     entities: [...baseProjection.json.entities, ...waveProjection.json.entities],
     current_states: [...baseProjection.json.current_states, ...waveProjection.json.current_states],
-    sources: [...baseProjection.json.sources, ...waveProjection.json.sources],
-    evidence: [...baseProjection.json.evidence, ...waveProjection.json.evidence],
-    occurrences: [...baseProjection.json.occurrences, ...waveProjection.json.occurrences],
+    sources: [...baseProjection.json.sources, ...waveProjection.json.sources, ...salvagedSources],
+    evidence: [...baseProjection.json.evidence, ...waveProjection.json.evidence, ...salvagedEvidence],
+    occurrences: [...baseProjection.json.occurrences, ...waveProjection.json.occurrences, ...salvagedOccurrences],
   },
 };
 
