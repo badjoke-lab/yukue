@@ -1,6 +1,6 @@
 # Project Status
 
-**Last updated:** 2026-08-27
+**Last updated:** 2026-08-28
 
 **Matsuri canonical public origin:** https://matsuri-yukue.badjoke-lab.com
 
@@ -22,7 +22,7 @@ Phase 10 Stabilization — active
 Matsuri Detail C implementation — completed
 Matsuri prefecture seed baseline — completed 47 / 47
 Matsuri nationwide public corpus scaling — active
-NCS-06 first bounded Tier A public wave + A→B promotion — active
+NCS-07 Tier A wave 013 — completed
 Matsuri maintenance / historical depth — active in parallel
 Matsuri stabilization review — reviewing / incomplete
 
@@ -63,17 +63,17 @@ When narrative documentation and a newer machine gate differ, the newer machine 
 
 ## Matsuri current measured baseline
 
-The current repository baseline is dated 2026-08-26:
+The current repository/quality baselines were reconciled through PR #322 and exact-head CI:
 
 ```text
-Public entities                         203
-Specialist-primary subjects             140
-Tier A — Public Index                   102
+Public entities                         211
+Specialist-primary subjects             148
+Tier A — Public Index                   110
 Tier B — Public Verified                  9
 Tier C — Public History / Monitoring     29
 Below Tier A                              0
 Prefectures represented                  47
-Municipalities represented              112
+Municipalities represented              117
 ```
 
 These are current repository measurements, not a claim of national completeness. Tier A is intentionally public once its identity/source minimum is met; unsupported Tier B/C dimensions remain absent rather than inferred.
@@ -102,17 +102,18 @@ The current source of truth is `config/matsuri-stabilization-review.json`. Owner
 
 ## Matsuri freshness maintenance
 
-The 2026-08-27 freshness audit identifies one closed-unresolved occurrence:
+The previously tracked 2026 Shinjo Matsuri closed-occurrence case is resolved.
 
 ```text
 occ-shinjo-matsuri-2026-schedule
-新庄まつり
-scheduled range: 2026-08-24 through 2026-08-26
-recorded outcome: scheduled
-tracking issue: #326
+record_version: 2
+outcome: held
+scale: unknown
+tracking issue: #326 — closed
+resolution PR: #330
 ```
 
-This is a Matsuri maintenance case, not a Jinja regression. Elapsed dates alone do not justify changing the result to `held`, `cancelled`, or another outcome. Direct/authoritative Evidence is required.
+The post-event official Evidence supports that the 2026 festival was held, but does not support flattening the full three-day edition to a normal-scale claim. The current Matsuri freshness workflow is green. Future elapsed dates still do not justify changing an occurrence outcome without direct/authoritative Evidence.
 
 ## Jinja current state
 
@@ -219,10 +220,10 @@ Jinja preview activation does not activate Jiin or Tomurai.
 
 ```text
 1. keep the live Jinja/Matsuri visual-parity audit as a regression check
-2. resolve Matsuri freshness issue #326 only from direct Evidence
+2. continue Matsuri nationwide A/B/C scaling and evidence-backed freshness maintenance
 3. expand Jinja reviewed Tier A records in bounded batches from authoritative sources
 4. deepen current Jinja records with evidence-backed State/profile fields where supportable
 5. add reviewed Event / Relation / history only when direct Evidence supports them
-6. continue Matsuri nationwide A/B/C scaling independently
+6. reconcile or retire stale long-lived PRs without discarding unique reviewed data
 7. when owner-private stabilization observations become available, complete Matsuri stabilization and reevaluate the Jinja canonical/custom-domain gate
 ```
