@@ -37,7 +37,7 @@
     "dated_observation_anchor_present": 90,
     "direct_profile_evidence_present": 18,
     "place_model_present": 83,
-    "substantive_summary_or_description_present": 3,
+    "substantive_summary_or_description_present": 4,
     "timing_or_recurrence_present": 92
   },
   "tier_b_missing_history_dimension_counts": {
