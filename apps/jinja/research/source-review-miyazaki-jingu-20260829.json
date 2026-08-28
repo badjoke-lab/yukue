@@ -1,0 +1,53 @@
+{
+  "format_version": 1,
+  "site_id": "jinja",
+  "entity_id": "shr-miyazaki-jingu",
+  "canonical_name": "宮﨑神宮",
+  "reviewed_at": "2026-08-29",
+  "status": "jinja_source_review_passed",
+  "promotion_authorized": true,
+  "recommended_tier": "B",
+  "identity": {
+    "official_url": "https://miyazakijingu.or.jp/",
+    "official_name_verified": true,
+    "geography_verified": true,
+    "prefecture": "宮崎県",
+    "municipality": "宮崎市",
+    "address": "宮崎県宮崎市神宮2丁目4番1号"
+  },
+  "current_state": {
+    "continuity_state": "operating",
+    "supportable": true,
+    "basis": "宮﨑神宮公式サイトは現行の社務所連絡先・募集案内等を掲載しており、2026年の神武の杜マラソン募集要項も宮崎神宮内の実行委員会連絡先を示している。",
+    "do_not_infer_beyond": [
+      "corporate_status",
+      "affiliation",
+      "administration",
+      "building_condition",
+      "temporary_access",
+      "disaster_damage"
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://miyazakijingu.or.jp/",
+      "publisher": "宮﨑神宮",
+      "source_type": "official_organization",
+      "supports": ["identity", "official_url"]
+    },
+    {
+      "url": "https://miyazakijingu.or.jp/files/libs/2004/202511301620361457.pdf",
+      "publisher": "建国記念の日奉祝神武の社マラソン実行委員会 / 宮﨑神宮",
+      "source_type": "official_organization",
+      "supports": ["current_activity", "address"]
+    }
+  ],
+  "boundaries": {
+    "matsuri_relation_used_as_seed_only": true,
+    "matsuri_relation_alone_sufficient": false,
+    "unsupported_state_inference": false,
+    "custom_domain_activation": false,
+    "canonical_publication_activation": false,
+    "search_submission_activation": false
+  }
+}
