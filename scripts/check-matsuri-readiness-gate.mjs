@@ -351,15 +351,15 @@ assert(
   "Project status does not reflect the current nationwide-scaling and bounded stabilization state",
 );
 assert(
-  developmentSchedule.includes("F2-01 through F2-28           completed") &&
-    developmentSchedule.includes("Phase 10A Detail C repair     completed") &&
-    developmentSchedule.includes("Phase 10B Prefecture seed     completed 47 / 47") &&
-    developmentSchedule.includes("Phase 10C Maintenance         active") &&
-    developmentSchedule.includes("Phase 10D Nationwide scaling  active") &&
+  developmentSchedule.includes("F2-01 through F2-28                        completed") &&
+    developmentSchedule.includes("Phase 10A Detail C repair                  completed") &&
+    developmentSchedule.includes("Phase 10B Prefecture seed                  completed 47 / 47") &&
+    developmentSchedule.includes("Phase 10C Maintenance                      active") &&
+    developmentSchedule.includes("Phase 10D Nationwide scaling               active") &&
     developmentSchedule.includes("NCS-07 Tier A wave 013                     completed") &&
-    developmentSchedule.includes("Stabilization review          reviewing") &&
-    developmentSchedule.includes("Formal review complete        false") &&
-    developmentSchedule.includes("Actual Jinja start gate       blocked"),
+    developmentSchedule.includes("Stabilization review                       reviewing") &&
+    developmentSchedule.includes("Formal review complete                     false") &&
+    developmentSchedule.includes("Actual Jinja start gate                    blocked"),
   "Development schedule does not reflect the current nationwide-scaling and stabilization state",
 );
 assert(
