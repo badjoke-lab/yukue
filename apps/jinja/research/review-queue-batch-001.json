@@ -27,15 +27,7 @@
         "identity_evidence_ids": ["evd-kushida-jinja-identity", "evd-kushida-jinja-official-identity"],
         "official_urls": ["https://www.hakatayamakasa.com/61866.html"],
         "relation_contexts": [
-          {
-            "relation_id": "rel-hakata-associated-with-kushida",
-            "relation_type": "ritually_associated_with",
-            "direction": "matsuri_to_candidate",
-            "matsuri_entity_id": "fst-hakata-gion-yamakasa",
-            "matsuri_entity_type": "festival",
-            "matsuri_name_ja": "博多祇園山笠",
-            "evidence_ids": ["evd-rel-hakata-kushida"]
-          }
+          {"relation_id":"rel-hakata-associated-with-kushida","relation_type":"ritually_associated_with","direction":"matsuri_to_candidate","matsuri_entity_id":"fst-hakata-gion-yamakasa","matsuri_entity_type":"festival","matsuri_name_ja":"博多祇園山笠","evidence_ids":["evd-rel-hakata-kushida"]}
         ]
       }
     },
@@ -51,15 +43,7 @@
         "identity_evidence_ids": ["evd-mikuni-jinja-identity"],
         "official_urls": [],
         "relation_contexts": [
-          {
-            "relation_id": "rel-mikuni-matsuri-ritually-associated-with-mikuni-jinja",
-            "relation_type": "ritually_associated_with",
-            "direction": "matsuri_to_candidate",
-            "matsuri_entity_id": "fst-mikuni-matsuri",
-            "matsuri_entity_type": "festival",
-            "matsuri_name_ja": "三国祭",
-            "evidence_ids": ["evd-rel-mikuni-matsuri-mikuni-jinja"]
-          }
+          {"relation_id":"rel-mikuni-matsuri-ritually-associated-with-mikuni-jinja","relation_type":"ritually_associated_with","direction":"matsuri_to_candidate","matsuri_entity_id":"fst-mikuni-matsuri","matsuri_entity_type":"festival","matsuri_name_ja":"三国祭","evidence_ids":["evd-rel-mikuni-matsuri-mikuni-jinja"]}
         ]
       }
     },
@@ -75,15 +59,7 @@
         "identity_evidence_ids": ["evd-kasuga-wakamiya-identity"],
         "official_urls": ["https://www.kasugataisha.or.jp/guidance/keidai-map2/modal-08/"],
         "relation_contexts": [
-          {
-            "relation_id": "rel-kasuga-onmatsuri-associated-with-wakamiya",
-            "relation_type": "ritually_associated_with",
-            "direction": "matsuri_to_candidate",
-            "matsuri_entity_id": "fst-kasuga-wakamiya-onmatsuri",
-            "matsuri_entity_type": "festival",
-            "matsuri_name_ja": "春日若宮おん祭",
-            "evidence_ids": ["evd-rel-kasuga-onmatsuri-wakamiya"]
-          }
+          {"relation_id":"rel-kasuga-onmatsuri-associated-with-wakamiya","relation_type":"ritually_associated_with","direction":"matsuri_to_candidate","matsuri_entity_id":"fst-kasuga-wakamiya-onmatsuri","matsuri_entity_type":"festival","matsuri_name_ja":"春日若宮おん祭","evidence_ids":["evd-rel-kasuga-onmatsuri-wakamiya"]}
         ]
       }
     },
@@ -99,15 +75,7 @@
         "identity_evidence_ids": ["evd-shinjo-tenmangu-identity"],
         "official_urls": ["https://shinjo-matsuri.jp/db/tenman"],
         "relation_contexts": [
-          {
-            "relation_id": "rel-shinjo-matsuri-associated-with-tenmangu",
-            "relation_type": "ritually_associated_with",
-            "direction": "matsuri_to_candidate",
-            "matsuri_entity_id": "fst-shinjo-matsuri",
-            "matsuri_entity_type": "festival",
-            "matsuri_name_ja": "新庄まつり",
-            "evidence_ids": ["evd-rel-shinjo-matsuri-tenmangu"]
-          }
+          {"relation_id":"rel-shinjo-matsuri-associated-with-tenmangu","relation_type":"ritually_associated_with","direction":"matsuri_to_candidate","matsuri_entity_id":"fst-shinjo-matsuri","matsuri_entity_type":"festival","matsuri_name_ja":"新庄まつり","evidence_ids":["evd-rel-shinjo-matsuri-tenmangu"]}
         ]
       }
     },
@@ -118,7 +86,7 @@
       "promotion_authorized": false,
       "jinja_state": null,
       "matsuri_handoff": {
-        "place_ids": [],
+        "place_ids": ["plc-kitaguchi-hongu-fuji-sengen"],
         "source_ids": [],
         "identity_evidence_ids": [],
         "official_urls": [],
