@@ -1,1 +1,0 @@
-The deterministic review queue must roll forward after `shr-miyazaki-jingu` enters Jinja canonical. The next pending candidate is intentionally resolved by the repository's queue validator before this branch is merge-ready; automatic promotion remains disabled.
