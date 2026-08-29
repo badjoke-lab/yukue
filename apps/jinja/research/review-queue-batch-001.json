@@ -10,8 +10,8 @@
     "ordering": "candidate_site_id:name_ja:entity_id localeCompare(ja)",
     "canonical_exclusion": true,
     "source_candidate_count": 26,
-    "canonical_candidate_count": 5,
-    "pending_candidate_count": 21,
+    "canonical_candidate_count": 6,
+    "pending_candidate_count": 20,
     "selected_count": 5
   },
   "items": [
