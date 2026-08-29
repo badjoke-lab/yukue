@@ -16,30 +16,6 @@
   },
   "items": [
     {
-      "entity_id": "shr-miyazaki-jingu",
-      "name_ja": "宮﨑神宮",
-      "status": "pending_jinja_source_review",
-      "promotion_authorized": false,
-      "jinja_state": null,
-      "matsuri_handoff": {
-        "place_ids": ["plc-miyazaki-jingu"],
-        "source_ids": ["src-miyazaki-jingu-city-tourism", "src-miyazaki-jingu-official-festival-history"],
-        "identity_evidence_ids": ["evd-miyazaki-jingu-shrine-identity"],
-        "official_urls": ["https://miyazakijingu.or.jp/"],
-        "relation_contexts": [
-          {
-            "relation_id": "rel-miyazaki-jingu-festival-ritually-associated-miyazaki-jingu",
-            "relation_type": "ritually_associated_with",
-            "direction": "matsuri_to_candidate",
-            "matsuri_entity_id": "fst-miyazaki-jingu-grand-festival",
-            "matsuri_entity_type": "festival",
-            "matsuri_name_ja": "宮﨑神宮大祭（神武さま）",
-            "evidence_ids": ["evd-rel-miyazaki-jingu-festival-miyazaki-jingu"]
-          }
-        ]
-      }
-    },
-    {
       "entity_id": "shr-kushida-jinja",
       "name_ja": "櫛田神社",
       "status": "pending_jinja_source_review",
@@ -133,6 +109,20 @@
             "evidence_ids": ["evd-rel-shinjo-matsuri-tenmangu"]
           }
         ]
+      }
+    },
+    {
+      "entity_id": "shr-kitaguchi-suwa-jinja",
+      "name_ja": "北口諏訪神社",
+      "status": "pending_jinja_source_review",
+      "promotion_authorized": false,
+      "jinja_state": null,
+      "matsuri_handoff": {
+        "place_ids": [],
+        "source_ids": [],
+        "identity_evidence_ids": [],
+        "official_urls": [],
+        "relation_contexts": []
       }
     }
   ],
