@@ -113,7 +113,7 @@
     },
     {
       "entity_id": "shr-kitaguchi-suwa-jinja",
-      "name_ja": "北口諏訪神社",
+      "name_ja": "諏訪神社",
       "status": "pending_jinja_source_review",
       "promotion_authorized": false,
       "jinja_state": null,
