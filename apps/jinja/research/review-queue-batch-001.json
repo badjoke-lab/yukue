@@ -88,7 +88,7 @@
       "matsuri_handoff": {
         "place_ids": ["plc-kitaguchi-hongu-fuji-sengen"],
         "source_ids": ["src-yoshida-fire-shrine-overview"],
-        "identity_evidence_ids": [],
+        "identity_evidence_ids": ["evd-yoshida-suwa-identity"],
         "official_urls": [],
         "relation_contexts": []
       }
