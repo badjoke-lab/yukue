@@ -87,7 +87,7 @@
       "jinja_state": null,
       "matsuri_handoff": {
         "place_ids": ["plc-kitaguchi-hongu-fuji-sengen"],
-        "source_ids": [],
+        "source_ids": ["src-yoshida-fire-shrine-overview"],
         "identity_evidence_ids": [],
         "official_urls": [],
         "relation_contexts": []
