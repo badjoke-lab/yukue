@@ -10,138 +10,16 @@
     "ordering": "candidate_site_id:name_ja:entity_id localeCompare(ja)",
     "canonical_exclusion": true,
     "source_candidate_count": 26,
-    "canonical_candidate_count": 5,
-    "pending_candidate_count": 21,
+    "canonical_candidate_count": 6,
+    "pending_candidate_count": 20,
     "selected_count": 5
   },
   "items": [
-    {
-      "entity_id": "shr-miyazaki-jingu",
-      "name_ja": "宮﨑神宮",
-      "status": "pending_jinja_source_review",
-      "promotion_authorized": false,
-      "jinja_state": null,
-      "matsuri_handoff": {
-        "place_ids": ["plc-miyazaki-jingu"],
-        "source_ids": ["src-miyazaki-jingu-city-tourism", "src-miyazaki-jingu-official-festival-history"],
-        "identity_evidence_ids": ["evd-miyazaki-jingu-shrine-identity"],
-        "official_urls": ["https://miyazakijingu.or.jp/"],
-        "relation_contexts": [
-          {
-            "relation_id": "rel-miyazaki-jingu-festival-ritually-associated-miyazaki-jingu",
-            "relation_type": "ritually_associated_with",
-            "direction": "matsuri_to_candidate",
-            "matsuri_entity_id": "fst-miyazaki-jingu-grand-festival",
-            "matsuri_entity_type": "festival",
-            "matsuri_name_ja": "宮﨑神宮大祭（神武さま）",
-            "evidence_ids": ["evd-rel-miyazaki-jingu-festival-miyazaki-jingu"]
-          }
-        ]
-      }
-    },
-    {
-      "entity_id": "shr-kushida-jinja",
-      "name_ja": "櫛田神社",
-      "status": "pending_jinja_source_review",
-      "promotion_authorized": false,
-      "jinja_state": null,
-      "matsuri_handoff": {
-        "place_ids": ["plc-kushida-jinja"],
-        "source_ids": ["src-hakata-schedule-2026", "src-kushida-jinja-official-page"],
-        "identity_evidence_ids": ["evd-kushida-jinja-identity", "evd-kushida-jinja-official-identity"],
-        "official_urls": ["https://www.hakatayamakasa.com/61866.html"],
-        "relation_contexts": [
-          {
-            "relation_id": "rel-hakata-associated-with-kushida",
-            "relation_type": "ritually_associated_with",
-            "direction": "matsuri_to_candidate",
-            "matsuri_entity_id": "fst-hakata-gion-yamakasa",
-            "matsuri_entity_type": "festival",
-            "matsuri_name_ja": "博多祇園山笠",
-            "evidence_ids": ["evd-rel-hakata-kushida"]
-          }
-        ]
-      }
-    },
-    {
-      "entity_id": "shr-mikuni-jinja",
-      "name_ja": "三國神社",
-      "status": "pending_jinja_source_review",
-      "promotion_authorized": false,
-      "jinja_state": null,
-      "matsuri_handoff": {
-        "place_ids": ["plc-mikuni-jinja"],
-        "source_ids": ["src-mikuni-jinja-city", "src-mikuni-matsuri-schedule-2026"],
-        "identity_evidence_ids": ["evd-mikuni-jinja-identity"],
-        "official_urls": [],
-        "relation_contexts": [
-          {
-            "relation_id": "rel-mikuni-matsuri-ritually-associated-with-mikuni-jinja",
-            "relation_type": "ritually_associated_with",
-            "direction": "matsuri_to_candidate",
-            "matsuri_entity_id": "fst-mikuni-matsuri",
-            "matsuri_entity_type": "festival",
-            "matsuri_name_ja": "三国祭",
-            "evidence_ids": ["evd-rel-mikuni-matsuri-mikuni-jinja"]
-          }
-        ]
-      }
-    },
-    {
-      "entity_id": "shr-kasuga-wakamiya",
-      "name_ja": "春日若宮",
-      "status": "pending_jinja_source_review",
-      "promotion_authorized": false,
-      "jinja_state": null,
-      "matsuri_handoff": {
-        "place_ids": ["plc-kasuga-wakamiya"],
-        "source_ids": ["src-kasuga-onmatsuri-history", "src-kasuga-wakamiya-official"],
-        "identity_evidence_ids": ["evd-kasuga-wakamiya-identity"],
-        "official_urls": ["https://www.kasugataisha.or.jp/guidance/keidai-map2/modal-08/"],
-        "relation_contexts": [
-          {
-            "relation_id": "rel-kasuga-onmatsuri-associated-with-wakamiya",
-            "relation_type": "ritually_associated_with",
-            "direction": "matsuri_to_candidate",
-            "matsuri_entity_id": "fst-kasuga-wakamiya-onmatsuri",
-            "matsuri_entity_type": "festival",
-            "matsuri_name_ja": "春日若宮おん祭",
-            "evidence_ids": ["evd-rel-kasuga-onmatsuri-wakamiya"]
-          }
-        ]
-      }
-    },
-    {
-      "entity_id": "shr-shinjo-tenmangu",
-      "name_ja": "新庄天満神社",
-      "status": "pending_jinja_source_review",
-      "promotion_authorized": false,
-      "jinja_state": null,
-      "matsuri_handoff": {
-        "place_ids": ["plc-shinjo-tenmangu"],
-        "source_ids": ["src-shinjo-tenmangu"],
-        "identity_evidence_ids": ["evd-shinjo-tenmangu-identity"],
-        "official_urls": ["https://shinjo-matsuri.jp/db/tenman"],
-        "relation_contexts": [
-          {
-            "relation_id": "rel-shinjo-matsuri-associated-with-tenmangu",
-            "relation_type": "ritually_associated_with",
-            "direction": "matsuri_to_candidate",
-            "matsuri_entity_id": "fst-shinjo-matsuri",
-            "matsuri_entity_type": "festival",
-            "matsuri_name_ja": "新庄まつり",
-            "evidence_ids": ["evd-rel-shinjo-matsuri-tenmangu"]
-          }
-        ]
-      }
-    }
+    {"entity_id":"shr-kushida-jinja","name_ja":"櫛田神社","status":"pending_jinja_source_review","promotion_authorized":false,"jinja_state":null,"matsuri_handoff":{"place_ids":["plc-kushida-jinja"],"source_ids":["src-hakata-schedule-2026","src-kushida-jinja-official-page"],"identity_evidence_ids":["evd-kushida-jinja-identity","evd-kushida-jinja-official-identity"],"official_urls":["https://www.hakatayamakasa.com/61866.html"],"relation_contexts":[{"relation_id":"rel-hakata-associated-with-kushida","relation_type":"ritually_associated_with","direction":"matsuri_to_candidate","matsuri_entity_id":"fst-hakata-gion-yamakasa","matsuri_entity_type":"festival","matsuri_name_ja":"博多祇園山笠","evidence_ids":["evd-rel-hakata-kushida"]}]}},
+    {"entity_id":"shr-mikuni-jinja","name_ja":"三國神社","status":"pending_jinja_source_review","promotion_authorized":false,"jinja_state":null,"matsuri_handoff":{"place_ids":["plc-mikuni-jinja"],"source_ids":["src-mikuni-jinja-city","src-mikuni-matsuri-schedule-2026"],"identity_evidence_ids":["evd-mikuni-jinja-identity"],"official_urls":[],"relation_contexts":[{"relation_id":"rel-mikuni-matsuri-ritually-associated-with-mikuni-jinja","relation_type":"ritually_associated_with","direction":"matsuri_to_candidate","matsuri_entity_id":"fst-mikuni-matsuri","matsuri_entity_type":"festival","matsuri_name_ja":"三国祭","evidence_ids":["evd-rel-mikuni-matsuri-mikuni-jinja"]}]}},
+    {"entity_id":"shr-kasuga-wakamiya","name_ja":"春日若宮","status":"pending_jinja_source_review","promotion_authorized":false,"jinja_state":null,"matsuri_handoff":{"place_ids":["plc-kasuga-wakamiya"],"source_ids":["src-kasuga-onmatsuri-history","src-kasuga-wakamiya-official"],"identity_evidence_ids":["evd-kasuga-wakamiya-identity"],"official_urls":["https://www.kasugataisha.or.jp/guidance/keidai-map2/modal-08/"],"relation_contexts":[{"relation_id":"rel-kasuga-onmatsuri-associated-with-wakamiya","relation_type":"ritually_associated_with","direction":"matsuri_to_candidate","matsuri_entity_id":"fst-kasuga-wakamiya-onmatsuri","matsuri_entity_type":"festival","matsuri_name_ja":"春日若宮おん祭","evidence_ids":["evd-rel-kasuga-onmatsuri-wakamiya"]}]}},
+    {"entity_id":"shr-shinjo-tenmangu","name_ja":"新庄天満神社","status":"pending_jinja_source_review","promotion_authorized":false,"jinja_state":null,"matsuri_handoff":{"place_ids":["plc-shinjo-tenmangu"],"source_ids":["src-shinjo-tenmangu"],"identity_evidence_ids":["evd-shinjo-tenmangu-identity"],"official_urls":["https://shinjo-matsuri.jp/db/tenman"],"relation_contexts":[{"relation_id":"rel-shinjo-matsuri-associated-with-tenmangu","relation_type":"ritually_associated_with","direction":"matsuri_to_candidate","matsuri_entity_id":"fst-shinjo-matsuri","matsuri_entity_type":"festival","matsuri_name_ja":"新庄まつり","evidence_ids":["evd-rel-shinjo-matsuri-tenmangu"]}]}},
+    {"entity_id":"shr-kitaguchi-suwa-jinja","name_ja":"諏訪神社","status":"pending_jinja_source_review","promotion_authorized":false,"jinja_state":null,"matsuri_handoff":{"place_ids":["plc-kitaguchi-hongu-fuji-sengen"],"source_ids":["src-yoshida-fire-shrine-overview"],"identity_evidence_ids":["evd-yoshida-suwa-identity"],"official_urls":["https://www.sengenjinja.jp/himatsuri/index.html"],"relation_contexts":[{"relation_id":"rel-yoshida-fire-associated-with-suwa","relation_type":"ritually_associated_with","direction":"matsuri_to_candidate","matsuri_entity_id":"fst-yoshida-fire-festival","matsuri_entity_type":"festival","matsuri_name_ja":"吉田の火祭","evidence_ids":["evd-rel-yoshida-fire-suwa"]}]}}
   ],
-  "boundaries": {
-    "repository_public_review_queue": true,
-    "contains_private_notes": false,
-    "published_by_jinja_build": false,
-    "automatic_promotion": false,
-    "jinja_specific_source_review_required": true,
-    "missing_state_inferred": false
-  }
+  "boundaries": {"repository_public_review_queue":true,"contains_private_notes":false,"published_by_jinja_build":false,"automatic_promotion":false,"jinja_specific_source_review_required":true,"missing_state_inferred":false}
 }
