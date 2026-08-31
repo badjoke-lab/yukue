@@ -1,0 +1,49 @@
+{
+  "format_version": 1,
+  "site_id": "jinja",
+  "scope": "national_candidate_acquisition",
+  "strategy": "prefecture_partitioned_bulk_discovery_then_review",
+  "sources": [
+    {
+      "id": "osm-overpass-shinto-place-of-worship",
+      "provider": "OpenStreetMap contributors",
+      "source_type": "discovery_seed",
+      "license": "ODbL-1.0",
+      "query_contract": {
+        "administrative_partition": "ISO3166-2 JP-01 through JP-47",
+        "required_tags": {
+          "amenity": "place_of_worship",
+          "religion": "shinto"
+        }
+      },
+      "attribution_required": true
+    }
+  ],
+  "candidate_contract": {
+    "candidate_only": true,
+    "automatic_canonical_promotion": false,
+    "automatic_state_inference": false,
+    "automatic_event_inference": false,
+    "automatic_relation_inference": false,
+    "dedupe_keys": [
+      "source.element_type+source.element_id",
+      "normalized_name+coordinates",
+      "normalized_name+address"
+    ],
+    "review_priority": [
+      "candidate has shrine-operated website",
+      "candidate has public-authority corroboration",
+      "candidate has Wikidata identifier",
+      "candidate has complete coordinates and address",
+      "remaining candidates"
+    ]
+  },
+  "publication_boundary": {
+    "candidate_files_published_by_site": false,
+    "canonical_requires_jinja_specific_review": true,
+    "custom_domain_activation": false,
+    "canonical_publication_activation": false,
+    "search_submission_activation": false,
+    "indexability_activation": false
+  }
+}
