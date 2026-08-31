@@ -10,7 +10,9 @@
       "tier": "A",
       "verified_at": "2026-08-24",
       "current_place_id": "plc-sada-jinja",
-      "official_links": ["https://www.sadajinjya.jp/"]
+      "official_links": [
+        "https://www.sadajinjya.jp/"
+      ]
     },
     {
       "id": "shr-aso-jinja",
@@ -19,7 +21,9 @@
       "tier": "A",
       "verified_at": "2026-08-25",
       "current_place_id": "plc-aso-jinja",
-      "official_links": ["https://asojinja.or.jp/"]
+      "official_links": [
+        "https://asojinja.or.jp/"
+      ]
     },
     {
       "id": "shr-samukawa-jinja",
@@ -28,7 +32,9 @@
       "tier": "A",
       "verified_at": "2026-08-25",
       "current_place_id": "plc-samukawa-jinja",
-      "official_links": ["https://samukawajinjya.jp/"]
+      "official_links": [
+        "https://samukawajinjya.jp/"
+      ]
     },
     {
       "id": "shr-kishu-toshogu",
@@ -37,7 +43,9 @@
       "tier": "A",
       "verified_at": "2026-08-25",
       "current_place_id": "plc-kishu-toshogu",
-      "official_links": ["https://www.kishutoshogu.org/"]
+      "official_links": [
+        "https://www.kishutoshogu.org/"
+      ]
     },
     {
       "id": "shr-hitachi-sosogu-jinja",
@@ -46,7 +54,9 @@
       "tier": "A",
       "verified_at": "2026-08-25",
       "current_place_id": "plc-hitachi-sosogu-jinja",
-      "official_links": ["https://sosyagu.jp/"]
+      "official_links": [
+        "https://sosyagu.jp/"
+      ]
     },
     {
       "id": "shr-miyazaki-jingu",
@@ -55,7 +65,18 @@
       "tier": "A",
       "verified_at": "2026-08-29",
       "current_place_id": "plc-miyazaki-jingu",
-      "official_links": ["https://miyazakijingu.or.jp/"]
+      "official_links": [
+        "https://miyazakijingu.or.jp/"
+      ]
+    },
+    {
+      "id": "shr-kushida-jinja",
+      "canonical_name": "櫛田神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-kushida-jinja",
+      "official_links": []
     }
   ],
   "states": [
@@ -65,7 +86,9 @@
       "continuity_state": "operating",
       "review_status": "approved",
       "verified_at": "2026-08-27",
-      "evidence_ids": ["evd-jinja-sada-state-20260827"],
+      "evidence_ids": [
+        "evd-jinja-sada-state-20260827"
+      ],
       "basis_summary": "佐太神社公式の御祈念・御祈祷案内が現在の受付時間と申込方法を案内しているため、継続して神社活動が行われていることを確認。"
     },
     {
@@ -74,7 +97,9 @@
       "continuity_state": "operating",
       "review_status": "approved",
       "verified_at": "2026-08-27",
-      "evidence_ids": ["evd-jinja-aso-state-20260827"],
+      "evidence_ids": [
+        "evd-jinja-aso-state-20260827"
+      ],
       "basis_summary": "阿蘇神社公式の参拝・ご祈願祭案内が現在の参拝時間、御札所時間、ご祈願祭受付を案内しているため、継続して神社活動が行われていることを確認。"
     },
     {
@@ -83,7 +108,9 @@
       "continuity_state": "operating",
       "review_status": "approved",
       "verified_at": "2026-08-27",
-      "evidence_ids": ["evd-jinja-samukawa-state-20260827"],
+      "evidence_ids": [
+        "evd-jinja-samukawa-state-20260827"
+      ],
       "basis_summary": "寒川神社公式の御祈祷案内が現在の受付時間と年中無休での受付を案内しているため、継続して神社活動が行われていることを確認。"
     },
     {
@@ -92,7 +119,9 @@
       "continuity_state": "operating",
       "review_status": "approved",
       "verified_at": "2026-08-27",
-      "evidence_ids": ["evd-jinja-kishu-toshogu-state-20260827"],
+      "evidence_ids": [
+        "evd-jinja-kishu-toshogu-state-20260827"
+      ],
       "basis_summary": "紀州東照宮公式サイトが現在の開門時間と各種御祈祷・神前結婚式・地鎮祭等の受付を案内しているため、継続して神社活動が行われていることを確認。"
     },
     {
@@ -101,7 +130,9 @@
       "continuity_state": "operating",
       "review_status": "approved",
       "verified_at": "2026-08-27",
-      "evidence_ids": ["evd-jinja-hitachi-sosogu-state-20260827"],
+      "evidence_ids": [
+        "evd-jinja-hitachi-sosogu-state-20260827"
+      ],
       "basis_summary": "常陸國總社宮公式の御祈祷案内が毎日の御祈祷受付と年中無休の受付時間を案内しているため、継続して神社活動が行われていることを確認。"
     },
     {
@@ -110,8 +141,21 @@
       "continuity_state": "operating",
       "review_status": "approved",
       "verified_at": "2026-08-29",
-      "evidence_ids": ["evd-jinja-miyazaki-state-20260829"],
+      "evidence_ids": [
+        "evd-jinja-miyazaki-state-20260829"
+      ],
       "basis_summary": "宮﨑神宮公式の現行社務所案内と祈願受付案内を確認できるため、継続して神社活動が行われていることを確認。"
+    },
+    {
+      "id": "sta-jinja-kushida-operating-20260901",
+      "entity_id": "shr-kushida-jinja",
+      "continuity_state": "operating",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "evidence_ids": [
+        "evd-jinja-kushida-state-20260901"
+      ],
+      "basis_summary": "福岡県の2026年公式発表が櫛田神社を節分厄除大祭の主催・会場・問い合わせ先として明記し、福岡市公式観光情報も現行参拝時間を掲載しているため、継続して神社活動が行われていることを確認。"
     }
   ],
   "events": [],
@@ -172,6 +216,15 @@
       "summary": "宮﨑神宮公式サイトと宮﨑神宮社務所発行資料で神社名と所在地を確認。"
     },
     {
+      "id": "evd-jinja-kushida-identity-geography-20260901",
+      "target_type": "entity",
+      "target_id": "shr-kushida-jinja",
+      "source_id": "src-jinja-kushida-yokanavi-20260901",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "福岡市公式観光情報サイト「よかなび」で櫛田神社名、所在地、電話番号、参拝時間を確認。"
+    },
+    {
       "id": "evd-jinja-sada-state-20260827",
       "target_type": "state",
       "target_id": "sta-jinja-sada-operating-20260827",
@@ -224,6 +277,15 @@
       "review_status": "approved",
       "verified_at": "2026-08-29",
       "summary": "宮﨑神宮社務所の現行案内で祈願、車祓、出張祭典等の受付と社務所連絡先を確認。"
+    },
+    {
+      "id": "evd-jinja-kushida-state-20260901",
+      "target_type": "state",
+      "target_id": "sta-jinja-kushida-operating-20260901",
+      "source_id": "src-jinja-kushida-fukuoka-pref-20260901",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "福岡県の2026年1月29日発表で、櫛田神社が2月3日の節分厄除大祭の主催・会場・問い合わせ先として現行掲載されていることを確認。"
     }
   ],
   "sources": [
@@ -276,6 +338,14 @@
       "accessed_at": "2026-08-29"
     },
     {
+      "id": "src-jinja-kushida-yokanavi-20260901",
+      "title": "櫛田神社",
+      "publisher": "福岡市観光情報サイト よかなび",
+      "url": "https://yokanavi.com/spots/26906/",
+      "source_type": "official_organization",
+      "accessed_at": "2026-09-01"
+    },
+    {
       "id": "src-jinja-sada-prayer-20260827",
       "title": "御祈念・正式参拝のお申し込み",
       "publisher": "佐太神社",
@@ -322,6 +392,14 @@
       "url": "https://miyazakijingu.or.jp/files/libs/1908/202502171416212153.pdf",
       "source_type": "official_organization",
       "accessed_at": "2026-08-29"
+    },
+    {
+      "id": "src-jinja-kushida-fukuoka-pref-20260901",
+      "title": "東長寺節分大祭・櫛田神社厄除大祭・住吉神社節分祭 に服部知事が参加します！",
+      "publisher": "福岡県",
+      "url": "https://www.pref.fukuoka.lg.jp/press-release/setubunn-mamemaki-2026.html",
+      "source_type": "government_primary",
+      "accessed_at": "2026-09-01"
     }
   ],
   "places": [
@@ -372,6 +450,14 @@
       "review_status": "approved",
       "address": "宮崎県宮崎市神宮2丁目4番1号",
       "verified_at": "2026-08-29"
+    },
+    {
+      "id": "plc-kushida-jinja",
+      "prefecture": "福岡県",
+      "municipality": "福岡市博多区",
+      "review_status": "approved",
+      "address": "福岡市博多区上川端町1-41",
+      "verified_at": "2026-09-01"
     }
   ]
 }
