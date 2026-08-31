@@ -1,0 +1,54 @@
+{
+  "format_version": 1,
+  "site_id": "jinja",
+  "entity_id": "shr-kushida-jinja",
+  "canonical_name": "櫛田神社",
+  "reviewed_at": "2026-09-01",
+  "status": "jinja_source_review_passed",
+  "promotion_authorized": true,
+  "recommended_tier": "B",
+  "identity": {
+    "official_url": null,
+    "official_name_verified": true,
+    "geography_verified": true,
+    "prefecture": "福岡県",
+    "municipality": "福岡市博多区",
+    "address": "福岡市博多区上川端町1-41"
+  },
+  "current_state": {
+    "continuity_state": "operating",
+    "supportable": true,
+    "basis": "福岡県の2026年1月29日公式発表は、2026年2月3日に博多総鎮守 櫛田神社で節分厄除大祭を実施し、主催を博多総鎮守 櫛田神社、所在地を福岡市博多区上川端町1-41、問い合わせ先を同神社としている。福岡市公式観光情報も同所在地・電話番号と現行参拝時間を掲載しているため、2026年時点の継続運営を支持できる。",
+    "do_not_infer_beyond": [
+      "corporate_status",
+      "affiliation",
+      "administration",
+      "building_condition",
+      "temporary_access",
+      "disaster_damage"
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.pref.fukuoka.lg.jp/press-release/setubunn-mamemaki-2026.html",
+      "publisher": "福岡県",
+      "source_type": "government_primary",
+      "supports": ["identity", "current_activity", "address", "operator_contact"]
+    },
+    {
+      "url": "https://yokanavi.com/spots/26906/",
+      "publisher": "福岡市観光情報サイト よかなび",
+      "source_type": "official_organization",
+      "supports": ["identity", "address", "current_access_information"]
+    }
+  ],
+  "boundaries": {
+    "matsuri_relation_used_as_seed_only": true,
+    "matsuri_relation_alone_sufficient": false,
+    "unsupported_state_inference": false,
+    "shrine_operated_official_site_confirmed": false,
+    "custom_domain_activation": false,
+    "canonical_publication_activation": false,
+    "search_submission_activation": false
+  }
+}
