@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "check": "node scripts/check.mjs && node scripts/check-data.mjs && node scripts/audit-tier-a-candidates.mjs --summary",
-    "typecheck": "node scripts/check.mjs && node scripts/check-data.mjs",
-    "audit:tier-a-candidates": "node scripts/audit-tier-a-candidates.mjs"
+    "check": "node scripts/check.mjs && node scripts/check-data.mjs && node scripts/check-national-acquisition.mjs && node scripts/audit-tier-a-candidates.mjs --summary",
+    "typecheck": "node scripts/check.mjs && node scripts/check-data.mjs && node scripts/check-national-acquisition.mjs",
+    "audit:tier-a-candidates": "node scripts/audit-tier-a-candidates.mjs",
+    "acquire:national": "node scripts/acquire-national-candidates.mjs",
+    "check:national-acquisition": "node scripts/check-national-acquisition.mjs"
   },
   "dependencies": {
     "@badjoke-lab/yukue-ui": "workspace:*",
