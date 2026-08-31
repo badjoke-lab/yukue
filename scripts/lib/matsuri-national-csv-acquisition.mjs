@@ -5,12 +5,16 @@ import { fileURLToPath } from "node:url";
 const repositoryRoot = fileURLToPath(new URL("../../", import.meta.url));
 const inventoryPath = path.join(repositoryRoot, "config", "matsuri-national-source-inventory.json");
 
+function norm(value) {
+  return String(value ?? "").normalize("NFKC").trim();
+}
+
 const TYPE_MAP = new Map([
-  ["祭礼（信仰）", "festival"],
-  ["神楽", "folk_performance"],
-  ["田楽", "folk_performance"],
-  ["風流", "folk_performance"],
-  ["延年・おこない", "folk_performance"],
+  [norm("祭礼（信仰）"), "festival"],
+  [norm("神楽"), "folk_performance"],
+  [norm("田楽"), "folk_performance"],
+  [norm("風流"), "folk_performance"],
+  [norm("延年・おこない"), "folk_performance"],
 ]);
 
 function parseCsv(text) {
@@ -52,10 +56,6 @@ function parseCsv(text) {
   return rows;
 }
 
-function norm(value) {
-  return String(value ?? "").normalize("NFKC").trim();
-}
-
 function slug(value) {
   return norm(value)
     .toLocaleLowerCase("ja")
@@ -84,10 +84,10 @@ export function buildNationalCandidatesFromCsv(csvText, options = {}) {
 
   const headers = rows[0].map(norm);
   const nameIndex = headerIndex(headers, ["名称", "文化財名称", "name"]);
-  const subtypeIndex = headerIndex(headers, ["種別２", "種別2", "分類２", "分類2"]);
+  const subtypeIndex = headerIndex(headers, ["種別2", "分類2"]);
   const prefectureIndex = headerIndex(headers, ["所在都道府県、地域", "都道府県", "所在都道府県"]);
   const locationIndex = headerIndex(headers, ["所在地", "所在", "location"]);
-  const urlIndex = headerIndex(headers, ["詳細URL", "詳細ＵＲＬ", "URL", "url"]);
+  const urlIndex = headerIndex(headers, ["詳細URL", "URL", "url"]);
   const providerIdIndex = headerIndex(headers, ["管理番号", "登録番号", "指定番号", "record_id"]);
 
   for (const [label, index] of [["名称", nameIndex], ["種別2", subtypeIndex], ["都道府県", prefectureIndex], ["URL", urlIndex]]) {
