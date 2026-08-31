@@ -10,6 +10,8 @@ on:
       - "scripts/lib/matsuri-national-csv-acquisition.mjs"
       - "scripts/acquire-matsuri-national-candidates.mjs"
       - "scripts/check-matsuri-national-candidate-acquisition.mjs"
+      - "scripts/run-matsuri-national-tier-a-readiness.mjs"
+      - "scripts/check-matsuri-national-tier-a-readiness-runner.mjs"
       - "scripts/lib/matsuri-tier-a-importer.mjs"
   push:
     branches:
@@ -20,6 +22,8 @@ on:
       - "scripts/lib/matsuri-national-csv-acquisition.mjs"
       - "scripts/acquire-matsuri-national-candidates.mjs"
       - "scripts/check-matsuri-national-candidate-acquisition.mjs"
+      - "scripts/run-matsuri-national-tier-a-readiness.mjs"
+      - "scripts/check-matsuri-national-tier-a-readiness-runner.mjs"
       - "scripts/lib/matsuri-tier-a-importer.mjs"
 
 permissions:
@@ -38,3 +42,5 @@ jobs:
           node-version: 24
       - name: Verify official CSV to candidate-batch adapter
         run: node scripts/check-matsuri-national-candidate-acquisition.mjs
+      - name: Verify acquisition-to-readiness runner
+        run: node scripts/check-matsuri-national-tier-a-readiness-runner.mjs
