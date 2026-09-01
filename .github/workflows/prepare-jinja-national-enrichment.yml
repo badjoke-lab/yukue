@@ -1,0 +1,90 @@
+name: Prepare Jinja national enrichment queues
+
+on:
+  workflow_run:
+    workflows: ["Aggregate Jinja national candidates"]
+    types: [completed]
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/prepare-jinja-national-enrichment.yml"
+      - "apps/jinja/scripts/prepare-national-enrichment.mjs"
+  workflow_dispatch:
+    inputs:
+      aggregate_run_id:
+        description: "Aggregate workflow run ID to process"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  prepare:
+    permissions:
+      actions: read
+      contents: read
+    if: >-
+      ${{
+        github.event_name != 'workflow_run' ||
+        github.event.workflow_run.conclusion == 'success'
+      }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+      - name: Resolve aggregate run
+        id: run
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          WORKFLOW_RUN_ID: ${{ github.event.workflow_run.id }}
+          INPUT_RUN_ID: ${{ inputs.aggregate_run_id }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_run" ]; then
+            RUN_ID="$WORKFLOW_RUN_ID"
+          elif [ -n "$INPUT_RUN_ID" ]; then
+            RUN_ID="$INPUT_RUN_ID"
+          else
+            RUN_ID="$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/aggregate-jinja-national-candidates.yml/runs?branch=main&status=success&per_page=1" --jq '.workflow_runs[0].id')"
+          fi
+          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+            echo "No successful Jinja national aggregate run found" >&2
+            exit 1
+          fi
+          echo "id=$RUN_ID" >> "$GITHUB_OUTPUT"
+          echo "Using aggregate run $RUN_ID"
+      - name: Download national aggregate
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ steps.run.outputs.id }}
+        run: |
+          mkdir -p .artifacts/jinja-national-aggregate-source
+          gh run download "$RUN_ID" \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern 'jinja-national-aggregate-*' \
+            --dir .artifacts/jinja-national-aggregate-source
+          AGGREGATE_FILE="$(find .artifacts/jinja-national-aggregate-source -name national-candidates.json -type f -print -quit)"
+          if [ -z "$AGGREGATE_FILE" ]; then
+            echo "national-candidates.json not found in aggregate artifact" >&2
+            exit 1
+          fi
+          echo "AGGREGATE_FILE=$AGGREGATE_FILE" >> "$GITHUB_ENV"
+      - name: Build enrichment queues
+        run: |
+          node apps/jinja/scripts/prepare-national-enrichment.mjs \
+            --input "$AGGREGATE_FILE" \
+            --out-dir .artifacts/jinja-national-enrichment
+          cat .artifacts/jinja-national-enrichment/manifest.json
+      - name: Upload enrichment queues
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: jinja-national-enrichment-${{ steps.run.outputs.id }}
+          path: .artifacts/jinja-national-enrichment/
+          if-no-files-found: error
+          retention-days: 30
