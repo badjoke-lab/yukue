@@ -5,39 +5,38 @@ import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
 import JinjaFrame from "../../components/JinjaFrame.astro";
 ---
 
-<JinjaFrame title="このサイトについて — 神社のゆくえ" description="神社のゆくえの目的、公開範囲、訂正方針です。" activeHref="/about/">
+<JinjaFrame title="このサイトについて — 神社のゆくえ" description="神社のゆくえで掲載する情報と確認方法について。" activeHref="/about/">
   <section class="page-hero">
     <Container size="wide">
-      <p class="page-hero__kicker">About</p>
       <h1>このサイトについて</h1>
-      <p>神社の現在状態と長期的な変化を、Entity / State / Event / Relation / Evidenceを分けて記録する「ゆくえシリーズ」の専門サイトです。</p>
+      <p>神社のゆくえは、各地の神社について、所在地や現在の状況、確認できた変化をまとめるサイトです。</p>
     </Container>
   </section>
 
-  <Section kicker="Scope" title="何を記録するか">
+  <Section title="掲載する情報">
     <div class="yk-prose">
-      <p>名称、所在地、旧称・旧所在地、現在状態、移転・遷座、合祀、再建、管理関係、関連祭礼・寺院・組織、根拠資料などを対象にします。</p>
-      <p>ただし、確認できたIdentityだけからStateや歴史を推測して埋めることはしません。</p>
+      <p>神社の名称と所在地を基本に、現在の状況、移転・遷座、合祀、再建などの変化、関連する祭礼や寺院・組織、確認に使った資料を掲載します。</p>
+      <p>資料で確認できないことは、推測で埋めません。</p>
     </div>
   </Section>
 
-  <Section kicker="Preview Boundary" title="現在の公開範囲">
+  <Section title="確認と訂正" id="corrections">
     <div class="yk-prose">
-      <p>現在はworkers.dev上の非canonical・noindex Public previewです。独自ドメイン、canonical公開、検索エンジン登録はまだ行いません。</p>
+      <p>掲載内容は公式サイトや公的資料などで確認します。誤りや新しい情報が見つかった場合は、根拠を確認したうえで更新します。</p>
+      <ActionLink href="/methodology/" label="調査方法を見る" />
     </div>
   </Section>
 
-  <Section kicker="Corrections" title="訂正について" id="corrections" rule="none">
+  <Section title="現在の公開状況" rule="none">
     <div class="yk-prose">
-      <p>誤りや更新情報は、根拠となる公式・公的資料とあわせて確認し、review後に反映します。</p>
-      <ActionLink href="/methodology/" label="方法論を見る" />
+      <p>現在は公開前の試験版です。検索エンジンへの登録は行っていません。</p>
+      <ActionLink href="/status/" label="公開状況を見る" />
     </div>
   </Section>
 </JinjaFrame>
 
 <style>
   .page-hero { padding-block: var(--space-14) var(--space-10); border-bottom: var(--rule-standard); }
-  .page-hero__kicker { margin: 0 0 var(--space-3); color: var(--color-accent); font-size: var(--font-size-sm); letter-spacing: .12em; }
   .page-hero h1 { margin: 0; font-size: var(--font-size-entity); font-weight: 500; letter-spacing: .06em; }
-  .page-hero p:last-child { max-width: var(--container-prose); margin: var(--space-5) 0 0; color: var(--color-text-soft); }
+  .page-hero p { max-width: var(--container-prose); margin: var(--space-5) 0 0; color: var(--color-text-soft); }
 </style>

@@ -15,20 +15,19 @@ if (!record) throw new Error(`Unknown Jinja shrine: ${id}`);
 const { entity, place, state } = record;
 const evidenceRecords = evidenceFor(entity.id);
 const stateLabels: Record<string, string> = {
-  operating: "継続（operating）",
-  rebuilding: "再建中（rebuilding）",
-  relocated: "移転・遷座後（relocated）",
-  merged: "統合・合祀（merged）",
-  dissolved: "解散・廃止（dissolved）",
-  unknown: "未確認（unknown）",
+  operating: "継続",
+  rebuilding: "再建中",
+  relocated: "移転・遷座後",
+  merged: "統合・合祀",
+  dissolved: "廃止",
+  unknown: "未確認",
 };
-const stateLabel = state ? (stateLabels[state.continuity_state] ?? state.continuity_state) : "未確認";
+const stateLabel = state ? (stateLabels[state.continuity_state] ?? "未確認") : "未確認";
 const latestVerifiedAt = state?.verified_at ?? entity.verified_at;
 
 const overview = [
   { label: "所在地", value: place ? `${place.prefecture} ${place.municipality}` : "未確認" },
-  { label: "Current State", value: stateLabel, accent: Boolean(state) },
-  { label: "Review", value: `Tier ${entity.tier} / reviewed` },
+  { label: "現在の状況", value: stateLabel, accent: Boolean(state) },
   { label: "確認日", value: latestVerifiedAt },
 ];
 
@@ -49,7 +48,7 @@ const evidenceItems = evidenceRecords.map(({ evidence, source, targetLabel }) =>
 
 <JinjaFrame
   title={`${entity.canonical_name} — 神社のゆくえ`}
-  description={`${entity.canonical_name}のreview済みIdentity、所在地、Current State、Change Event、Relation、Evidenceを表示する非canonicalプレビューです。`}
+  description={`${entity.canonical_name}の所在地、現在の状況、確認できた変化と出典を掲載しています。`}
   activeHref="/shrines/"
 >
   <article data-detail-page data-entity-id={entity.id}>
@@ -66,84 +65,82 @@ const evidenceItems = evidenceRecords.map(({ evidence, source, targetLabel }) =>
 
     <section class="entity-identity" id="identity">
       <Container size="wide">
-        <p class="entity-identity__kicker">Shrine Record</p>
         <h1>{entity.canonical_name}</h1>
-        <ul class="entity-identity__meta" aria-label="基本分類">
+        <ul class="entity-identity__meta" aria-label="基本情報">
           <li>神社</li>
           {place && <li>{place.prefecture} {place.municipality}</li>}
-          <li>Tier {entity.tier}</li>
         </ul>
-        <div class="entity-identity__actions" aria-label="記録への導線">
-          {entity.official_links[0] && <ActionLink href={entity.official_links[0]} label="公式情報を見る" />}
-          <ActionLink href="/data/canonical.json" label="公開JSONを見る" />
-          <ActionLink href="/about/#corrections" label="この記録の訂正を連絡する" />
-        </div>
+        {entity.official_links[0] && (
+          <div class="entity-identity__actions">
+            <ActionLink href={entity.official_links[0]} label="公式サイトを見る" />
+          </div>
+        )}
       </Container>
     </section>
 
-    <Section kicker="Integrated Overview" title="現在確認できていること" id="current">
+    <Section title="現在の状況" id="current">
       <OverviewGrid items={overview} />
       {state ? (
         <div class="state-explanation" data-reviewed-current-state>
-          <h3>Current State: {stateLabel}</h3>
+          <h3>{stateLabel}</h3>
           <p>{state.basis_summary}</p>
-          <p>確認日: {state.verified_at}。この判定はStateに直接結び付く公式Evidenceからreviewしたもので、公式URLの存在だけから推測したものではありません。</p>
+          <p>{state.verified_at}に確認しました。</p>
         </div>
       ) : (
         <div class="state-explanation">
-          <h3>Current Stateは未確認です</h3>
-          <p>継続、休止、遷座、合祀、再建、兼務、法人状態などは、対応するEvidenceを確認するまで推測で補いません。</p>
+          <h3>現在の状況は未確認です</h3>
+          <p>確認できる資料が見つかるまで、状況を決めつけず未確認のまま掲載します。</p>
         </div>
       )}
     </Section>
 
     {places.length > 0 && (
-      <Section kicker="Places & Map" title="所在地" id="places">
-        <PlaceMap places={places} contextDescription="review済みの公式情報で確認した現在所在地です。" />
+      <Section title="所在地" id="places">
+        <PlaceMap places={places} contextDescription="確認できた所在地です。" />
       </Section>
     )}
 
-    <Section kicker="Change History" title="これまでの変化" id="changes">
-      <p class="empty-state">review済みChange Eventはまだありません。</p>
+    <Section title="これまでの変化" id="changes">
+      <p class="empty-state">現在、掲載している変化の記録はありません。</p>
     </Section>
 
-    <Section kicker="Connections / Relations" title="関係" id="relations">
-      <p class="empty-state">review済みRelationはまだありません。関連祭礼・神社・寺院・組織との関係は、根拠確認後に追加します。</p>
+    <Section title="関連する記録" id="relations">
+      <p class="empty-state">現在、掲載している関連記録はありません。</p>
     </Section>
 
     {evidenceItems.length > 0 && (
-      <Section kicker="Evidence & Sources" title="判断根拠と出典" id="evidence">
-        <p class="section-intro">どの確認事項を、どの資料が支えているかを対応させています。</p>
+      <Section title="出典" id="evidence">
+        <p class="section-intro">掲載内容の確認に使った資料です。</p>
         <EvidenceList items={evidenceItems} />
       </Section>
     )}
 
-    <Section kicker="Record Updates" title="この記録の更新" id="record-updates">
+    <Section title="更新履歴" id="record-updates">
       <ol class="record-updates">
         {state && (
           <li>
             <time>{state.verified_at}</time>
             <div>
-              <h3>Current State review</h3>
-              <p>{stateLabel}を公式Evidenceから確認しました。</p>
+              <h3>現在の状況を確認</h3>
+              <p>{stateLabel}として確認しました。</p>
             </div>
           </li>
         )}
         <li>
           <time>{entity.verified_at}</time>
           <div>
-            <h3>Identity / Geography review</h3>
-            <p>神社名、所在地、公式SourceをTier {entity.tier}としてreviewしました。</p>
+            <h3>名称・所在地を確認</h3>
+            <p>名称と所在地を資料で確認しました。</p>
           </div>
         </li>
       </ol>
     </Section>
 
-    <Section kicker="Machine-readable Data" title="機械可読データ" id="machine-data" rule="none">
+    <Section title="データ" id="machine-data" rule="none">
       <div class="machine-data">
-        <p>このpreviewのreview済みcanonicalデータをJSONで確認できます。</p>
-        <ActionLink href="/data/canonical.json" label="canonical preview JSONを開く" />
-        <ActionLink href="/data/" label="公開データについて" />
+        <p>この記録はJSONでも確認できます。</p>
+        <ActionLink href="/data/canonical.json" label="JSONを開く" />
+        <ActionLink href="/about/#corrections" label="訂正について" />
       </div>
     </Section>
   </article>
@@ -155,7 +152,6 @@ const evidenceItems = evidenceRecords.map(({ evidence, source, targetLabel }) =>
   .breadcrumb li:not(:last-child)::after { content: "／"; margin-left: var(--space-2); color: var(--color-rule-strong); }
   .breadcrumb a { color: inherit; }
   .entity-identity { padding-block: var(--space-14) var(--space-10); border-bottom: var(--rule-standard); }
-  .entity-identity__kicker { margin: 0 0 var(--space-3); color: var(--color-accent); font-size: var(--font-size-sm); letter-spacing: 0.12em; }
   .entity-identity h1 { margin: 0; font-size: var(--font-size-entity); font-weight: 500; letter-spacing: 0.08em; }
   .entity-identity__meta { display: flex; flex-wrap: wrap; gap: var(--space-4); margin: var(--space-6) 0 0; padding: 0; list-style: none; color: var(--color-text-soft); font-size: var(--font-size-sm); }
   .entity-identity__meta li + li { padding-left: var(--space-4); border-left: var(--rule-standard); }
