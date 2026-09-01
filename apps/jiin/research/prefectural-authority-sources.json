@@ -1,0 +1,40 @@
+{
+  "format_version": 1,
+  "site_id": "jiin",
+  "status": "candidate_acquisition_sources_only",
+  "national_discovery_index": {
+    "publisher": "National Diet Library, Japan",
+    "title": "宗教法人名簿 | リサーチ・ナビ",
+    "url": "https://ndlsearch.ndl.go.jp/rnavi/humanities/post_220",
+    "purpose": "discover_prefectural_religious_corporation_roster_sources"
+  },
+  "sources": [
+    {
+      "id": "jp-chiba-religious-corporation-roster",
+      "prefecture_code": "12",
+      "prefecture": "千葉県",
+      "publisher": "千葉県",
+      "adapter": "chiba_html_municipality_roster",
+      "index_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/houjinmeibo.html",
+      "authority_scope": "public_authority_candidate_identity",
+      "candidate_filter": {
+        "column": "系統",
+        "equals": "仏教系"
+      },
+      "captured_fields": [
+        "地区コード",
+        "連番",
+        "系統",
+        "包括団体名",
+        "法人名",
+        "市町村名",
+        "所在地"
+      ],
+      "excluded_fields": [
+        "代表役員名"
+      ],
+      "canonical_promotion_authorized": false,
+      "notes": "Prefectural roster rows are Jiin review candidates. A Buddhist religious-corporation row is not automatically a canonical temple Entity."
+    }
+  ]
+}
