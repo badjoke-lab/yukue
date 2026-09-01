@@ -70,6 +70,7 @@ const evidenceItems = evidenceRecords.map(({ evidence, source, targetLabel }) =>
           <li>神社</li>
           {place && <li>{place.prefecture} {place.municipality}</li>}
         </ul>
+        <p class="entity-identity__summary">このページでは、{entity.canonical_name}の所在地、現在の状況、確認できた変化と、その確認に使った資料をまとめています。</p>
         {entity.official_links[0] && (
           <div class="entity-identity__actions">
             <ActionLink href={entity.official_links[0]} label="公式サイトを見る" />
@@ -89,7 +90,7 @@ const evidenceItems = evidenceRecords.map(({ evidence, source, targetLabel }) =>
       ) : (
         <div class="state-explanation">
           <h3>現在の状況は未確認です</h3>
-          <p>確認できる資料が見つかるまで、状況を決めつけず未確認のまま掲載します。</p>
+          <p>現在の状況を確認できる資料がまだ見つかっていません。</p>
         </div>
       )}
     </Section>
@@ -101,21 +102,22 @@ const evidenceItems = evidenceRecords.map(({ evidence, source, targetLabel }) =>
     )}
 
     <Section title="これまでの変化" id="changes">
-      <p class="empty-state">現在、掲載している変化の記録はありません。</p>
+      <p class="empty-state">移転・遷座、合祀、再建など、時期と内容を確認できた変化はまだ掲載していません。</p>
     </Section>
 
     <Section title="関連する記録" id="relations">
-      <p class="empty-state">現在、掲載している関連記録はありません。</p>
+      <p class="empty-state">関連する祭礼や寺院・組織の記録はまだ掲載していません。</p>
     </Section>
 
     {evidenceItems.length > 0 && (
       <Section title="出典" id="evidence">
-        <p class="section-intro">掲載内容の確認に使った資料です。</p>
+        <p class="section-intro">名称、所在地、現在の状況などの確認に使った資料です。</p>
         <EvidenceList items={evidenceItems} />
       </Section>
     )}
 
     <Section title="更新履歴" id="record-updates">
+      <p class="section-intro">このページで内容を確認・更新した日付です。</p>
       <ol class="record-updates">
         {state && (
           <li>
@@ -138,7 +140,7 @@ const evidenceItems = evidenceRecords.map(({ evidence, source, targetLabel }) =>
 
     <Section title="データ" id="machine-data" rule="none">
       <div class="machine-data">
-        <p>この記録はJSONでも確認できます。</p>
+        <p>このページで表示している記録はJSONでも確認できます。</p>
         <ActionLink href="/data/canonical.json" label="JSONを開く" />
         <ActionLink href="/about/#corrections" label="訂正について" />
       </div>
@@ -155,9 +157,11 @@ const evidenceItems = evidenceRecords.map(({ evidence, source, targetLabel }) =>
   .entity-identity h1 { margin: 0; font-size: var(--font-size-entity); font-weight: 500; letter-spacing: 0.08em; }
   .entity-identity__meta { display: flex; flex-wrap: wrap; gap: var(--space-4); margin: var(--space-6) 0 0; padding: 0; list-style: none; color: var(--color-text-soft); font-size: var(--font-size-sm); }
   .entity-identity__meta li + li { padding-left: var(--space-4); border-left: var(--rule-standard); }
+  .entity-identity__summary { max-width: var(--container-prose); margin: var(--space-6) 0 0; color: var(--color-text-soft); line-height: var(--line-height-body); }
   .entity-identity__actions, .machine-data { display: flex; flex-wrap: wrap; gap: var(--space-5); }
   .entity-identity__actions { margin-top: var(--space-8); }
   .state-explanation, .section-intro, .machine-data p, .empty-state { max-width: var(--container-prose); color: var(--color-text-soft); }
+  .section-intro { margin: 0 0 var(--space-6); }
   .state-explanation { margin-top: var(--space-8); padding-top: var(--space-6); border-top: var(--rule-standard); }
   .state-explanation h3, .record-updates h3 { margin: 0; font-size: var(--font-size-h3); font-weight: 500; }
   .state-explanation p, .record-updates p { margin: var(--space-3) 0 0; }
