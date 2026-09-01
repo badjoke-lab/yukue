@@ -57,6 +57,11 @@ function stableId(prefix, row) {
   return `${prefix}-jp12-${digest}`;
 }
 
+function sourceIdForUrl(url) {
+  const digest = crypto.createHash('sha256').update(String(url)).digest('hex').slice(0, 12);
+  return `src-jinja-chiba-roster-${digest}`;
+}
+
 function sourceDate(authority) {
   const retrieved = new Date(authority.retrieved_at);
   if (!Number.isFinite(retrieved.getTime())) throw new Error('Authority retrieved_at is invalid');
@@ -104,9 +109,7 @@ for (const [key, rows] of authorityByKey) {
   if (rows.length === 1 && candidates.length === 1) {
     const row = rows[0];
     const candidate = candidates[0];
-    if (!existingNamesPlaces.has(key)) {
-      approved.push({ row, candidate, match_rule: 'exact_name_and_municipality_unique_on_both_sides' });
-    }
+    if (!existingNamesPlaces.has(key)) approved.push({ row, candidate, match_rule: 'exact_name_and_municipality_unique_on_both_sides' });
   } else if (candidates.length > 0) {
     ambiguous.push({
       key,
@@ -121,19 +124,21 @@ for (const [key, rows] of authorityByKey) {
 
 approved.sort((a, b) => a.row.municipality.localeCompare(b.row.municipality, 'ja') || a.row.name.localeCompare(b.row.name, 'ja') || a.row.address.localeCompare(b.row.address, 'ja'));
 const verifiedAt = sourceDate(authority);
-const sourceId = `src-jinja-chiba-prefecture-roster-${verifiedAt.replaceAll('-', '')}`;
-if (!canonical.sources.some((source) => source.id === sourceId)) {
-  canonical.sources.push({
-    id: sourceId,
-    title: '千葉県 宗教法人名簿',
-    publisher: '千葉県',
-    url: authority.source_page,
-    source_type: 'public_authority',
-    accessed_at: verifiedAt,
-  });
-}
 
 for (const { row } of approved) {
+  if (!row.source_url) throw new Error(`Authority row missing source_url: ${row.name} ${row.municipality}`);
+  const sourceId = sourceIdForUrl(row.source_url);
+  if (!canonical.sources.some((source) => source.id === sourceId)) {
+    canonical.sources.push({
+      id: sourceId,
+      title: row.source_title || `${row.municipality}｜宗教法人一覧／千葉県`,
+      publisher: '千葉県',
+      url: row.source_url,
+      source_type: 'public_authority',
+      accessed_at: verifiedAt,
+    });
+  }
+
   const entityId = stableId('shr', row);
   const placeId = stableId('plc', row);
   const evidenceId = stableId('evd', row);
@@ -161,7 +166,7 @@ for (const { row } of approved) {
     source_id: sourceId,
     review_status: 'approved',
     verified_at: verifiedAt,
-    summary: `千葉県の宗教法人名簿で${row.name}の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。`,
+    summary: `千葉県の${row.municipality}宗教法人一覧で${row.name}の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。`,
   });
 }
 
@@ -178,6 +183,8 @@ const report = {
   generated_at: new Date().toISOString(),
   verification_date: verifiedAt,
   authority_record_count: authority.records.length,
+  authority_page_count: authority.page_count,
+  authority_failed_page_count: authority.failed_page_count,
   osm_jp12_named_candidate_count: jp12.length,
   approved_count: approved.length,
   ambiguous_count: ambiguous.length,
@@ -192,6 +199,8 @@ const report = {
     municipality: row.municipality,
     address: row.address,
     umbrella: row.umbrella,
+    source_url: row.source_url,
+    source_title: row.source_title,
     match_rule,
   })),
   ambiguous,
@@ -203,9 +212,11 @@ fs.writeFileSync(args.canonical, `${JSON.stringify(canonical, null, 2)}\n`, 'utf
 
 console.log(JSON.stringify({
   authority_records: report.authority_record_count,
+  authority_pages: report.authority_page_count,
   osm_jp12_named: report.osm_jp12_named_candidate_count,
   approved: report.approved_count,
   ambiguous: report.ambiguous_count,
   canonical_entities_after: canonical.entities.length,
+  authority_sources_added: new Set(approved.map(({ row }) => row.source_url)).size,
 }));
 if (approved.length === 0) throw new Error('No Chiba authority matches were approved; refusing to generate an empty promotion branch');
