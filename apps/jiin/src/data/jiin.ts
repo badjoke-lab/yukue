@@ -1,11 +1,83 @@
-import canonical from "../../data/canonical.json";
+import canonicalJson from "../../data/canonical.json";
 
-type Temple = (typeof canonical.entities)[number];
-type Place = (typeof canonical.places)[number];
-type State = (typeof canonical.states)[number];
-type Evidence = (typeof canonical.evidence)[number];
-type Source = (typeof canonical.sources)[number];
+export interface Temple {
+  id: string;
+  canonical_name: string;
+  review_status: "approved";
+  tier: "A" | "B" | "C";
+  verified_at: string;
+  current_place_id: string;
+  identity_evidence_ids: string[];
+  reading?: string;
+  aliases?: string[];
+  former_names?: string[];
+  mountain_name?: string;
+  in_name?: string;
+  official_links?: string[];
+  founded_summary?: string;
+  founder_summary?: string;
+  principal_object_summary?: string;
+  notes?: string;
+}
 
+export interface Place {
+  id: string;
+  prefecture: string;
+  municipality: string;
+  review_status: string;
+  address?: string;
+  latitude?: number;
+  longitude?: number;
+  verified_at?: string;
+}
+
+export interface State {
+  id: string;
+  entity_id: string;
+  continuity_state: string;
+  review_status: string;
+  verified_at: string;
+  evidence_ids: string[];
+  basis_summary?: string;
+}
+
+export interface Evidence {
+  id: string;
+  target_type: string;
+  target_id: string;
+  source_id: string;
+  review_status: string;
+  verified_at: string;
+  summary: string;
+}
+
+export interface Source {
+  id: string;
+  title: string;
+  publisher: string;
+  url: string;
+  source_type: string;
+  accessed_at: string;
+  authority_scope: string;
+}
+
+interface CanonicalData {
+  format_version: number;
+  site_id: "jiin";
+  publication_status: "implementation_only" | "public_preview_noncanonical";
+  entities: Temple[];
+  organizations: Array<Record<string, unknown> & { id: string }>;
+  facilities: Array<Record<string, unknown> & { id: string }>;
+  external_subjects: Array<Record<string, unknown> & { id: string }>;
+  states: State[];
+  events: Array<Record<string, unknown> & { id: string }>;
+  relations: Array<Record<string, unknown> & { id: string }>;
+  evidence: Evidence[];
+  sources: Source[];
+  places: Place[];
+}
+
+const canonical = canonicalJson as CanonicalData;
 const placeById = new Map(canonical.places.map((place) => [place.id, place]));
 const stateByEntity = new Map(canonical.states.map((state) => [state.entity_id, state]));
 const sourceById = new Map(canonical.sources.map((source) => [source.id, source]));
