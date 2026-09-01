@@ -1,13 +1,17 @@
 name: Aggregate Jinja national candidates
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/aggregate-jinja-national-candidates.yml"
   workflow_run:
     workflows: ["Acquire Jinja national candidates"]
     types: [completed]
   workflow_dispatch:
     inputs:
       run_id:
-        description: "Acquire workflow run ID to aggregate"
+        description: "Acquire workflow run ID to aggregate; latest successful run when omitted"
         required: false
         type: string
 
@@ -21,6 +25,7 @@ jobs:
       contents: read
     if: >-
       ${{
+        github.event_name == 'push' ||
         github.event_name == 'workflow_dispatch' ||
         github.event.workflow_run.conclusion == 'success'
       }}
@@ -39,16 +44,21 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
           WORKFLOW_RUN_ID: ${{ github.event.workflow_run.id }}
           INPUT_RUN_ID: ${{ inputs.run_id }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
-            if [ -z "$INPUT_RUN_ID" ]; then
-              echo "workflow_dispatch requires run_id" >&2
-              exit 1
-            fi
-            echo "id=$INPUT_RUN_ID" >> "$GITHUB_OUTPUT"
+          if [ "$EVENT_NAME" = "workflow_run" ]; then
+            RUN_ID="$WORKFLOW_RUN_ID"
+          elif [ -n "$INPUT_RUN_ID" ]; then
+            RUN_ID="$INPUT_RUN_ID"
           else
-            echo "id=$WORKFLOW_RUN_ID" >> "$GITHUB_OUTPUT"
+            RUN_ID="$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/acquire-jinja-national-candidates.yml/runs?branch=main&status=success&per_page=1" --jq '.workflow_runs[0].id')"
           fi
+          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+            echo "No successful Jinja national acquisition run found" >&2
+            exit 1
+          fi
+          echo "id=$RUN_ID" >> "$GITHUB_OUTPUT"
+          echo "Using acquisition run $RUN_ID"
       - name: Download prefecture artifacts
         env:
           GH_TOKEN: ${{ github.token }}
