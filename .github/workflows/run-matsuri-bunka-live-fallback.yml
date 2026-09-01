@@ -29,6 +29,7 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
+          mkdir -p .artifacts
           node scripts/run-matsuri-bunka-detail-readiness.mjs \
             --output .artifacts/matsuri-bunka-live \
             --accessed-at "$(TZ=Asia/Tokyo date +%F)" \
