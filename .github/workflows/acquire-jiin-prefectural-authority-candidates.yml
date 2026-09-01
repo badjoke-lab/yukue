@@ -1,0 +1,45 @@
+name: Acquire Jiin prefectural authority candidates
+
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: Registered Jiin prefectural authority source ID
+        required: true
+        default: jp-chiba-religious-corporation-roster
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: acquire-jiin-prefectural-authority-${{ inputs.source }}
+  cancel-in-progress: false
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Verify parser fixtures and canonical boundary
+        run: |
+          node apps/jiin/scripts/check-data.mjs
+          node apps/jiin/scripts/check-prefectural-authority-parser.mjs
+
+      - name: Acquire registered prefectural authority candidates
+        run: node apps/jiin/scripts/acquire-prefectural-authority.mjs --source=${{ inputs.source }} --output=.artifacts/jiin-prefectural-authority
+
+      - name: Upload candidate review artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: jiin-prefectural-authority-${{ inputs.source }}-${{ github.sha }}
+          path: .artifacts/jiin-prefectural-authority/
+          if-no-files-found: error
+          retention-days: 14
