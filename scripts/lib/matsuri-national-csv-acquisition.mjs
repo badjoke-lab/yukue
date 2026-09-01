@@ -64,17 +64,34 @@ function slug(value) {
 }
 
 function headerIndex(headers, candidates) {
-  for (const candidate of candidates) {
+  for (const candidate of candidates.map(norm)) {
     const index = headers.indexOf(candidate);
     if (index >= 0) return index;
   }
   return -1;
 }
 
-function municipalityFromLocation(location) {
-  const value = norm(location);
+function municipalityFromLocation(location, prefectureName) {
+  let value = norm(location);
+  if (!value) return null;
+  if (prefectureName && value.startsWith(prefectureName)) {
+    value = value.slice(prefectureName.length).trim();
+  }
   const match = value.match(/^(.+?[市区町村])/u);
   return match?.[1] ?? null;
+}
+
+function sourceUrlFromRow(row, indexes) {
+  if (indexes.urlIndex >= 0) {
+    const explicit = norm(row[indexes.urlIndex]);
+    if (/^https?:\/\//u.test(explicit)) return explicit;
+  }
+  const ledgerId = indexes.ledgerIdIndex >= 0 ? norm(row[indexes.ledgerIdIndex]) : "";
+  const managedId = indexes.managedIdIndex >= 0 ? norm(row[indexes.managedIdIndex]) : "";
+  if (/^\d+$/u.test(ledgerId) && /^\d+$/u.test(managedId)) {
+    return `https://kunishitei.bunka.go.jp/heritage/detail/${ledgerId}/${managedId}`;
+  }
+  return null;
 }
 
 export function buildNationalCandidatesFromCsv(csvText, options = {}) {
@@ -85,13 +102,22 @@ export function buildNationalCandidatesFromCsv(csvText, options = {}) {
   const headers = rows[0].map(norm);
   const nameIndex = headerIndex(headers, ["名称", "文化財名称", "name"]);
   const subtypeIndex = headerIndex(headers, ["種別2", "分類2"]);
-  const prefectureIndex = headerIndex(headers, ["所在都道府県、地域", "都道府県", "所在都道府県"]);
+  const prefectureIndex = headerIndex(headers, [
+    "都道府県、地域 ※美工品は「所有者住所（所在都道府県）」",
+    "所在都道府県、地域",
+    "都道府県",
+    "所在都道府県",
+  ]);
   const locationIndex = headerIndex(headers, ["所在地", "所在", "location"]);
   const urlIndex = headerIndex(headers, ["詳細URL", "URL", "url"]);
-  const providerIdIndex = headerIndex(headers, ["管理番号", "登録番号", "指定番号", "record_id"]);
+  const ledgerIdIndex = headerIndex(headers, ["台帳ID", "register_id"]);
+  const managedIdIndex = headerIndex(headers, ["管理対象ID", "管理番号", "登録番号", "指定番号", "record_id"]);
 
-  for (const [label, index] of [["名称", nameIndex], ["種別2", subtypeIndex], ["都道府県", prefectureIndex], ["URL", urlIndex]]) {
+  for (const [label, index] of [["名称", nameIndex], ["種別2", subtypeIndex], ["都道府県", prefectureIndex]]) {
     if (index < 0) throw new Error(`Required CSV column not found: ${label}`);
+  }
+  if (urlIndex < 0 && (ledgerIdIndex < 0 || managedIdIndex < 0)) {
+    throw new Error("Required CSV source columns not found: URL or 台帳ID+管理対象ID");
   }
 
   const prefectureByName = new Map((inventory.prefectures ?? []).map((item) => [item.name_ja, item]));
@@ -111,18 +137,21 @@ export function buildNationalCandidatesFromCsv(csvText, options = {}) {
       skipped.push({ row: rowIndex + 1, reason: "subtype_not_matsuri_safe", subtype, name });
       continue;
     }
+
     const prefectureName = norm(row[prefectureIndex]).split(/[・／,，]/u)[0];
     const prefecture = prefectureByName.get(prefectureName);
-    const sourceUrl = norm(row[urlIndex]);
-    if (!name || !prefecture || !/^https?:\/\//u.test(sourceUrl)) {
+    const sourceUrl = sourceUrlFromRow(row, { urlIndex, ledgerIdIndex, managedIdIndex });
+    if (!name || !prefecture || !sourceUrl) {
       skipped.push({ row: rowIndex + 1, reason: "required_identity_or_source_missing", subtype, name, prefecture_name_ja: prefectureName });
       continue;
     }
 
     const location = locationIndex >= 0 ? norm(row[locationIndex]) : "";
-    const municipality = municipalityFromLocation(location);
-    const providerRecordId = providerIdIndex >= 0 ? norm(row[providerIdIndex]) : "";
-    const candidateId = `bunka-${providerRecordId || `${slug(prefectureName)}-${slug(name)}`}`;
+    const municipality = municipalityFromLocation(location, prefectureName);
+    const ledgerId = ledgerIdIndex >= 0 ? norm(row[ledgerIdIndex]) : "";
+    const managedId = managedIdIndex >= 0 ? norm(row[managedIdIndex]) : "";
+    const providerRecordId = ledgerId && managedId ? `${ledgerId}/${managedId}` : managedId;
+    const candidateId = `bunka-${providerRecordId ? providerRecordId.replace(/\//gu, "-") : `${slug(prefectureName)}-${slug(name)}`}`;
 
     candidates.push({
       candidate_id: candidateId,
