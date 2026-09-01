@@ -46,11 +46,11 @@ function candidateMunicipality(candidate, prefecture) {
 }
 
 function matchKey(name, municipality, prefecture) {
-  return `${normalize(name)}|${normalize(cleanMunicipality(municipality, prefecture))}`;
+  return `${normalize(prefecture)}|${normalize(name)}|${normalize(cleanMunicipality(municipality, prefecture))}`;
 }
 
 function jurisdictionSlug(authority) {
-  return String(authority.jurisdiction).toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  return String(authority.jurisdiction).toLowerCase().replace(/[^a-z0-9]+/g, '');
 }
 
 function stableId(prefix, row, authority) {
@@ -106,7 +106,7 @@ for (const candidate of prefectureCandidates) {
 
 const existingNamesPlaces = new Set(canonical.entities.map((entity) => {
   const place = canonical.places.find((item) => item.id === entity.current_place_id);
-  return matchKey(entity.canonical_name, place?.municipality ?? '', place?.prefecture ?? authority.prefecture);
+  return matchKey(entity.canonical_name, place?.municipality ?? '', place?.prefecture ?? '');
 }));
 
 const approved = [];
