@@ -18,6 +18,15 @@ importers:
         specifier: 6.0.3
         version: 6.0.3
 
+  apps/jiin:
+    dependencies:
+      '@badjoke-lab/yukue-ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      astro:
+        specifier: 7.1.1
+        version: 7.1.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)
+
   apps/jinja:
     dependencies:
       '@badjoke-lab/yukue-ui':
