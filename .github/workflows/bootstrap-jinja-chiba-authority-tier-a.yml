@@ -1,0 +1,121 @@
+name: Bootstrap Jinja Chiba authority Tier A
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/bootstrap-jinja-chiba-authority-tier-a.yml"
+      - "apps/jinja/scripts/fetch-chiba-authority-roster.py"
+      - "apps/jinja/scripts/promote-authority-tier-a.mjs"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/bootstrap-jinja-chiba-authority-tier-a.yml"
+      - "apps/jinja/scripts/fetch-chiba-authority-roster.py"
+      - "apps/jinja/scripts/promote-authority-tier-a.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bootstrap:
+    permissions:
+      actions: read
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Resolve latest successful national aggregate
+        id: aggregate
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RUN_ID="$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/aggregate-jinja-national-candidates.yml/runs?branch=main&status=success&per_page=1" --jq '.workflow_runs[0].id')"
+          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+            echo "No successful Jinja national aggregate run found" >&2
+            exit 1
+          fi
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+          echo "Using national aggregate run $RUN_ID"
+
+      - name: Download national aggregate
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ steps.aggregate.outputs.run_id }}
+        run: |
+          mkdir -p .artifacts/jinja-national-aggregate
+          gh run download "$RUN_ID" \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern 'jinja-national-aggregate-*' \
+            --dir .artifacts/jinja-national-aggregate
+          AGGREGATE="$(find .artifacts/jinja-national-aggregate -name national-candidates.json -type f | head -n 1)"
+          if [ -z "$AGGREGATE" ]; then
+            echo "national-candidates.json not found in aggregate artifact" >&2
+            exit 1
+          fi
+          cp "$AGGREGATE" .artifacts/national-candidates.json
+
+      - name: Fetch Chiba Prefecture religious corporation roster
+        run: |
+          python3 apps/jinja/scripts/fetch-chiba-authority-roster.py \
+            --out .artifacts/chiba-authority-roster.json
+
+      - name: Promote conservative Tier A matches
+        run: |
+          node apps/jinja/scripts/promote-authority-tier-a.mjs \
+            --aggregate .artifacts/national-candidates.json \
+            --authority .artifacts/chiba-authority-roster.json \
+            --canonical apps/jinja/data/canonical.json \
+            --report apps/jinja/research/authority-verification/chiba-latest.json
+          node apps/jinja/scripts/check-data.mjs
+
+      - name: Show promotion summary
+        run: |
+          node - <<'NODE' | tee /tmp/chiba-summary.txt
+          const fs = require('fs');
+          const report = JSON.parse(fs.readFileSync('apps/jinja/research/authority-verification/chiba-latest.json', 'utf8'));
+          const canonical = JSON.parse(fs.readFileSync('apps/jinja/data/canonical.json', 'utf8'));
+          console.log(JSON.stringify({
+            authority_records: report.authority_record_count,
+            osm_jp12_named: report.osm_jp12_named_candidate_count,
+            approved: report.approved_count,
+            ambiguous: report.ambiguous_count,
+            canonical_entities_after: canonical.entities.length,
+          }));
+          NODE
+          {
+            echo '## Jinja Chiba authority Tier A bootstrap'
+            echo
+            echo '```json'
+            cat /tmp/chiba-summary.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Push generated review branch
+        if: github.event_name != 'pull_request'
+        env:
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          if git diff --quiet -- apps/jinja/data/canonical.json apps/jinja/research/authority-verification/chiba-latest.json; then
+            echo "No canonical changes generated" >&2
+            exit 1
+          fi
+          BRANCH="automation/jinja-chiba-tier-a-${RUN_ID}-${RUN_ATTEMPT}"
+          git config user.name "badjoke-lab automation"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add apps/jinja/data/canonical.json apps/jinja/research/authority-verification/chiba-latest.json
+          git commit -m "DATA: add Chiba authority-verified Jinja Tier A records"
+          git push origin "$BRANCH"
+          echo "Generated branch: $BRANCH"
