@@ -39,6 +39,14 @@
       "current_place_id": "plc-jp14-d84bd6e19e8cbe"
     },
     {
+      "id": "shr-jp13-b7d3bef6aaca24",
+      "canonical_name": "井草八幡宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-b7d3bef6aaca24"
+    },
+    {
       "id": "shr-jp12-6539c52a9e26a9",
       "canonical_name": "稲荷神社",
       "review_status": "approved",
@@ -63,12 +71,36 @@
       "current_place_id": "plc-jp14-dfe5baffa76d01"
     },
     {
+      "id": "shr-jp13-c9bba63e435c64",
+      "canonical_name": "羽田神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-c9bba63e435c64"
+    },
+    {
       "id": "shr-jp12-eae796da6e41bb",
       "canonical_name": "姥神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-eae796da6e41bb"
+    },
+    {
+      "id": "shr-jp13-8906fe72fb79b4",
+      "canonical_name": "荏原神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-8906fe72fb79b4"
+    },
+    {
+      "id": "shr-jp13-928e150467e9f6",
+      "canonical_name": "猿江神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-928e150467e9f6"
     },
     {
       "id": "shr-jp12-c1f76a80c96590",
@@ -79,12 +111,44 @@
       "current_place_id": "plc-jp12-c1f76a80c96590"
     },
     {
+      "id": "shr-jp13-802b94fde03e6b",
+      "canonical_name": "奥氷川神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-802b94fde03e6b"
+    },
+    {
+      "id": "shr-jp13-edea59e8aa2174",
+      "canonical_name": "王子稲荷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-edea59e8aa2174"
+    },
+    {
       "id": "shr-jp12-de69acd54f61dc",
       "canonical_name": "王子神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-de69acd54f61dc"
+    },
+    {
+      "id": "shr-jp13-190671b225d879",
+      "canonical_name": "王子神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-190671b225d879"
+    },
+    {
+      "id": "shr-jp13-dc7e713bb93f3b",
+      "canonical_name": "下山八幡神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-dc7e713bb93f3b"
     },
     {
       "id": "shr-jp12-cc5849f7013570",
@@ -117,6 +181,22 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-b5ec560bf37230"
+    },
+    {
+      "id": "shr-jp13-d66b922fa6ac6f",
+      "canonical_name": "鎧神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-d66b922fa6ac6f"
+    },
+    {
+      "id": "shr-jp13-fed2424ea01c72",
+      "canonical_name": "葛西神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-fed2424ea01c72"
     },
     {
       "id": "shr-samukawa-jinja",
@@ -181,6 +261,14 @@
       "current_place_id": "plc-jp12-6ec9fc97ba1fd0"
     },
     {
+      "id": "shr-jp13-68fc71c2b1c407",
+      "canonical_name": "亀戸天神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-68fc71c2b1c407"
+    },
+    {
       "id": "shr-jp12-cac073bb508543",
       "canonical_name": "菊田神社",
       "review_status": "approved",
@@ -224,12 +312,28 @@
       "current_place_id": "plc-jp14-d3255a2e9379da"
     },
     {
+      "id": "shr-jp13-eef053913264df",
+      "canonical_name": "金王八幡宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-eef053913264df"
+    },
+    {
       "id": "shr-jp12-924e389ed8600a",
       "canonical_name": "金山神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-924e389ed8600a"
+    },
+    {
+      "id": "shr-jp13-6e4f702f7f2dc7",
+      "canonical_name": "金山神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-6e4f702f7f2dc7"
     },
     {
       "id": "shr-jp12-7849767ba3748a",
@@ -240,12 +344,28 @@
       "current_place_id": "plc-jp12-7849767ba3748a"
     },
     {
+      "id": "shr-jp13-5294757fffc263",
+      "canonical_name": "轡神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-5294757fffc263"
+    },
+    {
       "id": "shr-jp14-d42a6aacb11024",
       "canonical_name": "熊野社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-d42a6aacb11024"
+    },
+    {
+      "id": "shr-jp13-a097c88d5898fc",
+      "canonical_name": "熊野神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-a097c88d5898fc"
     },
     {
       "id": "shr-jp14-9e9bdbcdb9abac",
@@ -262,6 +382,22 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-6fd3acd4a04eca"
+    },
+    {
+      "id": "shr-jp13-9a10a76c9423c9",
+      "canonical_name": "穴八幡宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-9a10a76c9423c9"
+    },
+    {
+      "id": "shr-jp13-7382b09cfc937f",
+      "canonical_name": "月見岡八幡神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-7382b09cfc937f"
     },
     {
       "id": "shr-jp14-f6ac4082a14451",
@@ -286,6 +422,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-6bcabfd33f6b2c"
+    },
+    {
+      "id": "shr-jp13-5f4b31abd02559",
+      "canonical_name": "戸越八幡神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-5f4b31abd02559"
     },
     {
       "id": "shr-jp14-77309560a5babc",
@@ -318,6 +462,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-e33816101b27b8"
+    },
+    {
+      "id": "shr-jp13-c234ad76590fdc",
+      "canonical_name": "御宿稲荷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-c234ad76590fdc"
     },
     {
       "id": "shr-jp12-2d1068d208114a",
@@ -432,6 +584,14 @@
       "current_place_id": "plc-jp14-5a68a285b09252"
     },
     {
+      "id": "shr-jp13-0371ddb2b5a6f3",
+      "canonical_name": "根津神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-0371ddb2b5a6f3"
+    },
+    {
       "id": "shr-jp14-26d53d244ebcb3",
       "canonical_name": "佐助稲荷神社",
       "review_status": "approved",
@@ -465,6 +625,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-f24175ab9fe7a0"
+    },
+    {
+      "id": "shr-jp13-9f6eb60cb01109",
+      "canonical_name": "榊神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-9f6eb60cb01109"
     },
     {
       "id": "shr-jp12-f47e0934b16146",
@@ -651,6 +819,14 @@
       "current_place_id": "plc-jp12-55b4d0b36d54c6"
     },
     {
+      "id": "shr-jp13-0cf285cace293e",
+      "canonical_name": "秋葉神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-0cf285cace293e"
+    },
+    {
       "id": "shr-jp12-b4fec6a12da0bc",
       "canonical_name": "十二所神社",
       "review_status": "approved",
@@ -665,6 +841,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-d63ff83b9c0fa8"
+    },
+    {
+      "id": "shr-jp13-90dea2875a4cf5",
+      "canonical_name": "十番稲荷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-90dea2875a4cf5"
     },
     {
       "id": "shr-jp14-a973584b92cebf",
@@ -707,6 +891,14 @@
       "current_place_id": "plc-jp12-ebe8919c926c02"
     },
     {
+      "id": "shr-jp13-0a47b98e7c5561",
+      "canonical_name": "上染屋八幡神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-0a47b98e7c5561"
+    },
+    {
       "id": "shr-jp12-6c0221bde26ad8",
       "canonical_name": "常代神社",
       "review_status": "approved",
@@ -726,6 +918,14 @@
       ]
     },
     {
+      "id": "shr-jp13-082f8fa293615e",
+      "canonical_name": "新田神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-082f8fa293615e"
+    },
+    {
       "id": "shr-jp14-1bd8124e3a99f8",
       "canonical_name": "真田神社",
       "review_status": "approved",
@@ -742,12 +942,28 @@
       "current_place_id": "plc-jp14-619b005796a73d"
     },
     {
+      "id": "shr-jp13-a50cb28d66ff96",
+      "canonical_name": "神明神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-a50cb28d66ff96"
+    },
+    {
       "id": "shr-jp12-ac45b44df62dab",
       "canonical_name": "人見神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-ac45b44df62dab"
+    },
+    {
+      "id": "shr-jp13-57b39e09b3145b",
+      "canonical_name": "甚内神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-57b39e09b3145b"
     },
     {
       "id": "shr-jp12-49c12c1713330f",
@@ -782,6 +998,22 @@
       "current_place_id": "plc-jp12-b189533b763689"
     },
     {
+      "id": "shr-jp13-d3d3c39623bd5b",
+      "canonical_name": "須賀神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-d3d3c39623bd5b"
+    },
+    {
+      "id": "shr-jp13-c8288b60bc1cfa",
+      "canonical_name": "水稲荷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-c8288b60bc1cfa"
+    },
+    {
       "id": "shr-jp12-245768ac240c3a",
       "canonical_name": "水神社",
       "review_status": "approved",
@@ -812,6 +1044,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-8bb07c24f92e2f"
+    },
+    {
+      "id": "shr-jp13-130f67f30258bd",
+      "canonical_name": "赤城神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-130f67f30258bd"
     },
     {
       "id": "shr-jp12-3a7eedf49066e1",
@@ -854,6 +1094,14 @@
       "current_place_id": "plc-jp14-664c29c1a9d414"
     },
     {
+      "id": "shr-jp13-7824f5d22ba933",
+      "canonical_name": "箭幹八幡宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-7824f5d22ba933"
+    },
+    {
       "id": "shr-jp12-f863485a78eb2a",
       "canonical_name": "船越鉈切神社",
       "review_status": "approved",
@@ -878,12 +1126,28 @@
       "current_place_id": "plc-jp14-544de0307df755"
     },
     {
+      "id": "shr-jp13-2069989a7378cc",
+      "canonical_name": "蔵主神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-2069989a7378cc"
+    },
+    {
       "id": "shr-jp14-63d78bbb88107f",
       "canonical_name": "足柄神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-63d78bbb88107f"
+    },
+    {
+      "id": "shr-jp13-91116e2979efcb",
+      "canonical_name": "太田姫稲荷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-91116e2979efcb"
     },
     {
       "id": "shr-jp12-7182cda09d22df",
@@ -926,6 +1190,14 @@
       "current_place_id": "plc-jp12-3e39d25e11cf41"
     },
     {
+      "id": "shr-jp13-f3b2e9dbfa7324",
+      "canonical_name": "大宮八幡宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-f3b2e9dbfa7324"
+    },
+    {
       "id": "shr-jp12-3ca06022798ece",
       "canonical_name": "大宮賣神社",
       "review_status": "approved",
@@ -942,6 +1214,14 @@
       "current_place_id": "plc-jp12-d52f7353259e7c"
     },
     {
+      "id": "shr-jp13-9d6eb0a2e50a5a",
+      "canonical_name": "大神山神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-9d6eb0a2e50a5a"
+    },
+    {
       "id": "shr-jp14-4fb405c24f96a0",
       "canonical_name": "大谷八幡宮",
       "review_status": "approved",
@@ -950,12 +1230,36 @@
       "current_place_id": "plc-jp14-4fb405c24f96a0"
     },
     {
+      "id": "shr-jp13-43b2fb4a95475a",
+      "canonical_name": "大鳥神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-43b2fb4a95475a"
+    },
+    {
+      "id": "shr-jp13-0a7f1d9b762893",
+      "canonical_name": "大東神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-0a7f1d9b762893"
+    },
+    {
       "id": "shr-jp14-2aef82e02f6604",
       "canonical_name": "大美和神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-2aef82e02f6604"
+    },
+    {
+      "id": "shr-jp13-383200009a8a1c",
+      "canonical_name": "大門神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-383200009a8a1c"
     },
     {
       "id": "shr-jp12-3ac68386148574",
@@ -1054,12 +1358,28 @@
       "current_place_id": "plc-jp12-cd1ad919c65cb3"
     },
     {
+      "id": "shr-jp13-d0a984d79581af",
+      "canonical_name": "土支田八幡宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-d0a984d79581af"
+    },
+    {
       "id": "shr-jp12-57fcff8649a2ad",
       "canonical_name": "刀八神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-57fcff8649a2ad"
+    },
+    {
+      "id": "shr-jp13-0ee77fa6787cd4",
+      "canonical_name": "東京大神宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-0ee77fa6787cd4"
     },
     {
       "id": "shr-jp12-2de1064ca470e1",
@@ -1084,6 +1404,46 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-4b3d4e64ad4237"
+    },
+    {
+      "id": "shr-jp13-8b54439bc94098",
+      "canonical_name": "日枝神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-8b54439bc94098"
+    },
+    {
+      "id": "shr-jp13-d170a5128ae5f0",
+      "canonical_name": "日比谷稲荷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-d170a5128ae5f0"
+    },
+    {
+      "id": "shr-jp13-9b489f1cfae1a5",
+      "canonical_name": "乃木神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-9b489f1cfae1a5"
+    },
+    {
+      "id": "shr-jp13-4b932bad3bce0b",
+      "canonical_name": "馬橋稲荷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-4b932bad3bce0b"
+    },
+    {
+      "id": "shr-jp13-b4f0ef301c1909",
+      "canonical_name": "白魚稲荷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-b4f0ef301c1909"
     },
     {
       "id": "shr-jp12-93d0ab4547ae41",
@@ -1124,6 +1484,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-a47bd2db166392"
+    },
+    {
+      "id": "shr-jp13-dee6fcc9bcdda9",
+      "canonical_name": "八雲神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-dee6fcc9bcdda9"
     },
     {
       "id": "shr-jp12-339b3b7eaea223",
@@ -1182,12 +1550,28 @@
       "current_place_id": "plc-jp12-ece153004dd85a"
     },
     {
+      "id": "shr-jp13-b371dc893ef7aa",
+      "canonical_name": "碑文谷八幡宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-b371dc893ef7aa"
+    },
+    {
       "id": "shr-jp12-2a7ffcf48bdea1",
       "canonical_name": "尾車神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-2a7ffcf48bdea1"
+    },
+    {
+      "id": "shr-jp13-2f66cf83cf2d1e",
+      "canonical_name": "布多天神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-2f66cf83cf2d1e"
     },
     {
       "id": "shr-jp12-37dcebf0105996",
@@ -1198,6 +1582,22 @@
       "current_place_id": "plc-jp12-37dcebf0105996"
     },
     {
+      "id": "shr-jp13-9c662821935f8f",
+      "canonical_name": "武蔵御嶽神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-9c662821935f8f"
+    },
+    {
+      "id": "shr-jp13-7581263554bb7c",
+      "canonical_name": "武蔵野神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-7581263554bb7c"
+    },
+    {
       "id": "shr-jp12-4c53962e4aa84a",
       "canonical_name": "武内神社",
       "review_status": "approved",
@@ -1206,12 +1606,28 @@
       "current_place_id": "plc-jp12-4c53962e4aa84a"
     },
     {
+      "id": "shr-jp13-87cc1249be99db",
+      "canonical_name": "平河天満宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-87cc1249be99db"
+    },
+    {
       "id": "shr-jp14-9f6484b9c43635",
       "canonical_name": "平塚八幡宮",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-9f6484b9c43635"
+    },
+    {
+      "id": "shr-jp13-fa786e3ff69e72",
+      "canonical_name": "母智丘神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-fa786e3ff69e72"
     },
     {
       "id": "shr-jp14-067975dc05f9a2",
@@ -1254,12 +1670,36 @@
       "current_place_id": "plc-jp12-f67131731f62e3"
     },
     {
+      "id": "shr-jp13-8b2708886b2ba9",
+      "canonical_name": "北野神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-8b2708886b2ba9"
+    },
+    {
       "id": "shr-jp12-f92dc2204aa58f",
       "canonical_name": "本織神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-f92dc2204aa58f"
+    },
+    {
+      "id": "shr-jp13-c2d04bf8d66b0f",
+      "canonical_name": "明治神宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-c2d04bf8d66b0f"
+    },
+    {
+      "id": "shr-jp13-e0413e87a32c52",
+      "canonical_name": "木野下神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-e0413e87a32c52"
     },
     {
       "id": "shr-jp12-d0a8c679cd6432",
@@ -1292,6 +1732,30 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-b8ad72042d8522"
+    },
+    {
+      "id": "shr-jp13-92a9b5689a5832",
+      "canonical_name": "鷲神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-92a9b5689a5832"
+    },
+    {
+      "id": "shr-jp13-d0ac652a4d57d0",
+      "canonical_name": "杣保葛神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-d0ac652a4d57d0"
+    },
+    {
+      "id": "shr-jp13-f8eb40526321e8",
+      "canonical_name": "薭田神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-01",
+      "current_place_id": "plc-jp13-f8eb40526321e8"
     }
   ],
   "states": [
@@ -2401,6 +2865,528 @@
       "summary": "千葉県の君津市宗教法人一覧で天照大神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp13-0371ddb2b5a6f3",
+      "target_type": "entity",
+      "target_id": "shr-jp13-0371ddb2b5a6f3",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で根津神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-082f8fa293615e",
+      "target_type": "entity",
+      "target_id": "shr-jp13-082f8fa293615e",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で新田神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-0a47b98e7c5561",
+      "target_type": "entity",
+      "target_id": "shr-jp13-0a47b98e7c5561",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で上染屋八幡神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-0a7f1d9b762893",
+      "target_type": "entity",
+      "target_id": "shr-jp13-0a7f1d9b762893",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で大東神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-0cf285cace293e",
+      "target_type": "entity",
+      "target_id": "shr-jp13-0cf285cace293e",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で秋葉神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-0ee77fa6787cd4",
+      "target_type": "entity",
+      "target_id": "shr-jp13-0ee77fa6787cd4",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で東京大神宮の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-130f67f30258bd",
+      "target_type": "entity",
+      "target_id": "shr-jp13-130f67f30258bd",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で赤城神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-190671b225d879",
+      "target_type": "entity",
+      "target_id": "shr-jp13-190671b225d879",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で王子神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-2069989a7378cc",
+      "target_type": "entity",
+      "target_id": "shr-jp13-2069989a7378cc",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で蔵主神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-2f66cf83cf2d1e",
+      "target_type": "entity",
+      "target_id": "shr-jp13-2f66cf83cf2d1e",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で布多天神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-383200009a8a1c",
+      "target_type": "entity",
+      "target_id": "shr-jp13-383200009a8a1c",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で大門神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-43b2fb4a95475a",
+      "target_type": "entity",
+      "target_id": "shr-jp13-43b2fb4a95475a",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で大鳥神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-4b932bad3bce0b",
+      "target_type": "entity",
+      "target_id": "shr-jp13-4b932bad3bce0b",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で馬橋稲荷神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-5294757fffc263",
+      "target_type": "entity",
+      "target_id": "shr-jp13-5294757fffc263",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で轡神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-57b39e09b3145b",
+      "target_type": "entity",
+      "target_id": "shr-jp13-57b39e09b3145b",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で甚内神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-5f4b31abd02559",
+      "target_type": "entity",
+      "target_id": "shr-jp13-5f4b31abd02559",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で戸越八幡神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-68fc71c2b1c407",
+      "target_type": "entity",
+      "target_id": "shr-jp13-68fc71c2b1c407",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で亀戸天神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-6e4f702f7f2dc7",
+      "target_type": "entity",
+      "target_id": "shr-jp13-6e4f702f7f2dc7",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で金山神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-7382b09cfc937f",
+      "target_type": "entity",
+      "target_id": "shr-jp13-7382b09cfc937f",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で月見岡八幡神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-7581263554bb7c",
+      "target_type": "entity",
+      "target_id": "shr-jp13-7581263554bb7c",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で武蔵野神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-7824f5d22ba933",
+      "target_type": "entity",
+      "target_id": "shr-jp13-7824f5d22ba933",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で箭幹八幡宮の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-802b94fde03e6b",
+      "target_type": "entity",
+      "target_id": "shr-jp13-802b94fde03e6b",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で奥氷川神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-87cc1249be99db",
+      "target_type": "entity",
+      "target_id": "shr-jp13-87cc1249be99db",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で平河天満宮の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-8906fe72fb79b4",
+      "target_type": "entity",
+      "target_id": "shr-jp13-8906fe72fb79b4",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で荏原神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-8b2708886b2ba9",
+      "target_type": "entity",
+      "target_id": "shr-jp13-8b2708886b2ba9",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で北野神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-8b54439bc94098",
+      "target_type": "entity",
+      "target_id": "shr-jp13-8b54439bc94098",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で日枝神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-90dea2875a4cf5",
+      "target_type": "entity",
+      "target_id": "shr-jp13-90dea2875a4cf5",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で十番稲荷神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-91116e2979efcb",
+      "target_type": "entity",
+      "target_id": "shr-jp13-91116e2979efcb",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で太田姫稲荷神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-928e150467e9f6",
+      "target_type": "entity",
+      "target_id": "shr-jp13-928e150467e9f6",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で猿江神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-92a9b5689a5832",
+      "target_type": "entity",
+      "target_id": "shr-jp13-92a9b5689a5832",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で鷲神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-9a10a76c9423c9",
+      "target_type": "entity",
+      "target_id": "shr-jp13-9a10a76c9423c9",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で穴八幡宮の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-9b489f1cfae1a5",
+      "target_type": "entity",
+      "target_id": "shr-jp13-9b489f1cfae1a5",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で乃木神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-9c662821935f8f",
+      "target_type": "entity",
+      "target_id": "shr-jp13-9c662821935f8f",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で武蔵御嶽神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-9d6eb0a2e50a5a",
+      "target_type": "entity",
+      "target_id": "shr-jp13-9d6eb0a2e50a5a",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で大神山神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-9f6eb60cb01109",
+      "target_type": "entity",
+      "target_id": "shr-jp13-9f6eb60cb01109",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で榊神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-a097c88d5898fc",
+      "target_type": "entity",
+      "target_id": "shr-jp13-a097c88d5898fc",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で熊野神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-a50cb28d66ff96",
+      "target_type": "entity",
+      "target_id": "shr-jp13-a50cb28d66ff96",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で神明神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-b371dc893ef7aa",
+      "target_type": "entity",
+      "target_id": "shr-jp13-b371dc893ef7aa",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で碑文谷八幡宮の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-b4f0ef301c1909",
+      "target_type": "entity",
+      "target_id": "shr-jp13-b4f0ef301c1909",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で白魚稲荷神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-b7d3bef6aaca24",
+      "target_type": "entity",
+      "target_id": "shr-jp13-b7d3bef6aaca24",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で井草八幡宮の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-c234ad76590fdc",
+      "target_type": "entity",
+      "target_id": "shr-jp13-c234ad76590fdc",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で御宿稲荷神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-c2d04bf8d66b0f",
+      "target_type": "entity",
+      "target_id": "shr-jp13-c2d04bf8d66b0f",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で明治神宮の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-c8288b60bc1cfa",
+      "target_type": "entity",
+      "target_id": "shr-jp13-c8288b60bc1cfa",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で水稲荷神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-c9bba63e435c64",
+      "target_type": "entity",
+      "target_id": "shr-jp13-c9bba63e435c64",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で羽田神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-d0a984d79581af",
+      "target_type": "entity",
+      "target_id": "shr-jp13-d0a984d79581af",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で土支田八幡宮の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-d0ac652a4d57d0",
+      "target_type": "entity",
+      "target_id": "shr-jp13-d0ac652a4d57d0",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で杣保葛神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-d170a5128ae5f0",
+      "target_type": "entity",
+      "target_id": "shr-jp13-d170a5128ae5f0",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で日比谷稲荷神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-d3d3c39623bd5b",
+      "target_type": "entity",
+      "target_id": "shr-jp13-d3d3c39623bd5b",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で須賀神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-d66b922fa6ac6f",
+      "target_type": "entity",
+      "target_id": "shr-jp13-d66b922fa6ac6f",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で鎧神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-dc7e713bb93f3b",
+      "target_type": "entity",
+      "target_id": "shr-jp13-dc7e713bb93f3b",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で下山八幡神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-dee6fcc9bcdda9",
+      "target_type": "entity",
+      "target_id": "shr-jp13-dee6fcc9bcdda9",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で八雲神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-e0413e87a32c52",
+      "target_type": "entity",
+      "target_id": "shr-jp13-e0413e87a32c52",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で木野下神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-edea59e8aa2174",
+      "target_type": "entity",
+      "target_id": "shr-jp13-edea59e8aa2174",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で王子稲荷神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-eef053913264df",
+      "target_type": "entity",
+      "target_id": "shr-jp13-eef053913264df",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で金王八幡宮の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-f3b2e9dbfa7324",
+      "target_type": "entity",
+      "target_id": "shr-jp13-f3b2e9dbfa7324",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で大宮八幡宮の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-f8eb40526321e8",
+      "target_type": "entity",
+      "target_id": "shr-jp13-f8eb40526321e8",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で薭田神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-fa786e3ff69e72",
+      "target_type": "entity",
+      "target_id": "shr-jp13-fa786e3ff69e72",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で母智丘神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp13-fed2424ea01c72",
+      "target_type": "entity",
+      "target_id": "shr-jp13-fed2424ea01c72",
+      "source_id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "review_status": "approved",
+      "verified_at": "2026-09-01",
+      "summary": "東京都の宗教法人名簿で葛西神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
       "id": "evd-jp14-00ab4495b31557",
       "target_type": "entity",
       "target_id": "shr-jp14-00ab4495b31557",
@@ -3099,6 +4085,14 @@
       "url": "https://samukawajinjya.jp/worship/prayer.html",
       "source_type": "official_organization",
       "accessed_at": "2026-08-27"
+    },
+    {
+      "id": "src-jinja-tokyo-metropolitan-religious-corpora-42f2a0b02c56",
+      "title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "publisher": "東京都",
+      "url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-01"
     }
   ],
   "places": [
@@ -4365,6 +5359,470 @@
       "review_status": "approved",
       "address": "島根県松江市鹿島町佐陀宮内73",
       "verified_at": "2026-08-24"
+    },
+    {
+      "id": "plc-jp13-802b94fde03e6b",
+      "prefecture": "東京都",
+      "municipality": "奥多摩町",
+      "review_status": "approved",
+      "address": "東京都奥多摩町氷川１７８",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-fed2424ea01c72",
+      "prefecture": "東京都",
+      "municipality": "葛飾区",
+      "review_status": "approved",
+      "address": "東京都葛飾区東金町６－１０－５",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-68fc71c2b1c407",
+      "prefecture": "東京都",
+      "municipality": "江東区",
+      "review_status": "approved",
+      "address": "東京都江東区亀戸３－６－１",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-928e150467e9f6",
+      "prefecture": "東京都",
+      "municipality": "江東区",
+      "review_status": "approved",
+      "address": "東京都江東区猿江２－２－１７",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-90dea2875a4cf5",
+      "prefecture": "東京都",
+      "municipality": "港区",
+      "review_status": "approved",
+      "address": "東京都港区麻布十番１－４－６",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-9b489f1cfae1a5",
+      "prefecture": "東京都",
+      "municipality": "港区",
+      "review_status": "approved",
+      "address": "東京都港区赤坂８－１１－２７",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-a097c88d5898fc",
+      "prefecture": "東京都",
+      "municipality": "港区",
+      "review_status": "approved",
+      "address": "東京都港区麻布台２－２－１４",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-c2d04bf8d66b0f",
+      "prefecture": "東京都",
+      "municipality": "渋谷区",
+      "review_status": "approved",
+      "address": "東京都渋谷区代々木神園町１－１",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-eef053913264df",
+      "prefecture": "東京都",
+      "municipality": "渋谷区",
+      "review_status": "approved",
+      "address": "東京都渋谷区渋谷３－５－１２",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-9d6eb0a2e50a5a",
+      "prefecture": "東京都",
+      "municipality": "小笠原村",
+      "review_status": "approved",
+      "address": "東京都小笠原村父島字東町１０５",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-7581263554bb7c",
+      "prefecture": "東京都",
+      "municipality": "小平市",
+      "review_status": "approved",
+      "address": "東京都小平市花小金井５－４６１",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-130f67f30258bd",
+      "prefecture": "東京都",
+      "municipality": "新宿区",
+      "review_status": "approved",
+      "address": "東京都新宿区赤城元町１－１０",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-7382b09cfc937f",
+      "prefecture": "東京都",
+      "municipality": "新宿区",
+      "review_status": "approved",
+      "address": "東京都新宿区上落合１－２６－１９",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-9a10a76c9423c9",
+      "prefecture": "東京都",
+      "municipality": "新宿区",
+      "review_status": "approved",
+      "address": "東京都新宿区西早稲田２－１－１１",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-c8288b60bc1cfa",
+      "prefecture": "東京都",
+      "municipality": "新宿区",
+      "review_status": "approved",
+      "address": "東京都新宿区西早稲田３－５－４３",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-d3d3c39623bd5b",
+      "prefecture": "東京都",
+      "municipality": "新宿区",
+      "review_status": "approved",
+      "address": "東京都新宿区須賀町５",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-d66b922fa6ac6f",
+      "prefecture": "東京都",
+      "municipality": "新宿区",
+      "review_status": "approved",
+      "address": "東京都新宿区北新宿３－１６－１８",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-4b932bad3bce0b",
+      "prefecture": "東京都",
+      "municipality": "杉並区",
+      "review_status": "approved",
+      "address": "東京都杉並区阿佐谷南２－４－４",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-b7d3bef6aaca24",
+      "prefecture": "東京都",
+      "municipality": "杉並区",
+      "review_status": "approved",
+      "address": "東京都杉並区善福寺１－３３－１",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-f3b2e9dbfa7324",
+      "prefecture": "東京都",
+      "municipality": "杉並区",
+      "review_status": "approved",
+      "address": "東京都杉並区大宮２－３－１",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-8b54439bc94098",
+      "prefecture": "東京都",
+      "municipality": "清瀬市",
+      "review_status": "approved",
+      "address": "東京都清瀬市中清戸２－６１６",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-0a7f1d9b762893",
+      "prefecture": "東京都",
+      "municipality": "青梅市",
+      "review_status": "approved",
+      "address": "東京都青梅市今井５－２４４０－１０４",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-2069989a7378cc",
+      "prefecture": "東京都",
+      "municipality": "青梅市",
+      "review_status": "approved",
+      "address": "東京都青梅市谷野１４１",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-383200009a8a1c",
+      "prefecture": "東京都",
+      "municipality": "青梅市",
+      "review_status": "approved",
+      "address": "東京都青梅市大門１－５６９",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-9c662821935f8f",
+      "prefecture": "東京都",
+      "municipality": "青梅市",
+      "review_status": "approved",
+      "address": "東京都青梅市御岳山１７６",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-a50cb28d66ff96",
+      "prefecture": "東京都",
+      "municipality": "青梅市",
+      "review_status": "approved",
+      "address": "東京都青梅市成木８－３１５",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-d0ac652a4d57d0",
+      "prefecture": "東京都",
+      "municipality": "青梅市",
+      "review_status": "approved",
+      "address": "東京都青梅市藤橋２－１０７",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-dc7e713bb93f3b",
+      "prefecture": "東京都",
+      "municipality": "青梅市",
+      "review_status": "approved",
+      "address": "東京都青梅市梅郷６－１２２０",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-e0413e87a32c52",
+      "prefecture": "東京都",
+      "municipality": "青梅市",
+      "review_status": "approved",
+      "address": "東京都青梅市木野下１－４６７",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-0ee77fa6787cd4",
+      "prefecture": "東京都",
+      "municipality": "千代田区",
+      "review_status": "approved",
+      "address": "東京都千代田区富士見２－４－１",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-6e4f702f7f2dc7",
+      "prefecture": "東京都",
+      "municipality": "千代田区",
+      "review_status": "approved",
+      "address": "東京都千代田区岩本町２－１－１",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-87cc1249be99db",
+      "prefecture": "東京都",
+      "municipality": "千代田区",
+      "review_status": "approved",
+      "address": "東京都千代田区平河町１－７－５",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-91116e2979efcb",
+      "prefecture": "東京都",
+      "municipality": "千代田区",
+      "review_status": "approved",
+      "address": "東京都千代田区神田駿河台１－２－３",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-c234ad76590fdc",
+      "prefecture": "東京都",
+      "municipality": "千代田区",
+      "review_status": "approved",
+      "address": "東京都千代田区内神田１－６－８",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-57b39e09b3145b",
+      "prefecture": "東京都",
+      "municipality": "台東区",
+      "review_status": "approved",
+      "address": "東京都台東区浅草橋３－１１－５",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-92a9b5689a5832",
+      "prefecture": "東京都",
+      "municipality": "台東区",
+      "review_status": "approved",
+      "address": "東京都台東区千束３－１８－７",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-9f6eb60cb01109",
+      "prefecture": "東京都",
+      "municipality": "台東区",
+      "review_status": "approved",
+      "address": "東京都台東区蔵前１－４－３",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-082f8fa293615e",
+      "prefecture": "東京都",
+      "municipality": "大田区",
+      "review_status": "approved",
+      "address": "東京都大田区矢口１－２１－２３",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-b4f0ef301c1909",
+      "prefecture": "東京都",
+      "municipality": "大田区",
+      "review_status": "approved",
+      "address": "東京都大田区羽田５－２７－８",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-c9bba63e435c64",
+      "prefecture": "東京都",
+      "municipality": "大田区",
+      "review_status": "approved",
+      "address": "東京都大田区本羽田３－９－１２",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-f8eb40526321e8",
+      "prefecture": "東京都",
+      "municipality": "大田区",
+      "review_status": "approved",
+      "address": "東京都大田区蒲田３－２－１０",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-d170a5128ae5f0",
+      "prefecture": "東京都",
+      "municipality": "中央区",
+      "review_status": "approved",
+      "address": "東京都中央区八丁堀３－２８－１５",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-0cf285cace293e",
+      "prefecture": "東京都",
+      "municipality": "町田市",
+      "review_status": "approved",
+      "address": "東京都町田市木曽西３－３－１６",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-7824f5d22ba933",
+      "prefecture": "東京都",
+      "municipality": "町田市",
+      "review_status": "approved",
+      "address": "東京都町田市矢部町２６６６",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-fa786e3ff69e72",
+      "prefecture": "東京都",
+      "municipality": "町田市",
+      "review_status": "approved",
+      "address": "東京都町田市原町田５－１２－１１",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-2f66cf83cf2d1e",
+      "prefecture": "東京都",
+      "municipality": "調布市",
+      "review_status": "approved",
+      "address": "東京都調布市調布ヶ丘１－８－１",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-5294757fffc263",
+      "prefecture": "東京都",
+      "municipality": "板橋区",
+      "review_status": "approved",
+      "address": "東京都板橋区仲町４６－３",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-5f4b31abd02559",
+      "prefecture": "東京都",
+      "municipality": "品川区",
+      "review_status": "approved",
+      "address": "東京都品川区戸越２－６－２３",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-8906fe72fb79b4",
+      "prefecture": "東京都",
+      "municipality": "品川区",
+      "review_status": "approved",
+      "address": "東京都品川区北品川２－３０－２８",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-0a47b98e7c5561",
+      "prefecture": "東京都",
+      "municipality": "府中市",
+      "review_status": "approved",
+      "address": "東京都府中市白糸台１－４２－５",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-0371ddb2b5a6f3",
+      "prefecture": "東京都",
+      "municipality": "文京区",
+      "review_status": "approved",
+      "address": "東京都文京区根津１－２８－９",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-8b2708886b2ba9",
+      "prefecture": "東京都",
+      "municipality": "文京区",
+      "review_status": "approved",
+      "address": "東京都文京区春日１－５－２",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-190671b225d879",
+      "prefecture": "東京都",
+      "municipality": "北区",
+      "review_status": "approved",
+      "address": "東京都北区王子本町１－１－１２",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-edea59e8aa2174",
+      "prefecture": "東京都",
+      "municipality": "北区",
+      "review_status": "approved",
+      "address": "東京都北区岸町１－１２－２６",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-43b2fb4a95475a",
+      "prefecture": "東京都",
+      "municipality": "目黒区",
+      "review_status": "approved",
+      "address": "東京都目黒区下目黒３－１－２",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-b371dc893ef7aa",
+      "prefecture": "東京都",
+      "municipality": "目黒区",
+      "review_status": "approved",
+      "address": "東京都目黒区碑文谷３－７－３",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-d0a984d79581af",
+      "prefecture": "東京都",
+      "municipality": "練馬区",
+      "review_status": "approved",
+      "address": "東京都練馬区土支田４－２８－１",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp13-dee6fcc9bcdda9",
+      "prefecture": "東京都",
+      "municipality": "練馬区",
+      "review_status": "approved",
+      "address": "東京都練馬区小竹町２－４２－１２",
+      "verified_at": "2026-09-01"
     },
     {
       "id": "plc-kishu-toshogu",
