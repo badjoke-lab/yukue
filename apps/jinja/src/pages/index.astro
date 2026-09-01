@@ -13,12 +13,15 @@ const recent = [...approvedShrines]
 
 <JinjaFrame
   title="神社のゆくえ"
-  description="神社名や地域から神社を探し、所在地や確認できた変化をたどれます。"
+  description="全国の神社について、所在地や現在の状況、確認できた変化と出典を掲載しています。"
 >
   <section class="home-hero">
     <Container size="wide">
       <h1>神社を探す</h1>
-      <p class="home-hero__lead">神社名や地域から探せます。</p>
+      <div class="home-hero__lead">
+        <p>全国の神社について、所在地や現在の状況、移転・遷座、合祀、再建など確認できた変化を掲載しています。</p>
+        <p>神社名や地域から探し、各神社のページで出典と確認日まで確認できます。</p>
+      </div>
       <div class="home-hero__search">
         <SearchForm
           action="/search/"
@@ -30,6 +33,7 @@ const recent = [...approvedShrines]
   </section>
 
   <Section title="最近追加された神社" actionHref="/shrines/" actionLabel="神社一覧を見る">
+    <p class="section-intro">最近、名称と所在地などを確認して掲載した神社です。</p>
     <div class="reviewed-list">
       {recent.map(({ entity, place }) => (
         <article class="reviewed-row">
@@ -45,6 +49,7 @@ const recent = [...approvedShrines]
   </Section>
 
   <Section title="地域から探す" actionHref="/regions/" actionLabel="地域一覧を見る">
+    <p class="section-intro">都道府県ごとに、現在掲載している神社を探せます。</p>
     <div class="region-grid">
       {regionCounts.map((region) => (
         <a href={`/search/?q=${encodeURIComponent(region.prefecture)}`}>
@@ -56,6 +61,7 @@ const recent = [...approvedShrines]
   </Section>
 
   <Section title="変化の記録" actionHref="/changes/" actionLabel="変化を見る" rule="none">
+    <p class="section-intro">移転・遷座、合祀、再建など、時期と内容を確認できた変化を掲載します。</p>
     <p class="empty-state">現在、掲載している変化の記録はありません。</p>
   </Section>
 </JinjaFrame>
@@ -74,15 +80,25 @@ const recent = [...approvedShrines]
   }
 
   .home-hero__lead {
-    margin: var(--space-4) 0 0;
+    max-width: var(--container-prose);
+    margin-top: var(--space-4);
     color: var(--color-text-soft);
     font-size: var(--font-size-lead);
     line-height: var(--line-height-lead);
   }
 
+  .home-hero__lead p { margin: 0; }
+  .home-hero__lead p + p { margin-top: var(--space-2); }
+
   .home-hero__search {
     max-width: var(--container-page);
     margin-top: var(--space-8);
+  }
+
+  .section-intro {
+    max-width: var(--container-prose);
+    margin: 0 0 var(--space-6);
+    color: var(--color-text-soft);
   }
 
   .reviewed-list { border-top: var(--rule-strong); }
