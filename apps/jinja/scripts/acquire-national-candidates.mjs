@@ -2,8 +2,12 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 
-const DEFAULT_ENDPOINT = 'https://overpass.openstreetmap.jp/api/interpreter';
-const USER_AGENT = 'badjoke-lab-yukue-jinja-national-acquisition/1.0 (+https://github.com/badjoke-lab/yukue)';
+const DEFAULT_ENDPOINTS = [
+  'https://overpass.private.coffee/api/interpreter',
+  'https://maps.mail.ru/osm/tools/overpass/api/interpreter',
+  'https://overpass-api.de/api/interpreter'
+];
+const USER_AGENT = 'badjoke-lab-yukue-jinja-national-acquisition/1.1 (+https://github.com/badjoke-lab/yukue)';
 const PREFECTURES = Array.from({ length: 47 }, (_, i) => `JP-${String(i + 1).padStart(2, '0')}`);
 const DEFAULT_OUT_DIR = new URL('../research/national-candidates/osm/', import.meta.url);
 
@@ -56,46 +60,44 @@ export function normalizeElement(element, isoCode, acquiredAt) {
   };
 }
 
-async function fetchOverpass(endpoint, query, attempts = 3) {
-  let lastError;
-  for (let attempt = 1; attempt <= attempts; attempt += 1) {
-    try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'content-type': 'text/plain;charset=UTF-8',
-          'accept': 'application/json',
-          'user-agent': USER_AGENT
-        },
-        body: query,
-        signal: AbortSignal.timeout(210_000)
-      });
-      if (!response.ok) {
-        const retryable = response.status === 406 || response.status === 429 || response.status >= 500;
-        const error = new Error(`Overpass HTTP ${response.status}`);
-        error.retryable = retryable;
-        throw error;
-      }
-      return await response.json();
-    } catch (error) {
-      lastError = error;
-      if (attempt < attempts && error.retryable !== false) {
-        await new Promise((resolve) => setTimeout(resolve, 30_000));
-      } else if (attempt < attempts) {
-        await new Promise((resolve) => setTimeout(resolve, 5_000));
+async function fetchEndpoint(endpoint, query) {
+  const body = new URLSearchParams({ data: query });
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+      accept: 'application/json',
+      'user-agent': USER_AGENT
+    },
+    body,
+    signal: AbortSignal.timeout(210_000)
+  });
+  if (!response.ok) throw new Error(`Overpass HTTP ${response.status} from ${endpoint}`);
+  return { payload: await response.json(), endpoint };
+}
+
+async function fetchOverpass(endpoints, query, attemptsPerEndpoint = 2) {
+  const failures = [];
+  for (const endpoint of endpoints) {
+    for (let attempt = 1; attempt <= attemptsPerEndpoint; attempt += 1) {
+      try {
+        return await fetchEndpoint(endpoint, query);
+      } catch (error) {
+        failures.push(`${endpoint} attempt ${attempt}: ${error?.message ?? String(error)}`);
+        if (attempt < attemptsPerEndpoint) await new Promise((resolve) => setTimeout(resolve, 30_000));
       }
     }
   }
-  throw lastError;
+  throw new Error(`All Overpass endpoints failed:\n${failures.join('\n')}`);
 }
 
 function parseArgs(argv) {
-  const args = { endpoint: DEFAULT_ENDPOINT, outDir: DEFAULT_OUT_DIR, dryRun: false, targets: [] };
+  const args = { endpoints: [...DEFAULT_ENDPOINTS], outDir: DEFAULT_OUT_DIR, dryRun: false, targets: [] };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === '--all') args.targets = [...PREFECTURES];
     else if (arg === '--prefecture') args.targets.push(argv[++i]);
-    else if (arg === '--endpoint') args.endpoint = argv[++i];
+    else if (arg === '--endpoint') args.endpoints = [argv[++i]];
     else if (arg === '--out-dir') args.outDir = path.resolve(argv[++i]);
     else if (arg === '--dry-run') args.dryRun = true;
     else throw new Error(`Unknown argument: ${arg}`);
@@ -115,7 +117,7 @@ async function main() {
     acquisition_mode: 'candidate_only',
     promotion_authorized: false,
     source: 'OpenStreetMap / Overpass',
-    endpoint: args.endpoint,
+    endpoint_candidates: args.endpoints,
     license: 'ODbL-1.0',
     acquired_at: acquiredAt,
     prefectures: []
@@ -127,7 +129,7 @@ async function main() {
       console.log(`--- ${isoCode} ---\n${query}`);
       continue;
     }
-    const payload = await fetchOverpass(args.endpoint, query);
+    const { payload, endpoint } = await fetchOverpass(args.endpoints, query);
     const candidates = (payload.elements ?? []).map((element) => normalizeElement(element, isoCode, acquiredAt));
     const output = {
       format_version: 1,
@@ -136,6 +138,7 @@ async function main() {
       acquisition_mode: 'candidate_only',
       promotion_authorized: false,
       source_attribution: '© OpenStreetMap contributors, ODbL 1.0',
+      source_endpoint: endpoint,
       acquired_at: acquiredAt,
       candidate_count: candidates.length,
       candidates
@@ -143,8 +146,8 @@ async function main() {
     await fs.mkdir(args.outDir, { recursive: true });
     const filePath = path.join(String(args.outDir), `${isoCode}.json`);
     await fs.writeFile(filePath, `${JSON.stringify(output, null, 2)}\n`);
-    manifest.prefectures.push({ iso3166_2: isoCode, candidate_count: candidates.length, file: `${isoCode}.json` });
-    console.log(`${isoCode}: ${candidates.length} candidates`);
+    manifest.prefectures.push({ iso3166_2: isoCode, candidate_count: candidates.length, file: `${isoCode}.json`, source_endpoint: endpoint });
+    console.log(`${isoCode}: ${candidates.length} candidates via ${endpoint}`);
   }
 
   if (!args.dryRun) {
