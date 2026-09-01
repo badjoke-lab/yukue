@@ -1,0 +1,74 @@
+name: Aggregate Jinja national candidates
+
+on:
+  workflow_run:
+    workflows: ["Acquire Jinja national candidates"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Acquire workflow run ID to aggregate"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  aggregate:
+    permissions:
+      actions: read
+      contents: read
+    if: >-
+      ${{
+        github.event_name == 'workflow_dispatch' ||
+        github.event.workflow_run.conclusion == 'success'
+      }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+      - name: Resolve acquisition run
+        id: run
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          WORKFLOW_RUN_ID: ${{ github.event.workflow_run.id }}
+          INPUT_RUN_ID: ${{ inputs.run_id }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            if [ -z "$INPUT_RUN_ID" ]; then
+              echo "workflow_dispatch requires run_id" >&2
+              exit 1
+            fi
+            echo "id=$INPUT_RUN_ID" >> "$GITHUB_OUTPUT"
+          else
+            echo "id=$WORKFLOW_RUN_ID" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Download prefecture artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ steps.run.outputs.id }}
+        run: |
+          mkdir -p .artifacts/jinja-national-candidates
+          gh run download "$RUN_ID" \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern 'jinja-national-candidates-*' \
+            --dir .artifacts/jinja-national-candidates
+      - name: Aggregate and dedupe
+        run: |
+          node apps/jinja/scripts/aggregate-national-candidates.mjs \
+            --input .artifacts/jinja-national-candidates \
+            --out .artifacts/jinja-national-aggregate/national-candidates.json
+          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('.artifacts/jinja-national-aggregate/national-candidates.json','utf8'));if(p.prefecture_file_count!==47)throw new Error('Expected 47 prefectures, got '+p.prefecture_file_count);console.log(JSON.stringify({prefectures:p.prefecture_file_count,raw:p.raw_candidate_count,deduped:p.deduped_candidate_count,duplicates:p.duplicate_candidate_count,duplicate_groups:p.duplicate_group_count}))"
+      - name: Upload national aggregate
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: jinja-national-aggregate-${{ steps.run.outputs.id }}
+          path: .artifacts/jinja-national-aggregate/national-candidates.json
+          if-no-files-found: error
+          retention-days: 30

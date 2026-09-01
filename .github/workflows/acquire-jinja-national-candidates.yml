@@ -4,11 +4,9 @@ on:
   push:
     branches: [main]
     paths:
-      - ".github/workflows/acquire-jinja-national-candidates.yml"
       - "apps/jinja/scripts/acquire-national-candidates.mjs"
       - "apps/jinja/scripts/check-national-acquisition.mjs"
       - "apps/jinja/research/national-acquisition-policy.json"
-      - "apps/jinja/package.json"
   workflow_dispatch:
   schedule:
     - cron: "23 18 1 * *"
