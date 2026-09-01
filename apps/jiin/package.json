@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "check": "node scripts/check-data.mjs",
+    "check": "node scripts/check-data.mjs && node scripts/check-prefectural-authority-parser.mjs",
     "check:data": "node scripts/check-data.mjs",
-    "seed:from-matsuri": "node scripts/build-matsuri-seed-queue.mjs"
+    "check:prefectural-authority-parser": "node scripts/check-prefectural-authority-parser.mjs",
+    "seed:from-matsuri": "node scripts/build-matsuri-seed-queue.mjs",
+    "acquire:prefectural-authority": "node scripts/acquire-prefectural-authority.mjs"
   },
   "dependencies": {
     "@badjoke-lab/yukue-ui": "workspace:*",
