@@ -11,8 +11,11 @@ on:
       - "docs/matsuri-tier-a-importer.md"
       - "fixtures/matsuri-tier-a-importer/**"
       - "scripts/lib/matsuri-tier-a-importer.mjs"
+      - "scripts/lib/matsuri-tier-a-publication-generator.mjs"
       - "scripts/import-matsuri-tier-a-candidates.mjs"
+      - "scripts/generate-matsuri-tier-a-publication-wave.mjs"
       - "scripts/check-matsuri-tier-a-importer.mjs"
+      - "scripts/check-matsuri-tier-a-publication-generator.mjs"
       - "package.json"
   push:
     branches:
@@ -24,8 +27,11 @@ on:
       - "docs/matsuri-tier-a-importer.md"
       - "fixtures/matsuri-tier-a-importer/**"
       - "scripts/lib/matsuri-tier-a-importer.mjs"
+      - "scripts/lib/matsuri-tier-a-publication-generator.mjs"
       - "scripts/import-matsuri-tier-a-candidates.mjs"
+      - "scripts/generate-matsuri-tier-a-publication-wave.mjs"
       - "scripts/check-matsuri-tier-a-importer.mjs"
+      - "scripts/check-matsuri-tier-a-publication-generator.mjs"
       - "package.json"
   workflow_dispatch:
 
@@ -55,3 +61,6 @@ jobs:
 
       - name: Verify NCS-04 Tier A importer contract
         run: pnpm check:matsuri:tier-a-importer
+
+      - name: Verify bounded Tier A publication generator
+        run: node scripts/check-matsuri-tier-a-publication-generator.mjs
