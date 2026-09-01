@@ -43,6 +43,7 @@ class ExcelLinkParser(HTMLParser):
     def __init__(self, base_url):
         super().__init__(convert_charrefs=True)
         self.base_url = base_url
+        self.base_parsed = urlparse(base_url)
         self.current_href = None
         self.current_text = []
         self.candidates = []
@@ -63,17 +64,32 @@ class ExcelLinkParser(HTMLParser):
         text = normalize("".join(self.current_text)).upper()
         parsed = urlparse(href)
         path = parsed.path.lower()
+        base_path = self.base_parsed.path.rstrip("/")
+        same_document_fragment = (
+            bool(parsed.fragment)
+            and parsed.scheme == self.base_parsed.scheme
+            and parsed.netloc == self.base_parsed.netloc
+            and parsed.path.rstrip("/") == base_path
+        )
+        is_excel_path = path.endswith((".xlsx", ".xls", ".xlsm"))
+        excel_label = "EXCEL" in text or "エクセル" in text
+        if same_document_fragment or not (is_excel_path or excel_label):
+            self.current_href = None
+            self.current_text = []
+            return
         score = 0
-        if path.endswith((".xlsx", ".xls", ".xlsm")):
+        if is_excel_path:
             score += 10
-        if "EXCEL" in text or "エクセル" in text:
+        if excel_label:
             score += 6
         if "宗教法人名簿" in text:
-            score += 4
-        if "20251231" in href or "071231" in href or "R07" in href.upper():
-            score += 3
-        if score:
-            self.candidates.append((score, href, text))
+            score += 8
+        lowered_href = href.lower()
+        if "houjinmeibo" in lowered_href or "shukyo" in lowered_href and "meibo" in lowered_href:
+            score += 12
+        if "20251231" in lowered_href or "071231" in lowered_href or "r07" in lowered_href:
+            score += 5
+        self.candidates.append((score, href, text))
         self.current_href = None
         self.current_text = []
 
@@ -85,10 +101,29 @@ def resolve_excel_url(source_page):
     if not parser.candidates:
         raise RuntimeError("No Tokyo religious-corporation Excel link found on source page")
     candidates = sorted(parser.candidates, key=lambda item: (-item[0], item[1]))
-    for _, url, text in candidates:
-        if "宗教法人" in text or url.lower().endswith((".xlsx", ".xls", ".xlsm")):
+    failures = []
+    for score, url, text in candidates:
+        try:
+            probe, content_type = fetch_bytes(
+                url,
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,*/*;q=0.5",
+            )
+        except Exception as exc:
+            failures.append({"url": url, "score": score, "error": str(exc)})
+            continue
+        if probe.startswith(b"PK\x03\x04"):
             return url
-    return candidates[0][1]
+        failures.append({
+            "url": url,
+            "score": score,
+            "text": text,
+            "content_type": content_type,
+            "magic": probe[:8].hex(),
+        })
+    raise RuntimeError(
+        "No OOXML/XLSX Tokyo religious-corporation Excel link resolved; "
+        + json.dumps(failures, ensure_ascii=False)[:12000]
+    )
 
 
 def column_index(reference):
