@@ -12,7 +12,8 @@ const wrangler = JSON.parse(wranglerText.replace(/^\s*\/\/.*$/gmu, ""));
 const canonical = JSON.parse(fs.readFileSync(path.join(root, "apps", "jinja", "data", "canonical.json"), "utf8"));
 const packageText = fs.readFileSync(path.join(root, "apps", "jinja", "package.json"), "utf8");
 const frameSource = fs.readFileSync(path.join(root, "apps", "jinja", "src", "components", "JinjaFrame.astro"), "utf8");
-const homeSource = fs.readFileSync(path.join(root, "apps", "jinja", "src", "pages", "index.astro"), "utf8");
+const aboutSource = fs.readFileSync(path.join(root, "apps", "jinja", "src", "pages", "about", "index.astro"), "utf8");
+const statusSource = fs.readFileSync(path.join(root, "apps", "jinja", "src", "pages", "status", "index.astro"), "utf8");
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -73,8 +74,8 @@ assert(frameSource.includes('robots="noindex,nofollow"'), "Jinja preview must re
 assert(frameSource.includes("@badjoke-lab/yukue-ui/components/PageShell.astro"), "Jinja frame must import PageShell through the shared UI workspace package");
 assert(frameSource.includes("@badjoke-lab/yukue-ui/components/SiteHeader.astro"), "Jinja frame must import SiteHeader through the shared UI workspace package");
 assert(frameSource.includes("@badjoke-lab/yukue-ui/components/SiteFooter.astro"), "Jinja frame must import SiteFooter through the shared UI workspace package");
-assert(homeSource.includes("Public preview."), "Jinja preview page must identify itself as a public preview");
-assert(homeSource.includes("workers.dev"), "Jinja preview page must identify the workers.dev scope");
+assert(aboutSource.includes("公開前の試験版"), "Jinja About page must explain the preview status in visitor-facing language");
+assert(statusSource.includes("workers.dev"), "Jinja status page must identify the workers.dev preview scope");
 
 for (const filePath of sourceFiles(path.join(root, "apps", "jinja", "src"))) {
   const source = fs.readFileSync(filePath, "utf8");
