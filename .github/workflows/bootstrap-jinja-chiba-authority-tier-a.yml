@@ -1,6 +1,11 @@
 name: Bootstrap Jinja Chiba authority Tier A
 
 on:
+  pull_request:
+    paths:
+      - ".github/workflows/bootstrap-jinja-chiba-authority-tier-a.yml"
+      - "apps/jinja/scripts/fetch-chiba-authority-roster.py"
+      - "apps/jinja/scripts/promote-authority-tier-a.mjs"
   push:
     branches: [main]
     paths:
@@ -97,6 +102,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Push generated review branch
+        if: github.event_name != 'pull_request'
         env:
           RUN_ID: ${{ github.run_id }}
           RUN_ATTEMPT: ${{ github.run_attempt }}
