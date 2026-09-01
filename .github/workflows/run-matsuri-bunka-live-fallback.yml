@@ -1,16 +1,7 @@
 name: Run Matsuri Bunka live fallback
 
 on:
-  push:
-    branches:
-      - feat/matsuri-bunka-html-fallback
-    paths:
-      - ".github/workflows/run-matsuri-bunka-live-fallback.yml"
-      - "scripts/check-matsuri-bunka-live-detail.mjs"
-      - "scripts/lib/matsuri-bunka-detail-acquisition.mjs"
-      - "scripts/run-matsuri-bunka-detail-readiness.mjs"
-      - "scripts/lib/matsuri-national-csv-acquisition.mjs"
-      - "scripts/lib/matsuri-tier-a-importer.mjs"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -40,11 +31,18 @@ jobs:
             --max-id 1000 \
             --concurrency 4 \
             --delay-ms 125 2>&1 | tee .artifacts/matsuri-bunka-live.log
-      - name: Upload live readiness artifacts
+      - name: Build NCS-05 human-review packet
+        run: |
+          node scripts/generate-matsuri-tier-a-review-packet.mjs \
+            --candidate-batch=.artifacts/matsuri-bunka-live/candidate-batch.json \
+            --ncs04-report=.artifacts/matsuri-bunka-live/report.json \
+            --out=.artifacts/matsuri-bunka-live/ncs05-review-packet.json \
+            --max-items=100
+      - name: Upload live readiness and review artifacts
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: matsuri-bunka-live-readiness-${{ github.sha }}
+          name: matsuri-bunka-live-review-${{ github.sha }}
           path: |
             .artifacts/matsuri-bunka-live/
             .artifacts/matsuri-bunka-live.log
