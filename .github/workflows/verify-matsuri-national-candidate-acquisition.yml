@@ -8,10 +8,13 @@ on:
       - ".github/workflows/verify-matsuri-national-candidate-acquisition.yml"
       - "config/matsuri-national-source-inventory.json"
       - "scripts/lib/matsuri-national-csv-acquisition.mjs"
+      - "scripts/lib/matsuri-bunka-detail-acquisition.mjs"
       - "scripts/acquire-matsuri-national-candidates.mjs"
       - "scripts/check-matsuri-national-candidate-acquisition.mjs"
       - "scripts/run-matsuri-national-tier-a-readiness.mjs"
       - "scripts/check-matsuri-national-tier-a-readiness-runner.mjs"
+      - "scripts/run-matsuri-bunka-detail-readiness.mjs"
+      - "scripts/check-matsuri-bunka-detail-acquisition.mjs"
       - "scripts/lib/matsuri-tier-a-importer.mjs"
   push:
     branches:
@@ -20,10 +23,13 @@ on:
       - ".github/workflows/verify-matsuri-national-candidate-acquisition.yml"
       - "config/matsuri-national-source-inventory.json"
       - "scripts/lib/matsuri-national-csv-acquisition.mjs"
+      - "scripts/lib/matsuri-bunka-detail-acquisition.mjs"
       - "scripts/acquire-matsuri-national-candidates.mjs"
       - "scripts/check-matsuri-national-candidate-acquisition.mjs"
       - "scripts/run-matsuri-national-tier-a-readiness.mjs"
       - "scripts/check-matsuri-national-tier-a-readiness-runner.mjs"
+      - "scripts/run-matsuri-bunka-detail-readiness.mjs"
+      - "scripts/check-matsuri-bunka-detail-acquisition.mjs"
       - "scripts/lib/matsuri-tier-a-importer.mjs"
 
 permissions:
@@ -44,3 +50,5 @@ jobs:
         run: node scripts/check-matsuri-national-candidate-acquisition.mjs
       - name: Verify acquisition-to-readiness runner
         run: node scripts/check-matsuri-national-tier-a-readiness-runner.mjs
+      - name: Verify Bunka detail fallback parser
+        run: node scripts/check-matsuri-bunka-detail-acquisition.mjs
