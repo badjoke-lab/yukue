@@ -5,11 +5,13 @@ on:
     paths:
       - ".github/workflows/bootstrap-jinja-kanagawa-authority-tier-a.yml"
       - "apps/jinja/scripts/fetch-kanagawa-authority-roster.py"
+      - "apps/jinja/scripts/promote-authority-tier-a.mjs"
   push:
     branches: [main]
     paths:
       - ".github/workflows/bootstrap-jinja-kanagawa-authority-tier-a.yml"
       - "apps/jinja/scripts/fetch-kanagawa-authority-roster.py"
+      - "apps/jinja/scripts/promote-authority-tier-a.mjs"
   workflow_dispatch:
 
 permissions:
