@@ -2,7 +2,8 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 
-const DEFAULT_ENDPOINT = 'https://overpass-api.de/api/interpreter';
+const DEFAULT_ENDPOINT = 'https://overpass.openstreetmap.jp/api/interpreter';
+const USER_AGENT = 'badjoke-lab-yukue-jinja-national-acquisition/1.0 (+https://github.com/badjoke-lab/yukue)';
 const PREFECTURES = Array.from({ length: 47 }, (_, i) => `JP-${String(i + 1).padStart(2, '0')}`);
 const DEFAULT_OUT_DIR = new URL('../research/national-candidates/osm/', import.meta.url);
 
@@ -59,18 +60,30 @@ async function fetchOverpass(endpoint, query, attempts = 3) {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      const body = new URLSearchParams({ data: query });
       const response = await fetch(endpoint, {
         method: 'POST',
-        headers: { 'content-type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-        body,
+        headers: {
+          'content-type': 'text/plain;charset=UTF-8',
+          'accept': 'application/json',
+          'user-agent': USER_AGENT
+        },
+        body: query,
         signal: AbortSignal.timeout(210_000)
       });
-      if (!response.ok) throw new Error(`Overpass HTTP ${response.status}`);
+      if (!response.ok) {
+        const retryable = response.status === 406 || response.status === 429 || response.status >= 500;
+        const error = new Error(`Overpass HTTP ${response.status}`);
+        error.retryable = retryable;
+        throw error;
+      }
       return await response.json();
     } catch (error) {
       lastError = error;
-      if (attempt < attempts) await new Promise((resolve) => setTimeout(resolve, attempt * 5000));
+      if (attempt < attempts && error.retryable !== false) {
+        await new Promise((resolve) => setTimeout(resolve, 30_000));
+      } else if (attempt < attempts) {
+        await new Promise((resolve) => setTimeout(resolve, 5_000));
+      }
     }
   }
   throw lastError;
@@ -102,6 +115,7 @@ async function main() {
     acquisition_mode: 'candidate_only',
     promotion_authorized: false,
     source: 'OpenStreetMap / Overpass',
+    endpoint: args.endpoint,
     license: 'ODbL-1.0',
     acquired_at: acquiredAt,
     prefectures: []
