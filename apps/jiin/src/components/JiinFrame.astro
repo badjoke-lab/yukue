@@ -1,0 +1,43 @@
+---
+import PageShell from "@badjoke-lab/yukue-ui/components/PageShell.astro";
+import SiteFooter from "@badjoke-lab/yukue-ui/components/SiteFooter.astro";
+import SiteHeader from "@badjoke-lab/yukue-ui/components/SiteHeader.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+const navItems = [
+  { label: "寺院", href: "/temples/" },
+  { label: "地域", href: "/regions/" },
+  { label: "変化", href: "/changes/" },
+  { label: "このサイトについて", href: "/about/" },
+];
+
+const footerGroups = [
+  {
+    heading: "寺院のゆくえ",
+    links: [
+      { label: "寺院", href: "/temples/" },
+      { label: "地域", href: "/regions/" },
+      { label: "変化", href: "/changes/" }
+    ]
+  },
+  {
+    heading: "資料",
+    links: [
+      { label: "このサイトについて", href: "/about/" },
+      { label: "方法論", href: "/methodology/" }
+    ]
+  }
+];
+---
+
+<PageShell site="jiin" title={title} description={description} robots="noindex,nofollow">
+  <SiteHeader slot="header" siteName="寺院のゆくえ" romanLabel="Jiin Yukue" navItems={navItems} />
+  <slot />
+  <SiteFooter slot="footer" siteName="寺院のゆくえ" groups={footerGroups} />
+</PageShell>
