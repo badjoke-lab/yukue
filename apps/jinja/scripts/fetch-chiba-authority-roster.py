@@ -1,24 +1,24 @@
 #!/usr/bin/env python3
 import argparse
-import io
 import json
 import re
 import unicodedata
 import urllib.request
-import zipfile
-import xml.etree.ElementTree as ET
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
+from html.parser import HTMLParser
+from urllib.parse import urljoin, urlparse
 
-DEFAULT_URL = "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/documents/syuukyoumeibo202607.xlsx"
-SOURCE_PAGE = "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/houjinmeibo.html"
-NS = {"x": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
-REL_NS = {"r": "http://schemas.openxmlformats.org/package/2006/relationships"}
+INDEX_URL = "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/houjinmeibo.html"
+BASE_PATH = "/gakuji/shuukyou/houjin/"
+USER_AGENT = "badjoke-lab-yukue/1.0 (+https://github.com/badjoke-lab/yukue)"
 
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--url", default=DEFAULT_URL)
+    parser.add_argument("--index-url", default=INDEX_URL)
     parser.add_argument("--out", required=True)
+    parser.add_argument("--workers", type=int, default=8)
     return parser.parse_args()
 
 
@@ -27,147 +27,183 @@ def normalize(value):
     return re.sub(r"\s+", "", value)
 
 
-def col_index(ref):
-    letters = re.match(r"[A-Z]+", ref).group(0)
-    index = 0
-    for ch in letters:
-        index = index * 26 + (ord(ch) - ord("A") + 1)
-    return index - 1
+def fetch_text(url):
+    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/html,*/*;q=0.8"})
+    with urllib.request.urlopen(request, timeout=60) as response:
+        charset = response.headers.get_content_charset() or "utf-8"
+        return response.read().decode(charset, errors="replace")
 
 
-def read_shared_strings(zf):
-    try:
-        root = ET.fromstring(zf.read("xl/sharedStrings.xml"))
-    except KeyError:
-        return []
-    values = []
-    for si in root.findall("x:si", NS):
-        values.append("".join(node.text or "" for node in si.findall(".//x:t", NS)))
-    return values
+class LinkParser(HTMLParser):
+    def __init__(self, base_url):
+        super().__init__(convert_charrefs=True)
+        self.base_url = base_url
+        self.urls = set()
+
+    def handle_starttag(self, tag, attrs):
+        if tag.lower() != "a":
+            return
+        href = dict(attrs).get("href")
+        if not href:
+            return
+        url = urljoin(self.base_url, href)
+        parsed = urlparse(url)
+        if parsed.netloc != "www.pref.chiba.lg.jp":
+            return
+        if not parsed.path.startswith(BASE_PATH) or not parsed.path.endswith(".html"):
+            return
+        slug = parsed.path.rsplit("/", 1)[-1]
+        if slug in {"houjinmeibo.html", "index.html"}:
+            return
+        self.urls.add(url)
 
 
-def workbook_sheet_paths(zf):
-    workbook = ET.fromstring(zf.read("xl/workbook.xml"))
-    rels = ET.fromstring(zf.read("xl/_rels/workbook.xml.rels"))
-    rel_map = {rel.attrib["Id"]: rel.attrib["Target"] for rel in rels.findall("r:Relationship", REL_NS)}
-    result = []
-    rel_attr = "{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id"
-    for sheet in workbook.findall("x:sheets/x:sheet", NS):
-        target = rel_map.get(sheet.attrib.get(rel_attr))
-        if not target:
-            continue
-        path = target.lstrip("/") if target.startswith("/") else "xl/" + target.lstrip("./")
-        result.append((sheet.attrib.get("name", ""), path))
-    return result
+class RosterTableParser(HTMLParser):
+    REQUIRED = ["系統", "法人名", "市町村名", "所在地"]
+    OPTIONAL = ["包括団体名", "地区コード", "連番"]
+
+    def __init__(self, source_url):
+        super().__init__(convert_charrefs=True)
+        self.source_url = source_url
+        self.in_row = False
+        self.in_cell = False
+        self.cell_parts = []
+        self.row = []
+        self.header = None
+        self.records = []
+        self.title = ""
+        self.in_title = False
+
+    def handle_starttag(self, tag, attrs):
+        tag = tag.lower()
+        if tag == "title":
+            self.in_title = True
+        elif tag == "tr":
+            self.in_row = True
+            self.row = []
+        elif self.in_row and tag in {"th", "td"}:
+            self.in_cell = True
+            self.cell_parts = []
+
+    def handle_endtag(self, tag):
+        tag = tag.lower()
+        if tag == "title":
+            self.in_title = False
+        elif self.in_row and tag in {"th", "td"} and self.in_cell:
+            self.row.append(" ".join(part.strip() for part in self.cell_parts if part.strip()).strip())
+            self.in_cell = False
+            self.cell_parts = []
+        elif tag == "tr" and self.in_row:
+            self._consume_row(self.row)
+            self.in_row = False
+            self.row = []
+
+    def handle_data(self, data):
+        if self.in_title:
+            self.title += data
+        if self.in_cell:
+            self.cell_parts.append(data)
+
+    def _consume_row(self, row):
+        cells = [normalize(value) for value in row]
+        if all(key in cells for key in self.REQUIRED):
+            keys = self.REQUIRED + [key for key in self.OPTIONAL if key in cells]
+            self.header = {key: cells.index(key) for key in keys}
+            return
+        if not self.header:
+            return
+
+        def field(name):
+            index = self.header.get(name)
+            return row[index].strip() if index is not None and index < len(row) else ""
+
+        system = normalize(field("系統"))
+        name = field("法人名")
+        municipality = field("市町村名")
+        address = field("所在地")
+        if system != "神道系" or not name or not municipality or not address:
+            return
+        self.records.append({
+            "name": name,
+            "municipality": municipality,
+            "address": address,
+            "system": field("系統") or "神道系",
+            "umbrella": field("包括団体名") or None,
+            "district_code": field("地区コード") or None,
+            "serial": field("連番") or None,
+            "source_url": self.source_url,
+            "source_title": self.title.strip() or f"{municipality}｜宗教法人一覧／千葉県",
+        })
 
 
-def cell_value(cell, shared):
-    cell_type = cell.attrib.get("t")
-    if cell_type == "inlineStr":
-        return "".join(node.text or "" for node in cell.findall(".//x:t", NS))
-    value_node = cell.find("x:v", NS)
-    if value_node is None:
-        return ""
-    raw = value_node.text or ""
-    if cell_type == "s":
-        try:
-            return shared[int(raw)]
-        except (ValueError, IndexError):
-            return raw
-    return raw
-
-
-def rows_from_sheet(zf, path, shared):
-    root = ET.fromstring(zf.read(path))
-    for row in root.findall(".//x:sheetData/x:row", NS):
-        values = {}
-        for cell in row.findall("x:c", NS):
-            ref = cell.attrib.get("r")
-            if ref:
-                values[col_index(ref)] = cell_value(cell, shared)
-        if values:
-            yield [values.get(i, "") for i in range(max(values) + 1)]
-
-
-def find_header(row):
-    normalized = [normalize(value) for value in row]
-    required = ["系統", "法人名", "市町村名", "所在地"]
-    if not all(key in normalized for key in required):
-        return None
-    optional = ["包括団体名", "地区コード", "連番"]
-    return {key: normalized.index(key) for key in required + [key for key in optional if key in normalized]}
-
-
-def download(url):
-    request = urllib.request.Request(
-        url,
-        headers={"User-Agent": "badjoke-lab-yukue/1.0 (+https://github.com/badjoke-lab/yukue)"},
-    )
-    with urllib.request.urlopen(request, timeout=90) as response:
-        return response.read()
+def parse_roster_page(url):
+    parser = RosterTableParser(url)
+    parser.feed(fetch_text(url))
+    return parser.records
 
 
 def main():
     args = parse_args()
-    workbook_bytes = download(args.url)
-    zf = zipfile.ZipFile(io.BytesIO(workbook_bytes))
-    shared = read_shared_strings(zf)
+    if args.workers < 1 or args.workers > 16:
+        raise SystemExit("--workers must be between 1 and 16")
+
+    index_html = fetch_text(args.index_url)
+    link_parser = LinkParser(args.index_url)
+    link_parser.feed(index_html)
+    urls = sorted(link_parser.urls)
+    if not urls:
+        raise RuntimeError("No Chiba municipality roster links found")
+
     records = []
+    failures = []
+    with ThreadPoolExecutor(max_workers=args.workers) as executor:
+        futures = {executor.submit(parse_roster_page, url): url for url in urls}
+        for future in as_completed(futures):
+            url = futures[future]
+            try:
+                records.extend(future.result())
+            except Exception as exc:  # noqa: BLE001
+                failures.append({"url": url, "error": str(exc)})
+
     seen = set()
+    deduped = []
+    for row in records:
+        key = (normalize(row["name"]), normalize(row["municipality"]), normalize(row["address"]))
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(row)
+    deduped.sort(key=lambda row: (normalize(row["municipality"]), normalize(row["name"]), normalize(row["address"])))
 
-    for sheet_name, sheet_path in workbook_sheet_paths(zf):
-        header = None
-        for row in rows_from_sheet(zf, sheet_path, shared):
-            candidate_header = find_header(row)
-            if candidate_header:
-                header = candidate_header
-                continue
-            if not header:
-                continue
+    if not deduped:
+        raise RuntimeError(f"No Shinto-system authority records parsed from {len(urls)} pages")
+    if len(failures) > max(3, len(urls) // 10):
+        raise RuntimeError(f"Too many municipality roster fetch failures: {len(failures)} / {len(urls)}")
 
-            def field(name):
-                index = header.get(name)
-                return str(row[index]).strip() if index is not None and index < len(row) else ""
-
-            system = normalize(field("系統"))
-            name = field("法人名")
-            municipality = field("市町村名")
-            address = field("所在地")
-            if system != "神道系" or not name or not municipality or not address:
-                continue
-            key = (normalize(name), normalize(municipality), normalize(address))
-            if key in seen:
-                continue
-            seen.add(key)
-            records.append({
-                "name": name,
-                "municipality": municipality,
-                "address": address,
-                "system": field("系統") or "神道系",
-                "umbrella": field("包括団体名") or None,
-                "district_code": field("地区コード") or None,
-                "serial": field("連番") or None,
-                "sheet": sheet_name,
-            })
-
-    records.sort(key=lambda row: (normalize(row["municipality"]), normalize(row["name"]), normalize(row["address"])))
     output = {
         "format_version": 1,
         "site_id": "jinja",
         "authority_id": "chiba-prefecture-religious-corporation-roster",
         "jurisdiction": "JP-12",
         "publisher": "千葉県",
-        "source_page": SOURCE_PAGE,
-        "source_url": args.url,
+        "source_page": args.index_url,
         "source_type": "public_authority_roster",
         "retrieved_at": datetime.now(timezone.utc).isoformat(),
-        "record_count": len(records),
-        "records": records,
+        "page_count": len(urls),
+        "failed_page_count": len(failures),
+        "failures": failures,
+        "record_count": len(deduped),
+        "records": deduped,
     }
     with open(args.out, "w", encoding="utf-8") as handle:
         json.dump(output, handle, ensure_ascii=False, indent=2)
         handle.write("\n")
-    print(json.dumps({"authority": output["authority_id"], "records": len(records)}, ensure_ascii=False))
+    print(json.dumps({
+        "authority": output["authority_id"],
+        "pages": output["page_count"],
+        "failed_pages": output["failed_page_count"],
+        "records": output["record_count"],
+    }, ensure_ascii=False))
 
 
 if __name__ == "__main__":
