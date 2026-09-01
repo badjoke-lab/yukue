@@ -14,6 +14,7 @@ const record = findShrine(id);
 if (!record) throw new Error(`Unknown Jinja shrine: ${id}`);
 const { entity, place, state } = record;
 const evidenceRecords = evidenceFor(entity.id);
+const officialUrl = entity.official_links?.[0];
 const stateLabels: Record<string, string> = {
   operating: "継続",
   rebuilding: "再建中",
@@ -42,7 +43,7 @@ const evidenceItems = evidenceRecords.map(({ evidence, source, targetLabel }) =>
   targetLabel,
   sourceTitle: source?.title ?? evidence.source_id,
   supportSummary: evidence.summary,
-  sourceHref: source?.url ?? entity.official_links[0],
+  sourceHref: source?.url ?? officialUrl,
 }));
 ---
 
@@ -71,9 +72,9 @@ const evidenceItems = evidenceRecords.map(({ evidence, source, targetLabel }) =>
           {place && <li>{place.prefecture} {place.municipality}</li>}
         </ul>
         <p class="entity-identity__summary">このページでは、{entity.canonical_name}の所在地、現在の状況、確認できた変化と、その確認に使った資料をまとめています。</p>
-        {entity.official_links[0] && (
+        {officialUrl && (
           <div class="entity-identity__actions">
-            <ActionLink href={entity.official_links[0]} label="公式サイトを見る" />
+            <ActionLink href={officialUrl} label="公式サイトを見る" />
           </div>
         )}
       </Container>
