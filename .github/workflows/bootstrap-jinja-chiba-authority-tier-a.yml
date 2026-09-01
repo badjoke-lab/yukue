@@ -72,11 +72,22 @@ jobs:
 
       - name: Promote conservative Tier A matches
         run: |
+          set +e
           node apps/jinja/scripts/promote-authority-tier-a.mjs \
             --aggregate .artifacts/national-candidates.json \
             --authority .artifacts/chiba-authority-roster.json \
             --canonical apps/jinja/data/canonical.json \
             --report apps/jinja/research/authority-verification/chiba-latest.json
+          PROMOTE_STATUS=$?
+          set -e
+          if [ "$PROMOTE_STATUS" -ne 0 ]; then
+            node - <<'NODE'
+          const fs = require('fs');
+          const report = JSON.parse(fs.readFileSync('apps/jinja/research/authority-verification/chiba-latest.json', 'utf8'));
+          if (report.approved_count !== 0) process.exit(1);
+          console.log('Chiba authority bootstrap is idempotent: no new unique matches remain.');
+          NODE
+          fi
           node apps/jinja/scripts/check-data.mjs
 
       - name: Show promotion summary
@@ -87,7 +98,7 @@ jobs:
           const canonical = JSON.parse(fs.readFileSync('apps/jinja/data/canonical.json', 'utf8'));
           console.log(JSON.stringify({
             authority_records: report.authority_record_count,
-            osm_jp12_named: report.osm_jp12_named_candidate_count,
+            osm_named: report.osm_named_candidate_count,
             approved: report.approved_count,
             ambiguous: report.ambiguous_count,
             canonical_entities_after: canonical.entities.length,
@@ -107,9 +118,10 @@ jobs:
           RUN_ID: ${{ github.run_id }}
           RUN_ATTEMPT: ${{ github.run_attempt }}
         run: |
-          if git diff --quiet -- apps/jinja/data/canonical.json apps/jinja/research/authority-verification/chiba-latest.json; then
-            echo "No canonical changes generated" >&2
-            exit 1
+          APPROVED="$(node -p "JSON.parse(require('fs').readFileSync('apps/jinja/research/authority-verification/chiba-latest.json','utf8')).approved_count")"
+          if [ "$APPROVED" -eq 0 ]; then
+            echo "No new Chiba authority matches; nothing to push."
+            exit 0
           fi
           BRANCH="automation/jinja-chiba-tier-a-${RUN_ID}-${RUN_ATTEMPT}"
           git config user.name "badjoke-lab automation"
