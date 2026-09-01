@@ -1,6 +1,24 @@
 import { buildNationalCandidatesFromCsv } from "./matsuri-national-csv-acquisition.mjs";
 
 const SAFE_SUBTYPES = new Set(["祭礼(信仰)", "神楽", "田楽", "風流", "延年・おこない"]);
+const FIELD_LABELS = [
+  "名称",
+  "ふりがな",
+  "種別1",
+  "種別2",
+  "その他参考となるべき事項",
+  "指定証書番号",
+  "指定年月日",
+  "追加年月日",
+  "指定基準1",
+  "指定基準2",
+  "指定基準3",
+  "所在都道府県、地域",
+  "所在地",
+  "保護団体名",
+  "解説文",
+  "関連情報",
+];
 
 function decodeHtml(value) {
   return String(value ?? "")
@@ -17,19 +35,25 @@ function decodeHtml(value) {
     .trim();
 }
 
-function field(html, label) {
-  const escaped = label.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
-  const match = html.match(new RegExp(`${escaped}\\s*(?:：|:)\\s*([\\s\\S]{0,700}?)(?=<(?:br|/td|/div|/p|dt|th)\\b|(?:名称|ふりがな|種別1|種別2|所在都道府県、地域|所在地|保護団体名)\\s*(?:：|:))`, "iu"));
-  return decodeHtml(match?.[1] ?? "");
+function escaped(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
+}
+
+function fieldFromText(text, label) {
+  const otherLabels = FIELD_LABELS.filter((item) => item !== label).map(escaped).join("|");
+  const match = text.match(
+    new RegExp(`${escaped(label)}\\s*(?:：|:)\\s*(.*?)(?=\\s+(?:${otherLabels})\\s*(?:：|:)|$)`, "iu"),
+  );
+  return match?.[1]?.trim() ?? "";
 }
 
 export function parseBunkaDetailHtml(html, registerId, managedId) {
-  const text = String(html ?? "");
+  const text = decodeHtml(html);
   if (!/国指定文化財等/u.test(text) || !/主情報/u.test(text)) return null;
-  const name = field(text, "名称");
-  const subtype = field(text, "種別2");
-  const prefecture = field(text, "所在都道府県、地域");
-  const location = field(text, "所在地");
+  const name = fieldFromText(text, "名称");
+  const subtype = fieldFromText(text, "種別2");
+  const prefecture = fieldFromText(text, "所在都道府県、地域");
+  const location = fieldFromText(text, "所在地");
   if (!name || !subtype || !prefecture) return null;
   return {
     register_id: String(registerId),
