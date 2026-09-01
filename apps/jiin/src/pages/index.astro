@@ -1,8 +1,14 @@
 ---
+import ActionLink from "@badjoke-lab/yukue-ui/components/ActionLink.astro";
 import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
 import SearchForm from "@badjoke-lab/yukue-ui/components/SearchForm.astro";
 import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
 import JiinFrame from "../components/JiinFrame.astro";
+import { approvedTemples, regionCounts } from "../data/jiin.ts";
+
+const recent = [...approvedTemples]
+  .sort((a, b) => b.entity.verified_at.localeCompare(a.entity.verified_at) || a.entity.canonical_name.localeCompare(b.entity.canonical_name, "ja"))
+  .slice(0, 5);
 ---
 
 <JiinFrame
@@ -17,23 +23,40 @@ import JiinFrame from "../components/JiinFrame.astro";
         <p>寺院名や地域から探し、各寺院のページで出典と確認日まで確認できます。</p>
       </div>
       <div class="home-hero__search">
-        <SearchForm
-          action="/search/"
-          label="寺院・地域を検索"
-          placeholder="寺院名、都道府県、市区町村"
-        />
+        <SearchForm action="/search/" label="寺院・地域を検索" placeholder="寺院名、都道府県、市区町村" />
       </div>
     </Container>
   </section>
 
   <Section title="最近追加された寺院" actionHref="/temples/" actionLabel="寺院一覧を見る">
     <p class="section-intro">最近、名称と所在地などを確認して掲載した寺院です。</p>
-    <p class="empty-state">現在、公開対象として確認済みの寺院データを準備しています。</p>
+    {recent.length > 0 ? (
+      <div class="reviewed-list">
+        {recent.map(({ entity, place }) => (
+          <article class="reviewed-row">
+            <div>
+              <h3><a href={`/temples/${entity.id}/`}>{entity.canonical_name}</a></h3>
+              <p>{place ? `${place.prefecture} ${place.municipality}` : "所在地未確認"}</p>
+            </div>
+            <time>{entity.verified_at}</time>
+            <ActionLink href={`/temples/${entity.id}/`} label="見る" />
+          </article>
+        ))}
+      </div>
+    ) : <p class="empty-state">現在、公開対象として確認済みの寺院データはありません。</p>}
   </Section>
 
   <Section title="地域から探す" actionHref="/regions/" actionLabel="地域一覧を見る">
     <p class="section-intro">都道府県ごとに、現在掲載している寺院を探せます。</p>
-    <p class="empty-state">寺院データの確認後、掲載地域をここに表示します。</p>
+    {regionCounts.length > 0 ? (
+      <div class="region-grid">
+        {regionCounts.map((region) => (
+          <a href={`/search/?q=${encodeURIComponent(region.prefecture)}`}>
+            <strong>{region.prefecture}</strong><span>{region.count}件</span>
+          </a>
+        ))}
+      </div>
+    ) : <p class="empty-state">現在、掲載地域はありません。</p>}
   </Section>
 
   <Section title="変化の記録" actionHref="/changes/" actionLabel="変化を見る" rule="none">
@@ -43,49 +66,30 @@ import JiinFrame from "../components/JiinFrame.astro";
 </JiinFrame>
 
 <style>
-  .home-hero {
-    padding-block: var(--space-20) var(--space-16);
-    border-bottom: var(--rule-standard);
-  }
-
-  .home-hero h1 {
-    margin: 0;
-    font-size: var(--font-size-hero);
-    font-weight: 500;
-    letter-spacing: 0.06em;
-  }
-
-  .home-hero__lead {
-    max-width: var(--container-prose);
-    margin-top: var(--space-4);
-    color: var(--color-text-soft);
-    font-size: var(--font-size-lead);
-    line-height: var(--line-height-lead);
-  }
-
+  .home-hero { padding-block: var(--space-20) var(--space-16); border-bottom: var(--rule-standard); }
+  .home-hero h1 { margin: 0; font-size: var(--font-size-hero); font-weight: 500; letter-spacing: 0.06em; }
+  .home-hero__lead { max-width: var(--container-prose); margin-top: var(--space-4); color: var(--color-text-soft); font-size: var(--font-size-lead); line-height: var(--line-height-lead); }
   .home-hero__lead p { margin: 0; }
   .home-hero__lead p + p { margin-top: var(--space-2); }
-
-  .home-hero__search {
-    max-width: var(--container-page);
-    margin-top: var(--space-8);
+  .home-hero__search { max-width: var(--container-page); margin-top: var(--space-8); }
+  .section-intro { max-width: var(--container-prose); margin: 0 0 var(--space-6); color: var(--color-text-soft); }
+  .reviewed-list, .region-grid { border-top: var(--rule-strong); }
+  .reviewed-row { display: grid; grid-template-columns: minmax(0, 1fr) 8rem auto; gap: var(--space-5); align-items: center; padding-block: var(--space-5); border-bottom: var(--rule-standard); }
+  .reviewed-row h3, .reviewed-row p { margin: 0; }
+  .reviewed-row h3 { margin-bottom: var(--space-1); font-size: var(--font-size-h3); }
+  .reviewed-row h3 a { color: var(--color-text); text-decoration: none; }
+  .reviewed-row p, .reviewed-row time { color: var(--color-muted); font-size: var(--font-size-sm); }
+  .region-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .region-grid a { display: flex; justify-content: space-between; gap: var(--space-4); padding: var(--space-5) 0; border-bottom: var(--rule-standard); color: var(--color-text); text-decoration: none; }
+  .region-grid a:nth-child(3n + 2) { padding-inline: var(--space-6); }
+  .region-grid a:nth-child(3n + 1) { padding-right: var(--space-6); }
+  .region-grid a:nth-child(3n) { padding-left: var(--space-6); }
+  .region-grid span, .empty-state { color: var(--color-text-soft); }
+  .empty-state { margin: 0; padding-block: var(--space-5); border-top: var(--rule-strong); border-bottom: var(--rule-standard); }
+  @media (max-width: 720px) {
+    .reviewed-row { grid-template-columns: 1fr; gap: var(--space-2); }
+    .region-grid { grid-template-columns: 1fr; }
+    .region-grid a, .region-grid a:nth-child(3n + 1), .region-grid a:nth-child(3n + 2), .region-grid a:nth-child(3n) { padding-inline: 0; }
   }
-
-  .section-intro {
-    max-width: var(--container-prose);
-    margin: 0 0 var(--space-6);
-    color: var(--color-text-soft);
-  }
-
-  .empty-state {
-    margin: 0;
-    padding-block: var(--space-5);
-    border-top: var(--rule-strong);
-    border-bottom: var(--rule-standard);
-    color: var(--color-text-soft);
-  }
-
-  @media (max-width: 640px) {
-    .home-hero { padding-block: var(--space-14) var(--space-12); }
-  }
+  @media (max-width: 640px) { .home-hero { padding-block: var(--space-14) var(--space-12); } }
 </style>
