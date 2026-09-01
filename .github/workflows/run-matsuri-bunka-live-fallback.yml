@@ -36,8 +36,8 @@ jobs:
           node scripts/run-matsuri-bunka-detail-readiness.mjs \
             --output .artifacts/matsuri-bunka-live \
             --accessed-at "$(TZ=Asia/Tokyo date +%F)" \
-            --min-id 1001 \
-            --max-id 2000 \
+            --min-id 1 \
+            --max-id 1000 \
             --concurrency 4 \
             --delay-ms 125 2>&1 | tee .artifacts/matsuri-bunka-live.log
       - name: Upload live readiness artifacts
