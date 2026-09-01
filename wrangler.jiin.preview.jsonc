@@ -1,6 +1,6 @@
 {
   "name": "jiin-yukue",
   "main": "./workers/jiin-preview/index.js",
-  "compatibility_date": "2026-09-02",
+  "compatibility_date": "2026-09-01",
   "workers_dev": true
 }
