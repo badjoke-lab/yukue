@@ -39,6 +39,18 @@ function escaped(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
 }
 
+function fieldFromTable(html, label) {
+  const target = label.normalize("NFKC");
+  for (const rowMatch of String(html ?? "").matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/giu)) {
+    const cells = [...rowMatch[1].matchAll(/<t[dh]\b[^>]*>([\s\S]*?)<\/t[dh]>/giu)].map((match) => decodeHtml(match[1]));
+    for (let index = 0; index < cells.length; index += 1) {
+      const cell = cells[index].replace(/[：:]$/u, "").trim();
+      if (cell === target) return cells[index + 1]?.trim() ?? "";
+    }
+  }
+  return "";
+}
+
 function fieldFromText(text, label) {
   const otherLabels = FIELD_LABELS.filter((item) => item !== label).map(escaped).join("|");
   const match = text.match(
@@ -47,13 +59,22 @@ function fieldFromText(text, label) {
   return match?.[1]?.trim() ?? "";
 }
 
+function detailField(html, text, label) {
+  const fromTable = fieldFromTable(html, label);
+  if (fromTable || fromTable === "") {
+    const labelPresentInTable = new RegExp(`<t[dh]\\b[^>]*>[\\s\\S]*?${escaped(label)}[\\s\\S]*?<\\/t[dh]>`, "iu").test(html);
+    if (labelPresentInTable) return fromTable;
+  }
+  return fieldFromText(text, label);
+}
+
 export function parseBunkaDetailHtml(html, registerId, managedId) {
   const text = decodeHtml(html);
   if (!/国指定文化財等/u.test(text) || !/主情報/u.test(text)) return null;
-  const name = fieldFromText(text, "名称");
-  const subtype = fieldFromText(text, "種別2");
-  const prefecture = fieldFromText(text, "所在都道府県、地域");
-  const location = fieldFromText(text, "所在地");
+  const name = detailField(html, text, "名称");
+  const subtype = detailField(html, text, "種別2");
+  const prefecture = detailField(html, text, "所在都道府県、地域");
+  const location = detailField(html, text, "所在地");
   if (!name || !subtype || !prefecture) return null;
   return {
     register_id: String(registerId),
