@@ -5,24 +5,31 @@ import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
 import JinjaFrame from "../../components/JinjaFrame.astro";
 ---
 
-<JinjaFrame title="このサイトについて — 神社のゆくえ" description="神社のゆくえで掲載する情報と確認方法について。" activeHref="/about/">
+<JinjaFrame title="このサイトについて — 神社のゆくえ" description="神社のゆくえで分かることと、掲載内容の確認方法について。" activeHref="/about/">
   <section class="page-hero">
     <Container size="wide">
       <h1>このサイトについて</h1>
-      <p>神社のゆくえは、各地の神社について、所在地や現在の状況、確認できた変化をまとめるサイトです。</p>
+      <p>神社のゆくえは、全国の神社について、所在地や現在の状況、移転・遷座、合祀、再建など確認できた変化を、出典とともに掲載するサイトです。</p>
     </Container>
   </section>
 
+  <Section title="このサイトで分かること">
+    <div class="yk-prose">
+      <p>神社ごとのページで、名称と所在地、現在の状況、確認できた変化、関連する記録、確認に使った資料と確認日を見られます。</p>
+      <p>神社名や地域から探すだけでなく、その神社にどのような変化があったのかを同じページでたどれるようにしています。</p>
+    </div>
+  </Section>
+
   <Section title="掲載する情報">
     <div class="yk-prose">
-      <p>神社の名称と所在地を基本に、現在の状況、移転・遷座、合祀、再建などの変化、関連する祭礼や寺院・組織、確認に使った資料を掲載します。</p>
-      <p>資料で確認できないことは、推測で埋めません。</p>
+      <p>名称と所在地を基本に、現在の状況、移転・遷座、合祀、再建などの変化、関連する祭礼や寺院・組織、確認に使った資料を掲載します。</p>
+      <p>資料で確認できない内容は、推測で補いません。</p>
     </div>
   </Section>
 
   <Section title="確認と訂正" id="corrections">
     <div class="yk-prose">
-      <p>掲載内容は公式サイトや公的資料などで確認します。誤りや新しい情報が見つかった場合は、根拠を確認したうえで更新します。</p>
+      <p>掲載内容は公式サイトや公的資料などで確認します。誤りや新しい情報が見つかった場合は、資料を確認したうえで更新します。</p>
       <ActionLink href="/methodology/" label="調査方法を見る" />
     </div>
   </Section>
