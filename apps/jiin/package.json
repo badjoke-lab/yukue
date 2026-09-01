@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "check": "node scripts/check-data.mjs",
-    "check:data": "node scripts/check-data.mjs"
+    "check:data": "node scripts/check-data.mjs",
+    "seed:from-matsuri": "node scripts/build-matsuri-seed-queue.mjs"
   },
   "dependencies": {
     "@badjoke-lab/yukue-ui": "workspace:*",
