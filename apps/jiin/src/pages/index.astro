@@ -1,48 +1,91 @@
 ---
 import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
+import SearchForm from "@badjoke-lab/yukue-ui/components/SearchForm.astro";
 import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
 import JiinFrame from "../components/JiinFrame.astro";
 ---
 
 <JiinFrame
-  title="寺院のゆくえ — Development preview"
-  description="寺院の継続、移転、再建、合併・解散、宗派・管理関係、墓地・納骨堂との関係を根拠と履歴とともに記録する開発中サイトです。"
+  title="寺院のゆくえ"
+  description="全国の寺院について、所在地や現在の状況、確認できた変化と出典を掲載しています。"
 >
   <section class="home-hero">
     <Container size="wide">
-      <p class="home-hero__kicker">寺院の継続と変化の記録</p>
-      <h1>寺院の、<br />現在と変化を記録する。</h1>
-      <p class="home-hero__lead">
-        寺院のIdentity、現在状態、移転、再建、合併・解散、宗派・本末・管理関係、関連する祭・神社・墓地・納骨堂を、Evidenceと履歴を分けて記録します。
-      </p>
-      <p class="preview-boundary"><strong>Development only.</strong> 現在はrepository/local実装段階です。canonical公開、独自ドメイン、検索エンジン登録はまだ行いません。</p>
+      <h1>寺院を探す</h1>
+      <div class="home-hero__lead">
+        <p>全国の寺院について、所在地や現在の状況、移転・再建・合併・解散、宗派・本末・管理関係など確認できた変化を掲載します。</p>
+        <p>寺院名や地域から探し、各寺院のページで出典と確認日まで確認できます。</p>
+      </div>
+      <div class="home-hero__search">
+        <SearchForm
+          action="/search/"
+          label="寺院・地域を検索"
+          placeholder="寺院名、都道府県、市区町村"
+        />
+      </div>
     </Container>
   </section>
 
-  <Section kicker="First implementation lane" title="最初に作るもの">
-    <div class="cards">
-      <article><h2>寺院Identity</h2><p>名称、所在地、別称、宗派・本末関係などを、寺院自身または公的・権威ある資料で確認します。</p></article>
-      <article><h2>Current State</h2><p>施設としての継続状態と宗教法人状態を分け、推測で補完しません。</p></article>
-      <article><h2>Change History</h2><p>移転、再建、災害、合併・解散、所属変更などを、日付とEvidence付きのEventとして記録します。</p></article>
-      <article><h2>Relations</h2><p>祭、神社、寺院、墓地、納骨堂、文化財、管理組織との関係を別Entityとして接続します。</p></article>
-    </div>
+  <Section title="最近追加された寺院" actionHref="/temples/" actionLabel="寺院一覧を見る">
+    <p class="section-intro">最近、名称と所在地などを確認して掲載した寺院です。</p>
+    <p class="empty-state">現在、公開対象として確認済みの寺院データを準備しています。</p>
   </Section>
 
-  <Section kicker="Publication boundary" title="公開前の境界" rule="none">
-    <p class="body-copy">Matsuri/Jinja由来のRelationや第三者ディレクトリは調査seedにだけ使用し、寺院のcanonical recordへ自動昇格させません。Tier Aでも寺院専用のIdentity確認とauthoritative Sourceを必須とします。</p>
+  <Section title="地域から探す" actionHref="/regions/" actionLabel="地域一覧を見る">
+    <p class="section-intro">都道府県ごとに、現在掲載している寺院を探せます。</p>
+    <p class="empty-state">寺院データの確認後、掲載地域をここに表示します。</p>
+  </Section>
+
+  <Section title="変化の記録" actionHref="/changes/" actionLabel="変化を見る" rule="none">
+    <p class="section-intro">移転、再建、合併・解散、宗派・本末・管理関係の変更など、時期と内容を確認できた変化を掲載します。</p>
+    <p class="empty-state">現在、掲載している変化の記録はありません。</p>
   </Section>
 </JiinFrame>
 
 <style>
-  .home-hero { padding-block: var(--space-20) var(--space-16); border-bottom: var(--rule-standard); }
-  .home-hero__kicker { margin: 0 0 var(--space-4); color: var(--color-accent); font-size: var(--font-size-sm); letter-spacing: 0.12em; }
-  .home-hero h1 { max-width: 13em; margin: 0; font-size: var(--font-size-hero); font-weight: 500; letter-spacing: 0.06em; }
-  .home-hero__lead { max-width: var(--container-prose); margin: var(--space-6) 0 0; color: var(--color-text-soft); font-size: var(--font-size-lead); line-height: var(--line-height-lead); }
-  .preview-boundary { max-width: var(--container-prose); margin: var(--space-6) 0 0; padding-left: var(--space-4); border-left: var(--rule-accent); color: var(--color-muted); }
-  .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8); }
-  .cards article { padding-top: var(--space-5); border-top: var(--rule-strong); }
-  .cards h2 { margin: 0 0 var(--space-3); font-size: var(--font-size-h3); }
-  .cards p, .body-copy { color: var(--color-text-soft); line-height: 1.8; }
-  .body-copy { max-width: var(--container-prose); }
-  @media (max-width: 720px) { .cards { grid-template-columns: 1fr; } }
+  .home-hero {
+    padding-block: var(--space-20) var(--space-16);
+    border-bottom: var(--rule-standard);
+  }
+
+  .home-hero h1 {
+    margin: 0;
+    font-size: var(--font-size-hero);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  .home-hero__lead {
+    max-width: var(--container-prose);
+    margin-top: var(--space-4);
+    color: var(--color-text-soft);
+    font-size: var(--font-size-lead);
+    line-height: var(--line-height-lead);
+  }
+
+  .home-hero__lead p { margin: 0; }
+  .home-hero__lead p + p { margin-top: var(--space-2); }
+
+  .home-hero__search {
+    max-width: var(--container-page);
+    margin-top: var(--space-8);
+  }
+
+  .section-intro {
+    max-width: var(--container-prose);
+    margin: 0 0 var(--space-6);
+    color: var(--color-text-soft);
+  }
+
+  .empty-state {
+    margin: 0;
+    padding-block: var(--space-5);
+    border-top: var(--rule-strong);
+    border-bottom: var(--rule-standard);
+    color: var(--color-text-soft);
+  }
+
+  @media (max-width: 640px) {
+    .home-hero { padding-block: var(--space-14) var(--space-12); }
+  }
 </style>
