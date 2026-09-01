@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "site": "jiin",
+  "updated_at": "2026-09-01",
+  "repository_implementation_authorized": true,
+  "specialist_contract_required": true,
+  "specialist_contract_path": "docs/jiin-specialist-contract.md",
+  "shared_ui_authorized": true,
+  "local_static_build_authorized": true,
+  "noncanonical_preview_authorized": false,
+  "custom_domain_authorized": false,
+  "canonical_publication_authorized": false,
+  "search_submission_authorized": false,
+  "automatic_seed_promotion_authorized": false,
+  "tomurai_activation_authorized": false,
+  "notes": [
+    "Repository implementation may proceed independently of Jinja canonical activation.",
+    "Any future preview deployment requires a separate explicit gate.",
+    "Temple State, Event, Relation and affiliation claims require their own supporting Evidence."
+  ]
+}

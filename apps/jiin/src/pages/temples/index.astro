@@ -1,0 +1,19 @@
+---
+import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
+import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
+import JiinFrame from "../../components/JiinFrame.astro";
+---
+
+<JiinFrame title="寺院一覧 — 寺院のゆくえ" description="確認済みの寺院を一覧から探します。" activeHref="/temples/">
+  <Section title="寺院一覧">
+    <Container>
+      <p class="lead">名称と所在地を根拠資料で確認した寺院を掲載します。</p>
+      <p class="empty">現在、公開対象として確認済みの寺院データを準備しています。</p>
+    </Container>
+  </Section>
+</JiinFrame>
+
+<style>
+  .lead { color: var(--color-text-soft); }
+  .empty { margin: var(--space-6) 0 0; padding-block: var(--space-5); border-top: var(--rule-strong); border-bottom: var(--rule-standard); color: var(--color-muted); }
+</style>

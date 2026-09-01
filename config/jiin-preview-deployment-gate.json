@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "site": "jiin",
+  "status": "workers-dev-preview-authorized",
+  "updated_at": "2026-09-02",
+  "authorization": {
+    "source": "user-requested-live-preview",
+    "canonical_publication_authorized": false,
+    "custom_domain_activation_authorized": false,
+    "search_submission_authorized": false
+  },
+  "scope": {
+    "workers_dev_origin": "https://jiin-yukue.badjoke-lab.workers.dev",
+    "robots": "noindex,nofollow",
+    "purpose": "visual-review-only"
+  }
+}

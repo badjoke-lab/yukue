@@ -1,0 +1,19 @@
+---
+import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
+import SearchForm from "@badjoke-lab/yukue-ui/components/SearchForm.astro";
+import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
+import JiinFrame from "../../components/JiinFrame.astro";
+---
+
+<JiinFrame title="検索 — 寺院のゆくえ" description="寺院名・都道府県・市区町村から寺院を検索します。" activeHref="/search/">
+  <Section title="寺院を検索">
+    <Container>
+      <SearchForm action="/search/" label="寺院・地域を検索" placeholder="寺院名、都道府県、市区町村" />
+      <p class="empty">確認済み寺院データの掲載後、ここから検索できます。</p>
+    </Container>
+  </Section>
+</JiinFrame>
+
+<style>
+  .empty { margin: var(--space-8) 0 0; color: var(--color-muted); }
+</style>

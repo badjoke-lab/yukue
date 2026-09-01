@@ -1,0 +1,58 @@
+---
+import PageShell from "@badjoke-lab/yukue-ui/components/PageShell.astro";
+import SiteFooter from "@badjoke-lab/yukue-ui/components/SiteFooter.astro";
+import SiteHeader from "@badjoke-lab/yukue-ui/components/SiteHeader.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  activeHref?: string;
+}
+
+const { title, description, activeHref } = Astro.props;
+
+const navItems = [
+  { label: "寺院", href: "/temples/", active: activeHref === "/temples/" },
+  { label: "地域", href: "/regions/", active: activeHref === "/regions/" },
+  { label: "変化", href: "/changes/", active: activeHref === "/changes/" },
+  { label: "検索", href: "/search/", active: activeHref === "/search/" },
+  { label: "このサイトについて", href: "/about/", active: activeHref === "/about/" },
+];
+
+const footerGroups = [
+  {
+    heading: "探す",
+    links: [
+      { label: "寺院", href: "/temples/" },
+      { label: "地域", href: "/regions/" },
+      { label: "変化", href: "/changes/" },
+      { label: "検索", href: "/search/" },
+    ],
+  },
+  {
+    heading: "調べ方",
+    links: [
+      { label: "調査方法", href: "/methodology/" },
+      { label: "データ", href: "/data/" },
+    ],
+  },
+  {
+    heading: "このサイト",
+    links: [
+      { label: "このサイトについて", href: "/about/" },
+      { label: "公開状況", href: "/status/" },
+    ],
+  },
+];
+---
+
+<PageShell site="jiin" title={title} description={description} robots="noindex,nofollow">
+  <SiteHeader
+    slot="header"
+    siteName="寺院のゆくえ"
+    romanLabel="Jiin Yukue"
+    navItems={navItems}
+  />
+  <slot />
+  <SiteFooter slot="footer" siteName="寺院のゆくえ" groups={footerGroups} />
+</PageShell>
