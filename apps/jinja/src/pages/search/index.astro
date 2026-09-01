@@ -5,12 +5,11 @@ import JinjaFrame from "../../components/JinjaFrame.astro";
 import { approvedShrines } from "../../data/jinja.ts";
 ---
 
-<JinjaFrame title="検索 — 神社のゆくえ" description="神社名・都道府県・市区町村からreview済み神社記録を検索します。" activeHref="/search/">
+<JinjaFrame title="検索 — 神社のゆくえ" description="神社名、都道府県、市区町村から探せます。" activeHref="/search/">
   <section class="page-hero">
     <Container size="wide">
-      <p class="page-hero__kicker">Search</p>
       <h1>検索</h1>
-      <p>神社名、都道府県、市区町村から現在のreview済み記録を絞り込みます。</p>
+      <p>神社名、都道府県、市区町村から探せます。</p>
       <form class="search-box" id="jinja-search-form" role="search">
         <label for="jinja-search">神社・地域を検索</label>
         <div>
@@ -21,7 +20,7 @@ import { approvedShrines } from "../../data/jinja.ts";
     </Container>
   </section>
 
-  <Section kicker="Reviewed Records" title="検索結果" rule="none">
+  <Section title="検索結果" rule="none">
     <p id="search-summary" class="search-summary">{approvedShrines.length}件を表示しています。</p>
     <div class="result-list" id="search-results">
       {approvedShrines.map(({ entity, place }) => {
@@ -30,7 +29,6 @@ import { approvedShrines } from "../../data/jinja.ts";
           <a class="result-row" href={`/shrines/${entity.id}/`} data-search-row data-search-text={haystack}>
             <strong>{entity.canonical_name}</strong>
             <span>{place ? `${place.prefecture} ${place.municipality}` : "所在地未確認"}</span>
-            <span>Tier {entity.tier}</span>
           </a>
         );
       })}
@@ -65,9 +63,8 @@ import { approvedShrines } from "../../data/jinja.ts";
 
 <style>
   .page-hero { padding-block: var(--space-14) var(--space-10); border-bottom: var(--rule-standard); }
-  .page-hero__kicker { margin: 0 0 var(--space-3); color: var(--color-accent); font-size: var(--font-size-sm); letter-spacing: .12em; }
   .page-hero h1 { margin: 0; font-size: var(--font-size-entity); font-weight: 500; letter-spacing: .06em; }
-  .page-hero > :global(.yk-container) > p:last-of-type { max-width: var(--container-prose); margin: var(--space-5) 0 0; color: var(--color-text-soft); }
+  .page-hero > :global(.yk-container) > p { max-width: var(--container-prose); margin: var(--space-5) 0 0; color: var(--color-text-soft); }
   .search-box { max-width: var(--container-page); margin-top: var(--space-8); }
   .search-box label { display: block; margin-bottom: var(--space-2); color: var(--color-muted); font-size: var(--font-size-sm); }
   .search-box div { display: grid; grid-template-columns: minmax(0,1fr) auto; border-top: var(--rule-strong); border-bottom: var(--rule-strong); }
@@ -75,7 +72,7 @@ import { approvedShrines } from "../../data/jinja.ts";
   .search-box button { padding-inline: var(--space-6); border: 0; border-left: var(--rule-standard); background: transparent; color: var(--color-accent); font: inherit; cursor: pointer; }
   .search-summary { color: var(--color-muted); font-size: var(--font-size-sm); }
   .result-list { border-top: var(--rule-strong); }
-  .result-row { display: grid; grid-template-columns: minmax(12rem,1.4fr) minmax(10rem,1fr) 6rem; gap: var(--space-5); padding-block: var(--space-5); border-bottom: var(--rule-standard); color: var(--color-text); text-decoration: none; }
+  .result-row { display: grid; grid-template-columns: minmax(12rem,1.4fr) minmax(10rem,1fr); gap: var(--space-5); padding-block: var(--space-5); border-bottom: var(--rule-standard); color: var(--color-text); text-decoration: none; }
   .result-row strong { font-size: var(--font-size-h3); font-weight: 500; }
   .result-row span { color: var(--color-muted); font-size: var(--font-size-sm); }
   @media (max-width: 720px) { .result-row { grid-template-columns: 1fr; gap: var(--space-1); } }

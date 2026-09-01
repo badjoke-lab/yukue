@@ -3,37 +3,35 @@ import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
 import ObservationSnapshot from "@badjoke-lab/yukue-ui/components/ObservationSnapshot.astro";
 import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
 import JinjaFrame from "../../components/JinjaFrame.astro";
-import { previewMetrics, publicationStatus } from "../../data/jinja.ts";
+import { previewMetrics } from "../../data/jinja.ts";
 ---
 
-<JinjaFrame title="ステータス — 神社のゆくえ" description="神社のゆくえPublic previewの収録状況と公開境界です。">
+<JinjaFrame title="公開状況 — 神社のゆくえ" description="神社のゆくえの収録状況と現在の公開先です。">
   <section class="page-hero">
     <Container size="wide">
-      <p class="page-hero__kicker">Status</p>
-      <h1>ステータス</h1>
-      <p>収録件数、確認済みState / Event、Public previewの公開境界を示します。</p>
+      <h1>公開状況</h1>
+      <p>現在の収録件数と、サイトの公開状況です。</p>
     </Container>
   </section>
 
-  <Section kicker="Current Observation" title="現在の観測状況">
+  <Section title="収録状況">
     <ObservationSnapshot metrics={previewMetrics} />
   </Section>
 
-  <Section kicker="Publication Boundary" title="公開状態" rule="none">
+  <Section title="サイトの状態" rule="none">
     <dl class="status-grid">
-      <div><dt>publication_status</dt><dd>{publicationStatus}</dd></div>
-      <div><dt>独自ドメイン</dt><dd>未有効化</dd></div>
-      <div><dt>canonical公開</dt><dd>未有効化</dd></div>
-      <div><dt>検索エンジン登録</dt><dd>未実施</dd></div>
+      <div><dt>公開先</dt><dd>workers.dev</dd></div>
+      <div><dt>検索エンジン</dt><dd>登録していません</dd></div>
+      <div><dt>正式公開</dt><dd>まだです</dd></div>
+      <div><dt>更新</dt><dd>調査と確認を続けています</dd></div>
     </dl>
   </Section>
 </JinjaFrame>
 
 <style>
   .page-hero { padding-block: var(--space-14) var(--space-10); border-bottom: var(--rule-standard); }
-  .page-hero__kicker { margin: 0 0 var(--space-3); color: var(--color-accent); font-size: var(--font-size-sm); letter-spacing: .12em; }
   .page-hero h1 { margin: 0; font-size: var(--font-size-entity); font-weight: 500; letter-spacing: .06em; }
-  .page-hero p:last-child { max-width: var(--container-prose); margin: var(--space-5) 0 0; color: var(--color-text-soft); }
+  .page-hero p { max-width: var(--container-prose); margin: var(--space-5) 0 0; color: var(--color-text-soft); }
   .status-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); border-top: var(--rule-strong); border-bottom: var(--rule-strong); }
   .status-grid div { display: grid; grid-template-columns: minmax(8rem,.8fr) minmax(0,1fr); gap: var(--space-4); padding: var(--space-4) 0; border-bottom: var(--rule-standard); }
   .status-grid div:nth-child(odd) { padding-right: var(--space-6); border-right: var(--rule-standard); }

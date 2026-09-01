@@ -10,6 +10,8 @@ const previewGate = JSON.parse(fs.readFileSync(path.join(repoRoot, "config", "ji
 const publicGate = JSON.parse(fs.readFileSync(path.join(repoRoot, "config", "jinja-start-gate.json"), "utf8"));
 const packageText = fs.readFileSync(path.join(appRoot, "package.json"), "utf8");
 const homeSource = fs.readFileSync(path.join(appRoot, "src", "pages", "index.astro"), "utf8");
+const aboutSource = fs.readFileSync(path.join(appRoot, "src", "pages", "about", "index.astro"), "utf8");
+const statusSource = fs.readFileSync(path.join(appRoot, "src", "pages", "status", "index.astro"), "utf8");
 const frameSource = fs.readFileSync(path.join(appRoot, "src", "components", "JinjaFrame.astro"), "utf8");
 const detailSource = fs.readFileSync(path.join(appRoot, "src", "components", "JinjaShrineDetailPage.astro"), "utf8");
 const sharedTokens = fs.readFileSync(path.join(repoRoot, "packages", "ui", "src", "styles", "tokens.css"), "utf8");
@@ -43,16 +45,16 @@ assert(frameSource.includes("SiteHeader"), "Jinja must use the shared SiteHeader
 assert(frameSource.includes("SiteFooter"), "Jinja must use the shared SiteFooter component");
 assert(frameSource.includes('site="jinja"'), "Jinja frame must select the shared Jinja theme");
 assert(frameSource.includes('robots="noindex,nofollow"'), "Jinja preview must remain noindex,nofollow");
-assert(homeSource.includes("ObservationSnapshot"), "Jinja home must use the shared observation layout used by Matsuri");
-assert(homeSource.includes("SearchForm"), "Jinja home must use the shared search treatment used by Matsuri");
-assert(homeSource.includes("Public preview."), "Jinja home must visibly identify the preview boundary");
-assert(homeSource.includes("workers.dev"), "Jinja home must identify the workers.dev preview scope");
+assert(homeSource.includes("SearchForm"), "Jinja home must retain the shared search component");
+assert(aboutSource.includes("公開前の試験版"), "Jinja About page must explain the preview status in visitor-facing language");
+assert(statusSource.includes("workers.dev"), "Jinja status page must identify the workers.dev preview scope");
 assert(detailSource.includes("OverviewGrid"), "Jinja detail pages must use the shared integrated overview");
 assert(detailSource.includes("PlaceMap"), "Jinja detail pages must use the shared place/map treatment");
 assert(detailSource.includes("EvidenceList"), "Jinja detail pages must use the shared evidence treatment");
-assert(detailSource.includes("Record Updates"), "Jinja detail pages must expose record update history");
+assert(detailSource.includes('id="record-updates"'), "Jinja detail pages must expose update history");
+assert(detailSource.includes('id="machine-data"'), "Jinja detail pages must retain the machine-readable data section");
 
-for (const source of [homeSource, frameSource, detailSource]) {
+for (const source of [homeSource, aboutSource, statusSource, frameSource, detailSource]) {
   assert(!source.includes("#101010"), "Jinja must not restore the temporary dark preview background");
   assert(!source.includes("font-family: system-ui"), "Jinja must not restore the temporary system-ui typography");
   assert(!source.includes("jinja-yukue.badjoke-lab.com"), "Public preview must not introduce a production custom hostname");
@@ -62,4 +64,4 @@ assert(sharedTokens.includes('--color-bg: #ffffff;'), "Shared Yukue UI backgroun
 assert(sharedTokens.includes('--font-family-mincho:'), "Shared Yukue UI Mincho font token missing");
 assert(sharedTokens.includes('--accent-jinja: #a33a32;'), "Shared Jinja accent token missing");
 
-console.log("Jinja workers.dev preview boundary and Matsuri-compatible shared UI architecture verified; custom-domain and canonical publication remain blocked.");
+console.log("Jinja workers.dev preview boundary and shrine-first shared UI architecture verified; custom-domain and canonical publication remain blocked.");

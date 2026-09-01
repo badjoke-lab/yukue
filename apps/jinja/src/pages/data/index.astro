@@ -6,26 +6,24 @@ import JinjaFrame from "../../components/JinjaFrame.astro";
 import { approvedShrines } from "../../data/jinja.ts";
 ---
 
-<JinjaFrame title="データ — 神社のゆくえ" description="神社のゆくえPublic previewの機械可読データです。">
+<JinjaFrame title="データ — 神社のゆくえ" description="掲載中のデータをJSONで利用できます。">
   <section class="page-hero">
     <Container size="wide">
-      <p class="page-hero__kicker">Data Access</p>
       <h1>データ</h1>
-      <p>画面と同じreview済みcanonical previewデータをJSONで確認できます。</p>
+      <p>掲載中のデータはJSONでも利用できます。</p>
     </Container>
   </section>
 
-  <Section kicker="Canonical Preview" title="機械可読データ" rule="none">
+  <Section title="JSONデータ" rule="none">
     <div class="yk-prose">
-      <p>現在のreview済み神社は{approvedShrines.length}件です。これは非canonical Public previewであり、本番canonical公開を意味しません。</p>
-      <ActionLink href="/data/canonical.json" label="canonical preview JSONを開く" />
+      <p>現在は{approvedShrines.length}件の神社を収録しています。</p>
+      <ActionLink href="/data/canonical.json" label="JSONを開く" />
     </div>
   </Section>
 </JinjaFrame>
 
 <style>
   .page-hero { padding-block: var(--space-14) var(--space-10); border-bottom: var(--rule-standard); }
-  .page-hero__kicker { margin: 0 0 var(--space-3); color: var(--color-accent); font-size: var(--font-size-sm); letter-spacing: .12em; }
   .page-hero h1 { margin: 0; font-size: var(--font-size-entity); font-weight: 500; letter-spacing: .06em; }
-  .page-hero p:last-child { max-width: var(--container-prose); margin: var(--space-5) 0 0; color: var(--color-text-soft); }
+  .page-hero p { max-width: var(--container-prose); margin: var(--space-5) 0 0; color: var(--color-text-soft); }
 </style>

@@ -4,24 +4,22 @@ import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
 import JinjaFrame from "../../components/JinjaFrame.astro";
 ---
 
-<JinjaFrame title="変化 — 神社のゆくえ" description="review済みの神社Change Eventを表示します。" activeHref="/changes/">
+<JinjaFrame title="変化の記録 — 神社のゆくえ" description="移転・遷座、合祀、再建など、確認できた変化を掲載します。" activeHref="/changes/">
   <section class="page-hero">
     <Container size="wide">
-      <p class="page-hero__kicker">Change History</p>
-      <h1>変化</h1>
-      <p>移転・遷座、合祀、再建、管理変更など、根拠を確認できたChange Eventを時系列で記録します。</p>
+      <h1>変化の記録</h1>
+      <p>移転・遷座、合祀、再建など、確認できた変化を掲載します。</p>
     </Container>
   </section>
 
-  <Section kicker="Reviewed Events" title="確認済みの変化" rule="none">
-    <p class="empty-state">現在のpreviewにreview済みChange Eventはありません。Identityや所在地だけから変化を推測しません。</p>
+  <Section title="掲載中の変化" rule="none">
+    <p class="empty-state">現在、掲載している変化の記録はありません。</p>
   </Section>
 </JinjaFrame>
 
 <style>
   .page-hero { padding-block: var(--space-14) var(--space-10); border-bottom: var(--rule-standard); }
-  .page-hero__kicker { margin: 0 0 var(--space-3); color: var(--color-accent); font-size: var(--font-size-sm); letter-spacing: .12em; }
   .page-hero h1 { margin: 0; font-size: var(--font-size-entity); font-weight: 500; letter-spacing: .08em; }
-  .page-hero p:last-child, .empty-state { max-width: var(--container-prose); color: var(--color-text-soft); }
-  .page-hero p:last-child { margin: var(--space-5) 0 0; }
+  .page-hero p, .empty-state { max-width: var(--container-prose); color: var(--color-text-soft); }
+  .page-hero p { margin: var(--space-5) 0 0; }
 </style>

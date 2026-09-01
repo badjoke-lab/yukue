@@ -37,7 +37,7 @@ export function evidenceFor(entityId: string): Array<{ evidence: Evidence; sourc
     .map((evidence) => ({
       evidence,
       source: sourceById.get(evidence.source_id),
-      targetLabel: evidence.target_type === "state" ? "Current State" : "Identity / Geography",
+      targetLabel: evidence.target_type === "state" ? "現在の状況" : "名称・所在地",
     }));
 }
 
@@ -50,11 +50,11 @@ export const regionCounts = [...approvedShrines.reduce((map, record) => {
   .sort((a, b) => a.prefecture.localeCompare(b.prefecture, "ja"));
 
 export const previewMetrics = [
-  { value: String(approvedShrines.length), label: "review済み神社", href: "/shrines/" },
-  { value: String(regionCounts.length), label: "都道府県", href: "/regions/" },
-  { value: String(canonical.states.length), label: "確認済みCurrent State", href: "/changes/" },
-  { value: String(canonical.events.length), label: "確認済みChange Event", href: "/changes/" },
-  { value: String(canonical.evidence.filter((item) => item.review_status === "approved").length), label: "Evidence", href: "/methodology/#evidence" },
+  { value: String(approvedShrines.length), label: "掲載中の神社", href: "/shrines/" },
+  { value: String(regionCounts.length), label: "掲載地域", href: "/regions/" },
+  { value: String(canonical.states.length), label: "状況を確認できた神社", href: "/shrines/" },
+  { value: String(canonical.events.length), label: "変化の記録", href: "/changes/" },
+  { value: String(canonical.evidence.filter((item) => item.review_status === "approved").length), label: "確認に使った資料", href: "/methodology/" },
 ];
 
 export const publicationStatus = canonical.publication_status;
