@@ -1,0 +1,70 @@
+name: Deploy Jiin workers.dev preview
+
+on:
+  push:
+    branches:
+      - feat/start-jiin-specialist-site
+    paths:
+      - "workers/jiin-preview/**"
+      - "wrangler.jiin.preview.jsonc"
+      - "config/jiin-preview-deployment-gate.json"
+      - ".github/workflows/deploy-jiin-workers-preview.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-jiin-workers-preview
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: jinja-workers-preview
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+
+      - name: Verify Jiin preview authorization
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const gate = JSON.parse(fs.readFileSync('config/jiin-preview-deployment-gate.json', 'utf8'));
+          if (gate.status !== 'workers-dev-preview-authorized') throw new Error('Jiin preview is not authorized');
+          if (gate.scope?.workers_dev_origin !== 'https://jiin-yukue.badjoke-lab.workers.dev') throw new Error('Unexpected Jiin preview origin');
+          if (gate.authorization?.canonical_publication_authorized !== false) throw new Error('Canonical publication must remain blocked');
+          NODE
+
+      - name: Deploy Jiin workers.dev preview
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx --yes wrangler@latest deploy --config wrangler.jiin.preview.jsonc
+
+      - name: Verify public preview
+        shell: bash
+        run: |
+          node <<'NODE'
+          const url = 'https://jiin-yukue.badjoke-lab.workers.dev/';
+          const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+          let last = 'no response';
+          for (let attempt = 1; attempt <= 12; attempt += 1) {
+            try {
+              const response = await fetch(url, { cache: 'no-store' });
+              const text = await response.text();
+              const robots = response.headers.get('x-robots-tag') || '';
+              if (response.ok && text.includes('寺院のゆくえ') && text.includes('Development preview') && robots.includes('noindex')) {
+                console.log(`Jiin workers.dev preview reachable: ${response.status} (attempt ${attempt})`);
+                process.exit(0);
+              }
+              last = `HTTP ${response.status}; expected preview markers missing`;
+            } catch (error) {
+              last = error instanceof Error ? error.message : String(error);
+            }
+            if (attempt < 12) await sleep(5000);
+          }
+          console.error(`Jiin preview verification failed: ${last}`);
+          process.exit(1);
+          NODE
