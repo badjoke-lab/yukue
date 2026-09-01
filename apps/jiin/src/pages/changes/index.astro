@@ -1,0 +1,19 @@
+---
+import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
+import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
+import JiinFrame from "../../components/JiinFrame.astro";
+---
+
+<JiinFrame title="変化の記録 — 寺院のゆくえ" description="寺院の移転、再建、合併・解散など確認できた変化を掲載します。" activeHref="/changes/">
+  <Section title="変化の記録">
+    <Container>
+      <p class="lead">移転、再建、災害、合併・解散、宗派・本末・管理関係の変更などを、確認できた時期と根拠資料に結び付けて掲載します。</p>
+      <p class="empty">現在、掲載している変化の記録はありません。</p>
+    </Container>
+  </Section>
+</JiinFrame>
+
+<style>
+  .lead { color: var(--color-text-soft); }
+  .empty { margin: var(--space-6) 0 0; padding-block: var(--space-5); border-top: var(--rule-strong); border-bottom: var(--rule-standard); color: var(--color-muted); }
+</style>
