@@ -98,15 +98,19 @@ jobs:
       - name: Verify generated preview structure
         run: |
           test -f apps/jinja/dist/index.html
+          test -f apps/jinja/dist/about/index.html
+          test -f apps/jinja/dist/status/index.html
           test -f apps/jinja/dist/robots.txt
           test -f apps/jinja/dist/data/canonical.json
           test -f apps/jinja/dist/shrines/shr-sada-jinja/index.html
           grep -q '神社のゆくえ' apps/jinja/dist/index.html
-          grep -q 'Public preview' apps/jinja/dist/index.html
+          grep -q '神社を探す' apps/jinja/dist/index.html
           grep -q 'noindex,nofollow' apps/jinja/dist/index.html
           grep -q 'yk-site-header' apps/jinja/dist/index.html
           grep -q 'yk-site-footer' apps/jinja/dist/index.html
-          grep -q '判断根拠と出典' apps/jinja/dist/shrines/shr-sada-jinja/index.html
+          grep -q '公開前の試験版' apps/jinja/dist/about/index.html
+          grep -q 'workers.dev' apps/jinja/dist/status/index.html
+          grep -q '出典' apps/jinja/dist/shrines/shr-sada-jinja/index.html
           if grep -q '#101010' apps/jinja/dist/index.html; then exit 1; fi
           if grep -q 'font-family: system-ui' apps/jinja/dist/index.html; then exit 1; fi
 
