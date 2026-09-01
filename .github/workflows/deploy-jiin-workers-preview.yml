@@ -19,7 +19,7 @@ permissions:
 
 concurrency:
   group: deploy-jiin-workers-preview
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
