@@ -83,13 +83,17 @@ export function buildCandidateBatchFromBunkaDetails(records, accessedAt) {
 
 export async function acquireBunkaDetails(options = {}) {
   const registers = options.registers ?? [302, 312];
+  const minId = Number(options.minId ?? 1);
   const maxId = Number(options.maxId ?? 1000);
   const concurrency = Math.max(1, Math.min(Number(options.concurrency ?? 4), 8));
   const delayMs = Math.max(50, Number(options.delayMs ?? 125));
   const fetchImpl = options.fetchImpl ?? fetch;
+  if (!Number.isInteger(minId) || !Number.isInteger(maxId) || minId < 1 || maxId < minId) {
+    throw new Error("Bunka detail ID range must be positive integers with minId <= maxId.");
+  }
   const tasks = [];
   for (const registerId of registers) {
-    for (let managedId = 1; managedId <= maxId; managedId += 1) tasks.push([registerId, managedId]);
+    for (let managedId = minId; managedId <= maxId; managedId += 1) tasks.push([registerId, managedId]);
   }
   let cursor = 0;
   const found = [];
@@ -115,5 +119,5 @@ export async function acquireBunkaDetails(options = {}) {
   }
   await Promise.all(Array.from({ length: concurrency }, () => worker()));
   found.sort((a, b) => Number(a.register_id) - Number(b.register_id) || Number(a.managed_id) - Number(b.managed_id));
-  return { records: found, errors, scanned: tasks.length, safe: found.filter((record) => record.safe).length };
+  return { records: found, errors, scanned: tasks.length, min_id: minId, max_id: maxId, safe: found.filter((record) => record.safe).length };
 }
