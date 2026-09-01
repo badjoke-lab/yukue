@@ -1,0 +1,26 @@
+---
+import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
+import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
+import JiinFrame from "../../components/JiinFrame.astro";
+---
+
+<JiinFrame title="公開状況 — 寺院のゆくえ" description="寺院のゆくえの現在の公開状況を示します。">
+  <Section title="公開状況">
+    <Container size="prose">
+      <dl class="status-list">
+        <div><dt>サイト</dt><dd>workers.dev 確認版</dd></div>
+        <div><dt>検索登録</dt><dd>無効（noindex / nofollow）</dd></div>
+        <div><dt>独自ドメイン</dt><dd>未有効化</dd></div>
+        <div><dt>確認済み寺院データ</dt><dd>準備中</dd></div>
+      </dl>
+    </Container>
+  </Section>
+</JiinFrame>
+
+<style>
+  .status-list { border-top: var(--rule-strong); }
+  .status-list div { display: grid; grid-template-columns: 12rem 1fr; gap: var(--space-6); padding-block: var(--space-4); border-bottom: var(--rule-standard); }
+  .status-list dt { color: var(--color-muted); }
+  .status-list dd { margin: 0; }
+  @media (max-width: 640px) { .status-list div { grid-template-columns: 1fr; gap: var(--space-1); } }
+</style>
