@@ -45,7 +45,10 @@ function fieldFromTable(html, label) {
     const cells = [...rowMatch[1].matchAll(/<t[dh]\b[^>]*>([\s\S]*?)<\/t[dh]>/giu)].map((match) => decodeHtml(match[1]));
     for (let index = 0; index < cells.length; index += 1) {
       const cell = cells[index].replace(/[：:]$/u, "").trim();
-      if (cell === target) return cells[index + 1]?.trim() ?? "";
+      if (cell !== target) continue;
+      const next = cells[index + 1]?.trim() ?? "";
+      if (/^[：:]$/u.test(next)) return cells[index + 2]?.trim() ?? "";
+      return next;
     }
   }
   return "";
@@ -61,10 +64,8 @@ function fieldFromText(text, label) {
 
 function detailField(html, text, label) {
   const fromTable = fieldFromTable(html, label);
-  if (fromTable || fromTable === "") {
-    const labelPresentInTable = new RegExp(`<t[dh]\\b[^>]*>[\\s\\S]*?${escaped(label)}[\\s\\S]*?<\\/t[dh]>`, "iu").test(html);
-    if (labelPresentInTable) return fromTable;
-  }
+  const labelPresentInTable = new RegExp(`<t[dh]\\b[^>]*>[\\s\\S]*?${escaped(label)}[\\s\\S]*?<\\/t[dh]>`, "iu").test(html);
+  if (labelPresentInTable) return fromTable;
   return fieldFromText(text, label);
 }
 
