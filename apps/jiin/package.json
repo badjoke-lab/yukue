@@ -1,0 +1,14 @@
+{
+  "name": "@badjoke-lab/yukue-jiin",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build"
+  },
+  "dependencies": {
+    "@badjoke-lab/yukue-ui": "workspace:*",
+    "astro": "7.1.1"
+  }
+}
