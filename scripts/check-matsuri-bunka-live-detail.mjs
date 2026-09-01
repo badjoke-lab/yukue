@@ -14,6 +14,12 @@ if (!parsed) {
   process.exit(1);
 }
 console.log(`Bunka live detail parsed: name=${parsed.name}, subtype=${parsed.subtype}, prefecture=${parsed.prefecture}, location=${parsed.location}, safe=${parsed.safe}`);
-if (parsed.name !== "気多の鵜祭の習俗" || parsed.subtype.normalize("NFKC") !== "祭礼(信仰)" || parsed.prefecture !== "石川県" || !parsed.safe) {
-  throw new Error("Known Bunka detail parsed with unexpected identity fields.");
+if (
+  parsed.name !== "気多の鵜祭の習俗" ||
+  parsed.subtype.normalize("NFKC") !== "祭礼(信仰)" ||
+  parsed.prefecture !== "石川県" ||
+  parsed.location !== "" ||
+  !parsed.safe
+) {
+  throw new Error("Known Bunka detail parsed with unexpected identity or location fields.");
 }
