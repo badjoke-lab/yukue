@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build"
+    "build": "astro build",
+    "check": "node scripts/check-data.mjs && astro check",
+    "check:data": "node scripts/check-data.mjs"
   },
   "dependencies": {
     "@badjoke-lab/yukue-ui": "workspace:*",
