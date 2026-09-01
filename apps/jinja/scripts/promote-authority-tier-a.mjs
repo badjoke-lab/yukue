@@ -25,15 +25,15 @@ function normalize(value) {
     .replace(/[・･.,，。'"`´’‘“”()（）\[\]【】「」『』\-‐‑‒–—―]/gu, '');
 }
 
-function cleanMunicipality(value) {
-  return String(value ?? '').normalize('NFKC').trim().replace(/^千葉県/u, '');
+function cleanMunicipality(value, prefecture) {
+  return String(value ?? '').normalize('NFKC').trim().replace(new RegExp(`^${prefecture}`), '');
 }
 
 function candidateName(candidate) {
   return String(candidate?.identity?.name_ja ?? candidate?.identity?.name ?? '').trim();
 }
 
-function candidateMunicipality(candidate) {
+function candidateMunicipality(candidate, prefecture) {
   const tags = candidate?.raw_tags ?? {};
   const values = [
     candidate?.geography?.address?.city,
@@ -42,24 +42,29 @@ function candidateMunicipality(candidate) {
     tags['is_in:city'],
     tags['is_in:municipality'],
   ].filter(Boolean);
-  return values.length ? cleanMunicipality(values[0]) : '';
+  return values.length ? cleanMunicipality(values[0], prefecture) : '';
 }
 
-function matchKey(name, municipality) {
-  return `${normalize(name)}|${normalize(cleanMunicipality(municipality))}`;
+function matchKey(name, municipality, prefecture) {
+  return `${normalize(prefecture)}|${normalize(name)}|${normalize(cleanMunicipality(municipality, prefecture))}`;
 }
 
-function stableId(prefix, row) {
+function jurisdictionSlug(authority) {
+  return String(authority.jurisdiction).toLowerCase().replace(/[^a-z0-9]+/g, '');
+}
+
+function stableId(prefix, row, authority) {
   const digest = crypto.createHash('sha256')
-    .update([row.name, row.municipality, row.address].map(normalize).join('|'))
+    .update([authority.jurisdiction, row.name, row.municipality, row.address].map(normalize).join('|'))
     .digest('hex')
     .slice(0, 14);
-  return `${prefix}-jp12-${digest}`;
+  return `${prefix}-${jurisdictionSlug(authority)}-${digest}`;
 }
 
-function sourceIdForUrl(url) {
+function sourceIdForUrl(url, authority) {
   const digest = crypto.createHash('sha256').update(String(url)).digest('hex').slice(0, 12);
-  return `src-jinja-chiba-roster-${digest}`;
+  const authoritySlug = String(authority.authority_id).toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 36);
+  return `src-jinja-${authoritySlug}-${digest}`;
 }
 
 function sourceDate(authority) {
@@ -70,8 +75,10 @@ function sourceDate(authority) {
 
 function assertInput(aggregate, authority, canonical) {
   if (aggregate.site_id !== 'jinja' || aggregate.aggregation_mode !== 'candidate_only') throw new Error('Invalid national aggregate');
-  if (authority.site_id !== 'jinja' || authority.jurisdiction !== 'JP-12') throw new Error('Invalid Chiba authority roster');
+  if (authority.site_id !== 'jinja' || !/^JP-\d{2}$/.test(authority.jurisdiction ?? '')) throw new Error('Invalid prefecture authority roster jurisdiction');
+  if (!authority.prefecture || !authority.publisher || !authority.authority_id) throw new Error('Authority roster missing prefecture/publisher/authority_id');
   if (authority.source_type !== 'public_authority_roster') throw new Error('Authority roster must be public_authority_roster');
+  if (!Array.isArray(authority.records) || authority.records.length === 0) throw new Error('Authority roster has no records');
   if (canonical.site_id !== 'jinja' || canonical.publication_status !== 'public_preview_noncanonical') throw new Error('Invalid Jinja canonical preview');
 }
 
@@ -81,25 +88,25 @@ const authority = JSON.parse(fs.readFileSync(args.authority, 'utf8'));
 const canonical = JSON.parse(fs.readFileSync(args.canonical, 'utf8'));
 assertInput(aggregate, authority, canonical);
 
-const jp12 = aggregate.candidates.filter((candidate) => candidate.geography?.iso3166_2 === 'JP-12' && candidateName(candidate));
+const prefectureCandidates = aggregate.candidates.filter((candidate) => candidate.geography?.iso3166_2 === authority.jurisdiction && candidateName(candidate));
 const authorityByKey = new Map();
 for (const row of authority.records) {
-  const key = matchKey(row.name, row.municipality);
+  const key = matchKey(row.name, row.municipality, authority.prefecture);
   if (!authorityByKey.has(key)) authorityByKey.set(key, []);
   authorityByKey.get(key).push(row);
 }
 const candidatesByKey = new Map();
-for (const candidate of jp12) {
-  const municipality = candidateMunicipality(candidate);
+for (const candidate of prefectureCandidates) {
+  const municipality = candidateMunicipality(candidate, authority.prefecture);
   if (!municipality) continue;
-  const key = matchKey(candidateName(candidate), municipality);
+  const key = matchKey(candidateName(candidate), municipality, authority.prefecture);
   if (!candidatesByKey.has(key)) candidatesByKey.set(key, []);
   candidatesByKey.get(key).push(candidate);
 }
 
 const existingNamesPlaces = new Set(canonical.entities.map((entity) => {
   const place = canonical.places.find((item) => item.id === entity.current_place_id);
-  return matchKey(entity.canonical_name, place?.municipality ?? '');
+  return matchKey(entity.canonical_name, place?.municipality ?? '', place?.prefecture ?? '');
 }));
 
 const approved = [];
@@ -127,21 +134,21 @@ const verifiedAt = sourceDate(authority);
 
 for (const { row } of approved) {
   if (!row.source_url) throw new Error(`Authority row missing source_url: ${row.name} ${row.municipality}`);
-  const sourceId = sourceIdForUrl(row.source_url);
+  const sourceId = sourceIdForUrl(row.source_url, authority);
   if (!canonical.sources.some((source) => source.id === sourceId)) {
     canonical.sources.push({
       id: sourceId,
-      title: row.source_title || `${row.municipality}｜宗教法人一覧／千葉県`,
-      publisher: '千葉県',
+      title: row.source_title || `${row.municipality} 宗教法人名簿`,
+      publisher: authority.publisher,
       url: row.source_url,
       source_type: 'public_authority',
       accessed_at: verifiedAt,
     });
   }
 
-  const entityId = stableId('shr', row);
-  const placeId = stableId('plc', row);
-  const evidenceId = stableId('evd', row);
+  const entityId = stableId('shr', row, authority);
+  const placeId = stableId('plc', row, authority);
+  const evidenceId = stableId('evd', row, authority);
   if (canonical.entities.some((entity) => entity.id === entityId)) continue;
   canonical.entities.push({
     id: entityId,
@@ -153,10 +160,10 @@ for (const { row } of approved) {
   });
   canonical.places.push({
     id: placeId,
-    prefecture: '千葉県',
+    prefecture: authority.prefecture,
     municipality: row.municipality,
     review_status: 'approved',
-    address: `千葉県${row.municipality}${row.address}`,
+    address: row.address.startsWith(authority.prefecture) ? row.address : `${authority.prefecture}${row.address}`,
     verified_at: verifiedAt,
   });
   canonical.evidence.push({
@@ -166,7 +173,7 @@ for (const { row } of approved) {
     source_id: sourceId,
     review_status: 'approved',
     verified_at: verifiedAt,
-    summary: `千葉県の${row.municipality}宗教法人一覧で${row.name}の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。`,
+    summary: `${authority.publisher}の宗教法人名簿で${row.name}の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。`,
   });
 }
 
@@ -180,12 +187,14 @@ const report = {
   site_id: 'jinja',
   authority_id: authority.authority_id,
   jurisdiction: authority.jurisdiction,
+  prefecture: authority.prefecture,
+  publisher: authority.publisher,
   generated_at: new Date().toISOString(),
   verification_date: verifiedAt,
   authority_record_count: authority.records.length,
-  authority_page_count: authority.page_count,
-  authority_failed_page_count: authority.failed_page_count,
-  osm_jp12_named_candidate_count: jp12.length,
+  authority_page_count: authority.page_count ?? authority.source_count ?? null,
+  authority_failed_page_count: authority.failed_page_count ?? authority.failed_source_count ?? null,
+  osm_named_candidate_count: prefectureCandidates.length,
   approved_count: approved.length,
   ambiguous_count: ambiguous.length,
   match_rule: 'exact normalized shrine name + exact municipality, with exactly one authority row and one OSM candidate for that pair',
@@ -211,12 +220,14 @@ fs.writeFileSync(args.report, `${JSON.stringify(report, null, 2)}\n`, 'utf8');
 fs.writeFileSync(args.canonical, `${JSON.stringify(canonical, null, 2)}\n`, 'utf8');
 
 console.log(JSON.stringify({
+  authority: authority.authority_id,
+  jurisdiction: authority.jurisdiction,
   authority_records: report.authority_record_count,
-  authority_pages: report.authority_page_count,
-  osm_jp12_named: report.osm_jp12_named_candidate_count,
+  authority_sources: report.authority_page_count,
+  osm_named: report.osm_named_candidate_count,
   approved: report.approved_count,
   ambiguous: report.ambiguous_count,
   canonical_entities_after: canonical.entities.length,
   authority_sources_added: new Set(approved.map(({ row }) => row.source_url)).size,
 }));
-if (approved.length === 0) throw new Error('No Chiba authority matches were approved; refusing to generate an empty promotion branch');
+if (approved.length === 0) throw new Error(`No ${authority.jurisdiction} authority matches were approved; refusing to generate an empty promotion branch`);

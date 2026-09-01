@@ -185,6 +185,7 @@ def main():
         "site_id": "jinja",
         "authority_id": "chiba-prefecture-religious-corporation-roster",
         "jurisdiction": "JP-12",
+        "prefecture": "千葉県",
         "publisher": "千葉県",
         "source_page": args.index_url,
         "source_type": "public_authority_roster",

@@ -1,16 +1,16 @@
-name: Bootstrap Jinja Chiba authority Tier A
+name: Bootstrap Jinja Kanagawa authority Tier A
 
 on:
   pull_request:
     paths:
-      - ".github/workflows/bootstrap-jinja-chiba-authority-tier-a.yml"
-      - "apps/jinja/scripts/fetch-chiba-authority-roster.py"
+      - ".github/workflows/bootstrap-jinja-kanagawa-authority-tier-a.yml"
+      - "apps/jinja/scripts/fetch-kanagawa-authority-roster.py"
       - "apps/jinja/scripts/promote-authority-tier-a.mjs"
   push:
     branches: [main]
     paths:
-      - ".github/workflows/bootstrap-jinja-chiba-authority-tier-a.yml"
-      - "apps/jinja/scripts/fetch-chiba-authority-roster.py"
+      - ".github/workflows/bootstrap-jinja-kanagawa-authority-tier-a.yml"
+      - "apps/jinja/scripts/fetch-kanagawa-authority-roster.py"
       - "apps/jinja/scripts/promote-authority-tier-a.mjs"
   workflow_dispatch:
 
@@ -65,39 +65,29 @@ jobs:
           fi
           cp "$AGGREGATE" .artifacts/national-candidates.json
 
-      - name: Fetch Chiba Prefecture religious corporation roster
+      - name: Fetch Kanagawa Prefecture religious corporation roster
         run: |
-          python3 apps/jinja/scripts/fetch-chiba-authority-roster.py \
-            --out .artifacts/chiba-authority-roster.json
+          python3 apps/jinja/scripts/fetch-kanagawa-authority-roster.py \
+            --out .artifacts/kanagawa-authority-roster.json
 
       - name: Promote conservative Tier A matches
         run: |
-          set +e
           node apps/jinja/scripts/promote-authority-tier-a.mjs \
             --aggregate .artifacts/national-candidates.json \
-            --authority .artifacts/chiba-authority-roster.json \
+            --authority .artifacts/kanagawa-authority-roster.json \
             --canonical apps/jinja/data/canonical.json \
-            --report apps/jinja/research/authority-verification/chiba-latest.json
-          PROMOTE_STATUS=$?
-          set -e
-          if [ "$PROMOTE_STATUS" -ne 0 ]; then
-            node - <<'NODE'
-          const fs = require('fs');
-          const report = JSON.parse(fs.readFileSync('apps/jinja/research/authority-verification/chiba-latest.json', 'utf8'));
-          if (report.approved_count !== 0) process.exit(1);
-          console.log('Chiba authority bootstrap is idempotent: no new unique matches remain.');
-          NODE
-          fi
+            --report apps/jinja/research/authority-verification/kanagawa-latest.json
           node apps/jinja/scripts/check-data.mjs
 
       - name: Show promotion summary
         run: |
-          node - <<'NODE' | tee /tmp/chiba-summary.txt
+          node - <<'NODE' | tee /tmp/kanagawa-summary.txt
           const fs = require('fs');
-          const report = JSON.parse(fs.readFileSync('apps/jinja/research/authority-verification/chiba-latest.json', 'utf8'));
+          const report = JSON.parse(fs.readFileSync('apps/jinja/research/authority-verification/kanagawa-latest.json', 'utf8'));
           const canonical = JSON.parse(fs.readFileSync('apps/jinja/data/canonical.json', 'utf8'));
           console.log(JSON.stringify({
             authority_records: report.authority_record_count,
+            authority_sources: report.authority_page_count,
             osm_named: report.osm_named_candidate_count,
             approved: report.approved_count,
             ambiguous: report.ambiguous_count,
@@ -105,10 +95,10 @@ jobs:
           }));
           NODE
           {
-            echo '## Jinja Chiba authority Tier A bootstrap'
+            echo '## Jinja Kanagawa authority Tier A bootstrap'
             echo
             echo '```json'
-            cat /tmp/chiba-summary.txt
+            cat /tmp/kanagawa-summary.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
@@ -118,16 +108,11 @@ jobs:
           RUN_ID: ${{ github.run_id }}
           RUN_ATTEMPT: ${{ github.run_attempt }}
         run: |
-          APPROVED="$(node -p "JSON.parse(require('fs').readFileSync('apps/jinja/research/authority-verification/chiba-latest.json','utf8')).approved_count")"
-          if [ "$APPROVED" -eq 0 ]; then
-            echo "No new Chiba authority matches; nothing to push."
-            exit 0
-          fi
-          BRANCH="automation/jinja-chiba-tier-a-${RUN_ID}-${RUN_ATTEMPT}"
+          BRANCH="automation/jinja-kanagawa-tier-a-${RUN_ID}-${RUN_ATTEMPT}"
           git config user.name "badjoke-lab automation"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH"
-          git add apps/jinja/data/canonical.json apps/jinja/research/authority-verification/chiba-latest.json
-          git commit -m "DATA: add Chiba authority-verified Jinja Tier A records"
+          git add apps/jinja/data/canonical.json apps/jinja/research/authority-verification/kanagawa-latest.json
+          git commit -m "DATA: add Kanagawa authority-verified Jinja Tier A records"
           git push origin "$BRANCH"
           echo "Generated branch: $BRANCH"
