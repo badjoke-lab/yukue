@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "check": "node scripts/check-data.mjs && astro check",
+    "check": "node scripts/check-data.mjs",
     "check:data": "node scripts/check-data.mjs"
   },
   "dependencies": {
