@@ -2,18 +2,37 @@
 import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
 import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
 import JiinFrame from "../../components/JiinFrame.astro";
+import { regionCounts } from "../../data/jiin.ts";
 ---
 
 <JiinFrame title="地域から探す — 寺院のゆくえ" description="都道府県・市区町村から寺院を探します。" activeHref="/regions/">
   <Section title="地域から探す">
     <Container>
       <p class="lead">都道府県ごとに、現在掲載している寺院を探せます。</p>
-      <p class="empty">寺院データの確認後、掲載地域と件数をここに表示します。</p>
+      {regionCounts.length > 0 ? (
+        <div class="region-list">
+          {regionCounts.map((region) => (
+            <a href={`/search/?q=${encodeURIComponent(region.prefecture)}`}>
+              <strong>{region.prefecture}</strong><span>{region.count}件</span>
+            </a>
+          ))}
+        </div>
+      ) : <p class="empty">現在、掲載地域はありません。</p>}
     </Container>
   </Section>
 </JiinFrame>
 
 <style>
   .lead { color: var(--color-text-soft); }
+  .region-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: var(--space-6); border-top: var(--rule-strong); }
+  .region-list a { display: flex; justify-content: space-between; gap: var(--space-4); padding: var(--space-5) 0; border-bottom: var(--rule-standard); color: var(--color-text); text-decoration: none; }
+  .region-list a:nth-child(3n + 2) { padding-inline: var(--space-6); }
+  .region-list a:nth-child(3n + 1) { padding-right: var(--space-6); }
+  .region-list a:nth-child(3n) { padding-left: var(--space-6); }
+  .region-list span { color: var(--color-muted); }
   .empty { margin: var(--space-6) 0 0; padding-block: var(--space-5); border-top: var(--rule-strong); border-bottom: var(--rule-standard); color: var(--color-muted); }
+  @media (max-width: 720px) {
+    .region-list { grid-template-columns: 1fr; }
+    .region-list a, .region-list a:nth-child(3n + 1), .region-list a:nth-child(3n + 2), .region-list a:nth-child(3n) { padding-inline: 0; }
+  }
 </style>

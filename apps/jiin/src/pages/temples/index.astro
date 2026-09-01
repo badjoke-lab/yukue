@@ -2,18 +2,39 @@
 import Container from "@badjoke-lab/yukue-ui/components/Container.astro";
 import Section from "@badjoke-lab/yukue-ui/components/Section.astro";
 import JiinFrame from "../../components/JiinFrame.astro";
+import { approvedTemples } from "../../data/jiin.ts";
 ---
 
 <JiinFrame title="寺院一覧 — 寺院のゆくえ" description="確認済みの寺院を一覧から探します。" activeHref="/temples/">
   <Section title="寺院一覧">
     <Container>
-      <p class="lead">名称と所在地を根拠資料で確認した寺院を掲載します。</p>
-      <p class="empty">現在、公開対象として確認済みの寺院データを準備しています。</p>
+      <p class="lead">名称と所在地を寺院専用の根拠資料で確認し、レビューを通過した寺院だけを掲載します。</p>
+      {approvedTemples.length > 0 ? (
+        <div class="temple-list">
+          {approvedTemples.map(({ entity, place }) => (
+            <article class="temple-row">
+              <div>
+                <h2><a href={`/temples/${entity.id}/`}>{entity.canonical_name}</a></h2>
+                <p>{place ? `${place.prefecture} ${place.municipality}${place.address ? ` ${place.address}` : ""}` : "所在地未確認"}</p>
+              </div>
+              <span>Tier {entity.tier}</span>
+              <time>{entity.verified_at}</time>
+            </article>
+          ))}
+        </div>
+      ) : <p class="empty">現在、公開対象として確認済みの寺院データはありません。</p>}
     </Container>
   </Section>
 </JiinFrame>
 
 <style>
   .lead { color: var(--color-text-soft); }
+  .temple-list { margin-top: var(--space-6); border-top: var(--rule-strong); }
+  .temple-row { display: grid; grid-template-columns: minmax(0, 1fr) 6rem 8rem; gap: var(--space-5); align-items: center; padding-block: var(--space-5); border-bottom: var(--rule-standard); }
+  .temple-row h2, .temple-row p { margin: 0; }
+  .temple-row h2 { margin-bottom: var(--space-1); font-size: var(--font-size-h3); }
+  .temple-row h2 a { color: var(--color-text); text-decoration: none; }
+  .temple-row p, .temple-row span, .temple-row time { color: var(--color-muted); font-size: var(--font-size-sm); }
   .empty { margin: var(--space-6) 0 0; padding-block: var(--space-5); border-top: var(--rule-strong); border-bottom: var(--rule-standard); color: var(--color-muted); }
+  @media (max-width: 720px) { .temple-row { grid-template-columns: 1fr; gap: var(--space-2); } }
 </style>

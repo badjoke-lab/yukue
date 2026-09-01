@@ -1,0 +1,62 @@
+{
+  "format_version": 1,
+  "site_id": "jiin",
+  "entity_type": "temple",
+  "continuity_states": ["operating", "rebuilding", "relocated", "merged", "dissolved", "reestablished", "unknown"],
+  "organization_types": ["sect", "school", "lineage", "district", "religious_corporation", "comprehensive_organization", "administrative_body", "other_reviewed_organization"],
+  "facility_types": ["cemetery", "columbarium", "memorial_facility"],
+  "external_subject_types": ["matsuri", "jinja", "jiin", "other_reviewed_subject"],
+  "relation_types": ["sect_affiliation", "comprehensive_organization_affiliation", "head_temple", "sub_temple", "administration", "religious_corporation", "related_temple", "related_shrine", "related_festival", "operates_cemetery", "operates_columbarium", "memorial_facility", "cultural_property_relation", "other_reviewed_relation"],
+  "event_types": ["founded", "relocated", "rebuilt", "destroyed", "damaged", "merged", "dissolved", "reestablished", "sect_changed", "affiliation_changed", "head_branch_relation_changed", "administration_changed", "corporate_status_changed", "principal_image_changed_or_transferred", "cemetery_opened", "cemetery_transferred", "columbarium_opened", "memorial_facility_changed", "designation_added", "designation_changed", "designation_removed", "related_festival_changed", "other_reviewed_change"],
+  "collections": {
+    "entities": {
+      "required": ["id", "canonical_name", "review_status", "tier", "verified_at", "current_place_id", "identity_evidence_ids"],
+      "optional": ["reading", "aliases", "former_names", "mountain_name", "in_name", "official_links", "founded_summary", "founder_summary", "principal_object_summary", "notes"]
+    },
+    "organizations": {
+      "required": ["id", "canonical_name", "organization_type", "review_status"],
+      "optional": ["official_links", "notes"]
+    },
+    "facilities": {
+      "required": ["id", "canonical_name", "facility_type", "review_status"],
+      "optional": ["place_id", "official_links", "notes"]
+    },
+    "external_subjects": {
+      "required": ["id", "subject_type", "canonical_name", "review_status"],
+      "optional": ["external_id", "official_links", "notes"]
+    },
+    "states": {
+      "required": ["id", "entity_id", "continuity_state", "review_status", "verified_at", "evidence_ids"],
+      "optional": ["since", "basis_summary", "previous_state_id", "building_condition", "temporary_access", "disaster_damage", "cemetery_operation", "columbarium_operation", "memorial_services"]
+    },
+    "events": {
+      "required": ["id", "entity_id", "event_type", "review_status", "evidence_ids"],
+      "optional": ["date", "date_range", "title", "summary", "before", "after", "place_ids", "related_ids"]
+    },
+    "relations": {
+      "required": ["id", "source_entity_id", "target_kind", "target_id", "relation_type", "review_status", "evidence_ids"],
+      "optional": ["valid_from", "valid_to", "summary"]
+    },
+    "evidence": {
+      "required": ["id", "target_type", "target_id", "source_id", "review_status", "verified_at", "summary"]
+    },
+    "sources": {
+      "required": ["id", "title", "publisher", "url", "source_type", "accessed_at", "authority_scope"],
+      "optional": ["published_at", "archived_url"]
+    },
+    "places": {
+      "required": ["id", "prefecture", "municipality", "review_status"],
+      "optional": ["address", "latitude", "longitude", "verified_at"]
+    }
+  },
+  "publication_rules": {
+    "tier_a_requires_specialist_identity_evidence": true,
+    "tier_a_requires_geography": true,
+    "matsuri_jinja_cemetery_directory_seed_alone_is_not_tier_a": true,
+    "missing_state_must_not_be_inferred": true,
+    "missing_affiliation_must_not_be_inferred": true,
+    "unsupported_fields_are_absent": true,
+    "private_burial_or_family_data_is_forbidden": true,
+    "html_and_machine_readable_share_canonical_records": true
+  }
+}
