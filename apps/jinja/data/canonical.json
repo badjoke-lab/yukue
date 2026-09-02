@@ -39,6 +39,14 @@
       "current_place_id": "plc-jp14-d84bd6e19e8cbe"
     },
     {
+      "id": "shr-jp11-207f3a11230346",
+      "canonical_name": "伊奈利神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-207f3a11230346"
+    },
+    {
       "id": "shr-jp13-b7d3bef6aaca24",
       "canonical_name": "井草八幡宮",
       "review_status": "approved",
@@ -342,6 +350,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-7849767ba3748a"
+    },
+    {
+      "id": "shr-jp11-ab028e23877fef",
+      "canonical_name": "駒形神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-ab028e23877fef"
     },
     {
       "id": "shr-jp13-5294757fffc263",
@@ -683,6 +699,22 @@
       "current_place_id": "plc-jp12-a8859465136d72"
     },
     {
+      "id": "shr-jp11-a3c2a55328702e",
+      "canonical_name": "三芳野神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-a3c2a55328702e"
+    },
+    {
+      "id": "shr-jp11-76b678910221c7",
+      "canonical_name": "三輪神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-76b678910221c7"
+    },
+    {
       "id": "shr-jp14-18fc51c0c6d904",
       "canonical_name": "山王神社",
       "review_status": "approved",
@@ -859,6 +891,22 @@
       "current_place_id": "plc-jp14-a973584b92cebf"
     },
     {
+      "id": "shr-jp11-8592902abe609c",
+      "canonical_name": "小岩井神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-8592902abe609c"
+    },
+    {
+      "id": "shr-jp11-cda94766036bae",
+      "canonical_name": "小針神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-cda94766036bae"
+    },
+    {
       "id": "shr-jp12-2eb24f74c3e8c1",
       "canonical_name": "小湊神社",
       "review_status": "approved",
@@ -966,6 +1014,14 @@
       "current_place_id": "plc-jp13-57b39e09b3145b"
     },
     {
+      "id": "shr-jp11-cd456079f4f05a",
+      "canonical_name": "諏訪神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-cd456079f4f05a"
+    },
+    {
       "id": "shr-jp12-49c12c1713330f",
       "canonical_name": "諏訪神社",
       "review_status": "approved",
@@ -1006,12 +1062,28 @@
       "current_place_id": "plc-jp13-d3d3c39623bd5b"
     },
     {
+      "id": "shr-jp11-8da13dbd8ffeba",
+      "canonical_name": "吹上神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-8da13dbd8ffeba"
+    },
+    {
       "id": "shr-jp13-c8288b60bc1cfa",
       "canonical_name": "水稲荷神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-c8288b60bc1cfa"
+    },
+    {
+      "id": "shr-jp11-0b4f9f344cd0a3",
+      "canonical_name": "水宮神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-0b4f9f344cd0a3"
     },
     {
       "id": "shr-jp12-245768ac240c3a",
@@ -1068,6 +1140,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-e769475f57ea92"
+    },
+    {
+      "id": "shr-jp11-6dae1e4e2b4072",
+      "canonical_name": "川口神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-6dae1e4e2b4072"
     },
     {
       "id": "shr-jp12-d8c30279c6aa96",
@@ -1156,6 +1236,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-7182cda09d22df"
+    },
+    {
+      "id": "shr-jp11-7051030b0bfc9b",
+      "canonical_name": "袋神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-7051030b0bfc9b"
     },
     {
       "id": "shr-jp12-2bf0fdd33209f7",
@@ -1278,6 +1366,30 @@
       "current_place_id": "plc-jp12-995198e819ab02"
     },
     {
+      "id": "shr-jp11-de920da07fff30",
+      "canonical_name": "秩父神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-de920da07fff30"
+    },
+    {
+      "id": "shr-jp11-dde42d35b3a207",
+      "canonical_name": "中山神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-dde42d35b3a207"
+    },
+    {
+      "id": "shr-jp11-4caf0c83fa5d2f",
+      "canonical_name": "調神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-4caf0c83fa5d2f"
+    },
+    {
       "id": "shr-jp12-7046936dda5eb9",
       "canonical_name": "長尾神社",
       "review_status": "approved",
@@ -1388,6 +1500,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-2de1064ca470e1"
+    },
+    {
+      "id": "shr-jp11-982f944bb24f63",
+      "canonical_name": "道庭香取神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-982f944bb24f63"
     },
     {
       "id": "shr-jp14-b3465c8acb61d1",
@@ -1566,6 +1686,14 @@
       "current_place_id": "plc-jp12-2a7ffcf48bdea1"
     },
     {
+      "id": "shr-jp11-04debc2f103cd1",
+      "canonical_name": "氷川神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-04debc2f103cd1"
+    },
+    {
       "id": "shr-jp13-2f66cf83cf2d1e",
       "canonical_name": "布多天神社",
       "review_status": "approved",
@@ -1718,6 +1846,14 @@
       "current_place_id": "plc-jp12-097321136c821e"
     },
     {
+      "id": "shr-jp11-91b5f26a9ea0ad",
+      "canonical_name": "龍頭神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-91b5f26a9ea0ad"
+    },
+    {
       "id": "shr-jp12-b5215a1190550b",
       "canonical_name": "両社神社",
       "review_status": "approved",
@@ -1732,6 +1868,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-b8ad72042d8522"
+    },
+    {
+      "id": "shr-jp11-7e2a0e24928bd1",
+      "canonical_name": "六所神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp11-7e2a0e24928bd1"
     },
     {
       "id": "shr-jp13-92a9b5689a5832",
@@ -1936,6 +2080,168 @@
       "review_status": "approved",
       "verified_at": "2026-08-27",
       "summary": "公式「御祈祷のご案内」で御祈祷受付8時から17時、年中無休との現行案内を確認。"
+    },
+    {
+      "id": "evd-jp11-04debc2f103cd1",
+      "target_type": "entity",
+      "target_id": "shr-jp11-04debc2f103cd1",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で氷川神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-0b4f9f344cd0a3",
+      "target_type": "entity",
+      "target_id": "shr-jp11-0b4f9f344cd0a3",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で水宮神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-207f3a11230346",
+      "target_type": "entity",
+      "target_id": "shr-jp11-207f3a11230346",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で伊奈利神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-4caf0c83fa5d2f",
+      "target_type": "entity",
+      "target_id": "shr-jp11-4caf0c83fa5d2f",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で調神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-6dae1e4e2b4072",
+      "target_type": "entity",
+      "target_id": "shr-jp11-6dae1e4e2b4072",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で川口神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-7051030b0bfc9b",
+      "target_type": "entity",
+      "target_id": "shr-jp11-7051030b0bfc9b",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で袋神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-76b678910221c7",
+      "target_type": "entity",
+      "target_id": "shr-jp11-76b678910221c7",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で三輪神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-7e2a0e24928bd1",
+      "target_type": "entity",
+      "target_id": "shr-jp11-7e2a0e24928bd1",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で六所神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-8592902abe609c",
+      "target_type": "entity",
+      "target_id": "shr-jp11-8592902abe609c",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で小岩井神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-8da13dbd8ffeba",
+      "target_type": "entity",
+      "target_id": "shr-jp11-8da13dbd8ffeba",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で吹上神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-91b5f26a9ea0ad",
+      "target_type": "entity",
+      "target_id": "shr-jp11-91b5f26a9ea0ad",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で龍頭神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-982f944bb24f63",
+      "target_type": "entity",
+      "target_id": "shr-jp11-982f944bb24f63",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で道庭香取神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-a3c2a55328702e",
+      "target_type": "entity",
+      "target_id": "shr-jp11-a3c2a55328702e",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で三芳野神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-ab028e23877fef",
+      "target_type": "entity",
+      "target_id": "shr-jp11-ab028e23877fef",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で駒形神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-cd456079f4f05a",
+      "target_type": "entity",
+      "target_id": "shr-jp11-cd456079f4f05a",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で諏訪神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-cda94766036bae",
+      "target_type": "entity",
+      "target_id": "shr-jp11-cda94766036bae",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で小針神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-dde42d35b3a207",
+      "target_type": "entity",
+      "target_id": "shr-jp11-dde42d35b3a207",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で中山神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp11-de920da07fff30",
+      "target_type": "entity",
+      "target_id": "shr-jp11-de920da07fff30",
+      "source_id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "埼玉県の宗教法人名簿で秩父神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
       "id": "evd-jp12-097321136c821e",
@@ -4071,6 +4377,14 @@
       "accessed_at": "2026-08-27"
     },
     {
+      "id": "src-jinja-saitama-prefecture-religious-corpora-570302d48341",
+      "title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "publisher": "埼玉県",
+      "url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
       "id": "src-jinja-samukawa-official-access-20260825",
       "title": "神社への道案内",
       "publisher": "寒川神社",
@@ -4119,6 +4433,150 @@
       "review_status": "approved",
       "address": "熊本県阿蘇市一の宮町宮地3083-1",
       "verified_at": "2026-08-25"
+    },
+    {
+      "id": "plc-jp11-4caf0c83fa5d2f",
+      "prefecture": "埼玉県",
+      "municipality": "さいたま市",
+      "review_status": "approved",
+      "address": "埼玉県さいたま市浦和区岸町３－１７－２５",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-dde42d35b3a207",
+      "prefecture": "埼玉県",
+      "municipality": "さいたま市",
+      "review_status": "approved",
+      "address": "埼玉県さいたま市見沼区中川１４３",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-04debc2f103cd1",
+      "prefecture": "埼玉県",
+      "municipality": "伊奈町",
+      "review_status": "approved",
+      "address": "埼玉県伊奈町本町２－１５５",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-cda94766036bae",
+      "prefecture": "埼玉県",
+      "municipality": "伊奈町",
+      "review_status": "approved",
+      "address": "埼玉県伊奈町羽貫１９２",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-cd456079f4f05a",
+      "prefecture": "埼玉県",
+      "municipality": "越生町",
+      "review_status": "approved",
+      "address": "埼玉県越生町成瀬６７２",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-982f944bb24f63",
+      "prefecture": "埼玉県",
+      "municipality": "吉川市",
+      "review_status": "approved",
+      "address": "埼玉県吉川市道庭１－２－６",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-207f3a11230346",
+      "prefecture": "埼玉県",
+      "municipality": "鴻巣市",
+      "review_status": "approved",
+      "address": "埼玉県鴻巣市榎戸１－１－２７",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-7051030b0bfc9b",
+      "prefecture": "埼玉県",
+      "municipality": "鴻巣市",
+      "review_status": "approved",
+      "address": "埼玉県鴻巣市袋２４７",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-8da13dbd8ffeba",
+      "prefecture": "埼玉県",
+      "municipality": "鴻巣市",
+      "review_status": "approved",
+      "address": "埼玉県鴻巣市吹上本町４－１４－２６",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-76b678910221c7",
+      "prefecture": "埼玉県",
+      "municipality": "三郷市",
+      "review_status": "approved",
+      "address": "埼玉県三郷市高州４－１３７",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-ab028e23877fef",
+      "prefecture": "埼玉県",
+      "municipality": "三郷市",
+      "review_status": "approved",
+      "address": "埼玉県三郷市駒形４９９",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-7e2a0e24928bd1",
+      "prefecture": "埼玉県",
+      "municipality": "所沢市",
+      "review_status": "approved",
+      "address": "埼玉県所沢市上新井２－６－８",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-91b5f26a9ea0ad",
+      "prefecture": "埼玉県",
+      "municipality": "小鹿野町",
+      "review_status": "approved",
+      "address": "埼玉県小鹿野町河原沢９９６－１",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-a3c2a55328702e",
+      "prefecture": "埼玉県",
+      "municipality": "川越市",
+      "review_status": "approved",
+      "address": "埼玉県川越市郭町２－２５－１１",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-6dae1e4e2b4072",
+      "prefecture": "埼玉県",
+      "municipality": "川口市",
+      "review_status": "approved",
+      "address": "埼玉県川口市金山町６５",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-de920da07fff30",
+      "prefecture": "埼玉県",
+      "municipality": "秩父市",
+      "review_status": "approved",
+      "address": "埼玉県秩父市番場町１－３",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-8592902abe609c",
+      "prefecture": "埼玉県",
+      "municipality": "飯能市",
+      "review_status": "approved",
+      "address": "埼玉県飯能市小岩井１６９",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp11-0b4f9f344cd0a3",
+      "prefecture": "埼玉県",
+      "municipality": "富士見市",
+      "review_status": "approved",
+      "address": "埼玉県富士見市水子１７６２－３",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp14-77309560a5babc",
