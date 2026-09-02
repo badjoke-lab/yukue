@@ -109,7 +109,9 @@ for (const item of selected) {
 
   const areas = entity.geographic_scope?.areas ?? [];
   if (!areas.some((area) => area.prefecture_name_ja || area.prefecture_code)) failures.push(`${item.id}:prefecture_missing`);
-  if (!areas.some((area) => area.municipality_name_ja || area.municipality_code)) failures.push(`${item.id}:municipality_missing`);
+  const hasMunicipality = areas.some((area) => area.municipality_name_ja || area.municipality_code);
+  const hasReviewedBroaderScope = typeof entity.geographic_scope?.description_ja === "string" && entity.geographic_scope.description_ja.trim().length > 0;
+  if (!hasMunicipality && !hasReviewedBroaderScope) failures.push(`${item.id}:geographic_scope_missing`);
 
   const preferred = entity.names?.find((name) => name.is_preferred) ?? entity.names?.[0];
   if (!preferred?.source_ids?.includes(item.source_id)) failures.push(`${item.id}:preferred_name_source_missing`);
