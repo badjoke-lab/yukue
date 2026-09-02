@@ -6,8 +6,20 @@ const baseCandidate = {
   candidate_id: "bunka-312-999",
   entity_type: "festival",
   name_ja: "架空祭礼",
-  geography: { prefecture_name_ja: "東京都", municipality_name_ja: "", broader_scope_ja: "東京都" },
-  source: { publisher_role: "public_authority", url: "https://example.invalid/official", accessed_at: "2026-09-01" },
+  geography: {
+    prefecture_code: "13",
+    prefecture_name_ja: "東京都",
+    municipality_name_ja: "",
+    broader_scope_ja: "東京都",
+  },
+  source: {
+    family_id: "national_cultural_database",
+    url: "https://kunishitei.bunka.go.jp/heritage/detail/312/999",
+    accessed_at: "2026-09-01",
+    publisher_name: "文化庁",
+    publisher_role_verified: true,
+    provider_record_id: "312/999",
+  },
 };
 const batch = {
   schema_version: "matsuri.tier-a-candidate-batch.v1",
