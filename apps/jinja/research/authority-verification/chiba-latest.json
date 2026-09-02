@@ -3,1054 +3,1010 @@
   "site_id": "jinja",
   "authority_id": "chiba-prefecture-religious-corporation-roster",
   "jurisdiction": "JP-12",
-  "generated_at": "2026-09-01T15:39:25.475Z",
-  "verification_date": "2026-09-01",
+  "prefecture": "千葉県",
+  "publisher": "千葉県",
+  "generated_at": "2026-09-02T01:30:12.102Z",
+  "verification_date": "2026-09-02",
   "authority_record_count": 3220,
   "authority_page_count": 59,
   "authority_failed_page_count": 0,
-  "osm_jp12_named_candidate_count": 1237,
-  "approved_count": 103,
+  "osm_named_candidate_count": 1237,
+  "approved_count": 98,
   "ambiguous_count": 66,
-  "match_rule": "exact normalized shrine name + exact municipality, with exactly one authority row and one OSM candidate for that pair",
+  "match_rules": {
+    "exact_name_unique_statewide_candidate_missing_municipality": 98
+  },
+  "match_rule": "exact normalized shrine name + exact municipality when available; fallback only when OSM municipality is absent and the normalized name is unique across the prefecture on both authority and OSM sides",
   "automatic_state_inference": false,
   "automatic_event_inference": false,
   "automatic_relation_inference": false,
   "source_page": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/houjinmeibo.html",
   "approved": [
     {
-      "candidate_id": "osm-way-724390013",
-      "name": "愛宕神社",
+      "candidate_id": "osm-node-5357027767",
+      "name": "鏑木大神",
+      "municipality": "旭市",
+      "address": "鏑木2965番地の1",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/asahi.html",
+      "source_title": "旭市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-12730419607",
+      "name": "青龍日吉神社",
+      "municipality": "夷隅郡大多喜町",
+      "address": "久保87番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/ohtaki.html",
+      "source_title": "大多喜町｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6355868911",
+      "name": "松虫姫神社",
+      "municipality": "印西市",
+      "address": "松虫1番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/inzai.html",
+      "source_title": "印西市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2282795178",
+      "name": "清瀧神社",
+      "municipality": "浦安市",
+      "address": "堀江四丁目1番5号",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/urayasu.html",
+      "source_title": "浦安市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4603357632",
+      "name": "柴崎神社",
+      "municipality": "我孫子市",
+      "address": "柴崎174番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/abiko.html",
+      "source_title": "我孫子市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-10132681539",
+      "name": "北星神社",
+      "municipality": "我孫子市",
+      "address": "台田4丁目11番27号",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/abiko.html",
+      "source_title": "我孫子市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5963278388",
+      "name": "右京塚神社",
+      "municipality": "鎌ケ谷市",
+      "address": "右京塚7丁目60番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamagaya.html",
+      "source_title": "鎌ケ谷市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5963278387",
+      "name": "根頭神社",
+      "municipality": "鎌ケ谷市",
+      "address": "道野辺50番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamagaya.html",
+      "source_title": "鎌ケ谷市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5963278385",
+      "name": "八幡春日神社",
+      "municipality": "鎌ケ谷市",
+      "address": "中沢907番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamagaya.html",
+      "source_title": "鎌ケ谷市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-7053758450",
+      "name": "横山神社",
       "municipality": "鴨川市",
-      "address": "坂東634番地4",
+      "address": "横尾282番地の1",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamogawa.html",
       "source_title": "鴨川市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1088739501",
-      "name": "吾妻神社",
+      "candidate_id": "osm-node-7082966241",
+      "name": "宮山神社",
       "municipality": "鴨川市",
-      "address": "内浦1806番地",
+      "address": "宮山978番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamogawa.html",
       "source_title": "鴨川市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-724483759",
-      "name": "御嶽神社",
+      "candidate_id": "osm-node-6418723900",
+      "name": "石尊神社",
       "municipality": "鴨川市",
-      "address": "押切158番地",
+      "address": "二子119番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamogawa.html",
       "source_title": "鴨川市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1107979085",
-      "name": "三島神社",
-      "municipality": "鴨川市",
-      "address": "奈良林336番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamogawa.html",
-      "source_title": "鴨川市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1041231513",
-      "name": "四社神社",
-      "municipality": "鴨川市",
-      "address": "天面160番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamogawa.html",
-      "source_title": "鴨川市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1088739512",
-      "name": "若宮八幡神社",
-      "municipality": "鴨川市",
-      "address": "内浦2736番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamogawa.html",
-      "source_title": "鴨川市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1127576365",
-      "name": "小湊神社",
-      "municipality": "鴨川市",
-      "address": "小湊199番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamogawa.html",
-      "source_title": "鴨川市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1132148158",
-      "name": "須賀社",
-      "municipality": "鴨川市",
-      "address": "天津1368番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamogawa.html",
-      "source_title": "鴨川市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1120242498",
-      "name": "西神社",
-      "municipality": "鴨川市",
-      "address": "西744番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamogawa.html",
-      "source_title": "鴨川市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-node-9950244078",
-      "name": "浅間神社",
-      "municipality": "鴨川市",
-      "address": "貝渚2304番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamogawa.html",
-      "source_title": "鴨川市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-767460745",
-      "name": "打墨神社",
-      "municipality": "鴨川市",
-      "address": "打墨1343番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamogawa.html",
-      "source_title": "鴨川市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-763523802",
-      "name": "瀧口神社",
-      "municipality": "鴨川市",
-      "address": "太尾445番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamogawa.html",
-      "source_title": "鴨川市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1136338424",
-      "name": "天富神社",
-      "municipality": "鴨川市",
-      "address": "清澄323番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamogawa.html",
-      "source_title": "鴨川市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-727172519",
-      "name": "安房神社",
+      "candidate_id": "osm-node-2710272928",
+      "name": "館山神社",
       "municipality": "館山市",
-      "address": "大神宮589番地",
+      "address": "館山252番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
       "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1080763179",
-      "name": "海南刀切神社",
+      "candidate_id": "osm-way-724678771",
+      "name": "山荻神社",
       "municipality": "館山市",
-      "address": "見物788番地",
+      "address": "山荻273番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
       "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-731180278",
-      "name": "金山神社",
+      "candidate_id": "osm-way-1253918479",
+      "name": "洲崎神社",
       "municipality": "館山市",
-      "address": "早物80番地",
+      "address": "洲崎1697番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
       "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1075509173",
-      "name": "犬石神社",
+      "candidate_id": "osm-way-729386563",
+      "name": "片岡神社",
       "municipality": "館山市",
-      "address": "犬石142番地1",
+      "address": "水岡461番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
       "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1081825833",
-      "name": "厳島神社",
-      "municipality": "館山市",
-      "address": "西川名1315番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-763470230",
-      "name": "御瀧神社",
-      "municipality": "館山市",
-      "address": "大賀389番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-725609971",
-      "name": "三島神社",
-      "municipality": "館山市",
-      "address": "薗322番地1",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-748907469",
-      "name": "子安神社",
-      "municipality": "館山市",
-      "address": "湊189番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-726844746",
-      "name": "若一神社",
-      "municipality": "館山市",
-      "address": "小原496番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-839593508",
-      "name": "手力雄神社",
-      "municipality": "館山市",
-      "address": "大井1129番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1074690987",
-      "name": "洲宮神社",
-      "municipality": "館山市",
-      "address": "洲宮921番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-822411155",
-      "name": "十二所神社",
-      "municipality": "館山市",
-      "address": "茂名238番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1168027189",
-      "name": "浅間神社",
-      "municipality": "館山市",
-      "address": "香983番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1080435040",
-      "name": "船越鉈切神社",
-      "municipality": "館山市",
-      "address": "浜田376番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1278095242",
-      "name": "鶴谷八幡宮",
-      "municipality": "館山市",
-      "address": "八幡68番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-731184448",
-      "name": "藤原神社",
-      "municipality": "館山市",
-      "address": "藤原905番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-732149679",
-      "name": "八雲神社",
-      "municipality": "館山市",
-      "address": "正木1378番地1",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1148928361",
-      "name": "八坂山神社",
-      "municipality": "館山市",
-      "address": "安布里634番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-721070484",
-      "name": "布良崎神社",
-      "municipality": "館山市",
-      "address": "布良379番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-726630659",
-      "name": "竜岡神社",
-      "municipality": "館山市",
-      "address": "竜岡611番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-839593512",
-      "name": "両社神社",
-      "municipality": "館山市",
-      "address": "水玉160番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
-      "source_title": "館山市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-734520178",
-      "name": "稲荷神社",
+      "candidate_id": "osm-node-3393471463",
+      "name": "浮戸神社",
       "municipality": "君津市",
-      "address": "大戸見3328番地",
+      "address": "久留里市場577番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
       "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-618069946",
-      "name": "久留里神社",
-      "municipality": "君津市",
-      "address": "浦田15番地",
+      "candidate_id": "osm-node-5325420826",
+      "name": "松崎神社",
+      "municipality": "香取郡多古町",
+      "address": "東松崎1747番地",
       "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tako.html",
+      "source_title": "多古町｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1450329415",
-      "name": "吾妻神社",
-      "municipality": "君津市",
-      "address": "辻森363番地",
+      "candidate_id": "osm-way-750631371",
+      "name": "星之宮大神",
+      "municipality": "香取郡東庄町",
+      "address": "石出1598番地",
       "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tounoshou.html",
+      "source_title": "東庄町｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-908255422",
-      "name": "御太刀神社",
-      "municipality": "君津市",
-      "address": "皿引221番地",
+      "candidate_id": "osm-way-768769641",
+      "name": "風王大神",
+      "municipality": "香取郡東庄町",
+      "address": "小座332番地",
       "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tounoshou.html",
+      "source_title": "東庄町｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-724795226",
-      "name": "御霊神社",
-      "municipality": "君津市",
-      "address": "中野一丁目26番22号",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1334842817",
-      "name": "皇産靈神社",
-      "municipality": "君津市",
-      "address": "岩出345番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-638946435",
-      "name": "塞神社",
-      "municipality": "君津市",
-      "address": "内箕輪外箕輪法木作入会地2番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-644679848",
-      "name": "作木神社",
-      "municipality": "君津市",
-      "address": "作木287番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-node-6217935587",
-      "name": "三島神社",
-      "municipality": "君津市",
-      "address": "宿原844番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-723924138",
-      "name": "子安神社",
-      "municipality": "君津市",
-      "address": "南子安三丁目18番10号",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-724309268",
-      "name": "糸川神社",
-      "municipality": "君津市",
-      "address": "糸川256番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-node-5691260199",
-      "name": "秋葉神社",
-      "municipality": "君津市",
-      "address": "山本1525番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-577537778",
-      "name": "常代神社",
-      "municipality": "君津市",
-      "address": "常代806番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-558673920",
-      "name": "人見神社",
-      "municipality": "君津市",
-      "address": "人見892番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-610389082",
-      "name": "石上神社",
-      "municipality": "君津市",
-      "address": "中富417番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-643262459",
-      "name": "大宮賣神社",
-      "municipality": "君津市",
-      "address": "大山野549番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1444629418",
-      "name": "大原神社",
-      "municipality": "君津市",
-      "address": "平山823番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-730013054",
-      "name": "天照大神社",
-      "municipality": "君津市",
-      "address": "大井697番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1473671496",
-      "name": "都波岐神社",
-      "municipality": "君津市",
-      "address": "根本585番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-742494294",
-      "name": "白駒神社",
-      "municipality": "君津市",
-      "address": "白駒11番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1462377870",
-      "name": "八幡宮",
-      "municipality": "君津市",
-      "address": "草川原479番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-729136447",
-      "name": "飯縄神社",
-      "municipality": "君津市",
-      "address": "末吉746番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-965188975",
-      "name": "尾車神社",
-      "municipality": "君津市",
-      "address": "尾車122番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1444629450",
-      "name": "北野神社",
-      "municipality": "君津市",
-      "address": "広岡1524番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
-      "source_title": "君津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1225590124",
-      "name": "香取神宮",
+      "candidate_id": "osm-node-5341743837",
+      "name": "阿麻勝神社",
       "municipality": "香取市",
-      "address": "香取1697番地",
+      "address": "鳩山495番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/katori.html",
       "source_title": "香取市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-node-6390174055",
-      "name": "七曲神社",
+      "candidate_id": "osm-node-5359127846",
+      "name": "熊野三社",
+      "municipality": "香取市",
+      "address": "富田971番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/katori.html",
+      "source_title": "香取市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5363735955",
+      "name": "見目神社",
+      "municipality": "香取市",
+      "address": "新部498番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/katori.html",
+      "source_title": "香取市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5328798925",
+      "name": "山倉大神",
+      "municipality": "香取市",
+      "address": "山倉2347番地1",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/katori.html",
+      "source_title": "香取市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5345063345",
+      "name": "子大神",
+      "municipality": "香取市",
+      "address": "長山235番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/katori.html",
+      "source_title": "香取市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1361862490",
+      "name": "西坂神社",
+      "municipality": "香取市",
+      "address": "西坂424番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/katori.html",
+      "source_title": "香取市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5357177279",
+      "name": "石田大神",
+      "municipality": "香取市",
+      "address": "小川1016番地の1",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/katori.html",
+      "source_title": "香取市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-553799953",
+      "name": "大戸神社",
+      "municipality": "香取市",
+      "address": "大戸521番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/katori.html",
+      "source_title": "香取市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5293739969",
+      "name": "大鳥神社",
+      "municipality": "香取市",
+      "address": "九美上10番地1",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/katori.html",
+      "source_title": "香取市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5339209383",
+      "name": "天之宮大神",
+      "municipality": "香取市",
+      "address": "織幡520番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/katori.html",
+      "source_title": "香取市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1339983124",
+      "name": "冨國神社",
+      "municipality": "香取市",
+      "address": "沢2300番地1",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/katori.html",
+      "source_title": "香取市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-553770719",
+      "name": "福大神",
+      "municipality": "香取市",
+      "address": "福田308番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/katori.html",
+      "source_title": "香取市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-555186992",
+      "name": "返田神社",
+      "municipality": "香取市",
+      "address": "返田729番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/katori.html",
+      "source_title": "香取市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-12327923349",
+      "name": "甲賀神社",
       "municipality": "佐倉市",
-      "address": "七曲136番地",
+      "address": "羽鳥1068番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/sakura.html",
       "source_title": "佐倉市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-561532366",
-      "name": "御中主神社",
+      "candidate_id": "osm-node-5155569808",
+      "name": "巌島神社",
+      "municipality": "山武郡横芝光町",
+      "address": "尾垂イ2367番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/yokoshibahikari.html",
+      "source_title": "横芝光町｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-11377748129",
+      "name": "大國神社",
+      "municipality": "山武郡横芝光町",
+      "address": "小川台1番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/yokoshibahikari.html",
+      "source_title": "横芝光町｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-605269862",
+      "name": "稲蒼神社",
       "municipality": "山武市",
-      "address": "松ケ谷イの1985番地",
+      "address": "富口767番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/sanmu.html",
       "source_title": "山武市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-582480098",
-      "name": "飯香岡八幡宮",
+      "candidate_id": "osm-way-572624350",
+      "name": "洲之宮神社",
+      "municipality": "山武市",
+      "address": "井之内6番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/sanmu.html",
+      "source_title": "山武市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-11621619409",
+      "name": "素波武神社",
+      "municipality": "山武市",
+      "address": "松尾町八田3383番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/sanmu.html",
+      "source_title": "山武市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-589640578",
+      "name": "倉稲神社",
+      "municipality": "山武市",
+      "address": "下横地1番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/sanmu.html",
+      "source_title": "山武市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6326930653",
+      "name": "早尾神社",
+      "municipality": "山武市",
+      "address": "松尾町下大蔵308番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/sanmu.html",
+      "source_title": "山武市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-11621619285",
+      "name": "末廣神社",
+      "municipality": "山武市",
+      "address": "松尾町大堤542番地21",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/sanmu.html",
+      "source_title": "山武市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1016749771",
+      "name": "髙靇神社",
+      "municipality": "四街道市",
+      "address": "成山20番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/yotsukaidou.html",
+      "source_title": "四街道市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8778473299",
+      "name": "姉埼神社",
       "municipality": "市原市",
-      "address": "八幡1057番地1",
+      "address": "姉崎2278番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/ichihara.html",
       "source_title": "市原市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-node-3619660107",
-      "name": "諏訪神社",
+      "candidate_id": "osm-node-10921120317",
+      "name": "府中日吉神社",
+      "municipality": "市原市",
+      "address": "能満589番地2",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/ichihara.html",
+      "source_title": "市原市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1212688472",
+      "name": "伊弉諾神社",
       "municipality": "市川市",
-      "address": "平田二丁目23番12号",
+      "address": "堀之内四丁目26番13号",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/ichikawa.html",
       "source_title": "市川市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-454644144",
-      "name": "白幡天神社",
+      "candidate_id": "osm-node-1537815664",
+      "name": "葛飾八幡宮",
       "municipality": "市川市",
-      "address": "菅野一丁目15番2号",
+      "address": "八幡四丁目2番1号",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/ichikawa.html",
       "source_title": "市川市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-node-4457891035",
-      "name": "菊田神社",
-      "municipality": "習志野市",
-      "address": "津田沼三丁目2番5号",
+      "candidate_id": "osm-way-881603645",
+      "name": "駒形大神社",
+      "municipality": "市川市",
+      "address": "大野町四丁目2757番地",
       "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/narashino.html",
-      "source_title": "習志野市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/ichikawa.html",
+      "source_title": "市川市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-node-2715141566",
-      "name": "遠見岬神社",
+      "candidate_id": "osm-node-2315634272",
+      "name": "甲大神社",
+      "municipality": "市川市",
+      "address": "大和田二丁目5番4号",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/ichikawa.html",
+      "source_title": "市川市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-443808067",
+      "name": "高石神社",
+      "municipality": "市川市",
+      "address": "高石神1番10号",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/ichikawa.html",
+      "source_title": "市川市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4524953315",
+      "name": "第六天社",
+      "municipality": "市川市",
+      "address": "若宮2丁目5番2号",
+      "umbrella": "単立",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/ichikawa.html",
+      "source_title": "市川市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-12958879855",
+      "name": "川津神社",
       "municipality": "勝浦市",
-      "address": "浜勝浦1番地",
+      "address": "川津1643番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/katsuura.html",
       "source_title": "勝浦市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-381677786",
-      "name": "松戸神社",
+      "candidate_id": "osm-way-1006886438",
+      "name": "安房須神社",
       "municipality": "松戸市",
-      "address": "松戸1457番地",
+      "address": "新作591番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/matsudo.html",
       "source_title": "松戸市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-786555172",
-      "name": "大宮神社",
+      "candidate_id": "osm-way-126091754",
+      "name": "香取稲荷神社",
+      "municipality": "松戸市",
+      "address": "栄町5丁目338番地の1",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/matsudo.html",
+      "source_title": "松戸市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1485630886",
+      "name": "香取駒形神社",
+      "municipality": "松戸市",
+      "address": "幸田三丁目159番地",
+      "umbrella": "単立",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/matsudo.html",
+      "source_title": "松戸市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1485630883",
+      "name": "三日月神社",
+      "municipality": "松戸市",
+      "address": "三ケ月1450番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/matsudo.html",
+      "source_title": "松戸市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-743764467",
+      "name": "女躰神社",
+      "municipality": "松戸市",
+      "address": "横須賀1丁目26番7号",
+      "umbrella": "単立",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/matsudo.html",
+      "source_title": "松戸市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1356157013",
+      "name": "蘇羽鷹神社",
+      "municipality": "松戸市",
+      "address": "二ツ木1732番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/matsudo.html",
+      "source_title": "松戸市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1485630884",
+      "name": "東雷神社",
+      "municipality": "松戸市",
+      "address": "東平賀226番地",
+      "umbrella": "単立",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/matsudo.html",
+      "source_title": "松戸市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-126892582",
+      "name": "白髭神社",
+      "municipality": "松戸市",
+      "address": "日暮5丁目226番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/matsudo.html",
+      "source_title": "松戸市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-381697442",
+      "name": "風早神社",
+      "municipality": "松戸市",
+      "address": "上本郷3108番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/matsudo.html",
+      "source_title": "松戸市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-771342053",
+      "name": "平潟神社",
+      "municipality": "松戸市",
+      "address": "松戸2166番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/matsudo.html",
+      "source_title": "松戸市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-125907339",
+      "name": "矢切神社",
+      "municipality": "松戸市",
+      "address": "下矢切303番地",
+      "umbrella": "単立",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/matsudo.html",
+      "source_title": "松戸市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4582391446",
+      "name": "小御門神社",
       "municipality": "成田市",
-      "address": "土屋1331番地",
+      "address": "名古屋898番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/narita.html",
       "source_title": "成田市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-node-4438722103",
-      "name": "渡海神社",
+      "candidate_id": "osm-node-4203853489",
+      "name": "保目神社",
+      "municipality": "成田市",
+      "address": "寺台436番地の1～2",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/narita.html",
+      "source_title": "成田市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-640911670",
+      "name": "園生神社",
+      "municipality": "千葉市稲毛区",
+      "address": "園生町624番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/inage.html",
+      "source_title": "千葉市稲毛区｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-140093110",
+      "name": "検見川神社",
+      "municipality": "千葉市花見川区",
+      "address": "検見川町一丁目1番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/hanamigawa.html",
+      "source_title": "千葉市花見川区｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5223603934",
+      "name": "三代王神社",
+      "municipality": "千葉市花見川区",
+      "address": "武石町1丁目4番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/hanamigawa.html",
+      "source_title": "千葉市花見川区｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-350090978",
+      "name": "子守神社",
+      "municipality": "千葉市花見川区",
+      "address": "幕張町2丁目990番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/hanamigawa.html",
+      "source_title": "千葉市花見川区｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-386450367",
+      "name": "寒川神社",
+      "municipality": "千葉市中央区",
+      "address": "寒川町一丁目123番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/chuou.html",
+      "source_title": "千葉市中央区｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-263715299",
+      "name": "今井神社",
+      "municipality": "千葉市中央区",
+      "address": "今井一丁目24番14号",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/chuou.html",
+      "source_title": "千葉市中央区｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-391177865",
+      "name": "蘇我比咩神社",
+      "municipality": "千葉市中央区",
+      "address": "蘇我二丁目2番7号",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/chuou.html",
+      "source_title": "千葉市中央区｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-3915625757",
+      "name": "瀧蔵神社",
+      "municipality": "千葉市中央区",
+      "address": "千葉寺町162番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/chuou.html",
+      "source_title": "千葉市中央区｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-7099633465",
+      "name": "皇太神社",
+      "municipality": "千葉市緑区",
+      "address": "平川町436番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/midori.html",
+      "source_title": "千葉市緑区｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-600890651",
+      "name": "六通神社",
+      "municipality": "千葉市緑区",
+      "address": "おゆみ野中央八丁目7番地3",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/midori.html",
+      "source_title": "千葉市緑区｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-398939674",
+      "name": "葛飾神社",
+      "municipality": "船橋市",
+      "address": "西船5丁目3番8号",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/funabashi.html",
+      "source_title": "船橋市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4524960895",
+      "name": "星影神社",
+      "municipality": "船橋市",
+      "address": "二和西三丁目6番43号",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/funabashi.html",
+      "source_title": "船橋市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-12767793130",
+      "name": "湯殿神社",
+      "municipality": "船橋市",
+      "address": "大穴北5丁目30番12号",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/funabashi.html",
+      "source_title": "船橋市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-9952118803",
+      "name": "松山神社",
+      "municipality": "匝瑳市",
+      "address": "松山1123番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/sousa.html",
+      "source_title": "匝瑳市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5918150665",
+      "name": "坂戸神社",
+      "municipality": "袖ケ浦市",
+      "address": "坂戸市場1441番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/sodegaura.html",
+      "source_title": "袖ケ浦市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-13036623064",
+      "name": "福王神社",
+      "municipality": "袖ケ浦市",
+      "address": "奈良輪202番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/sodegaura.html",
+      "source_title": "袖ケ浦市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-13036916543",
+      "name": "飽富神社",
+      "municipality": "袖ケ浦市",
+      "address": "飯富2863番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/sodegaura.html",
+      "source_title": "袖ケ浦市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-10085970666",
+      "name": "率土神社",
+      "municipality": "袖ケ浦市",
+      "address": "神納3382番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/sodegaura.html",
+      "source_title": "袖ケ浦市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-12366499492",
+      "name": "生神神社",
+      "municipality": "大網白里市",
+      "address": "小中1052番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/ohamishirasato.html",
+      "source_title": "大網白里市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4573211454",
+      "name": "縣神社",
+      "municipality": "大網白里市",
+      "address": "土気飛地1876番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/ohamishirasato.html",
+      "source_title": "大網白里市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5357134214",
+      "name": "宇賀大神",
       "municipality": "銚子市",
-      "address": "高神西町2番地",
+      "address": "松岸町3丁目194番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/choshi.html",
       "source_title": "銚子市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-733438578",
-      "name": "王子神社",
+      "candidate_id": "osm-node-4355640980",
+      "name": "川口神社",
+      "municipality": "銚子市",
+      "address": "川口町2-6378",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/choshi.html",
+      "source_title": "銚子市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6411741318",
+      "name": "銚港神社",
+      "municipality": "銚子市",
+      "address": "馬場町1番地の4",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/choshi.html",
+      "source_title": "銚子市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-435243724",
+      "name": "粟島神社",
+      "municipality": "長生郡長生村",
+      "address": "一松戊823番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/chosei.html",
+      "source_title": "長生村｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1495290693",
+      "name": "祇園神社",
+      "municipality": "長生郡白子町",
+      "address": "剃金530番地2",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/shirako.html",
+      "source_title": "白子町｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-587477121",
+      "name": "水婆神社",
+      "municipality": "東金市",
+      "address": "菱沼423番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tougane.html",
+      "source_title": "東金市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-730258407",
+      "name": "青根原神社",
       "municipality": "南房総市",
-      "address": "御子神91",
+      "address": "白浜町白浜2134番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/minamibousou.html",
       "source_title": "南房総市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-456854294",
-      "name": "加茂神社",
-      "municipality": "南房総市",
-      "address": "白浜町白浜977番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/minamibousou.html",
-      "source_title": "南房総市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-node-6622145847",
-      "name": "賀茂神社",
-      "municipality": "南房総市",
-      "address": "加茂2070番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/minamibousou.html",
-      "source_title": "南房総市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-725329294",
-      "name": "皇神社",
-      "municipality": "南房総市",
-      "address": "千代29番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/minamibousou.html",
-      "source_title": "南房総市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-821290638",
-      "name": "荒磯魚見根神社",
-      "municipality": "南房総市",
-      "address": "千倉町忽戸1042番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/minamibousou.html",
-      "source_title": "南房総市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1458244410",
-      "name": "荒神社",
-      "municipality": "南房総市",
-      "address": "和田町磑森92番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/minamibousou.html",
-      "source_title": "南房総市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1019629578",
-      "name": "高家神社",
-      "municipality": "南房総市",
-      "address": "千倉町南朝夷164番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/minamibousou.html",
-      "source_title": "南房総市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-725824993",
-      "name": "高子神社",
-      "municipality": "南房総市",
-      "address": "谷向53番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/minamibousou.html",
-      "source_title": "南房総市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-725813633",
-      "name": "子安神社",
-      "municipality": "南房総市",
-      "address": "和田町海発716番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/minamibousou.html",
-      "source_title": "南房総市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1018932913",
-      "name": "千倉神社",
-      "municipality": "南房総市",
-      "address": "千倉町北朝夷2809番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/minamibousou.html",
-      "source_title": "南房総市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1061933503",
-      "name": "大井神社",
-      "municipality": "南房総市",
-      "address": "大井801番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/minamibousou.html",
-      "source_title": "南房総市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1067443572",
-      "name": "瀧田神社",
-      "municipality": "南房総市",
-      "address": "下滝田511番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/minamibousou.html",
-      "source_title": "南房総市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-457060128",
-      "name": "長尾神社",
-      "municipality": "南房総市",
-      "address": "千倉町大川327番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/minamibousou.html",
-      "source_title": "南房総市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-727631099",
-      "name": "本織神社",
-      "municipality": "南房総市",
-      "address": "本織667番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/minamibousou.html",
-      "source_title": "南房総市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1017832156",
-      "name": "諏訪神社",
+      "candidate_id": "osm-way-385581713",
+      "name": "地主神社",
       "municipality": "柏市",
-      "address": "柏5丁目7番7号",
+      "address": "篠篭田650番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kashiwa.html",
       "source_title": "柏市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1528018060",
-      "name": "姥神社",
-      "municipality": "富津市",
-      "address": "花香谷443番地",
+      "candidate_id": "osm-node-6592940461",
+      "name": "廣幡八幡宮",
+      "municipality": "柏市",
+      "address": "増尾895番地",
       "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/futtsu.html",
-      "source_title": "富津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kashiwa.html",
+      "source_title": "柏市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-756842551",
-      "name": "貴布禰神社",
-      "municipality": "富津市",
-      "address": "富津1174番地",
+      "candidate_id": "osm-node-3927144814",
+      "name": "橘樹神社",
+      "municipality": "茂原市",
+      "address": "本納738番地",
       "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/futtsu.html",
-      "source_title": "富津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/mobara.html",
+      "source_title": "茂原市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-354976443",
-      "name": "金谷神社",
-      "municipality": "富津市",
-      "address": "金谷4020番地",
+      "candidate_id": "osm-node-6371122691",
+      "name": "西宮神社",
+      "municipality": "茂原市",
+      "address": "下太田521番地",
       "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/futtsu.html",
-      "source_title": "富津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/mobara.html",
+      "source_title": "茂原市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-relation-6600322",
-      "name": "吾妻神社",
-      "municipality": "富津市",
-      "address": "西大和田98番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/futtsu.html",
-      "source_title": "富津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1336558146",
-      "name": "皇神社",
-      "municipality": "富津市",
-      "address": "萩生1177番地4",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/futtsu.html",
-      "source_title": "富津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-732665859",
-      "name": "三柱神社",
-      "municipality": "富津市",
-      "address": "竹岡4452番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/futtsu.html",
-      "source_title": "富津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1546714948",
-      "name": "水神社",
-      "municipality": "富津市",
-      "address": "加藤554番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/futtsu.html",
-      "source_title": "富津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-704147935",
-      "name": "千草川神社",
-      "municipality": "富津市",
-      "address": "岩瀬1029番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/futtsu.html",
-      "source_title": "富津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-703382199",
-      "name": "鶴峯八幡神社",
-      "municipality": "富津市",
-      "address": "八幡143番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/futtsu.html",
-      "source_title": "富津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-714623591",
-      "name": "日月神社",
-      "municipality": "富津市",
-      "address": "佐貫54番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/futtsu.html",
-      "source_title": "富津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1539686321",
-      "name": "八雲神社",
-      "municipality": "富津市",
-      "address": "岩坂74番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/futtsu.html",
-      "source_title": "富津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-758078328",
-      "name": "飯野神社",
-      "municipality": "富津市",
-      "address": "下飯野965番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/futtsu.html",
-      "source_title": "富津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1545265760",
-      "name": "武内神社",
-      "municipality": "富津市",
-      "address": "岩坂244番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/futtsu.html",
-      "source_title": "富津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1511459252",
-      "name": "北上神社",
-      "municipality": "富津市",
-      "address": "亀沢244番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/futtsu.html",
-      "source_title": "富津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1489066796",
-      "name": "龍岳神社",
-      "municipality": "富津市",
-      "address": "上1032番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/futtsu.html",
-      "source_title": "富津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-706451814",
-      "name": "吉野神社",
+      "candidate_id": "osm-node-5775323320",
+      "name": "守公神社",
       "municipality": "木更津市",
-      "address": "矢那913番地・914番地",
+      "address": "下郡1627番地",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kisaradsu.html",
       "source_title": "木更津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-850069987",
-      "name": "十二所神社",
-      "municipality": "木更津市",
-      "address": "下郡408番地",
+      "candidate_id": "osm-node-12385744541",
+      "name": "櫻木神社",
+      "municipality": "野田市",
+      "address": "桜台210番地1",
       "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kisaradsu.html",
-      "source_title": "木更津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1491552175",
-      "name": "刀八神社",
-      "municipality": "木更津市",
-      "address": "太田二丁目14番22号",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kisaradsu.html",
-      "source_title": "木更津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-706099911",
-      "name": "北野神社",
-      "municipality": "木更津市",
-      "address": "矢那3770番地",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kisaradsu.html",
-      "source_title": "木更津市｜宗教法人一覧／千葉県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "source_url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/noda.html",
+      "source_title": "野田市｜宗教法人一覧／千葉県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     }
   ],
   "ambiguous": [
     {
-      "key": "麻賀多神社|佐倉市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|麻賀多神社|佐倉市",
       "authority_count": 10,
       "candidate_count": 1,
       "names": [
@@ -1064,7 +1020,8 @@
       ]
     },
     {
-      "key": "八幡神社|勝浦市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|八幡神社|勝浦市",
       "authority_count": 7,
       "candidate_count": 1,
       "names": [
@@ -1078,7 +1035,8 @@
       ]
     },
     {
-      "key": "三嶋神社|南房総市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|三嶋神社|南房総市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1092,7 +1050,8 @@
       ]
     },
     {
-      "key": "下立松原神社|南房総市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|下立松原神社|南房総市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1106,7 +1065,8 @@
       ]
     },
     {
-      "key": "八坂神社|南房総市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|八坂神社|南房総市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1120,7 +1080,8 @@
       ]
     },
     {
-      "key": "八雲神社|南房総市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|八雲神社|南房総市",
       "authority_count": 4,
       "candidate_count": 1,
       "names": [
@@ -1134,7 +1095,8 @@
       ]
     },
     {
-      "key": "山神社|南房総市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|山神社|南房総市",
       "authority_count": 4,
       "candidate_count": 1,
       "names": [
@@ -1148,7 +1110,8 @@
       ]
     },
     {
-      "key": "愛宕神社|南房総市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|愛宕神社|南房総市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1162,7 +1125,8 @@
       ]
     },
     {
-      "key": "水神社|南房総市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|水神社|南房総市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1176,7 +1140,8 @@
       ]
     },
     {
-      "key": "浅間神社|南房総市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|浅間神社|南房総市",
       "authority_count": 4,
       "candidate_count": 1,
       "names": [
@@ -1190,7 +1155,8 @@
       ]
     },
     {
-      "key": "熊野神社|南房総市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|熊野神社|南房総市",
       "authority_count": 12,
       "candidate_count": 1,
       "names": [
@@ -1204,7 +1170,8 @@
       ]
     },
     {
-      "key": "熱田神社|南房総市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|熱田神社|南房総市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1218,7 +1185,8 @@
       ]
     },
     {
-      "key": "稲荷神社|南房総市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|稲荷神社|南房総市",
       "authority_count": 5,
       "candidate_count": 1,
       "names": [
@@ -1232,7 +1200,8 @@
       ]
     },
     {
-      "key": "莫越山神社|南房総市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|莫越山神社|南房総市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1246,7 +1215,8 @@
       ]
     },
     {
-      "key": "諏訪神社|南房総市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|諏訪神社|南房総市",
       "authority_count": 8,
       "candidate_count": 1,
       "names": [
@@ -1260,7 +1230,8 @@
       ]
     },
     {
-      "key": "豊受神社|南房総市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|豊受神社|南房総市",
       "authority_count": 3,
       "candidate_count": 1,
       "names": [
@@ -1274,7 +1245,8 @@
       ]
     },
     {
-      "key": "八坂神社|君津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|八坂神社|君津市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1288,7 +1260,8 @@
       ]
     },
     {
-      "key": "八幡神社|君津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|八幡神社|君津市",
       "authority_count": 12,
       "candidate_count": 3,
       "names": [
@@ -1304,7 +1277,8 @@
       ]
     },
     {
-      "key": "八雲神社|君津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|八雲神社|君津市",
       "authority_count": 3,
       "candidate_count": 1,
       "names": [
@@ -1318,7 +1292,8 @@
       ]
     },
     {
-      "key": "大宮神社|君津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|大宮神社|君津市",
       "authority_count": 3,
       "candidate_count": 1,
       "names": [
@@ -1332,7 +1307,8 @@
       ]
     },
     {
-      "key": "大嶽神社|君津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|大嶽神社|君津市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1346,7 +1322,8 @@
       ]
     },
     {
-      "key": "山神社|君津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|山神社|君津市",
       "authority_count": 12,
       "candidate_count": 2,
       "names": [
@@ -1361,7 +1338,8 @@
       ]
     },
     {
-      "key": "愛宕神社|君津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|愛宕神社|君津市",
       "authority_count": 3,
       "candidate_count": 1,
       "names": [
@@ -1375,7 +1353,8 @@
       ]
     },
     {
-      "key": "日吉神社|君津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|日吉神社|君津市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1389,7 +1368,8 @@
       ]
     },
     {
-      "key": "日枝神社|君津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|日枝神社|君津市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1403,7 +1383,8 @@
       ]
     },
     {
-      "key": "春日神社|君津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|春日神社|君津市",
       "authority_count": 9,
       "candidate_count": 2,
       "names": [
@@ -1418,7 +1399,8 @@
       ]
     },
     {
-      "key": "浅間神社|君津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|浅間神社|君津市",
       "authority_count": 4,
       "candidate_count": 1,
       "names": [
@@ -1432,7 +1414,8 @@
       ]
     },
     {
-      "key": "熊野神社|君津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|熊野神社|君津市",
       "authority_count": 11,
       "candidate_count": 1,
       "names": [
@@ -1446,7 +1429,8 @@
       ]
     },
     {
-      "key": "白山神社|君津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|白山神社|君津市",
       "authority_count": 7,
       "candidate_count": 2,
       "names": [
@@ -1461,7 +1445,8 @@
       ]
     },
     {
-      "key": "神明神社|君津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|神明神社|君津市",
       "authority_count": 2,
       "candidate_count": 2,
       "names": [
@@ -1476,7 +1461,8 @@
       ]
     },
     {
-      "key": "菅原神社|君津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|菅原神社|君津市",
       "authority_count": 3,
       "candidate_count": 2,
       "names": [
@@ -1491,7 +1477,8 @@
       ]
     },
     {
-      "key": "諏訪神社|君津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|諏訪神社|君津市",
       "authority_count": 4,
       "candidate_count": 1,
       "names": [
@@ -1505,7 +1492,8 @@
       ]
     },
     {
-      "key": "住吉神社|富津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|住吉神社|富津市",
       "authority_count": 3,
       "candidate_count": 1,
       "names": [
@@ -1519,7 +1507,8 @@
       ]
     },
     {
-      "key": "八坂神社|富津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|八坂神社|富津市",
       "authority_count": 14,
       "candidate_count": 2,
       "names": [
@@ -1534,7 +1523,8 @@
       ]
     },
     {
-      "key": "八幡神社|富津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|八幡神社|富津市",
       "authority_count": 6,
       "candidate_count": 1,
       "names": [
@@ -1548,7 +1538,8 @@
       ]
     },
     {
-      "key": "山神社|富津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|山神社|富津市",
       "authority_count": 7,
       "candidate_count": 1,
       "names": [
@@ -1562,7 +1553,8 @@
       ]
     },
     {
-      "key": "浅間神社|富津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|浅間神社|富津市",
       "authority_count": 5,
       "candidate_count": 1,
       "names": [
@@ -1576,7 +1568,8 @@
       ]
     },
     {
-      "key": "熊野神社|富津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|熊野神社|富津市",
       "authority_count": 4,
       "candidate_count": 1,
       "names": [
@@ -1590,7 +1583,8 @@
       ]
     },
     {
-      "key": "白山神社|富津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|白山神社|富津市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1604,7 +1598,8 @@
       ]
     },
     {
-      "key": "神明神社|富津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|神明神社|富津市",
       "authority_count": 4,
       "candidate_count": 1,
       "names": [
@@ -1618,7 +1613,8 @@
       ]
     },
     {
-      "key": "稲荷神社|富津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|稲荷神社|富津市",
       "authority_count": 3,
       "candidate_count": 1,
       "names": [
@@ -1632,7 +1628,8 @@
       ]
     },
     {
-      "key": "若宮八幡神社|富津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|若宮八幡神社|富津市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1646,7 +1643,8 @@
       ]
     },
     {
-      "key": "諏訪神社|富津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|諏訪神社|富津市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1660,7 +1658,8 @@
       ]
     },
     {
-      "key": "白山神社|市原市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|白山神社|市原市",
       "authority_count": 6,
       "candidate_count": 1,
       "names": [
@@ -1674,7 +1673,8 @@
       ]
     },
     {
-      "key": "八幡神社|木更津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|八幡神社|木更津市",
       "authority_count": 8,
       "candidate_count": 1,
       "names": [
@@ -1688,7 +1688,8 @@
       ]
     },
     {
-      "key": "日枝神社|木更津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|日枝神社|木更津市",
       "authority_count": 14,
       "candidate_count": 1,
       "names": [
@@ -1702,7 +1703,8 @@
       ]
     },
     {
-      "key": "浅間神社|木更津市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|浅間神社|木更津市",
       "authority_count": 3,
       "candidate_count": 1,
       "names": [
@@ -1716,7 +1718,8 @@
       ]
     },
     {
-      "key": "意富比神社|船橋市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|意富比神社|船橋市",
       "authority_count": 3,
       "candidate_count": 1,
       "names": [
@@ -1730,7 +1733,8 @@
       ]
     },
     {
-      "key": "白幡神社|茂原市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|白幡神社|茂原市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1744,7 +1748,8 @@
       ]
     },
     {
-      "key": "熊野神社|袖ケ浦市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|熊野神社|袖ケ浦市",
       "authority_count": 7,
       "candidate_count": 1,
       "names": [
@@ -1758,7 +1763,8 @@
       ]
     },
     {
-      "key": "八坂神社|館山市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|八坂神社|館山市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1772,7 +1778,8 @@
       ]
     },
     {
-      "key": "八幡神社|館山市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|八幡神社|館山市",
       "authority_count": 6,
       "candidate_count": 1,
       "names": [
@@ -1786,7 +1793,8 @@
       ]
     },
     {
-      "key": "御嶽神社|館山市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|御嶽神社|館山市",
       "authority_count": 4,
       "candidate_count": 1,
       "names": [
@@ -1800,7 +1808,8 @@
       ]
     },
     {
-      "key": "日枝神社|館山市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|日枝神社|館山市",
       "authority_count": 5,
       "candidate_count": 1,
       "names": [
@@ -1814,7 +1823,8 @@
       ]
     },
     {
-      "key": "熊野神社|館山市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|熊野神社|館山市",
       "authority_count": 7,
       "candidate_count": 1,
       "names": [
@@ -1828,7 +1838,8 @@
       ]
     },
     {
-      "key": "白幡神社|館山市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|白幡神社|館山市",
       "authority_count": 3,
       "candidate_count": 1,
       "names": [
@@ -1842,7 +1853,8 @@
       ]
     },
     {
-      "key": "神明神社|館山市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|神明神社|館山市",
       "authority_count": 6,
       "candidate_count": 1,
       "names": [
@@ -1856,7 +1868,8 @@
       ]
     },
     {
-      "key": "稲荷神社|館山市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|稲荷神社|館山市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1870,7 +1883,8 @@
       ]
     },
     {
-      "key": "蛭子神社|館山市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|蛭子神社|館山市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
@@ -1884,7 +1898,8 @@
       ]
     },
     {
-      "key": "諏訪神社|館山市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|諏訪神社|館山市",
       "authority_count": 9,
       "candidate_count": 1,
       "names": [
@@ -1898,7 +1913,8 @@
       ]
     },
     {
-      "key": "八坂神社|香取市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|八坂神社|香取市",
       "authority_count": 4,
       "candidate_count": 1,
       "names": [
@@ -1912,7 +1928,8 @@
       ]
     },
     {
-      "key": "八幡神社|鴨川市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|八幡神社|鴨川市",
       "authority_count": 9,
       "candidate_count": 1,
       "names": [
@@ -1926,7 +1943,8 @@
       ]
     },
     {
-      "key": "八雲神社|鴨川市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|八雲神社|鴨川市",
       "authority_count": 6,
       "candidate_count": 2,
       "names": [
@@ -1941,7 +1959,8 @@
       ]
     },
     {
-      "key": "日枝神社|鴨川市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|日枝神社|鴨川市",
       "authority_count": 4,
       "candidate_count": 1,
       "names": [
@@ -1955,7 +1974,8 @@
       ]
     },
     {
-      "key": "神明神社|鴨川市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|神明神社|鴨川市",
       "authority_count": 4,
       "candidate_count": 1,
       "names": [
@@ -1969,7 +1989,8 @@
       ]
     },
     {
-      "key": "須賀神社|鴨川市",
+      "scope": "name_and_municipality",
+      "key": "千葉県|須賀神社|鴨川市",
       "authority_count": 2,
       "candidate_count": 1,
       "names": [
