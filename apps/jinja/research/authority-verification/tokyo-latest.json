@@ -5,603 +5,2457 @@
   "jurisdiction": "JP-13",
   "prefecture": "東京都",
   "publisher": "東京都",
-  "generated_at": "2026-09-01T17:15:53.109Z",
-  "verification_date": "2026-09-01",
+  "generated_at": "2026-09-02T01:30:12.941Z",
+  "verification_date": "2026-09-02",
   "authority_record_count": 1569,
   "authority_page_count": 1,
   "authority_failed_page_count": 0,
   "osm_named_candidate_count": 1641,
-  "approved_count": 58,
+  "approved_count": 243,
   "ambiguous_count": 6,
-  "match_rule": "exact normalized shrine name + exact municipality, with exactly one authority row and one OSM candidate for that pair",
+  "match_rules": {
+    "exact_name_unique_statewide_candidate_missing_municipality": 243
+  },
+  "match_rule": "exact normalized shrine name + exact municipality when available; fallback only when OSM municipality is absent and the normalized name is unique across the prefecture on both authority and OSM sides",
   "automatic_state_inference": false,
   "automatic_event_inference": false,
   "automatic_relation_inference": false,
   "source_page": "https://www.seikatubunka.metro.tokyo.lg.jp/houjin/shukyo_houjin",
   "approved": [
     {
-      "candidate_id": "osm-node-9990384124",
-      "name": "奥氷川神社",
+      "candidate_id": "osm-way-1036873456",
+      "name": "阿伎留神社",
+      "municipality": "あきる野市",
+      "address": "あきる野市五日市１０８１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8604974152",
+      "name": "稲足神社",
+      "municipality": "あきる野市",
+      "address": "あきる野市菅生字下８７１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-293754841",
+      "name": "貴志嶋神社",
+      "municipality": "あきる野市",
+      "address": "あきる野市網代城山８３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-3003214389",
+      "name": "高尾神社",
+      "municipality": "あきる野市",
+      "address": "あきる野市高尾字宮ノ入６６０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8686205717",
+      "name": "三内神社",
+      "municipality": "あきる野市",
+      "address": "あきる野市三内１９０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-299798108",
+      "name": "子生神社",
+      "municipality": "あきる野市",
+      "address": "あきる野市小中野字子生前１８７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-11610320898",
+      "name": "草花神社",
+      "municipality": "あきる野市",
+      "address": "あきる野市草花１７８７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-13546459573",
+      "name": "竪神社",
+      "municipality": "稲城市",
+      "address": "稲城市百村２１２９－６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-9158460611",
+      "name": "島守神社",
+      "municipality": "稲城市",
+      "address": "稲城市押立６７８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1249079441",
+      "name": "羽村神社",
+      "municipality": "羽村",
+      "address": "羽村市羽７４３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-180102755",
+      "name": "五ノ神社",
+      "municipality": "羽村",
+      "address": "羽村市五ノ神１－１－６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2337128358",
+      "name": "一石山神社",
       "municipality": "奥多摩町",
-      "address": "奥多摩町氷川１７８",
+      "address": "奥多摩町日原１０５２",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-217544141",
-      "name": "葛西神社",
+      "candidate_id": "osm-node-13686153243",
+      "name": "海澤神社",
+      "municipality": "奥多摩町",
+      "address": "奥多摩町海沢６３０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5064281150",
+      "name": "小河内神社",
+      "municipality": "奥多摩町",
+      "address": "奥多摩町河内１４９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6413988047",
+      "name": "花之木稲荷神社",
       "municipality": "葛飾区",
-      "address": "葛飾区東金町６－１０－５",
+      "address": "葛飾区新宿６－３－１７",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-156919949",
-      "name": "猿江神社",
+      "candidate_id": "osm-way-1002162931",
+      "name": "古録天神社",
+      "municipality": "葛飾区",
+      "address": "葛飾区柴又２－５－３６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-730163368",
+      "name": "篠原稲荷神社",
+      "municipality": "葛飾区",
+      "address": "葛飾区四つ木４－１９－３３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2286261969",
+      "name": "小菅神社",
+      "municipality": "葛飾区",
+      "address": "葛飾区小菅３－１－２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-9401823450",
+      "name": "小谷野神社",
+      "municipality": "葛飾区",
+      "address": "葛飾区堀切４－３３－１７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-9268951451",
+      "name": "青砥神社",
+      "municipality": "葛飾区",
+      "address": "葛飾区青戸７－３４－３０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1011212590",
+      "name": "半田稲荷神社",
+      "municipality": "葛飾区",
+      "address": "葛飾区東金町４－２８－２２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-986919406",
+      "name": "興之宮神社",
+      "municipality": "江戸川区",
+      "address": "江戸川区興宮町１８－２６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4718293498",
+      "name": "桑川神社",
+      "municipality": "江戸川区",
+      "address": "江戸川区東葛西１－２３－１９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5731483228",
+      "name": "小岩神社",
+      "municipality": "江戸川区",
+      "address": "江戸川区東小岩６－１５－１５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5746657968",
+      "name": "小松川神社",
+      "municipality": "江戸川区",
+      "address": "江戸川区小松川３－１－２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-10913683909",
+      "name": "前川神社",
+      "municipality": "江戸川区",
+      "address": "江戸川区江戸川１－６－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-693992374",
+      "name": "二之江神社",
+      "municipality": "江戸川区",
+      "address": "江戸川区江戸川６－４４－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6129996030",
+      "name": "豊田神社",
+      "municipality": "江戸川区",
+      "address": "江戸川区東瑞江１－１８－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-464284025",
+      "name": "宇迦八幡宮",
       "municipality": "江東区",
-      "address": "江東区猿江２－２－１７",
+      "address": "江東区千田１２ー８",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-100599675",
-      "name": "亀戸天神社",
+      "candidate_id": "osm-node-5838232873",
+      "name": "治兵衛稲荷神社",
       "municipality": "江東区",
-      "address": "江東区亀戸３－６－１",
+      "address": "江東区北砂３－２１－１１",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-268990691",
-      "name": "熊野神社",
+      "candidate_id": "osm-node-2268159655",
+      "name": "深川稲荷神社",
+      "municipality": "江東区",
+      "address": "江東区清澄２－１２－１２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1832768988",
+      "name": "深川神明宮",
+      "municipality": "江東区",
+      "address": "江東区森下１－３－１７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-3387046414",
+      "name": "正木稲荷神社",
+      "municipality": "江東区",
+      "address": "江東区常盤１－１－２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-11708588003",
+      "name": "大島稲荷神社",
+      "municipality": "江東区",
+      "address": "江東区大島５－３９－２６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-246752608",
+      "name": "東大島神社",
+      "municipality": "江東区",
+      "address": "江東区大島７－２４－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-616241895",
+      "name": "富岡八幡宮",
+      "municipality": "江東区",
+      "address": "江東区富岡１－２０－３",
+      "umbrella": "単立・神道系",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-260408025",
+      "name": "烏森神社",
       "municipality": "港区",
-      "address": "港区麻布台２－２－１４",
+      "address": "港区新橋２－１５－５",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-218873568",
-      "name": "十番稲荷神社",
+      "candidate_id": "osm-way-243653475",
+      "name": "久国神社",
       "municipality": "港区",
-      "address": "港区麻布十番１－４－６",
+      "address": "港区六本木２－１－１６",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-449791216",
-      "name": "乃木神社",
+      "candidate_id": "osm-way-653744413",
+      "name": "御田八幡神社",
       "municipality": "港区",
-      "address": "港区赤坂８－１１－２７",
+      "address": "港区三田３－７－１６",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-511276638",
-      "name": "金王八幡宮",
+      "candidate_id": "osm-way-1337713345",
+      "name": "高山稲荷神社",
+      "municipality": "港区",
+      "address": "港区高輪４－１０－２３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-653744410",
+      "name": "高輪神社",
+      "municipality": "港区",
+      "address": "港区高輪２－１４－１８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-653744415",
+      "name": "芝大神宮",
+      "municipality": "港区",
+      "address": "港区芝大門１－１２－７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1656983002",
+      "name": "出雲大社東京分祠",
+      "municipality": "港区",
+      "address": "港区六本木７－１８－５",
+      "umbrella": "出雲大社教",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-310085600",
+      "name": "神道大教院",
+      "municipality": "港区",
+      "address": "港区西麻布４－９－２",
+      "umbrella": "神道大教",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4459864589",
+      "name": "朝日神社",
+      "municipality": "港区",
+      "address": "港区六本木６－７－１４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1025845868",
+      "name": "日比谷神社",
+      "municipality": "港区",
+      "address": "港区東新橋２－１－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1214278319",
+      "name": "柳神社",
+      "municipality": "港区",
+      "address": "港区芝３－１２－１９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5423177352",
+      "name": "向陵稲荷神社",
+      "municipality": "荒川区",
+      "address": "荒川区西日暮里４－７－３４",
+      "umbrella": "単立・神道系",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-252709160",
+      "name": "諏方神社",
+      "municipality": "荒川区",
+      "address": "荒川区西日暮里３－４－８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5641851782",
+      "name": "石浜神社",
+      "municipality": "荒川区",
+      "address": "荒川区南千住３－２８－５８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-235078257",
+      "name": "素盞雄神社",
+      "municipality": "荒川区",
+      "address": "荒川区南千住６－６０－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1501305695",
+      "name": "谷保天満宮",
+      "municipality": "国立市",
+      "address": "国立市谷保５２０８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-10796894871",
+      "name": "古八幡社",
+      "municipality": "三鷹市",
+      "address": "三鷹市大沢5-1－１６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1377069776",
+      "name": "勝淵神社",
+      "municipality": "三鷹市",
+      "address": "三鷹市新川３－２０－１７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1756217309",
+      "name": "中嶋神社",
+      "municipality": "三鷹市",
+      "address": "三鷹市中原３－４－４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4344275274",
+      "name": "火戸寄神社",
+      "municipality": "三宅村",
+      "address": "三宅村大字阿古",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4344275279",
+      "name": "御祭神社",
+      "municipality": "三宅村",
+      "address": "三宅村大字伊豆",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4344275281",
+      "name": "御笏神社",
+      "municipality": "三宅村",
+      "address": "三宅村大字神着",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4344275278",
+      "name": "后神社",
+      "municipality": "三宅村",
+      "address": "三宅村大字伊ケ谷",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-11994595277",
+      "name": "荒島神社",
+      "municipality": "三宅村",
+      "address": "三宅村大字阿古",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4487022588",
+      "name": "差出神社",
+      "municipality": "三宅村",
+      "address": "三宅村大字阿古",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4344283095",
+      "name": "椎取神社",
+      "municipality": "三宅村",
+      "address": "三宅村大字神着",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-452682420",
+      "name": "富賀神社",
+      "municipality": "三宅村",
+      "address": "三宅村阿古無番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-138921337",
+      "name": "穏田神社",
       "municipality": "渋谷区",
-      "address": "渋谷区渋谷３－５－１２",
+      "address": "渋谷区神宮前５－２６－６",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-469908925",
-      "name": "明治神宮",
+      "candidate_id": "osm-node-6266972524",
+      "name": "恵比壽神社",
       "municipality": "渋谷区",
-      "address": "渋谷区代々木神園町１－１",
+      "address": "渋谷区恵比寿西１－１１－１",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-602821147",
-      "name": "大神山神社",
-      "municipality": "小笠原村",
-      "address": "小笠原村父島字東町１０５",
+      "candidate_id": "osm-node-2244671842",
+      "name": "代々木八幡宮",
+      "municipality": "渋谷区",
+      "address": "渋谷区代々木５－１－１",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-node-13521411997",
-      "name": "武蔵野神社",
+      "candidate_id": "osm-way-179091082",
+      "name": "東郷神社",
+      "municipality": "渋谷区",
+      "address": "渋谷区神宮前１－５－３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-10981792044",
+      "name": "豊栄稲荷神社",
+      "municipality": "渋谷区",
+      "address": "渋谷区渋谷３－４－７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-727465328",
+      "name": "貫井神社",
+      "municipality": "小金井市",
+      "address": "小金井市貫井南町３－８－６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5029793742",
+      "name": "小金井神社",
+      "municipality": "小金井市",
+      "address": "小金井市中町４－７－２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5461236318",
+      "name": "八重垣稲荷神社",
+      "municipality": "小金井市",
+      "address": "小金井市中町３－１４－７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6135577812",
+      "name": "小平神明宮",
       "municipality": "小平市",
-      "address": "小平市花小金井５－４６１",
+      "address": "小平市小川町１－２５７３",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-627559033",
-      "name": "鎧神社",
+      "candidate_id": "osm-node-10029769214",
+      "name": "拝島天神社",
+      "municipality": "昭島市",
+      "address": "昭島市拝島町２－１４－７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-102792887",
+      "name": "花園神社",
       "municipality": "新宿区",
-      "address": "新宿区北新宿３－１６－１８",
+      "address": "新宿区新宿５－１７－３",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-303959206",
-      "name": "穴八幡宮",
+      "candidate_id": "osm-node-4716326648",
+      "name": "皆中稲荷神社",
       "municipality": "新宿区",
-      "address": "新宿区西早稲田２－１－１１",
+      "address": "新宿区百人町１－１１－１６",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-node-6354051996",
-      "name": "月見岡八幡神社",
+      "candidate_id": "osm-node-691471427",
+      "name": "市谷亀岡八幡宮",
       "municipality": "新宿区",
-      "address": "新宿区上落合１－２６－１９",
-      "umbrella": "神社本庁",
+      "address": "新宿区市谷八幡町１５",
+      "umbrella": "単立・神道系",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-390405317",
-      "name": "須賀神社",
+      "candidate_id": "osm-way-584075992",
+      "name": "成子天神社",
       "municipality": "新宿区",
-      "address": "新宿区須賀町５",
+      "address": "新宿区西新宿８－１４－１０",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-375904664",
-      "name": "水稲荷神社",
+      "candidate_id": "osm-node-2385950544",
+      "name": "多武峯内藤神社",
       "municipality": "新宿区",
-      "address": "新宿区西早稲田３－５－４３",
+      "address": "新宿区内藤町１",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-143516722",
-      "name": "赤城神社",
+      "candidate_id": "osm-node-3349167454",
+      "name": "大京神社",
       "municipality": "新宿区",
-      "address": "新宿区赤城元町１－１０",
+      "address": "新宿区大京町６",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1366077206",
-      "name": "井草八幡宮",
+      "candidate_id": "osm-node-4460351990",
+      "name": "夫婦木神社",
+      "municipality": "新宿区",
+      "address": "新宿区大久保２－２７－１８",
+      "umbrella": "単立・神道系",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-512578912",
+      "name": "泊神社",
+      "municipality": "新島村",
+      "address": "新島村式根島８０－２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4271717288",
+      "name": "日向神社",
+      "municipality": "神津島村",
+      "address": "神津島村榎が沢６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-709073215",
+      "name": "物忌奈命神社",
+      "municipality": "神津島村",
+      "address": "神津島村４１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6438598469",
+      "name": "加藤神社",
+      "municipality": "瑞穂町",
+      "address": "瑞穂町箱根ケ崎３１５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-13347919034",
+      "name": "元狭山神社",
+      "municipality": "瑞穂町",
+      "address": "瑞穂町大字駒形富士山６０９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1712317845",
+      "name": "田端神社",
       "municipality": "杉並区",
-      "address": "杉並区善福寺１－３３－１",
+      "address": "杉並区荻窪１－５６－１０",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-680908887",
-      "name": "大宮八幡宮",
-      "municipality": "杉並区",
-      "address": "杉並区大宮２－３－１",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
-      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-440560885",
-      "name": "馬橋稲荷神社",
-      "municipality": "杉並区",
-      "address": "杉並区阿佐谷南２－４－４",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
-      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-867580837",
-      "name": "日枝神社",
-      "municipality": "清瀬市",
-      "address": "清瀬市中清戸２－６１６",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
-      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-node-2738494114",
-      "name": "下山八幡神社",
-      "municipality": "青梅市",
-      "address": "青梅市梅郷６－１２２０",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
-      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-node-11382218864",
-      "name": "神明神社",
-      "municipality": "青梅市",
-      "address": "青梅市成木８－３１５",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
-      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-node-13273244964",
-      "name": "蔵主神社",
-      "municipality": "青梅市",
-      "address": "青梅市谷野１４１",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
-      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-node-9694926308",
-      "name": "大東神社",
-      "municipality": "青梅市",
-      "address": "青梅市今井５－２４４０－１０４",
+      "candidate_id": "osm-node-1872595035",
+      "name": "稲荷森稲荷神社",
+      "municipality": "世田谷区",
+      "address": "世田谷区桜丘２－２９－３",
       "umbrella": "単立・神道系",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-node-9594114105",
-      "name": "大門神社",
-      "municipality": "青梅市",
-      "address": "青梅市大門１－５６９",
+      "candidate_id": "osm-way-1080703535",
+      "name": "烏山神社",
+      "municipality": "世田谷区",
+      "address": "世田谷区南烏山２－２１－１",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1388713416",
-      "name": "武蔵御嶽神社",
+      "candidate_id": "osm-node-473535391",
+      "name": "羽根木神社",
+      "municipality": "世田谷区",
+      "address": "世田谷区羽根木２－１７－５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2273573457",
+      "name": "奥澤神社",
+      "municipality": "世田谷区",
+      "address": "世田谷区奥沢５－２２－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1742494349",
+      "name": "駒留八幡神社",
+      "municipality": "世田谷区",
+      "address": "世田谷区上馬５－３５－３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1240105704",
+      "name": "三宿神社",
+      "municipality": "世田谷区",
+      "address": "世田谷区三宿２－２７－６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1891354183",
+      "name": "松陰神社",
+      "municipality": "世田谷区",
+      "address": "世田谷区若林４－３５－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-46954688",
+      "name": "世田谷八幡宮",
+      "municipality": "世田谷区",
+      "address": "世田谷区宮坂１－２３－２０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-49261637",
+      "name": "北澤八幡神社",
+      "municipality": "世田谷区",
+      "address": "世田谷区代沢３－２５－３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-303768856",
+      "name": "用賀神社",
+      "municipality": "世田谷区",
+      "address": "世田谷区用賀２－１６－２６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6158841081",
+      "name": "尉殿神社",
+      "municipality": "西東京市",
+      "address": "西東京市住吉町１－２１－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2947589638",
+      "name": "田無神社",
+      "municipality": "西東京市",
+      "address": "西東京市田無町３－７－４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1657233012",
+      "name": "虎柏神社",
       "municipality": "青梅市",
-      "address": "青梅市御岳山１７６",
+      "address": "青梅市根ヶ布１－３１６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-383562165",
+      "name": "師岡神社",
+      "municipality": "青梅市",
+      "address": "青梅市東青梅６－６８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4042748321",
+      "name": "鹿島玉川神社",
+      "municipality": "青梅市",
+      "address": "青梅市長渕２－５１９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-383388676",
+      "name": "勝沼神社",
+      "municipality": "青梅市",
+      "address": "青梅市勝沼３－１４０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-13359967681",
+      "name": "上成木神社",
+      "municipality": "青梅市",
+      "address": "青梅市成木６－６８５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2116690857",
+      "name": "西分神社",
+      "municipality": "青梅市",
+      "address": "青梅市西分町２－９０－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8692142549",
+      "name": "石動神社",
+      "municipality": "青梅市",
+      "address": "青梅市勝沼２－５３１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5825129335",
+      "name": "畑中神社",
+      "municipality": "青梅市",
+      "address": "青梅市畑中２－５５６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-9976406671",
+      "name": "八子谷神社",
+      "municipality": "青梅市",
+      "address": "青梅市成木４－７７２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-918502741",
+      "name": "檜原神社",
+      "municipality": "青梅市",
+      "address": "青梅市黒沢２－８２０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4947013276",
+      "name": "幸徳稲荷神社",
+      "municipality": "千代田区",
+      "address": "千代田区神田小川町２－１４－１４",
       "umbrella": "単立・神道系",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-791366981",
-      "name": "木野下神社",
-      "municipality": "青梅市",
-      "address": "青梅市木野下１－４６７",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
-      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-737077733",
-      "name": "杣保葛神社",
-      "municipality": "青梅市",
-      "address": "青梅市藤橋２－１０７",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
-      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-node-4002251495",
-      "name": "金山神社",
+      "candidate_id": "osm-way-504553390",
+      "name": "佐竹稲荷神社",
       "municipality": "千代田区",
-      "address": "千代田区岩本町２－１－１",
+      "address": "千代田区内神田３－１０－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-374396948",
+      "name": "三崎稲荷神社",
+      "municipality": "千代田区",
+      "address": "千代田区神田三崎町２－９－１２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-546743134",
+      "name": "真徳稲荷神社",
+      "municipality": "千代田区",
+      "address": "千代田区神田司町２－６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-46983897",
+      "name": "柳森神社",
+      "municipality": "千代田区",
+      "address": "千代田区神田須田町２－２５－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5527743767",
+      "name": "興野神社",
+      "municipality": "足立区",
+      "address": "足立区興野２－１－４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1009219931",
+      "name": "元宿堰稲荷神社",
+      "municipality": "足立区",
+      "address": "足立区千住桜木１－１５－５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1009217419",
+      "name": "元宿神社",
+      "municipality": "足立区",
+      "address": "足立区千住元町３３－４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-7274229094",
+      "name": "高砂神社",
+      "municipality": "足立区",
+      "address": "足立区足立１－２７－１７",
       "umbrella": "単立・神道系",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-504552680",
-      "name": "御宿稲荷神社",
-      "municipality": "千代田区",
-      "address": "千代田区内神田１－６－８",
+      "candidate_id": "osm-way-185586336",
+      "name": "千住神社",
+      "municipality": "足立区",
+      "address": "足立区千住宮元町２４－１",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-231665817",
-      "name": "太田姫稲荷神社",
-      "municipality": "千代田区",
-      "address": "千代田区神田駿河台１－２－３",
+      "candidate_id": "osm-node-892732726",
+      "name": "千住本氷川神社",
+      "municipality": "足立区",
+      "address": "足立区千住３－２２",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-144430257",
-      "name": "東京大神宮",
-      "municipality": "千代田区",
-      "address": "千代田区富士見２－４－１",
+      "candidate_id": "osm-node-1991079396",
+      "name": "竹塚神社",
+      "municipality": "足立区",
+      "address": "足立区竹の塚６－１２－１",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-981883042",
-      "name": "平河天満宮",
-      "municipality": "千代田区",
-      "address": "千代田区平河町１－７－５",
+      "candidate_id": "osm-node-9996563879",
+      "name": "中曽根神社",
+      "municipality": "足立区",
+      "address": "足立区本木２－５－７",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-363543412",
-      "name": "榊神社",
+      "candidate_id": "osm-way-1237208823",
+      "name": "梅田神明宮",
+      "municipality": "足立区",
+      "address": "足立区梅田６－１９－４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1140700824",
+      "name": "梅島天満宮",
+      "municipality": "足立区",
+      "address": "足立区梅島３－２－５",
+      "umbrella": "単立・神道系",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1551950383",
+      "name": "柳野稲荷神社",
+      "municipality": "足立区",
+      "address": "足立区佐野１－１４－１５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5535328500",
+      "name": "雷神社",
+      "municipality": "足立区",
+      "address": "足立区西新井２－２７－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6570535337",
+      "name": "六町神社",
+      "municipality": "足立区",
+      "address": "足立区六町１－１１－２１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-515820340",
+      "name": "下谷神社",
       "municipality": "台東区",
-      "address": "台東区蔵前１－４－３",
+      "address": "台東区東上野３－２９－８",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-229969591",
-      "name": "甚内神社",
+      "candidate_id": "osm-way-220491278",
+      "name": "花園稲荷神社",
       "municipality": "台東区",
-      "address": "台東区浅草橋３－１１－５",
-      "umbrella": "単立・神道系",
+      "address": "台東区上野公園４－１７",
+      "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-831174934",
-      "name": "鷲神社",
+      "candidate_id": "osm-way-831174925",
+      "name": "吉原神社",
       "municipality": "台東区",
-      "address": "台東区千束３－１８－７",
+      "address": "台東区千束３－２０－２",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-261746147",
-      "name": "羽田神社",
+      "candidate_id": "osm-way-390235125",
+      "name": "玉姫稲荷神社",
+      "municipality": "台東区",
+      "address": "台東区清川２－１３－２０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-363543409",
+      "name": "銀杏岡八幡神社",
+      "municipality": "台東区",
+      "address": "台東区浅草橋１－２９－１１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-243433345",
+      "name": "元三島神社",
+      "municipality": "台東区",
+      "address": "台東区根岸１－７－１１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-220491267",
+      "name": "五條天神社",
+      "municipality": "台東区",
+      "address": "台東区上野公園４－１７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1297460706",
+      "name": "今戸神社",
+      "municipality": "台東区",
+      "address": "台東区今戸１－５－２２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1549902438",
+      "name": "七倉稲荷神社",
+      "municipality": "台東区",
+      "address": "台東区池之端２－５－４７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-92037459",
+      "name": "浅草神社",
+      "municipality": "台東区",
+      "address": "台東区浅草２－３－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-507462590",
+      "name": "鳥越神社",
+      "municipality": "台東区",
+      "address": "台東区鳥越２－４－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1056599536",
+      "name": "熱田神社",
+      "municipality": "台東区",
+      "address": "台東区今戸２－１３－６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-953738420",
+      "name": "矢先稲荷神社",
+      "municipality": "台東区",
+      "address": "台東区松が谷２－１４－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-391030346",
+      "name": "寶珠稲荷神社",
+      "municipality": "台東区",
+      "address": "台東区清川２－１５－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1920496049",
+      "name": "安方神社",
       "municipality": "大田区",
-      "address": "大田区本羽田３－９－１２",
+      "address": "大田区多摩川１－５－１１",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-node-1920582758",
-      "name": "新田神社",
+      "candidate_id": "osm-way-96350126",
+      "name": "穴守稲荷神社",
       "municipality": "大田区",
-      "address": "大田区矢口１－２１－２３",
+      "address": "大田区羽田５－２－７",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-242961686",
-      "name": "白魚稲荷神社",
+      "candidate_id": "osm-way-224935646",
+      "name": "御園神社",
       "municipality": "大田区",
-      "address": "大田区羽田５－２７－８",
+      "address": "大田区西蒲田７－４０－８",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1303851070",
-      "name": "薭田神社",
+      "candidate_id": "osm-node-2189162939",
+      "name": "根岸神社",
       "municipality": "大田区",
-      "address": "大田区蒲田３－２－１０",
+      "address": "大田区大森北４－２４－３",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1306986145",
-      "name": "日比谷稲荷神社",
+      "candidate_id": "osm-node-3522650294",
+      "name": "女塚神社",
+      "municipality": "大田区",
+      "address": "大田区西蒲田６－２２－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1160810808",
+      "name": "千束八幡神社",
+      "municipality": "大田区",
+      "address": "大田区南千束２－２３－１０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8931757668",
+      "name": "太田神社",
+      "municipality": "大田区",
+      "address": "大田区中央６－３－２４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5928692074",
+      "name": "堤方神社",
+      "municipality": "大田区",
+      "address": "大田区池上１－１５－２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-254606094",
+      "name": "東八幡神社",
+      "municipality": "大田区",
+      "address": "大田区矢口３－１７－３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2069705780",
+      "name": "湯殿神社",
+      "municipality": "大田区",
+      "address": "大田区南馬込５－１８－７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1920523058",
+      "name": "道塚神社",
+      "municipality": "大田区",
+      "address": "大田区新蒲田３－４－１０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2166653584",
+      "name": "徳持神社",
+      "municipality": "大田区",
+      "address": "大田区池上３－３８－１７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-233362923",
+      "name": "磐井神社",
+      "municipality": "大田区",
+      "address": "大田区大森北２－２０－８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-653707864",
+      "name": "六郷神社",
+      "municipality": "大田区",
+      "address": "大田区東六郷３－１０－１８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2119034593",
+      "name": "波布比咩命神社",
+      "municipality": "大島町",
+      "address": "大島町波浮港１８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4474496715",
+      "name": "永久稲荷神社",
       "municipality": "中央区",
-      "address": "中央区八丁堀３－２８－１５",
+      "address": "中央区日本橋箱崎町２２－１１",
       "umbrella": "単立・神道系",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-739682384",
-      "name": "秋葉神社",
-      "municipality": "町田市",
-      "address": "町田市木曽西３－３－１６",
+      "candidate_id": "osm-way-604041509",
+      "name": "於岩稲荷田宮神社",
+      "municipality": "中央区",
+      "address": "中央区新川２－２５－１１",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-node-4881615524",
-      "name": "箭幹八幡宮",
-      "municipality": "町田市",
-      "address": "町田市矢部町２６６６",
+      "candidate_id": "osm-node-3387046418",
+      "name": "笠間稲荷神社",
+      "municipality": "中央区",
+      "address": "中央区日本橋浜町２－１１－６",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1111103334",
-      "name": "母智丘神社",
-      "municipality": "町田市",
-      "address": "町田市原町田５－１２－１１",
+      "candidate_id": "osm-node-3633758319",
+      "name": "今村幸稲荷神社",
+      "municipality": "中央区",
+      "address": "中央区八丁堀３－２４－１１",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-702671103",
-      "name": "布多天神社",
+      "candidate_id": "osm-way-1082661559",
+      "name": "三光稲荷神社",
+      "municipality": "中央区",
+      "address": "中央区日本橋堀留町２－１－１３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2258202675",
+      "name": "小網神社",
+      "municipality": "中央区",
+      "address": "中央区日本橋小綱町１６－２３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-7653795130",
+      "name": "松島神社",
+      "municipality": "中央区",
+      "address": "中央区日本橋人形町２－１５－２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-604041505",
+      "name": "新川大神宮",
+      "municipality": "中央区",
+      "address": "中央区新川１－８－１７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-363557709",
+      "name": "椙森神社",
+      "municipality": "中央区",
+      "address": "中央区日本橋堀留町１－１０－２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-3409862206",
+      "name": "朝日稲荷神社",
+      "municipality": "中央区",
+      "address": "中央区銀座３－８－１０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-149714788",
+      "name": "波除稲荷神社",
+      "municipality": "中央区",
+      "address": "中央区築地６－２０－３７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-228940217",
+      "name": "浜町神社",
+      "municipality": "中央区",
+      "address": "中央区日本橋浜町３－３－３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-3399170095",
+      "name": "福徳神社",
+      "municipality": "中央区",
+      "address": "中央区日本橋室町２－４－１４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4045343393",
+      "name": "宝珠稲荷神社",
+      "municipality": "中央区",
+      "address": "中央区銀座３－１４－１５",
+      "umbrella": "単立・神道系",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-3409862204",
+      "name": "豊岩稲荷神社",
+      "municipality": "中央区",
+      "address": "中央区銀座７－８－１４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-819543472",
+      "name": "末廣神社",
+      "municipality": "中央区",
+      "address": "中央区日本橋人形町２－２５－２０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6123250157",
+      "name": "明徳稲荷神社",
+      "municipality": "中央区",
+      "address": "中央区日本橋茅場町１－６－３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-563674244",
+      "name": "多田神社",
+      "municipality": "中野区",
+      "address": "中野区南台３－４３－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1006880584",
+      "name": "札次神社",
+      "municipality": "町田市",
+      "address": "町田市小山町２５５４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6487154679",
+      "name": "小山田神社",
+      "municipality": "町田市",
+      "address": "町田市下小山田町３０２９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-7620572847",
+      "name": "上根神社",
+      "municipality": "町田市",
+      "address": "町田市下小山田町３３２－１３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4322688224",
+      "name": "椙山神社",
+      "municipality": "町田市",
+      "address": "町田市三輪町１６１８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6126030203",
+      "name": "大六天社",
+      "municipality": "町田市",
+      "address": "町田市相原町３６４７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6780070061",
+      "name": "能ヶ谷神社",
+      "municipality": "町田市",
+      "address": "町田市能ヶ谷６－２０－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-600683956",
+      "name": "飯守神社",
+      "municipality": "町田市",
+      "address": "町田市真光寺町１８９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6306113567",
+      "name": "野津田神社",
+      "municipality": "町田市",
+      "address": "町田市野津田町２３１９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-500629094",
+      "name": "虎狛神社",
       "municipality": "調布市",
-      "address": "調布市調布ヶ丘１－８－１",
+      "address": "調布市佐須町１－１４－３",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-380721049",
-      "name": "轡神社",
+      "candidate_id": "osm-node-5009348146",
+      "name": "道生神社",
+      "municipality": "調布市",
+      "address": "調布市飛田給２－３９－２０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2498004585",
+      "name": "八剱神社",
+      "municipality": "調布市",
+      "address": "調布市菊野台３－４２－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1108866806",
+      "name": "秋津神社",
+      "municipality": "東村",
+      "address": "東村山市秋津町５－２７－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1766121443",
+      "name": "豊鹿嶋神社",
+      "municipality": "東大和市",
+      "address": "東大和市芋窪１－２０６７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1750965329",
+      "name": "日野宮神社",
+      "municipality": "日野市",
+      "address": "日野市栄町２－２７－１９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1095664528",
+      "name": "関根神社",
+      "municipality": "八王子市",
+      "address": "八王子市大和田町１－２６－７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2246658387",
+      "name": "御室社",
+      "municipality": "八王子市",
+      "address": "八王子市高尾町１８８９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6232759915",
+      "name": "埼玉神社",
+      "municipality": "八王子市",
+      "address": "八王子市宇津木町７５７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-199784720",
+      "name": "市守大鳥神社",
+      "municipality": "八王子市",
+      "address": "八王子市横山町２５－３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-825857211",
+      "name": "十二社",
+      "municipality": "八王子市",
+      "address": "八王子市東浅川町６５６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-326213738",
+      "name": "勝手神社",
+      "municipality": "八王子市",
+      "address": "八王子市加住町１－１１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-7775022864",
+      "name": "小山神社",
+      "municipality": "八王子市",
+      "address": "八王子市裏高尾町１１９４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1167915109",
+      "name": "浅川神社",
+      "municipality": "八王子市",
+      "address": "八王子市裏高尾町１７９７－２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4098948003",
+      "name": "多賀神社",
+      "municipality": "八王子市",
+      "address": "八王子市元本郷町４－９－２１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-307313414",
+      "name": "田守神社",
+      "municipality": "八王子市",
+      "address": "八王子市上川町１２０８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-545784766",
+      "name": "南八幡宮",
+      "municipality": "八王子市",
+      "address": "八王子市堀之内２２２３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4152713717",
+      "name": "日吉八王子神社",
+      "municipality": "八王子市",
+      "address": "八王子市日吉町８－２０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-228462581",
+      "name": "八王子神社",
+      "municipality": "八王子市",
+      "address": "八王子市元八王子町３－２７３５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-199784716",
+      "name": "八幡八雲神社",
+      "municipality": "八王子市",
+      "address": "八王子市元横山町２－１５－２７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-3483068097",
+      "name": "北八幡神社",
+      "municipality": "八王子市",
+      "address": "八王子市堀之内２６号２０３９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4436201389",
+      "name": "六社宮",
+      "municipality": "八王子市",
+      "address": "八王子市長沼町５９０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-561263948",
+      "name": "優婆夷宝明神社",
+      "municipality": "八丈町",
+      "address": "八丈町大賀郷６６０－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5913730285",
+      "name": "子易神社",
       "municipality": "板橋区",
-      "address": "板橋区仲町４６－３",
+      "address": "板橋区板橋２－１９－２０",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-325692055",
-      "name": "荏原神社",
+      "candidate_id": "osm-node-1684822633",
+      "name": "小豆沢神社",
+      "municipality": "板橋区",
+      "address": "板橋区小豆沢４－１６－５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-579626254",
+      "name": "荏原金刀比羅神社",
       "municipality": "品川区",
-      "address": "品川区北品川２－３０－２８",
+      "address": "品川区荏原１－１６－４",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-566265936",
-      "name": "戸越八幡神社",
+      "candidate_id": "osm-way-325664576",
+      "name": "寄木神社",
       "municipality": "品川区",
-      "address": "品川区戸越２－６－２３",
+      "address": "品川区東品川１－３５－８",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1188707614",
-      "name": "上染屋八幡神社",
+      "candidate_id": "osm-way-616231132",
+      "name": "旗岡八幡神社",
+      "municipality": "品川区",
+      "address": "品川区旗の台３－６－１２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-843098167",
+      "name": "居木神社",
+      "municipality": "品川区",
+      "address": "品川区大崎３－８－２０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-545710966",
+      "name": "松下稲荷神社",
+      "municipality": "品川区",
+      "address": "品川区南品川５－３－２２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-174323712",
+      "name": "大井蔵王権現神社",
+      "municipality": "品川区",
+      "address": "品川区大井１－１４－８",
+      "umbrella": "単立・神道系",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-639207330",
+      "name": "天祖・諏訪神社",
+      "municipality": "品川区",
+      "address": "品川区南大井１－４－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-325692053",
+      "name": "品川神社",
+      "municipality": "品川区",
+      "address": "品川区北品川３－７－１５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6126222933",
+      "name": "浜川神社",
+      "municipality": "品川区",
+      "address": "品川区南大井２－４－８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-12111649056",
+      "name": "雉子神社",
+      "municipality": "品川区",
+      "address": "品川区東五反田１－２－３３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2097888875",
+      "name": "押立神社",
       "municipality": "府中市",
-      "address": "府中市白糸台１－４２－５",
+      "address": "府中市押立町４－３１－１５",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-464629204",
-      "name": "根津神社",
+      "candidate_id": "osm-node-4168377384",
+      "name": "三谷神社",
+      "municipality": "府中市",
+      "address": "府中市多磨町１－３７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-172007556",
+      "name": "大國魂神社",
+      "municipality": "府中市",
+      "address": "府中市宮町３－１－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6438423678",
+      "name": "十二所神社",
+      "municipality": "武蔵村",
+      "address": "武蔵村山市三ツ木５－１２－６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1592970386",
+      "name": "杵築神社",
+      "municipality": "武蔵野市",
+      "address": "武蔵野市境南町２－１０－１１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-41293320",
+      "name": "武蔵野八幡宮",
+      "municipality": "武蔵野市",
+      "address": "武蔵野市吉祥寺東町１－１－２３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2158708050",
+      "name": "熊川神社",
+      "municipality": "福生市",
+      "address": "福生市熊川６６０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-553172392",
+      "name": "御霊社",
       "municipality": "文京区",
-      "address": "文京区根津１－２８－９",
+      "address": "文京区湯島２－１１－１５",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1252967400",
-      "name": "北野神社",
+      "candidate_id": "osm-node-6832689587",
+      "name": "今宮神社",
       "municipality": "文京区",
-      "address": "文京区春日１－５－２",
+      "address": "文京区音羽１－４－４",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-598060366",
-      "name": "王子稲荷神社",
+      "candidate_id": "osm-way-514073834",
+      "name": "妻恋神社",
+      "municipality": "文京区",
+      "address": "文京区湯島３－２－６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-9199582341",
+      "name": "小石川大神宮",
+      "municipality": "文京区",
+      "address": "文京区小石川２－５－７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5853863456",
+      "name": "小日向神社",
+      "municipality": "文京区",
+      "address": "文京区小日向２－１６－６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5023204995",
+      "name": "神道大教白鬚神社",
+      "municipality": "文京区",
+      "address": "文京区湯島３－７－８",
+      "umbrella": "神道大教",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6054892585",
+      "name": "正八幡神社",
+      "municipality": "文京区",
+      "address": "文京区関口２－３－２１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-195680376",
+      "name": "簸川神社",
+      "municipality": "文京区",
+      "address": "文京区千石２－１０－１０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1036873453",
+      "name": "粟島神社",
+      "municipality": "豊島区",
+      "address": "豊島区要町２－１４－４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1347108106",
+      "name": "染井稲荷神社",
+      "municipality": "豊島区",
+      "address": "豊島区駒込６－１１－５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-214097918",
+      "name": "妙義神社",
+      "municipality": "豊島区",
+      "address": "豊島区駒込３－１６－１６",
+      "umbrella": "単立・神道系",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5811932353",
+      "name": "紀州神社",
       "municipality": "北区",
-      "address": "北区岸町１－１２－２６",
+      "address": "北区豊島７－１５－１",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-334122643",
-      "name": "王子神社",
+      "candidate_id": "osm-way-243504820",
+      "name": "田端八幡神社",
       "municipality": "北区",
-      "address": "北区王子本町１－１－１２",
+      "address": "北区田端２－７－２",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-689280730",
-      "name": "大鳥神社",
-      "municipality": "目黒区",
-      "address": "目黒区下目黒３－１－２",
+      "candidate_id": "osm-node-1909437670",
+      "name": "平塚神社",
+      "municipality": "北区",
+      "address": "北区上中里１－４７－１",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-669621505",
-      "name": "碑文谷八幡宮",
-      "municipality": "目黒区",
-      "address": "目黒区碑文谷３－７－３",
+      "candidate_id": "osm-node-13279397532",
+      "name": "榎稲荷神社",
+      "municipality": "墨田区",
+      "address": "墨田区立川４－１２－２４",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-node-6021901152",
-      "name": "土支田八幡宮",
+      "candidate_id": "osm-way-157812973",
+      "name": "隅田川神社",
+      "municipality": "墨田区",
+      "address": "墨田区堤通2－１７－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5058848180",
+      "name": "長浦神社",
+      "municipality": "墨田区",
+      "address": "墨田区東向島６－２７－７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1417894918",
+      "name": "野見宿禰神社",
+      "municipality": "墨田区",
+      "address": "墨田区亀沢２－８－１０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
+      "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-705965362",
+      "name": "稲荷諏訪合神社",
       "municipality": "練馬区",
-      "address": "練馬区土支田４－２８－１",
+      "address": "練馬区石神井町５－２３－２",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-627594244",
-      "name": "八雲神社",
+      "candidate_id": "osm-way-855627810",
+      "name": "高稲荷神社",
       "municipality": "練馬区",
-      "address": "練馬区小竹町２－４２－１２",
+      "address": "練馬区桜台６－２５－７",
       "umbrella": "神社本庁",
       "source_url": "https://www.seikatubunka.metro.tokyo.lg.jp/documents/d/seikatubunka/houjinmeibo_20251231",
       "source_title": "東京都宗教法人名簿（令和7年12月31日現在）",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     }
   ],
   "ambiguous": [
     {
+      "scope": "name_and_municipality",
       "key": "東京都|愛宕神社|八王子市",
       "authority_count": 2,
       "candidate_count": 1,
@@ -616,6 +2470,7 @@
       ]
     },
     {
+      "scope": "name_and_municipality",
       "key": "東京都|御霊神社|新宿区",
       "authority_count": 2,
       "candidate_count": 1,
@@ -630,6 +2485,7 @@
       ]
     },
     {
+      "scope": "name_and_municipality",
       "key": "東京都|天祖神社|板橋区",
       "authority_count": 2,
       "candidate_count": 1,
@@ -644,6 +2500,7 @@
       ]
     },
     {
+      "scope": "name_and_municipality",
       "key": "東京都|熊野神社|板橋区",
       "authority_count": 4,
       "candidate_count": 1,
@@ -658,6 +2515,7 @@
       ]
     },
     {
+      "scope": "name_and_municipality",
       "key": "東京都|氷川神社|港区",
       "authority_count": 3,
       "candidate_count": 1,
@@ -672,6 +2530,7 @@
       ]
     },
     {
+      "scope": "name_and_municipality",
       "key": "東京都|愛宕神社|青梅市",
       "authority_count": 3,
       "candidate_count": 1,
