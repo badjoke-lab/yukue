@@ -1,0 +1,1804 @@
+{
+  "format_version": 1,
+  "site_id": "jinja",
+  "authority_id": "saitama-prefecture-religious-corporation-roster",
+  "jurisdiction": "JP-11",
+  "prefecture": "埼玉県",
+  "publisher": "埼玉県",
+  "generated_at": "2026-09-02T01:29:22.553Z",
+  "verification_date": "2026-09-02",
+  "authority_record_count": 2059,
+  "authority_page_count": 1,
+  "authority_failed_page_count": 0,
+  "osm_named_candidate_count": 1186,
+  "approved_count": 164,
+  "ambiguous_count": 9,
+  "match_rules": {
+    "exact_name_and_municipality_unique_on_both_sides": 18,
+    "exact_name_unique_statewide_candidate_missing_municipality": 146
+  },
+  "match_rule": "exact normalized shrine name + exact municipality when available; fallback only when OSM municipality is absent and the normalized name is unique across the prefecture on both authority and OSM sides",
+  "automatic_state_inference": false,
+  "automatic_event_inference": false,
+  "automatic_relation_inference": false,
+  "source_page": "https://www.pref.saitama.lg.jp/a0204/shukyo/shukyo-ichiran.html",
+  "approved": [
+    {
+      "candidate_id": "osm-way-822840232",
+      "name": "一山神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市中央区本町東４-６６５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-708072587",
+      "name": "加茂神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市北区宮原町４－８－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-687993238",
+      "name": "櫛引氷川神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市大宮区櫛引町１－６５３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8192202825",
+      "name": "月讀社",
+      "municipality": "さいたま市",
+      "address": "さいたま市桜区神田７９９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1056285788",
+      "name": "三角稲荷神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市浦和区本太３－２７－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-821550822",
+      "name": "篠岡八幡大神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市岩槻区笹久保８１０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-839715016",
+      "name": "大久保神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市桜区宿６９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8929075372",
+      "name": "大門神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市緑区大門２９３３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-12839361437",
+      "name": "大倭神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市西区三橋６－４１１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-449053369",
+      "name": "中山神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市見沼区中川１４３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-way-353033223",
+      "name": "調神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市浦和区岸町３－１７－２５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-node-10268301822",
+      "name": "天沼神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市大宮区天沼町１－３９４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1378598967",
+      "name": "天祖神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市中央区本町西１－１４－１４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-708948086",
+      "name": "南方神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市北区吉野町２－２５－４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-780490589",
+      "name": "日月社",
+      "municipality": "さいたま市",
+      "address": "さいたま市南区鹿手袋７－１３－９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-690976688",
+      "name": "日進神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市北区日進町２－１１９４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-713457337",
+      "name": "飯塚神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市岩槻区飯塚１２９４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-10834270447",
+      "name": "穂積神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市西区大字峰岸１３番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-460264240",
+      "name": "睦神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市南区白幡１－１６－１３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-832969650",
+      "name": "本郷神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市北区本郷町１１２２－１",
+      "umbrella": "神道一乃宮教",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8304889401",
+      "name": "野孫神社",
+      "municipality": "さいたま市",
+      "address": "さいたま市岩槻区野孫６２３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1313484118",
+      "name": "長宮氷川神社",
+      "municipality": "ふじみ野市",
+      "address": "ふじみ野市長宮２－２－４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-7424098411",
+      "name": "小針神社",
+      "municipality": "伊奈町",
+      "address": "伊奈町羽貫１９２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-node-7463644308",
+      "name": "氷川神社",
+      "municipality": "伊奈町",
+      "address": "伊奈町本町２－１５５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-node-968724208",
+      "name": "大天白神社",
+      "municipality": "羽生市",
+      "address": "羽生市羽生１５８７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1113439387",
+      "name": "諏訪神社",
+      "municipality": "越生町",
+      "address": "越生町成瀬６７２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-node-5656195681",
+      "name": "五社稲荷神社",
+      "municipality": "越谷市",
+      "address": "越谷市南荻島３６５９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-987699248",
+      "name": "川崎神社",
+      "municipality": "越谷市",
+      "address": "越谷市北川崎１０７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5654913760",
+      "name": "大竹神社",
+      "municipality": "越谷市",
+      "address": "越谷市大竹３１２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4817767605",
+      "name": "釜山神社",
+      "municipality": "寄居町",
+      "address": "寄居町大字風布１９６９番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6857076885",
+      "name": "道庭香取神社",
+      "municipality": "吉川市",
+      "address": "吉川市道庭１－２－６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-node-4969300321",
+      "name": "菖蒲神社",
+      "municipality": "久喜市",
+      "address": "久喜市菖蒲町菖蒲５５２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5460592026",
+      "name": "五社神社",
+      "municipality": "宮代町",
+      "address": "宮代町東９０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1474690777",
+      "name": "丸山稲荷神社",
+      "municipality": "狭山市",
+      "address": "狭山市青柳２４１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-687162157",
+      "name": "亀井神社",
+      "municipality": "狭山市",
+      "address": "狭山市下奥富１４６５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1109985763",
+      "name": "入間野神社",
+      "municipality": "狭山市",
+      "address": "狭山市南入曽６４０－２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1529950423",
+      "name": "梅宮神社",
+      "municipality": "狭山市",
+      "address": "狭山市上奥富５０８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1716131429",
+      "name": "堀兼神社",
+      "municipality": "狭山市",
+      "address": "狭山市堀兼２２２１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-703982094",
+      "name": "久下神社",
+      "municipality": "熊谷市",
+      "address": "熊谷市久下８２９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-364442640",
+      "name": "高城神社",
+      "municipality": "熊谷市",
+      "address": "熊谷市高本１４４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-3582327001",
+      "name": "七社神社",
+      "municipality": "熊谷市",
+      "address": "熊谷市樋春１０２３－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-13419843947",
+      "name": "千形神社",
+      "municipality": "熊谷市",
+      "address": "熊谷市本町１－１８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1027402953",
+      "name": "箱田神社",
+      "municipality": "熊谷市",
+      "address": "熊谷市箱田４７３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-460263511",
+      "name": "笹目神社",
+      "municipality": "戸田市",
+      "address": "戸田市笹目６－２８－７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2948787992",
+      "name": "行田八幡神社",
+      "municipality": "行田市",
+      "address": "行田市行田１６－２３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4833662216",
+      "name": "東照宮",
+      "municipality": "行田市",
+      "address": "行田市本丸１２－５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-12882541746",
+      "name": "伊奈利神社",
+      "municipality": "鴻巣市",
+      "address": "鴻巣市榎戸１－１－２７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-node-10727350596",
+      "name": "小松原神社",
+      "municipality": "鴻巣市",
+      "address": "鴻巣市小松１－１０－１８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-12876838402",
+      "name": "吹上神社",
+      "municipality": "鴻巣市",
+      "address": "鴻巣市吹上本町４－１４－２６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-node-12869909234",
+      "name": "袋神社",
+      "municipality": "鴻巣市",
+      "address": "鴻巣市袋２４７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-way-1353089379",
+      "name": "岩口神社",
+      "municipality": "坂戸市",
+      "address": "坂戸市多和目８４５",
+      "umbrella": "単立",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1333356867",
+      "name": "坂戸神社",
+      "municipality": "坂戸市",
+      "address": "坂戸市日の出町７－２６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1349518817",
+      "name": "大家神社",
+      "municipality": "坂戸市",
+      "address": "坂戸市大字厚川１３５番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1343621962",
+      "name": "大宮住吉神社",
+      "municipality": "坂戸市",
+      "address": "坂戸市塚越２５４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5750751142",
+      "name": "鶴明神社",
+      "municipality": "坂戸市",
+      "address": "坂戸市森戸５１２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1354165905",
+      "name": "土屋神社",
+      "municipality": "坂戸市",
+      "address": "坂戸市浅羽野２－２－１１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6862049285",
+      "name": "駒形神社",
+      "municipality": "三郷市",
+      "address": "三郷市駒形４９９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-way-965304270",
+      "name": "三輪神社",
+      "municipality": "三郷市",
+      "address": "三郷市高州４－１３７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-node-5890570401",
+      "name": "子之神社",
+      "municipality": "三郷市",
+      "address": "三郷市彦倉１－６０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-11860616799",
+      "name": "女躰神社",
+      "municipality": "三郷市",
+      "address": "三郷市彦糸１－１９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6514895880",
+      "name": "吹上天神社",
+      "municipality": "三郷市",
+      "address": "三郷市戸ヶ崎４－２１６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8706722809",
+      "name": "彦江神社",
+      "municipality": "三郷市",
+      "address": "三郷市彦江１－１５２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5890565570",
+      "name": "富足神社",
+      "municipality": "三郷市",
+      "address": "三郷市岩野木１１９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-572392459",
+      "name": "敷島神社",
+      "municipality": "志木市",
+      "address": "志木市本町二丁目９番４０号",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-10292484620",
+      "name": "建御雷神社",
+      "municipality": "春日部市",
+      "address": "春日部市備後東５－１０－４８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8521153707",
+      "name": "香取社",
+      "municipality": "春日部市",
+      "address": "春日部市銚子口５５１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-993043308",
+      "name": "水角神社",
+      "municipality": "春日部市",
+      "address": "春日部市水角１４７７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6390274429",
+      "name": "八坂香取稲荷合社",
+      "municipality": "春日部市",
+      "address": "春日部市八丁目１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-12440372617",
+      "name": "日月神社",
+      "municipality": "所沢市",
+      "address": "所沢市北秋津３６７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1547460687",
+      "name": "林神社",
+      "municipality": "所沢市",
+      "address": "所沢市林１－３８３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-228400973",
+      "name": "六所神社",
+      "municipality": "所沢市",
+      "address": "所沢市上新井２－６－８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-node-8910900817",
+      "name": "龍頭神社",
+      "municipality": "小鹿野町",
+      "address": "小鹿野町河原沢９９６－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-node-13092026746",
+      "name": "笠山神社",
+      "municipality": "小川町",
+      "address": "小川町腰越２７９３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-13009062962",
+      "name": "三光神社",
+      "municipality": "小川町",
+      "address": "小川町木部４５８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-9662281525",
+      "name": "飯田神社",
+      "municipality": "小川町",
+      "address": "小川町飯田６８１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-3658767357",
+      "name": "橘神社",
+      "municipality": "上尾市",
+      "address": "上尾市平方２１２４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1186313624",
+      "name": "八合神社",
+      "municipality": "上尾市",
+      "address": "上尾市小泉８－９－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-3658767356",
+      "name": "八枝神社",
+      "municipality": "上尾市",
+      "address": "上尾市平方４８８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-7194224860",
+      "name": "氷川鍬神社",
+      "municipality": "上尾市",
+      "address": "上尾市宮本町１－１４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1037496095",
+      "name": "七本木神社",
+      "municipality": "上里町",
+      "address": "上里町七本木３２３７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-876435947",
+      "name": "石神社",
+      "municipality": "上里町",
+      "address": "上里町神保原町９６５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8157053461",
+      "name": "黛神社",
+      "municipality": "上里町",
+      "address": "上里町黛１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-551098864",
+      "name": "武野神社",
+      "municipality": "新座市",
+      "address": "新座市野寺３－１１－３４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8148679404",
+      "name": "伊勢大神社",
+      "municipality": "深谷市",
+      "address": "深谷市横瀬３３７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5793516520",
+      "name": "諏訪山神社",
+      "municipality": "深谷市",
+      "address": "深谷市上増田２５７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-501311200",
+      "name": "楡山神社",
+      "municipality": "深谷市",
+      "address": "深谷市原郷３３６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-878580240",
+      "name": "今城青坂稲実池上神社",
+      "municipality": "神川町",
+      "address": "神川町関口３８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8148679402",
+      "name": "守神神社",
+      "municipality": "神川町",
+      "address": "神川町池田８４９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8417433336",
+      "name": "城峰神社",
+      "municipality": "神川町",
+      "address": "神川町矢納１２７３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8170428187",
+      "name": "白岩神社",
+      "municipality": "神川町",
+      "address": "神川町新里２０７９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-11436628914",
+      "name": "木宮神社",
+      "municipality": "神川町",
+      "address": "神川町渡瀬７３７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-999754121",
+      "name": "廣野大神社",
+      "municipality": "神川町",
+      "address": "神川町肥土３８０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-579849941",
+      "name": "鏡神社",
+      "municipality": "川越市",
+      "address": "川越市笠幡２８２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1486375680",
+      "name": "厳嶋神社",
+      "municipality": "川越市",
+      "address": "川越市的場１２０６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-746234067",
+      "name": "三芳野神社",
+      "municipality": "川越市",
+      "address": "川越市郭町２－２５－１１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-way-638766142",
+      "name": "出世稲荷神社",
+      "municipality": "川越市",
+      "address": "川越市松江町１－７－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-135224391",
+      "name": "仙波東照宮",
+      "municipality": "川越市",
+      "address": "川越市小仙波町一丁目２１番地１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-395021324",
+      "name": "八咫神社",
+      "municipality": "川越市",
+      "address": "川越市上寺山４９８－３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-601090107",
+      "name": "尾崎神社",
+      "municipality": "川越市",
+      "address": "川越市笠幡１２８０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-341963208",
+      "name": "浮島稲荷神社",
+      "municipality": "川越市",
+      "address": "川越市久保町６２６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-978316431",
+      "name": "妙義神社",
+      "municipality": "川越市",
+      "address": "川越市宮元町３２－５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1988075282",
+      "name": "横曽根神社",
+      "municipality": "川口市",
+      "address": "川口市南町１－１５－１０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8699195034",
+      "name": "子日神社",
+      "municipality": "川口市",
+      "address": "川口市新井宿１５５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-595093083",
+      "name": "七郷神社",
+      "municipality": "川口市",
+      "address": "川口市戸塚３－１３－６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2631922362",
+      "name": "上青木氷川神社",
+      "municipality": "川口市",
+      "address": "川口市上青木２－２７－２６",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1876903564",
+      "name": "川口神社",
+      "municipality": "川口市",
+      "address": "川口市金山町６５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-way-261326005",
+      "name": "前川神社",
+      "municipality": "川口市",
+      "address": "川口市前川３－４９－1",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1016043462",
+      "name": "飯塚氷川神社",
+      "municipality": "川口市",
+      "address": "川口市飯塚１－ ７－１８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-565898334",
+      "name": "氷室神社",
+      "municipality": "川口市",
+      "address": "川口市芝６２９９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-127348838",
+      "name": "峯ヶ岡八幡神社",
+      "municipality": "川口市",
+      "address": "川口市峯１３０４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4396009152",
+      "name": "草加神社",
+      "municipality": "草加市",
+      "address": "草加市氷川町２１１８－４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5534457354",
+      "name": "毛長神社",
+      "municipality": "草加市",
+      "address": "草加市新里町３４２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5714744528",
+      "name": "聖神社",
+      "municipality": "秩父市",
+      "address": "秩父市黒谷２１９１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-293866479",
+      "name": "秩父神社",
+      "municipality": "秩父市",
+      "address": "秩父市番場町１－３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-node-8816839320",
+      "name": "猪狩神社",
+      "municipality": "秩父市",
+      "address": "秩父市荒川贄川１２６７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2360209342",
+      "name": "宮戸神社",
+      "municipality": "朝霞市",
+      "address": "朝霞市宮戸４－３－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2360209344",
+      "name": "内間木神社",
+      "municipality": "朝霞市",
+      "address": "朝霞市上内間木４４３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2507884961",
+      "name": "寶登山神社",
+      "municipality": "長瀞町",
+      "address": "長瀞町長瀞１８２８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-576977361",
+      "name": "高徳神社",
+      "municipality": "鶴ヶ島市",
+      "address": "鶴ヶ島市太田ヶ谷６１７－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1390061279",
+      "name": "葛袋神社",
+      "municipality": "東松山市",
+      "address": "東松山市葛袋８５３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1422563281",
+      "name": "玉太岡神社",
+      "municipality": "東松山市",
+      "address": "東松山市岡７４５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-612544479",
+      "name": "高坂神社",
+      "municipality": "東松山市",
+      "address": "東松山市高坂１０６１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-494393429",
+      "name": "小剣神社",
+      "municipality": "東松山市",
+      "address": "東松山市早俣４２３－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5798170961",
+      "name": "小田原神社",
+      "municipality": "東松山市",
+      "address": "東松山市田木６６２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6151703427",
+      "name": "松山神社",
+      "municipality": "東松山市",
+      "address": "東松山市日吉町５－１９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1434557718",
+      "name": "神戸神社",
+      "municipality": "東松山市",
+      "address": "東松山市神戸８７５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1941600389",
+      "name": "箭弓稲荷神社",
+      "municipality": "東松山市",
+      "address": "東松山市箭弓町２－５－１４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1395351310",
+      "name": "唐子神社",
+      "municipality": "東松山市",
+      "address": "東松山市下唐子１００８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-667981473",
+      "name": "利仁神社",
+      "municipality": "東松山市",
+      "address": "東松山市下野本６１２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5798789309",
+      "name": "拂田稲荷神社",
+      "municipality": "東松山市",
+      "address": "東松山市高坂１２３２－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-12704016232",
+      "name": "九万八千神社",
+      "municipality": "日高市",
+      "address": "日高市高麗本郷２５２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-388275546",
+      "name": "高麗神社",
+      "municipality": "日高市",
+      "address": "日高市新堀８３３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6290946472",
+      "name": "武幡横手神社",
+      "municipality": "日高市",
+      "address": "日高市横手５０９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-572300628",
+      "name": "久保稲荷神社",
+      "municipality": "入間市",
+      "address": "入間市久保稲荷４－３－２３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1883763132",
+      "name": "金子神社",
+      "municipality": "入間市",
+      "address": "入間市西三ツ木２３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-9946522345",
+      "name": "桂川神社",
+      "municipality": "入間市",
+      "address": "入間市木蓮寺８７８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-13347155127",
+      "name": "出雲祝神社",
+      "municipality": "入間市",
+      "address": "入間市宮寺１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-566734430",
+      "name": "中野原稲荷神社",
+      "municipality": "入間市",
+      "address": "入間市上小谷田１－１－５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5487554120",
+      "name": "二本木神社",
+      "municipality": "入間市",
+      "address": "入間市二本木２３０",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-13388610133",
+      "name": "我野神社",
+      "municipality": "飯能市",
+      "address": "飯能市吾野２２６－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4335488758",
+      "name": "軍太利神社",
+      "municipality": "飯能市",
+      "address": "飯能市大河原５９５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-10092501719",
+      "name": "吾那神社",
+      "municipality": "飯能市",
+      "address": "飯能市虎秀１０－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-768955197",
+      "name": "小岩井神社",
+      "municipality": "飯能市",
+      "address": "飯能市小岩井１６９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-way-495665693",
+      "name": "諏訪八幡神社",
+      "municipality": "飯能市",
+      "address": "飯能市飯能２６３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6031810161",
+      "name": "秩父御嶽神社",
+      "municipality": "飯能市",
+      "address": "飯能市坂石５５０－２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-7852823485",
+      "name": "白子神社",
+      "municipality": "飯能市",
+      "address": "飯能市下加治１６０－甲",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1392913851",
+      "name": "上南畑神社",
+      "municipality": "富士見市",
+      "address": "富士見市大字上南畑２９５番地",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-11155405729",
+      "name": "水宮神社",
+      "municipality": "富士見市",
+      "address": "富士見市水子１７６２－３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+    },
+    {
+      "candidate_id": "osm-node-5237751424",
+      "name": "阿夫利天神社",
+      "municipality": "本庄市",
+      "address": "本庄市中央３－４－３８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-876049570",
+      "name": "角折神社",
+      "municipality": "本庄市",
+      "address": "本庄市都島２３５",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4031225617",
+      "name": "熊野十二社神社",
+      "municipality": "本庄市",
+      "address": "本庄市東富田３０１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-877527277",
+      "name": "御霊稲荷神社",
+      "municipality": "本庄市",
+      "address": "本庄市児玉町保木野３１４・３３３－１・３３３－３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-738714224",
+      "name": "若泉稲荷神社",
+      "municipality": "本庄市",
+      "address": "本庄市北堀２０９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-11630287192",
+      "name": "種池神社",
+      "municipality": "本庄市",
+      "address": "本庄市児玉町八幡山３３７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8164727373",
+      "name": "十二神社",
+      "municipality": "本庄市",
+      "address": "本庄市児玉町田端３１２",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5831626067",
+      "name": "城山稲荷神社",
+      "municipality": "本庄市",
+      "address": "本庄市本庄３－５－４４",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6919476441",
+      "name": "石神神社",
+      "municipality": "本庄市",
+      "address": "本庄市児玉町小平１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-7238020770",
+      "name": "大寄諏訪神社",
+      "municipality": "本庄市",
+      "address": "本庄市西五十子６４７",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8154094291",
+      "name": "智方神社",
+      "municipality": "本庄市",
+      "address": "本庄市小島１７９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8157053502",
+      "name": "唐鈴神社",
+      "municipality": "本庄市",
+      "address": "本庄市小島５－４－３３",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-770562603",
+      "name": "日本神社",
+      "municipality": "本庄市",
+      "address": "本庄市児玉町小平１５７８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4764328021",
+      "name": "出雲伊波比神社",
+      "municipality": "毛呂山町",
+      "address": "毛呂山町岩井西５-１７－１",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-548978621",
+      "name": "菅谷神社",
+      "municipality": "嵐山町",
+      "address": "嵐山町菅谷６０８",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-151493552",
+      "name": "和樂備神社",
+      "municipality": "蕨市",
+      "address": "蕨市中央４－２０－９",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.saitama.lg.jp/documents/2035/r0712syukyouhoujinichiran.xls",
+      "source_title": "埼玉県知事所轄宗教法人一覧（令和7年12月31日現在）",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    }
+  ],
+  "ambiguous": [
+    {
+      "scope": "name_and_municipality",
+      "key": "埼玉県|八雲神社|さいたま市",
+      "authority_count": 6,
+      "candidate_count": 1,
+      "names": [
+        "八雲神社"
+      ],
+      "municipalities": [
+        "さいたま市"
+      ],
+      "candidate_ids": [
+        "osm-way-1041164903"
+      ]
+    },
+    {
+      "scope": "name_and_municipality",
+      "key": "埼玉県|氷川神社|さいたま市",
+      "authority_count": 24,
+      "candidate_count": 1,
+      "names": [
+        "氷川神社"
+      ],
+      "municipalities": [
+        "さいたま市"
+      ],
+      "candidate_ids": [
+        "osm-way-1258998074"
+      ]
+    },
+    {
+      "scope": "name_and_municipality",
+      "key": "埼玉県|香取神社|さいたま市",
+      "authority_count": 5,
+      "candidate_count": 1,
+      "names": [
+        "香取神社"
+      ],
+      "municipalities": [
+        "さいたま市"
+      ],
+      "candidate_ids": [
+        "osm-way-753277576"
+      ]
+    },
+    {
+      "scope": "name_and_municipality",
+      "key": "埼玉県|鷲宮神社|久喜市",
+      "authority_count": 3,
+      "candidate_count": 1,
+      "names": [
+        "鷲宮神社"
+      ],
+      "municipalities": [
+        "久喜市"
+      ],
+      "candidate_ids": [
+        "osm-node-970264074"
+      ]
+    },
+    {
+      "scope": "name_and_municipality",
+      "key": "埼玉県|氷川神社|川越市",
+      "authority_count": 14,
+      "candidate_count": 1,
+      "names": [
+        "氷川神社"
+      ],
+      "municipalities": [
+        "川越市"
+      ],
+      "candidate_ids": [
+        "osm-node-4595644451"
+      ]
+    },
+    {
+      "scope": "name_and_municipality",
+      "key": "埼玉県|熊野神社|川越市",
+      "authority_count": 4,
+      "candidate_count": 1,
+      "names": [
+        "熊野神社"
+      ],
+      "municipalities": [
+        "川越市"
+      ],
+      "candidate_ids": [
+        "osm-way-682103596"
+      ]
+    },
+    {
+      "scope": "name_and_municipality",
+      "key": "埼玉県|神明神社|幸手市",
+      "authority_count": 2,
+      "candidate_count": 1,
+      "names": [
+        "神明神社"
+      ],
+      "municipalities": [
+        "幸手市"
+      ],
+      "candidate_ids": [
+        "osm-node-11198848575"
+      ]
+    },
+    {
+      "scope": "name_and_municipality",
+      "key": "埼玉県|久伊豆神社|越谷市",
+      "authority_count": 7,
+      "candidate_count": 1,
+      "names": [
+        "久伊豆神社"
+      ],
+      "municipalities": [
+        "越谷市"
+      ],
+      "candidate_ids": [
+        "osm-way-275863809"
+      ]
+    },
+    {
+      "scope": "name_and_municipality",
+      "key": "埼玉県|愛宕神社|鴻巣市",
+      "authority_count": 2,
+      "candidate_count": 1,
+      "names": [
+        "愛宕神社"
+      ],
+      "municipalities": [
+        "鴻巣市"
+      ],
+      "candidate_ids": [
+        "osm-node-12879363211"
+      ]
+    }
+  ]
+}
