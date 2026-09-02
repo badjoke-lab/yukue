@@ -49,6 +49,10 @@ function matchKey(name, municipality, prefecture) {
   return `${normalize(prefecture)}|${normalize(name)}|${normalize(cleanMunicipality(municipality, prefecture))}`;
 }
 
+function prefectureNameKey(name, prefecture) {
+  return `${normalize(prefecture)}|${normalize(name)}`;
+}
+
 function jurisdictionSlug(authority) {
   return String(authority.jurisdiction).toLowerCase().replace(/[^a-z0-9]+/g, '');
 }
@@ -82,6 +86,22 @@ function assertInput(aggregate, authority, canonical) {
   if (canonical.site_id !== 'jinja' || canonical.publication_status !== 'public_preview_noncanonical') throw new Error('Invalid Jinja canonical preview');
 }
 
+function pushMap(map, key, value) {
+  if (!map.has(key)) map.set(key, []);
+  map.get(key).push(value);
+}
+
+function evidenceSummary(authority, row, matchRule) {
+  const base = `${authority.publisher}の宗教法人名簿で${row.name}の法人名と所在地を確認。`;
+  if (matchRule === 'exact_name_and_municipality_unique_on_both_sides') {
+    return `${base}全国候補とは名称・市町村が双方で一意に一致した。`;
+  }
+  if (matchRule === 'exact_name_unique_statewide_candidate_missing_municipality') {
+    return `${base}全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。`;
+  }
+  throw new Error(`Unsupported match rule: ${matchRule}`);
+}
+
 const args = parseArgs(process.argv.slice(2));
 const aggregate = JSON.parse(fs.readFileSync(args.aggregate, 'utf8'));
 const authority = JSON.parse(fs.readFileSync(args.authority, 'utf8'));
@@ -90,35 +110,54 @@ assertInput(aggregate, authority, canonical);
 
 const prefectureCandidates = aggregate.candidates.filter((candidate) => candidate.geography?.iso3166_2 === authority.jurisdiction && candidateName(candidate));
 const authorityByKey = new Map();
+const authorityByName = new Map();
 for (const row of authority.records) {
-  const key = matchKey(row.name, row.municipality, authority.prefecture);
-  if (!authorityByKey.has(key)) authorityByKey.set(key, []);
-  authorityByKey.get(key).push(row);
-}
-const candidatesByKey = new Map();
-for (const candidate of prefectureCandidates) {
-  const municipality = candidateMunicipality(candidate, authority.prefecture);
-  if (!municipality) continue;
-  const key = matchKey(candidateName(candidate), municipality, authority.prefecture);
-  if (!candidatesByKey.has(key)) candidatesByKey.set(key, []);
-  candidatesByKey.get(key).push(candidate);
+  pushMap(authorityByKey, matchKey(row.name, row.municipality, authority.prefecture), row);
+  pushMap(authorityByName, prefectureNameKey(row.name, authority.prefecture), row);
 }
 
-const existingNamesPlaces = new Set(canonical.entities.map((entity) => {
+const candidatesByKey = new Map();
+const candidatesByName = new Map();
+for (const candidate of prefectureCandidates) {
+  pushMap(candidatesByName, prefectureNameKey(candidateName(candidate), authority.prefecture), candidate);
+  const municipality = candidateMunicipality(candidate, authority.prefecture);
+  if (!municipality) continue;
+  pushMap(candidatesByKey, matchKey(candidateName(candidate), municipality, authority.prefecture), candidate);
+}
+
+const existingNamesPlaces = new Set();
+const existingPrefectureNames = new Set();
+for (const entity of canonical.entities) {
   const place = canonical.places.find((item) => item.id === entity.current_place_id);
-  return matchKey(entity.canonical_name, place?.municipality ?? '', place?.prefecture ?? '');
-}));
+  const prefecture = place?.prefecture ?? '';
+  existingNamesPlaces.add(matchKey(entity.canonical_name, place?.municipality ?? '', prefecture));
+  existingPrefectureNames.add(prefectureNameKey(entity.canonical_name, prefecture));
+}
 
 const approved = [];
 const ambiguous = [];
+const approvedCandidateIds = new Set();
+const approvedAuthorityIds = new Set();
+
+function authorityRowIdentity(row) {
+  return [row.name, row.municipality, row.address].map(normalize).join('|');
+}
+
+function approve(row, candidate, matchRule) {
+  approved.push({ row, candidate, match_rule: matchRule });
+  approvedCandidateIds.add(candidate.candidate_id);
+  approvedAuthorityIds.add(authorityRowIdentity(row));
+}
+
 for (const [key, rows] of authorityByKey) {
   const candidates = candidatesByKey.get(key) ?? [];
   if (rows.length === 1 && candidates.length === 1) {
     const row = rows[0];
     const candidate = candidates[0];
-    if (!existingNamesPlaces.has(key)) approved.push({ row, candidate, match_rule: 'exact_name_and_municipality_unique_on_both_sides' });
+    if (!existingNamesPlaces.has(key)) approve(row, candidate, 'exact_name_and_municipality_unique_on_both_sides');
   } else if (candidates.length > 0) {
     ambiguous.push({
+      scope: 'name_and_municipality',
       key,
       authority_count: rows.length,
       candidate_count: candidates.length,
@@ -129,10 +168,24 @@ for (const [key, rows] of authorityByKey) {
   }
 }
 
+// Conservative fallback for incomplete OSM address metadata only.
+// Never use this when OSM has a municipality that conflicts with the authority roster.
+// Require the normalized name to occur exactly once across the prefecture on both sides.
+for (const [nameKey, rows] of authorityByName) {
+  const candidates = candidatesByName.get(nameKey) ?? [];
+  if (rows.length !== 1 || candidates.length !== 1) continue;
+  const row = rows[0];
+  const candidate = candidates[0];
+  if (approvedAuthorityIds.has(authorityRowIdentity(row)) || approvedCandidateIds.has(candidate.candidate_id)) continue;
+  if (candidateMunicipality(candidate, authority.prefecture)) continue;
+  if (existingPrefectureNames.has(nameKey)) continue;
+  approve(row, candidate, 'exact_name_unique_statewide_candidate_missing_municipality');
+}
+
 approved.sort((a, b) => a.row.municipality.localeCompare(b.row.municipality, 'ja') || a.row.name.localeCompare(b.row.name, 'ja') || a.row.address.localeCompare(b.row.address, 'ja'));
 const verifiedAt = sourceDate(authority);
 
-for (const { row } of approved) {
+for (const { row, match_rule: matchRule } of approved) {
   if (!row.source_url) throw new Error(`Authority row missing source_url: ${row.name} ${row.municipality}`);
   const sourceId = sourceIdForUrl(row.source_url, authority);
   if (!canonical.sources.some((source) => source.id === sourceId)) {
@@ -173,7 +226,7 @@ for (const { row } of approved) {
     source_id: sourceId,
     review_status: 'approved',
     verified_at: verifiedAt,
-    summary: `${authority.publisher}の宗教法人名簿で${row.name}の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。`,
+    summary: evidenceSummary(authority, row, matchRule),
   });
 }
 
@@ -181,6 +234,12 @@ canonical.entities.sort((a, b) => a.canonical_name.localeCompare(b.canonical_nam
 canonical.places.sort((a, b) => a.prefecture.localeCompare(b.prefecture, 'ja') || a.municipality.localeCompare(b.municipality, 'ja') || a.id.localeCompare(b.id));
 canonical.evidence.sort((a, b) => a.id.localeCompare(b.id));
 canonical.sources.sort((a, b) => a.id.localeCompare(b.id));
+
+const matchRuleCounts = Object.fromEntries(
+  [...new Set(approved.map((item) => item.match_rule))]
+    .sort()
+    .map((rule) => [rule, approved.filter((item) => item.match_rule === rule).length]),
+);
 
 const report = {
   format_version: 1,
@@ -197,7 +256,8 @@ const report = {
   osm_named_candidate_count: prefectureCandidates.length,
   approved_count: approved.length,
   ambiguous_count: ambiguous.length,
-  match_rule: 'exact normalized shrine name + exact municipality, with exactly one authority row and one OSM candidate for that pair',
+  match_rules: matchRuleCounts,
+  match_rule: 'exact normalized shrine name + exact municipality when available; fallback only when OSM municipality is absent and the normalized name is unique across the prefecture on both authority and OSM sides',
   automatic_state_inference: false,
   automatic_event_inference: false,
   automatic_relation_inference: false,
@@ -227,6 +287,7 @@ console.log(JSON.stringify({
   osm_named: report.osm_named_candidate_count,
   approved: report.approved_count,
   ambiguous: report.ambiguous_count,
+  match_rules: report.match_rules,
   canonical_entities_after: canonical.entities.length,
   authority_sources_added: new Set(approved.map(({ row }) => row.source_url)).size,
 }));
