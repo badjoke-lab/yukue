@@ -1,0 +1,20 @@
+{
+  "schema_version": "matsuri.tier-a-review-decisions.v1",
+  "human_review_confirmed": true,
+  "decisions": [
+    {
+      "candidate_id": "replace-with-reviewed-candidate-id",
+      "decision": "reject",
+      "reviewed_at": "2026-09-02T00:00:00Z",
+      "reviewer": "human-reviewer",
+      "reason": "human_review_rejected",
+      "identity_reviewed": true,
+      "subject_type_reviewed": true,
+      "geography_reviewed": true,
+      "source_role_reviewed": true,
+      "name_variant_reviewed": true,
+      "broader_scope_basis_verified": false,
+      "automation_self_approved": false
+    }
+  ]
+}
