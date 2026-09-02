@@ -12,10 +12,13 @@ on:
       - "fixtures/matsuri-tier-a-importer/**"
       - "scripts/lib/matsuri-tier-a-importer.mjs"
       - "scripts/lib/matsuri-tier-a-publication-generator.mjs"
+      - "scripts/lib/matsuri-tier-a-review-decisions.mjs"
       - "scripts/import-matsuri-tier-a-candidates.mjs"
       - "scripts/generate-matsuri-tier-a-publication-wave.mjs"
+      - "scripts/apply-matsuri-tier-a-review-decisions.mjs"
       - "scripts/check-matsuri-tier-a-importer.mjs"
       - "scripts/check-matsuri-tier-a-publication-generator.mjs"
+      - "scripts/check-matsuri-tier-a-review-decisions.mjs"
       - "package.json"
   push:
     branches:
@@ -28,10 +31,13 @@ on:
       - "fixtures/matsuri-tier-a-importer/**"
       - "scripts/lib/matsuri-tier-a-importer.mjs"
       - "scripts/lib/matsuri-tier-a-publication-generator.mjs"
+      - "scripts/lib/matsuri-tier-a-review-decisions.mjs"
       - "scripts/import-matsuri-tier-a-candidates.mjs"
       - "scripts/generate-matsuri-tier-a-publication-wave.mjs"
+      - "scripts/apply-matsuri-tier-a-review-decisions.mjs"
       - "scripts/check-matsuri-tier-a-importer.mjs"
       - "scripts/check-matsuri-tier-a-publication-generator.mjs"
+      - "scripts/check-matsuri-tier-a-review-decisions.mjs"
       - "package.json"
   workflow_dispatch:
 
@@ -64,3 +70,6 @@ jobs:
 
       - name: Verify bounded Tier A publication generator
         run: node scripts/check-matsuri-tier-a-publication-generator.mjs
+
+      - name: Verify NCS-05 human review decision applicator
+        run: node scripts/check-matsuri-tier-a-review-decisions.mjs
