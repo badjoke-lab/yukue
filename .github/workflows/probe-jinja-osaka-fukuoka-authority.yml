@@ -1,0 +1,48 @@
+name: Probe Jinja Osaka Fukuoka authority XLSX
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/probe-jinja-osaka-fukuoka-authority.yml"
+      - "apps/jinja/scripts/probe-authority-xlsx.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Probe Osaka official roster
+        run: |
+          python3 apps/jinja/scripts/probe-authority-xlsx.py \
+            --label Osaka \
+            --url 'https://www.pref.osaka.lg.jp/documents/35531/070331meibo.xlsx' \
+            --rows 35 | tee /tmp/osaka-probe.json
+
+      - name: Probe Fukuoka open-data roster
+        run: |
+          python3 apps/jinja/scripts/probe-authority-xlsx.py \
+            --label Fukuoka \
+            --url 'https://data.bodik.jp/dataset/af09be6b-a3a4-4a6f-a981-499a9284317e/resource/95cc761f-ca03-4bd7-9aa2-4a1005298b51/download/datasetresource_file_250326155518_131_.xlsx' \
+            --rows 35 | tee /tmp/fukuoka-probe.json
+
+      - name: Write probe summary
+        if: always()
+        run: |
+          {
+            echo '## Osaka probe'
+            echo '```json'
+            cat /tmp/osaka-probe.json 2>/dev/null || true
+            echo '```'
+            echo
+            echo '## Fukuoka probe'
+            echo '```json'
+            cat /tmp/fukuoka-probe.json 2>/dev/null || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
