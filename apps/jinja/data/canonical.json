@@ -23,6 +23,30 @@
       "current_place_id": "plc-jp12-389506d8f1376f"
     },
     {
+      "id": "shr-jp14-1fd9a5e6d5de0d",
+      "canonical_name": "粟窪神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-1fd9a5e6d5de0d"
+    },
+    {
+      "id": "shr-jp14-53ebfa8cd5e2e1",
+      "canonical_name": "安浦神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-53ebfa8cd5e2e1"
+    },
+    {
+      "id": "shr-jp14-4cd4f89384e8c7",
+      "canonical_name": "安房口神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-4cd4f89384e8c7"
+    },
+    {
       "id": "shr-jp12-a8ad1c7d6d8035",
       "canonical_name": "安房神社",
       "review_status": "approved",
@@ -37,6 +61,22 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-d84bd6e19e8cbe"
+    },
+    {
+      "id": "shr-jp14-3fd628b213d38f",
+      "canonical_name": "依知神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-3fd628b213d38f"
+    },
+    {
+      "id": "shr-jp14-bc3d01e823aeb5",
+      "canonical_name": "衣笠神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-bc3d01e823aeb5"
     },
     {
       "id": "shr-jp13-b7d3bef6aaca24",
@@ -63,12 +103,28 @@
       "current_place_id": "plc-jp14-cc05af274f527c"
     },
     {
+      "id": "shr-jp14-5d7d0c3a050951",
+      "canonical_name": "稲毛神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-5d7d0c3a050951"
+    },
+    {
       "id": "shr-jp14-dfe5baffa76d01",
       "canonical_name": "宇都母知神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-dfe5baffa76d01"
+    },
+    {
+      "id": "shr-jp14-4dfd282a70237b",
+      "canonical_name": "羽黒神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-4dfd282a70237b"
     },
     {
       "id": "shr-jp13-c9bba63e435c64",
@@ -93,6 +149,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-8906fe72fb79b4"
+    },
+    {
+      "id": "shr-jp14-d3160a2d9ada0d",
+      "canonical_name": "荏柄天神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-d3160a2d9ada0d"
     },
     {
       "id": "shr-jp13-928e150467e9f6",
@@ -143,12 +207,28 @@
       "current_place_id": "plc-jp13-190671b225d879"
     },
     {
+      "id": "shr-jp14-06c6346c29fee8",
+      "canonical_name": "荻野神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-06c6346c29fee8"
+    },
+    {
       "id": "shr-jp13-dc7e713bb93f3b",
       "canonical_name": "下山八幡神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-dc7e713bb93f3b"
+    },
+    {
+      "id": "shr-jp14-1d640ffb3f0c3c",
+      "canonical_name": "下田神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-1d640ffb3f0c3c"
     },
     {
       "id": "shr-jp12-cc5849f7013570",
@@ -183,6 +263,14 @@
       "current_place_id": "plc-jp12-b5ec560bf37230"
     },
     {
+      "id": "shr-jp14-aed298f49db3d3",
+      "canonical_name": "外川神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-aed298f49db3d3"
+    },
+    {
       "id": "shr-jp13-d66b922fa6ac6f",
       "canonical_name": "鎧神社",
       "review_status": "approved",
@@ -191,12 +279,36 @@
       "current_place_id": "plc-jp13-d66b922fa6ac6f"
     },
     {
+      "id": "shr-jp14-98ae573127a200",
+      "canonical_name": "葛原岡神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-98ae573127a200"
+    },
+    {
       "id": "shr-jp13-fed2424ea01c72",
       "canonical_name": "葛西神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-fed2424ea01c72"
+    },
+    {
+      "id": "shr-jp14-e5c4a9176ddd21",
+      "canonical_name": "鎌倉宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-e5c4a9176ddd21"
+    },
+    {
+      "id": "shr-jp14-fd558796947da1",
+      "canonical_name": "鎌倉山神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-fd558796947da1"
     },
     {
       "id": "shr-samukawa-jinja",
@@ -285,6 +397,14 @@
       "current_place_id": "plc-jp12-711797d1cd6a0a"
     },
     {
+      "id": "shr-jp14-bbb7acc1cd7bd2",
+      "canonical_name": "久木神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-bbb7acc1cd7bd2"
+    },
+    {
       "id": "shr-jp12-9fc95cee0a0dc7",
       "canonical_name": "久留里神社",
       "review_status": "approved",
@@ -344,6 +464,22 @@
       "current_place_id": "plc-jp12-7849767ba3748a"
     },
     {
+      "id": "shr-jp14-a002dcfad2ffd7",
+      "canonical_name": "金田神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-a002dcfad2ffd7"
+    },
+    {
+      "id": "shr-jp14-624b5ab4260682",
+      "canonical_name": "駒林神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-624b5ab4260682"
+    },
+    {
       "id": "shr-jp13-5294757fffc263",
       "canonical_name": "轡神社",
       "review_status": "approved",
@@ -400,6 +536,14 @@
       "current_place_id": "plc-jp13-7382b09cfc937f"
     },
     {
+      "id": "shr-jp14-04bcfe90a80f0c",
+      "canonical_name": "健速神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-04bcfe90a80f0c"
+    },
+    {
       "id": "shr-jp14-f6ac4082a14451",
       "canonical_name": "建彦神社",
       "review_status": "approved",
@@ -416,6 +560,14 @@
       "current_place_id": "plc-jp12-3ba6b08fa7d2ef"
     },
     {
+      "id": "shr-jp14-57f4daa3ef9671",
+      "canonical_name": "原稲荷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-57f4daa3ef9671"
+    },
+    {
       "id": "shr-jp12-6bcabfd33f6b2c",
       "canonical_name": "厳島神社",
       "review_status": "approved",
@@ -430,6 +582,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-5f4b31abd02559"
+    },
+    {
+      "id": "shr-jp14-7547e4af17a5e8",
+      "canonical_name": "五社稲荷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-7547e4af17a5e8"
     },
     {
       "id": "shr-jp14-77309560a5babc",
@@ -512,6 +672,30 @@
       "current_place_id": "plc-jp12-c6083965941723"
     },
     {
+      "id": "shr-jp14-77c666c8292a51",
+      "canonical_name": "厚木神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-77c666c8292a51"
+    },
+    {
+      "id": "shr-jp14-330632132b7043",
+      "canonical_name": "江島神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-330632132b7043"
+    },
+    {
+      "id": "shr-jp14-f27a4f1a88077c",
+      "canonical_name": "甲神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-f27a4f1a88077c"
+    },
+    {
       "id": "shr-jp12-fa37f3fe137f13",
       "canonical_name": "皇産靈神社",
       "review_status": "approved",
@@ -534,6 +718,30 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-7b655df293d5d0"
+    },
+    {
+      "id": "shr-jp14-6e0739876a5760",
+      "canonical_name": "皇大神宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-6e0739876a5760"
+    },
+    {
+      "id": "shr-jp14-839f485831eb8d",
+      "canonical_name": "皇武神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-839f485831eb8d"
+    },
+    {
+      "id": "shr-jp14-e9b616c63605e7",
+      "canonical_name": "荒井神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-e9b616c63605e7"
     },
     {
       "id": "shr-jp12-0fa541dfff81bc",
@@ -584,6 +792,46 @@
       "current_place_id": "plc-jp14-5a68a285b09252"
     },
     {
+      "id": "shr-jp14-7241a85fe01de7",
+      "canonical_name": "高来神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-7241a85fe01de7"
+    },
+    {
+      "id": "shr-jp14-211b57e6af0258",
+      "canonical_name": "腰掛神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-211b57e6af0258"
+    },
+    {
+      "id": "shr-jp14-7c7c5ece02286a",
+      "canonical_name": "腰取神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-7c7c5ece02286a"
+    },
+    {
+      "id": "shr-jp14-d485788a3043b0",
+      "canonical_name": "今井神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-d485788a3043b0"
+    },
+    {
+      "id": "shr-jp14-70724d4c121509",
+      "canonical_name": "今泉神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-70724d4c121509"
+    },
+    {
       "id": "shr-jp13-0371ddb2b5a6f3",
       "canonical_name": "根津神社",
       "review_status": "approved",
@@ -611,6 +859,14 @@
       ]
     },
     {
+      "id": "shr-jp14-8bf146dc347a9f",
+      "canonical_name": "佐波神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-8bf146dc347a9f"
+    },
+    {
       "id": "shr-jp14-f8c27bebb5635a",
       "canonical_name": "座間神社",
       "review_status": "approved",
@@ -625,6 +881,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-f24175ab9fe7a0"
+    },
+    {
+      "id": "shr-jp14-e5e64a3fe6ea2a",
+      "canonical_name": "妻田神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-e5e64a3fe6ea2a"
     },
     {
       "id": "shr-jp13-9f6eb60cb01109",
@@ -691,12 +955,28 @@
       "current_place_id": "plc-jp14-18fc51c0c6d904"
     },
     {
+      "id": "shr-jp14-b50613df008514",
+      "canonical_name": "山際神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-b50613df008514"
+    },
+    {
       "id": "shr-jp14-8c3c4dea375c50",
       "canonical_name": "山神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-8c3c4dea375c50"
+    },
+    {
+      "id": "shr-jp14-0a0344ff8a1183",
+      "canonical_name": "山中社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-0a0344ff8a1183"
     },
     {
       "id": "shr-jp12-1c2e1d6f93fa9d",
@@ -731,6 +1011,38 @@
       "current_place_id": "plc-jp12-ee48cab2e90200"
     },
     {
+      "id": "shr-jp14-709c537484785f",
+      "canonical_name": "子易神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-709c537484785f"
+    },
+    {
+      "id": "shr-jp14-9912b74d0a74be",
+      "canonical_name": "子守神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-9912b74d0a74be"
+    },
+    {
+      "id": "shr-jp14-bec00c1e8bcff7",
+      "canonical_name": "子聖神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-bec00c1e8bcff7"
+    },
+    {
+      "id": "shr-jp14-201de5450acf2c",
+      "canonical_name": "市杵島神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-201de5450acf2c"
+    },
+    {
       "id": "shr-jp14-c4bcffb2be89be",
       "canonical_name": "市方神社",
       "review_status": "approved",
@@ -745,6 +1057,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-388b3bd763f6a1"
+    },
+    {
+      "id": "shr-jp14-ab9f2435569a1b",
+      "canonical_name": "児玉神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-ab9f2435569a1b"
     },
     {
       "id": "shr-jp14-00ab4495b31557",
@@ -811,6 +1131,22 @@
       "current_place_id": "plc-jp12-cf6f6e6bb4f4db"
     },
     {
+      "id": "shr-jp14-1af4e3f4ef7bad",
+      "canonical_name": "洲崎神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-1af4e3f4ef7bad"
+    },
+    {
+      "id": "shr-jp14-ca671f37cb485e",
+      "canonical_name": "洲崎大神",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-ca671f37cb485e"
+    },
+    {
       "id": "shr-jp12-55b4d0b36d54c6",
       "canonical_name": "秋葉神社",
       "review_status": "approved",
@@ -843,6 +1179,14 @@
       "current_place_id": "plc-jp12-d63ff83b9c0fa8"
     },
     {
+      "id": "shr-jp14-40f19002209b40",
+      "canonical_name": "十二柱神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-40f19002209b40"
+    },
+    {
       "id": "shr-jp13-90dea2875a4cf5",
       "canonical_name": "十番稲荷神社",
       "review_status": "approved",
@@ -851,12 +1195,28 @@
       "current_place_id": "plc-jp13-90dea2875a4cf5"
     },
     {
+      "id": "shr-jp14-2a2701511d90d8",
+      "canonical_name": "出雲大社相模分祠",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-2a2701511d90d8"
+    },
+    {
       "id": "shr-jp14-a973584b92cebf",
       "canonical_name": "春日神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-a973584b92cebf"
+    },
+    {
+      "id": "shr-jp14-1e34086f652f1a",
+      "canonical_name": "小杉神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-1e34086f652f1a"
     },
     {
       "id": "shr-jp12-2eb24f74c3e8c1",
@@ -891,12 +1251,36 @@
       "current_place_id": "plc-jp12-ebe8919c926c02"
     },
     {
+      "id": "shr-jp14-18992e1e655117",
+      "canonical_name": "鐘鋳神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-18992e1e655117"
+    },
+    {
       "id": "shr-jp13-0a47b98e7c5561",
       "canonical_name": "上染屋八幡神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-0a47b98e7c5561"
+    },
+    {
+      "id": "shr-jp14-21a7cf5f3bb904",
+      "canonical_name": "上中里神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-21a7cf5f3bb904"
+    },
+    {
+      "id": "shr-jp14-6ce7a78e163bc8",
+      "canonical_name": "上粕屋神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-6ce7a78e163bc8"
     },
     {
       "id": "shr-jp12-6c0221bde26ad8",
@@ -918,6 +1302,14 @@
       ]
     },
     {
+      "id": "shr-jp14-ee32c672c2d853",
+      "canonical_name": "新城神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-ee32c672c2d853"
+    },
+    {
       "id": "shr-jp13-082f8fa293615e",
       "canonical_name": "新田神社",
       "review_status": "approved",
@@ -926,12 +1318,36 @@
       "current_place_id": "plc-jp13-082f8fa293615e"
     },
     {
+      "id": "shr-jp14-02bb34ad42323f",
+      "canonical_name": "深見神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-02bb34ad42323f"
+    },
+    {
       "id": "shr-jp14-1bd8124e3a99f8",
       "canonical_name": "真田神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-1bd8124e3a99f8"
+    },
+    {
+      "id": "shr-jp14-601866704bcf6a",
+      "canonical_name": "神道大教太田神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-601866704bcf6a"
+    },
+    {
+      "id": "shr-jp14-4658e52e188af1",
+      "canonical_name": "神尾田神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-4658e52e188af1"
     },
     {
       "id": "shr-jp14-619b005796a73d",
@@ -990,6 +1406,14 @@
       "current_place_id": "plc-jp14-c3588aa0c7a175"
     },
     {
+      "id": "shr-jp14-485e19f064dc0a",
+      "canonical_name": "諏訪部神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-485e19f064dc0a"
+    },
+    {
       "id": "shr-jp12-b189533b763689",
       "canonical_name": "須賀社",
       "review_status": "approved",
@@ -1030,12 +1454,28 @@
       "current_place_id": "plc-jp14-a6ccf16e5138d8"
     },
     {
+      "id": "shr-jp14-628474a83425d5",
+      "canonical_name": "菅谷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-628474a83425d5"
+    },
+    {
       "id": "shr-jp12-898b24995e8814",
       "canonical_name": "西神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-898b24995e8814"
+    },
+    {
+      "id": "shr-jp14-c41a250a4d526f",
+      "canonical_name": "西町稲荷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-c41a250a4d526f"
     },
     {
       "id": "shr-jp12-8bb07c24f92e2f",
@@ -1070,6 +1510,14 @@
       "current_place_id": "plc-jp12-e769475f57ea92"
     },
     {
+      "id": "shr-jp14-1ce2a26a95feb1",
+      "canonical_name": "川勾神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-1ce2a26a95feb1"
+    },
+    {
       "id": "shr-jp12-d8c30279c6aa96",
       "canonical_name": "浅間神社",
       "review_status": "approved",
@@ -1102,12 +1550,28 @@
       "current_place_id": "plc-jp13-7824f5d22ba933"
     },
     {
+      "id": "shr-jp14-8d26e99cdf09fc",
+      "canonical_name": "船越神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-8d26e99cdf09fc"
+    },
+    {
       "id": "shr-jp12-f863485a78eb2a",
       "canonical_name": "船越鉈切神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-f863485a78eb2a"
+    },
+    {
+      "id": "shr-jp14-1ca8f9d970fcd6",
+      "canonical_name": "船玉神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-1ca8f9d970fcd6"
     },
     {
       "id": "shr-jp14-10ecb6f7cf16e6",
@@ -1118,12 +1582,28 @@
       "current_place_id": "plc-jp14-10ecb6f7cf16e6"
     },
     {
+      "id": "shr-jp14-5500b847e91560",
+      "canonical_name": "曽屋神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-5500b847e91560"
+    },
+    {
       "id": "shr-jp14-544de0307df755",
       "canonical_name": "倉見神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-544de0307df755"
+    },
+    {
+      "id": "shr-jp14-4e46caab1363f1",
+      "canonical_name": "走水神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-4e46caab1363f1"
     },
     {
       "id": "shr-jp13-2069989a7378cc",
@@ -1206,12 +1686,36 @@
       "current_place_id": "plc-jp12-3ca06022798ece"
     },
     {
+      "id": "shr-jp14-1afbed273fe919",
+      "canonical_name": "大曲神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-1afbed273fe919"
+    },
+    {
       "id": "shr-jp12-d52f7353259e7c",
       "canonical_name": "大原神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-d52f7353259e7c"
+    },
+    {
+      "id": "shr-jp14-5cca6e765d31a3",
+      "canonical_name": "大国主社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-5cca6e765d31a3"
+    },
+    {
+      "id": "shr-jp14-5dde56ba54dbaa",
+      "canonical_name": "大山祇神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-5dde56ba54dbaa"
     },
     {
       "id": "shr-jp13-9d6eb0a2e50a5a",
@@ -1238,6 +1742,14 @@
       "current_place_id": "plc-jp13-43b2fb4a95475a"
     },
     {
+      "id": "shr-jp14-950ab6fc125896",
+      "canonical_name": "大庭神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-950ab6fc125896"
+    },
+    {
       "id": "shr-jp13-0a7f1d9b762893",
       "canonical_name": "大東神社",
       "review_status": "approved",
@@ -1262,6 +1774,14 @@
       "current_place_id": "plc-jp13-383200009a8a1c"
     },
     {
+      "id": "shr-jp14-7f9df7c16aee50",
+      "canonical_name": "大和天満宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-7f9df7c16aee50"
+    },
+    {
       "id": "shr-jp12-3ac68386148574",
       "canonical_name": "瀧口神社",
       "review_status": "approved",
@@ -1276,6 +1796,70 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-995198e819ab02"
+    },
+    {
+      "id": "shr-jp14-b5db761203aa54",
+      "canonical_name": "巽神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-b5db761203aa54"
+    },
+    {
+      "id": "shr-jp14-998abbe8a7a9c9",
+      "canonical_name": "淡島神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-998abbe8a7a9c9"
+    },
+    {
+      "id": "shr-jp14-e5b14c204ce778",
+      "canonical_name": "池田神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-e5b14c204ce778"
+    },
+    {
+      "id": "shr-jp14-6c09d8a4202187",
+      "canonical_name": "中村八幡宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-6c09d8a4202187"
+    },
+    {
+      "id": "shr-jp14-609a43c1d75f26",
+      "canonical_name": "中津神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-609a43c1d75f26"
+    },
+    {
+      "id": "shr-jp14-95e1e24a2e42fd",
+      "canonical_name": "中里神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-95e1e24a2e42fd"
+    },
+    {
+      "id": "shr-jp14-42c126f6c9cccc",
+      "canonical_name": "潮田神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-42c126f6c9cccc"
+    },
+    {
+      "id": "shr-jp14-b737457dd1cac1",
+      "canonical_name": "町屋神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-b737457dd1cac1"
     },
     {
       "id": "shr-jp12-7046936dda5eb9",
@@ -1334,12 +1918,36 @@
       "current_place_id": "plc-jp12-ff6491ebbd4b86"
     },
     {
+      "id": "shr-jp14-86644d40ff7626",
+      "canonical_name": "天照大神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-86644d40ff7626"
+    },
+    {
+      "id": "shr-jp14-7d4fbc1284dccf",
+      "canonical_name": "天縛皇神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-7d4fbc1284dccf"
+    },
+    {
       "id": "shr-jp12-26e530b07a019b",
       "canonical_name": "天富神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-26e530b07a019b"
+    },
+    {
+      "id": "shr-jp14-be4ba1dc136339",
+      "canonical_name": "田中八幡宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-be4ba1dc136339"
     },
     {
       "id": "shr-jp12-435acd7ed8ed7e",
@@ -1382,12 +1990,28 @@
       "current_place_id": "plc-jp13-0ee77fa6787cd4"
     },
     {
+      "id": "shr-jp14-4fbfb7aa9f5708",
+      "canonical_name": "東田原神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-4fbfb7aa9f5708"
+    },
+    {
       "id": "shr-jp12-2de1064ca470e1",
       "canonical_name": "藤原神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-2de1064ca470e1"
+    },
+    {
+      "id": "shr-jp14-7e3c932af5cbcf",
+      "canonical_name": "徳延神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-7e3c932af5cbcf"
     },
     {
       "id": "shr-jp14-b3465c8acb61d1",
@@ -1406,12 +2030,36 @@
       "current_place_id": "plc-jp12-4b3d4e64ad4237"
     },
     {
+      "id": "shr-jp14-e1968f8fee8f53",
+      "canonical_name": "日向山神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-e1968f8fee8f53"
+    },
+    {
+      "id": "shr-jp14-1d1909c76928c4",
+      "canonical_name": "日向神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-1d1909c76928c4"
+    },
+    {
       "id": "shr-jp13-8b54439bc94098",
       "canonical_name": "日枝神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-8b54439bc94098"
+    },
+    {
+      "id": "shr-jp14-c30eea834e40a6",
+      "canonical_name": "日枝大神",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-c30eea834e40a6"
     },
     {
       "id": "shr-jp13-d170a5128ae5f0",
@@ -1438,6 +2086,14 @@
       "current_place_id": "plc-jp13-4b932bad3bce0b"
     },
     {
+      "id": "shr-jp14-b1477e97b24a99",
+      "canonical_name": "白岩神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-b1477e97b24a99"
+    },
+    {
       "id": "shr-jp13-b4f0ef301c1909",
       "canonical_name": "白魚稲荷神社",
       "review_status": "approved",
@@ -1460,6 +2116,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-c2e9086bdf404e"
+    },
+    {
+      "id": "shr-jp14-f850bdaaab9267",
+      "canonical_name": "白神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-f850bdaaab9267"
     },
     {
       "id": "shr-jp12-1355896879766d",
@@ -1510,12 +2174,44 @@
       "current_place_id": "plc-jp14-4173665e8d0ef0"
     },
     {
+      "id": "shr-jp14-9c050fbe5dadef",
+      "canonical_name": "八杉神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-9c050fbe5dadef"
+    },
+    {
+      "id": "shr-jp14-caba187010f765",
+      "canonical_name": "八菅神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-caba187010f765"
+    },
+    {
       "id": "shr-jp12-cb13afd453b9e2",
       "canonical_name": "八幡宮",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-cb13afd453b9e2"
+    },
+    {
+      "id": "shr-jp14-051cdf1917b200",
+      "canonical_name": "半原神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-051cdf1917b200"
+    },
+    {
+      "id": "shr-jp14-b5d986933efd49",
+      "canonical_name": "飯綱社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-b5d986933efd49"
     },
     {
       "id": "shr-jp14-f643a318d2546b",
@@ -1566,6 +2262,22 @@
       "current_place_id": "plc-jp12-2a7ffcf48bdea1"
     },
     {
+      "id": "shr-jp14-a3d4a25ab85c5b",
+      "canonical_name": "氷取沢神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-a3d4a25ab85c5b"
+    },
+    {
+      "id": "shr-jp14-0377674cbc1780",
+      "canonical_name": "蛭子神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-0377674cbc1780"
+    },
+    {
       "id": "shr-jp13-2f66cf83cf2d1e",
       "canonical_name": "布多天神社",
       "review_status": "approved",
@@ -1606,6 +2318,14 @@
       "current_place_id": "plc-jp12-4c53962e4aa84a"
     },
     {
+      "id": "shr-jp14-6afdf52f3937ac",
+      "canonical_name": "福田神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-6afdf52f3937ac"
+    },
+    {
       "id": "shr-jp13-87cc1249be99db",
       "canonical_name": "平河天満宮",
       "review_status": "approved",
@@ -1620,6 +2340,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-9f6484b9c43635"
+    },
+    {
+      "id": "shr-jp14-ff85f074a6e6e7",
+      "canonical_name": "柄沢神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-ff85f074a6e6e7"
     },
     {
       "id": "shr-jp13-fa786e3ff69e72",
@@ -1644,6 +2372,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-c2d8dadd9ed307"
+    },
+    {
+      "id": "shr-jp14-4d1292f31480be",
+      "canonical_name": "北金目神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-4d1292f31480be"
     },
     {
       "id": "shr-jp12-ef90881bbbf08c",
@@ -1678,12 +2414,52 @@
       "current_place_id": "plc-jp13-8b2708886b2ba9"
     },
     {
+      "id": "shr-jp14-ab8165204bed24",
+      "canonical_name": "北野神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-ab8165204bed24"
+    },
+    {
+      "id": "shr-jp14-a90240cfa85cee",
+      "canonical_name": "堀之郷正八幡宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-a90240cfa85cee"
+    },
+    {
+      "id": "shr-jp14-f0a0b242d03255",
+      "canonical_name": "堀之内稲荷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-f0a0b242d03255"
+    },
+    {
+      "id": "shr-jp14-b9562a3c342b00",
+      "canonical_name": "本郷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-b9562a3c342b00"
+    },
+    {
       "id": "shr-jp12-f92dc2204aa58f",
       "canonical_name": "本織神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-f92dc2204aa58f"
+    },
+    {
+      "id": "shr-jp14-d4a05c7c546763",
+      "canonical_name": "蓑笠神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-d4a05c7c546763"
     },
     {
       "id": "shr-jp13-c2d04bf8d66b0f",
@@ -1694,12 +2470,36 @@
       "current_place_id": "plc-jp13-c2d04bf8d66b0f"
     },
     {
+      "id": "shr-jp14-67f0f3b521ec87",
+      "canonical_name": "木下神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-67f0f3b521ec87"
+    },
+    {
       "id": "shr-jp13-e0413e87a32c52",
       "canonical_name": "木野下神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-e0413e87a32c52"
+    },
+    {
+      "id": "shr-jp14-4c10ab9f694b2c",
+      "canonical_name": "有鹿神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-4c10ab9f694b2c"
+    },
+    {
+      "id": "shr-jp14-8dc62bea4f575b",
+      "canonical_name": "雷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-8dc62bea4f575b"
     },
     {
       "id": "shr-jp12-d0a8c679cd6432",
@@ -1718,6 +2518,14 @@
       "current_place_id": "plc-jp12-097321136c821e"
     },
     {
+      "id": "shr-jp14-a47f6cbaccd030",
+      "canonical_name": "龍口明神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-a47f6cbaccd030"
+    },
+    {
       "id": "shr-jp12-b5215a1190550b",
       "canonical_name": "両社神社",
       "review_status": "approved",
@@ -1726,12 +2534,28 @@
       "current_place_id": "plc-jp12-b5215a1190550b"
     },
     {
+      "id": "shr-jp14-3e9fd3fd1d510b",
+      "canonical_name": "林神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-3e9fd3fd1d510b"
+    },
+    {
       "id": "shr-jp14-b8ad72042d8522",
       "canonical_name": "鈴鹿明神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-b8ad72042d8522"
+    },
+    {
+      "id": "shr-jp14-0a9f20b8a983c4",
+      "canonical_name": "六所神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-0a9f20b8a983c4"
     },
     {
       "id": "shr-jp13-92a9b5689a5832",
@@ -1748,6 +2572,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-d0ac652a4d57d0"
+    },
+    {
+      "id": "shr-jp14-f93569c879dffe",
+      "canonical_name": "蓼川神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp14-f93569c879dffe"
     },
     {
       "id": "shr-jp13-f8eb40526321e8",
@@ -3396,6 +4228,42 @@
       "summary": "神奈川県の宗教法人名簿で寺山神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-02bb34ad42323f",
+      "target_type": "entity",
+      "target_id": "shr-jp14-02bb34ad42323f",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で深見神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-0377674cbc1780",
+      "target_type": "entity",
+      "target_id": "shr-jp14-0377674cbc1780",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で蛭子神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-04bcfe90a80f0c",
+      "target_type": "entity",
+      "target_id": "shr-jp14-04bcfe90a80f0c",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で健速神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-051cdf1917b200",
+      "target_type": "entity",
+      "target_id": "shr-jp14-051cdf1917b200",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で半原神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-05e9f479d11323",
       "target_type": "entity",
       "target_id": "shr-jp14-05e9f479d11323",
@@ -3412,6 +4280,33 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "神奈川県の宗教法人名簿で報徳二宮神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp14-06c6346c29fee8",
+      "target_type": "entity",
+      "target_id": "shr-jp14-06c6346c29fee8",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で荻野神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-0a0344ff8a1183",
+      "target_type": "entity",
+      "target_id": "shr-jp14-0a0344ff8a1183",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で山中社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-0a9f20b8a983c4",
+      "target_type": "entity",
+      "target_id": "shr-jp14-0a9f20b8a983c4",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で六所神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp14-0d4c44d2ed3a4b",
@@ -3441,6 +4336,15 @@
       "summary": "神奈川県の宗教法人名簿で宗我神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-18992e1e655117",
+      "target_type": "entity",
+      "target_id": "shr-jp14-18992e1e655117",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で鐘鋳神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-18fc51c0c6d904",
       "target_type": "entity",
       "target_id": "shr-jp14-18fc51c0c6d904",
@@ -3450,6 +4354,24 @@
       "summary": "神奈川県の宗教法人名簿で山王神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-1af4e3f4ef7bad",
+      "target_type": "entity",
+      "target_id": "shr-jp14-1af4e3f4ef7bad",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で洲崎神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-1afbed273fe919",
+      "target_type": "entity",
+      "target_id": "shr-jp14-1afbed273fe919",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で大曲神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-1bd8124e3a99f8",
       "target_type": "entity",
       "target_id": "shr-jp14-1bd8124e3a99f8",
@@ -3457,6 +4379,87 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "神奈川県の宗教法人名簿で真田神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp14-1ca8f9d970fcd6",
+      "target_type": "entity",
+      "target_id": "shr-jp14-1ca8f9d970fcd6",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で船玉神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-1ce2a26a95feb1",
+      "target_type": "entity",
+      "target_id": "shr-jp14-1ce2a26a95feb1",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で川勾神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-1d1909c76928c4",
+      "target_type": "entity",
+      "target_id": "shr-jp14-1d1909c76928c4",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で日向神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-1d640ffb3f0c3c",
+      "target_type": "entity",
+      "target_id": "shr-jp14-1d640ffb3f0c3c",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で下田神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-1e34086f652f1a",
+      "target_type": "entity",
+      "target_id": "shr-jp14-1e34086f652f1a",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-79bb47ca8093",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で小杉神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-1fd9a5e6d5de0d",
+      "target_type": "entity",
+      "target_id": "shr-jp14-1fd9a5e6d5de0d",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で粟窪神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-201de5450acf2c",
+      "target_type": "entity",
+      "target_id": "shr-jp14-201de5450acf2c",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で市杵島神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-211b57e6af0258",
+      "target_type": "entity",
+      "target_id": "shr-jp14-211b57e6af0258",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で腰掛神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-21a7cf5f3bb904",
+      "target_type": "entity",
+      "target_id": "shr-jp14-21a7cf5f3bb904",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で上中里神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp14-2355ea719122ea",
@@ -3486,6 +4489,15 @@
       "summary": "神奈川県の宗教法人名簿で大久保神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-2a2701511d90d8",
+      "target_type": "entity",
+      "target_id": "shr-jp14-2a2701511d90d8",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で出雲大社相模分祠の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-2aef82e02f6604",
       "target_type": "entity",
       "target_id": "shr-jp14-2aef82e02f6604",
@@ -3504,6 +4516,42 @@
       "summary": "神奈川県の宗教法人名簿で酒匂神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-330632132b7043",
+      "target_type": "entity",
+      "target_id": "shr-jp14-330632132b7043",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で江島神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-3e9fd3fd1d510b",
+      "target_type": "entity",
+      "target_id": "shr-jp14-3e9fd3fd1d510b",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で林神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-3fd628b213d38f",
+      "target_type": "entity",
+      "target_id": "shr-jp14-3fd628b213d38f",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で依知神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-40f19002209b40",
+      "target_type": "entity",
+      "target_id": "shr-jp14-40f19002209b40",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で十二柱神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-4173665e8d0ef0",
       "target_type": "entity",
       "target_id": "shr-jp14-4173665e8d0ef0",
@@ -3511,6 +4559,78 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "神奈川県の宗教法人名簿で八坂神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp14-42c126f6c9cccc",
+      "target_type": "entity",
+      "target_id": "shr-jp14-42c126f6c9cccc",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で潮田神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-4658e52e188af1",
+      "target_type": "entity",
+      "target_id": "shr-jp14-4658e52e188af1",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で神尾田神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-485e19f064dc0a",
+      "target_type": "entity",
+      "target_id": "shr-jp14-485e19f064dc0a",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で諏訪部神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-4c10ab9f694b2c",
+      "target_type": "entity",
+      "target_id": "shr-jp14-4c10ab9f694b2c",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で有鹿神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-4cd4f89384e8c7",
+      "target_type": "entity",
+      "target_id": "shr-jp14-4cd4f89384e8c7",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で安房口神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-4d1292f31480be",
+      "target_type": "entity",
+      "target_id": "shr-jp14-4d1292f31480be",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で北金目神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-4dfd282a70237b",
+      "target_type": "entity",
+      "target_id": "shr-jp14-4dfd282a70237b",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で羽黒神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-4e46caab1363f1",
+      "target_type": "entity",
+      "target_id": "shr-jp14-4e46caab1363f1",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で走水神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp14-4fb405c24f96a0",
@@ -3522,6 +4642,24 @@
       "summary": "神奈川県の宗教法人名簿で大谷八幡宮の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-4fbfb7aa9f5708",
+      "target_type": "entity",
+      "target_id": "shr-jp14-4fbfb7aa9f5708",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で東田原神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-53ebfa8cd5e2e1",
+      "target_type": "entity",
+      "target_id": "shr-jp14-53ebfa8cd5e2e1",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で安浦神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-544de0307df755",
       "target_type": "entity",
       "target_id": "shr-jp14-544de0307df755",
@@ -3529,6 +4667,24 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "神奈川県の宗教法人名簿で倉見神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp14-5500b847e91560",
+      "target_type": "entity",
+      "target_id": "shr-jp14-5500b847e91560",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で曽屋神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-57f4daa3ef9671",
+      "target_type": "entity",
+      "target_id": "shr-jp14-57f4daa3ef9671",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で原稲荷神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp14-5a68a285b09252",
@@ -3540,6 +4696,51 @@
       "summary": "神奈川県の宗教法人名簿で高部屋神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-5cca6e765d31a3",
+      "target_type": "entity",
+      "target_id": "shr-jp14-5cca6e765d31a3",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で大国主社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-5d7d0c3a050951",
+      "target_type": "entity",
+      "target_id": "shr-jp14-5d7d0c3a050951",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-79bb47ca8093",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で稲毛神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-5dde56ba54dbaa",
+      "target_type": "entity",
+      "target_id": "shr-jp14-5dde56ba54dbaa",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で大山祇神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-601866704bcf6a",
+      "target_type": "entity",
+      "target_id": "shr-jp14-601866704bcf6a",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で神道大教太田神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-609a43c1d75f26",
+      "target_type": "entity",
+      "target_id": "shr-jp14-609a43c1d75f26",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で中津神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-619b005796a73d",
       "target_type": "entity",
       "target_id": "shr-jp14-619b005796a73d",
@@ -3547,6 +4748,24 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "神奈川県の宗教法人名簿で神明社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp14-624b5ab4260682",
+      "target_type": "entity",
+      "target_id": "shr-jp14-624b5ab4260682",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で駒林神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-628474a83425d5",
+      "target_type": "entity",
+      "target_id": "shr-jp14-628474a83425d5",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で菅谷神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp14-63d78bbb88107f",
@@ -3576,6 +4795,15 @@
       "summary": "神奈川県の宗教法人名簿で松原神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-67f0f3b521ec87",
+      "target_type": "entity",
+      "target_id": "shr-jp14-67f0f3b521ec87",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で木下神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-68b1b794adaccf",
       "target_type": "entity",
       "target_id": "shr-jp14-68b1b794adaccf",
@@ -3583,6 +4811,42 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "神奈川県の宗教法人名簿で鶴岡八幡宮の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp14-6afdf52f3937ac",
+      "target_type": "entity",
+      "target_id": "shr-jp14-6afdf52f3937ac",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で福田神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-6c09d8a4202187",
+      "target_type": "entity",
+      "target_id": "shr-jp14-6c09d8a4202187",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で中村八幡宮の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-6ce7a78e163bc8",
+      "target_type": "entity",
+      "target_id": "shr-jp14-6ce7a78e163bc8",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で上粕屋神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-6e0739876a5760",
+      "target_type": "entity",
+      "target_id": "shr-jp14-6e0739876a5760",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で皇大神宮の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp14-6fd3acd4a04eca",
@@ -3594,6 +4858,42 @@
       "summary": "神奈川県の宗教法人名簿で栗原神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-70724d4c121509",
+      "target_type": "entity",
+      "target_id": "shr-jp14-70724d4c121509",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で今泉神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-709c537484785f",
+      "target_type": "entity",
+      "target_id": "shr-jp14-709c537484785f",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で子易神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-7241a85fe01de7",
+      "target_type": "entity",
+      "target_id": "shr-jp14-7241a85fe01de7",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で高来神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-7547e4af17a5e8",
+      "target_type": "entity",
+      "target_id": "shr-jp14-7547e4af17a5e8",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で五社稲荷神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-77309560a5babc",
       "target_type": "entity",
       "target_id": "shr-jp14-77309560a5babc",
@@ -3601,6 +4901,69 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "神奈川県の宗教法人名簿で五社神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp14-77c666c8292a51",
+      "target_type": "entity",
+      "target_id": "shr-jp14-77c666c8292a51",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で厚木神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-7c7c5ece02286a",
+      "target_type": "entity",
+      "target_id": "shr-jp14-7c7c5ece02286a",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で腰取神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-7d4fbc1284dccf",
+      "target_type": "entity",
+      "target_id": "shr-jp14-7d4fbc1284dccf",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-96ba3f40b0ce",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で天縛皇神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-7e3c932af5cbcf",
+      "target_type": "entity",
+      "target_id": "shr-jp14-7e3c932af5cbcf",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で徳延神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-7f9df7c16aee50",
+      "target_type": "entity",
+      "target_id": "shr-jp14-7f9df7c16aee50",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で大和天満宮の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-839f485831eb8d",
+      "target_type": "entity",
+      "target_id": "shr-jp14-839f485831eb8d",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-96ba3f40b0ce",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で皇武神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-86644d40ff7626",
+      "target_type": "entity",
+      "target_id": "shr-jp14-86644d40ff7626",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で天照大神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp14-8a35ac1c1cda13",
@@ -3612,6 +4975,15 @@
       "summary": "神奈川県の宗教法人名簿で小野神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-8bf146dc347a9f",
+      "target_type": "entity",
+      "target_id": "shr-jp14-8bf146dc347a9f",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で佐波神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-8c3c4dea375c50",
       "target_type": "entity",
       "target_id": "shr-jp14-8c3c4dea375c50",
@@ -3619,6 +4991,78 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "神奈川県の宗教法人名簿で山神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp14-8d26e99cdf09fc",
+      "target_type": "entity",
+      "target_id": "shr-jp14-8d26e99cdf09fc",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で船越神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-8dc62bea4f575b",
+      "target_type": "entity",
+      "target_id": "shr-jp14-8dc62bea4f575b",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で雷神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-950ab6fc125896",
+      "target_type": "entity",
+      "target_id": "shr-jp14-950ab6fc125896",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で大庭神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-95e1e24a2e42fd",
+      "target_type": "entity",
+      "target_id": "shr-jp14-95e1e24a2e42fd",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で中里神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-98ae573127a200",
+      "target_type": "entity",
+      "target_id": "shr-jp14-98ae573127a200",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で葛原岡神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-9912b74d0a74be",
+      "target_type": "entity",
+      "target_id": "shr-jp14-9912b74d0a74be",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で子守神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-998abbe8a7a9c9",
+      "target_type": "entity",
+      "target_id": "shr-jp14-998abbe8a7a9c9",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で淡島神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-9c050fbe5dadef",
+      "target_type": "entity",
+      "target_id": "shr-jp14-9c050fbe5dadef",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で八杉神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp14-9e9bdbcdb9abac",
@@ -3639,6 +5083,33 @@
       "summary": "神奈川県の宗教法人名簿で平塚八幡宮の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-a002dcfad2ffd7",
+      "target_type": "entity",
+      "target_id": "shr-jp14-a002dcfad2ffd7",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で金田神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-a3d4a25ab85c5b",
+      "target_type": "entity",
+      "target_id": "shr-jp14-a3d4a25ab85c5b",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で氷取沢神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-a47f6cbaccd030",
+      "target_type": "entity",
+      "target_id": "shr-jp14-a47f6cbaccd030",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で龍口明神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-a6ccf16e5138d8",
       "target_type": "entity",
       "target_id": "shr-jp14-a6ccf16e5138d8",
@@ -3646,6 +5117,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "神奈川県の宗教法人名簿で菅原神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp14-a90240cfa85cee",
+      "target_type": "entity",
+      "target_id": "shr-jp14-a90240cfa85cee",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で堀之郷正八幡宮の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp14-a973584b92cebf",
@@ -3657,6 +5137,33 @@
       "summary": "神奈川県の宗教法人名簿で春日神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-ab8165204bed24",
+      "target_type": "entity",
+      "target_id": "shr-jp14-ab8165204bed24",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で北野神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-ab9f2435569a1b",
+      "target_type": "entity",
+      "target_id": "shr-jp14-ab9f2435569a1b",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で児玉神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-aed298f49db3d3",
+      "target_type": "entity",
+      "target_id": "shr-jp14-aed298f49db3d3",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で外川神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-b1112fd5af61fe",
       "target_type": "entity",
       "target_id": "shr-jp14-b1112fd5af61fe",
@@ -3664,6 +5171,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "神奈川県の宗教法人名簿で貴日土神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp14-b1477e97b24a99",
+      "target_type": "entity",
+      "target_id": "shr-jp14-b1477e97b24a99",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で白岩神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp14-b3465c8acb61d1",
@@ -3675,6 +5191,42 @@
       "summary": "神奈川県の宗教法人名簿で南足柄神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-b50613df008514",
+      "target_type": "entity",
+      "target_id": "shr-jp14-b50613df008514",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で山際神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-b5d986933efd49",
+      "target_type": "entity",
+      "target_id": "shr-jp14-b5d986933efd49",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で飯綱社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-b5db761203aa54",
+      "target_type": "entity",
+      "target_id": "shr-jp14-b5db761203aa54",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で巽神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-b737457dd1cac1",
+      "target_type": "entity",
+      "target_id": "shr-jp14-b737457dd1cac1",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で町屋神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-b8ad72042d8522",
       "target_type": "entity",
       "target_id": "shr-jp14-b8ad72042d8522",
@@ -3682,6 +5234,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "神奈川県の宗教法人名簿で鈴鹿明神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp14-b9562a3c342b00",
+      "target_type": "entity",
+      "target_id": "shr-jp14-b9562a3c342b00",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で本郷神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp14-bb0c19f59eb73b",
@@ -3693,6 +5254,24 @@
       "summary": "神奈川県の宗教法人名簿で天社神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-bbb7acc1cd7bd2",
+      "target_type": "entity",
+      "target_id": "shr-jp14-bbb7acc1cd7bd2",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で久木神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-bc3d01e823aeb5",
+      "target_type": "entity",
+      "target_id": "shr-jp14-bc3d01e823aeb5",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で衣笠神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-bd3bbd17bad23e",
       "target_type": "entity",
       "target_id": "shr-jp14-bd3bbd17bad23e",
@@ -3700,6 +5279,24 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "神奈川県の宗教法人名簿で大稲荷神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp14-be4ba1dc136339",
+      "target_type": "entity",
+      "target_id": "shr-jp14-be4ba1dc136339",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で田中八幡宮の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-bec00c1e8bcff7",
+      "target_type": "entity",
+      "target_id": "shr-jp14-bec00c1e8bcff7",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で子聖神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp14-c2d8dadd9ed307",
@@ -3720,6 +5317,15 @@
       "summary": "神奈川県の宗教法人名簿で白山神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-c30eea834e40a6",
+      "target_type": "entity",
+      "target_id": "shr-jp14-c30eea834e40a6",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で日枝大神の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-c3588aa0c7a175",
       "target_type": "entity",
       "target_id": "shr-jp14-c3588aa0c7a175",
@@ -3727,6 +5333,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "神奈川県の宗教法人名簿で諏訪神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp14-c41a250a4d526f",
+      "target_type": "entity",
+      "target_id": "shr-jp14-c41a250a4d526f",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で西町稲荷神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp14-c4bcffb2be89be",
@@ -3738,6 +5353,24 @@
       "summary": "神奈川県の宗教法人名簿で市方神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-ca671f37cb485e",
+      "target_type": "entity",
+      "target_id": "shr-jp14-ca671f37cb485e",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で洲崎大神の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-caba187010f765",
+      "target_type": "entity",
+      "target_id": "shr-jp14-caba187010f765",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で八菅神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-cc05af274f527c",
       "target_type": "entity",
       "target_id": "shr-jp14-cc05af274f527c",
@@ -3745,6 +5378,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "神奈川県の宗教法人名簿で稲著社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp14-d3160a2d9ada0d",
+      "target_type": "entity",
+      "target_id": "shr-jp14-d3160a2d9ada0d",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で荏柄天神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp14-d3255a2e9379da",
@@ -3765,6 +5407,24 @@
       "summary": "神奈川県の宗教法人名簿で熊野社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-d485788a3043b0",
+      "target_type": "entity",
+      "target_id": "shr-jp14-d485788a3043b0",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-79bb47ca8093",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で今井神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-d4a05c7c546763",
+      "target_type": "entity",
+      "target_id": "shr-jp14-d4a05c7c546763",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で蓑笠神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-d84bd6e19e8cbe",
       "target_type": "entity",
       "target_id": "shr-jp14-d84bd6e19e8cbe",
@@ -3783,6 +5443,51 @@
       "summary": "神奈川県の宗教法人名簿で宇都母知神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-e1968f8fee8f53",
+      "target_type": "entity",
+      "target_id": "shr-jp14-e1968f8fee8f53",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で日向山神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-e5b14c204ce778",
+      "target_type": "entity",
+      "target_id": "shr-jp14-e5b14c204ce778",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で池田神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-e5c4a9176ddd21",
+      "target_type": "entity",
+      "target_id": "shr-jp14-e5c4a9176ddd21",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で鎌倉宮の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-e5e64a3fe6ea2a",
+      "target_type": "entity",
+      "target_id": "shr-jp14-e5e64a3fe6ea2a",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で妻田神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-e9b616c63605e7",
+      "target_type": "entity",
+      "target_id": "shr-jp14-e9b616c63605e7",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で荒井神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-ea89f85c5e38f3",
       "target_type": "entity",
       "target_id": "shr-jp14-ea89f85c5e38f3",
@@ -3792,6 +5497,15 @@
       "summary": "神奈川県の宗教法人名簿で三島社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-ee32c672c2d853",
+      "target_type": "entity",
+      "target_id": "shr-jp14-ee32c672c2d853",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-79bb47ca8093",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で新城神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-ee874ef27b255c",
       "target_type": "entity",
       "target_id": "shr-jp14-ee874ef27b255c",
@@ -3799,6 +5513,24 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "神奈川県の宗教法人名簿で加茂神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp14-f0a0b242d03255",
+      "target_type": "entity",
+      "target_id": "shr-jp14-f0a0b242d03255",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で堀之内稲荷神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-f27a4f1a88077c",
+      "target_type": "entity",
+      "target_id": "shr-jp14-f27a4f1a88077c",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で甲神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp14-f643a318d2546b",
@@ -3819,6 +5551,15 @@
       "summary": "神奈川県の宗教法人名簿で建彦神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-f850bdaaab9267",
+      "target_type": "entity",
+      "target_id": "shr-jp14-f850bdaaab9267",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で白神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-f8c27bebb5635a",
       "target_type": "entity",
       "target_id": "shr-jp14-f8c27bebb5635a",
@@ -3828,6 +5569,15 @@
       "summary": "神奈川県の宗教法人名簿で座間神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp14-f93569c879dffe",
+      "target_type": "entity",
+      "target_id": "shr-jp14-f93569c879dffe",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-6406e0a31a4a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で蓼川神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp14-fc29cf7a465c30",
       "target_type": "entity",
       "target_id": "shr-jp14-fc29cf7a465c30",
@@ -3835,6 +5585,24 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "神奈川県の宗教法人名簿で津島神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp14-fd558796947da1",
+      "target_type": "entity",
+      "target_id": "shr-jp14-fd558796947da1",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で鎌倉山神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp14-ff85f074a6e6e7",
+      "target_type": "entity",
+      "target_id": "shr-jp14-ff85f074a6e6e7",
+      "source_id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "神奈川県の宗教法人名簿で柄沢神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     }
   ],
   "sources": [
@@ -4015,6 +5783,30 @@
       "accessed_at": "2026-09-01"
     },
     {
+      "id": "src-jinja-kanagawa-prefecture-religious-corpor-79bb47ca8093",
+      "title": "川崎市宗教法人名簿｜神奈川県",
+      "publisher": "神奈川県",
+      "url": "https://www.pref.kanagawa.jp/documents/131519/5_kawasakishi.xlsx",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-kanagawa-prefecture-religious-corpor-96ba3f40b0ce",
+      "title": "相模原市宗教法人名簿｜神奈川県",
+      "publisher": "神奈川県",
+      "url": "https://www.pref.kanagawa.jp/documents/131519/6_sagamiharashi.xlsx",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-kanagawa-prefecture-religious-corpor-b8327ac32896",
+      "title": "横浜市宗教法人名簿｜神奈川県",
+      "publisher": "神奈川県",
+      "url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
       "id": "src-jinja-kanagawa-prefecture-religious-corpor-b8ed79c76b17",
       "title": "その他1宗教法人名簿｜神奈川県",
       "publisher": "神奈川県",
@@ -4121,6 +5913,30 @@
       "verified_at": "2026-08-25"
     },
     {
+      "id": "plc-jp14-051cdf1917b200",
+      "prefecture": "神奈川県",
+      "municipality": "愛川町",
+      "review_status": "approved",
+      "address": "神奈川県半原4173",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-609a43c1d75f26",
+      "prefecture": "神奈川県",
+      "municipality": "愛川町",
+      "review_status": "approved",
+      "address": "神奈川県田代332",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-caba187010f765",
+      "prefecture": "神奈川県",
+      "municipality": "愛川町",
+      "review_status": "approved",
+      "address": "神奈川県八菅山139",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp14-77309560a5babc",
       "prefecture": "神奈川県",
       "municipality": "綾瀬市",
@@ -4145,12 +5961,76 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp14-f93569c879dffe",
+      "prefecture": "神奈川県",
+      "municipality": "綾瀬市",
+      "review_status": "approved",
+      "address": "神奈川県蓼川2-12-42",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-1d1909c76928c4",
+      "prefecture": "神奈川県",
+      "municipality": "伊勢原市",
+      "review_status": "approved",
+      "address": "神奈川県日向1670",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-1fd9a5e6d5de0d",
+      "prefecture": "神奈川県",
+      "municipality": "伊勢原市",
+      "review_status": "approved",
+      "address": "神奈川県粟窪73",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-40f19002209b40",
+      "prefecture": "神奈川県",
+      "municipality": "伊勢原市",
+      "review_status": "approved",
+      "address": "神奈川県伊勢原3-27-27",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp14-5a68a285b09252",
       "prefecture": "神奈川県",
       "municipality": "伊勢原市",
       "review_status": "approved",
       "address": "神奈川県下糟屋2202",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp14-601866704bcf6a",
+      "prefecture": "神奈川県",
+      "municipality": "伊勢原市",
+      "review_status": "approved",
+      "address": "神奈川県上粕屋1142",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-67f0f3b521ec87",
+      "prefecture": "神奈川県",
+      "municipality": "伊勢原市",
+      "review_status": "approved",
+      "address": "神奈川県神戸518",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-6ce7a78e163bc8",
+      "prefecture": "神奈川県",
+      "municipality": "伊勢原市",
+      "review_status": "approved",
+      "address": "神奈川県上粕屋1334",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-7c7c5ece02286a",
+      "prefecture": "神奈川県",
+      "municipality": "伊勢原市",
+      "review_status": "approved",
+      "address": "神奈川県岡崎5342",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp14-d84bd6e19e8cbe",
@@ -4161,6 +6041,14 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp14-e5b14c204ce778",
+      "prefecture": "神奈川県",
+      "municipality": "伊勢原市",
+      "review_status": "approved",
+      "address": "神奈川県上谷88",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp14-f643a318d2546b",
       "prefecture": "神奈川県",
       "municipality": "伊勢原市",
@@ -4169,12 +6057,108 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp14-0a0344ff8a1183",
+      "prefecture": "神奈川県",
+      "municipality": "横須賀市",
+      "review_status": "approved",
+      "address": "神奈川県浦郷町2-86",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-4cd4f89384e8c7",
+      "prefecture": "神奈川県",
+      "municipality": "横須賀市",
+      "review_status": "approved",
+      "address": "神奈川県吉井字上吉井95",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-4e46caab1363f1",
+      "prefecture": "神奈川県",
+      "municipality": "横須賀市",
+      "review_status": "approved",
+      "address": "神奈川県走水2-12-5",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-53ebfa8cd5e2e1",
+      "prefecture": "神奈川県",
+      "municipality": "横須賀市",
+      "review_status": "approved",
+      "address": "神奈川県安浦町2-9",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-5cca6e765d31a3",
+      "prefecture": "神奈川県",
+      "municipality": "横須賀市",
+      "review_status": "approved",
+      "address": "神奈川県浦郷町3-41",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-8d26e99cdf09fc",
+      "prefecture": "神奈川県",
+      "municipality": "横須賀市",
+      "review_status": "approved",
+      "address": "神奈川県船越町1-11",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-8dc62bea4f575b",
+      "prefecture": "神奈川県",
+      "municipality": "横須賀市",
+      "review_status": "approved",
+      "address": "神奈川県追浜本町1-9",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-95e1e24a2e42fd",
+      "prefecture": "神奈川県",
+      "municipality": "横須賀市",
+      "review_status": "approved",
+      "address": "神奈川県上町1-9",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-998abbe8a7a9c9",
+      "prefecture": "神奈川県",
+      "municipality": "横須賀市",
+      "review_status": "approved",
+      "address": "神奈川県芦名1-18-29",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-bc3d01e823aeb5",
+      "prefecture": "神奈川県",
+      "municipality": "横須賀市",
+      "review_status": "approved",
+      "address": "神奈川県小矢部4-1202",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-1d640ffb3f0c3c",
+      "prefecture": "神奈川県",
+      "municipality": "下田町",
+      "review_status": "approved",
+      "address": "神奈川県下田町3-1-4",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp14-4173665e8d0ef0",
       "prefecture": "神奈川県",
       "municipality": "海老名市",
       "review_status": "approved",
       "address": "神奈川県勝瀬9-1",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp14-4c10ab9f694b2c",
+      "prefecture": "神奈川県",
+      "municipality": "海老名市",
+      "review_status": "approved",
+      "address": "神奈川県上郷1-4-41",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp14-4fb405c24f96a0",
@@ -4209,12 +6193,28 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp14-b9562a3c342b00",
+      "prefecture": "神奈川県",
+      "municipality": "海老名市",
+      "review_status": "approved",
+      "address": "神奈川県本郷2656",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp14-ea89f85c5e38f3",
       "prefecture": "神奈川県",
       "municipality": "海老名市",
       "review_status": "approved",
       "address": "神奈川県社家3392",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp14-0377674cbc1780",
+      "prefecture": "神奈川県",
+      "municipality": "鎌倉市",
+      "review_status": "approved",
+      "address": "神奈川県小町2-23-3",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp14-2355ea719122ea",
@@ -4241,12 +6241,100 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp14-98ae573127a200",
+      "prefecture": "神奈川県",
+      "municipality": "鎌倉市",
+      "review_status": "approved",
+      "address": "神奈川県梶原5-9-1",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-9912b74d0a74be",
+      "prefecture": "神奈川県",
+      "municipality": "鎌倉市",
+      "review_status": "approved",
+      "address": "神奈川県笛田5-34-6",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-a47f6cbaccd030",
+      "prefecture": "神奈川県",
+      "municipality": "鎌倉市",
+      "review_status": "approved",
+      "address": "神奈川県腰越字蟹田谷1548-4",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-ab8165204bed24",
+      "prefecture": "神奈川県",
+      "municipality": "鎌倉市",
+      "review_status": "approved",
+      "address": "神奈川県山崎736",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-b5db761203aa54",
+      "prefecture": "神奈川県",
+      "municipality": "鎌倉市",
+      "review_status": "approved",
+      "address": "神奈川県扇ガ谷1-9-7",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-d3160a2d9ada0d",
+      "prefecture": "神奈川県",
+      "municipality": "鎌倉市",
+      "review_status": "approved",
+      "address": "神奈川県二階堂74",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-e5c4a9176ddd21",
+      "prefecture": "神奈川県",
+      "municipality": "鎌倉市",
+      "review_status": "approved",
+      "address": "神奈川県二階堂154",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-fd558796947da1",
+      "prefecture": "神奈川県",
+      "municipality": "鎌倉市",
+      "review_status": "approved",
+      "address": "神奈川県鎌倉山2-27-11",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-f27a4f1a88077c",
+      "prefecture": "神奈川県",
+      "municipality": "鴨志田町",
+      "review_status": "approved",
+      "address": "神奈川県鴨志田町296",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-211b57e6af0258",
+      "prefecture": "神奈川県",
+      "municipality": "茅ヶ崎市",
+      "review_status": "approved",
+      "address": "神奈川県芹沢2169",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp14-f6ac4082a14451",
       "prefecture": "神奈川県",
       "municipality": "茅ヶ崎市",
       "review_status": "approved",
       "address": "神奈川県堤3580",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp14-1afbed273fe919",
+      "prefecture": "神奈川県",
+      "municipality": "寒川町",
+      "review_status": "approved",
+      "address": "神奈川県大曲1-16-9",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp14-544de0307df755",
@@ -4257,6 +6345,14 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp14-628474a83425d5",
+      "prefecture": "神奈川県",
+      "municipality": "寒川町",
+      "review_status": "approved",
+      "address": "神奈川県岡田4-20-39",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-samukawa-jinja",
       "prefecture": "神奈川県",
       "municipality": "寒川町",
@@ -4265,12 +6361,124 @@
       "verified_at": "2026-08-25"
     },
     {
+      "id": "plc-jp14-7d4fbc1284dccf",
+      "prefecture": "神奈川県",
+      "municipality": "宮下本町",
+      "review_status": "approved",
+      "address": "神奈川県宮下本町3-23-7",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-5d7d0c3a050951",
+      "prefecture": "神奈川県",
+      "municipality": "宮本町",
+      "review_status": "approved",
+      "address": "神奈川県宮本町7-7",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-4dfd282a70237b",
+      "prefecture": "神奈川県",
+      "municipality": "戸塚町",
+      "review_status": "approved",
+      "address": "神奈川県戸塚町4142",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-06c6346c29fee8",
+      "prefecture": "神奈川県",
+      "municipality": "厚木市",
+      "review_status": "approved",
+      "address": "神奈川県上荻野1-1",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-18992e1e655117",
+      "prefecture": "神奈川県",
+      "municipality": "厚木市",
+      "review_status": "approved",
+      "address": "神奈川県下荻野388",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-3e9fd3fd1d510b",
+      "prefecture": "神奈川県",
+      "municipality": "厚木市",
+      "review_status": "approved",
+      "address": "神奈川県林3-7-1",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-3fd628b213d38f",
+      "prefecture": "神奈川県",
+      "municipality": "厚木市",
+      "review_status": "approved",
+      "address": "神奈川県上依知1",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-709c537484785f",
+      "prefecture": "神奈川県",
+      "municipality": "厚木市",
+      "review_status": "approved",
+      "address": "神奈川県戸田474",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-77c666c8292a51",
+      "prefecture": "神奈川県",
+      "municipality": "厚木市",
+      "review_status": "approved",
+      "address": "神奈川県厚木町3-8",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp14-8a35ac1c1cda13",
       "prefecture": "神奈川県",
       "municipality": "厚木市",
       "review_status": "approved",
       "address": "神奈川県小野428",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp14-a002dcfad2ffd7",
+      "prefecture": "神奈川県",
+      "municipality": "厚木市",
+      "review_status": "approved",
+      "address": "神奈川県金田172",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-b50613df008514",
+      "prefecture": "神奈川県",
+      "municipality": "厚木市",
+      "review_status": "approved",
+      "address": "神奈川県山際180",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-e5e64a3fe6ea2a",
+      "prefecture": "神奈川県",
+      "municipality": "厚木市",
+      "review_status": "approved",
+      "address": "神奈川県妻田西1-17-32",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-e9b616c63605e7",
+      "prefecture": "神奈川県",
+      "municipality": "厚木市",
+      "review_status": "approved",
+      "address": "神奈川県上荻野1602",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-d485788a3043b0",
+      "prefecture": "神奈川県",
+      "municipality": "今井上町",
+      "review_status": "approved",
+      "address": "神奈川県今井上町7-13",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp14-6fd3acd4a04eca",
@@ -4289,6 +6497,14 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp14-c30eea834e40a6",
+      "prefecture": "神奈川県",
+      "municipality": "座間市",
+      "review_status": "approved",
+      "address": "神奈川県四ツ谷479",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp14-f8c27bebb5635a",
       "prefecture": "神奈川県",
       "municipality": "座間市",
@@ -4297,12 +6513,52 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp14-57f4daa3ef9671",
+      "prefecture": "神奈川県",
+      "municipality": "三浦市",
+      "review_status": "approved",
+      "address": "神奈川県原町606",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-4658e52e188af1",
+      "prefecture": "神奈川県",
+      "municipality": "山北町",
+      "review_status": "approved",
+      "address": "神奈川県神尾田709",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp14-bb0c19f59eb73b",
       "prefecture": "神奈川県",
       "municipality": "山北町",
       "review_status": "approved",
       "address": "神奈川県向原227-7",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp14-1af4e3f4ef7bad",
+      "prefecture": "神奈川県",
+      "municipality": "洲崎町",
+      "review_status": "approved",
+      "address": "神奈川県洲崎町9-28",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-e1968f8fee8f53",
+      "prefecture": "神奈川県",
+      "municipality": "十日市",
+      "review_status": "approved",
+      "address": "神奈川県十日市場町817-7",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-1e34086f652f1a",
+      "prefecture": "神奈川県",
+      "municipality": "小杉御殿町",
+      "review_status": "approved",
+      "address": "神奈川県小杉御殿町1-1010",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp14-00ab4495b31557",
@@ -4377,6 +6633,14 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp14-7547e4af17a5e8",
+      "prefecture": "神奈川県",
+      "municipality": "小田原市",
+      "review_status": "approved",
+      "address": "神奈川県中曽根95",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp14-9e9bdbcdb9abac",
       "prefecture": "神奈川県",
       "municipality": "小田原市",
@@ -4449,6 +6713,166 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp14-21a7cf5f3bb904",
+      "prefecture": "神奈川県",
+      "municipality": "上中里町",
+      "review_status": "approved",
+      "address": "神奈川県上中里町441",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-ee32c672c2d853",
+      "prefecture": "神奈川県",
+      "municipality": "新城中町",
+      "review_status": "approved",
+      "address": "神奈川県新城中町4-14",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-04bcfe90a80f0c",
+      "prefecture": "神奈川県",
+      "municipality": "秦野市",
+      "review_status": "approved",
+      "address": "神奈川県下大槻611",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-2a2701511d90d8",
+      "prefecture": "神奈川県",
+      "municipality": "秦野市",
+      "review_status": "approved",
+      "address": "神奈川県平沢1221",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-4fbfb7aa9f5708",
+      "prefecture": "神奈川県",
+      "municipality": "秦野市",
+      "review_status": "approved",
+      "address": "神奈川県東田原576",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-5500b847e91560",
+      "prefecture": "神奈川県",
+      "municipality": "秦野市",
+      "review_status": "approved",
+      "address": "神奈川県曽屋1-6-10",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-70724d4c121509",
+      "prefecture": "神奈川県",
+      "municipality": "秦野市",
+      "review_status": "approved",
+      "address": "神奈川県今泉314",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-a90240cfa85cee",
+      "prefecture": "神奈川県",
+      "municipality": "秦野市",
+      "review_status": "approved",
+      "address": "神奈川県堀山下998",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-86644d40ff7626",
+      "prefecture": "神奈川県",
+      "municipality": "逗子市",
+      "review_status": "approved",
+      "address": "神奈川県小坪4-20-1",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-bbb7acc1cd7bd2",
+      "prefecture": "神奈川県",
+      "municipality": "逗子市",
+      "review_status": "approved",
+      "address": "神奈川県久木6-2-39",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-5dde56ba54dbaa",
+      "prefecture": "神奈川県",
+      "municipality": "菅沢町",
+      "review_status": "approved",
+      "address": "神奈川県菅沢町13-10",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-aed298f49db3d3",
+      "prefecture": "神奈川県",
+      "municipality": "瀬戸ケ谷町",
+      "review_status": "approved",
+      "address": "神奈川県瀬戸ケ谷町196-1",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-ca671f37cb485e",
+      "prefecture": "神奈川県",
+      "municipality": "青木町",
+      "review_status": "approved",
+      "address": "神奈川県青木町5-29",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-0a9f20b8a983c4",
+      "prefecture": "神奈川県",
+      "municipality": "大磯町",
+      "review_status": "approved",
+      "address": "神奈川県国府本郷935",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-7241a85fe01de7",
+      "prefecture": "神奈川県",
+      "municipality": "大磯町",
+      "review_status": "approved",
+      "address": "神奈川県高麗2-9-47",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-b1477e97b24a99",
+      "prefecture": "神奈川県",
+      "municipality": "大磯町",
+      "review_status": "approved",
+      "address": "神奈川県西小磯853",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-9c050fbe5dadef",
+      "prefecture": "神奈川県",
+      "municipality": "大豆戸町",
+      "review_status": "approved",
+      "address": "神奈川県大豆戸町安山239",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-02bb34ad42323f",
+      "prefecture": "神奈川県",
+      "municipality": "大和市",
+      "review_status": "approved",
+      "address": "神奈川県深見3367-1",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-6afdf52f3937ac",
+      "prefecture": "神奈川県",
+      "municipality": "大和市",
+      "review_status": "approved",
+      "address": "神奈川県福田8-8-21",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-7f9df7c16aee50",
+      "prefecture": "神奈川県",
+      "municipality": "大和市",
+      "review_status": "approved",
+      "address": "神奈川県大和南1-8-1",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp14-8c3c4dea375c50",
       "prefecture": "神奈川県",
       "municipality": "大和市",
@@ -4457,12 +6881,116 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp14-be4ba1dc136339",
+      "prefecture": "神奈川県",
+      "municipality": "大和市",
+      "review_status": "approved",
+      "address": "神奈川県代官1-20-20",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp14-c3588aa0c7a175",
       "prefecture": "神奈川県",
       "municipality": "大和市",
       "review_status": "approved",
       "address": "神奈川県下鶴間2540",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp14-b5d986933efd49",
+      "prefecture": "神奈川県",
+      "municipality": "中井町",
+      "review_status": "approved",
+      "address": "神奈川県井ノ口3760",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-d4a05c7c546763",
+      "prefecture": "神奈川県",
+      "municipality": "中井町",
+      "review_status": "approved",
+      "address": "神奈川県井ノ口2039",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-42c126f6c9cccc",
+      "prefecture": "神奈川県",
+      "municipality": "潮田町",
+      "review_status": "approved",
+      "address": "神奈川県潮田町3-131-1",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-b737457dd1cac1",
+      "prefecture": "神奈川県",
+      "municipality": "町屋町",
+      "review_status": "approved",
+      "address": "神奈川県町屋町4-20",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-1ca8f9d970fcd6",
+      "prefecture": "神奈川県",
+      "municipality": "藤沢市",
+      "review_status": "approved",
+      "address": "神奈川県大鋸2-4-12",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-201de5450acf2c",
+      "prefecture": "神奈川県",
+      "municipality": "藤沢市",
+      "review_status": "approved",
+      "address": "神奈川県大庭5429-3",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-330632132b7043",
+      "prefecture": "神奈川県",
+      "municipality": "藤沢市",
+      "review_status": "approved",
+      "address": "神奈川県江の島2-3-8",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-6e0739876a5760",
+      "prefecture": "神奈川県",
+      "municipality": "藤沢市",
+      "review_status": "approved",
+      "address": "神奈川県鵠沼神明2-11-5",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-8bf146dc347a9f",
+      "prefecture": "神奈川県",
+      "municipality": "藤沢市",
+      "review_status": "approved",
+      "address": "神奈川県石川141",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-950ab6fc125896",
+      "prefecture": "神奈川県",
+      "municipality": "藤沢市",
+      "review_status": "approved",
+      "address": "神奈川県稲荷997",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-ab9f2435569a1b",
+      "prefecture": "神奈川県",
+      "municipality": "藤沢市",
+      "review_status": "approved",
+      "address": "神奈川県江の島1-4-3",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-bec00c1e8bcff7",
+      "prefecture": "神奈川県",
+      "municipality": "藤沢市",
+      "review_status": "approved",
+      "address": "神奈川県獺郷799",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp14-c2d8dadd9ed307",
@@ -4481,6 +7009,14 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp14-ff85f074a6e6e7",
+      "prefecture": "神奈川県",
+      "municipality": "藤沢市",
+      "review_status": "approved",
+      "address": "神奈川県柄沢字宮ノ下511",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp14-63d78bbb88107f",
       "prefecture": "神奈川県",
       "municipality": "南足柄市",
@@ -4495,6 +7031,46 @@
       "review_status": "approved",
       "address": "神奈川県飯沢298",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp14-1ce2a26a95feb1",
+      "prefecture": "神奈川県",
+      "municipality": "二宮町",
+      "review_status": "approved",
+      "address": "神奈川県山西宮山2122",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-624b5ab4260682",
+      "prefecture": "神奈川県",
+      "municipality": "日吉本町",
+      "review_status": "approved",
+      "address": "神奈川県日吉本町2-25-5",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-6c09d8a4202187",
+      "prefecture": "神奈川県",
+      "municipality": "八幡町",
+      "review_status": "approved",
+      "address": "神奈川県八幡町1",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-a3d4a25ab85c5b",
+      "prefecture": "神奈川県",
+      "municipality": "氷取沢町",
+      "review_status": "approved",
+      "address": "神奈川県氷取沢町221",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-839f485831eb8d",
+      "prefecture": "神奈川県",
+      "municipality": "淵野辺本町",
+      "review_status": "approved",
+      "address": "神奈川県淵野辺本町4-20-11",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp14-10ecb6f7cf16e6",
@@ -4513,6 +7089,30 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp14-485e19f064dc0a",
+      "prefecture": "神奈川県",
+      "municipality": "平塚市",
+      "review_status": "approved",
+      "address": "神奈川県諏訪町28-25",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-4d1292f31480be",
+      "prefecture": "神奈川県",
+      "municipality": "平塚市",
+      "review_status": "approved",
+      "address": "神奈川県北金目3-17-11",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-7e3c932af5cbcf",
+      "prefecture": "神奈川県",
+      "municipality": "平塚市",
+      "review_status": "approved",
+      "address": "神奈川県徳延369",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp14-9f6484b9c43635",
       "prefecture": "神奈川県",
       "municipality": "平塚市",
@@ -4527,6 +7127,30 @@
       "review_status": "approved",
       "address": "神奈川県平塚4-18-1",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp14-c41a250a4d526f",
+      "prefecture": "神奈川県",
+      "municipality": "平塚市",
+      "review_status": "approved",
+      "address": "神奈川県高浜台21-21",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-f0a0b242d03255",
+      "prefecture": "神奈川県",
+      "municipality": "堀ノ内町",
+      "review_status": "approved",
+      "address": "神奈川県堀ノ内町2-211",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp14-f850bdaaab9267",
+      "prefecture": "神奈川県",
+      "municipality": "名瀬町",
+      "review_status": "approved",
+      "address": "神奈川県名瀬町1774",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp12-1c2e1d6f93fa9d",

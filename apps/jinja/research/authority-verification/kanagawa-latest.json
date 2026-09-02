@@ -5,523 +5,1067 @@
   "jurisdiction": "JP-14",
   "prefecture": "神奈川県",
   "publisher": "神奈川県",
-  "generated_at": "2026-09-01T16:24:22.075Z",
-  "verification_date": "2026-09-01",
+  "generated_at": "2026-09-02T01:28:34.291Z",
+  "verification_date": "2026-09-02",
   "authority_record_count": 943,
   "authority_page_count": 5,
   "authority_failed_page_count": 0,
   "osm_named_candidate_count": 1490,
-  "approved_count": 50,
+  "approved_count": 104,
   "ambiguous_count": 9,
-  "match_rule": "exact normalized shrine name + exact municipality, with exactly one authority row and one OSM candidate for that pair",
+  "match_rules": {
+    "exact_name_unique_statewide_candidate_missing_municipality": 104
+  },
+  "match_rule": "exact normalized shrine name + exact municipality when available; fallback only when OSM municipality is absent and the normalized name is unique across the prefecture on both authority and OSM sides",
   "automatic_state_inference": false,
   "automatic_event_inference": false,
   "automatic_relation_inference": false,
   "source_page": "https://www.pref.kanagawa.jp/docs/a7g/cnt/f7176/meibo080101.html",
   "approved": [
     {
-      "candidate_id": "osm-way-850159219",
-      "name": "稲著社",
+      "candidate_id": "osm-node-5623384473",
+      "name": "中津神社",
+      "municipality": "愛川町",
+      "address": "田代332",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-3954474298",
+      "name": "八菅神社",
+      "municipality": "愛川町",
+      "address": "八菅山139",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2706617108",
+      "name": "半原神社",
+      "municipality": "愛川町",
+      "address": "半原4173",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1233919499",
+      "name": "蓼川神社",
       "municipality": "綾瀬市",
-      "address": "落合南8-5-25",
+      "address": "蓼川2-12-42",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1362409959",
-      "name": "熊野社",
-      "municipality": "綾瀬市",
-      "address": "上土棚中5-11-18",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
-      "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-52061810",
-      "name": "五社神社",
-      "municipality": "綾瀬市",
-      "address": "早川1603",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
-      "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1011128860",
-      "name": "伊勢原大神宮",
+      "candidate_id": "osm-way-1376185744",
+      "name": "粟窪神社",
       "municipality": "伊勢原市",
-      "address": "伊勢原3-8-1",
+      "address": "粟窪73",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1383911476",
-      "name": "高部屋神社",
+      "candidate_id": "osm-way-1453499422",
+      "name": "腰取神社",
       "municipality": "伊勢原市",
-      "address": "下糟屋2202",
+      "address": "岡崎5342",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1450212755",
-      "name": "飯綱神社",
+      "candidate_id": "osm-way-1453499412",
+      "name": "十二柱神社",
       "municipality": "伊勢原市",
-      "address": "日向新田269",
+      "address": "伊勢原3-27-27",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-634527429",
-      "name": "貴日土神社",
-      "municipality": "海老名市",
-      "address": "中河内1743",
+      "candidate_id": "osm-way-197611700",
+      "name": "上粕屋神社",
+      "municipality": "伊勢原市",
+      "address": "上粕屋1334",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-220085890",
-      "name": "三島社",
-      "municipality": "海老名市",
-      "address": "社家3392",
+      "candidate_id": "osm-way-1465218691",
+      "name": "神道大教太田神社",
+      "municipality": "伊勢原市",
+      "address": "上粕屋1142",
+      "umbrella": "神道大教",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4403852712",
+      "name": "池田神社",
+      "municipality": "伊勢原市",
+      "address": "上谷88",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-565918154",
-      "name": "神明社",
-      "municipality": "海老名市",
-      "address": "大谷北2-13-22",
+      "candidate_id": "osm-way-1450211959",
+      "name": "日向神社",
+      "municipality": "伊勢原市",
+      "address": "日向1670",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-627985405",
-      "name": "浅間大神",
-      "municipality": "海老名市",
-      "address": "下今泉5-8-15",
+      "candidate_id": "osm-way-1453499410",
+      "name": "木下神社",
+      "municipality": "伊勢原市",
+      "address": "神戸518",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-563380520",
-      "name": "大谷八幡宮",
-      "municipality": "海老名市",
-      "address": "大谷南2-5-15",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
-      "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-545015675",
-      "name": "八坂神社",
-      "municipality": "海老名市",
-      "address": "勝瀬9-1",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
-      "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-704534773",
-      "name": "甘縄神明神社",
-      "municipality": "鎌倉市",
-      "address": "長谷1-12-1",
+      "candidate_id": "osm-node-3375828605",
+      "name": "安浦神社",
+      "municipality": "横須賀市",
+      "address": "安浦町2-9",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
       "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1314368867",
-      "name": "佐助稲荷神社",
-      "municipality": "鎌倉市",
-      "address": "佐助2-22-12",
+      "candidate_id": "osm-node-12687801218",
+      "name": "安房口神社",
+      "municipality": "横須賀市",
+      "address": "吉井字上吉井95",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
       "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-34550401",
-      "name": "鶴岡八幡宮",
+      "candidate_id": "osm-node-4404024412",
+      "name": "衣笠神社",
+      "municipality": "横須賀市",
+      "address": "小矢部4-1202",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4407063586",
+      "name": "山中社",
+      "municipality": "横須賀市",
+      "address": "浦郷町2-86",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-329608357",
+      "name": "船越神社",
+      "municipality": "横須賀市",
+      "address": "船越町1-11",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-3375864650",
+      "name": "走水神社",
+      "municipality": "横須賀市",
+      "address": "走水2-12-5",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-334124757",
+      "name": "大国主社",
+      "municipality": "横須賀市",
+      "address": "浦郷町3-41",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-645617845",
+      "name": "淡島神社",
+      "municipality": "横須賀市",
+      "address": "芦名1-18-29",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-370001294",
+      "name": "中里神社",
+      "municipality": "横須賀市",
+      "address": "上町1-9",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-329422386",
+      "name": "雷神社",
+      "municipality": "横須賀市",
+      "address": "追浜本町1-9",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2421564165",
+      "name": "下田神社",
+      "municipality": "下田町",
+      "address": "下田町3-1-4",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-318795981",
+      "name": "本郷神社",
+      "municipality": "海老名市",
+      "address": "本郷2656",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1978763477",
+      "name": "有鹿神社",
+      "municipality": "海老名市",
+      "address": "上郷1-4-41",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-556197964",
+      "name": "荏柄天神社",
       "municipality": "鎌倉市",
-      "address": "雪ノ下2-1-31",
+      "address": "二階堂74",
       "umbrella": "神社神道系単立",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
       "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1072181732",
-      "name": "建彦神社",
+      "candidate_id": "osm-way-704218620",
+      "name": "葛原岡神社",
+      "municipality": "鎌倉市",
+      "address": "梶原5-9-1",
+      "umbrella": "神社神道系単立",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-549825989",
+      "name": "鎌倉宮",
+      "municipality": "鎌倉市",
+      "address": "二階堂154",
+      "umbrella": "神社神道系単立",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2039462143",
+      "name": "鎌倉山神社",
+      "municipality": "鎌倉市",
+      "address": "鎌倉山2-27-11",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-3908804378",
+      "name": "子守神社",
+      "municipality": "鎌倉市",
+      "address": "笛田5-34-6",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-704513944",
+      "name": "巽神社",
+      "municipality": "鎌倉市",
+      "address": "扇ガ谷1-9-7",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-377295125",
+      "name": "蛭子神社",
+      "municipality": "鎌倉市",
+      "address": "小町2-23-3",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2919666690",
+      "name": "北野神社",
+      "municipality": "鎌倉市",
+      "address": "山崎736",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1987903943",
+      "name": "龍口明神社",
+      "municipality": "鎌倉市",
+      "address": "腰越字蟹田谷1548-4",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4332310088",
+      "name": "甲神社",
+      "municipality": "鴨志田町",
+      "address": "鴨志田町296",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4392880571",
+      "name": "腰掛神社",
       "municipality": "茅ヶ崎市",
-      "address": "堤3580",
+      "address": "芹沢2169",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
       "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-792978853",
-      "name": "倉見神社",
+      "candidate_id": "osm-way-1107093610",
+      "name": "菅谷神社",
       "municipality": "寒川町",
-      "address": "倉見46",
+      "address": "岡田4-20-39",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-736795035",
-      "name": "小野神社",
+      "candidate_id": "osm-way-1515052230",
+      "name": "大曲神社",
+      "municipality": "寒川町",
+      "address": "大曲1-16-9",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1245438235",
+      "name": "天縛皇神社",
+      "municipality": "宮下本町",
+      "address": "宮下本町3-23-7",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/6_sagamiharashi.xlsx",
+      "source_title": "相模原市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1971580260",
+      "name": "稲毛神社",
+      "municipality": "宮本町",
+      "address": "宮本町7-7",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/5_kawasakishi.xlsx",
+      "source_title": "川崎市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1947184238",
+      "name": "羽黒神社",
+      "municipality": "戸塚町",
+      "address": "戸塚町4142",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4959548629",
+      "name": "依知神社",
       "municipality": "厚木市",
-      "address": "小野428",
+      "address": "上依知1",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1207489092",
-      "name": "栗原神社",
+      "candidate_id": "osm-node-5625916754",
+      "name": "荻野神社",
+      "municipality": "厚木市",
+      "address": "上荻野1-1",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-6183275731",
+      "name": "金田神社",
+      "municipality": "厚木市",
+      "address": "金田172",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-314811612",
+      "name": "厚木神社",
+      "municipality": "厚木市",
+      "address": "厚木町3-8",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5623384483",
+      "name": "荒井神社",
+      "municipality": "厚木市",
+      "address": "上荻野1602",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5640809006",
+      "name": "妻田神社",
+      "municipality": "厚木市",
+      "address": "妻田西1-17-32",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5634706361",
+      "name": "山際神社",
+      "municipality": "厚木市",
+      "address": "山際180",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1600702865",
+      "name": "子易神社",
+      "municipality": "厚木市",
+      "address": "戸田474",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5627833058",
+      "name": "鐘鋳神社",
+      "municipality": "厚木市",
+      "address": "下荻野388",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5624634056",
+      "name": "林神社",
+      "municipality": "厚木市",
+      "address": "林3-7-1",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1190144605",
+      "name": "今井神社",
+      "municipality": "今井上町",
+      "address": "今井上町7-13",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/5_kawasakishi.xlsx",
+      "source_title": "川崎市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2771989524",
+      "name": "日枝大神",
       "municipality": "座間市",
-      "address": "栗原中央4-4-14",
+      "address": "四ツ谷479",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1157839470",
-      "name": "座間神社",
-      "municipality": "座間市",
-      "address": "座間1-3437",
+      "candidate_id": "osm-node-5261386177",
+      "name": "原稲荷神社",
+      "municipality": "三浦市",
+      "address": "原町606",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-55910762",
-      "name": "鈴鹿明神社",
-      "municipality": "座間市",
-      "address": "入谷西2-46-1",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
-      "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-node-12337574069",
-      "name": "天社神社",
+      "candidate_id": "osm-node-5236527037",
+      "name": "神尾田神社",
       "municipality": "山北町",
-      "address": "向原227-7",
+      "address": "神尾田709",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1169979912",
-      "name": "加茂神社",
+      "candidate_id": "osm-way-334119449",
+      "name": "洲崎神社",
+      "municipality": "洲崎町",
+      "address": "洲崎町9-28",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-318678450",
+      "name": "日向山神社",
+      "municipality": "十日市",
+      "address": "十日市場町817-7",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-59532875",
+      "name": "小杉神社",
+      "municipality": "小杉御殿町",
+      "address": "小杉御殿町1-1010",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/5_kawasakishi.xlsx",
+      "source_title": "川崎市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-991643395",
+      "name": "五社稲荷神社",
       "municipality": "小田原市",
-      "address": "鴨宮708",
+      "address": "中曽根95",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
       "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1060655469",
-      "name": "紀伊神社",
-      "municipality": "小田原市",
-      "address": "早川9",
+      "candidate_id": "osm-way-331770467",
+      "name": "上中里神社",
+      "municipality": "上中里町",
+      "address": "上中里町441",
       "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
-      "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-558824338",
-      "name": "居神神社",
-      "municipality": "小田原市",
-      "address": "城山4-23-29",
+      "candidate_id": "osm-way-432708717",
+      "name": "新城神社",
+      "municipality": "新城中町",
+      "address": "新城中町4-14",
       "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
-      "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/5_kawasakishi.xlsx",
+      "source_title": "川崎市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1173864888",
-      "name": "熊野神社",
-      "municipality": "小田原市",
-      "address": "中町2-11-3",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
-      "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-node-2868398307",
-      "name": "山王神社",
-      "municipality": "小田原市",
-      "address": "浜町4-30-15",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
-      "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1169761940",
-      "name": "市方神社",
-      "municipality": "小田原市",
-      "address": "荻窪755",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
-      "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-964012178",
-      "name": "寺山神社",
-      "municipality": "小田原市",
-      "address": "根府川95-1",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
-      "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1174711099",
-      "name": "酒匂神社",
-      "municipality": "小田原市",
-      "address": "酒匂2-27-1",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
-      "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1175040055",
-      "name": "宗我神社",
-      "municipality": "小田原市",
-      "address": "曽我谷津386",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
-      "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-312734388",
-      "name": "松原神社",
-      "municipality": "小田原市",
-      "address": "本町2-10-16",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
-      "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1510180401",
-      "name": "菅原神社",
-      "municipality": "小田原市",
-      "address": "国府津1752",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
-      "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1169332072",
-      "name": "大稲荷神社",
-      "municipality": "小田原市",
-      "address": "城山1-22-1",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
-      "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-337719918",
-      "name": "大久保神社",
-      "municipality": "小田原市",
-      "address": "城山3-27-7",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
-      "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1147529561",
-      "name": "大美和神社",
-      "municipality": "小田原市",
-      "address": "江之浦312",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
-      "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1174550983",
-      "name": "津島神社",
-      "municipality": "小田原市",
-      "address": "田島境1489",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
-      "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-1169530844",
-      "name": "白山神社",
-      "municipality": "小田原市",
-      "address": "扇町5-7-29",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
-      "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-558481071",
-      "name": "報徳二宮神社",
-      "municipality": "小田原市",
-      "address": "城内8-10",
-      "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
-      "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
-    },
-    {
-      "candidate_id": "osm-way-675130849",
-      "name": "寄神社",
-      "municipality": "松田町",
-      "address": "寄42-2537",
+      "candidate_id": "osm-way-1324292447",
+      "name": "健速神社",
+      "municipality": "秦野市",
+      "address": "下大槻611",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-node-2199673445",
-      "name": "山神社",
+      "candidate_id": "osm-way-586223503",
+      "name": "今泉神社",
+      "municipality": "秦野市",
+      "address": "今泉314",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-254993459",
+      "name": "出雲大社相模分祠",
+      "municipality": "秦野市",
+      "address": "平沢1221",
+      "umbrella": "出雲大社教",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-562632233",
+      "name": "曽屋神社",
+      "municipality": "秦野市",
+      "address": "曽屋1-6-10",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-8821318420",
+      "name": "東田原神社",
+      "municipality": "秦野市",
+      "address": "東田原576",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1307496762",
+      "name": "堀之郷正八幡宮",
+      "municipality": "秦野市",
+      "address": "堀山下998",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-377290577",
+      "name": "久木神社",
+      "municipality": "逗子市",
+      "address": "久木6-2-39",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-377290582",
+      "name": "天照大神社",
+      "municipality": "逗子市",
+      "address": "小坪4-20-1",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4918071059",
+      "name": "大山祇神社",
+      "municipality": "菅沢町",
+      "address": "菅沢町13-10",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-653751417",
+      "name": "外川神社",
+      "municipality": "瀬戸ケ谷町",
+      "address": "瀬戸ケ谷町196-1",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-332805395",
+      "name": "洲崎大神",
+      "municipality": "青木町",
+      "address": "青木町5-29",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-391885723",
+      "name": "高来神社",
+      "municipality": "大磯町",
+      "address": "高麗2-9-47",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4400995650",
+      "name": "白岩神社",
+      "municipality": "大磯町",
+      "address": "西小磯853",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2868398305",
+      "name": "六所神社",
+      "municipality": "大磯町",
+      "address": "国府本郷935",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1245954225",
+      "name": "八杉神社",
+      "municipality": "大豆戸町",
+      "address": "大豆戸町安山239",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1090131259",
+      "name": "深見神社",
       "municipality": "大和市",
-      "address": "中央5-465-8",
+      "address": "深見3367-1",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-node-1794455867",
-      "name": "諏訪神社",
+      "candidate_id": "osm-node-1090131236",
+      "name": "大和天満宮",
       "municipality": "大和市",
-      "address": "下鶴間2540",
+      "address": "大和南1-8-1",
+      "umbrella": "神社神道系単立",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-4087457600",
+      "name": "田中八幡宮",
+      "municipality": "大和市",
+      "address": "代官1-20-20",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1414377635",
-      "name": "宇都母知神社",
+      "candidate_id": "osm-node-2147434082",
+      "name": "福田神社",
+      "municipality": "大和市",
+      "address": "福田8-8-21",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1343742983",
+      "name": "飯綱社",
+      "municipality": "中井町",
+      "address": "井ノ口3760",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1324292533",
+      "name": "蓑笠神社",
+      "municipality": "中井町",
+      "address": "井ノ口2039",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
+      "source_title": "その他2宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1883287751",
+      "name": "潮田神社",
+      "municipality": "潮田町",
+      "address": "潮田町3-131-1",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-315100073",
+      "name": "町屋神社",
+      "municipality": "町屋町",
+      "address": "町屋町4-20",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-relation-7397603",
+      "name": "江島神社",
       "municipality": "藤沢市",
-      "address": "打戻2662",
+      "address": "江の島2-3-8",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
       "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1151377970",
-      "name": "豊受大神",
+      "candidate_id": "osm-way-256415267",
+      "name": "皇大神宮",
       "municipality": "藤沢市",
-      "address": "菖蒲沢625",
+      "address": "鵠沼神明2-11-5",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
       "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1148589710",
-      "name": "足柄神社",
-      "municipality": "南足柄市",
-      "address": "苅野272",
+      "candidate_id": "osm-node-3932147312",
+      "name": "佐波神社",
+      "municipality": "藤沢市",
+      "address": "石川141",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-2582394407",
+      "name": "子聖神社",
+      "municipality": "藤沢市",
+      "address": "獺郷799",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-5623384825",
+      "name": "市杵島神社",
+      "municipality": "藤沢市",
+      "address": "大庭5429-3",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-390550235",
+      "name": "児玉神社",
+      "municipality": "藤沢市",
+      "address": "江の島1-4-3",
+      "umbrella": "神社神道系単立",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-1226663863",
+      "name": "船玉神社",
+      "municipality": "藤沢市",
+      "address": "大鋸2-4-12",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-1229000716",
+      "name": "大庭神社",
+      "municipality": "藤沢市",
+      "address": "稲荷997",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-258441320",
+      "name": "柄沢神社",
+      "municipality": "藤沢市",
+      "address": "柄沢字宮ノ下511",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
+      "source_title": "その他1宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-312587293",
+      "name": "川勾神社",
+      "municipality": "二宮町",
+      "address": "山西宮山2122",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
       "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1524219089",
-      "name": "南足柄神社",
-      "municipality": "南足柄市",
-      "address": "飯沢298",
+      "candidate_id": "osm-node-7676664591",
+      "name": "駒林神社",
+      "municipality": "日吉本町",
+      "address": "日吉本町2-25-5",
       "umbrella": "神社本庁",
-      "source_url": "https://www.pref.kanagawa.jp/documents/131519/8_sonota2.xlsx",
-      "source_title": "その他2宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-657256685",
-      "name": "春日神社",
+      "candidate_id": "osm-way-393163534",
+      "name": "中村八幡宮",
+      "municipality": "八幡町",
+      "address": "八幡町1",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-331772528",
+      "name": "氷取沢神社",
+      "municipality": "氷取沢町",
+      "address": "氷取沢町221",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-3787124558",
+      "name": "皇武神社",
+      "municipality": "淵野辺本町",
+      "address": "淵野辺本町4-20-11",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/6_sagamiharashi.xlsx",
+      "source_title": "相模原市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-13668205466",
+      "name": "諏訪部神社",
       "municipality": "平塚市",
-      "address": "平塚4-18-1",
+      "address": "諏訪町28-25",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
       "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1497218053",
-      "name": "真田神社",
+      "candidate_id": "osm-way-822556262",
+      "name": "西町稲荷神社",
       "municipality": "平塚市",
-      "address": "真田1-4-36",
+      "address": "高浜台21-21",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
       "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-1389129031",
-      "name": "前鳥神社",
+      "candidate_id": "osm-way-1390566423",
+      "name": "徳延神社",
       "municipality": "平塚市",
-      "address": "四之宮4-14-26",
+      "address": "徳延369",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
       "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     },
     {
-      "candidate_id": "osm-way-494067329",
-      "name": "平塚八幡宮",
+      "candidate_id": "osm-way-546593034",
+      "name": "北金目神社",
       "municipality": "平塚市",
-      "address": "浅間町1-6",
+      "address": "北金目3-17-11",
       "umbrella": "神社本庁",
       "source_url": "https://www.pref.kanagawa.jp/documents/131519/7_sonota1.xlsx",
       "source_title": "その他1宗教法人名簿｜神奈川県",
-      "match_rule": "exact_name_and_municipality_unique_on_both_sides"
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-way-375670789",
+      "name": "堀之内稲荷神社",
+      "municipality": "堀ノ内町",
+      "address": "堀ノ内町2-211",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
+    },
+    {
+      "candidate_id": "osm-node-3398428662",
+      "name": "白神社",
+      "municipality": "名瀬町",
+      "address": "名瀬町1774",
+      "umbrella": "神社本庁",
+      "source_url": "https://www.pref.kanagawa.jp/documents/131519/4_yokohamashi.xlsx",
+      "source_title": "横浜市宗教法人名簿｜神奈川県",
+      "match_rule": "exact_name_unique_statewide_candidate_missing_municipality"
     }
   ],
   "ambiguous": [
     {
+      "scope": "name_and_municipality",
       "key": "神奈川県|日枝神社|厚木市",
       "authority_count": 5,
       "candidate_count": 1,
@@ -536,6 +1080,7 @@
       ]
     },
     {
+      "scope": "name_and_municipality",
       "key": "神奈川県|三島神社|小田原市",
       "authority_count": 3,
       "candidate_count": 1,
@@ -550,6 +1095,7 @@
       ]
     },
     {
+      "scope": "name_and_municipality",
       "key": "神奈川県|八幡神社|小田原市",
       "authority_count": 12,
       "candidate_count": 1,
@@ -564,6 +1110,7 @@
       ]
     },
     {
+      "scope": "name_and_municipality",
       "key": "神奈川県|子ノ神社|小田原市",
       "authority_count": 2,
       "candidate_count": 1,
@@ -578,6 +1125,7 @@
       ]
     },
     {
+      "scope": "name_and_municipality",
       "key": "神奈川県|浅間神社|小田原市",
       "authority_count": 2,
       "candidate_count": 1,
@@ -592,6 +1140,7 @@
       ]
     },
     {
+      "scope": "name_and_municipality",
       "key": "神奈川県|諏訪明神|座間市",
       "authority_count": 2,
       "candidate_count": 1,
@@ -606,6 +1155,7 @@
       ]
     },
     {
+      "scope": "name_and_municipality",
       "key": "神奈川県|山神神社|箱根町",
       "authority_count": 2,
       "candidate_count": 1,
@@ -620,6 +1170,7 @@
       ]
     },
     {
+      "scope": "name_and_municipality",
       "key": "神奈川県|御霊神社|鎌倉市",
       "authority_count": 2,
       "candidate_count": 1,
@@ -634,6 +1185,7 @@
       ]
     },
     {
+      "scope": "name_and_municipality",
       "key": "神奈川県|神明神社|鎌倉市",
       "authority_count": 2,
       "candidate_count": 1,
