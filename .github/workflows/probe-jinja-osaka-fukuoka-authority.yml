@@ -5,6 +5,7 @@ on:
     paths:
       - ".github/workflows/probe-jinja-osaka-fukuoka-authority.yml"
       - "apps/jinja/scripts/probe-authority-xlsx.py"
+      - "apps/jinja/scripts/fetch-xlsx-authority-roster.py"
   workflow_dispatch:
 
 permissions:
@@ -25,12 +26,38 @@ jobs:
             --url 'https://www.pref.osaka.lg.jp/documents/35531/070331meibo.xlsx' \
             --rows 35 | tee /tmp/osaka-probe.json
 
+      - name: Parse Osaka official roster
+        run: |
+          python3 apps/jinja/scripts/fetch-xlsx-authority-roster.py \
+            --url 'https://www.pref.osaka.lg.jp/documents/35531/070331meibo.xlsx' \
+            --source-page 'https://www.pref.osaka.lg.jp/o070100/shigaku/shukyo/index.html' \
+            --authority-id 'osaka-prefecture-religious-corporation-roster' \
+            --jurisdiction 'JP-27' \
+            --prefecture '大阪府' \
+            --publisher '大阪府' \
+            --source-title '大阪府知事所轄宗教法人名簿' \
+            --minimum-records 50 \
+            --out /tmp/osaka-authority.json
+
       - name: Probe Fukuoka open-data roster
         run: |
           python3 apps/jinja/scripts/probe-authority-xlsx.py \
             --label Fukuoka \
             --url 'https://data.bodik.jp/dataset/af09be6b-a3a4-4a6f-a981-499a9284317e/resource/95cc761f-ca03-4bd7-9aa2-4a1005298b51/download/datasetresource_file_250326155518_131_.xlsx' \
             --rows 35 | tee /tmp/fukuoka-probe.json
+
+      - name: Parse Fukuoka official roster
+        run: |
+          python3 apps/jinja/scripts/fetch-xlsx-authority-roster.py \
+            --url 'https://data.bodik.jp/dataset/af09be6b-a3a4-4a6f-a981-499a9284317e/resource/95cc761f-ca03-4bd7-9aa2-4a1005298b51/download/datasetresource_file_250326155518_131_.xlsx' \
+            --source-page 'https://data.bodik.jp/dataset/401000_shukyohojin' \
+            --authority-id 'fukuoka-prefecture-religious-corporation-roster' \
+            --jurisdiction 'JP-40' \
+            --prefecture '福岡県' \
+            --publisher '福岡県' \
+            --source-title '福岡県宗教法人名簿' \
+            --minimum-records 50 \
+            --out /tmp/fukuoka-authority.json
 
       - name: Write probe summary
         if: always()
@@ -41,8 +68,24 @@ jobs:
             cat /tmp/osaka-probe.json 2>/dev/null || true
             echo '```'
             echo
+            echo '## Osaka parser result'
+            python3 - <<'PY' 2>/dev/null || true
+          import json
+          p='/tmp/osaka-authority.json'
+          d=json.load(open(p))
+          print(json.dumps({'record_count':d['record_count'],'authority_id':d['authority_id']}, ensure_ascii=False))
+          PY
+            echo
             echo '## Fukuoka probe'
             echo '```json'
             cat /tmp/fukuoka-probe.json 2>/dev/null || true
             echo '```'
+            echo
+            echo '## Fukuoka parser result'
+            python3 - <<'PY' 2>/dev/null || true
+          import json
+          p='/tmp/fukuoka-authority.json'
+          d=json.load(open(p))
+          print(json.dumps({'record_count':d['record_count'],'authority_id':d['authority_id']}, ensure_ascii=False))
+          PY
           } >> "$GITHUB_STEP_SUMMARY"
