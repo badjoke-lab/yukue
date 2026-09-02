@@ -15,12 +15,28 @@
       ]
     },
     {
+      "id": "shr-jp12-c56327992fd79c",
+      "canonical_name": "阿麻勝神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-c56327992fd79c"
+    },
+    {
       "id": "shr-jp12-389506d8f1376f",
       "canonical_name": "愛宕神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-389506d8f1376f"
+    },
+    {
+      "id": "shr-jp12-aa203b4d487256",
+      "canonical_name": "粟島神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-aa203b4d487256"
     },
     {
       "id": "shr-jp12-a8ad1c7d6d8035",
@@ -31,12 +47,28 @@
       "current_place_id": "plc-jp12-a8ad1c7d6d8035"
     },
     {
+      "id": "shr-jp12-6ab588a02aba8f",
+      "canonical_name": "安房須神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-6ab588a02aba8f"
+    },
+    {
       "id": "shr-jp14-d84bd6e19e8cbe",
       "canonical_name": "伊勢原大神宮",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-d84bd6e19e8cbe"
+    },
+    {
+      "id": "shr-jp12-6f304556e13e85",
+      "canonical_name": "伊弉諾神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-6f304556e13e85"
     },
     {
       "id": "shr-jp13-b7d3bef6aaca24",
@@ -55,12 +87,36 @@
       "current_place_id": "plc-jp12-6539c52a9e26a9"
     },
     {
+      "id": "shr-jp12-4d7593fd639833",
+      "canonical_name": "稲蒼神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-4d7593fd639833"
+    },
+    {
       "id": "shr-jp14-cc05af274f527c",
       "canonical_name": "稲著社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-cc05af274f527c"
+    },
+    {
+      "id": "shr-jp12-fde15ef2664006",
+      "canonical_name": "右京塚神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-fde15ef2664006"
+    },
+    {
+      "id": "shr-jp12-71c4a4673c5bac",
+      "canonical_name": "宇賀大神",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-71c4a4673c5bac"
     },
     {
       "id": "shr-jp14-dfe5baffa76d01",
@@ -95,6 +151,14 @@
       "current_place_id": "plc-jp13-8906fe72fb79b4"
     },
     {
+      "id": "shr-jp12-78f59f10f46222",
+      "canonical_name": "園生神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-78f59f10f46222"
+    },
+    {
       "id": "shr-jp13-928e150467e9f6",
       "canonical_name": "猿江神社",
       "review_status": "approved",
@@ -117,6 +181,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-802b94fde03e6b"
+    },
+    {
+      "id": "shr-jp12-39d171d7ba0708",
+      "canonical_name": "横山神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-39d171d7ba0708"
     },
     {
       "id": "shr-jp13-edea59e8aa2174",
@@ -191,12 +263,36 @@
       "current_place_id": "plc-jp13-d66b922fa6ac6f"
     },
     {
+      "id": "shr-jp12-52eed18a6cd459",
+      "canonical_name": "葛飾神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-52eed18a6cd459"
+    },
+    {
+      "id": "shr-jp12-c3c0bd755bd530",
+      "canonical_name": "葛飾八幡宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-c3c0bd755bd530"
+    },
+    {
       "id": "shr-jp13-fed2424ea01c72",
       "canonical_name": "葛西神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-fed2424ea01c72"
+    },
+    {
+      "id": "shr-jp12-535a171a218855",
+      "canonical_name": "寒川神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-535a171a218855"
     },
     {
       "id": "shr-samukawa-jinja",
@@ -216,6 +312,22 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-2355ea719122ea"
+    },
+    {
+      "id": "shr-jp12-7aa442d6f27649",
+      "canonical_name": "館山神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-7aa442d6f27649"
+    },
+    {
+      "id": "shr-jp12-00c1da0dc03bf0",
+      "canonical_name": "巌島神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-00c1da0dc03bf0"
     },
     {
       "id": "shr-jp14-0d4c44d2ed3a4b",
@@ -269,6 +381,14 @@
       "current_place_id": "plc-jp13-68fc71c2b1c407"
     },
     {
+      "id": "shr-jp12-3cd445f88d33a8",
+      "canonical_name": "祇園神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-3cd445f88d33a8"
+    },
+    {
       "id": "shr-jp12-cac073bb508543",
       "canonical_name": "菊田神社",
       "review_status": "approved",
@@ -285,12 +405,28 @@
       "current_place_id": "plc-jp12-711797d1cd6a0a"
     },
     {
+      "id": "shr-jp12-11058252be606f",
+      "canonical_name": "橘樹神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-11058252be606f"
+    },
+    {
       "id": "shr-jp12-9fc95cee0a0dc7",
       "canonical_name": "久留里神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-9fc95cee0a0dc7"
+    },
+    {
+      "id": "shr-jp12-9451961c76e68d",
+      "canonical_name": "宮山神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-9451961c76e68d"
     },
     {
       "id": "shr-miyazaki-jingu",
@@ -344,12 +480,28 @@
       "current_place_id": "plc-jp12-7849767ba3748a"
     },
     {
+      "id": "shr-jp12-970a439176ecae",
+      "canonical_name": "駒形大神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-970a439176ecae"
+    },
+    {
       "id": "shr-jp13-5294757fffc263",
       "canonical_name": "轡神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-5294757fffc263"
+    },
+    {
+      "id": "shr-jp12-dbae3745b6ddbb",
+      "canonical_name": "熊野三社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-dbae3745b6ddbb"
     },
     {
       "id": "shr-jp14-d42a6aacb11024",
@@ -408,12 +560,28 @@
       "current_place_id": "plc-jp14-f6ac4082a14451"
     },
     {
+      "id": "shr-jp12-3c4f051dd1c200",
+      "canonical_name": "検見川神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-3c4f051dd1c200"
+    },
+    {
       "id": "shr-jp12-3ba6b08fa7d2ef",
       "canonical_name": "犬石神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-3ba6b08fa7d2ef"
+    },
+    {
+      "id": "shr-jp12-563bd3ac21e03c",
+      "canonical_name": "見目神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-563bd3ac21e03c"
     },
     {
       "id": "shr-jp12-6bcabfd33f6b2c",
@@ -512,6 +680,22 @@
       "current_place_id": "plc-jp12-c6083965941723"
     },
     {
+      "id": "shr-jp12-afbabbaf9a7c5f",
+      "canonical_name": "甲賀神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-afbabbaf9a7c5f"
+    },
+    {
+      "id": "shr-jp12-de74c0dcfd9437",
+      "canonical_name": "甲大神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-de74c0dcfd9437"
+    },
+    {
       "id": "shr-jp12-fa37f3fe137f13",
       "canonical_name": "皇産靈神社",
       "review_status": "approved",
@@ -536,6 +720,14 @@
       "current_place_id": "plc-jp12-7b655df293d5d0"
     },
     {
+      "id": "shr-jp12-47e51554b8ae5e",
+      "canonical_name": "皇太神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-47e51554b8ae5e"
+    },
+    {
       "id": "shr-jp12-0fa541dfff81bc",
       "canonical_name": "荒磯魚見根神社",
       "review_status": "approved",
@@ -550,6 +742,22 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-892516bc1f6d00"
+    },
+    {
+      "id": "shr-jp12-94a631ea47c38d",
+      "canonical_name": "香取稲荷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-94a631ea47c38d"
+    },
+    {
+      "id": "shr-jp12-40e60e9a6025a5",
+      "canonical_name": "香取駒形神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-40e60e9a6025a5"
     },
     {
       "id": "shr-jp12-e95956be915fa4",
@@ -576,6 +784,14 @@
       "current_place_id": "plc-jp12-17bd84e8d51898"
     },
     {
+      "id": "shr-jp12-3aa5859dda9687",
+      "canonical_name": "高石神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-3aa5859dda9687"
+    },
+    {
       "id": "shr-jp14-5a68a285b09252",
       "canonical_name": "高部屋神社",
       "review_status": "approved",
@@ -584,12 +800,28 @@
       "current_place_id": "plc-jp14-5a68a285b09252"
     },
     {
+      "id": "shr-jp12-b89482edbf71a1",
+      "canonical_name": "今井神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-b89482edbf71a1"
+    },
+    {
       "id": "shr-jp13-0371ddb2b5a6f3",
       "canonical_name": "根津神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-0371ddb2b5a6f3"
+    },
+    {
+      "id": "shr-jp12-d338a80269084f",
+      "canonical_name": "根頭神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-d338a80269084f"
     },
     {
       "id": "shr-jp14-26d53d244ebcb3",
@@ -627,6 +859,14 @@
       "current_place_id": "plc-jp12-f24175ab9fe7a0"
     },
     {
+      "id": "shr-jp12-7e980b85763b94",
+      "canonical_name": "坂戸神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-7e980b85763b94"
+    },
+    {
       "id": "shr-jp13-9f6eb60cb01109",
       "canonical_name": "榊神社",
       "review_status": "approved",
@@ -641,6 +881,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-f47e0934b16146"
+    },
+    {
+      "id": "shr-jp12-f9fec806cfd575",
+      "canonical_name": "三代王神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-f9fec806cfd575"
     },
     {
       "id": "shr-jp12-b92301949c19df",
@@ -683,12 +931,28 @@
       "current_place_id": "plc-jp12-a8859465136d72"
     },
     {
+      "id": "shr-jp12-e170c5ce4b6a05",
+      "canonical_name": "三日月神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-e170c5ce4b6a05"
+    },
+    {
       "id": "shr-jp14-18fc51c0c6d904",
       "canonical_name": "山王神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-18fc51c0c6d904"
+    },
+    {
+      "id": "shr-jp12-39110179c37d24",
+      "canonical_name": "山荻神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-39110179c37d24"
     },
     {
       "id": "shr-jp14-8c3c4dea375c50",
@@ -699,12 +963,28 @@
       "current_place_id": "plc-jp14-8c3c4dea375c50"
     },
     {
+      "id": "shr-jp12-d1154aab0de5a8",
+      "canonical_name": "山倉大神",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-d1154aab0de5a8"
+    },
+    {
       "id": "shr-jp12-1c2e1d6f93fa9d",
       "canonical_name": "四社神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-1c2e1d6f93fa9d"
+    },
+    {
+      "id": "shr-jp12-7f097a3d35f4f8",
+      "canonical_name": "姉埼神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-7f097a3d35f4f8"
     },
     {
       "id": "shr-jp12-9b611765156c6b",
@@ -729,6 +1009,22 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-ee48cab2e90200"
+    },
+    {
+      "id": "shr-jp12-d7a703fbd761a0",
+      "canonical_name": "子守神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-d7a703fbd761a0"
+    },
+    {
+      "id": "shr-jp12-62d73a4be998f0",
+      "canonical_name": "子大神",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-62d73a4be998f0"
     },
     {
       "id": "shr-jp14-c4bcffb2be89be",
@@ -763,6 +1059,14 @@
       "current_place_id": "plc-jp12-0f0525deae3a3f"
     },
     {
+      "id": "shr-jp12-95487e8746ad3d",
+      "canonical_name": "柴崎神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-95487e8746ad3d"
+    },
+    {
       "id": "shr-jp12-b071045a483bfb",
       "canonical_name": "若一神社",
       "review_status": "approved",
@@ -777,6 +1081,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-f42e449843639f"
+    },
+    {
+      "id": "shr-jp12-1a71bdd0551e22",
+      "canonical_name": "守公神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-1a71bdd0551e22"
     },
     {
       "id": "shr-jp12-c31dea33fde070",
@@ -809,6 +1121,22 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-cf6f6e6bb4f4db"
+    },
+    {
+      "id": "shr-jp12-617295c67fc111",
+      "canonical_name": "洲崎神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-617295c67fc111"
+    },
+    {
+      "id": "shr-jp12-1abaa997be18c2",
+      "canonical_name": "洲之宮神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-1abaa997be18c2"
     },
     {
       "id": "shr-jp12-55b4d0b36d54c6",
@@ -859,6 +1187,22 @@
       "current_place_id": "plc-jp14-a973584b92cebf"
     },
     {
+      "id": "shr-jp12-33cd6ded079077",
+      "canonical_name": "女躰神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-33cd6ded079077"
+    },
+    {
+      "id": "shr-jp12-be3727704411ea",
+      "canonical_name": "小御門神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-be3727704411ea"
+    },
+    {
       "id": "shr-jp12-2eb24f74c3e8c1",
       "canonical_name": "小湊神社",
       "review_status": "approved",
@@ -889,6 +1233,30 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-ebe8919c926c02"
+    },
+    {
+      "id": "shr-jp12-5f5c26b71a442a",
+      "canonical_name": "松崎神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-5f5c26b71a442a"
+    },
+    {
+      "id": "shr-jp12-0c61f6b312ca47",
+      "canonical_name": "松山神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-0c61f6b312ca47"
+    },
+    {
+      "id": "shr-jp12-89930db8f1ec9c",
+      "canonical_name": "松虫姫神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-89930db8f1ec9c"
     },
     {
       "id": "shr-jp13-0a47b98e7c5561",
@@ -1022,12 +1390,68 @@
       "current_place_id": "plc-jp12-245768ac240c3a"
     },
     {
+      "id": "shr-jp12-3241f177cb757c",
+      "canonical_name": "水婆神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-3241f177cb757c"
+    },
+    {
       "id": "shr-jp14-a6ccf16e5138d8",
       "canonical_name": "菅原神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-a6ccf16e5138d8"
+    },
+    {
+      "id": "shr-jp12-488c5a7c113230",
+      "canonical_name": "星影神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-488c5a7c113230"
+    },
+    {
+      "id": "shr-jp12-41ee6e514bd2da",
+      "canonical_name": "星之宮大神",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-41ee6e514bd2da"
+    },
+    {
+      "id": "shr-jp12-bd499c5a81af6d",
+      "canonical_name": "清瀧神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-bd499c5a81af6d"
+    },
+    {
+      "id": "shr-jp12-90edad753803eb",
+      "canonical_name": "生神神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-90edad753803eb"
+    },
+    {
+      "id": "shr-jp12-b109df4534543c",
+      "canonical_name": "西宮神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-b109df4534543c"
+    },
+    {
+      "id": "shr-jp12-f56b67b1f16994",
+      "canonical_name": "西坂神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-f56b67b1f16994"
     },
     {
       "id": "shr-jp12-898b24995e8814",
@@ -1038,12 +1462,44 @@
       "current_place_id": "plc-jp12-898b24995e8814"
     },
     {
+      "id": "shr-jp12-6d683a94a4ed7d",
+      "canonical_name": "青根原神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-6d683a94a4ed7d"
+    },
+    {
+      "id": "shr-jp12-2887fe14b4caf2",
+      "canonical_name": "青龍日吉神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-2887fe14b4caf2"
+    },
+    {
       "id": "shr-jp12-8bb07c24f92e2f",
       "canonical_name": "石上神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-8bb07c24f92e2f"
+    },
+    {
+      "id": "shr-jp12-9e89fc493ec649",
+      "canonical_name": "石尊神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-9e89fc493ec649"
+    },
+    {
+      "id": "shr-jp12-9b902be8162d70",
+      "canonical_name": "石田大神",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-9b902be8162d70"
     },
     {
       "id": "shr-jp13-130f67f30258bd",
@@ -1068,6 +1524,22 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-e769475f57ea92"
+    },
+    {
+      "id": "shr-jp12-14a35e1bf4cd6c",
+      "canonical_name": "川口神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-14a35e1bf4cd6c"
+    },
+    {
+      "id": "shr-jp12-8307146fbd3093",
+      "canonical_name": "川津神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-8307146fbd3093"
     },
     {
       "id": "shr-jp12-d8c30279c6aa96",
@@ -1118,12 +1590,52 @@
       "current_place_id": "plc-jp14-10ecb6f7cf16e6"
     },
     {
+      "id": "shr-jp12-82495b95fd3279",
+      "canonical_name": "素波武神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-82495b95fd3279"
+    },
+    {
+      "id": "shr-jp12-67d13eb33b12bd",
+      "canonical_name": "蘇羽鷹神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-67d13eb33b12bd"
+    },
+    {
+      "id": "shr-jp12-7948806c1ea947",
+      "canonical_name": "蘇我比咩神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-7948806c1ea947"
+    },
+    {
+      "id": "shr-jp12-9bfbf9d231e938",
+      "canonical_name": "倉稲神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-9bfbf9d231e938"
+    },
+    {
       "id": "shr-jp14-544de0307df755",
       "canonical_name": "倉見神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-544de0307df755"
+    },
+    {
+      "id": "shr-jp12-c7549dc8e739a3",
+      "canonical_name": "早尾神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-c7549dc8e739a3"
     },
     {
       "id": "shr-jp13-2069989a7378cc",
@@ -1214,6 +1726,14 @@
       "current_place_id": "plc-jp12-d52f7353259e7c"
     },
     {
+      "id": "shr-jp12-faac746effc0a2",
+      "canonical_name": "大戸神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-faac746effc0a2"
+    },
+    {
       "id": "shr-jp13-9d6eb0a2e50a5a",
       "canonical_name": "大神山神社",
       "review_status": "approved",
@@ -1228,6 +1748,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-4fb405c24f96a0"
+    },
+    {
+      "id": "shr-jp12-627b34f704b3a9",
+      "canonical_name": "大鳥神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-627b34f704b3a9"
     },
     {
       "id": "shr-jp13-43b2fb4a95475a",
@@ -1262,6 +1790,22 @@
       "current_place_id": "plc-jp13-383200009a8a1c"
     },
     {
+      "id": "shr-jp12-477fb7451d0eb3",
+      "canonical_name": "大國神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-477fb7451d0eb3"
+    },
+    {
+      "id": "shr-jp12-568b56e2e05d24",
+      "canonical_name": "第六天社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-568b56e2e05d24"
+    },
+    {
       "id": "shr-jp12-3ac68386148574",
       "canonical_name": "瀧口神社",
       "review_status": "approved",
@@ -1270,12 +1814,36 @@
       "current_place_id": "plc-jp12-3ac68386148574"
     },
     {
+      "id": "shr-jp12-e393f283d01934",
+      "canonical_name": "瀧蔵神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-e393f283d01934"
+    },
+    {
       "id": "shr-jp12-995198e819ab02",
       "canonical_name": "瀧田神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-995198e819ab02"
+    },
+    {
+      "id": "shr-jp12-5f8d715498ce2f",
+      "canonical_name": "地主神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-5f8d715498ce2f"
+    },
+    {
+      "id": "shr-jp12-2407bc4cdcdccc",
+      "canonical_name": "銚港神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-2407bc4cdcdccc"
     },
     {
       "id": "shr-jp12-7046936dda5eb9",
@@ -1318,6 +1886,14 @@
       "current_place_id": "plc-jp12-e48e0f70938efe"
     },
     {
+      "id": "shr-jp12-3cc5c57570a158",
+      "canonical_name": "鏑木大神",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-3cc5c57570a158"
+    },
+    {
       "id": "shr-jp14-bb0c19f59eb73b",
       "canonical_name": "天社神社",
       "review_status": "approved",
@@ -1332,6 +1908,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-ff6491ebbd4b86"
+    },
+    {
+      "id": "shr-jp12-8af85eab663cb0",
+      "canonical_name": "天之宮大神",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-8af85eab663cb0"
     },
     {
       "id": "shr-jp12-26e530b07a019b",
@@ -1380,6 +1964,22 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-0ee77fa6787cd4"
+    },
+    {
+      "id": "shr-jp12-320b400410d562",
+      "canonical_name": "東雷神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-320b400410d562"
+    },
+    {
+      "id": "shr-jp12-d97fd03f226c1b",
+      "canonical_name": "湯殿神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-d97fd03f226c1b"
     },
     {
       "id": "shr-jp12-2de1064ca470e1",
@@ -1470,6 +2070,14 @@
       "current_place_id": "plc-jp12-1355896879766d"
     },
     {
+      "id": "shr-jp12-2bffb70b5b3e70",
+      "canonical_name": "白髭神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-2bffb70b5b3e70"
+    },
+    {
       "id": "shr-jp12-5d2fe0e6fdc25d",
       "canonical_name": "八雲神社",
       "review_status": "approved",
@@ -1516,6 +2124,14 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-cb13afd453b9e2"
+    },
+    {
+      "id": "shr-jp12-ffc2ded0fa3916",
+      "canonical_name": "八幡春日神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-ffc2ded0fa3916"
     },
     {
       "id": "shr-jp14-f643a318d2546b",
@@ -1566,6 +2182,14 @@
       "current_place_id": "plc-jp12-2a7ffcf48bdea1"
     },
     {
+      "id": "shr-jp12-80516c39f67725",
+      "canonical_name": "冨國神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-80516c39f67725"
+    },
+    {
       "id": "shr-jp13-2f66cf83cf2d1e",
       "canonical_name": "布多天神社",
       "review_status": "approved",
@@ -1580,6 +2204,22 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-37dcebf0105996"
+    },
+    {
+      "id": "shr-jp12-8bfddd17571d70",
+      "canonical_name": "府中日吉神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-8bfddd17571d70"
+    },
+    {
+      "id": "shr-jp12-955bb18994fff8",
+      "canonical_name": "浮戸神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-955bb18994fff8"
     },
     {
       "id": "shr-jp13-9c662821935f8f",
@@ -1606,6 +2246,38 @@
       "current_place_id": "plc-jp12-4c53962e4aa84a"
     },
     {
+      "id": "shr-jp12-1893a672874ceb",
+      "canonical_name": "風王大神",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-1893a672874ceb"
+    },
+    {
+      "id": "shr-jp12-c9e1ef651cf5dd",
+      "canonical_name": "風早神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-c9e1ef651cf5dd"
+    },
+    {
+      "id": "shr-jp12-c16b43b939a3d9",
+      "canonical_name": "福王神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-c16b43b939a3d9"
+    },
+    {
+      "id": "shr-jp12-d4c686428ca0c0",
+      "canonical_name": "福大神",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-d4c686428ca0c0"
+    },
+    {
       "id": "shr-jp13-87cc1249be99db",
       "canonical_name": "平河天満宮",
       "review_status": "approved",
@@ -1614,12 +2286,44 @@
       "current_place_id": "plc-jp13-87cc1249be99db"
     },
     {
+      "id": "shr-jp12-f825adb365cb5e",
+      "canonical_name": "平潟神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-f825adb365cb5e"
+    },
+    {
       "id": "shr-jp14-9f6484b9c43635",
       "canonical_name": "平塚八幡宮",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp14-9f6484b9c43635"
+    },
+    {
+      "id": "shr-jp12-9d6c50a43a4be1",
+      "canonical_name": "片岡神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-9d6c50a43a4be1"
+    },
+    {
+      "id": "shr-jp12-83c32270f0a81f",
+      "canonical_name": "返田神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-83c32270f0a81f"
+    },
+    {
+      "id": "shr-jp12-381c8ea0c43c41",
+      "canonical_name": "保目神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-381c8ea0c43c41"
     },
     {
       "id": "shr-jp13-fa786e3ff69e72",
@@ -1646,12 +2350,28 @@
       "current_place_id": "plc-jp14-c2d8dadd9ed307"
     },
     {
+      "id": "shr-jp12-d3fb17e758d242",
+      "canonical_name": "飽富神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-d3fb17e758d242"
+    },
+    {
       "id": "shr-jp12-ef90881bbbf08c",
       "canonical_name": "北上神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp12-ef90881bbbf08c"
+    },
+    {
+      "id": "shr-jp12-a1b0a9a4c77441",
+      "canonical_name": "北星神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-a1b0a9a4c77441"
     },
     {
       "id": "shr-jp12-7d78b99252ef0c",
@@ -1686,6 +2406,14 @@
       "current_place_id": "plc-jp12-f92dc2204aa58f"
     },
     {
+      "id": "shr-jp12-1cf086faad8905",
+      "canonical_name": "末廣神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-1cf086faad8905"
+    },
+    {
       "id": "shr-jp13-c2d04bf8d66b0f",
       "canonical_name": "明治神宮",
       "review_status": "approved",
@@ -1700,6 +2428,22 @@
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-e0413e87a32c52"
+    },
+    {
+      "id": "shr-jp12-c910bb9005c75b",
+      "canonical_name": "矢切神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-c910bb9005c75b"
+    },
+    {
+      "id": "shr-jp12-ca78c58ac738bc",
+      "canonical_name": "率土神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-ca78c58ac738bc"
     },
     {
       "id": "shr-jp12-d0a8c679cd6432",
@@ -1734,12 +2478,28 @@
       "current_place_id": "plc-jp14-b8ad72042d8522"
     },
     {
+      "id": "shr-jp12-9a882a60eb459a",
+      "canonical_name": "六通神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-9a882a60eb459a"
+    },
+    {
       "id": "shr-jp13-92a9b5689a5832",
       "canonical_name": "鷲神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-92a9b5689a5832"
+    },
+    {
+      "id": "shr-jp12-3425619b7d31c6",
+      "canonical_name": "廣幡八幡宮",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-3425619b7d31c6"
     },
     {
       "id": "shr-jp13-d0ac652a4d57d0",
@@ -1750,12 +2510,36 @@
       "current_place_id": "plc-jp13-d0ac652a4d57d0"
     },
     {
+      "id": "shr-jp12-a66d2fe5fd537f",
+      "canonical_name": "櫻木神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-a66d2fe5fd537f"
+    },
+    {
+      "id": "shr-jp12-d72a4eee8cc2d8",
+      "canonical_name": "縣神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-d72a4eee8cc2d8"
+    },
+    {
       "id": "shr-jp13-f8eb40526321e8",
       "canonical_name": "薭田神社",
       "review_status": "approved",
       "tier": "A",
       "verified_at": "2026-09-01",
       "current_place_id": "plc-jp13-f8eb40526321e8"
+    },
+    {
+      "id": "shr-jp12-f03581d428977d",
+      "canonical_name": "髙靇神社",
+      "review_status": "approved",
+      "tier": "A",
+      "verified_at": "2026-09-02",
+      "current_place_id": "plc-jp12-f03581d428977d"
     }
   ],
   "states": [
@@ -1938,6 +2722,15 @@
       "summary": "公式「御祈祷のご案内」で御祈祷受付8時から17時、年中無休との現行案内を確認。"
     },
     {
+      "id": "evd-jp12-00c1da0dc03bf0",
+      "target_type": "entity",
+      "target_id": "shr-jp12-00c1da0dc03bf0",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-14e632f84e60",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で巌島神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-097321136c821e",
       "target_type": "entity",
       "target_id": "shr-jp12-097321136c821e",
@@ -1945,6 +2738,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の富津市宗教法人一覧で龍岳神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-0c61f6b312ca47",
+      "target_type": "entity",
+      "target_id": "shr-jp12-0c61f6b312ca47",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-843e9e645915",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で松山神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-0f0525deae3a3f",
@@ -1965,6 +2767,15 @@
       "summary": "千葉県の南房総市宗教法人一覧で荒磯魚見根神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-11058252be606f",
+      "target_type": "entity",
+      "target_id": "shr-jp12-11058252be606f",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1658e526fd95",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で橘樹神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-1355896879766d",
       "target_type": "entity",
       "target_id": "shr-jp12-1355896879766d",
@@ -1974,6 +2785,15 @@
       "summary": "千葉県の市川市宗教法人一覧で白幡天神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-14a35e1bf4cd6c",
+      "target_type": "entity",
+      "target_id": "shr-jp12-14a35e1bf4cd6c",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-10a6f27c05ae",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で川口神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-17bd84e8d51898",
       "target_type": "entity",
       "target_id": "shr-jp12-17bd84e8d51898",
@@ -1981,6 +2801,33 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の南房総市宗教法人一覧で高子神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-1893a672874ceb",
+      "target_type": "entity",
+      "target_id": "shr-jp12-1893a672874ceb",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-72484181ff27",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で風王大神の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-1a71bdd0551e22",
+      "target_type": "entity",
+      "target_id": "shr-jp12-1a71bdd0551e22",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-83af14da4fe3",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で守公神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-1abaa997be18c2",
+      "target_type": "entity",
+      "target_id": "shr-jp12-1abaa997be18c2",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-795851196924",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で洲之宮神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-1b0d7ee7944358",
@@ -2001,6 +2848,15 @@
       "summary": "千葉県の鴨川市宗教法人一覧で四社神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-1cf086faad8905",
+      "target_type": "entity",
+      "target_id": "shr-jp12-1cf086faad8905",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-795851196924",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で末廣神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-1dd1f7468c8829",
       "target_type": "entity",
       "target_id": "shr-jp12-1dd1f7468c8829",
@@ -2017,6 +2873,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の君津市宗教法人一覧で飯縄神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-2407bc4cdcdccc",
+      "target_type": "entity",
+      "target_id": "shr-jp12-2407bc4cdcdccc",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-10a6f27c05ae",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で銚港神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-245768ac240c3a",
@@ -2046,6 +2911,15 @@
       "summary": "千葉県の君津市宗教法人一覧で三島神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-2887fe14b4caf2",
+      "target_type": "entity",
+      "target_id": "shr-jp12-2887fe14b4caf2",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-9e2d2ccc0cc6",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で青龍日吉神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-2a72e87b74179b",
       "target_type": "entity",
       "target_id": "shr-jp12-2a72e87b74179b",
@@ -2071,6 +2945,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の南房総市宗教法人一覧で大井神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-2bffb70b5b3e70",
+      "target_type": "entity",
+      "target_id": "shr-jp12-2bffb70b5b3e70",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1b86f95f3c1d",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で白髭神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-2d1068d208114a",
@@ -2100,6 +2983,24 @@
       "summary": "千葉県の鴨川市宗教法人一覧で小湊神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-320b400410d562",
+      "target_type": "entity",
+      "target_id": "shr-jp12-320b400410d562",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1b86f95f3c1d",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で東雷神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-3241f177cb757c",
+      "target_type": "entity",
+      "target_id": "shr-jp12-3241f177cb757c",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-68e3b4a99ee4",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で水婆神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-339b3b7eaea223",
       "target_type": "entity",
       "target_id": "shr-jp12-339b3b7eaea223",
@@ -2109,6 +3010,24 @@
       "summary": "千葉県の館山市宗教法人一覧で八坂山神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-33cd6ded079077",
+      "target_type": "entity",
+      "target_id": "shr-jp12-33cd6ded079077",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1b86f95f3c1d",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で女躰神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-3425619b7d31c6",
+      "target_type": "entity",
+      "target_id": "shr-jp12-3425619b7d31c6",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-99f8e932ee24",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で廣幡八幡宮の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-37dcebf0105996",
       "target_type": "entity",
       "target_id": "shr-jp12-37dcebf0105996",
@@ -2116,6 +3035,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の館山市宗教法人一覧で布良崎神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-381c8ea0c43c41",
+      "target_type": "entity",
+      "target_id": "shr-jp12-381c8ea0c43c41",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-ab2d40aecdea",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で保目神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-388b3bd763f6a1",
@@ -2136,6 +3064,24 @@
       "summary": "千葉県の鴨川市宗教法人一覧で愛宕神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-39110179c37d24",
+      "target_type": "entity",
+      "target_id": "shr-jp12-39110179c37d24",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-b4c60246474d",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で山荻神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-39d171d7ba0708",
+      "target_type": "entity",
+      "target_id": "shr-jp12-39d171d7ba0708",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-8c7d6d715fff",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で横山神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-3a7eedf49066e1",
       "target_type": "entity",
       "target_id": "shr-jp12-3a7eedf49066e1",
@@ -2143,6 +3089,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の南房総市宗教法人一覧で千倉神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-3aa5859dda9687",
+      "target_type": "entity",
+      "target_id": "shr-jp12-3aa5859dda9687",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-ad97b1f15412",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で高石神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-3ac68386148574",
@@ -2163,6 +3118,15 @@
       "summary": "千葉県の館山市宗教法人一覧で犬石神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-3c4f051dd1c200",
+      "target_type": "entity",
+      "target_id": "shr-jp12-3c4f051dd1c200",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-5627f055104a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で検見川神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-3ca06022798ece",
       "target_type": "entity",
       "target_id": "shr-jp12-3ca06022798ece",
@@ -2170,6 +3134,24 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の君津市宗教法人一覧で大宮賣神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-3cc5c57570a158",
+      "target_type": "entity",
+      "target_id": "shr-jp12-3cc5c57570a158",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-e05719a42ac7",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で鏑木大神の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-3cd445f88d33a8",
+      "target_type": "entity",
+      "target_id": "shr-jp12-3cd445f88d33a8",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-63644fc8ea60",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で祇園神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-3e39d25e11cf41",
@@ -2181,6 +3163,24 @@
       "summary": "千葉県の成田市宗教法人一覧で大宮神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-40e60e9a6025a5",
+      "target_type": "entity",
+      "target_id": "shr-jp12-40e60e9a6025a5",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1b86f95f3c1d",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で香取駒形神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-41ee6e514bd2da",
+      "target_type": "entity",
+      "target_id": "shr-jp12-41ee6e514bd2da",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-72484181ff27",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で星之宮大神の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-435acd7ed8ed7e",
       "target_type": "entity",
       "target_id": "shr-jp12-435acd7ed8ed7e",
@@ -2188,6 +3188,33 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の銚子市宗教法人一覧で渡海神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-477fb7451d0eb3",
+      "target_type": "entity",
+      "target_id": "shr-jp12-477fb7451d0eb3",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-14e632f84e60",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で大國神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-47e51554b8ae5e",
+      "target_type": "entity",
+      "target_id": "shr-jp12-47e51554b8ae5e",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-f22dbc66c881",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で皇太神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-488c5a7c113230",
+      "target_type": "entity",
+      "target_id": "shr-jp12-488c5a7c113230",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-f7cdb5f96ad7",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で星影神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-49c12c1713330f",
@@ -2217,6 +3244,24 @@
       "summary": "千葉県の富津市宗教法人一覧で武内神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-4d7593fd639833",
+      "target_type": "entity",
+      "target_id": "shr-jp12-4d7593fd639833",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-795851196924",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で稲蒼神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-52eed18a6cd459",
+      "target_type": "entity",
+      "target_id": "shr-jp12-52eed18a6cd459",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-f7cdb5f96ad7",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で葛飾神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-53299b96c8bdea",
       "target_type": "entity",
       "target_id": "shr-jp12-53299b96c8bdea",
@@ -2226,6 +3271,15 @@
       "summary": "千葉県の富津市宗教法人一覧で皇神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-535a171a218855",
+      "target_type": "entity",
+      "target_id": "shr-jp12-535a171a218855",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-c5e0e6994a50",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で寒川神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-55b4d0b36d54c6",
       "target_type": "entity",
       "target_id": "shr-jp12-55b4d0b36d54c6",
@@ -2233,6 +3287,24 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の君津市宗教法人一覧で秋葉神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-563bd3ac21e03c",
+      "target_type": "entity",
+      "target_id": "shr-jp12-563bd3ac21e03c",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-869213c55a99",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で見目神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-568b56e2e05d24",
+      "target_type": "entity",
+      "target_id": "shr-jp12-568b56e2e05d24",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-ad97b1f15412",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で第六天社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-57fcff8649a2ad",
@@ -2262,6 +3334,51 @@
       "summary": "千葉県の館山市宗教法人一覧で八雲神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-5f5c26b71a442a",
+      "target_type": "entity",
+      "target_id": "shr-jp12-5f5c26b71a442a",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-8d31535fcdff",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で松崎神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-5f8d715498ce2f",
+      "target_type": "entity",
+      "target_id": "shr-jp12-5f8d715498ce2f",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-99f8e932ee24",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で地主神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-617295c67fc111",
+      "target_type": "entity",
+      "target_id": "shr-jp12-617295c67fc111",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-b4c60246474d",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で洲崎神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-627b34f704b3a9",
+      "target_type": "entity",
+      "target_id": "shr-jp12-627b34f704b3a9",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-869213c55a99",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で大鳥神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-62d73a4be998f0",
+      "target_type": "entity",
+      "target_id": "shr-jp12-62d73a4be998f0",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-869213c55a99",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で子大神の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-6539c52a9e26a9",
       "target_type": "entity",
       "target_id": "shr-jp12-6539c52a9e26a9",
@@ -2269,6 +3386,24 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の君津市宗教法人一覧で稲荷神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-67d13eb33b12bd",
+      "target_type": "entity",
+      "target_id": "shr-jp12-67d13eb33b12bd",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1b86f95f3c1d",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で蘇羽鷹神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-6ab588a02aba8f",
+      "target_type": "entity",
+      "target_id": "shr-jp12-6ab588a02aba8f",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1b86f95f3c1d",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で安房須神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-6bcabfd33f6b2c",
@@ -2289,6 +3424,15 @@
       "summary": "千葉県の君津市宗教法人一覧で常代神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-6d683a94a4ed7d",
+      "target_type": "entity",
+      "target_id": "shr-jp12-6d683a94a4ed7d",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-f52a39786b05",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で青根原神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-6ec9fc97ba1fd0",
       "target_type": "entity",
       "target_id": "shr-jp12-6ec9fc97ba1fd0",
@@ -2296,6 +3440,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の富津市宗教法人一覧で貴布禰神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-6f304556e13e85",
+      "target_type": "entity",
+      "target_id": "shr-jp12-6f304556e13e85",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-ad97b1f15412",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で伊弉諾神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-7046936dda5eb9",
@@ -2325,6 +3478,15 @@
       "summary": "千葉県の鴨川市宗教法人一覧で打墨神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-71c4a4673c5bac",
+      "target_type": "entity",
+      "target_id": "shr-jp12-71c4a4673c5bac",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-10a6f27c05ae",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で宇賀大神の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-7849767ba3748a",
       "target_type": "entity",
       "target_id": "shr-jp12-7849767ba3748a",
@@ -2332,6 +3494,33 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の富津市宗教法人一覧で金谷神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-78f59f10f46222",
+      "target_type": "entity",
+      "target_id": "shr-jp12-78f59f10f46222",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-a1b96de3c427",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で園生神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-7948806c1ea947",
+      "target_type": "entity",
+      "target_id": "shr-jp12-7948806c1ea947",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-c5e0e6994a50",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で蘇我比咩神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-7aa442d6f27649",
+      "target_type": "entity",
+      "target_id": "shr-jp12-7aa442d6f27649",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-b4c60246474d",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で館山神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-7b655df293d5d0",
@@ -2352,6 +3541,60 @@
       "summary": "千葉県の木更津市宗教法人一覧で北野神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-7e980b85763b94",
+      "target_type": "entity",
+      "target_id": "shr-jp12-7e980b85763b94",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1bc0d792ff4f",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で坂戸神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-7f097a3d35f4f8",
+      "target_type": "entity",
+      "target_id": "shr-jp12-7f097a3d35f4f8",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-ccdbc99e9782",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で姉埼神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-80516c39f67725",
+      "target_type": "entity",
+      "target_id": "shr-jp12-80516c39f67725",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-869213c55a99",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で冨國神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-82495b95fd3279",
+      "target_type": "entity",
+      "target_id": "shr-jp12-82495b95fd3279",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-795851196924",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で素波武神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-8307146fbd3093",
+      "target_type": "entity",
+      "target_id": "shr-jp12-8307146fbd3093",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-b07347f4daec",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で川津神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-83c32270f0a81f",
+      "target_type": "entity",
+      "target_id": "shr-jp12-83c32270f0a81f",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-869213c55a99",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で返田神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-892516bc1f6d00",
       "target_type": "entity",
       "target_id": "shr-jp12-892516bc1f6d00",
@@ -2370,6 +3613,24 @@
       "summary": "千葉県の鴨川市宗教法人一覧で西神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-89930db8f1ec9c",
+      "target_type": "entity",
+      "target_id": "shr-jp12-89930db8f1ec9c",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-611df77be81c",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で松虫姫神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-8af85eab663cb0",
+      "target_type": "entity",
+      "target_id": "shr-jp12-8af85eab663cb0",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-869213c55a99",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で天之宮大神の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-8bb07c24f92e2f",
       "target_type": "entity",
       "target_id": "shr-jp12-8bb07c24f92e2f",
@@ -2379,6 +3640,15 @@
       "summary": "千葉県の君津市宗教法人一覧で石上神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-8bfddd17571d70",
+      "target_type": "entity",
+      "target_id": "shr-jp12-8bfddd17571d70",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-ccdbc99e9782",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で府中日吉神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-8e9bf0c3b52e5a",
       "target_type": "entity",
       "target_id": "shr-jp12-8e9bf0c3b52e5a",
@@ -2386,6 +3656,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の富津市宗教法人一覧で吾妻神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-90edad753803eb",
+      "target_type": "entity",
+      "target_id": "shr-jp12-90edad753803eb",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-52a024f41567",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で生神神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-924e389ed8600a",
@@ -2406,6 +3685,51 @@
       "summary": "千葉県の君津市宗教法人一覧で白駒神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-9451961c76e68d",
+      "target_type": "entity",
+      "target_id": "shr-jp12-9451961c76e68d",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-8c7d6d715fff",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で宮山神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-94a631ea47c38d",
+      "target_type": "entity",
+      "target_id": "shr-jp12-94a631ea47c38d",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1b86f95f3c1d",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で香取稲荷神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-95487e8746ad3d",
+      "target_type": "entity",
+      "target_id": "shr-jp12-95487e8746ad3d",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-cc5ad8427e6f",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で柴崎神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-955bb18994fff8",
+      "target_type": "entity",
+      "target_id": "shr-jp12-955bb18994fff8",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-9bf51ea77a09",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で浮戸神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-970a439176ecae",
+      "target_type": "entity",
+      "target_id": "shr-jp12-970a439176ecae",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-ad97b1f15412",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で駒形大神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-995198e819ab02",
       "target_type": "entity",
       "target_id": "shr-jp12-995198e819ab02",
@@ -2415,6 +3739,15 @@
       "summary": "千葉県の南房総市宗教法人一覧で瀧田神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-9a882a60eb459a",
+      "target_type": "entity",
+      "target_id": "shr-jp12-9a882a60eb459a",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-f22dbc66c881",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で六通神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-9b611765156c6b",
       "target_type": "entity",
       "target_id": "shr-jp12-9b611765156c6b",
@@ -2422,6 +3755,42 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の南房総市宗教法人一覧で子安神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-9b902be8162d70",
+      "target_type": "entity",
+      "target_id": "shr-jp12-9b902be8162d70",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-869213c55a99",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で石田大神の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-9bfbf9d231e938",
+      "target_type": "entity",
+      "target_id": "shr-jp12-9bfbf9d231e938",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-795851196924",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で倉稲神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-9d6c50a43a4be1",
+      "target_type": "entity",
+      "target_id": "shr-jp12-9d6c50a43a4be1",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-b4c60246474d",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で片岡神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-9e89fc493ec649",
+      "target_type": "entity",
+      "target_id": "shr-jp12-9e89fc493ec649",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-8c7d6d715fff",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で石尊神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-9f481b5c3b64da",
@@ -2442,6 +3811,15 @@
       "summary": "千葉県の君津市宗教法人一覧で久留里神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-a1b0a9a4c77441",
+      "target_type": "entity",
+      "target_id": "shr-jp12-a1b0a9a4c77441",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-cc5ad8427e6f",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で北星神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-a47bd2db166392",
       "target_type": "entity",
       "target_id": "shr-jp12-a47bd2db166392",
@@ -2449,6 +3827,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の富津市宗教法人一覧で八雲神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-a66d2fe5fd537f",
+      "target_type": "entity",
+      "target_id": "shr-jp12-a66d2fe5fd537f",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-e28d10ab60c6",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で櫻木神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-a8859465136d72",
@@ -2469,6 +3856,15 @@
       "summary": "千葉県の館山市宗教法人一覧で安房神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-aa203b4d487256",
+      "target_type": "entity",
+      "target_id": "shr-jp12-aa203b4d487256",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-579a62d273bc",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で粟島神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-ac45b44df62dab",
       "target_type": "entity",
       "target_id": "shr-jp12-ac45b44df62dab",
@@ -2478,6 +3874,15 @@
       "summary": "千葉県の君津市宗教法人一覧で人見神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-afbabbaf9a7c5f",
+      "target_type": "entity",
+      "target_id": "shr-jp12-afbabbaf9a7c5f",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-763bb1da231b",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で甲賀神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-b071045a483bfb",
       "target_type": "entity",
       "target_id": "shr-jp12-b071045a483bfb",
@@ -2485,6 +3890,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の館山市宗教法人一覧で若一神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-b109df4534543c",
+      "target_type": "entity",
+      "target_id": "shr-jp12-b109df4534543c",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1658e526fd95",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で西宮神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-b189533b763689",
@@ -2532,6 +3946,15 @@
       "summary": "千葉県の市原市宗教法人一覧で飯香岡八幡宮の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-b89482edbf71a1",
+      "target_type": "entity",
+      "target_id": "shr-jp12-b89482edbf71a1",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-c5e0e6994a50",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で今井神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-b92301949c19df",
       "target_type": "entity",
       "target_id": "shr-jp12-b92301949c19df",
@@ -2541,6 +3964,15 @@
       "summary": "千葉県の富津市宗教法人一覧で三柱神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-bd499c5a81af6d",
+      "target_type": "entity",
+      "target_id": "shr-jp12-bd499c5a81af6d",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-b61efe158e28",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で清瀧神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-bd7f5135b5205e",
       "target_type": "entity",
       "target_id": "shr-jp12-bd7f5135b5205e",
@@ -2548,6 +3980,24 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の南房総市宗教法人一覧で高家神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-be3727704411ea",
+      "target_type": "entity",
+      "target_id": "shr-jp12-be3727704411ea",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-ab2d40aecdea",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で小御門神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-c16b43b939a3d9",
+      "target_type": "entity",
+      "target_id": "shr-jp12-c16b43b939a3d9",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1bc0d792ff4f",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で福王神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-c1f76a80c96590",
@@ -2568,6 +4018,24 @@
       "summary": "千葉県の館山市宗教法人一覧で手力雄神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-c3c0bd755bd530",
+      "target_type": "entity",
+      "target_id": "shr-jp12-c3c0bd755bd530",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-ad97b1f15412",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で葛飾八幡宮の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-c56327992fd79c",
+      "target_type": "entity",
+      "target_id": "shr-jp12-c56327992fd79c",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-869213c55a99",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で阿麻勝神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-c6083965941723",
       "target_type": "entity",
       "target_id": "shr-jp12-c6083965941723",
@@ -2575,6 +4043,42 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の鴨川市宗教法人一覧で御嶽神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-c7549dc8e739a3",
+      "target_type": "entity",
+      "target_id": "shr-jp12-c7549dc8e739a3",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-795851196924",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で早尾神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-c910bb9005c75b",
+      "target_type": "entity",
+      "target_id": "shr-jp12-c910bb9005c75b",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1b86f95f3c1d",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で矢切神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-c9e1ef651cf5dd",
+      "target_type": "entity",
+      "target_id": "shr-jp12-c9e1ef651cf5dd",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1b86f95f3c1d",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で風早神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-ca78c58ac738bc",
+      "target_type": "entity",
+      "target_id": "shr-jp12-ca78c58ac738bc",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1bc0d792ff4f",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で率土神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-cac073bb508543",
@@ -2631,6 +4135,42 @@
       "summary": "千葉県の館山市宗教法人一覧で竜岡神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-d1154aab0de5a8",
+      "target_type": "entity",
+      "target_id": "shr-jp12-d1154aab0de5a8",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-869213c55a99",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で山倉大神の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-d338a80269084f",
+      "target_type": "entity",
+      "target_id": "shr-jp12-d338a80269084f",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-c8f71b27590e",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で根頭神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-d3fb17e758d242",
+      "target_type": "entity",
+      "target_id": "shr-jp12-d3fb17e758d242",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1bc0d792ff4f",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で飽富神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-d4c686428ca0c0",
+      "target_type": "entity",
+      "target_id": "shr-jp12-d4c686428ca0c0",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-869213c55a99",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で福大神の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-d52f7353259e7c",
       "target_type": "entity",
       "target_id": "shr-jp12-d52f7353259e7c",
@@ -2647,6 +4187,24 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の館山市宗教法人一覧で十二所神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-d72a4eee8cc2d8",
+      "target_type": "entity",
+      "target_id": "shr-jp12-d72a4eee8cc2d8",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-52a024f41567",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で縣神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-d7a703fbd761a0",
+      "target_type": "entity",
+      "target_id": "shr-jp12-d7a703fbd761a0",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-5627f055104a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で子守神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-d8c30279c6aa96",
@@ -2667,6 +4225,24 @@
       "summary": "千葉県の柏市宗教法人一覧で諏訪神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-d97fd03f226c1b",
+      "target_type": "entity",
+      "target_id": "shr-jp12-d97fd03f226c1b",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-f7cdb5f96ad7",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で湯殿神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
+      "id": "evd-jp12-dbae3745b6ddbb",
+      "target_type": "entity",
+      "target_id": "shr-jp12-dbae3745b6ddbb",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-869213c55a99",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で熊野三社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-de69acd54f61dc",
       "target_type": "entity",
       "target_id": "shr-jp12-de69acd54f61dc",
@@ -2674,6 +4250,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の南房総市宗教法人一覧で王子神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-de74c0dcfd9437",
+      "target_type": "entity",
+      "target_id": "shr-jp12-de74c0dcfd9437",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-ad97b1f15412",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で甲大神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-df39d2226272e8",
@@ -2694,6 +4279,15 @@
       "summary": "千葉県の館山市宗教法人一覧で鶴谷八幡宮の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-e170c5ce4b6a05",
+      "target_type": "entity",
+      "target_id": "shr-jp12-e170c5ce4b6a05",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1b86f95f3c1d",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で三日月神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-e33816101b27b8",
       "target_type": "entity",
       "target_id": "shr-jp12-e33816101b27b8",
@@ -2701,6 +4295,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の君津市宗教法人一覧で吾妻神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-e393f283d01934",
+      "target_type": "entity",
+      "target_id": "shr-jp12-e393f283d01934",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-c5e0e6994a50",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で瀧蔵神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-e48e0f70938efe",
@@ -2784,6 +4387,15 @@
       "summary": "千葉県の富津市宗教法人一覧で北上神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-f03581d428977d",
+      "target_type": "entity",
+      "target_id": "shr-jp12-f03581d428977d",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-70166a5815fb",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で髙靇神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-f24175ab9fe7a0",
       "target_type": "entity",
       "target_id": "shr-jp12-f24175ab9fe7a0",
@@ -2811,6 +4423,15 @@
       "summary": "千葉県の君津市宗教法人一覧で作木神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-f56b67b1f16994",
+      "target_type": "entity",
+      "target_id": "shr-jp12-f56b67b1f16994",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-869213c55a99",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で西坂神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-f67131731f62e3",
       "target_type": "entity",
       "target_id": "shr-jp12-f67131731f62e3",
@@ -2818,6 +4439,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の君津市宗教法人一覧で北野神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-f825adb365cb5e",
+      "target_type": "entity",
+      "target_id": "shr-jp12-f825adb365cb5e",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-1b86f95f3c1d",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で平潟神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-f863485a78eb2a",
@@ -2838,6 +4468,15 @@
       "summary": "千葉県の南房総市宗教法人一覧で本織神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-f9fec806cfd575",
+      "target_type": "entity",
+      "target_id": "shr-jp12-f9fec806cfd575",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-5627f055104a",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で三代王神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-fa37f3fe137f13",
       "target_type": "entity",
       "target_id": "shr-jp12-fa37f3fe137f13",
@@ -2845,6 +4484,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の君津市宗教法人一覧で皇産靈神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-faac746effc0a2",
+      "target_type": "entity",
+      "target_id": "shr-jp12-faac746effc0a2",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-869213c55a99",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で大戸神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp12-fc8ac1a7ec2032",
@@ -2856,6 +4504,15 @@
       "summary": "千葉県の鴨川市宗教法人一覧で浅間神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
     },
     {
+      "id": "evd-jp12-fde15ef2664006",
+      "target_type": "entity",
+      "target_id": "shr-jp12-fde15ef2664006",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-c8f71b27590e",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で右京塚神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
+    },
+    {
       "id": "evd-jp12-ff6491ebbd4b86",
       "target_type": "entity",
       "target_id": "shr-jp12-ff6491ebbd4b86",
@@ -2863,6 +4520,15 @@
       "review_status": "approved",
       "verified_at": "2026-09-01",
       "summary": "千葉県の君津市宗教法人一覧で天照大神社の法人名と所在地を確認。全国候補とは名称・市町村が双方で一意に一致した。"
+    },
+    {
+      "id": "evd-jp12-ffc2ded0fa3916",
+      "target_type": "entity",
+      "target_id": "shr-jp12-ffc2ded0fa3916",
+      "source_id": "src-jinja-chiba-prefecture-religious-corporati-c8f71b27590e",
+      "review_status": "approved",
+      "verified_at": "2026-09-02",
+      "summary": "千葉県の宗教法人名簿で八幡春日神社の法人名と所在地を確認。全国候補側は市町村情報が欠けているため所在地には用いず、県内で名称が公式名簿・全国候補の双方に1件だけ存在することを照合条件とした。"
     },
     {
       "id": "evd-jp13-0371ddb2b5a6f3",
@@ -3855,6 +5521,310 @@
       "accessed_at": "2026-08-27"
     },
     {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-10a6f27c05ae",
+      "title": "銚子市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/choshi.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-14e632f84e60",
+      "title": "横芝光町｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/yokoshibahikari.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-1658e526fd95",
+      "title": "茂原市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/mobara.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-1b86f95f3c1d",
+      "title": "松戸市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/matsudo.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-1bc0d792ff4f",
+      "title": "袖ケ浦市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/sodegaura.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-52a024f41567",
+      "title": "大網白里市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/ohamishirasato.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-5627f055104a",
+      "title": "千葉市花見川区｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/hanamigawa.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-579a62d273bc",
+      "title": "長生村｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/chosei.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-611df77be81c",
+      "title": "印西市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/inzai.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-63644fc8ea60",
+      "title": "白子町｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/shirako.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-68e3b4a99ee4",
+      "title": "東金市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tougane.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-70166a5815fb",
+      "title": "四街道市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/yotsukaidou.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-72484181ff27",
+      "title": "東庄町｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tounoshou.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-763bb1da231b",
+      "title": "佐倉市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/sakura.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-795851196924",
+      "title": "山武市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/sanmu.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-83af14da4fe3",
+      "title": "木更津市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kisaradsu.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-843e9e645915",
+      "title": "匝瑳市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/sousa.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-869213c55a99",
+      "title": "香取市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/katori.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-8c7d6d715fff",
+      "title": "鴨川市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamogawa.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-8d31535fcdff",
+      "title": "多古町｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tako.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-99f8e932ee24",
+      "title": "柏市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kashiwa.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-9bf51ea77a09",
+      "title": "君津市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kimitsu.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-9e2d2ccc0cc6",
+      "title": "大多喜町｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/ohtaki.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-a1b96de3c427",
+      "title": "千葉市稲毛区｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/inage.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-ab2d40aecdea",
+      "title": "成田市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/narita.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-ad97b1f15412",
+      "title": "市川市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/ichikawa.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-b07347f4daec",
+      "title": "勝浦市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/katsuura.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-b4c60246474d",
+      "title": "館山市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/tateyama.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-b61efe158e28",
+      "title": "浦安市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/urayasu.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-c5e0e6994a50",
+      "title": "千葉市中央区｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/chuou.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-c8f71b27590e",
+      "title": "鎌ケ谷市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/kamagaya.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-cc5ad8427e6f",
+      "title": "我孫子市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/abiko.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-ccdbc99e9782",
+      "title": "市原市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/ichihara.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-e05719a42ac7",
+      "title": "旭市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/asahi.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-e28d10ab60c6",
+      "title": "野田市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/noda.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-f22dbc66c881",
+      "title": "千葉市緑区｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/midori.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-f52a39786b05",
+      "title": "南房総市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/minamibousou.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
+      "id": "src-jinja-chiba-prefecture-religious-corporati-f7cdb5f96ad7",
+      "title": "船橋市｜宗教法人一覧／千葉県",
+      "publisher": "千葉県",
+      "url": "https://www.pref.chiba.lg.jp/gakuji/shuukyou/houjin/funabashi.html",
+      "source_type": "public_authority",
+      "accessed_at": "2026-09-02"
+    },
+    {
       "id": "src-jinja-chiba-roster-10a6f27c05ae",
       "title": "銚子市｜宗教法人一覧／千葉県",
       "publisher": "千葉県",
@@ -4529,6 +6499,78 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp12-3cc5c57570a158",
+      "prefecture": "千葉県",
+      "municipality": "旭市",
+      "review_status": "approved",
+      "address": "千葉県鏑木2965番地の1",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-2887fe14b4caf2",
+      "prefecture": "千葉県",
+      "municipality": "夷隅郡大多喜町",
+      "review_status": "approved",
+      "address": "千葉県久保87番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-89930db8f1ec9c",
+      "prefecture": "千葉県",
+      "municipality": "印西市",
+      "review_status": "approved",
+      "address": "千葉県松虫1番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-bd499c5a81af6d",
+      "prefecture": "千葉県",
+      "municipality": "浦安市",
+      "review_status": "approved",
+      "address": "千葉県堀江四丁目1番5号",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-95487e8746ad3d",
+      "prefecture": "千葉県",
+      "municipality": "我孫子市",
+      "review_status": "approved",
+      "address": "千葉県柴崎174番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-a1b0a9a4c77441",
+      "prefecture": "千葉県",
+      "municipality": "我孫子市",
+      "review_status": "approved",
+      "address": "千葉県台田4丁目11番27号",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-d338a80269084f",
+      "prefecture": "千葉県",
+      "municipality": "鎌ケ谷市",
+      "review_status": "approved",
+      "address": "千葉県道野辺50番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-fde15ef2664006",
+      "prefecture": "千葉県",
+      "municipality": "鎌ケ谷市",
+      "review_status": "approved",
+      "address": "千葉県右京塚7丁目60番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-ffc2ded0fa3916",
+      "prefecture": "千葉県",
+      "municipality": "鎌ケ谷市",
+      "review_status": "approved",
+      "address": "千葉県中沢907番地",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp12-1c2e1d6f93fa9d",
       "prefecture": "千葉県",
       "municipality": "鴨川市",
@@ -4569,6 +6611,14 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp12-39d171d7ba0708",
+      "prefecture": "千葉県",
+      "municipality": "鴨川市",
+      "review_status": "approved",
+      "address": "千葉県横尾282番地の1",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp12-3ac68386148574",
       "prefecture": "千葉県",
       "municipality": "鴨川市",
@@ -4591,6 +6641,22 @@
       "review_status": "approved",
       "address": "千葉県鴨川市西744番地",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp12-9451961c76e68d",
+      "prefecture": "千葉県",
+      "municipality": "鴨川市",
+      "review_status": "approved",
+      "address": "千葉県宮山978番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-9e89fc493ec649",
+      "prefecture": "千葉県",
+      "municipality": "鴨川市",
+      "review_status": "approved",
+      "address": "千葉県二子119番地",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp12-9f481b5c3b64da",
@@ -4665,6 +6731,14 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp12-39110179c37d24",
+      "prefecture": "千葉県",
+      "municipality": "館山市",
+      "review_status": "approved",
+      "address": "千葉県山荻273番地",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp12-3ba6b08fa7d2ef",
       "prefecture": "千葉県",
       "municipality": "館山市",
@@ -4681,6 +6755,14 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp12-617295c67fc111",
+      "prefecture": "千葉県",
+      "municipality": "館山市",
+      "review_status": "approved",
+      "address": "千葉県洲崎1697番地",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp12-6bcabfd33f6b2c",
       "prefecture": "千葉県",
       "municipality": "館山市",
@@ -4689,12 +6771,28 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp12-7aa442d6f27649",
+      "prefecture": "千葉県",
+      "municipality": "館山市",
+      "review_status": "approved",
+      "address": "千葉県館山252番地",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp12-924e389ed8600a",
       "prefecture": "千葉県",
       "municipality": "館山市",
       "review_status": "approved",
       "address": "千葉県館山市早物80番地",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp12-9d6c50a43a4be1",
+      "prefecture": "千葉県",
+      "municipality": "館山市",
+      "review_status": "approved",
+      "address": "千葉県水岡461番地",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp12-a8859465136d72",
@@ -4897,6 +6995,14 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp12-955bb18994fff8",
+      "prefecture": "千葉県",
+      "municipality": "君津市",
+      "review_status": "approved",
+      "address": "千葉県久留里市場577番地",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp12-9fc95cee0a0dc7",
       "prefecture": "千葉県",
       "municipality": "君津市",
@@ -4993,12 +7099,140 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp12-5f5c26b71a442a",
+      "prefecture": "千葉県",
+      "municipality": "香取郡多古町",
+      "review_status": "approved",
+      "address": "千葉県東松崎1747番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-1893a672874ceb",
+      "prefecture": "千葉県",
+      "municipality": "香取郡東庄町",
+      "review_status": "approved",
+      "address": "千葉県小座332番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-41ee6e514bd2da",
+      "prefecture": "千葉県",
+      "municipality": "香取郡東庄町",
+      "review_status": "approved",
+      "address": "千葉県石出1598番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-563bd3ac21e03c",
+      "prefecture": "千葉県",
+      "municipality": "香取市",
+      "review_status": "approved",
+      "address": "千葉県新部498番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-627b34f704b3a9",
+      "prefecture": "千葉県",
+      "municipality": "香取市",
+      "review_status": "approved",
+      "address": "千葉県九美上10番地1",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-62d73a4be998f0",
+      "prefecture": "千葉県",
+      "municipality": "香取市",
+      "review_status": "approved",
+      "address": "千葉県長山235番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-80516c39f67725",
+      "prefecture": "千葉県",
+      "municipality": "香取市",
+      "review_status": "approved",
+      "address": "千葉県沢2300番地1",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-83c32270f0a81f",
+      "prefecture": "千葉県",
+      "municipality": "香取市",
+      "review_status": "approved",
+      "address": "千葉県返田729番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-8af85eab663cb0",
+      "prefecture": "千葉県",
+      "municipality": "香取市",
+      "review_status": "approved",
+      "address": "千葉県織幡520番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-9b902be8162d70",
+      "prefecture": "千葉県",
+      "municipality": "香取市",
+      "review_status": "approved",
+      "address": "千葉県小川1016番地の1",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-c56327992fd79c",
+      "prefecture": "千葉県",
+      "municipality": "香取市",
+      "review_status": "approved",
+      "address": "千葉県鳩山495番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-d1154aab0de5a8",
+      "prefecture": "千葉県",
+      "municipality": "香取市",
+      "review_status": "approved",
+      "address": "千葉県山倉2347番地1",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-d4c686428ca0c0",
+      "prefecture": "千葉県",
+      "municipality": "香取市",
+      "review_status": "approved",
+      "address": "千葉県福田308番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-dbae3745b6ddbb",
+      "prefecture": "千葉県",
+      "municipality": "香取市",
+      "review_status": "approved",
+      "address": "千葉県富田971番地",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp12-e95956be915fa4",
       "prefecture": "千葉県",
       "municipality": "香取市",
       "review_status": "approved",
       "address": "千葉県香取市香取1697番地",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp12-f56b67b1f16994",
+      "prefecture": "千葉県",
+      "municipality": "香取市",
+      "review_status": "approved",
+      "address": "千葉県西坂424番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-faac746effc0a2",
+      "prefecture": "千葉県",
+      "municipality": "香取市",
+      "review_status": "approved",
+      "address": "千葉県大戸521番地",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp12-0f0525deae3a3f",
@@ -5009,12 +7243,108 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp12-afbabbaf9a7c5f",
+      "prefecture": "千葉県",
+      "municipality": "佐倉市",
+      "review_status": "approved",
+      "address": "千葉県羽鳥1068番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-00c1da0dc03bf0",
+      "prefecture": "千葉県",
+      "municipality": "山武郡横芝光町",
+      "review_status": "approved",
+      "address": "千葉県尾垂イ2367番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-477fb7451d0eb3",
+      "prefecture": "千葉県",
+      "municipality": "山武郡横芝光町",
+      "review_status": "approved",
+      "address": "千葉県小川台1番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-1abaa997be18c2",
+      "prefecture": "千葉県",
+      "municipality": "山武市",
+      "review_status": "approved",
+      "address": "千葉県井之内6番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-1cf086faad8905",
+      "prefecture": "千葉県",
+      "municipality": "山武市",
+      "review_status": "approved",
+      "address": "千葉県松尾町大堤542番地21",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-4d7593fd639833",
+      "prefecture": "千葉県",
+      "municipality": "山武市",
+      "review_status": "approved",
+      "address": "千葉県富口767番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-82495b95fd3279",
+      "prefecture": "千葉県",
+      "municipality": "山武市",
+      "review_status": "approved",
+      "address": "千葉県松尾町八田3383番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-9bfbf9d231e938",
+      "prefecture": "千葉県",
+      "municipality": "山武市",
+      "review_status": "approved",
+      "address": "千葉県下横地1番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-c7549dc8e739a3",
+      "prefecture": "千葉県",
+      "municipality": "山武市",
+      "review_status": "approved",
+      "address": "千葉県松尾町下大蔵308番地",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp12-df39d2226272e8",
       "prefecture": "千葉県",
       "municipality": "山武市",
       "review_status": "approved",
       "address": "千葉県山武市松ケ谷イの1985番地",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp12-f03581d428977d",
+      "prefecture": "千葉県",
+      "municipality": "四街道市",
+      "review_status": "approved",
+      "address": "千葉県成山20番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-7f097a3d35f4f8",
+      "prefecture": "千葉県",
+      "municipality": "市原市",
+      "review_status": "approved",
+      "address": "千葉県姉崎2278番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-8bfddd17571d70",
+      "prefecture": "千葉県",
+      "municipality": "市原市",
+      "review_status": "approved",
+      "address": "千葉県能満589番地2",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp12-b5fc574079a028",
@@ -5033,12 +7363,60 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp12-3aa5859dda9687",
+      "prefecture": "千葉県",
+      "municipality": "市川市",
+      "review_status": "approved",
+      "address": "千葉県高石神1番10号",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp12-49c12c1713330f",
       "prefecture": "千葉県",
       "municipality": "市川市",
       "review_status": "approved",
       "address": "千葉県市川市平田二丁目23番12号",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp12-568b56e2e05d24",
+      "prefecture": "千葉県",
+      "municipality": "市川市",
+      "review_status": "approved",
+      "address": "千葉県若宮2丁目5番2号",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-6f304556e13e85",
+      "prefecture": "千葉県",
+      "municipality": "市川市",
+      "review_status": "approved",
+      "address": "千葉県堀之内四丁目26番13号",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-970a439176ecae",
+      "prefecture": "千葉県",
+      "municipality": "市川市",
+      "review_status": "approved",
+      "address": "千葉県大野町四丁目2757番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-c3c0bd755bd530",
+      "prefecture": "千葉県",
+      "municipality": "市川市",
+      "review_status": "approved",
+      "address": "千葉県八幡四丁目2番1号",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-de74c0dcfd9437",
+      "prefecture": "千葉県",
+      "municipality": "市川市",
+      "review_status": "approved",
+      "address": "千葉県大和田二丁目5番4号",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp12-cac073bb508543",
@@ -5049,12 +7427,100 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp12-8307146fbd3093",
+      "prefecture": "千葉県",
+      "municipality": "勝浦市",
+      "review_status": "approved",
+      "address": "千葉県川津1643番地",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp12-c1f76a80c96590",
       "prefecture": "千葉県",
       "municipality": "勝浦市",
       "review_status": "approved",
       "address": "千葉県勝浦市浜勝浦1番地",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp12-2bffb70b5b3e70",
+      "prefecture": "千葉県",
+      "municipality": "松戸市",
+      "review_status": "approved",
+      "address": "千葉県日暮5丁目226番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-320b400410d562",
+      "prefecture": "千葉県",
+      "municipality": "松戸市",
+      "review_status": "approved",
+      "address": "千葉県東平賀226番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-33cd6ded079077",
+      "prefecture": "千葉県",
+      "municipality": "松戸市",
+      "review_status": "approved",
+      "address": "千葉県横須賀1丁目26番7号",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-40e60e9a6025a5",
+      "prefecture": "千葉県",
+      "municipality": "松戸市",
+      "review_status": "approved",
+      "address": "千葉県幸田三丁目159番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-67d13eb33b12bd",
+      "prefecture": "千葉県",
+      "municipality": "松戸市",
+      "review_status": "approved",
+      "address": "千葉県二ツ木1732番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-6ab588a02aba8f",
+      "prefecture": "千葉県",
+      "municipality": "松戸市",
+      "review_status": "approved",
+      "address": "千葉県新作591番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-94a631ea47c38d",
+      "prefecture": "千葉県",
+      "municipality": "松戸市",
+      "review_status": "approved",
+      "address": "千葉県栄町5丁目338番地の1",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-c910bb9005c75b",
+      "prefecture": "千葉県",
+      "municipality": "松戸市",
+      "review_status": "approved",
+      "address": "千葉県下矢切303番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-c9e1ef651cf5dd",
+      "prefecture": "千葉県",
+      "municipality": "松戸市",
+      "review_status": "approved",
+      "address": "千葉県上本郷3108番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-e170c5ce4b6a05",
+      "prefecture": "千葉県",
+      "municipality": "松戸市",
+      "review_status": "approved",
+      "address": "千葉県三ケ月1450番地",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp12-ebe8919c926c02",
@@ -5065,6 +7531,22 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp12-f825adb365cb5e",
+      "prefecture": "千葉県",
+      "municipality": "松戸市",
+      "review_status": "approved",
+      "address": "千葉県松戸2166番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-381c8ea0c43c41",
+      "prefecture": "千葉県",
+      "municipality": "成田市",
+      "review_status": "approved",
+      "address": "千葉県寺台436番地の1～2",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp12-3e39d25e11cf41",
       "prefecture": "千葉県",
       "municipality": "成田市",
@@ -5073,12 +7555,228 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp12-be3727704411ea",
+      "prefecture": "千葉県",
+      "municipality": "成田市",
+      "review_status": "approved",
+      "address": "千葉県名古屋898番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-78f59f10f46222",
+      "prefecture": "千葉県",
+      "municipality": "千葉市稲毛区",
+      "review_status": "approved",
+      "address": "千葉県園生町624番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-3c4f051dd1c200",
+      "prefecture": "千葉県",
+      "municipality": "千葉市花見川区",
+      "review_status": "approved",
+      "address": "千葉県検見川町一丁目1番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-d7a703fbd761a0",
+      "prefecture": "千葉県",
+      "municipality": "千葉市花見川区",
+      "review_status": "approved",
+      "address": "千葉県幕張町2丁目990番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-f9fec806cfd575",
+      "prefecture": "千葉県",
+      "municipality": "千葉市花見川区",
+      "review_status": "approved",
+      "address": "千葉県武石町1丁目4番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-535a171a218855",
+      "prefecture": "千葉県",
+      "municipality": "千葉市中央区",
+      "review_status": "approved",
+      "address": "千葉県寒川町一丁目123番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-7948806c1ea947",
+      "prefecture": "千葉県",
+      "municipality": "千葉市中央区",
+      "review_status": "approved",
+      "address": "千葉県蘇我二丁目2番7号",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-b89482edbf71a1",
+      "prefecture": "千葉県",
+      "municipality": "千葉市中央区",
+      "review_status": "approved",
+      "address": "千葉県今井一丁目24番14号",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-e393f283d01934",
+      "prefecture": "千葉県",
+      "municipality": "千葉市中央区",
+      "review_status": "approved",
+      "address": "千葉県千葉寺町162番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-47e51554b8ae5e",
+      "prefecture": "千葉県",
+      "municipality": "千葉市緑区",
+      "review_status": "approved",
+      "address": "千葉県平川町436番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-9a882a60eb459a",
+      "prefecture": "千葉県",
+      "municipality": "千葉市緑区",
+      "review_status": "approved",
+      "address": "千葉県おゆみ野中央八丁目7番地3",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-488c5a7c113230",
+      "prefecture": "千葉県",
+      "municipality": "船橋市",
+      "review_status": "approved",
+      "address": "千葉県二和西三丁目6番43号",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-52eed18a6cd459",
+      "prefecture": "千葉県",
+      "municipality": "船橋市",
+      "review_status": "approved",
+      "address": "千葉県西船5丁目3番8号",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-d97fd03f226c1b",
+      "prefecture": "千葉県",
+      "municipality": "船橋市",
+      "review_status": "approved",
+      "address": "千葉県大穴北5丁目30番12号",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-0c61f6b312ca47",
+      "prefecture": "千葉県",
+      "municipality": "匝瑳市",
+      "review_status": "approved",
+      "address": "千葉県松山1123番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-7e980b85763b94",
+      "prefecture": "千葉県",
+      "municipality": "袖ケ浦市",
+      "review_status": "approved",
+      "address": "千葉県坂戸市場1441番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-c16b43b939a3d9",
+      "prefecture": "千葉県",
+      "municipality": "袖ケ浦市",
+      "review_status": "approved",
+      "address": "千葉県奈良輪202番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-ca78c58ac738bc",
+      "prefecture": "千葉県",
+      "municipality": "袖ケ浦市",
+      "review_status": "approved",
+      "address": "千葉県神納3382番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-d3fb17e758d242",
+      "prefecture": "千葉県",
+      "municipality": "袖ケ浦市",
+      "review_status": "approved",
+      "address": "千葉県飯富2863番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-90edad753803eb",
+      "prefecture": "千葉県",
+      "municipality": "大網白里市",
+      "review_status": "approved",
+      "address": "千葉県小中1052番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-d72a4eee8cc2d8",
+      "prefecture": "千葉県",
+      "municipality": "大網白里市",
+      "review_status": "approved",
+      "address": "千葉県土気飛地1876番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-14a35e1bf4cd6c",
+      "prefecture": "千葉県",
+      "municipality": "銚子市",
+      "review_status": "approved",
+      "address": "千葉県川口町2-6378",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-2407bc4cdcdccc",
+      "prefecture": "千葉県",
+      "municipality": "銚子市",
+      "review_status": "approved",
+      "address": "千葉県馬場町1番地の4",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp12-435acd7ed8ed7e",
       "prefecture": "千葉県",
       "municipality": "銚子市",
       "review_status": "approved",
       "address": "千葉県銚子市高神西町2番地",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp12-71c4a4673c5bac",
+      "prefecture": "千葉県",
+      "municipality": "銚子市",
+      "review_status": "approved",
+      "address": "千葉県松岸町3丁目194番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-aa203b4d487256",
+      "prefecture": "千葉県",
+      "municipality": "長生郡長生村",
+      "review_status": "approved",
+      "address": "千葉県一松戊823番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-3cd445f88d33a8",
+      "prefecture": "千葉県",
+      "municipality": "長生郡白子町",
+      "review_status": "approved",
+      "address": "千葉県剃金530番地2",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-3241f177cb757c",
+      "prefecture": "千葉県",
+      "municipality": "東金市",
+      "review_status": "approved",
+      "address": "千葉県菱沼423番地",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp12-0fa541dfff81bc",
@@ -5119,6 +7817,14 @@
       "review_status": "approved",
       "address": "千葉県南房総市千倉町北朝夷2809番地",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp12-6d683a94a4ed7d",
+      "prefecture": "千葉県",
+      "municipality": "南房総市",
+      "review_status": "approved",
+      "address": "千葉県白浜町白浜2134番地",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp12-7046936dda5eb9",
@@ -5191,6 +7897,22 @@
       "review_status": "approved",
       "address": "千葉県南房総市本織667番地",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp12-3425619b7d31c6",
+      "prefecture": "千葉県",
+      "municipality": "柏市",
+      "review_status": "approved",
+      "address": "千葉県増尾895番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-5f8d715498ce2f",
+      "prefecture": "千葉県",
+      "municipality": "柏市",
+      "review_status": "approved",
+      "address": "千葉県篠篭田650番地",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-jp12-d8eeecb90e2f1e",
@@ -5321,6 +8043,30 @@
       "verified_at": "2026-09-01"
     },
     {
+      "id": "plc-jp12-11058252be606f",
+      "prefecture": "千葉県",
+      "municipality": "茂原市",
+      "review_status": "approved",
+      "address": "千葉県本納738番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-b109df4534543c",
+      "prefecture": "千葉県",
+      "municipality": "茂原市",
+      "review_status": "approved",
+      "address": "千葉県下太田521番地",
+      "verified_at": "2026-09-02"
+    },
+    {
+      "id": "plc-jp12-1a71bdd0551e22",
+      "prefecture": "千葉県",
+      "municipality": "木更津市",
+      "review_status": "approved",
+      "address": "千葉県下郡1627番地",
+      "verified_at": "2026-09-02"
+    },
+    {
       "id": "plc-jp12-57fcff8649a2ad",
       "prefecture": "千葉県",
       "municipality": "木更津市",
@@ -5351,6 +8097,14 @@
       "review_status": "approved",
       "address": "千葉県木更津市下郡408番地",
       "verified_at": "2026-09-01"
+    },
+    {
+      "id": "plc-jp12-a66d2fe5fd537f",
+      "prefecture": "千葉県",
+      "municipality": "野田市",
+      "review_status": "approved",
+      "address": "千葉県桜台210番地1",
+      "verified_at": "2026-09-02"
     },
     {
       "id": "plc-sada-jinja",
