@@ -96,8 +96,16 @@ def detect_header(row):
     if name is None or address is None:
         return None
     system = find_col(row, [lambda v: "系統" in v, lambda v: "宗派" in v, lambda v: "分類" in v])
-    municipality = find_col(row, [lambda v: v in {"市町村", "市町村名", "市区町村", "市区町村名"}])
-    umbrella = find_col(row, [lambda v: "包括団体" in v])
+    municipality = find_col(row, [
+        lambda v: v in {"市町村", "市町村名", "市区町村", "市区町村名"},
+        lambda v: "所在地市町村" in v,
+        lambda v: "所在地市区町村" in v,
+    ])
+    umbrella = find_col(row, [
+        lambda v: "包括団体" in v,
+        lambda v: "包括宗教団体" in v,
+        lambda v: "被包括宗教団体" in v,
+    ])
     return {"name": name, "address": address, "system": system, "municipality": municipality, "umbrella": umbrella}
 
 
@@ -120,6 +128,19 @@ def municipality_from_address(address, prefecture):
             return m.group(1)
     m = re.match(r"^(.+?[市町村])", v)
     return m.group(1) if m else ""
+
+
+def shinto_label(value):
+    v = norm(value)
+    if not v:
+        return False
+    return (
+        "神社本庁" in v
+        or "神道" in v
+        or "神社" in v
+        or "単立(神社)" in v
+        or "単立（神社）" in v
+    )
 
 
 def main():
@@ -163,7 +184,8 @@ def main():
             if not name or not address:
                 continue
             system = at(row, header["system"])
-            is_shinto = sheet_shinto or (header["system"] is not None and ("神道" in norm(system) or "神社" in norm(system)))
+            umbrella = at(row, header["umbrella"])
+            is_shinto = sheet_shinto or shinto_label(system) or shinto_label(umbrella)
             if not is_shinto:
                 continue
             municipality = at(row, header["municipality"]) or municipality_from_address(address, args.prefecture)
@@ -174,7 +196,7 @@ def main():
                 "municipality": municipality,
                 "address": address,
                 "system": system or "神道系",
-                "umbrella": at(row, header["umbrella"]) or None,
+                "umbrella": umbrella or None,
                 "source_url": resolved,
                 "source_title": args.source_title,
                 "sheet": sheet_name,
@@ -186,7 +208,8 @@ def main():
     for row in records:
         key = (norm(row["name"]), norm(row["municipality"]), norm(row["address"]))
         if key not in seen:
-            seen.add(key); deduped.append(row)
+            seen.add(key)
+            deduped.append(row)
     deduped.sort(key=lambda r: (norm(r["municipality"]), norm(r["name"]), norm(r["address"])))
     if len(deduped) < args.minimum_records:
         raise RuntimeError(f"too few Shinto records: {len(deduped)} < {args.minimum_records}; diagnostics={json.dumps(diagnostics, ensure_ascii=False)}")
@@ -207,7 +230,8 @@ def main():
         "records": deduped,
     }
     with open(args.out, "w", encoding="utf-8") as f:
-        json.dump(out, f, ensure_ascii=False, indent=2); f.write("\n")
+        json.dump(out, f, ensure_ascii=False, indent=2)
+        f.write("\n")
     print(json.dumps({"authority": args.authority_id, "records": len(deduped), "resolved": resolved}, ensure_ascii=False))
 
 
