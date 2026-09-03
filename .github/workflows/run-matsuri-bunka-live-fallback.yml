@@ -2,6 +2,11 @@ name: Run Matsuri Bunka live fallback
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - run/matsuri-bunka-review-20260903
+    paths:
+      - .github/workflows/run-matsuri-bunka-live-fallback.yml
 
 permissions:
   contents: read
