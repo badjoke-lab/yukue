@@ -52,6 +52,9 @@ jobs:
           if (gate.authorization?.canonical_publication_authorized !== false) throw new Error('Canonical publication must remain blocked');
           NODE
 
+      - name: Verify Jiin canonical data
+        run: pnpm --filter @badjoke-lab/yukue-jiin check
+
       - name: Build Jiin preview
         run: pnpm --filter @badjoke-lab/yukue-jiin build
 
@@ -70,23 +73,26 @@ jobs:
           let last = 'no response';
           for (let attempt = 1; attempt <= 12; attempt += 1) {
             try {
-              const [homeResponse, robotsResponse] = await Promise.all([
+              const [homeResponse, robotsResponse, dataResponse] = await Promise.all([
                 fetch(`${origin}/`, { cache: 'no-store' }),
                 fetch(`${origin}/robots.txt`, { cache: 'no-store' }),
+                fetch(`${origin}/data/canonical.json`, { cache: 'no-store' }),
               ]);
-              const [home, robots] = await Promise.all([homeResponse.text(), robotsResponse.text()]);
+              const [home, robots, data] = await Promise.all([homeResponse.text(), robotsResponse.text(), dataResponse.text()]);
               if (
                 homeResponse.ok &&
                 robotsResponse.ok &&
+                dataResponse.ok &&
                 home.includes('寺院のゆくえ') &&
                 home.includes('寺院を探す') &&
                 home.includes('name="robots" content="noindex,nofollow"') &&
-                robots.includes('Disallow: /')
+                robots.includes('Disallow: /') &&
+                data.includes('"site_id": "jiin"')
               ) {
                 console.log(`Jiin workers.dev preview reachable: ${homeResponse.status} (attempt ${attempt})`);
                 process.exit(0);
               }
-              last = `HTTP ${homeResponse.status}; expected series-parity preview markers missing`;
+              last = `HTTP ${homeResponse.status}; expected Jiin canonical preview markers missing`;
             } catch (error) {
               last = error instanceof Error ? error.message : String(error);
             }

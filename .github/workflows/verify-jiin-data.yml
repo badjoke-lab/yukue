@@ -1,0 +1,55 @@
+name: Verify Jiin canonical data
+
+on:
+  pull_request:
+    paths:
+      - "apps/jiin/**"
+      - "docs/jiin-data-acquisition.md"
+      - "scripts/build-yukue-future-site-seed-inventory.mjs"
+      - ".github/workflows/verify-jiin-data.yml"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/jiin/**"
+      - "docs/jiin-data-acquisition.md"
+      - "scripts/build-yukue-future-site-seed-inventory.mjs"
+      - ".github/workflows/verify-jiin-data.yml"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-jiin-data-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        run: npm install --global pnpm@11.10.0
+
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify Jiin canonical model
+        run: pnpm --filter @badjoke-lab/yukue-jiin check
+
+      - name: Build Jiin Matsuri seed review queue
+        run: pnpm --filter @badjoke-lab/yukue-jiin seed:from-matsuri
+
+      - name: Build Jiin Astro preview
+        run: pnpm --filter @badjoke-lab/yukue-jiin build
