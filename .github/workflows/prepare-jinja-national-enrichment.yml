@@ -82,7 +82,7 @@ jobs:
             --out-dir .artifacts/jinja-national-enrichment
           cat .artifacts/jinja-national-enrichment/manifest.json
       - name: Upload enrichment queues
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: jinja-national-enrichment-${{ steps.run.outputs.id }}
           path: .artifacts/jinja-national-enrichment/
