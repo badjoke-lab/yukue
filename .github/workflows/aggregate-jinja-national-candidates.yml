@@ -76,7 +76,7 @@ jobs:
             --out .artifacts/jinja-national-aggregate/national-candidates.json
           node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('.artifacts/jinja-national-aggregate/national-candidates.json','utf8'));if(p.prefecture_file_count!==47)throw new Error('Expected 47 prefectures, got '+p.prefecture_file_count);console.log(JSON.stringify({prefectures:p.prefecture_file_count,raw:p.raw_candidate_count,deduped:p.deduped_candidate_count,duplicates:p.duplicate_candidate_count,duplicate_groups:p.duplicate_group_count}))"
       - name: Upload national aggregate
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: jinja-national-aggregate-${{ steps.run.outputs.id }}
           path: .artifacts/jinja-national-aggregate/national-candidates.json
